@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.23.0 · 17-Nov-2026 (Founder का आदेश: "Founder को सभी पैनल देखने का अधिकार दो"): Founder का देखने वाला मोड।
+     Founder हर बाहरी घर खोल सकता है: नमूना-रूप में, या किसी खाते की नज़र से (?nazar=<ACS नंबर>)। देखने के मोड में लिखने वाला हर काम बंद।
+     httpsCallable अब एक दरवाज़े से (fbCallable का लिफ़ाफ़ा); data की पहचान vu(u) से; ऊपर पट्टी #nazarBar; Founder के घर में पैनल "सभी घर"।
+     server: class_server.js v1.4 (listMyClasses और classRoster में viewAs, सिर्फ़ Founder)। DASH_VER अब फिर header के साथ चलता है।
    v6.22.0 · 17-Nov-2026 (कक्षा-परत K-2b; Founder का फ़ैसला "अ"): k1-block में "शिक्षक बिना सूचना आना बंद कर चुका है" वाली शिकायत:
      केंद्र दर्ज करे, वापस ले, 7 दिन बाद निशान लगाए; शिक्षक जवाब दे; Founder और Admin का नया पैनल "कक्षा की शिकायतें" (pnl-abandon) फ़ैसले के लिए।
      server: class_server.js v1.3 के 6 functions।
@@ -145,15 +149,39 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getAuth, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 import { getFirestore, doc, getDoc, getDocs, collection, query, where, onSnapshot, orderBy, limit, startAfter } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
+import { getFunctions, httpsCallable as fbCallable } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-functions.js";
 
 const app = initializeApp({apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM",authDomain:"acslearn-platform.firebaseapp.com",projectId:"acslearn-platform",storageBucket:"acslearn-platform.firebasestorage.app",messagingSenderId:"435395814481",appId:"1:435395814481:web:655f99452a90f8efbc4470"});
 const auth = getAuth(app), db = getFirestore(app);
 const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
+/* ═══ (v6.23.0 · 17-Nov-2026, Founder का आदेश: "Founder को सभी पैनल देखने का अधिकार") Founder का देखने वाला मोड ═══
+   Founder हर बाहरी घर (विद्यार्थी, केंद्र, शिक्षक ...) खोल सकता है: नमूना-रूप में, या किसी खाते की नज़र से (?nazar=<ACS नंबर>)।
+   VIEW चालू हो तो:  (1) data उस खाते की पहचान से पढ़ा जाता है (vu) : database के नियम Founder को यह पढ़ने देते हैं;
+                    (2) server का हर लिखने वाला काम यहीं रुक जाता है : देखने के मोड में कुछ नहीं बदलता;
+                    (3) VIEW_READ के काम server को viewAs के साथ जाते हैं; server (class_server.js v1.4) ख़ुद जाँचता है कि बुलाने वाला Founder है।
+   यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
+let VIEW = null;                                   /* { uid, regNo, sample } */
+const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
+const VIEW_READ = { listMyClasses:1, classRoster:1 };
+/* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
+   वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
+let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
+function httpsCallable(fns, name){
+  if(VIEW_OWN[name]) return fbCallable(fns, name);
+  return function(data){ return MODE_READY.then(function(){
+    if(!VIEW) return fbCallable(fns, name)(data);
+    if(!VIEW_READ[name]) throw new Error("देखने के मोड में यह काम नहीं होता");
+    return fbCallable(fns, name)(Object.assign({}, data||{}, { viewAs: VIEW.uid })).then(function(o){
+      if(!(o && o.data && o.data.viewed===true)) throw new Error("server का यह हिस्सा अभी देखने के मोड के लिए तैयार नहीं है");
+      return o; });
+  }); };
+}
+function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: ताकि "u.uid → vu(u)" वाला नियम इसी पंक्ति को कभी न छुए */
+let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.20.1";
+const DASH_VER = "v6.23.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -672,7 +700,7 @@ const CERT_REL_HI={father:"पिता का नाम :", mother:"मात�
 const CERT_REL_EN={father:"Father's name:", mother:"Mother's name:", guardian:"Guardian's name:"};
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
-const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
+const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon","pnl-ghar"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
 /* (30-Jul सुधार-3) मिले-जुले पैनल: A खुले तो B के आलसी-इंजन भी चलें —
    B का panel-वर्ग गया पर id/इंजन जीवित (generator applyStudentMerges)। */
 const MERGED_LAZY = { "pnl-status": ["pnl-badge"], "pnl-pay": ["pnl-ledger"] };
@@ -706,8 +734,10 @@ function navGo(id){
 /* ═══ पहरा (display-gate) — MODE से शाखा ═══ */
 onAuthStateChanged(auth, async (user)=>{
   if(!user){ location.href="/dashboard/index.html"; return; }
-  if(MODE==="external"){ await guardExternal(user); return; }
-  await guardTeam(user);
+  try{
+    if(MODE==="external"){ await guardExternal(user); return; }
+    await guardTeam(user);
+  } finally { modeKnown(); }
 });
 
 /* ═══ साझा helpers (v4.0: team-block से बाहर — external का docChips-होल बंद) ═══ */
@@ -744,8 +774,11 @@ guardTeam = async function(user){
   const desig = ((team && team.designation)||"").toLowerCase();
   if(!team || ALLOWED.indexOf(desig)===-1){
     if(EXT_ROLES.length){ await guardExternal(user); return; } /* dual: provisional-external रास्ता */
-    show("denyView"); return;
+    modeKnown(); show("denyView"); return;
   }
+  /* (v6.23.0) dual-घर (स्वयंसेवक): Founder ?nazar= के साथ आए तो बाहरी-रूप देखे */
+  if(desig==="founder" && EXT_ROLES.length && NZ!==null){ await guardExternal(user); return; }
+  modeKnown();
 
   try{ await guardTeamRender(user, team, desig); }
   catch(e){ showLoadError("dashboard नहीं दिखा (team)", e); }
@@ -1267,7 +1300,80 @@ document.addEventListener("click", async (ev)=>{
 } /* team-engines end */
 
 /* ═══ external-mode पहरा — registrations से (आवेदक-स्वयं rules-दायरा) ═══ */
+async function isFounderUser(user){
+  try{ const s=await getDoc(doc(db,"teams",user.uid)); return s.exists() && String((s.data()||{}).designation||"").toLowerCase()==="founder"; }
+  catch(e){ return false; }
+}
+/* (v6.23.0) Founder का देखने वाला मोड: नमूना-रूप, या ?nazar=<ACS नंबर> वाले खाते की नज़र से */
+async function founderView(user){
+  const roles = EXT_ROLES.length ? EXT_ROLES : ALLOWED;
+  const want = String(NZ||"").trim();
+  let reg=null, note="", other=null;
+  if(want && want!=="1"){
+    if(!/^[A-Za-z0-9_.-]{3,60}$/.test(want)) note="nf";
+    else try{
+      const s=await getDoc(doc(db,"registrations",want));
+      let r=s.exists()?s.data():null;
+      if(!r){ const qs=await getDocs(query(collection(db,"registrations"), where("regNo","==",want), limit(1))); qs.forEach(d=>{ r=d.data(); }); }
+      if(!r) note="nf";
+      else if(roles.indexOf(String(r.role||"").toLowerCase())===-1){ note="role"; other=r; }
+      else if(!r.authUid) note="nouid";
+      else reg=r;
+    }catch(e){ note="err"; }
+  }
+  if(reg) VIEW={ uid:String(reg.authUid), regNo:String(reg.regNo||want), sample:false };
+  else { VIEW={ uid:"nazar-namuna", regNo:"", sample:true };
+    reg={ role:roles[0], regNo:"", status:"approved", name_local:"Founder", formFields:{}, documents:{} }; }
+  modeKnown();
+  await guardExternalRender(user, reg);
+  nazarBar(reg, roles, note, other, want);
+}
+function nazarBar(reg, roles, note, other, want){
+  const old=$("nazarBar"); if(old) old.remove();
+  const bar=document.createElement("div"); bar.id="nazarBar"; bar.className="nazar";
+  const P=(t)=>'<div class="nzp">'+t+'</div>';
+  let h='<div class="nzh">👁 <span>Founder का देखने वाला मोड</span></div>';
+  if(VIEW.sample) h+=P('<span>अभी नमूना-रूप खुला है: किसी खाते का data नहीं दिख रहा।</span>');
+  else h+=P('<span>अभी इस खाते की नज़र से:</span> <b>'+US(reg.name_local||reg.name_roman||reg.name||"")+'</b> · '+esc(VIEW.regNo));
+  if(note==="nf") h+=P('<span class="nze">यह ACS नंबर नहीं मिला:</span> '+esc(want));
+  if(note==="err") h+=P('<span class="nze">यह खाता पढ़ा नहीं जा सका:</span> '+esc(want));
+  if(note==="nouid") h+=P('<span class="nze">इस खाते का login अभी बना नहीं है:</span> '+esc(want));
+  if(note==="role"){ const c=MXC.find(x=>x.key===String(other.role||"").toLowerCase());
+    h+=P('<span class="nze">यह खाता दूसरी भूमिका का है:</span> <b>'+esc(pubName(other))+'</b>'+
+      (c&&c.dashboard?' <a class="nzl" href="'+esc(c.dashboard)+'?nazar='+encodeURIComponent(want)+'">उसका घर खोलें</a>':'')); }
+  h+=P('<span>देखने के मोड में कोई बटन कुछ नहीं बदलता: लिखने वाला हर काम बंद है।</span>');
+  if(NO_GATEWAY_EXT.indexOf(roles[0])>-1) h+=P('<span>पढ़ाई की प्रगति और करियर टेस्ट का नतीजा फ़ोन में रहता है: यहाँ वह इसी फ़ोन का दिखेगा।</span>');
+  h+='<div class="nzf"><label for="nzReg">किसी खाते की नज़र से देखें (ACS नंबर):</label>'+
+     '<input id="nzReg" type="text" inputmode="latin" autocomplete="off" placeholder="ACS-2026-123456" value="'+esc(VIEW.sample?"":VIEW.regNo)+'">'+
+     '<button type="button" class="abtn nzb" data-nz="go">👁 देखें</button></div>'+
+     '<div class="nzf"><button type="button" class="abtn nzb" data-nz="list">📋 इस भूमिका के खाते दिखाएँ</button>'+
+     (VIEW.sample?'':'<button type="button" class="abtn nzb" data-nz="sample">↩ नमूना-रूप</button>')+
+     '<a class="abtn nzb" href="/dashboard/founder/">← Founder Dashboard</a></div><div id="nzList"></div>';
+  bar.innerHTML=h;
+  const av=$("appView"); if(av && av.parentNode) av.parentNode.insertBefore(bar, av);
+  const tw=$("tbWho"); if(tw) tw.innerHTML="👁 "+tw.innerHTML.replace("👤 ","");
+  bar.addEventListener("click", async function(ev){
+    const b=ev.target&&ev.target.closest?ev.target.closest("[data-nz]"):null; if(!b) return;
+    const act=b.getAttribute("data-nz");
+    if(act==="sample"){ location.href=HOME+"?nazar=1"; return; }
+    if(act==="pick"){ location.href=HOME+"?nazar="+encodeURIComponent(b.getAttribute("data-reg")); return; }
+    if(act==="go"){ const v=String(($("nzReg")||{}).value||"").trim(); if(v) location.href=HOME+"?nazar="+encodeURIComponent(v); return; }
+    if(act==="list"){
+      const box=$("nzList"); box.innerHTML='<span class="note">खाते आ रहे हैं…</span>';
+      try{
+        const qs=await getDocs(query(collection(db,"registrations"), where("role","==",roles[0]), limit(25)));
+        const L=[]; qs.forEach(d=>{ const r=d.data()||{}; if(r.status!=="cancelled" && r.authUid && r.regNo) L.push(r); });
+        if(!L.length){ box.innerHTML='<span class="note">इस भूमिका का कोई खाता नहीं मिला।</span>'; return; }
+        box.innerHTML='<div class="nzp"><span>किसी खाते पर दबाएँ (पहले 25):</span></div>'+L.map(r=>
+          '<button type="button" class="nzr" data-nz="pick" data-reg="'+esc(r.regNo)+'">'+US(r.name_local||r.name_roman||r.name||"")+' · '+esc(r.regNo)+'</button>').join("");
+      }catch(e){ box.innerHTML='<span class="note" style="color:#B71C1C">सूची नहीं आई: </span>'+esc((e&&e.message)||e); }
+    }
+  });
+}
 async function guardExternal(user){
+  if(NZ!==null && await isFounderUser(user)){
+    try{ await founderView(user); }catch(e){ showLoadError("dashboard नहीं दिखा (देखने का मोड)", e); }
+    return; }
   let reg=null, t0=0;
   try{
     const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
@@ -1280,8 +1386,14 @@ async function guardExternal(user){
       if(!reg || t>t0){ reg=r; t0=t; }
     });
   }catch(e){ /* नीचे deny */ }
-  if(!reg){ show("denyView"); return; }
+  if(!reg){
+    /* (v6.23.0) अपना registration नहीं, पर Founder है: देखने का मोड (नमूना-रूप) */
+    if(await isFounderUser(user)){
+      try{ await founderView(user); }catch(e){ showLoadError("dashboard नहीं दिखा (देखने का मोड)", e); }
+      return; }
+    modeKnown(); show("denyView"); return; }
 
+  modeKnown();
   try{ await guardExternalRender(user, reg); }
   catch(e){ showLoadError("dashboard नहीं दिखा (बाहरी-role)", e); }
 }
@@ -1311,7 +1423,7 @@ async function guardExternalRender(user, reg){
      उन पर न provisional-पर्दा, न "अस्थायी" pill (भ्रामक-संदेश होल बंद)। */
   const roleKey0 = String((reg.role)||ALLOWED[0]||"").toLowerCase();
   const noGate = (NO_GATEWAY_EXT.indexOf(roleKey0)>-1);
-  if(noGate) rulesGate();
+  if(noGate && !VIEW) rulesGate();   /* देखने के मोड में नियम-पत्र की सहमति नहीं माँगी जाती */
   /* v6.7.1: English-परत का import अब early-boot पर (NO_GATEWAY_EXT के पास) —
      registration-lookup/deny/error हर अवस्था में toggle मिले। */
   const isActive = noGate ? true : (reg.status==="approved");
@@ -1729,7 +1841,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     const bx=$("crsCenter"); if(!bx) return;
     try{
       const u=auth.currentUser; if(!u){ bx.innerHTML=''; return; }
-      const qs=await getDocs(query(collection(db,"enrollments"), where("studentUid","==",u.uid)));
+      const qs=await getDocs(query(collection(db,"enrollments"), where("studentUid","==",vu(u))));
       let h=''; const ST={requested:"⏳ निवेदन भेजा",offered:"✉️ केंद्र का प्रस्ताव — जवाब दें",active:"✅ पढ़ाई चालू"};
       qs.forEach(function(dd){ const x=dd.data()||{};
         if(!ST[x.status]) return;
@@ -1756,17 +1868,17 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   async function loadExamState(){
     EXAM_RES={}; CERT_BY={}; CERT_CRS={};
     try{ const u=auth.currentUser; if(!u) return;
-      const rs=await getDocs(query(collection(db,"examResults"), where("uid","==",u.uid)));
+      const rs=await getDocs(query(collection(db,"examResults"), where("uid","==",vu(u))));
       rs.forEach(d=>{ const x=d.data()||{}; const k=x.courseId;
         const t=x.at&&x.at.toMillis?x.at.toMillis():0;
         /* (v6.8.0) हर कोर्स का सबसे अच्छा अंक (पास हो या फेल); बराबर हो तो नया */
         const p=Number(x.pct)||0, o=EXAM_RES[k];
         if(!o || p>o.pct || (p===o.pct && t>o._t)) EXAM_RES[k]=Object.assign({},x,{_t:t,id:d.id,pct:p}); });
-      const cs=await getDocs(query(collection(db,"certificates"), where("uid","==",u.uid)));
+      const cs=await getDocs(query(collection(db,"certificates"), where("uid","==",vu(u))));
       cs.forEach(d=>{ const x=d.data()||{}; CERT_BY[x.resultId]=x; if(x.courseId && !CERT_CRS[x.courseId]) CERT_CRS[x.courseId]=x; });
       /* (v6.9.0) विस्तार का जो भुगतान हो चुका पर पक्का नहीं हुआ (जैसे पन्ना बंद हो गया), उसे server से पक्का कराना */
       if(cs.size){
-        try{ const ps=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid), where("purpose","==","cert_extension"), where("status","==","created")));
+        try{ const ps=await getDocs(query(collection(db,"payments"), where("uid","==",vu(u)), where("purpose","==","cert_extension"), where("status","==","created")));
           const pend=[]; ps.forEach(d=>pend.push(d.id));
           for(const id of pend.slice(0,3)){ try{ await httpsCallable(functions,"certExtendVerify")({orderId:id}); }catch(e3){} }
         }catch(e4){}
@@ -1847,7 +1959,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     });
     return __examLoad.then(function () {
       const u = auth.currentUser;
-      window.ACS_EXAM.open({ cid: cid, uid: u ? u.uid : "", tts: EXAM_TTS[cid] || "en-IN", courseEn: courseEn,   /* (v6.15.0) परीक्षा के शीर्ष पर कोर्स का English नाम */
+      window.ACS_EXAM.open({ cid: cid, uid: u ? vu(u) : "", tts: EXAM_TTS[cid] || "en-IN", courseEn: courseEn,   /* (v6.15.0) परीक्षा के शीर्ष पर कोर्स का English नाम */
         call: function (name, data) { return httpsCallable(functions, name)(data || {}).then(function (o) { return o.data || {}; }); },
         loadRazorpay: loadRazorpay,
         onClose: function (ch) { if (ch) loadExamState().then(function () { crsMineFill(); }); } });
@@ -3001,7 +3113,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     if(!IS_GOLD && !pinFromReg()){ const pr=$("badgePinRow"); if(pr) pr.style.display="block"; }
     try{
       const u=auth.currentUser; if(!u) return;
-      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",vu(u))));
       let latest=null,t0=0;
       qs.forEach(d=>{ const p=d.data(); if(p.purpose!=="badge") return;
         if(String(p.role||"jobseeker").toLowerCase()!==BADGE_ROLE) return;
@@ -3061,7 +3173,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       /* code = अपना regNo — सक्रिय बैज पर ही बताओ (referral-अधिकार की शर्त) */
       let hasBadge=false;
       try{
-        const qs0=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+        const qs0=await getDocs(query(collection(db,"payments"), where("uid","==",vu(u))));
         const now=Date.now();
         qs0.forEach(d=>{ const p=d.data()||{};
           if(p.purpose==="badge"&&p.status==="paid"&&p.rmStatus==="approved"){
@@ -3071,8 +3183,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(codeEl) codeEl.textContent = hasBadge ? ((EXT_REG&&EXT_REG.regNo)||"—")
                                                : "— (सक्रिय बैज पर मिलेगा)";
       refShareUI((window.ACS_REGNO||codeEl.textContent||"").trim());
-      const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",u.uid)));
-      const gifts=await getDocs(query(collection(db,"referrals"), where("giftedToUid","==",u.uid)));
+      const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",vu(u))));
+      const gifts=await getDocs(query(collection(db,"referrals"), where("giftedToUid","==",vu(u))));
       const now2=Date.now(); let act=0, rows=[];
       window.__myRefDocs=[];   /* (29-Jul N3) जीवन-graph हेतु referral-तिथियाँ */
       mine.forEach(function(d){ const x=d.data()||{};
@@ -3081,7 +3193,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         const ex=x.expiresAt&&x.expiresAt.toMillis?x.expiresAt.toMillis():0;
         if(ex>now2) act++;
         rows.push({id:d.id,x:x,mine:true}); });
-      gifts.forEach(d=>{ const x=d.data()||{}; if(x.refBy===u.uid) return;
+      gifts.forEach(d=>{ const x=d.data()||{}; if(x.refBy===vu(u)) return;
         rows.push({id:d.id,x:x,mine:false}); });
       if(qEl) qEl.textContent = (BADGE_ROLE==="volunteer") ? (act+" (असीमित)") : (act+" / 3");
       /* (29-Jul रात, Founder — जीवन-graph) 3 slot: हुआ ✔ / चालू ▶ / जला ✖ / आगे ⬜ */
@@ -3148,7 +3260,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(!oid){
         /* बटन-रास्ता: सबसे पुराना due-fund gift हो */
         const u=auth.currentUser;
-        const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",u.uid)));
+        const mine=await getDocs(query(collection(db,"referrals"), where("refBy","==",vu(u))));
         let cand=null, t0=9e15;
         mine.forEach(d=>{ const x=d.data()||{};
           if(x.status!=="due"||x.giftedToRegNo) return;
@@ -3191,7 +3303,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
   window.__acsBadgeMark = async function(){
     try{
       const u=auth.currentUser; if(!u) return;
-      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",vu(u))));
       let ok=false, okPay=null;
       qs.forEach(d=>{ const p=d.data()||{};
         if(p.purpose==="badge" && String(p.role||"jobseeker").toLowerCase()===BADGE_ROLE
@@ -3386,7 +3498,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     box.innerHTML='<span class="note">हिसाब आ रहा है…</span>';
     try{
       const u=auth.currentUser; if(!u){ box.innerHTML='<span class="note">पहले login करें।</span>'; return; }
-      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+      const qs=await getDocs(query(collection(db,"payments"), where("uid","==",vu(u))));
       LG_ALL=[]; qs.forEach(d=>LG_ALL.push(d.data()||{}));
       LG_ALL.sort((a,b)=>{
         const ta=(a.createdAt&&a.createdAt.toMillis)?a.createdAt.toMillis():0;
@@ -3596,9 +3708,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
   var OF_ALL=[], EN_ALL=[], EN_SHOWN=0;
   async function k9LoadInst(){
     var u=auth.currentUser; if(!u||!isInst()) return;
-    var qs=await getDocs(query(collection(db,"offerings"), where("centerUid","==",u.uid)));
+    var qs=await getDocs(query(collection(db,"offerings"), where("centerUid","==",vu(u))));
     OF_ALL=[]; qs.forEach(function(d){ OF_ALL.push(d.data()||{}); });
-    var es=await getDocs(query(collection(db,"enrollments"), where("centerUid","==",u.uid)));
+    var es=await getDocs(query(collection(db,"enrollments"), where("centerUid","==",vu(u))));
     EN_ALL=[]; es.forEach(function(d){ var x=d.data()||{}; x._id=d.id; EN_ALL.push(x); });
     drawOfferings(); drawPending(); EN_SHOWN=0; drawActive(false);
     var sid=$("instShareId");
@@ -3776,7 +3888,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
   var MC_ALL=[];
   async function k9LoadMine(){
     var u=auth.currentUser; if(!u) return;
-    var qs=await getDocs(query(collection(db,"enrollments"), where("studentUid","==",u.uid)));
+    var qs=await getDocs(query(collection(db,"enrollments"), where("studentUid","==",vu(u))));
     MC_ALL=[]; qs.forEach(function(d){ var x=d.data()||{}; x._id=d.id; MC_ALL.push(x); });
     var box=$("mcList"); if(!box) return;
     if(MC_ALL.length===0){ box.innerHTML='<span class="note">अभी कोई नामांकन नहीं — ऊपर केंद्र खोजकर निवेदन भेजें।</span>'; return; }
@@ -3807,7 +3919,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     try{
       var badgeTill=0;
       if(u){
-        var qs=await getDocs(query(collection(db,"payments"), where("uid","==",u.uid)));
+        var qs=await getDocs(query(collection(db,"payments"), where("uid","==",vu(u))));
         qs.forEach(function(d){ var p=d.data()||{};
           if(p.purpose==="badge"&&p.status==="paid"&&p.rmStatus==="approved"){
             var ex=p.badgeExpiresAt&&p.badgeExpiresAt.toMillis?p.badgeExpiresAt.toMillis():0;

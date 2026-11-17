@@ -78,6 +78,7 @@ function freshSandbox(cfg, fakes){
     onSnapshot:()=>(()=>{}),
     getFunctions:()=>({}),
     httpsCallable:()=>(async()=>({data:{sessionId:"sid-test"}})),
+    fbCallable:()=>(async()=>({data:{sessionId:"sid-test"}})),   /* (v6.23.0) dashboard.js अब firebase के httpsCallable को fbCallable नाम से लेता है */
   };
   sandbox.scrollTo = ()=>{};
   sandbox.window = sandbox;

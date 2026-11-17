@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.6 · 17-Nov-2026 (Founder का आदेश: "Founder को सभी पैनल देखने का अधिकार दो") : Founder के घर में पैनल "सभी घर" (pnl-ghar): हर dashboard की कड़ी।
    v2.5 · 17-Nov-2026 (K-1c और K-2b) : P_EXAMS और P_EXAMCERT_ENT से "प्रैक्टिकल नहीं किया" वाली बात हटी; P_ABANDON_Q (Founder, Admin: "कक्षा की शिकायतें")।
    v2.4 · 17-Nov-2026 (कक्षा-परत K-1b; Founder के नियम 17-Nov) : P_INST_CLASS (केंद्र, वर्कशॉप: "कक्षा व बैच"),
           P_TCH_CLASS (शिक्षक, उस्ताद: "मेरी कक्षाएँ"), P_MYCTR में mcClass (विद्यार्थी को शिक्षक और समय),
@@ -1296,6 +1297,34 @@ for(const c of MX.cards){
   } else {
     homes.set(c.dashboard, { mode:"external", keys:[c.key], labels:[c.label], roleLabel:c.label });
   }
+}
+
+/* ---------- 2ख) (v2.6 · 17-Nov-2026, Founder का आदेश: "Founder को सभी पैनल देखने का अधिकार दो") 🏠 सभी घर ----------
+   Founder के घर का पैनल: हर dashboard की कड़ी। टीम के घर Founder के अपने खाते से खुलते हैं (नियम-4)।
+   बाहरी घर "देखने के मोड" में खुलते हैं: नमूना-रूप में, या किसी खाते की नज़र से (dashboard.js v6.23.0)। */
+{
+  const link = (href, label) => '<a class="abtn gharb" href="' + href + '">' + label + '</a>';
+  const cardOf = (k) => MX.cards.find((c) => c.key === k) || {};
+  let team = "", ext = "";
+  for(const [home, h] of homes){
+    if(home === "/dashboard/founder/") continue;
+    if(h.mode === "team"){
+      const sh = SHARED_LABELS[home];
+      team += link(home, sh ? sh.tb : (h.labels[0] + " Dashboard"));
+      if(h.ext && h.ext[0]) ext += link(home + "?nazar=1", cardOf(h.ext[0]).public_label || h.extLabel);
+    } else ext += link(home, cardOf(h.keys[0]).public_label || h.labels[0]);
+  }
+  TEAM_EXTRAS["/dashboard/founder/"] += (
+    '<div class="pcard panel" id="pnl-ghar" data-nav="🏠 सभी घर" style="grid-column:1/-1">' +
+    '<div class="ph">🏠 सभी घर</div>' +
+    '<div class="pd">यहाँ से हर dashboard खुलता है। हर घर की काम-सूची से उसका हर पैनल देखा जा सकता है।</div>' +
+    '<div class="pd"><b>बाहरी घर (देखने का मोड)</b></div>' +
+    '<div class="pd">ये घर देखने के मोड में खुलते हैं। पहले नमूना-रूप दिखता है। ऊपर की पट्टी में ACS नंबर लिखकर किसी भी खाते की नज़र से देखा जा सकता है। देखने के मोड में कुछ नहीं बदलता।</div>' +
+    '<div class="gharw">' + ext + '</div>' +
+    '<div class="pd"><b>टीम के घर</b></div>' +
+    '<div class="pd">ये घर आपके अपने खाते से खुलते हैं। यहाँ के बटन सचमुच काम करते हैं।</div>' +
+    '<div class="gharw">' + team + '</div>' +
+    '</div>');
 }
 
 /* ---------- 3) बनाना ---------- */

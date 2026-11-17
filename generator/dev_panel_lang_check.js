@@ -717,6 +717,19 @@ async function dashSuite() {
         e.dom.window.close(); h.dom.window.close();
       } catch (err) { ck(tag + " : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
     } }
+  /* (v2.0, Founder का आदेश 17-Nov-2026) Founder का देखने वाला मोड: पट्टी, उसके संदेश और रुके हुए काम का कारण भी इसी भाषा में */
+  for (const who of ["center", "student", "teacher"]) { const f = PG.find(x => x === "dashboard/" + who + "/index.html"); if (!f) continue;
+    try {
+      const e = await P2.openNazar(f, LG, "?nazar=ACS-2026-123456");
+      e.w.prompt = () => "x";
+      for (const sel of ['[data-k1="abrep"]', '[data-k1="acc"]', '[data-nz="list"]']) { const b = e.d.querySelector(sel); if (b) { click(e, b); await settle(e); await settle(e); } }
+      ck("N " + who + " : देखने के मोड की पट्टी दिखी", !!e.d.getElementById("nazarBar") && e.d.getElementById("nazarBar").textContent.indexOf("ACS-2026-123456") > -1);
+      clean(e, "N " + who + " (देखने का मोड)");
+      e.dom.window.close();
+      const o = await P2.openNazar(f, LG, "?nazar=ACS-2026-000009", { oldServer: true });   /* दूसरी भूमिका का खाता + पुराना server: दोनों के वाक्य */
+      clean(o, "N " + who + " (देखने का मोड: नमूना-रूप, ग़लत खाता)");
+      o.dom.window.close();
+    } catch (err) { ck("N " + who + " : देखने के मोड की जाँच चली", false, String(err && err.stack || err).slice(0, 400)); } }
   /* सहेजा हुआ कोर्स-नाम, जब कोर्स-सूची अभी आई ही न हो (सिर्फ़ "मेरा केंद्र" खोला): इस भाषा के पैनल में सूची अपने-आप मँगाई जाए और नाम ठीक हो */
   for (const f of PG.filter(f => f.split("/")[1] === "student")) {
     try {
@@ -868,6 +881,6 @@ async function dashSuite() {
   if (JSDOM_RACE) console.log("(जानकारी) jsdom की बंद खिड़की वाली दौड़ " + JSDOM_RACE + " बार हुई और छोड़ी गई (जाँच का औज़ार; पन्ने का code नहीं)");
   console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
   if (TERMS) console.log("जगह के नाम जो data में सिर्फ़ रोमन में हैं (विदेश के राज्य, कुछ राज्यों के जिले; हिंदी पैनल में भी रोमन में): " + PLACES.size + " देखे गए");
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.9 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v2.0 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();

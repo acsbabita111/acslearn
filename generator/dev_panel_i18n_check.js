@@ -107,7 +107,7 @@ function loginTransform(html) {
   let n = 0, dyn = 0;
   const out = html.replace(/<script type="module">([\s\S]*?)<\/script>/, function (m, body) {
     n++;
-    body = body.replace(/^import \{([^}]*)\} from "[^"]*";$/gm, function (x, names) { n++; return "const {" + names + "} = window.__FB;"; });
+    body = body.replace(/^import \{([^}]*)\} from "[^"]*";$/gm, function (x, names) { n++; return "const {" + names.replace(/(\w+) as (\w+)/g, "$1: $2") + "} = window.__FB;"   /* "a as b" (import) = "a: b" (destructuring) */; });
     body = body.replace('import("/assets/rules-gate.js")', function () { dyn++; return "window.__importGate()"; });
     return "<script>(async function(){\n" + body + "\n})();</script>";
   });

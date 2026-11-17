@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v1.9 (17-Nov-2026; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v2.0 (17-Nov-2026; v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -32,7 +32,7 @@ function ck(name, ok, info) { if (ok) pass++; else { fail++; console.log("❌ " 
 const DJS = rd("assets/dashboard.js");
 function dashTransform(html) {
   let n = 0, dyn = 0;
-  let body = DJS.replace(/^import \{([^}]*)\} from "[^"]*";$/gm, function (x, names) { n++; return "const {" + names + "} = window.__FB;"; });
+  let body = DJS.replace(/^import \{([^}]*)\} from "[^"]*";$/gm, function (x, names) { n++; return "const {" + names.replace(/(\w+) as (\w+)/g, "$1: $2") + "} = window.__FB;"   /* "a as b" (import) = "a: b" (destructuring) */; });
   body = body.replace(/import\("\/assets\/rules-gate\.js"\)/g, function () { dyn++; return "window.__importGate()"; });
   if (n !== 4 || /\bimport\s*\(/.test(body) || /^import\s/m.test(body)) throw new Error("dashboard.js के import बदले हैं (static " + n + ", dynamic " + dyn + "): robot अद्यतन करें");
   const tag = '<script type="module" src="/assets/dashboard.js"></script>';
@@ -375,6 +375,108 @@ async function k1Checks(pages) {
     click(c, c.d.querySelector('#sideNav .si[data-go="pnl-class"]')); await settle(c); await settle(c);
     ck("K1 केंद्र (server की त्रुटि): कारण दिखता है", /नहीं खुला: यह कक्षा मिली नहीं/.test(txt(c, "clsList")), txt(c, "clsList").slice(0, 120)); }
 }
+/* (v2.0, Founder का आदेश 17-Nov-2026: "Founder को सभी पैनल देखने का अधिकार दो") Founder का देखने वाला मोड।
+   नक़ली database: login वाला खाता (u1) Founder है और उसका कोई registration नहीं; भरा हुआ खाता किसी और (uX) का है। */
+const NZ_REG = "ACS-2026-123456";
+function nazarData(info, founder) {
+  const data = fixture(info, "data");
+  const swap = o => { if (!o || typeof o !== "object") return; for (const k of Object.keys(o)) { if (o[k] === "u1") o[k] = "uX"; else if (typeof o[k] === "object" && typeof o[k].toMillis !== "function") swap(o[k]); } };
+  swap(data);
+  data.registrations[NZ_REG] = data.registrations.r1; delete data.registrations.r1;
+  data.registrations["ACS-2026-000009"] = { authUid: "uS", role: info.allowed[0] === "student" ? "center" : "student", status: "approved", regNo: "ACS-2026-000009", name_local: NAME_HI, name_roman: "Sita", createdAt: TS(2026, 11, 1) };
+  data.registrations["ACS-2026-000010"] = { role: String((info.extRoles && info.extRoles[0]) || info.allowed[0]).toLowerCase(), status: "provisional", regNo: "ACS-2026-000010", name_local: NAME_HI, createdAt: TS(2026, 11, 1) };
+  data.teams = founder ? { u1: { designation: "founder", active: true, name: "Founder" } } : {};
+  data.sessions = { u1: { sid: "s1" } };
+  return data;
+}
+async function openNazar(file, lang, query, opt) {
+  opt = opt || {};
+  const info = pageInfo(file), data = nazarData(info, opt.founder !== false), user = { uid: "u1", email: "founder@example.com" };
+  const ls = {}; if (lang && lang !== "hi") ls.acs_dash_lang = lang;
+  const KV = f => (d => Object.assign(f(d), d && d.viewAs !== undefined && !opt.oldServer ? { viewed: true } : {}));
+  const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), query: query || "", ls, expect: (lang && lang !== "hi") ? lang : undefined,
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, { listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster) }), fb: makeFB(data, user) });
+  c.userVals.add(NAME_HI); c.userVals.add(NAME_HI.trim()[0]); c.userVals.add(HU.student); c.userVals.add(HU.center); c.userVals.add(HU.reason); c.userVals.add(HU.hold); c.userVals.add(HU.ret); c.userVals.add("सीता देवी");
+  await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden") || !c.d.getElementById("denyView").classList.contains("hidden"), 6000);
+  await settle(c); await settle(c);
+  if (!opt.noOpen && !c.d.getElementById("appView").classList.contains("hidden")) { await openAll(c); await settle(c); }
+  return c;
+}
+const NZ_OK = { claimSession: 1, listMyClasses: 1, classRoster: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
+async function nazarChecks(pages) {
+  const has = (c, sel) => !!c.d.querySelector(sel), txt = (c, id) => { const e = c.d.getElementById(id); return e ? e.textContent : ""; };
+  const shown = (c, id) => { const e = c.d.getElementById(id); return !!e && !e.classList.contains("hidden"); };
+  const pg = n => pages.find(f => f === "dashboard/" + n + "/index.html");
+  const ext = pages.filter(f => pageInfo(f).mode === "external");
+  ck("नज़र: बाहरी घर 12 हैं (13वाँ, स्वयंसेवक, दो रूप वाला घर है)", ext.length === 12, String(ext.length));
+  /* 1) हर बाहरी घर: नमूना-रूप खुले, हर पैनल खुले, कोई त्रुटि नहीं, server तक कोई लिखने वाला काम नहीं */
+  for (const f of ext) { const tag = "नज़र " + f.split("/")[1];
+    try { const c = await openNazar(f, "hi");
+      const bad = c.calls.map(x => x.name).filter(n => !NZ_OK[n]);
+      ck(tag + " : Founder के लिए नमूना-रूप खुला, पट्टी दिखी", shown(c, "appView") && !shown(c, "denyView") && /Founder का देखने वाला मोड/.test(txt(c, "nazarBar")) && /नमूना-रूप खुला है/.test(txt(c, "nazarBar")));
+      ck(tag + " : हर पैनल खुला, JS-त्रुटि शून्य", c.d.querySelectorAll("#sideNav .si").length >= 5 && c.errors.length === 0, c.errors.slice(0, 2).join(" ‖ "));
+      ck(tag + " : server तक कोई लिखने वाला काम नहीं गया", bad.length === 0, bad.join(","));
+      ck(tag + " : नियम-पत्र की सहमति नहीं माँगी गई", !has(c, "#rulesGate"));
+      c.dom.window.close();
+    } catch (e) { ck(tag + " : robot चला", false, String(e && e.stack || e).slice(0, 300)); } }
+  /* 2) जो Founder नहीं है: पहले जैसा, कोई रास्ता नहीं */
+  for (const q of ["", "?nazar=" + NZ_REG, "?nazar=1"]) { const c = await openNazar(pg("center"), "hi", q, { founder: false });
+    ck("नज़र: जो Founder नहीं है, उसके लिए घर बंद (" + (q || "सीधा") + ")", shown(c, "denyView") && !shown(c, "appView") && !has(c, "#nazarBar") && !c.calls.some(x => x.name === "listMyClasses")); c.dom.window.close(); }
+  /* 3) किसी खाते की नज़र से: केंद्र */
+  { const c = await openNazar(pg("center"), "hi", "?nazar=" + NZ_REG), bar = txt(c, "nazarBar");
+    ck("नज़र केंद्र: पट्टी में खाते का नाम और ACS नंबर", /अभी इस खाते की नज़र से:/.test(bar) && bar.indexOf(NAME_HI) > -1 && bar.indexOf(NZ_REG) > -1 && has(c, '[data-nz="sample"]'), bar.slice(0, 160));
+    ck("नज़र केंद्र: प्रोफ़ाइल उसी खाते की", txt(c, "pName").indexOf(NAME_HI) > -1 && txt(c, "pReg") === NZ_REG && /^👁/.test(txt(c, "tbWho")));
+    const lm = c.calls.filter(x => x.name === "listMyClasses").pop();
+    ck("नज़र केंद्र: कक्षा-सूची उसी खाते की पहचान से माँगी गई", !!lm && lm.data.viewAs === "uX" && /कुल विद्यार्थी:\s*31/.test(txt(c, "clsList")), JSON.stringify(lm && lm.data));
+    ck("नज़र केंद्र: उस खाते का लेन-देन दिखा", /राशि:\s*₹300/.test(txt(c, "pnl-ledger")) && /बैज सक्रिय/.test(txt(c, "pnl-ledger")), txt(c, "pnl-ledger").slice(-200));
+    const n0 = c.calls.length; c.w.prompt = m => { c.dialogs.push(String(m)); return "x"; }; c.confirmAnswer = true;
+    for (const sel of ['[data-k1="abrep"]', '[data-k1="bset"]', '[data-k1="abwd"]', '#ofDeclare']) { const b = c.d.querySelector(sel); if (b) { b.disabled = false; click(c, b); await settle(c); await settle(c); } }
+    const wr = c.calls.slice(n0).map(x => x.name).filter(n => !NZ_OK[n]);
+    ck("नज़र केंद्र: बटन दबाने पर server तक कुछ नहीं गया, कारण दिखा", wr.length === 0 && /देखने के मोड में यह काम नहीं होता/.test(txt(c, "clsMsg")), wr.join(",") + " | " + txt(c, "clsMsg"));
+    click(c, c.d.querySelector('[data-nz="list"]')); await settle(c); await settle(c);
+    ck("नज़र केंद्र: \"इस भूमिका के खाते\" में वही खाते जिनका login बना है", c.d.querySelectorAll('[data-nz="pick"]').length === 1 && c.d.querySelector('[data-nz="pick"]').getAttribute("data-reg") === NZ_REG, txt(c, "nzList").slice(0, 120));
+    c.dom.window.close(); }
+  /* 4) पुराना server (viewAs नहीं समझता): उस खाते का बताकर Founder का अपना data न दिखे */
+  { const c = await openNazar(pg("center"), "hi", "?nazar=" + NZ_REG, { oldServer: true });
+    ck("नज़र केंद्र (पुराना server): कक्षा-सूची की जगह साफ़ कारण", /server का यह हिस्सा अभी देखने के मोड के लिए तैयार नहीं है/.test(txt(c, "clsList")) && !/कुल विद्यार्थी/.test(txt(c, "clsList")), txt(c, "clsList").slice(0, 140)); c.dom.window.close(); }
+  /* 5) ग़लत नंबर, दूसरी भूमिका का खाता, बिना login वाला खाता */
+  { const c = await openNazar(pg("center"), "hi", "?nazar=ACS-2026-999000", { noOpen: true });
+    ck("नज़र केंद्र: नंबर न मिले तो साफ़ वाक्य और नमूना-रूप", /यह ACS नंबर नहीं मिला:/.test(txt(c, "nazarBar")) && /नमूना-रूप खुला है/.test(txt(c, "nazarBar")) && shown(c, "appView")); c.dom.window.close(); }
+  { const c = await openNazar(pg("center"), "hi", "?nazar=ACS-2026-000009", { noOpen: true }), a = c.d.querySelector("#nazarBar a.nzl");
+    ck("नज़र केंद्र: दूसरी भूमिका का खाता हो तो उसके घर की कड़ी", /यह खाता दूसरी भूमिका का है:/.test(txt(c, "nazarBar")) && !!a && a.getAttribute("href") === "/dashboard/student/?nazar=ACS-2026-000009" && txt(c, "pReg") !== "ACS-2026-000009", a && a.getAttribute("href")); c.dom.window.close(); }
+  { const c = await openNazar(pg("center"), "hi", "?nazar=ACS-2026-000010", { noOpen: true });
+    ck("नज़र केंद्र: जिस खाते का login नहीं बना, वह नहीं खुलता", /इस खाते का login अभी बना नहीं है:/.test(txt(c, "nazarBar")) && /नमूना-रूप खुला है/.test(txt(c, "nazarBar"))); c.dom.window.close(); }
+  { const c = await openNazar(pg("center"), "hi", "?nazar=" + encodeURIComponent("a/b<c>"), { noOpen: true });
+    ck("नज़र केंद्र: टूटा हुआ नंबर पन्ने में ज्यों का त्यों नहीं घुसता", /यह ACS नंबर नहीं मिला:/.test(txt(c, "nazarBar")) && !has(c, "#nazarBar c")); c.dom.window.close(); }
+  /* 6) शिक्षक और विद्यार्थी की नज़र से */
+  { const c = await openNazar(pg("teacher"), "hi", "?nazar=" + NZ_REG);
+    ck("नज़र शिक्षक: उसकी कक्षाएँ दिखीं, रोक की सूचना दिखी", /📩|प्रस्ताव/.test(txt(c, "myClsList")) && /नई कक्षा मिलना बंद है/.test(txt(c, "myClsStand")) && c.calls.filter(x => x.name === "listMyClasses").every(x => x.data.viewAs === "uX"));
+    c.w.prompt = () => "x"; const n0 = c.calls.length; click(c, c.d.querySelector('[data-k1="acc"]')); await settle(c); await settle(c);
+    ck("नज़र शिक्षक: \"स्वीकारें\" दबाने पर server तक कुछ नहीं गया", !c.calls.slice(n0).some(x => x.name === "respondClass") && /देखने के मोड में यह काम नहीं होता/.test(txt(c, "myClsMsg")), txt(c, "myClsMsg")); c.dom.window.close(); }
+  { const c = await openNazar(pg("student"), "hi", "?nazar=" + NZ_REG), bad = c.calls.map(x => x.name).filter(n => !NZ_OK[n]);
+    ck("नज़र विद्यार्थी: उसका केंद्र, कक्षा और प्रमाणपत्र दिखे", /मेरी कक्षा:/.test(txt(c, "mcClass")) && /1\s*📜 प्रमाणपत्र/.test(txt(c, "pnl-courses")) && /फ़ोन में रहता है/.test(txt(c, "nazarBar")), txt(c, "mcClass").slice(0, 100));
+    ck("नज़र विद्यार्थी: पढ़ाई की प्रगति server को नहीं भेजी गई, सहमति नहीं माँगी गई", bad.length === 0 && !has(c, "#rulesGate"), bad.join(",")); c.dom.window.close(); }
+  /* 7) स्वयंसेवक (दो रूप वाला घर) */
+  if (pg("volunteer")) { const c = await openNazar(pg("volunteer"), "hi", "?nazar=1");
+    ck("नज़र स्वयंसेवक: ?nazar=1 से बाहरी-रूप खुला", shown(c, "appView") && /नमूना-रूप खुला है/.test(txt(c, "nazarBar")) && !has(c, '#sideNav .si[data-go="pnl-apps"]')); c.dom.window.close();
+    const d = await openNazar(pg("volunteer"), "hi", "");
+    ck("नज़र स्वयंसेवक: सीधे खोलने पर टीम-रूप, पट्टी नहीं", shown(d, "appView") && !has(d, "#nazarBar") && has(d, '#sideNav .si[data-go="pnl-apps"]')); d.dom.window.close(); }
+  /* 8) Founder का घर: "सभी घर" */
+  { const html = fs.readFileSync(path.join(ROOT, pg("founder")), "utf8"), box = (/id="pnl-ghar"[\s\S]*?<\/div><\/div>/.exec(html) || [""])[0];
+    const links = (box.match(/class="abtn gharb" href="[^"]+"/g) || []).map(x => /href="([^"]+)"/.exec(x)[1]);
+    const homes = pages.map(f => "/" + f.replace(/index\.html$/, "")).filter(h => h !== "/dashboard/founder/");
+    ck("नज़र Founder: \"सभी घर\" में हर घर की कड़ी (30 घर + स्वयंसेवक का बाहरी-रूप)", links.length === 31 && homes.every(h => links.indexOf(h) > -1) && links.indexOf("/dashboard/volunteer/?nazar=1") > -1
+      && links.every(l => fs.existsSync(path.join(ROOT, l.replace(/\?.*$/, "").slice(1), "index.html"))), links.length + " | " + homes.filter(h => links.indexOf(h) < 0).join(","));
+    for (const who of pages.filter(f => f !== pg("founder"))) if (fs.readFileSync(path.join(ROOT, who), "utf8").indexOf('id="pnl-ghar"') > -1) ck("नज़र: \"सभी घर\" सिर्फ़ Founder के घर में", false, who);
+    const c = await openH(pg("founder"), "hi", "data", ["pnl-ghar"]);
+    ck("नज़र Founder: पैनल काम-सूची में है और खुलता है", has(c, '#sideNav .si[data-go="pnl-ghar"]') && c.d.querySelectorAll("#pnl-ghar a.gharb").length === 31); c.dom.window.close(); }
+  /* 9) तीनों भाषाएँ: पट्टी और देखने के मोड के संदेश में हिंदी शून्य */
+  for (const lang of ["en"]) for (const who of ["center", "student", "teacher"]) {   /* कन्नड़ और बांग्ला: dev_panel_lang_check.js (वहाँ English शब्द भी पकड़े जाते हैं) */
+    const c = await openNazar(pg(who), lang, "?nazar=" + NZ_REG);
+    c.w.prompt = () => "x"; for (const sel of ['[data-k1="abrep"]', '[data-k1="acc"]', '[data-nz="list"]']) { const b = c.d.querySelector(sel); if (b) { click(c, b); await settle(c); await settle(c); } }
+    const UV = Array.from(c.userVals), L = hindiLeaks(c).filter(x => { let y = x.replace(/^\[skip-ज़ोन\] /, ""); UV.forEach(v => { y = y.split(v).join(""); }); return DEV.test(y); });
+    ck("नज़र " + who + " [" + lang + "]: हिंदी शून्य", L.length === 0, L.length + " जगह: " + L.slice(0, 6).join("  ‖  ")); c.dom.window.close(); }
+}
 async function hdataChecks(pages, all) {
   const UV = Object.keys(HU).map(k => HU[k]).concat([NAME_HI, "सीता देवी"]);
   const seen = {}; UV.forEach(v => { seen[v] = 0; });
@@ -660,7 +762,7 @@ async function docChecks(pages) {
     e.dom.window.close(); h.dom.window.close();
   } catch (err) { ck("काग़ज़ (केंद्र) : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
 }
-module.exports = { dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
+module.exports = { openNazar, nazarChecks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
 if (require.main === module) (async function main() {
   const only = process.argv[2] || "";
   const listPages = () => fs.readdirSync(path.join(ROOT, "dashboard"), { withFileTypes: true }).filter(e => e.isDirectory())
@@ -725,9 +827,10 @@ if (require.main === module) (async function main() {
   if (!process.env.ACS_ONLY_HI && (!only || /student|center/.test(only))) await docChecks(pages);
   if (!process.env.ACS_ONLY_HI) await hdataChecks(pages, !only);
   await k1Checks(pages);   /* (v1.8) कक्षा-परत के पर्दे */
+  await nazarChecks(pages);   /* (v2.0) Founder का देखने वाला मोड */
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.9 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.0 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

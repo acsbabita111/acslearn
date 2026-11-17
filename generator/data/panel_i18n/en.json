@@ -2239,7 +2239,34 @@
   "✍️ जवाब दर्ज हुआ। अब फ़ैसला ACS करेगा।": "✍️ Reply recorded. Now ACS will decide.",
   "फ़ैसले का कारण लिखें (ज़रूरी):": "Write the reason for the decision (required):",
   "⚖️ फ़ैसला दर्ज: शिकायत सही मानी गई।": "⚖️ Decision recorded: the complaint was accepted as correct.",
-  "✅ फ़ैसला दर्ज: शिकायत ग़लत मानी गई।": "✅ Decision recorded: the complaint was found wrong."
+  "✅ फ़ैसला दर्ज: शिकायत ग़लत मानी गई।": "✅ Decision recorded: the complaint was found wrong.",
+  "Founder का देखने वाला मोड": "Founder's view mode",
+  "dashboard नहीं दिखा (देखने का मोड)": "The dashboard did not show (view mode)",
+  "server का यह हिस्सा अभी देखने के मोड के लिए तैयार नहीं है": "This part of the server is not ready for view mode yet",
+  "अभी इस खाते की नज़र से:": "Now viewing as this account:",
+  "अभी नमूना-रूप खुला है: किसी खाते का data नहीं दिख रहा।": "The sample view is open now: no account's data is shown.",
+  "इस खाते का login अभी बना नहीं है:": "This account has no login yet:",
+  "इस भूमिका का कोई खाता नहीं मिला।": "No account of this role was found.",
+  "उसका घर खोलें": "Open its dashboard",
+  "किसी खाते की नज़र से देखें (ACS नंबर):": "View as an account (ACS number):",
+  "किसी खाते पर दबाएँ (पहले 25):": "Tap an account (first 25):",
+  "खाते आ रहे हैं…": "Loading accounts…",
+  "टीम के घर": "Team dashboards",
+  "देखने के मोड में कोई बटन कुछ नहीं बदलता: लिखने वाला हर काम बंद है।": "In view mode no button changes anything: every action that writes is off.",
+  "देखने के मोड में यह काम नहीं होता": "This action does not work in view mode",
+  "पढ़ाई की प्रगति और करियर टेस्ट का नतीजा फ़ोन में रहता है: यहाँ वह इसी फ़ोन का दिखेगा।": "Study progress and the Career Interest Test result stay on the phone: here you will see this phone's own.",
+  "बाहरी घर (देखने का मोड)": "Outside dashboards (view mode)",
+  "यह ACS नंबर नहीं मिला:": "This ACS number was not found:",
+  "यह खाता दूसरी भूमिका का है:": "This account belongs to another role:",
+  "यह खाता पढ़ा नहीं जा सका:": "This account could not be read:",
+  "यहाँ से हर dashboard खुलता है। हर घर की काम-सूची से उसका हर पैनल देखा जा सकता है।": "Every dashboard opens from here. From each dashboard's menu you can see every panel of it.",
+  "ये घर आपके अपने खाते से खुलते हैं। यहाँ के बटन सचमुच काम करते हैं।": "These dashboards open with your own account. The buttons here really work.",
+  "ये घर देखने के मोड में खुलते हैं। पहले नमूना-रूप दिखता है। ऊपर की पट्टी में ACS नंबर लिखकर किसी भी खाते की नज़र से देखा जा सकता है। देखने के मोड में कुछ नहीं बदलता।": "These dashboards open in view mode. First the sample view shows. Write an ACS number in the strip at the top to view as any account. Nothing changes in view mode.",
+  "सूची नहीं आई:": "The list did not come:",
+  "↩ नमूना-रूप": "↩ Sample view",
+  "🏠 सभी घर": "🏠 All dashboards",
+  "👁 देखें": "👁 View",
+  "📋 इस भूमिका के खाते दिखाएँ": "📋 Show accounts of this role"
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",
@@ -2825,6 +2852,9 @@
   "शिक्षक के जवाब का समय {0} तक है; उसके बाद ही निशान लग सकता है": "The teacher has until {0} to reply; the mark can be put only after that",
   "यह फ़ैसला सिर्फ़ ACS (Founder या Admin) कर सकता है": "Only ACS (Founder or Admin) can make this decision",
   "इस कक्षा पर फ़ैसले लायक़ कोई शिकायत नहीं है": "There is no complaint on this class that can be decided",
-  "फ़ैसले का कारण लिखना ज़रूरी": "Writing the reason for the decision is required"
+  "फ़ैसले का कारण लिखना ज़रूरी": "Writing the reason for the decision is required",
+  "देखने के मोड में यह काम नहीं होता": "This action does not work in view mode",
+  "दूसरे खाते की नज़र से सिर्फ़ Founder देख सकता है": "Only the Founder can view as another account",
+  "यह खाता मिला नहीं": "This account was not found"
  }
 }
