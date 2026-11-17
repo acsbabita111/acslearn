@@ -184,7 +184,27 @@ a{text-decoration:none;color:inherit}
 .footer-col a{color:var(--gold)}
 .footer-bottom{text-align:center;padding:14px 20px;border-top:1px solid rgba(255,255,255,.1);margin-top:20px;font-size:16px;color:rgba(255,255,255,.4)}
 
-@media(max-width:360px){.role-grid{grid-template-columns:1fr}.card{margin:8px;padding:14px 11px}}
+@media(max-width:360px){.card{margin:8px;padding:14px 11px}}
+/* ═══ (18-Nov-2026, Founder का आदेश) सब भूमिकाओं के बटन एक साथ दिखें: माथा और टाइल छोटे ═══
+   मोबाइल: 2 खाने, चिह्न बाएँ और नाम दाएँ। 700px से ऊपर: 4 खाने। 1000px से ऊपर: 6 खाने, यानी 12 बटन दो पंक्तियों में। */
+.hero{padding:14px 16px 12px}
+.hero h2{font-size:20px;line-height:1.4}
+.hero-tricolor{margin-top:8px}
+.step-wrap{margin-top:8px}
+#c1{margin:8px 6px;padding:10px 8px 12px}
+.role-grid{grid-template-columns:1fr 1fr;gap:8px}
+.role-card{flex-direction:row;justify-content:flex-start;align-items:center;text-align:left;gap:8px;padding:6px 8px;min-height:54px;border-radius:14px}
+.role-icon,.role-card.learner .role-icon{margin:0;font-size:20px;width:34px;height:34px;flex:0 0 34px;border-radius:10px}
+.role-name,.role-card.learner .role-name{font-size:16px;line-height:1.3;min-width:0;overflow-wrap:anywhere}
+@media(min-width:700px){
+  .hero h2{font-size:24px}
+  #c1{margin:10px auto;padding:12px 12px 14px}
+  .role-icon,.role-card.learner .role-icon{font-size:22px;width:40px;height:40px;flex:0 0 40px;border-radius:12px}
+  .role-grid{grid-template-columns:repeat(4,1fr);gap:10px}
+  .role-card{flex-direction:column;justify-content:center;text-align:center;gap:3px;padding:8px 8px 10px;min-height:96px}
+  .role-name,.role-card.learner .role-name{font-size:17px}
+}
+@media(min-width:1000px){.role-grid{grid-template-columns:repeat(6,1fr);gap:12px}}
 </style>
 <title>लॉगिन / डैशबोर्ड — अप्लाइड कंप्यूटर स्कूल</title>
 <script src="/assets/acs-config.js"></script>
@@ -224,7 +244,7 @@ a{text-decoration:none;color:inherit}
 <!-- ── HERO ── -->
 <div class="hero">
   <!-- (Founder-आदेश 12-Jul रात) ऊपर सिर्फ़ यह एक पंक्ति — बाक़ी सारा उपदेश निरस्त -->
-  <h2>सुंदर भविष्य के लिए अप्लाइड कंप्यूटर स्कूल से जुड़ें!</h2>
+  <h2>सुंदर भविष्य के लिए मुफ़्त ऑनलाइन कोर्स से हुनर और भाषा सीखें!</h2>
   <div class="hero-tricolor"><span></span><span></span><span></span></div>
 </div>
 <div id="acsPanelLangSlot"></div>

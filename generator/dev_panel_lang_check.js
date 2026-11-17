@@ -130,6 +130,10 @@ function staticSuite() {
   const src = rd("assets/i18n/panel_" + LG + ".js"), m = src.match(new RegExp('window\\.ACS_PANEL_PACKS\\["' + LG + '"\\]=(\\{[\\s\\S]*\\});\\s*$'));
   let P = null; try { P = m && JSON.parse(m[1]); } catch (e) {}
   if (!ck("S2 पैक पढ़ने-योग्य JSON, भाषा-कोड सही", !!P && P.lang === LG)) return;
+  { /* SR (v2.4, Founder का आदेश 18-Nov-2026) एकरूपता: भारतीय भाषा में हर भूमिका के नाम के साथ English भी, कोष्ठक में */
+    const badR = ((MX && MX.cards) || []).map(c => c.public_label || c.label).filter(k => { const v = (P.D || {})[k]; return !(typeof v === "string" && /\S\s\([A-Za-z][A-Za-z -]*\)\s*$/.test(v)); });
+    ck("SR हर भूमिका के नाम में स्थानीय नाम के साथ English भी (कोष्ठक में)", ((MX && MX.cards) || []).length >= 14 && badR.length === 0, badR.join(" ‖ "));
+    ck("SR लॉगिन का माथा इस भाषा में है", typeof (P.D || {})["सुंदर भविष्य के लिए मुफ़्त ऑनलाइन कोर्स से हुनर और भाषा सीखें!"] === "string" && !/अप्लाइड कंप्यूटर स्कूल से जुड़ें/.test(rd("dashboard/index.html"))); }
   if (TERMS) { /* SL (v1.7) शब्द-नियम: नियम-पत्रों के पाठ में और पैक के हर मान में छूट-सूची के बाहर English शब्द नहीं */
     const badL = [];
     fs.readdirSync(path.join(ROOT, LG)).filter(f => /^rules-consent-[a-z-]+\.html$/.test(f)).sort().forEach(f => {
@@ -881,6 +885,6 @@ async function dashSuite() {
   if (JSDOM_RACE) console.log("(जानकारी) jsdom की बंद खिड़की वाली दौड़ " + JSDOM_RACE + " बार हुई और छोड़ी गई (जाँच का औज़ार; पन्ने का code नहीं)");
   console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
   if (TERMS) console.log("जगह के नाम जो data में सिर्फ़ रोमन में हैं (विदेश के राज्य, कुछ राज्यों के जिले; हिंदी पैनल में भी रोमन में): " + PLACES.size + " देखे गए");
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v2.3 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v2.4 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();
