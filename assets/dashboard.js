@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.20.1 · 17-Nov-2026 (बांग्ला ब-1): "अनुवाद मिला या नहीं" की छह जाँचों (काग़ज़ों के साँचे, नाम, पक्के वाक्य, WhatsApp के संदेश) में "।" और "॥"
+     अब "देवनागरी बची" नहीं गिने जाते: ये बांग्ला, असमिया, ओड़िया और पंजाबी का अपना पूर्ण-विराम भी हैं। देवनागरी का हर अक्षर पहले की तरह
+     गिना जाता है; हिंदी, English और कन्नड़ में बर्ताव वही।
    v6.20.0 · 16-Nov-2026 (कन्नड़ क-3; Founder: "कन्नड को फूल & फाइनल" · "कन्नड मे सब कुछ कन्नड मे ही हो"):
      (1) data के नाम (कोर्स, भाषा) पैनल की भाषा में, जहाँ पैक में नाम-तालिका हो: प्रमाणपत्र के वाक्य में कोर्स का नाम (नीचे की English पंक्ति में
          English नाम), पहचान-पत्र पर कोर्स का नाम, WhatsApp के पहले से लिखे संदेशों के बाक़ी टुकड़े (nameOwn)।
@@ -143,7 +146,7 @@ const functions = getFunctions(app, "us-central1");
 const $ = (id)=>document.getElementById(id);
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.20.0";
+const DASH_VER = "v6.20.1";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -234,13 +237,13 @@ const DOC_KEYS=["cert_sentence","cert_date","cert_issued","cert_details","report
 function docOwn(){
   try{ const P=window.ACS_PANEL_I18N; if(!(P && P.active)) return null; const L=P.lang(); if(L==="hi"||L==="en") return null;
     const pk=(window.ACS_PANEL_PACKS||{})[L], C=pk&&pk.C; if(!C) return null;
-    for(const k of DOC_KEYS) if(typeof C[k]!=="string" || !C[k].trim() || /[\u0900-\u097F]/.test(C[k])) return null;
+    for(const k of DOC_KEYS) if(typeof C[k]!=="string" || !C[k].trim() || /[\u0900-\u0963\u0966-\u097F]/.test(C[k])) return null;
     return C; }catch(e){ return null; }
 }
 function docFill(t, o){ return String(t).replace(/\{([a-z]+)\}/g, function(m,k){ return Object.prototype.hasOwnProperty.call(o,k) ? String(o[k]) : m; }); }
 /* (v6.20.0, कन्नड़ क-3) data का नाम (कोर्स, भाषा) पैनल की भाषा में: पैक की नाम-तालिका से (ACS_PANEL_I18N.name); तालिका में न हो, तो वही English नाम */
-function nameOwn(en){ try{ const P=window.ACS_PANEL_I18N; if(en && P && P.active && typeof P.name==="function"){ const t=P.name(String(en)); if(t && !/[\u0900-\u097F]/.test(t)) return t; } }catch(e){} return en; }
-function docTr(hi){ try{ const t=window.ACS_PANEL_I18N.tr(hi); return (t && t!==hi && !/[\u0900-\u097F]/.test(t)) ? t : ""; }catch(e){ return ""; } }
+function nameOwn(en){ try{ const P=window.ACS_PANEL_I18N; if(en && P && P.active && typeof P.name==="function"){ const t=P.name(String(en)); if(t && !/[\u0900-\u0963\u0966-\u097F]/.test(t)) return t; } }catch(e){} return en; }
+function docTr(hi){ try{ const t=window.ACS_PANEL_I18N.tr(hi); return (t && t!==hi && !/[\u0900-\u0963\u0966-\u097F]/.test(t)) ? t : ""; }catch(e){ return ""; } }
 /* (v6.18.0, कन्नड़ क-1) पैनल हिंदी के अलावा किसी भी भाषा में चल रहा है। data के नाम (कोर्स) तब English में दिखते हैं (data-tr-en),
    जब तक उस भाषा का अपना नाम data में न हो। काग़ज़ (प्रमाणपत्र, परिचय-पत्र, संदेश) की भाषा इससे नहीं, docEn से तय होती है। */
 function panelOther(){ try{ const P=window.ACS_PANEL_I18N; return !!(P && P.active && P.lang()!=="hi"); }catch(e){ return false; } }
@@ -263,7 +266,7 @@ function DE(hi){ return Object.prototype.hasOwnProperty.call(DOC_EN,hi) ? DOC_EN
    पैक में न मिले (देवनागरी बचे), तो English */
 function DT(hi){
   if(!docEn()) return hi;
-  try{ const P=window.ACS_PANEL_I18N; if(P.lang()!=="en"){ const t=P.tr(hi); if(t && t!==hi && !/[\u0900-\u097F]/.test(t)) return t; } }catch(e){}
+  try{ const P=window.ACS_PANEL_I18N; if(P.lang()!=="en"){ const t=P.tr(hi); if(t && t!==hi && !/[\u0900-\u0963\u0966-\u097F]/.test(t)) return t; } }catch(e){}
   return DE(hi);
 }
 /* (v6.18.1) पहले से लिखे संदेश (WhatsApp) की कड़ी, पैनल की अपनी भाषा में: English संदेश की शुरुआत का पक्का वाक्य (DOC_EN का मान) उसी भाषा के वाक्य से
@@ -273,10 +276,10 @@ function ownMsgHref(en){
     const m=/^(https:\/\/wa\.me\/[^?]*\?text=)(.*)$/.exec(String(en||"")); if(!m) return "";
     const txt=decodeURIComponent(m[2]); let best="";
     for(const k in DOC_EN) if(txt.indexOf(DOC_EN[k])===0 && DOC_EN[k].length>best.length) best=k;
-    if(!best) return ""; const t=P.tr(best); if(!t || t===best || /[\u0900-\u097F]/.test(t)) return "";
+    if(!best) return ""; const t=P.tr(best); if(!t || t===best || /[\u0900-\u0963\u0966-\u097F]/.test(t)) return "";
     /* (v6.20.0) संदेश के बाक़ी टुकड़े (" · " से अलग): पक्का वाक्य हो तो उस भाषा में, कोर्स का नाम हो तो नाम-तालिका से; बाक़ी (नाम, संख्या, link) वैसे ही */
     const rest=txt.slice(DOC_EN[best].length).split(" · ").map(function(seg){
-      for(const k in DOC_EN) if(DOC_EN[k]===seg){ const t2=P.tr(k); return (t2 && t2!==k && !/[\u0900-\u097F]/.test(t2)) ? t2 : seg; }
+      for(const k in DOC_EN) if(DOC_EN[k]===seg){ const t2=P.tr(k); return (t2 && t2!==k && !/[\u0900-\u0963\u0966-\u097F]/.test(t2)) ? t2 : seg; }
       return nameOwn(seg); }).join(" · ");
     return m[1]+encodeURIComponent(t+rest);
   }catch(e){ return ""; }

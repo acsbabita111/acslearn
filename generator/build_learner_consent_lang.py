@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# generator/build_learner_consent_lang.py v2.3 (परत-4)
+# generator/build_learner_consent_lang.py v2.4 (परत-4)
+# v2.4 (17-Nov-2026, बांग्ला ब-1): घर की कड़ी उसी भाषा के घर पर और हिंदी मूल की कड़ी का नाम उसी भाषा में अब हर उस भाषा में, जिसकी तालिका में X_HI है (पहले: सिर्फ़ 15 की सूची के बाहर की भाषा)। बांग्ला के वाक्य नए (data में LANGS['bn'])। नया वैकल्पिक खाना X_EG: नाम के खाने का उदाहरण उसी भाषा के शब्द के साथ (बांग्ला और कन्नड़)। बाक़ी 12 पन्ने अक्षर-अक्षर वही।
 # v2.3 (16-Nov-2026, कन्नड़ क-2क): kn जुड़ी। जो भाषा 15 की सूची (L15) में नहीं, उसके पन्ने में वही 15 hreflang + उसका अपना (17 पंक्तियाँ); बाक़ी 13 पन्ने अक्षर-अक्षर वही।
 # v2.2 (14-Nov-2026, खेप 4 भाग 2): संस्करण 1.2; दो नए लंगर R6X (नियम 6 में फ़ीस के नए वाक्य) और R7X (नियम 7 में वापसी के नए वाक्य)।
 # v2.1 (13-Nov-2026): फीस वाली पंक्ति (F_S) का English लंगर नए नियम से मिलाया: Golden Pass में पूरा टेस्ट मुफ़्त, दिन में 2 बार तक।
@@ -122,12 +123,16 @@ def build(code,D,outdir):
     if code=='ur': s=s.replace('line-height:1.8;','line-height:2.1;')
     if code in RTL: s=s.replace('body{font-family','body{direction:rtl;font-family')
     assert "'" not in D['ALERT'], code+" ALERT में ASCII-apostrophe (JS टूटेगी) — ’ उपयोग करें"
-    if code not in L15:
+    assert code in L15 or D.get('X_HI'), code+' X_HI'
+    if D.get('X_HI'):   # v2.4: जिस भाषा की तालिका में X_HI है (kn, bn), सिर्फ़ उसी में; बाक़ी पन्ने अक्षर-अक्षर वही
         # v2.3: नई भाषा में घर की कड़ी उसी भाषा के घर पर, और हिंदी मूल की कड़ी का नाम उसी भाषा में (पन्ने पर देवनागरी नहीं)।
         a='<a href="/" style="color:#1565C0;font-weight:700;text-decoration:none">'+K['EX_H']; assert s.count(a)==2, code+' घर की कड़ी'
         s=s.replace(a,a.replace('href="/"','href="/%s/"'%code))
         h='🇮🇳 हिंदी</a>'; assert s.count(h)==2 and D.get('X_HI'), code+' हिंदी कड़ी का नाम'
         s=s.replace(h,'🇮🇳 '+D['X_HI']+'</a>')
+    if D.get('X_EG'):   # v2.4: नाम के खाने का उदाहरण ("e.g. RAJESH KUMAR") उसी भाषा के शब्द के साथ; नाम रोमन बड़े अक्षरों में ही (खाना वही माँगता है)
+        e='placeholder="e.g. RAJESH KUMAR"'; assert s.count(e)==1, code+' नाम का उदाहरण'
+        s=s.replace(e,'placeholder="'+D['X_EG']+'"')
     for kname,v in D.items():
         if kname.startswith('X_'): continue
         k=K[kname]

@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════
-   lib_panel_langs.js v1.0 · 15-Nov-2026 · पैनल की भाषाओं का घर (मशीन की तरफ़) + मिलान के नियम
+   lib_panel_langs.js v1.1 · 17-Nov-2026 · पैनल की भाषाओं का घर (मशीन की तरफ़) + मिलान के नियम
    Founder का क्रम (15-Nov-2026): हिंदी मूल, English पूरा; फिर
      1 कन्नड़ · 2 बांग्ला · 3 ओड़िया · 4 तमिल · 5 मलयालम · 6 तेलुगु · 7 असमिया · 8 मराठी · 9 गुजराती · 10 पंजाबी · 11 उर्दू;
    उसके बाद लगभग 15 विदेशी भाषाएँ (नई भाषा = ORDER में एक कोड + generator/data/panel_i18n/<कोड>.json)।
@@ -17,6 +17,12 @@ function info(code){
   const L=APT.L[code]; if(!L||!L.script) return null;
   return { code:code, script:L.script, hi:L.hi };
 }
+/* (v1.1, बांग्ला ब-1) "।" (U+0964) और "॥" (U+0965) देवनागरी के खंड में हैं, पर बांग्ला, असमिया, ओड़िया और गुरमुखी का अपना
+   पूर्ण-विराम भी यही है। इसलिए इन लिपियों के अनुवाद में ये दो चिह्न "देवनागरी बची" नहीं गिने जाते; देवनागरी का हर अक्षर, मात्रा
+   और अंक पहले की तरह गिना जाता है। बाक़ी भाषाओं (English, कन्नड़ ...) में पुराना नियम: खंड का कोई भी चिह्न नहीं। */
+const DANDA_SCRIPTS=["Beng","Orya","Guru"];
+function dandaOwn(code){ const I=info(code); return !!I&&DANDA_SCRIPTS.indexOf(I.script)>-1; }
+function devRe(code){ return dandaOwn(code)?/[\u0900-\u0963\u0966-\u097F]/:/[\u0900-\u097F]/; }
 const emo=s=>(s.match(/[\u{1F000}-\u{1FAFF}\u2600-\u27BF\u2190-\u21FF\u2B00-\u2BFF]/gu)||[]).sort().join("");
 const dig=s=>(s.replace(/\{\d+\}/g,"").match(/\d+/g)||[]).sort().join(",");
 const ph=s=>(s.match(/\{\d+\}/g)||[]).sort().join(",");
@@ -57,4 +63,4 @@ function parity(code, hi, tr, latinOk, T){
   if(I.script==="Deva"){ const m=APT.hindiMark(code,t); if(m) out.push(m); }
   return out;
 }
-module.exports={ ORDER:ORDER, info:info, parity:parity, noBrand:noBrand, BRAND:BRAND };
+module.exports={ ORDER:ORDER, info:info, parity:parity, noBrand:noBrand, BRAND:BRAND, dandaOwn:dandaOwn, devRe:devRe };

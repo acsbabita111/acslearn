@@ -1,0 +1,1570 @@
+{
+ "_": "बांग्ला पैनल का शब्द-नियम (खेप ब-1, 17-Nov-2026)। Founder का आदेश (16-Nov-2026): जिस भाषा का पैनल हो, उसमें सब कुछ उसी भाषा में। terms = English शब्द → बांग्ला लिपि (AI-मसौदा, बांग्ला टीम की जाँच बाक़ी)। keep = जो Latin अक्षरों में रहते हैं (brand, छोटे रूप)। बांग्ला में विभक्ति शब्द से सीधे जुड़ती है, इसलिए particles और suffix_forms ख़ाली हैं।",
+ "lang": "bn",
+ "script": "\\u0980-\\u09FF",
+ "block": "0980",
+ "keep": [
+  "ACS",
+  "FFGPMTrust",
+  "FFGPM",
+  "FFGPMT",
+  "WhatsApp",
+  "Razorpay",
+  "Firebase",
+  "Firestore",
+  "GitHub",
+  "Brevo",
+  "Chrome",
+  "Android",
+  "YouTube",
+  "Facebook",
+  "Instagram",
+  "LinkedIn",
+  "Telegram",
+  "Aadhaar",
+  "UNCITRAL",
+  "OTP",
+  "PDF",
+  "QR",
+  "ID",
+  "RM",
+  "ZM",
+  "HQ",
+  "AI",
+  "MB",
+  "KB",
+  "PNG",
+  "JPG",
+  "SVG",
+  "DCA",
+  "POCSO",
+  "POSH",
+  "DPDP",
+  "ISO",
+  "CEFR",
+  "NCERT",
+  "MSME",
+  "NBFC",
+  "CSR",
+  "PMMY",
+  "PMEGP",
+  "KPI",
+  "SOP",
+  "IP",
+  "API",
+  "SDK",
+  "PIN",
+  "MBA",
+  "BCA",
+  "BTech",
+  "PhD",
+  "RA",
+  "IST",
+  "GST",
+  "KYC",
+  "DSA",
+  "DEO",
+  "BC",
+  "ANM",
+  "ASHA",
+  "SBI",
+  "PAN",
+  "IT",
+  "WiFi",
+  "DD",
+  "MM",
+  "YYYY",
+  "Version",
+  "Auth",
+  "UID",
+  "EV",
+  "HR",
+  "MTech",
+  "MCA",
+  "MCom",
+  "LLB",
+  "BBA",
+  "BSc",
+  "MSc",
+  "BA",
+  "MA",
+  "BEd",
+  "MEd",
+  "BCom",
+  "MBBS",
+  "ITI",
+  "UG",
+  "PG",
+  "MNC",
+  "NGO"
+ ],
+ "keep_phrases": [
+  "Applied Computer School",
+  "From Village to World",
+  "ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar"
+ ],
+ "keep_any_case": [
+  "rm",
+  "zm",
+  "hq"
+ ],
+ "drop_ok": [
+  "father",
+  "mother",
+  "allow",
+  "pan",
+  "roles",
+  "sharma"
+ ],
+ "after_person": [],
+ "tidy_endings": [],
+ "skip_keys": [
+  "cert_details",
+  "प्रमाणपत्र नं / Certificate No",
+  "मान्यता एवं पंजीकरण / Registrations & Accreditations",
+  "मुख्यालय / Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201"
+ ],
+ "keep_in": {
+  "cert-order त्रुटि:": [
+   "cert"
+  ],
+  "cert-no टकराव — office से संपर्क करें (orderId: {0})": [
+   "cert",
+   "no"
+  ],
+  "⚠️ designation_matrix.js लोड नहीं हुआ — कृपया assets फ़ोल्डर जाँचें।": [
+   "assets"
+  ],
+  "toUid व until (YYYY-MM-DD) अनिवार्य।": [
+   "until"
+  ],
+  "Firebase तैयार नहीं है (SDK लोड नहीं हुआ या init विफल)।": [
+   "init"
+  ],
+  "action = set या cancel।": [
+   "action",
+   "set",
+   "cancel"
+  ],
+  "slug ख़ाली": [
+   "slug"
+  ],
+  "teams-record नहीं मिला: {0}": [
+   "teams",
+   "record"
+  ],
+  "type = work या id": [
+   "type",
+   "work",
+   "id"
+  ],
+  "roomId, lang, audioB64 चाहिए": [
+   "lang"
+  ],
+  "sdp ग़लत/बहुत बड़ा": [
+   "sdp"
+  ],
+  "cert-order त्रुटि: {0}": [
+   "cert"
+  ],
+  "cert-भुगतान त्रुटि: {0}": [
+   "cert"
+  ],
+  "until आने वाली तारीख़ हो।": [
+   "until"
+  ]
+ },
+ "particles": {},
+ "suffix_forms": {},
+ "terms": {
+  "founder": [
+   "প্রতিষ্ঠাতা"
+  ],
+  "head": [
+   "প্রধান"
+  ],
+  "heads": [
+   "প্রধানগণ"
+  ],
+  "head office": [
+   "প্রধান কার্যালয়"
+  ],
+  "admin": [
+   "প্রশাসক"
+  ],
+  "legal head": [
+   "আইন প্রধান"
+  ],
+  "finance head": [
+   "অর্থ প্রধান"
+  ],
+  "establishment head": [
+   "সংস্থাপন প্রধান"
+  ],
+  "academic head": [
+   "শিক্ষা প্রধান"
+  ],
+  "examination head": [
+   "পরীক্ষা প্রধান"
+  ],
+  "employment head": [
+   "কর্মসংস্থান প্রধান"
+  ],
+  "network head": [
+   "নেটওয়ার্ক প্রধান"
+  ],
+  "system security head": [
+   "সিস্টেম নিরাপত্তা প্রধান"
+  ],
+  "state head": [
+   "রাজ্য প্রধান"
+  ],
+  "country head": [
+   "দেশ প্রধান"
+  ],
+  "continental head": [
+   "মহাদেশ প্রধান"
+  ],
+  "continental": [
+   "মহাদেশীয়"
+  ],
+  "zonal": [
+   "জোনাল"
+  ],
+  "regional": [
+   "আঞ্চলিক"
+  ],
+  "legal": [
+   "আইন"
+  ],
+  "finance": [
+   "অর্থ"
+  ],
+  "establishment": [
+   "সংস্থাপন বিভাগ"
+  ],
+  "academic": [
+   "শিক্ষা"
+  ],
+  "examination": [
+   "পরীক্ষা বিভাগ"
+  ],
+  "employment": [
+   "কর্মসংস্থান বিভাগ"
+  ],
+  "department": [
+   "বিভাগ"
+  ],
+  "system security": [
+   "সিস্টেম নিরাপত্তা"
+  ],
+  "system": [
+   "সিস্টেম"
+  ],
+  "security": [
+   "নিরাপত্তা"
+  ],
+  "call center": [
+   "কল সেন্টার"
+  ],
+  "content creator": [
+   "কনটেন্ট ক্রিয়েটর"
+  ],
+  "course creator": [
+   "কোর্স ক্রিয়েটর"
+  ],
+  "creator": [
+   "ক্রিয়েটর"
+  ],
+  "social media manager": [
+   "সোশ্যাল মিডিয়া ম্যানেজার"
+  ],
+  "social media": [
+   "সোশ্যাল মিডিয়া"
+  ],
+  "social": [
+   "সামাজিক"
+  ],
+  "media": [
+   "মিডিয়া"
+  ],
+  "manager": [
+   "ম্যানেজার"
+  ],
+  "data entry operator": [
+   "ডেটা এন্ট্রি অপারেটর"
+  ],
+  "operator": [
+   "অপারেটর"
+  ],
+  "officer": [
+   "আধিকারিক"
+  ],
+  "referring officer": [
+   "সুপারিশকারী আধিকারিক"
+  ],
+  "volunteer": [
+   "স্বেচ্ছাসেবক"
+  ],
+  "intern": [
+   "ইন্টার্ন"
+  ],
+  "internship": [
+   "ইন্টার্নশিপ"
+  ],
+  "staff": [
+   "কর্মী"
+  ],
+  "field staff": [
+   "মাঠকর্মী"
+  ],
+  "field": [
+   "মাঠ"
+  ],
+  "teacher": [
+   "শিক্ষক"
+  ],
+  "student": [
+   "শিক্ষার্থী"
+  ],
+  "students": [
+   "শিক্ষার্থীরা"
+  ],
+  "learner": [
+   "প্রশিক্ষণার্থী"
+  ],
+  "employer": [
+   "নিয়োগকর্তা"
+  ],
+  "employers": [
+   "নিয়োগকর্তারা"
+  ],
+  "vendor": [
+   "বিক্রেতা"
+  ],
+  "counselor": [
+   "পরামর্শদাতা"
+  ],
+  "counselling": [
+   "পরামর্শ"
+  ],
+  "agent": [
+   "এজেন্ট"
+  ],
+  "foreign agent": [
+   "বিদেশি এজেন্ট"
+  ],
+  "foreign": [
+   "বিদেশি"
+  ],
+  "overseas": [
+   "বিদেশ"
+  ],
+  "agency": [
+   "এজেন্সি"
+  ],
+  "firm": [
+   "প্রতিষ্ঠান"
+  ],
+  "consultants": [
+   "কনসালট্যান্টস"
+  ],
+  "worker": [
+   "কর্মী"
+  ],
+  "guardian": [
+   "অভিভাবক"
+  ],
+  "owner": [
+   "মালিক"
+  ],
+  "mentor": [
+   "পথপ্রদর্শক"
+  ],
+  "ustad": [
+   "ওস্তাদ"
+  ],
+  "customer": [
+   "গ্রাহক"
+  ],
+  "candidate": [
+   "প্রার্থী"
+  ],
+  "publisher": [
+   "প্রকাশক"
+  ],
+  "writer": [
+   "লেখক"
+  ],
+  "script writer": [
+   "স্ক্রিপ্ট লেখক"
+  ],
+  "editor": [
+   "সম্পাদক"
+  ],
+  "designer": [
+   "ডিজাইনার"
+  ],
+  "animator": [
+   "অ্যানিমেটর"
+  ],
+  "artist": [
+   "শিল্পী"
+  ],
+  "entrepreneur": [
+   "উদ্যোক্তা"
+  ],
+  "job seeker": [
+   "চাকরিপ্রার্থী"
+  ],
+  "job seekers": [
+   "চাকরিপ্রার্থীরা"
+  ],
+  "seeker": [
+   "প্রার্থী"
+  ],
+  "sweeper": [
+   "ঝাড়ুদার"
+  ],
+  "superior": [
+   "ঊর্ধ্বতন আধিকারিক"
+  ],
+  "immediate superior": [
+   "সরাসরি ঊর্ধ্বতন আধিকারিক"
+  ],
+  "intermediary": [
+   "মধ্যস্থতাকারী"
+  ],
+  "minor": [
+   "নাবালক"
+  ],
+  "team": [
+   "দল"
+  ],
+  "mitra": [
+   "মিত্র"
+  ],
+  "finance mitra": [
+   "অর্থ মিত্র"
+  ],
+  "digital mitra": [
+   "ডিজিটাল মিত্র"
+  ],
+  "bank mitra": [
+   "ব্যাংক-মিত্র"
+  ],
+  "center": [
+   "কেন্দ্র"
+  ],
+  "centre": [
+   "কেন্দ্র"
+  ],
+  "workshop": [
+   "ওয়ার্কশপ"
+  ],
+  "office": [
+   "কার্যালয়"
+  ],
+  "state": [
+   "রাজ্য"
+  ],
+  "country": [
+   "দেশ"
+  ],
+  "metro": [
+   "মহানগর"
+  ],
+  "metropolitan": [
+   "মহানগর"
+  ],
+  "town": [
+   "শহর"
+  ],
+  "village": [
+   "গ্রাম"
+  ],
+  "area": [
+   "এলাকা"
+  ],
+  "india": [
+   "ভারত"
+  ],
+  "global south": [
+   "গ্লোবাল সাউথ"
+  ],
+  "global": [
+   "বৈশ্বিক"
+  ],
+  "university": [
+   "বিশ্ববিদ্যালয়"
+  ],
+  "shop": [
+   "দোকান"
+  ],
+  "lab": [
+   "ল্যাব"
+  ],
+  "platform": [
+   "প্ল্যাটফর্ম"
+  ],
+  "platform fee": [
+   "প্ল্যাটফর্ম ফি"
+  ],
+  "network": [
+   "নেটওয়ার্ক"
+  ],
+  "trust": [
+   "ট্রাস্ট"
+  ],
+  "trust policy": [
+   "আস্থা নীতি"
+  ],
+  "bank": [
+   "ব্যাংক"
+  ],
+  "police": [
+   "পুলিশ"
+  ],
+  "police verification": [
+   "পুলিশ যাচাই"
+  ],
+  "dashboard": [
+   "ড্যাশবোর্ড"
+  ],
+  "panel": [
+   "প্যানেল"
+  ],
+  "login": [
+   "লগইন"
+  ],
+  "logout": [
+   "লগআউট"
+  ],
+  "password": [
+   "পাসওয়ার্ড"
+  ],
+  "account": [
+   "অ্যাকাউন্ট"
+  ],
+  "accounts": [
+   "হিসাব বিভাগ"
+  ],
+  "email": [
+   "ইমেল"
+  ],
+  "mobile": [
+   "মোবাইল"
+  ],
+  "inbox": [
+   "ইনবক্স"
+  ],
+  "spam": [
+   "স্প্যাম"
+  ],
+  "session": [
+   "সেশন"
+  ],
+  "server": [
+   "সার্ভার"
+  ],
+  "browser": [
+   "ব্রাউজার"
+  ],
+  "internet": [
+   "ইন্টারনেট"
+  ],
+  "online": [
+   "অনলাইন"
+  ],
+  "offline": [
+   "অফলাইন"
+  ],
+  "website": [
+   "ওয়েবসাইট"
+  ],
+  "portal": [
+   "পোর্টাল"
+  ],
+  "app": [
+   "অ্যাপ"
+  ],
+  "software": [
+   "সফটওয়্যার"
+  ],
+  "device": [
+   "ডিভাইস"
+  ],
+  "laptop": [
+   "ল্যাপটপ"
+  ],
+  "desktop": [
+   "ডেস্কটপ"
+  ],
+  "computer": [
+   "কম্পিউটার"
+  ],
+  "link": [
+   "লিংক"
+  ],
+  "button": [
+   "বোতাম"
+  ],
+  "master button": [
+   "মূল বোতাম"
+  ],
+  "master": [
+   "মূল"
+  ],
+  "menu": [
+   "মেনু"
+  ],
+  "page": [
+   "পাতা"
+  ],
+  "form": [
+   "ফর্ম"
+  ],
+  "format": [
+   "ফরম্যাট"
+  ],
+  "font": [
+   "ফন্ট"
+  ],
+  "code": [
+   "কোড"
+  ],
+  "referral code": [
+   "রেফারেল কোড"
+  ],
+  "referral": [
+   "রেফারেল"
+  ],
+  "click": [
+   "ক্লিক"
+  ],
+  "copy": [
+   "কপি"
+  ],
+  "download": [
+   "ডাউনলোড"
+  ],
+  "upload": [
+   "আপলোড"
+  ],
+  "print": [
+   "প্রিন্ট"
+  ],
+  "share": [
+   "শেয়ার"
+  ],
+  "submit": [
+   "জমা"
+  ],
+  "refresh": [
+   "রিফ্রেশ"
+  ],
+  "search": [
+   "খোঁজ"
+  ],
+  "preview": [
+   "ঝলক"
+  ],
+  "free preview": [
+   "বিনামূল্যের ঝলক"
+  ],
+  "status": [
+   "অবস্থা"
+  ],
+  "step": [
+   "ধাপ"
+  ],
+  "mode": [
+   "মোড"
+  ],
+  "slot": [
+   "স্লট"
+  ],
+  "seat": [
+   "আসন"
+  ],
+  "batch": [
+   "ব্যাচ"
+  ],
+  "tag": [
+   "ট্যাগ"
+  ],
+  "banner": [
+   "ব্যানার"
+  ],
+  "poster": [
+   "পোস্টার"
+  ],
+  "thumbnail": [
+   "থাম্বনেইল"
+  ],
+  "logo": [
+   "লোগো"
+  ],
+  "image": [
+   "ছবি"
+  ],
+  "video": [
+   "ভিডিও"
+  ],
+  "live video": [
+   "লাইভ ভিডিও"
+  ],
+  "voice": [
+   "কণ্ঠ"
+  ],
+  "recording": [
+   "রেকর্ডিং"
+  ],
+  "live": [
+   "লাইভ"
+  ],
+  "live class": [
+   "লাইভ ক্লাস"
+  ],
+  "post": [
+   "পোস্ট"
+  ],
+  "channel": [
+   "চ্যানেল"
+  ],
+  "script": [
+   "স্ক্রিপ্ট"
+  ],
+  "prompt": [
+   "প্রম্পট"
+  ],
+  "tools": [
+   "সরঞ্জাম"
+  ],
+  "robot": [
+   "রোবট"
+  ],
+  "check robot": [
+   "যাচাই রোবট"
+  ],
+  "data": [
+   "ডেটা"
+  ],
+  "database": [
+   "ডেটাবেস"
+  ],
+  "record": [
+   "রেকর্ড"
+  ],
+  "log": [
+   "লগ"
+  ],
+  "backup": [
+   "ব্যাকআপ"
+  ],
+  "key": [
+   "চাবি"
+  ],
+  "access": [
+   "প্রবেশাধিকার"
+  ],
+  "permission": [
+   "অনুমতি"
+  ],
+  "credentials": [
+   "লগইন তথ্য"
+  ],
+  "hack": [
+   "হ্যাক"
+  ],
+  "leak": [
+   "ফাঁস"
+  ],
+  "block": [
+   "ব্লক"
+  ],
+  "crash": [
+   "ক্র্যাশ"
+  ],
+  "patch": [
+   "প্যাচ"
+  ],
+  "firewall": [
+   "ফায়ারওয়াল"
+  ],
+  "cyber": [
+   "সাইবার"
+  ],
+  "uptime": [
+   "চালু থাকার সময়"
+  ],
+  "connectivity": [
+   "সংযোগ ব্যবস্থা"
+  ],
+  "connection": [
+   "সংযোগ"
+  ],
+  "control": [
+   "নিয়ন্ত্রণ"
+  ],
+  "audit": [
+   "অডিট"
+  ],
+  "audit trail": [
+   "অডিট রেকর্ড"
+  ],
+  "trail": [
+   "রেকর্ডের ধারা"
+  ],
+  "privacy": [
+   "গোপনীয়তা"
+  ],
+  "privacy by design": [
+   "নকশাতেই গোপনীয়তা"
+  ],
+  "deploy": [
+   "ডিপ্লয়"
+  ],
+  "function": [
+   "ফাংশন"
+  ],
+  "cloud": [
+   "ক্লাউড"
+  ],
+  "push": [
+   "পুশ"
+  ],
+  "feature": [
+   "সুবিধা"
+  ],
+  "flow": [
+   "প্রবাহ"
+  ],
+  "source": [
+   "উৎস"
+  ],
+  "handover": [
+   "হস্তান্তর"
+  ],
+  "delegation": [
+   "দায়িত্ব হস্তান্তর"
+  ],
+  "approval": [
+   "অনুমোদন"
+  ],
+  "approve": [
+   "অনুমোদন"
+  ],
+  "approved": [
+   "অনুমোদিত"
+  ],
+  "reject": [
+   "প্রত্যাখ্যান"
+  ],
+  "provisional": [
+   "অস্থায়ী"
+  ],
+  "pending": [
+   "বাকি"
+  ],
+  "active": [
+   "সক্রিয়"
+  ],
+  "hold": [
+   "স্থগিত"
+  ],
+  "un hold": [
+   "স্থগিত প্রত্যাহার"
+  ],
+  "transfer": [
+   "বদলি"
+  ],
+  "verification": [
+   "যাচাই"
+  ],
+  "verify": [
+   "যাচাই"
+  ],
+  "verified": [
+   "যাচাইকৃত"
+  ],
+  "verified badge": [
+   "যাচাইকৃত ব্যাজ"
+  ],
+  "badge": [
+   "ব্যাজ"
+  ],
+  "golden pass": [
+   "গোল্ডেন পাস"
+  ],
+  "golden badge": [
+   "গোল্ডেন ব্যাজ"
+  ],
+  "golden": [
+   "গোল্ডেন"
+  ],
+  "pass": [
+   "পাস"
+  ],
+  "green tick": [
+   "সবুজ টিক"
+  ],
+  "green": [
+   "সবুজ"
+  ],
+  "tick": [
+   "টিক"
+  ],
+  "yellow": [
+   "হলুদ"
+  ],
+  "notice": [
+   "নোটিস"
+  ],
+  "short notice": [
+   "সংক্ষিপ্ত নোটিস"
+  ],
+  "short": [
+   "সংক্ষিপ্ত"
+  ],
+  "show cause": [
+   "কারণ দর্শানোর নোটিস"
+  ],
+  "suspension": [
+   "সাময়িক বরখাস্ত"
+  ],
+  "emergency suspension": [
+   "জরুরি সাময়িক বরখাস্ত"
+  ],
+  "emergency": [
+   "জরুরি"
+  ],
+  "rules": [
+   "নিয়মাবলি"
+  ],
+  "terms": [
+   "নিয়ম ও শর্তাবলি"
+  ],
+  "policy": [
+   "নীতি"
+  ],
+  "charter": [
+   "সনদ"
+  ],
+  "annexure": [
+   "পরিশিষ্ট"
+  ],
+  "article": [
+   "অনুচ্ছেদ"
+  ],
+  "act": [
+   "আইন"
+  ],
+  "agreement": [
+   "চুক্তিপত্র"
+  ],
+  "compliance": [
+   "বিধি পালন"
+  ],
+  "license": [
+   "লাইসেন্স"
+  ],
+  "copyright": [
+   "কপিরাইট"
+  ],
+  "moral rights": [
+   "নৈতিক অধিকার"
+  ],
+  "moral": [
+   "নৈতিক"
+  ],
+  "rights": [
+   "অধিকার"
+  ],
+  "integrity": [
+   "সততা"
+  ],
+  "fairness": [
+   "ন্যায্যতা"
+  ],
+  "fraud": [
+   "প্রতারণা"
+  ],
+  "complaint": [
+   "অভিযোগ"
+  ],
+  "disclaimer": [
+   "দায় অস্বীকার"
+  ],
+  "guarantee": [
+   "নিশ্চয়তা"
+  ],
+  "guaranteed": [
+   "নিশ্চিত"
+  ],
+  "warranty": [
+   "ওয়ারেন্টি"
+  ],
+  "official": [
+   "অফিশিয়াল"
+  ],
+  "original": [
+   "মূল"
+  ],
+  "public": [
+   "সর্বজনীন"
+  ],
+  "internal": [
+   "অভ্যন্তরীণ"
+  ],
+  "technical": [
+   "প্রযুক্তিগত"
+  ],
+  "norm": [
+   "মানদণ্ড"
+  ],
+  "child labor": [
+   "শিশুশ্রম"
+  ],
+  "minimum wage act": [
+   "ন্যূনতম মজুরি আইন"
+  ],
+  "minimum wage": [
+   "ন্যূনতম মজুরি"
+  ],
+  "minimum": [
+   "ন্যূনতম"
+  ],
+  "wage": [
+   "মজুরি"
+  ],
+  "human trafficking": [
+   "মানব পাচার"
+  ],
+  "human": [
+   "মানব"
+  ],
+  "trafficking": [
+   "পাচার"
+  ],
+  "work from home": [
+   "বাড়ি থেকে কাজ"
+  ],
+  "bypass": [
+   "পাশ কাটানো পথ"
+  ],
+  "shortcut": [
+   "সংক্ষিপ্ত পথ"
+  ],
+  "manual": [
+   "হাতে করা"
+  ],
+  "designation": [
+   "পদ"
+  ],
+  "role": [
+   "ভূমিকা"
+  ],
+  "fee": [
+   "ফি"
+  ],
+  "fees": [
+   "ফি"
+  ],
+  "paid": [
+   "সশুল্ক"
+  ],
+  "free": [
+   "বিনামূল্যে"
+  ],
+  "payment": [
+   "পেমেন্ট"
+  ],
+  "refund": [
+   "ফেরত"
+  ],
+  "commission": [
+   "কমিশন"
+  ],
+  "royalty": [
+   "রয়্যালটি"
+  ],
+  "revenue": [
+   "আয়"
+  ],
+  "income": [
+   "আয়"
+  ],
+  "stipend": [
+   "ভাতা"
+  ],
+  "fund": [
+   "তহবিল"
+  ],
+  "gift": [
+   "উপহার"
+  ],
+  "loan": [
+   "ঋণ"
+  ],
+  "disbursement": [
+   "বিতরণ"
+  ],
+  "slab": [
+   "স্ল্যাব"
+  ],
+  "rate": [
+   "হার"
+  ],
+  "bill": [
+   "বিল"
+  ],
+  "order": [
+   "অর্ডার"
+  ],
+  "booking": [
+   "বুকিং"
+  ],
+  "cancel": [
+   "বাতিল"
+  ],
+  "escrow": [
+   "এসক্রো অ্যাকাউন্ট"
+  ],
+  "cheque": [
+   "চেক"
+  ],
+  "passbook": [
+   "পাসবই"
+  ],
+  "processing": [
+   "প্রক্রিয়াকরণ"
+  ],
+  "advance": [
+   "অগ্রিম"
+  ],
+  "split": [
+   "ভাগ"
+  ],
+  "empanelment": [
+   "তালিকাভুক্তি"
+  ],
+  "course": [
+   "কোর্স"
+  ],
+  "class": [
+   "ক্লাস"
+  ],
+  "lesson": [
+   "পাঠ"
+  ],
+  "module": [
+   "মডিউল"
+  ],
+  "content": [
+   "কনটেন্ট"
+  ],
+  "material": [
+   "সামগ্রী"
+  ],
+  "study material": [
+   "পড়ার সামগ্রী"
+  ],
+  "study": [
+   "পড়াশোনা"
+  ],
+  "notes": [
+   "নোট"
+  ],
+  "coaching": [
+   "কোচিং"
+  ],
+  "training": [
+   "প্রশিক্ষণ"
+  ],
+  "practical": [
+   "হাতে-কলমে প্রশিক্ষণ"
+  ],
+  "exam": [
+   "পরীক্ষা"
+  ],
+  "test": [
+   "পরীক্ষা"
+  ],
+  "result": [
+   "ফলাফল"
+  ],
+  "score": [
+   "স্কোর"
+  ],
+  "grade": [
+   "গ্রেড"
+  ],
+  "fail": [
+   "অকৃতকার্য"
+  ],
+  "qualifying": [
+   "যোগ্যতা নির্ধারক"
+  ],
+  "certificate": [
+   "সার্টিফিকেট"
+  ],
+  "aptitude": [
+   "পেশা-আগ্রহ"
+  ],
+  "career": [
+   "পেশা"
+  ],
+  "admission": [
+   "ভর্তি"
+  ],
+  "enrollment": [
+   "ভর্তি"
+  ],
+  "enrolled": [
+   "ভর্তি হওয়া"
+  ],
+  "registration": [
+   "নিবন্ধন"
+  ],
+  "registrations": [
+   "নিবন্ধনসমূহ"
+  ],
+  "register": [
+   "নিবন্ধন"
+  ],
+  "registered": [
+   "নিবন্ধিত"
+  ],
+  "apprenticeship": [
+   "শিক্ষানবিশি"
+  ],
+  "placement": [
+   "চাকরিতে নিয়োগ"
+  ],
+  "job": [
+   "চাকরি"
+  ],
+  "jobs": [
+   "চাকরি"
+  ],
+  "joining": [
+   "যোগদান"
+  ],
+  "work": [
+   "কাজ"
+  ],
+  "tour": [
+   "সফর"
+  ],
+  "industrial tour": [
+   "শিল্প সফর"
+  ],
+  "industrial area": [
+   "শিল্পাঞ্চল"
+  ],
+  "industrial": [
+   "শিল্প"
+  ],
+  "business": [
+   "ব্যবসা"
+  ],
+  "project": [
+   "প্রকল্প"
+  ],
+  "project report": [
+   "প্রকল্প প্রতিবেদন"
+  ],
+  "bank finance ready": [
+   "ব্যাংক ঋণের জন্য প্রস্তুত"
+  ],
+  "report": [
+   "রিপোর্ট"
+  ],
+  "ready": [
+   "প্রস্তুত"
+  ],
+  "marketing": [
+   "মার্কেটিং"
+  ],
+  "branding": [
+   "ব্র্যান্ডিং"
+  ],
+  "brand": [
+   "ব্র্যান্ড"
+  ],
+  "packaging": [
+   "প্যাকেজিং"
+  ],
+  "delivery": [
+   "ডেলিভারি"
+  ],
+  "export": [
+   "রপ্তানি"
+  ],
+  "listing": [
+   "তালিকাভুক্তি"
+  ],
+  "rating": [
+   "রেটিং"
+  ],
+  "star rating": [
+   "স্টার রেটিং"
+  ],
+  "star": [
+   "স্টার"
+  ],
+  "testimonials": [
+   "প্রশংসাবার্তা"
+  ],
+  "portfolio": [
+   "কাজের নমুনা সংগ্রহ"
+  ],
+  "ecosystem": [
+   "ইকোসিস্টেম"
+  ],
+  "blueprint": [
+   "নীলনকশা"
+  ],
+  "mission": [
+   "মিশন"
+  ],
+  "first customer mission": [
+   "প্রথম গ্রাহক মিশন"
+  ],
+  "first": [
+   "প্রথম"
+  ],
+  "recovery": [
+   "পুনরুদ্ধার"
+  ],
+  "turn key": [
+   "সম্পূর্ণ প্রস্তুত"
+  ],
+  "design": [
+   "নকশা"
+  ],
+  "electronics": [
+   "ইলেকট্রনিক্স"
+  ],
+  "digital": [
+   "ডিজিটাল"
+  ],
+  "analytics": [
+   "পরিসংখ্যান বিশ্লেষণ"
+  ],
+  "sector": [
+   "ক্ষেত্র"
+  ],
+  "stand up india": [
+   "স্ট্যান্ড-আপ ইন্ডিয়া"
+  ],
+  "name": [
+   "নাম"
+  ],
+  "number": [
+   "নম্বর"
+  ],
+  "unique": [
+   "অনন্য"
+  ],
+  "unique number": [
+   "অনন্য নম্বর"
+  ],
+  "detail": [
+   "বিবরণ"
+  ],
+  "details": [
+   "বিবরণ"
+  ],
+  "history": [
+   "ইতিহাস"
+  ],
+  "action": [
+   "পদক্ষেপ"
+  ],
+  "cycle": [
+   "চক্র"
+  ],
+  "functioning": [
+   "কার্যক্রম"
+  ],
+  "support": [
+   "সহায়তা"
+  ],
+  "review": [
+   "পর্যালোচনা"
+  ],
+  "version": [
+   "সংস্করণ"
+  ],
+  "tier": [
+   "স্তর"
+  ],
+  "best": [
+   "সেরা"
+  ],
+  "immediate": [
+   "তাৎক্ষণিক"
+  ],
+  "final": [
+   "চূড়ান্ত"
+  ],
+  "lifetime": [
+   "আজীবন"
+  ],
+  "future": [
+   "ভবিষ্যৎ"
+  ],
+  "other": [
+   "অন্যান্য"
+  ],
+  "english": [
+   "ইংরেজি"
+  ],
+  "japanese": [
+   "জাপানি"
+  ],
+  "roman capital": [
+   "রোমান বড় হাতের অক্ষর"
+  ],
+  "roman": [
+   "রোমান"
+  ],
+  "capital": [
+   "বড় হাতের অক্ষর"
+  ],
+  "bracket": [
+   "বন্ধনী"
+  ],
+  "square bracket": [
+   "বর্গ বন্ধনী"
+  ],
+  "square": [
+   "বর্গ"
+  ],
+  "space": [
+   "ফাঁকা জায়গা"
+  ],
+  "text": [
+   "লেখা"
+  ],
+  "passport": [
+   "পাসপোর্ট"
+  ],
+  "voter": [
+   "ভোটার"
+  ],
+  "masters": [
+   "স্নাতকোত্তর"
+  ],
+  "govt": [
+   "সরকারি"
+  ],
+  "just in time": [
+   "প্রয়োজনের সময়ে"
+  ],
+  "close up": [
+   "কাছ থেকে তোলা"
+  ],
+  "publish": [
+   "প্রকাশ"
+  ],
+  "apply": [
+   "আবেদন"
+  ],
+  "add": [
+   "যোগ"
+  ],
+  "valid": [
+   "বৈধ"
+  ],
+  "generation": [
+   "তৈরি"
+  ],
+  "kind": [
+   "ধরন"
+  ],
+  "reason": [
+   "কারণ"
+  ],
+  "purpose": [
+   "উদ্দেশ্য"
+  ],
+  "type": [
+   "প্রকার"
+  ],
+  "label": [
+   "নামফলক"
+  ],
+  "labels": [
+   "নামফলক"
+  ],
+  "diagram": [
+   "চিত্র"
+  ],
+  "element": [
+   "উপাদান"
+  ],
+  "sync": [
+   "মিল"
+  ],
+  "parse": [
+   "পড়া"
+  ],
+  "call": [
+   "কল"
+  ],
+  "video call": [
+   "ভিডিও কল"
+  ],
+  "registration no": [
+   "নিবন্ধন নম্বর"
+  ],
+  "reg no": [
+   "নিবন্ধন নম্বর"
+  ],
+  "data entry": [
+   "ডেটা এন্ট্রি"
+  ],
+  "entry": [
+   "এন্ট্রি"
+  ],
+  "voter id": [
+   "ভোটার পরিচয়পত্র"
+  ],
+  "supersedes": [
+   "এটি যে সংস্করণের জায়গা নেয়"
+  ],
+  "original content only": [
+   "শুধু মূল কনটেন্ট"
+  ],
+  "only": [
+   "শুধু"
+  ],
+  "institutional details": [
+   "প্রতিষ্ঠানের বিবরণ"
+  ],
+  "accreditations": [
+   "স্বীকৃতি"
+  ],
+  "view": [
+   "দেখুন"
+  ],
+  "reg": [
+   "নিবন্ধন"
+  ],
+  "company": [
+   "কোম্পানি"
+  ],
+  "international": [
+   "আন্তর্জাতিক"
+  ],
+  "driving licence": [
+   "ড্রাইভিং লাইসেন্স"
+  ],
+  "licence": [
+   "লাইসেন্স"
+  ]
+ }
+}

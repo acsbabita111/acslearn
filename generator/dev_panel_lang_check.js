@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_lang_check.js v1.7 (16-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
+   dev_panel_lang_check.js v1.8 (17-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
    Founder का आदेश (15-Nov-2026): "कोई यूजर एक बार अपने पैनल को ... ले तो उसको देवनागरी में कुछ भी नहीं दिखना चाहिए।"
    यह robot असली पन्ने (लॉगिन, रजिस्ट्रेशन, रजिस्ट्रेशन गाइड, सब dashboard) jsdom में उस भाषा में खोलकर हर बटन दबाता है और देखता है:
      • दिखने वाले पाठ, attribute, <title> और संदेश-डिब्बों में देवनागरी शून्य;
@@ -10,6 +10,9 @@
    Founder के आदेश (16-Nov-2026): (1) हिंदी के अलावा किसी भाषा में हिंदी कहीं न दिखे; जो चीज़ इस भाषा में अभी नहीं बनी, वह English में।
    (2) जो इस भाषा में मौजूद है या बन सकता है, वह इसी भाषा में (English में नहीं): करियर टेस्ट और होम की कड़ी इस भाषा के पन्ने पर, नियम-परदा,
    WhatsApp के पहले से लिखे संदेश। (3) हर जगह साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी नियम-पत्र की कड़ी हो।
+   v1.8 (बांग्ला ब-1): (1) "।" जिन लिपियों का अपना पूर्ण-विराम है (बांग्ला ...), उनमें वह "देवनागरी बची" नहीं गिना जाता (lib_panel_langs.js: devRe);
+     पैक में "dn" का निशान lib से मेल खाए, और इंजन v1.9 उसे पढ़े। (2) SR1: तीसरी मान्य हालत: सिर्फ़ विद्यार्थी का नियम-पत्र उस भाषा में
+     (वह करियर टेस्ट के साथ पहले से बना होता है); बाक़ी 26 भूमिकाओं के पत्र तब तक English (गिनती E1 में छपती है)।
    v1.7 (क-3; Founder: "कन्नड को फूल & फाइनल" · "कन्नड मे सब कुछ कन्नड मे ही हो"): जिस भाषा का शब्द-नियम है (<भाषा>_terms.json),
      उसमें हर पन्ने पर, हर बटन के बाद: छूट-सूची (brand के नाम, छोटे रूप, पते) के बाहर English शब्द शून्य; नियम-पत्रों के पाठ में भी;
      कोर्स, भाषा, समूह और उद्यम के नाम उसी भाषा में (पैक की नाम-तालिका); प्रमाणपत्र के वाक्य में कोर्स का नाम उसी भाषा में;
@@ -40,7 +43,7 @@ const P1 = require("./dev_panel_i18n_check.js"), P2 = require("./dev_panel_dash_
 const { openPage, loginTransform, settle, waitFor, typeIn, click, hindiLeaks, bodyText, MX, R, roleList, HJ, joinStep1, joinOtp, joinRole, joinRules, joinStep3, rej, firstDiff } = P1;
 const { openDash, openAll, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf } = P2;
 const rd = p => fs.readFileSync(path.join(ROOT, p), "utf8");
-const DEV = /[ऀ-ॿ]/;
+const DEV = PL.devRe(LG);   /* (v1.9, बांग्ला ब-1) "देवनागरी बची?": जिन लिपियों का अपना पूर्ण-विराम "।" है (बांग्ला ...), उनमें "।" और "॥" नहीं गिने जाते; बाक़ी में पहले जैसा (lib_panel_langs.js: devRe) */
 /* (v1.4) इस भाषा का अपना नियम-पत्र repo में है? हो, तो वही अपेक्षित; न हो, तो English का */
 const OWNR = f => fs.existsSync(path.join(ROOT, LG, f));
 const RLG = f => OWNR(f) ? LG : "en";
@@ -88,13 +91,17 @@ function latinLeaks(c) {
     return LTM.scan(t, TERMS, null).filter(w => !UV.some(v => v.indexOf(w) > -1 && t.indexOf(v) > -1)); };
   const SKIP = "script,style,noscript,textarea,#acsPanelLangBar,#acsTranslatePanel,#dashVer,#v-lang,#v-clang,[data-lname],[data-i18n-skip],[translate=no]";   /* #v-lang, #v-clang: वाणी की भाषा-सूचियाँ (हर भाषा अपने नाम में) */
   const out = [], d = c.d, tw = d.createTreeWalker(d.body, 4); let n;
+  /* (v1.8) रजिस्ट्रेशन में English नियम-पत्र जान-बूझकर दिख रहा हो (इस भूमिका का पत्र इस भाषा में अभी नहीं; ऊपर इसी भाषा में सूचना EN_NOTE; गिनती E1):
+     तब उस पत्र का अपना English पाठ नहीं गिना जाता। ऊपर की सूचना और क़ानूनी पंक्ति (#rulesLegalNote) पहले की तरह गिनी जाती हैं। */
+  let enZone = null; try { const rc = d.getElementById("rulesContainer"), f0 = rc && rc.firstElementChild; if (f0 && f0.textContent === c.w.ACS_PANEL_I18N.tr(EN_NOTE)) enZone = rc; } catch (e) {}
+  const inEn = el => !!enZone && enZone.contains(el) && el !== enZone && !enZone.firstElementChild.contains(el) && !el.closest("#rulesLegalNote");
   while ((n = tw.nextNode())) {
     const t = n.nodeValue; if (!/[A-Za-z]{2}/.test(t)) continue;
-    const p = n.parentElement; if (!p || p.closest(SKIP)) continue;
+    const p = n.parentElement; if (!p || p.closest(SKIP) || inEn(p)) continue;
     const bad = scanU(t); if (bad.length) out.push(bad.join(",") + " ← " + t.replace(/\s+/g, " ").trim().slice(0, 90));
   }
   d.querySelectorAll("*").forEach(el => {
-    if (el.closest(SKIP)) return;
+    if (el.closest(SKIP) || inEn(el)) return;
     for (const a of ATTRS_E) { const v = el.getAttribute(a); if (!v || !/[A-Za-z]{2}/.test(v)) continue; const bad = scanU(v); if (bad.length) out.push("@" + a + " " + bad.join(",") + " ← " + v.slice(0, 80)); }
   });
   return out;
@@ -129,14 +136,16 @@ function staticSuite() {
     ck("SL2 पैक के हर मान में English शब्द शून्य (" + Object.keys(P.D).length + " मान)", badP.length === 0, badP.length + ": " + badP.slice(0, 5).join(" ‖ "));
     ck("SL3 पैक में नाम-तालिका (N), साँचे (NT) और शब्द-तालिका (L, LK, LS) हैं", !!P.N && Object.keys(P.N).length > 900 && Array.isArray(P.NT) && P.NT.length > 5 && !!P.L && Object.keys(P.L).length === Object.keys(TERMS.terms).length && Array.isArray(P.LK) && typeof P.LS === "string", (P.N ? Object.keys(P.N).length : 0) + " नाम");
     const eng = rd("assets/panel_i18n.js");
-    ck("SL4 इंजन v1.8: नाम-तालिका और शब्द-तालिका पढ़ता है; नाम का रास्ता (name) देता है", /var VER="1\.8"/.test(eng) && /function nameFind\(/.test(eng) && /function latinFix\(/.test(eng) && /name:function\(en\)/.test(eng));
+    ck("SL5 \"।\" का नियम: पैक का निशान (dn) भाषा की लिपि से मेल खाता है; इंजन उसे पढ़ता है (DEVC = dn ? DEVL : DEVA)", (!!P.dn) === PL.dandaOwn(LG) && /DEVC=pk\.dn\?DEVL:DEVA;/.test(eng) && /DEVC=DEVA; compileL\(null\)/.test(eng), "dn=" + P.dn);
+    ck("SL4 इंजन v1.9: नाम-तालिका और शब्द-तालिका पढ़ता है; नाम का रास्ता (name) देता है", /var VER="1\.9"/.test(eng) && /function nameFind\(/.test(eng) && /function latinFix\(/.test(eng) && /name:function\(en\)/.test(eng));
   }
   { /* SR (v1.4, क-2क) इस भाषा के अपने नियम-पत्र: या तो एक भी नहीं, या सब के सब; हर पत्र ताज़ा, हिंदी मूल के संस्करण का, देवनागरी शून्य, हिंदी मूल की कड़ी के साथ; पैक उन्हें जानता है */
     const HIF = fs.readdirSync(ROOT).filter(f => /^rules-consent-[a-z-]+\.html$/.test(f)).sort(), OWF = HIF.filter(OWNR);
-    ck("SR1 इस भाषा के नियम-पत्र: या तो एक भी नहीं, या सब (" + OWF.length + " / " + HIF.length + ")", OWF.length === 0 || OWF.length === HIF.length, HIF.filter(f => !OWNR(f)).slice(0, 5).join(","));
+    const LONLY = OWF.length === 1 && OWF[0] === LF;   /* (v1.8) सिर्फ़ विद्यार्थी का पत्र: मान्य बीच की हालत */
+    ck("SR1 इस भाषा के नियम-पत्र: एक भी नहीं, या सिर्फ़ विद्यार्थी का, या सब (" + OWF.length + " / " + HIF.length + ")", OWF.length === 0 || LONLY || OWF.length === HIF.length, HIF.filter(f => !OWNR(f)).slice(0, 5).join(","));
     if (OWF.length) {
-      const rr = cp.spawnSync(process.execPath, [path.join(ROOT, "generator/build_rules_consent_en.js"), LG, "--check"], { encoding: "utf8" });
-      ck("SR2 भूमिकाओं के नियम-पत्र ताज़ा हैं (build_rules_consent_en.js " + LG + " --check)", rr.status === 0, ((rr.stdout || "") + (rr.stderr || "")).slice(-300));
+      const rr = LONLY ? { status: 0 } : cp.spawnSync(process.execPath, [path.join(ROOT, "generator/build_rules_consent_en.js"), LG, "--check"], { encoding: "utf8" });
+      ck("SR2 भूमिकाओं के नियम-पत्र ताज़ा हैं (build_rules_consent_en.js " + LG + " --check)" + (LONLY ? " : लागू नहीं (भूमिकाओं के पत्र अभी English)" : ""), rr.status === 0, ((rr.stdout || "") + (rr.stderr || "")).slice(-300));
       const ver = h => (/<b>Version: ([0-9.]+)/.exec(h) || [])[1] || "", vis = h => h.replace(/<!--[\s\S]*?-->/g, "").replace(/\/\*[\s\S]*?\*\//g, "");
       const bad = [];
       for (const f of OWF) { const h = rd(LG + "/" + f), hi = rd(f);
@@ -849,6 +858,6 @@ async function dashSuite() {
   if (JSDOM_RACE) console.log("(जानकारी) jsdom की बंद खिड़की वाली दौड़ " + JSDOM_RACE + " बार हुई और छोड़ी गई (जाँच का औज़ार; पन्ने का code नहीं)");
   console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
   if (TERMS) console.log("जगह के नाम जो data में सिर्फ़ रोमन में हैं (विदेश के राज्य, कुछ राज्यों के जिले; हिंदी पैनल में भी रोमन में): " + PLACES.size + " देखे गए");
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.7 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v1.8 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();

@@ -48,15 +48,18 @@
 (function(){
 "use strict";
 if(window.ACS_PANEL_I18N) return;
-var VER="1.8";
+var VER="1.9";
 var LSK="acs_dash_lang";
 /* पैनल की भाषाएँ: [कोड, देवनागरी नाम, रोमन नाम, अपनी लिपि में नाम]। नई भाषा = यहाँ एक पंक्ति + उसका पैक।
    (v1.2, Founder-नियम 15-Nov-2026) भाषा के हर बटन पर नाम तीनों रूप में, हमेशा: देवनागरी · रोमन · अपनी लिपि
    (जो रूप दूसरे जैसा ही हो, वह दोबारा नहीं)। तीनों नाम साइट के 🌐 बटन की तालिका (acs-universal.js:
    ACS_LANG_DEVA, ACS_LANG_ROMAN, ACS_LANG_NAMES) से हूबहू; पहरा: dev_lang_switch_check.js। */
-var LANGS=[["hi","हिन्दी","Hindi","हिन्दी"],["en","अंग्रेज़ी","English","English"],["kn","कन्नड","Kannada","ಕನ್ನಡ"]];
-var PACK={en:"/assets/i18n/panel_en.js",kn:"/assets/i18n/panel_kn.js"};
-var DEVC=/[ऀ-ॿ]/;
+var LANGS=[["hi","हिन्दी","Hindi","हिन्दी"],["en","अंग्रेज़ी","English","English"],["kn","कन्नड","Kannada","ಕನ್ನಡ"],["bn","बांग्ला","Bengali","বাংলা"]];
+var PACK={en:"/assets/i18n/panel_en.js",kn:"/assets/i18n/panel_kn.js",bn:"/assets/i18n/panel_bn.js"};
+/* (v1.9, बांग्ला ब-1) DEVC = "इस पाठ में हिंदी बची है?"। आम तौर पर देवनागरी-खंड का कोई भी चिह्न (DEVA)। जिस भाषा का अपना
+   पूर्ण-विराम "।" है (पैक में dn:1: बांग्ला, असमिया, ओड़िया, पंजाबी), वहाँ "।" और "॥" नहीं गिने जाते (DEVL): वरना बदला हुआ
+   पाठ "हिंदी" दिखता और उसका "।" "." में बदल जाता। भाषा बदलते ही useLang इसे दोबारा तय करता है। */
+var DEVA=/[ऀ-ॿ]/, DEVL=/[\u0900-\u0963\u0966-\u097F]/, DEVC=DEVA;
 var ATTRS=["placeholder","title","aria-label","alt","label","data-h"];   /* (v1.2) data-h: dashboard में CSS ::before से दिखता है */
 var NAV_SEL=".acs-drawer a,.acs-fmenu a,#acsMenuList a,.acs-nav a";
 
@@ -427,12 +430,12 @@ function load(c, cb){
   (document.head||document.documentElement).appendChild(s);
 }
 function useLang(c, cb){
-  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[]; DRAFT=""; OWN={}; NM=null; NT=[]; compileL(null);
+  if(c==="hi"){ if(ACTIVE){ ACTIVE=false; restore(); } CUR="hi"; D=null; KEYS=[]; MEMO={}; TPL=[]; DRAFT=""; OWN={}; NM=null; NT=[]; DEVC=DEVA; compileL(null);
     try{ document.documentElement.setAttribute("lang","hi"); }catch(e){} bar(); unwait(); emit(); if(cb) cb(true); return; }
   load(c, function(pk){
     if(!pk){ unwait(); bar(); if(cb) cb(false); return; }
     if(ACTIVE&&CUR!==c){ ACTIVE=false; restore(); }
-    CUR=c; D=pk.D; DRAFT=pk.draft||""; OWN=pk.P||{}; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; }); TPL=compileT(pk.T);
+    CUR=c; D=pk.D; DEVC=pk.dn?DEVL:DEVA; DRAFT=pk.draft||""; OWN=pk.P||{}; MEMO={}; KEYS=Object.keys(D).sort(function(a,b){ return b.length-a.length; }); TPL=compileT(pk.T);
     GEO={}; var g=pk.G||[], gi; for(gi=0;gi<g.length;gi++) GEO[g[gi]]=1;
     NM=pk.N||null; NT=compileN(pk.NT); compileL(pk.L, pk.LK, pk.LS, pk.LP);
     function go(){ activate(); unwait(); emit(); if(cb) cb(true); }

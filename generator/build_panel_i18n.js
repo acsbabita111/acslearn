@@ -50,6 +50,9 @@ const PL=require("./lib_panel_langs.js"), LI=PL.info(LANG), EN_MODE=(LANG==="en"
 if(!LI){ console.log("⛔ भाषा-कोड \""+LANG+"\" पैनल-भाषाओं की सूची (generator/lib_panel_langs.js का ORDER) में नहीं, या उसकी लिपि lib_apt_langs.js में दर्ज नहीं।"); process.exit(1); }
 if(LI.script==="Deva"){ console.log("⛔ देवनागरी में लिखी जाने वाली भाषा ("+LANG+") की पहुँच-जाँच और इंजन का पहरा अभी नहीं बना (\"हिंदी बची या नहीं\" लिपि से नहीं पहचाना जा सकता)। यह उस भाषा की खेप में बनेगा।"); process.exit(1); }
 const DEV=/[ऀ-ॿ]/;
+/* (v1.9, बांग्ला ब-1) अनुवाद में "देवनागरी बची?" की जाँच: जिन लिपियों का अपना पूर्ण-विराम "।" है (lib_panel_langs.js: dandaOwn),
+   उनमें "।" और "॥" नहीं गिने जाते; बाक़ी भाषाओं में पहले जैसा। कुंजी (हिंदी मूल) की जाँच वही पुरानी DEV। */
+const DEVV=PL.devRe(LANG), DANDA=PL.dandaOwn(LANG);
 const VER="1.2";   /* 1.2 (पैनल-3): पैक में T (साँचे) */
 /* पैक किन हिस्सों को ढकता है (पैनल-खेपों के साथ बढ़ेगा)। सब हिस्से पूरे = complete:true।
    करियर-टेस्ट की नई भाषा का द्वार (lib_apt_langs.js panelGate) इसी पर चलता है। */
@@ -162,7 +165,7 @@ if(!EN_MODE){ const LOK=MAN.latin_ok||[];
 for(const [h,e] of Object.entries(D).concat(TP)){
   if(!DEV.test(h)) bad.push("कुंजी में देवनागरी नहीं: "+h);
   if(typeof e!=="string"||!e.trim()) bad.push("ख़ाली मान: "+h);
-  else { if(DEV.test(e)) bad.push("मान में देवनागरी: "+h+" → "+e);
+  else { if(DEVV.test(e)) bad.push("मान में देवनागरी: "+h+" → "+e);
          if(e.indexOf("—")>-1) bad.push("मान में — (em dash): "+h+" → "+e);
          if(e.indexOf("�")>-1||h.indexOf("�")>-1) bad.push("U+FFFD: "+h); }
 }
@@ -298,19 +301,19 @@ function engineTr(){
   sb.window=sb; sb.alert=sb.confirm=sb.prompt=function(){};
   vm.createContext(sb);
   vm.runInContext(fs.readFileSync(path.join(ROOT,"assets/panel_i18n.js"),"utf8"),sb,{filename:"panel_i18n.js"});
-  sb.ACS_PANEL_PACKS={}; sb.ACS_PANEL_PACKS[LANG]={D:D,G:[...GEOK],T:TP};
+  sb.ACS_PANEL_PACKS={}; sb.ACS_PANEL_PACKS[LANG]=DANDA?{D:D,G:[...GEOK],T:TP,dn:1}:{D:D,G:[...GEOK],T:TP};
   sb.ACS_PANEL_I18N.set(LANG);
   if(sb.ACS_PANEL_I18N.lang()!==LANG){ console.log("⛔ इंजन ने भाषा नहीं ली (panel_i18n.js की PACK-सूची में "+LANG+" है?)"); process.exit(1); }
   return sb.ACS_PANEL_I18N.tr;
 }
 const TR=engineTr(), miss=[];
-for(const [t,src] of need){ const o=TR(t); if(DEV.test(o)) miss.push(src+" :: "+t+"  ⇒  "+o); }
+for(const [t,src] of need){ const o=TR(t); if(DEVV.test(o)) miss.push(src+" :: "+t+"  ⇒  "+o); }
 /* (v1.4) server के संदेश: {n} की जगह नमूना-मान रखकर; अकेले भी और "नहीं हुआ: " के बाद भी (dashboard ऐसे ही दिखाता है)।
    साँचे वाले संदेश का नतीजा ठीक वही हो जो अनुवाद में लिखा है (कोई दूसरा टुकड़ा बीच में न घुसे)। */
 if(SCOPE.indexOf("server")>-1) for(const hi of SRV){ const en=MSRV[hi]; if(typeof en!=="string") continue;
   const fill=t=>t.replace(/\{(\d+)\}/g,(_,d)=>"X"+d+"7");
   const o=TR(fill(hi)), o2=TR("नहीं हुआ: "+fill(hi)), o3=TR(fill(hi)+" पहले login करें।");   /* o3: संदेश के बाद भी पाठ हो (साँचे के आगे-पीछे दोनों ओर बदले) */
-  if(DEV.test(o)||DEV.test(o2)||DEV.test(o3)) miss.push("server :: "+hi+"  ⇒  "+o+"  |  "+o2+"  |  "+o3);
+  if(DEVV.test(o)||DEVV.test(o2)||DEVV.test(o3)) miss.push("server :: "+hi+"  ⇒  "+o+"  |  "+o2+"  |  "+o3);
   else if(norm(o)!==norm(fill(en))) miss.push("server (नतीजा अनुवाद से अलग) :: "+hi+"  ⇒  "+o+"  ≠  "+fill(en));
   else if(o2.indexOf(norm(fill(en)))<0) miss.push("server (\"नहीं हुआ: \" के बाद नतीजा अलग) :: "+hi+"  ⇒  "+o2); }
 /* (v1.3) अनुवाद-सूची बनाने का औज़ार: ACS_MISS=<फ़ाइल> पर छूटे टुकड़े (स्रोत :: हिंदी) उस फ़ाइल में */
@@ -324,6 +327,7 @@ const SD={}; keys.forEach(k=>SD[k]=D[k]);
 const complete=(ALL_AREAS[LANG]||ALL_AREAS.en).every(a=>SCOPE.indexOf(a)>-1);
 /* (v1.5) पैक का ढाँचा: English में वही जो पहले था (अक्षर-भर नहीं बदला); दूसरी भाषा में draft_note हो तो "draft" भी */
 const PACKOBJ={v:VER,lang:LANG,name:MAN.name||LANG,scope:SCOPE,complete:complete};
+if(DANDA) PACKOBJ.dn=1;   /* (v1.9) इस भाषा का अपना पूर्ण-विराम "।" है: इंजन उसे "." में नहीं बदलता और "हिंदी बची" नहीं मानता */
 if(!EN_MODE&&typeof MAN.draft_note==="string"&&MAN.draft_note.trim()){ for(const x of PL.parity(LANG,"मसौदा",MAN.draft_note,MAN.latin_ok||["AI"],TERMS)) { console.log("⛔ draft_note: "+x); process.exit(1); } PACKOBJ.draft=MAN.draft_note.trim(); }
 /* (v1.6, Founder का आदेश 16-Nov-2026: "कन्नड़ पैनल से कन्नड़ पन्ने पर ही जाना चाहिए") इस भाषा के अपने पन्ने:
    repo के en/ folder का जो पन्ना <भाषा>/ folder में भी मौजूद है, उसका जोड़ा पैक के "P" खाने में ("/en/x" → "/<भाषा>/x")।
@@ -349,7 +353,7 @@ if(!EN_MODE&&MAN.docs){
   for(const k of Object.keys(DOC_SPEC)){ const t=DOCS[k], [need,must,own]=DOC_SPEC[k];
     if(typeof t!=="string"||!t.trim()){ DB.push(k+": ख़ाली या ग़ायब"); continue; }
     if(t!==t.trim()) DB.push(k+": शुरू या अंत में ख़ाली जगह");
-    if(/[\u0900-\u097F]/.test(t)) DB.push(k+": देवनागरी");
+    if(DEVV.test(t)) DB.push(k+": देवनागरी");
     if(/[\u2014\u2013\uFFFD<>"\\]/.test(t)) DB.push(k+": लंबी रेखा, टूटा अक्षर या < > \" \\");
     const got=(t.match(/\{[^}]*\}/g)||[]).map(x=>x.slice(1,-1)).sort().join(","), want=need.slice().sort().join(",");
     if(got!==want) DB.push(k+": {खाने} अलग (चाहिए: "+(want||"कोई नहीं")+"; मिले: "+(got||"कोई नहीं")+")");
@@ -368,7 +372,7 @@ if(EN_MODE&&(MAN.names||MAN.name_tpl)){ console.log("⛔ en.json में \"nam
 if(!EN_MODE&&MAN.names){
   const NB=[], NA=MAN.names, NTP=MAN.name_tpl||[], LI3=PL.info(LANG), APT3=require("./lib_apt_langs.js");
   const okv=(k,v)=>{ if(typeof v!=="string"||!v.trim()||v!==v.trim()) return NB.push("ख़ाली या किनारे पर जगह: "+k);
-    if(/[\u0900-\u097F]/.test(v)) NB.push("देवनागरी: "+k+" → "+v);
+    if(DEVV.test(v)) NB.push("देवनागरी: "+k+" → "+v);
     if(/[\u2014\u2013\uFFFD]/.test(v)) NB.push("लंबी रेखा या टूटा अक्षर: "+k+" → "+v);
     for(const ch of v){ const sc=APT3.scriptOf(ch.codePointAt(0)); if(sc&&sc!==LI3.script&&sc!=="Latn"){ NB.push("पराई लिपि ("+sc+"): "+k+" → "+v); break; } }
     if(TERMS){ const left=LT.scan(v.replace(/\{\d\}/g," "),TERMS,null).filter(w=>!/^[A-Z]{2,}$/.test(w));   /* परीक्षा और संस्था के छोटे रूप (UPSC, SSC) नामों में रोमन में ही */

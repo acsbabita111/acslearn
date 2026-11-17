@@ -1,4 +1,6 @@
-/* /assets/rules-gate.js : v1.4 (16-Nov-2026)
+/* /assets/rules-gate.js : v1.5 (17-Nov-2026)
+   v1.5 (बांग्ला ब-1): "वाक्य पैक में मिला या नहीं" की जाँच में "।" और "॥" अब नहीं गिने जाते (ये बांग्ला, असमिया, ओड़िया और पंजाबी का अपना
+     पूर्ण-विराम भी हैं); देवनागरी का हर अक्षर पहले की तरह गिना जाता है। हिंदी, English और कन्नड़ में बर्ताव वही।
    v1.4 (कन्नड़ क-1 v1.3, ऑडिट की शर्त): अनुवाद न मिलने की हालत में कड़ी हिंदी नियम-पत्र पर जाती है (परदे के भीतर हिंदी नियम कभी नहीं दिखते);
    उस हालत की दोनों पंक्तियाँ अब पैनल की भाषा में (GATE_HI के rdHi, noTr), English में नहीं।
    v1.3 (कन्नड़ क-1 v1.2, Founder के आदेश 16-Nov-2026): (1) पैनल (login, dashboard) हिंदी और English के अलावा किसी भाषा में हो, तो परदा
@@ -49,7 +51,7 @@ function gateOwn() {
     var I = window.ACS_PANEL_I18N; if (!I || !I.active || !I.lang || !I.tr) return null;
     var l = I.lang(); if (l === "hi" || l === "en") return null;
     var o = { lang: l }, k, t;
-    for (k in GATE_HI) { t = I.tr(GATE_HI[k]); if (/[\u0900-\u097F]/.test(t)) return null; o[k] = t; }
+    for (k in GATE_HI) { t = I.tr(GATE_HI[k]); if (/[\u0900-\u0963\u0966-\u097F]/.test(t)) return null; o[k] = t; }
     return o;
   } catch (e) { return null; }
 }

@@ -45,7 +45,12 @@ const ACS_LINKS = {
           register: "ನೋಂದಣಿ", verify: "ಪ್ರಮಾಣಪತ್ರಗಳು", network: "ಜಾಲ", vani: "ವಾಣಿ", contact: "ಸಂಪರ್ಕ",
           refund: "ಮರುಪಾವತಿ ನೀತಿ", privacy: "ಗೌಪ್ಯತೆ ನೀತಿ", terms: "ನಿಯಮ ಮತ್ತು ಷರತ್ತುಗಳು",
           top: "ಪುಟದ ಮೇಲಕ್ಕೆ ಹೋಗಿ", back: "ಹಿಂದೆ ಹೋಗಿ", menu: "ಮೆನು", close: "ಮುಚ್ಚಿ",
-          footer: "ಅಡಿಟಿಪ್ಪಣಿ ಮೆನು", wa: "WhatsApp ನಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ", logo: "ACS ಲೋಗೋ" }
+          footer: "ಅಡಿಟಿಪ್ಪಣಿ ಮೆನು", wa: "WhatsApp ನಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ", logo: "ACS ಲೋಗೋ" },
+    bn: { home: "হোম", mission: "মিশন", salah: "পরামর্শ", udyam: "উদ্যোগ", courses: "কোর্স",
+          register: "নিবন্ধন", verify: "সার্টিফিকেট", network: "নেটওয়ার্ক", vani: "বাণী", contact: "যোগাযোগ",
+          refund: "ফেরত নীতি", privacy: "গোপনীয়তা নীতি", terms: "নিয়ম ও শর্তাবলি",
+          top: "পাতার উপরে যান", back: "পিছনে যান", menu: "মেনু", close: "বন্ধ করুন",
+          footer: "নিচের মেনু", wa: "WhatsApp-এ যোগাযোগ করুন", logo: "ACS লোগো" }
   },
 
   /* ---------- ख़ास paths (single source) ---------- */

@@ -1,4 +1,4 @@
-/* generator/dev_cert_guard.js : v1.17 (16-Nov-2026; v1.17 कन्नड़ क-3: प्रमाणपत्र पर कोर्स का नाम पैनल की भाषा में (नाम-तालिका); v1.16 कन्नड़ क-2क-2: अपनी भाषा + English वाला प्रमाणपत्र certTextOwn और काग़ज़ों के साँचे; v1.15 पैनल-4: English प्रमाणपत्र certTextEn पर भी validity और परीक्षा-तिथि के नियम) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
+/* generator/dev_cert_guard.js : v1.18 (17-Nov-2026; v1.18 बांग्ला ब-1: "।" बांग्ला का अपना पूर्ण-विराम है: dashboard.js की docTr और nameOwn की नई जाँच-पंक्ति, और पैक के साँचों व पक्के वाक्यों की "देवनागरी बची?" जाँच भाषा के हिसाब से (lib_panel_langs.devRe); v1.17 कन्नड़ क-3: प्रमाणपत्र पर कोर्स का नाम पैनल की भाषा में (नाम-तालिका); v1.16 कन्नड़ क-2क-2: अपनी भाषा + English वाला प्रमाणपत्र certTextOwn और काग़ज़ों के साँचे; v1.15 पैनल-4: English प्रमाणपत्र certTextEn पर भी validity और परीक्षा-तिथि के नियम) : खेप 3-क का पहरेदार (प्रमाणपत्र); v1.1 में ऑडिट K3A-H01 से H04 की जाँच
    v1.14 (पैनल-2): dashboard का English अब assets/i18n/panel_en.js में (पुरानी dash_i18n_en.js हटी); वही वाक्य वहीं जाँचे जाते हैं।
    v1.13 (पैनल-1): रजिस्ट्रेशन का संस्करण अब एक ही जगह (expectedRulesVer) से; नियम-परदा सहमति के साथ भाषा भी भेजता है।
    जाँच का अर्थ वही: विद्यार्थी 1.2, बाक़ी 1.1; सहमति में server को संस्करण जाता है।ें
@@ -192,7 +192,7 @@ console.log("3-च. अपनी भाषा + English वाला प्र�
   var oa = d.indexOf("  function certOwn(){"), ob = d.indexOf("\n  }\n", oa), own = oa > 0 ? d.slice(oa, ob) : "";
   ok(own.length > 800 && /const C=docOwn\(\); if\(!C\) return null;/.test(own) && /for\(const k of \["trust","title","certify","name","wish","certno","scan","sign","trustee","slogan","office"\]\) if\(!S\[k\]\) return null;/.test(own) && /S\.months\.some\(function\(m\)\{ return !m; \}\)\) return null;/.test(own),
      "एक भी पक्का वाक्य उस भाषा में न मिले, तो आधा अनूदित प्रमाणपत्र नहीं बनता (certOwn कुछ नहीं लौटाता; तब सिर्फ़ English)");
-  ok(/function docTr\(hi\)\{ try\{ const t=window\.ACS_PANEL_I18N\.tr\(hi\); return \(t && t!==hi && !\/\[\\u0900-\\u097F\]\/\.test\(t\)\) \? t : ""; \}catch\(e\)\{ return ""; \} \}/.test(d), "docTr: अनुवाद में देवनागरी बचे या अनुवाद न मिले, तो \"\" (वह वाक्य नहीं छपता)");
+  ok(/function docTr\(hi\)\{ try\{ const t=window\.ACS_PANEL_I18N\.tr\(hi\); return \(t && t!==hi && !\/\[\\u0900-\\u0963\\u0966-\\u097F\]\/\.test\(t\)\) \? t : ""; \}catch\(e\)\{ return ""; \} \}/.test(d), "docTr: अनुवाद में देवनागरी बचे या अनुवाद न मिले, तो \"\" (वह वाक्य नहीं छपता)");
   /* साँचों की कुंजियाँ: dashboard.js का DOC_KEYS = पैक-मशीन का DOC_SPEC */
   var mk = /const DOC_KEYS=(\[[^\]]*\]);/.exec(d), bp = rd("generator/build_panel_i18n.js"), sa = bp.indexOf("const DOC_SPEC={"), sb = bp.indexOf("};", sa);
   var keys = mk ? JSON.parse(mk[1]) : [], spec = sa > 0 ? (bp.slice(sa, sb).match(/^\s*([a-z_]+):/gm) || []).map(function (x) { return x.replace(/[\s:]/g, ""); }) : [];
@@ -203,14 +203,15 @@ console.log("3-च. अपनी भाषा + English वाला प्र�
     var w = {}; new Function("window", rd(dir + "/" + f))(w); var L = f.slice(6, -3), pk = (w.ACS_PANEL_PACKS || {})[L] || {}, C = pk.C;
     if (L === "en") { if (C) bad.push("English पैक में C है"); return; }
     if (!C) return; withC.push(L);
-    keys.forEach(function (k) { if (typeof C[k] !== "string" || !C[k].trim() || DEVR.test(C[k])) bad.push(L + "." + k); });
+    var DVL = require("./lib_panel_langs.js").devRe(L);   /* (v1.18) "।" जिन लिपियों का अपना पूर्ण-विराम है (बांग्ला ...), उनमें वह देवनागरी नहीं गिना जाता; बाक़ी में पहले जैसा */
+    keys.forEach(function (k) { if (typeof C[k] !== "string" || !C[k].trim() || DVL.test(C[k])) bad.push(L + "." + k); });
     if (!/\{course\}/.test(C.cert_sentence || "") || !/\{date\}/.test(C.cert_sentence || "") || !/\{pct\}/.test(C.cert_sentence || "")) bad.push(L + ": वाक्य के {खाने}");
     if (!/\{issued\}/.test(C.cert_issued || "") || !/\{valid\}/.test(C.cert_issued || "")) bad.push(L + ": जारी-पंक्ति के {खाने}");
     if (!/\{no\}/.test(C.report_valid || "") || !/\{date\}/.test(C.report_valid || "") || !/\{no\}/.test(C.report_expired || "") || !/\{date\}/.test(C.report_expired || "")) bad.push(L + ": रिपोर्ट-पंक्ति के {खाने}");
     if (!/^[A-Za-z0-9 ]+$/.test(C.font || "") || !/^[A-Za-z0-9+]+$/.test(C.gfam || "")) bad.push(L + ": font");
     ["अप्लाइड कंप्यूटर स्कूल™", "फ़्रीडम फ़ाइटर गंगाधर प्रसाद मेमोरियल ट्रस्ट", "ऑनलाइन कोर्स-पूर्णता प्रमाणपत्र", "प्रमाणित किया जाता है कि", "नाम :", "पिता का नाम :", "माता का नाम :", "अभिभावक का नाम :", "हम इनके उज्ज्वल भविष्य की कामना करते हैं।", "प्रमाणपत्र नं / Certificate No", "स्कैन कर सत्यापित करें", "प्राधिकृत हस्ताक्षर", "प्रधान ट्रस्टी, FFGPMT", "130 भाषा में, गाँव से ग्लोबल साउथ तक!",
       "मुख्यालय / Head Office: ACS Building, Vidyarthi Nagar, Karua-Javahartola Road, Chautham, Khagaria, Bihar - 851201", "जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"].forEach(function (h) {
-      var t = (pk.D || {})[h]; if (typeof t !== "string" || !t.trim() || DEVR.test(t)) bad.push(L + ": पैक में \"" + h + "\" का अनुवाद नहीं"); });
+      var t = (pk.D || {})[h]; if (typeof t !== "string" || !t.trim() || DVL.test(t)) bad.push(L + ": पैक में \"" + h + "\" का अनुवाद नहीं"); });
     if ((pk.D || {})["अप्लाइड कंप्यूटर स्कूल™"] !== "Applied Computer School™") bad.push(L + ": brand का नाम रोमन में नहीं");
   });
   ok(bad.length === 0, "हर भाषा-पैक: English में साँचे नहीं; जिस पैक में साँचे हैं (" + (withC.join(", ") || "कोई नहीं") + "), उसमें सब कुंजियाँ, {खाने}, font और प्रमाणपत्र के सब पक्के वाक्य; brand रोमन में" + (bad.length ? " :: " + bad.slice(0, 5).join(" | ") : ""));
@@ -228,7 +229,7 @@ console.log("3-छ. प्रमाणपत्र पर कोर्स का
   var a = d.indexOf("  async function certTextOwn("), b = d.indexOf("\n  }\n", a), body = a > 0 ? strip(d.slice(a, b)) : "";
   ok(/if\(t==="\{course\}"\) segs\.push\(\{text:nameOwn\(crs\), font:navyB/.test(body), "अपनी भाषा के वाक्य में कोर्स का नाम नाम-तालिका से (nameOwn)");
   ok(/\{text:"has passed the online examination for", font:eng, color:"#4a5a70"\},\s*\{text:crs, font:engB/.test(body), "नीचे की English पंक्ति में कोर्स का English नाम ही (crs)");
-  ok(/function nameOwn\(en\)\{ try\{ const P=window\.ACS_PANEL_I18N; if\(en && P && P\.active && typeof P\.name==="function"\)\{ const t=P\.name\(String\(en\)\); if\(t && !\/\[\\u0900-\\u097F\]\/\.test\(t\)\) return t; \} \}catch\(e\)\{\} return en; \}/.test(d), "nameOwn: तालिका में नाम न हो, इंजन पुराना हो या नाम में देवनागरी निकले, तो वही English नाम (प्रमाणपत्र कभी ख़ाली या हिंदी नाम से नहीं)");
+  ok(/function nameOwn\(en\)\{ try\{ const P=window\.ACS_PANEL_I18N; if\(en && P && P\.active && typeof P\.name==="function"\)\{ const t=P\.name\(String\(en\)\); if\(t && !\/\[\\u0900-\\u0963\\u0966-\\u097F\]\/\.test\(t\)\) return t; \} \}catch\(e\)\{\} return en; \}/.test(d), "nameOwn: तालिका में नाम न हो, इंजन पुराना हो या नाम में देवनागरी निकले, तो वही English नाम (प्रमाणपत्र कभी ख़ाली या हिंदी नाम से नहीं)");
   var e = rd("assets/panel_i18n.js");
   ok(/function nameOwn\(en\)\{ var r; en=String\(en\); if\(!ACTIVE\|\|CUR==="en"\|\|!NM\|\|!en\) return en; r=nameFind\(en,0\); return r===null\?en:r; \}/.test(e), "इंजन: English पैनल और हिंदी में नाम वैसा ही; तालिका में न मिले तो English नाम");
   ok(/if\(\/\[A-Za-z\]\/\.test\(part\)\)\{ part=nameFind\(part, depth\+1\); if\(part===null\)\{ ok=false; break; \} \}/.test(e), "इंजन: साँचे का कोई हिस्सा तालिका में न हो, तो पूरा नाम English में (आधा अनुवाद नहीं)");
