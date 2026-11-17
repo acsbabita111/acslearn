@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.24.0 · 18-Nov-2026 (कक्षा-परत K-3b: हाज़िरी; server: class_server.js v1.5): k1-block में हाज़िरी।
+     शिक्षक और उस्ताद ("मेरी कक्षाएँ"): आज या पिछले 3 दिन की हाज़िरी लगाएँ या सुधारें। केंद्र और वर्कशॉप ("कक्षा व बैच"): हाज़िरी देखें।
+     विद्यार्थी ("मेरा केंद्र"): अपनी हाज़िरी। Founder के देखने के मोड में तीनों सूचियाँ पढ़ी जाती हैं (VIEW_READ)।
    v6.23.0 · 17-Nov-2026 (Founder का आदेश: "Founder को सभी पैनल देखने का अधिकार दो"): Founder का देखने वाला मोड।
      Founder हर बाहरी घर खोल सकता है: नमूना-रूप में, या किसी खाते की नज़र से (?nazar=<ACS नंबर>)। देखने के मोड में लिखने वाला हर काम बंद।
      httpsCallable अब एक दरवाज़े से (fbCallable का लिफ़ाफ़ा); data की पहचान vu(u) से; ऊपर पट्टी #nazarBar; Founder के घर में पैनल "सभी घर"।
@@ -163,7 +166,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -181,7 +184,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.23.0";
+const DASH_VER = "v6.24.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -4236,6 +4239,49 @@ if (MODE==="external" && ALLOWED.length>=1) {
         (s.minor?(s.guardianOk?' 🛡️':' <span style="color:#B71C1C">🛡️ Guardian-दस्तावेज़ नहीं</span>'):'')+'</div>'; });
     return h;
   }
+  /* ───────── (K-3b · 18-Nov-2026) हाज़िरी ─────────
+     शिक्षक/उस्ताद: आज या पिछले 3 दिन की हाज़िरी लगाए या सुधारे (हर विद्यार्थी: उपस्थित, अनुपस्थित या छुट्टी)।
+     केंद्र/वर्कशॉप: सिर्फ़ देखे। विद्यार्थी: सिर्फ़ अपनी (mcClass में)। server: class_server.js v1.5 */
+  var ATT={}, MYATT=null, AM={ P:"उपस्थित", A:"अनुपस्थित", L:"छुट्टी" };
+  function dd(d){ var p=String(d||"").split("-"); return p.length===3 ? p[2]+"/"+p[1]+"/"+p[0] : "—"; }
+  function pc(v){ return (v===null||v===undefined) ? "—" : v+"%"; }
+  function attDays(d){ var out=[], t=Date.parse(d.today+"T00:00:00Z"), f=Date.parse(d.firstOpen+"T00:00:00Z");
+    for(var x=t; x>=f && out.length<8; x-=86400000) out.push(new Date(x).toISOString().slice(0,10)); return out; }
+  async function attLoad(id, date){
+    var r=(await call("listAttendance", date?{ classId:id, date:date }:{ classId:id })).data||{};
+    ATT[id]={ data:r, date:r.date||r.today, marks:Object.assign({}, r.dayMarks||{}), saved:!!r.dayMarks }; }
+  function attHtml(id, side){
+    var a=ATT[id]; if(!a) return "";
+    var d=a.data, I=' data-id="'+esc(id)+'"', L=d.students||[];
+    var h='<div class="k1att"><div class="r2"><b>'+S("📋 हाज़िरी")+'</b> · '+S("हाज़िरी के कुल दिन:")+' <b>'+(d.daysHeld||0)+'</b>'+
+      (d.lastDate?' · '+S("आख़िरी हाज़िरी:")+' <b>'+dd(d.lastDate)+'</b>':'')+'</div>';
+    if(!L.length){ return h+'<div class="r2">'+S("इस बैच में अभी कोई विद्यार्थी नहीं।")+'</div></div>'; }
+    if(side==="teacher" && d.canMark){
+      h+='<div class="r2">'+S("किस दिन की हाज़िरी:")+'</div><div>'+attDays(d).map(function(x){
+        return '<button type="button" class="k1d'+(x===a.date?' on':'')+'" data-k1="attday"'+I+' data-d="'+x+'">'+dd(x)+'</button>'; }).join(" ")+'</div>'+
+        '<div class="r2">'+S(a.saved?"इस दिन की हाज़िरी लग चुकी है। नीचे से सुधार सकते हैं।":"इस दिन की हाज़िरी अभी नहीं लगी।")+'</div>'+
+        '<div>'+btn("attall","✅ सब उपस्थित",I)+'</div>';
+      L.forEach(function(s,i){
+        h+='<div class="k1ar"><div class="r2">'+(i+1)+'. '+US(rb(s.name))+' · '+esc(s.regNo)+'</div><div>'+["P","A","L"].map(function(v){
+          return '<button type="button" class="k1m k1m'+v+(a.marks[s.regNo]===v?' on':'')+'" data-k1="attm"'+I+' data-r="'+esc(s.regNo)+'" data-v="'+v+'">'+AM[v]+'</button>'; }).join(" ")+'</div></div>'; });
+      h+='<div>'+btn("attsave","✔ हाज़िरी सहेजें",I,"ok")+'</div>';
+    }
+    h+='<div class="r2" style="margin-top:10px"><b>'+S("अब तक का हिसाब:")+'</b></div>';
+    L.forEach(function(s,i){
+      h+='<div class="r2">'+(i+1)+'. '+US(rb(s.name))+' · '+esc(s.regNo)+'<br>'+S("उपस्थित")+' <b>'+s.present+'</b> · '+S("अनुपस्थित")+' <b>'+s.absent+'</b> · '+
+        S("छुट्टी")+' <b>'+s.leave+'</b> · <b>'+pc(s.pct)+'</b></div>'; });
+    return h+'</div>';
+  }
+  /* विद्यार्थी की अपनी हाज़िरी: एक कोर्स की पंक्ति */
+  function myAttHtml(offeringId){
+    if(!MYATT) return "";
+    var m=null; MYATT.forEach(function(x){ if(x.offeringId===offeringId) m=x; }); if(!m) return "";
+    if(!m.days) return '<div class="r2">📋 '+S("अभी कोई हाज़िरी दर्ज नहीं।")+'</div>';
+    var IC={ P:"✅", A:"❌", L:"🌙" };
+    return '<div class="r2">📋 '+S("हाज़िरी के कुल दिन:")+' <b>'+m.days+'</b> · '+S("उपस्थित")+' <b>'+m.present+'</b> · '+S("अनुपस्थित")+' <b>'+m.absent+'</b> · '+
+      S("छुट्टी")+' <b>'+m.leave+'</b> · <b>'+pc(m.pct)+'</b></div><div class="r2">'+
+      (m.last||[]).map(function(x){ return '<span class="k1c">'+dd(x.date).slice(0,5)+' '+(IC[x.mark]||"")+'</span>'; }).join(" ")+'</div>';
+  }
   /* एक कक्षा की पंक्ति: side = "center" (केंद्र देख रहा है) या "teacher" */
   function clsRow(c, side){
     var id=' data-id="'+esc(c.classId)+'"', live=(c.status==="active"||c.status==="notice");
@@ -4262,17 +4308,17 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
     if(side==="teacher"){
       if(c.status==="offered") h+=btn("acc","✅ स्वीकारें",id,"ok")+red("dec","❌ मना करें",id);
-      if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id);
+      if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id)+btn("att","📋 हाज़िरी",id);
       if(c.status==="active") h+=btn("notice","📤 15 दिन की सूचना दें",id);
       if(c.status==="notice") h+=btn("unnotice","↩ सूचना वापस लें",id);
       if(live) h+=red("leave","🚪 बिना सूचना अभी छोड़ें",id);
     } else {
-      if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id);
+      if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id)+btn("att","📋 हाज़िरी देखें",id);
       h+=btn("time","🕒 समय बदलें",id)+red("end", c.status==="offered"?"↩ प्रस्ताव वापस लें":"↩ कक्षा वापस लें", id+' data-st="'+esc(c.status)+'"');
       if(live&&!ab) h+=red("abrep","🚩 शिक्षक बिना सूचना आना बंद कर चुका है",id);
       if(FORM&&FORM.mode==="time"&&FORM.id===c.classId) h+=formHtml();
     }
-    return h+'<div>'+rosHtml(c.classId)+'</div></div>';
+    return h+'<div>'+rosHtml(c.classId)+'</div>'+attHtml(c.classId, side)+'</div>';
   }
 
   /* ───────── केंद्र/वर्कशॉप: pnl-class ───────── */
@@ -4329,7 +4375,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       h+='<div class="app k1row"><div class="r1"><span class="nm">'+CN(e.courseId,e.courseName)+'</span><span>🏫 '+US(rb(e.centerName))+'</span>'+
         (e.batchNo?'<span>'+S("बैच")+' '+e.batchNo+'</span>':'')+'</div><div class="r2">'+
         (e.teacher ? S(e.teacher.teacherRole==="ustad"?"उस्ताद:":"शिक्षक:")+' '+US(rb(e.teacher.teacherName))+' · '+when(e.teacher)
-                   : S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।"))+'</div></div>'; });
+                   : S(e.batchNo?"इस बैच के शिक्षक अभी तय नहीं हुए।":"अभी आप इंतज़ार में हैं। बैच में जगह बनते ही यहाँ दिखेगा।"))+'</div>'+myAttHtml(e.offeringId)+'</div>'; });
     box.innerHTML=h;
   }
   async function reload(){ var r=await call("listMyClasses",{}); CL=r.data||{}; drawInst(); drawMine(); drawStudent(); }
@@ -4339,7 +4385,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
   var oldMyCtr=LAZY["pnl-myctr"];
   LAZY["pnl-myctr"]=async function(){
     if(typeof oldMyCtr==="function") await oldMyCtr();
-    if($("mcClass")){ try{ await reload(); }catch(e){ /* कक्षा की जानकारी न आए, तो नामांकन-सूची वैसी ही रहे */ } }
+    if($("mcClass")){ try{ await reload(); }catch(e){ /* कक्षा की जानकारी न आए, तो नामांकन-सूची वैसी ही रहे */ }
+      /* (K-3b) अपनी हाज़िरी: न आए (पुराना server), तो कक्षा की पंक्ति वैसी ही रहे */
+      if(CL && (CL.asStudent||[]).length){ try{ MYATT=((await call("myAttendance",{})).data||{}).items||null; drawStudent(); }catch(e){ MYATT=null; } } }
   };
 
   /* ───────── ACS (Founder, Admin): pnl-abandon ───────── */
@@ -4389,6 +4437,17 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(act==="bset"){
         var sel=document.querySelector('select[data-k1sel="'+cid+'"]');
         await call("setBatches",{ courseId:cid, batches:Number(sel&&sel.value) }); await reload(); say(true,"✔ बैच तय हो गए।"); return; }
+      if(act==="att"){
+        if(ATT[id]){ delete ATT[id]; } else { await attLoad(id); }
+        drawInst(); drawMine(); return; }
+      if(act==="attday"){ await attLoad(id, b.getAttribute("data-d")); drawMine(); return; }
+      if(act==="attm"){ if(ATT[id]){ ATT[id].marks[b.getAttribute("data-r")]=b.getAttribute("data-v"); drawMine(); } return; }
+      if(act==="attall"){ if(ATT[id]){ (ATT[id].data.students||[]).forEach(function(x){ ATT[id].marks[x.regNo]="P"; }); drawMine(); } return; }
+      if(act==="attsave"){
+        var A0=ATT[id]; if(!A0) return;
+        if((A0.data.students||[]).some(function(x){ return !A0.marks[x.regNo]; })){ b.disabled=false; say(false,"हर विद्यार्थी की हाज़िरी लगाएँ, फिर सहेजें।"); return; }
+        var ar=(await call("markAttendance",{ classId:id, date:A0.date, marks:A0.marks })).data||{};
+        await attLoad(id, A0.date); drawMine(); say(true, ar.corrected?"✔ हाज़िरी सुधार दी गई।":"✔ हाज़िरी सहेज ली गई।"); return; }
       if(act==="ros"){
         if(ROS[id]){ delete ROS[id]; } else { ROS[id]=(await call("classRoster",{ classId:id })).data; }
         drawInst(); drawMine(); return; }

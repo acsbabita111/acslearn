@@ -443,3 +443,12 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .abtn.nzb,.abtn.gharb{background:var(--blue);text-decoration:none;display:inline-block}
 .nazar .nzr{display:block;width:100%;text-align:left;margin-top:6px;padding:10px 12px;font-size:17px;border:1px solid #cfd8e3;border-radius:9px;background:#fff;color:var(--navy);cursor:pointer}
 .gharw{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}
+/* (18-Nov-2026, K-3b) हाज़िरी: दिन के बटन, हर विद्यार्थी के तीन बटन, विद्यार्थी की अपनी पट्टी */
+.k1att{margin-top:10px;padding-top:10px;border-top:1px dashed #cfd8e3}
+.k1d,.k1m{font-size:16px;font-weight:700;padding:8px 12px;margin:6px 4px 0 0;border-radius:9px;border:1.5px solid #9aa9bd;background:#fff;color:var(--navy);cursor:pointer}
+.k1d.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.k1mP.on{background:var(--green);border-color:var(--green);color:#fff}
+.k1mA.on{background:#B71C1C;border-color:#B71C1C;color:#fff}
+.k1mL.on{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.k1ar{padding:8px 0;border-bottom:1px solid #eef2f6}
+.k1c{display:inline-block;font-size:16px;padding:3px 8px;margin:4px 4px 0 0;border:1px solid #cfd8e3;border-radius:8px;background:#fff}

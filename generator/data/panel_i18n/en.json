@@ -2266,7 +2266,29 @@
   "↩ नमूना-रूप": "↩ Sample view",
   "🏠 सभी घर": "🏠 All dashboards",
   "👁 देखें": "👁 View",
-  "📋 इस भूमिका के खाते दिखाएँ": "📋 Show accounts of this role"
+  "📋 इस भूमिका के खाते दिखाएँ": "📋 Show accounts of this role",
+  "अनुपस्थित": "Absent",
+  "उपस्थित": "Present",
+  "छुट्टी": "On leave",
+  "अब तक का हिसाब:": "Record so far:",
+  "अभी कोई हाज़िरी दर्ज नहीं।": "No attendance has been recorded yet.",
+  "आख़िरी हाज़िरी:": "Last attendance:",
+  "हाज़िरी के कुल दिन:": "Total attendance days:",
+  "आज की या पिछले 3 दिन की हाज़िरी लगाई या सुधारी जा सकती है। उसके बाद वह बंद हो जाती है। हर विद्यार्थी की हाज़िरी लगाना ज़रूरी है।": "Attendance can be marked or corrected for today or the last 3 days. After that it is closed. Every student must be marked.",
+  "आज की या पिछले 3 दिन की हाज़िरी लगाई या सुधारी जा सकती है। उसके बाद वह बंद हो जाती है। हर शागिर्द की हाज़िरी लगाना ज़रूरी है।": "Attendance can be marked or corrected for today or the last 3 days. After that it is closed. Every apprentice must be marked.",
+  "इस दिन की हाज़िरी अभी नहीं लगी।": "Attendance for this day is not marked yet.",
+  "इस दिन की हाज़िरी लग चुकी है। नीचे से सुधार सकते हैं।": "Attendance for this day is already marked. You can correct it below.",
+  "किस दिन की हाज़िरी:": "Attendance for which day:",
+  "हर विद्यार्थी की हाज़िरी लगाएँ, फिर सहेजें।": "Mark every student, then save.",
+  "हाज़िरी उस्ताद लगाता है। आप उसे यहाँ देख सकते हैं।": "The ustad marks attendance. You can see it here.",
+  "हाज़िरी शिक्षक लगाता है। आप उसे यहाँ देख सकते हैं।": "The teacher marks attendance. You can see it here.",
+  "हाज़िरी:": "Attendance:",
+  "✅ सब उपस्थित": "✅ All present",
+  "✔ हाज़िरी सहेज ली गई।": "✔ Attendance saved.",
+  "✔ हाज़िरी सहेजें": "✔ Save attendance",
+  "✔ हाज़िरी सुधार दी गई।": "✔ Attendance corrected.",
+  "📋 हाज़िरी": "📋 Attendance",
+  "📋 हाज़िरी देखें": "📋 See attendance"
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",
@@ -2855,6 +2877,15 @@
   "फ़ैसले का कारण लिखना ज़रूरी": "Writing the reason for the decision is required",
   "देखने के मोड में यह काम नहीं होता": "This action does not work in view mode",
   "दूसरे खाते की नज़र से सिर्फ़ Founder देख सकता है": "Only the Founder can view as another account",
-  "यह खाता मिला नहीं": "This account was not found"
+  "यह खाता मिला नहीं": "This account was not found",
+  "आगे की तारीख़ की हाज़िरी नहीं लग सकती": "Attendance cannot be marked for a future date",
+  "इस बैच में अभी कोई विद्यार्थी नहीं है": "There is no student in this batch yet",
+  "कक्षा शुरू होने से पहले की हाज़िरी नहीं लग सकती": "Attendance cannot be marked for a day before the class started",
+  "तारीख़ सही नहीं है": "The date is not correct",
+  "सूची में ऐसा विद्यार्थी है जो इस बैच में नहीं है": "The list has a student who is not in this batch",
+  "हर विद्यार्थी की हाज़िरी लगाना ज़रूरी है": "Every student must be marked",
+  "हाज़िरी आज की या पिछले {0} दिन की ही लग या सुधर सकती है": "Attendance can be marked or corrected only for today or the last {0} days",
+  "हाज़िरी चालू कक्षा की ही लगती है": "Attendance is marked only for a running class",
+  "हाज़िरी सिर्फ़ इस कक्षा का शिक्षक लगा सकता है": "Only the teacher of this class can mark attendance"
  }
 }
