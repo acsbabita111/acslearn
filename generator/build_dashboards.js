@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.5 · 17-Nov-2026 (K-1c और K-2b) : P_EXAMS और P_EXAMCERT_ENT से "प्रैक्टिकल नहीं किया" वाली बात हटी; P_ABANDON_Q (Founder, Admin: "कक्षा की शिकायतें")।
    v2.4 · 17-Nov-2026 (कक्षा-परत K-1b; Founder के नियम 17-Nov) : P_INST_CLASS (केंद्र, वर्कशॉप: "कक्षा व बैच"),
           P_TCH_CLASS (शिक्षक, उस्ताद: "मेरी कक्षाएँ"), P_MYCTR में mcClass (विद्यार्थी को शिक्षक और समय),
           P_INST_ENROLL में seat का नियम घर के हिसाब से (केंद्र: 30 के गुणक; वर्कशॉप: 5 से 10)।
@@ -1191,9 +1192,21 @@ const P_SEVA_QUEUE = (
     '<div id="sevaqMsg" class="msg"></div>' +
     '</div>');
 
+/* (K-2b · 17-Nov-2026, Founder का फ़ैसला "अ") ⚖️ कक्षा की शिकायतें: केंद्र ने कहा "शिक्षक बिना सूचना आना बंद कर चुका है"
+   और शिक्षक ने 7 दिन के भीतर जवाब दिया: तब फ़ैसला ACS (Founder या चालू HQ Admin) का। server: class_server.js v1.3। */
+const P_ABANDON_Q = (
+    '<div class="pcard panel" id="pnl-abandon" data-nav="⚖️ कक्षा की शिकायतें" style="grid-column:1/-1">' +
+    '<div class="ph">⚖️ कक्षा की शिकायतें</div>' +
+    '<div class="pd">केंद्र शिकायत करता है कि शिक्षक बिना सूचना आना बंद कर चुका है। शिक्षक 7 दिन के भीतर जवाब देता है। ' +
+    'जवाब आने पर फ़ैसला यहीं से होता है। दोनों पक्ष पढ़कर फ़ैसला करें, और फ़ैसले का कारण लिखें।</div>' +
+    '<div class="pd">शिकायत सही मानने पर शिक्षक की उस कक्षा की फ़ीस रुकती है और उसे नई कक्षा मिलना बंद हो जाता है। ' +
+    'शिकायत ग़लत मानने पर कुछ नहीं बदलता।</div>' +
+    '<div id="abqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="abqMsg" class="msg"></div>' +
+    '</div>');
 const TEAM_EXTRAS = {
-  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE,
-  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE,
+  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q,
+  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q,
   "/dashboard/zonal/":    P_BADGE_QUEUE + P_SEVA_QUEUE,
   "/dashboard/regional/": P_BADGE_QUEUE + P_SEVA_QUEUE,
 };

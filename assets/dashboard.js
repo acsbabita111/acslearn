@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.22.0 · 17-Nov-2026 (कक्षा-परत K-2b; Founder का फ़ैसला "अ"): k1-block में "शिक्षक बिना सूचना आना बंद कर चुका है" वाली शिकायत:
+     केंद्र दर्ज करे, वापस ले, 7 दिन बाद निशान लगाए; शिक्षक जवाब दे; Founder और Admin का नया पैनल "कक्षा की शिकायतें" (pnl-abandon) फ़ैसले के लिए।
+     server: class_server.js v1.3 के 6 functions।
    v6.21.0 · 17-Nov-2026 (कक्षा-परत K-1b; Founder के नियम 17-Nov): नया k1-block (फ़ाइल के अंत में): केंद्र/वर्कशॉप का पैनल
      "कक्षा व बैच" (बैच तय करना, बैच सौंपना, समय सुझाना, विद्यार्थी-सूची, माफ़ी), शिक्षक/उस्ताद का पैनल "मेरी कक्षाएँ"
      (हाँ/ना, विद्यार्थी-सूची, 15 दिन की सूचना, रोक और दोबारा आवेदन), और विद्यार्थी के "मेरा केंद्र" में शिक्षक का नाम और समय।
@@ -669,7 +672,7 @@ const CERT_REL_HI={father:"पिता का नाम :", mother:"मात�
 const CERT_REL_EN={father:"Father's name:", mother:"Mother's name:", guardian:"Guardian's name:"};
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
-const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
+const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
 /* (30-Jul सुधार-3) मिले-जुले पैनल: A खुले तो B के आलसी-इंजन भी चलें —
    B का panel-वर्ग गया पर id/इंजन जीवित (generator applyStudentMerges)। */
 const MERGED_LAZY = { "pnl-status": ["pnl-badge"], "pnl-pay": ["pnl-ledger"] };
@@ -4135,6 +4138,16 @@ if (MODE==="external" && ALLOWED.length>=1) {
       else h+='<div class="r2">'+S("हाँ का इंतज़ार है।")+'</div>'; }
     if(c.status==="left_no_notice"){
       h+='<div class="r2" style="color:#B71C1C">'+S("⚠️ यह कक्षा बिना सूचना छोड़ी गई। इसकी फ़ीस रोकी गई है।")+'</div></div>'; return h; }
+    /* (K-2b) "शिक्षक बिना सूचना आना बंद कर चुका है" वाली शिकायत: दोनों पक्षों को दिखती है */
+    var ab=c.abandon, late=!!ab&&Date.now()>ab.replyByMs;
+    if(ab){
+      h+='<div class="r2" style="color:#B71C1C">🚩 '+S(side==="center"?"आपकी शिकायत दर्ज है:":"केंद्र ने शिकायत की है कि आप बिना सूचना आना बंद कर चुके हैं:")+' '+US(rb(ab.reason))+'</div>';
+      if(ab.status==="replied") h+='<div class="r2">'+S(side==="center"?"शिक्षक का जवाब:":"आपका जवाब:")+' '+US(rb(ab.reply))+'</div><div class="r2">'+S("अब फ़ैसला ACS करेगा।")+'</div>';
+      else if(!late) h+='<div class="r2">'+S("जवाब देने की आख़िरी तारीख़:")+' <b>'+dms(ab.replyByMs)+'</b></div>';
+      else h+='<div class="r2">'+S("7 दिन में जवाब नहीं आया।")+'</div>';
+      if(side==="teacher"&&ab.status==="open"&&!late) h+='<div>'+btn("abreply","✍️ शिकायत का जवाब दें",id,"ok")+'</div>';
+      if(side==="center") h+='<div>'+(ab.status==="open"&&late?red("abconfirm","⚖️ निशान लगाएँ (फ़ीस रोकें)",id):'')+btn("abwd","↩ शिकायत वापस लें",id)+'</div>';
+    }
     if(side==="teacher"){
       if(c.status==="offered") h+=btn("acc","✅ स्वीकारें",id,"ok")+red("dec","❌ मना करें",id);
       if(live) h+=btn("ros","👥 मेरे विद्यार्थी",id);
@@ -4144,6 +4157,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     } else {
       if(live) h+=btn("ros","👥 विद्यार्थी-सूची",id);
       h+=btn("time","🕒 समय बदलें",id)+red("end", c.status==="offered"?"↩ प्रस्ताव वापस लें":"↩ कक्षा वापस लें", id+' data-st="'+esc(c.status)+'"');
+      if(live&&!ab) h+=red("abrep","🚩 शिक्षक बिना सूचना आना बंद कर चुका है",id);
       if(FORM&&FORM.mode==="time"&&FORM.id===c.classId) h+=formHtml();
     }
     return h+'<div>'+rosHtml(c.classId)+'</div></div>';
@@ -4167,7 +4181,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         for(var n=1;n<=o.maxBatches;n++) h+='<option value="'+n+'"'+(n===o.batches.length?' selected':'')+'>'+n+'</option>';
         h+='</select> '+btn("bset","✔ बैच तय करें",cid)+'</div>'; }
       o.batches.forEach(function(b){
-        var busy=b.classes.some(function(c){ return c.status!=="notice"; });
+        var busy=b.classes.some(function(c){ return c.status!=="notice" && !c.abandon; });   /* सूचना या शिकायत वाले बैच के लिए अगला शिक्षक तय हो सकता है */
         h+='<div class="m" style="margin-top:12px"><b>'+S("बैच")+' '+b.batchNo+'</b> · '+S("विद्यार्थी:")+' <b>'+b.size+'</b></div>';
         b.classes.forEach(function(c){ h+=clsRow(c,"center"); });
         if(!busy){ h+=btn("give", isWs()?"🧑‍🏫 यह बैच उस्ताद को सौंपें":"🧑‍🏫 यह बैच शिक्षक को सौंपें", cid+' data-b="'+b.batchNo+'"');
@@ -4215,6 +4229,25 @@ if (MODE==="external" && ALLOWED.length>=1) {
     if(typeof oldMyCtr==="function") await oldMyCtr();
     if($("mcClass")){ try{ await reload(); }catch(e){ /* कक्षा की जानकारी न आए, तो नामांकन-सूची वैसी ही रहे */ } }
   };
+
+  /* ───────── ACS (Founder, Admin): pnl-abandon ───────── */
+  var ABQ=[];
+  function drawAbq(){
+    var box=$("abqList"); if(!box) return;
+    if(!ABQ.length){ box.innerHTML='<span class="note">अभी फ़ैसले के लिए कोई शिकायत नहीं है।</span>'; return; }
+    box.innerHTML=ABQ.map(function(x){
+      var id=' data-id="'+esc(x.classId)+'"';
+      return '<div class="app k1row"><div class="r1"><span class="nm">'+CN(x.courseId,x.courseName)+'</span><span>'+S("बैच")+' '+x.batchNo+'</span></div>'+
+        '<div class="r2">🏫 '+US(rb(x.centerName))+' · '+esc(x.centerRegNo)+'</div>'+
+        '<div class="r2">🧑‍🏫 '+US(rb(x.teacherName))+' · '+esc(x.teacherRegNo)+'</div>'+
+        '<div class="r2"><b>'+S("केंद्र की शिकायत:")+'</b> '+US(rb(x.reason))+' · '+dms(x.reportedAtMs)+'</div>'+
+        '<div class="r2"><b>'+S("शिक्षक का जवाब:")+'</b> '+US(rb(x.reply))+' · '+dms(x.repliedAtMs)+'</div>'+
+        '<div>'+red("abup","⚖️ शिकायत सही है (निशान लगे)",id)+btn("abno","✅ शिकायत ग़लत है (कुछ न बदले)",id,"ok")+'</div></div>';
+    }).join("");
+  }
+  async function loadAbq(){ ABQ=((await call("listAbandonCases",{})).data||{}).items||[]; drawAbq(); }
+  LAZY["pnl-abandon"]=async function(){ try{ await loadAbq(); }catch(e){ failTo("abqList")(e); } };
+  function sayAbq(ok,t){ var m=$("abqMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
 
   document.addEventListener("click", async function(ev){
     var b=ev.target&&ev.target.closest?ev.target.closest("[data-k1]"):null; if(!b) return;
@@ -4270,9 +4303,25 @@ if (MODE==="external" && ALLOWED.length>=1) {
         why=prompt("कक्षा छोड़ने का कारण लिखें (ज़रूरी):"); if(!why) return;
         await call("endClass",{ classId:id, confirm:true, reason:why }); await reload(); say(true,"🚪 कक्षा छोड़ दी गई।"); return; }
       if(act==="apply"){ await call("applyAfterBlock",{}); await reload(); say(true,"📝 आवेदन दर्ज हुआ।"); return; }
+      if(act==="abrep"){
+        why=prompt("क्या हुआ, लिखें (ज़रूरी)। शिक्षक को जवाब के लिए 7 दिन मिलेंगे:"); if(!why) return;
+        await call("reportAbandon",{ classId:id, reason:why }); await reload(); say(true,"🚩 शिकायत दर्ज हुई। शिक्षक को जवाब के लिए 7 दिन मिले हैं।"); return; }
+      if(act==="abwd"){
+        if(!confirm("यह शिकायत वापस लें?")) return;
+        await call("withdrawAbandon",{ classId:id }); await reload(); say(true,"↩ शिकायत वापस ले ली गई।"); return; }
+      if(act==="abconfirm"){
+        if(!confirm("निशान लगाने पर इस शिक्षक की इस कक्षा की फ़ीस रुकेगी और उसे नई कक्षा मिलना बंद हो जाएगा।\nक्या आप निशान लगाना चाहते हैं?")) return;
+        await call("confirmAbandon",{ classId:id }); await reload(); say(true,"⚖️ निशान लग गया।"); return; }
+      if(act==="abreply"){
+        why=prompt("अपना जवाब लिखें (ज़रूरी):"); if(!why) return;
+        await call("replyAbandon",{ classId:id, reply:why }); await reload(); say(true,"✍️ जवाब दर्ज हुआ। अब फ़ैसला ACS करेगा।"); return; }
+      if(act==="abup"||act==="abno"){
+        why=prompt("फ़ैसले का कारण लिखें (ज़रूरी):"); if(!why) return;
+        await call("decideAbandon",{ classId:id, uphold:act==="abup", note:why }); await loadAbq();
+        sayAbq(true, act==="abup"?"⚖️ फ़ैसला दर्ज: शिकायत सही मानी गई।":"✅ फ़ैसला दर्ज: शिकायत ग़लत मानी गई।"); return; }
     }catch(e){
       b.disabled=false;
-      say(false,"नहीं हुआ: "+((e&&e.message)||e));
+      (act==="abup"||act==="abno"?sayAbq:say)(false,"नहीं हुआ: "+((e&&e.message)||e));
     }
   });
 })(); /* k1-block end */

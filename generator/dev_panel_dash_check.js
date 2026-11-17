@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v1.8 (17-Nov-2026; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v1.9 (17-Nov-2026; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -245,13 +245,17 @@ function hdataFix(data, info) {
 const K1C = (id, st, extra) => Object.assign({ classId: id, offeringId: "u1_PJ001", batchNo: 1, courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)",
   centerName: HU.center, centerRegNo: "ACS-CE-2026-123456", centerRole: "center", teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", teacherRole: "teacher",
   days: [1, 3, 5], from: "16:00", to: "17:30", status: st, cap: 30, lastDayMs: st === "notice" ? Date.UTC(2026, 11, 2) : null, noticeReason: st === "notice" ? HU.reason : "", pendingSched: null }, extra || {});
+/* (v1.9, K-2b) शिकायत की तीन हालतें: खुली (जवाब का समय बाक़ी), जवाब आ चुका, खुली और 7 दिन बीत चुके */
+const K1AB = (st, days, reply) => ({ abandon: { status: st, reason: HU.hold, reportedAtMs: Date.now() - (7 - days) * 86400000, replyByMs: Date.now() + days * 86400000, reply: reply || "" } });
 const K1_HANDLERS = {
   listMyClasses: () => ({
     asCenter: [{ courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", status: "open", seats: 60, students: 31, cap: 30, maxBatches: 4, waiting: 1,
-      batches: [{ batchNo: 1, size: 30, classes: [K1C("k1", "active", { pendingSched: { days: [0, 6], from: "07:00", to: "08:00" } }), K1C("k2", "notice")] },
-                { batchNo: 2, size: 0, classes: [K1C("k3", "offered", { batchNo: 2 })] }, { batchNo: 3, size: 0, classes: [] }],
+      batches: [{ batchNo: 1, size: 30, classes: [K1C("k1", "active", { pendingSched: { days: [0, 6], from: "07:00", to: "08:00" } }), K1C("k2", "notice"), K1C("k4", "active", K1AB("open", 5)), K1C("k5", "active", K1AB("replied", 3, HU.ret))] },
+                { batchNo: 2, size: 0, classes: [K1C("k3", "offered", { batchNo: 2 })] }, { batchNo: 3, size: 0, classes: [] },
+                { batchNo: 4, size: 0, classes: [K1C("k6", "active", Object.assign({ batchNo: 4 }, K1AB("open", -1)))] }],
       heldFees: [{ classId: "k9", batchNo: 2, teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", leftAtMs: Date.UTC(2026, 10, 10) }] }],
-    asTeacher: [K1C("k3", "offered"), K1C("k1", "active", { pendingSched: { days: [0, 6], from: "07:00", to: "08:00" } }), K1C("k2", "notice"), K1C("k9", "left_no_notice", { feeHold: true })],
+    asTeacher: [K1C("k3", "offered"), K1C("k1", "active", { pendingSched: { days: [0, 6], from: "07:00", to: "08:00" } }), K1C("k2", "notice"), K1C("k9", "left_no_notice", { feeHold: true }),
+      K1C("k4", "active", K1AB("open", 5)), K1C("k5", "active", K1AB("replied", 3, HU.ret)), K1C("k6", "active", K1AB("open", -1))],
     asStudent: [{ offeringId: "u1_PJ001", courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", centerName: HU.center, batchNo: 1,
         teacher: { teacherName: HU.student, teacherRole: "teacher", days: [1, 3, 5], from: "16:00", to: "17:30" } },
       { offeringId: "u1_PJ002", courseId: "PJ002", courseName: "डेटा एंट्री ऑपरेटर", centerName: HU.center, batchNo: 2, teacher: null },
@@ -260,7 +264,9 @@ const K1_HANDLERS = {
   classRoster: () => ({ cls: K1C("k1", "active"), total: 2, cap: 30, waiting: 1, students: [
     { regNo: "ACS-ST-2026-111111", name: HU.student, role: "student", minor: true, guardianOk: false, joinedMs: Date.UTC(2026, 10, 6) },
     { regNo: "ACS-ST-2026-111112", name: "सीता देवी", role: "student", minor: false, guardianOk: null, joinedMs: Date.UTC(2026, 10, 7) }] }),
-  lookupTeacher: () => ({ regNo: "ACS-TE-2026-222222", name: HU.student, role: "teacher", blocked: false, blockedForLife: false })
+  lookupTeacher: () => ({ regNo: "ACS-TE-2026-222222", name: HU.student, role: "teacher", blocked: false, blockedForLife: false }),
+  listAbandonCases: () => ({ items: [{ classId: "k5", courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", batchNo: 1, centerName: HU.center, centerRegNo: "ACS-CE-2026-123456",
+    teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", teacherRole: "teacher", reason: HU.hold, reply: HU.ret, reportedAtMs: Date.UTC(2026, 10, 10), repliedAtMs: Date.UTC(2026, 10, 12) }] })
 };
 const H_HANDLERS = {
   listBadgeQueue: () => ({ scope: "founder", items: [{ id: "p9", name: HU.student, regNo: "ACS-2026-555555", role: "teacher", tier: "village", pin: "851201", amountRupees: 300, paidAt: Date.UTC(2026, 10, 9), state: "bihar", district: "खगड़िया", mobile: "9000000001" }] }),
@@ -298,7 +304,7 @@ async function k1Checks(pages) {
   const pg = n => pages.find(f => f.split("/")[1] === n);
   if (pg("center")) { const c = await openH(pg("center"), "hi"), t = txt(c, "clsList");
     ck("K1 केंद्र: बैच, इंतज़ार और बैच-चुनाव दिखते हैं", /कुल विद्यार्थी:\s*31/.test(t) && /इंतज़ार में:\s*1/.test(t) && has(c, 'select[data-k1sel="PJ001"]') && has(c, '[data-k1="bset"]'), t.slice(0, 200));
-    ck("K1 केंद्र: ख़ाली बैच पर सौंपने का बटन, भरे बैच पर नहीं", c.d.querySelectorAll('[data-k1="give"]').length === 1 && c.d.querySelector('[data-k1="give"]').getAttribute("data-b") === "3");
+    ck("K1 केंद्र: ख़ाली बैच पर सौंपने का बटन, भरे बैच पर नहीं", Array.from(c.d.querySelectorAll('[data-k1="give"]')).map(b => b.getAttribute("data-b")).join() === "3,4");   /* (v1.9) बैच 4: शिकायत वाली कक्षा के रहते अगला शिक्षक तय हो सकता है */
     ck("K1 केंद्र: सौंपने का फ़ॉर्म खुला, खोजा हुआ नाम दिखा", has(c, "#k1Reg") && c.d.querySelectorAll(".k1day").length === 7 && has(c, "#k1From") && /बैच सौंपा जा सकता है/.test(txt(c, "k1Who")));
     ck("K1 केंद्र: विद्यार्थी-सूची में नाम और ACS-ID, संपर्क नहीं", /ACS-ST-2026-111111/.test(t) && /Guardian-दस्तावेज़ नहीं/.test(t) && !/9\d{9}|@/.test(t));
     ck("K1 केंद्र: रोकी हुई फ़ीस और माफ़ी का बटन", /इस कक्षा की फ़ीस रोकें/.test(t) && has(c, '[data-k1="forgive"][data-id="k9"]'));
@@ -320,6 +326,40 @@ async function k1Checks(pages) {
     const nb = c.d.querySelector('[data-k1="acc"][data-id="k3"]'); click(c, nb); await settle(c); await settle(c);
     const rc = c.calls.filter(x => x.name === "respondClass").pop();
     ck("K1 शिक्षक: हाँ server को जाती है", !!rc && rc.data.classId === "k3" && rc.data.accept === true); }
+  /* (v1.9, K-2b) शिकायत वाला रास्ता */
+  const ans = (c, v) => { c.w.prompt = m => { c.dialogs.push(String(m)); return v; }; };
+  if (pg("center")) { const c = await openH(pg("center"), "hi"), t = txt(c, "clsList");
+    ck("K2 केंद्र: चालू कक्षा पर शिकायत का बटन, शिकायत दर्ज हो तो नहीं", has(c, '[data-k1="abrep"][data-id="k1"]') && has(c, '[data-k1="abrep"][data-id="k2"]') && !has(c, '[data-k1="abrep"][data-id="k4"]') && !has(c, '[data-k1="abrep"][data-id="k3"]'));
+    ck("K2 केंद्र: शिकायत, कारण और जवाब की आख़िरी तारीख़ दिखती है", /आपकी शिकायत दर्ज है:/.test(t) && t.indexOf(HU.hold) > -1 && /जवाब देने की आख़िरी तारीख़:/.test(t));
+    ck("K2 केंद्र: निशान का बटन सिर्फ़ 7 दिन बीतने पर और जवाब न आने पर", has(c, '[data-k1="abconfirm"][data-id="k6"]') && c.d.querySelectorAll('[data-k1="abconfirm"]').length === 1 && /7 दिन में जवाब नहीं आया/.test(t));
+    ck("K2 केंद्र: जवाब आ चुका हो तो जवाब दिखता है और फ़ैसला ACS का", t.indexOf(HU.ret) > -1 && /अब फ़ैसला ACS करेगा/.test(t) && c.d.querySelectorAll('[data-k1="abwd"]').length === 3);
+    ck("K2 केंद्र: फ़ैसले के बटन यहाँ नहीं", !has(c, '[data-k1="abup"]') && !has(c, '[data-k1="abno"]') && !has(c, '[data-k1="abreply"]'));
+    click(c, c.d.querySelector('[data-k1="abrep"][data-id="k1"]')); await settle(c);
+    ck("K2 केंद्र: कारण न लिखा हो तो शिकायत server को नहीं जाती", !c.calls.some(x => x.name === "reportAbandon"));
+    ans(c, HU.hold); click(c, c.d.querySelector('[data-k1="abrep"][data-id="k1"]')); await settle(c); await settle(c);
+    const ra = c.calls.filter(x => x.name === "reportAbandon").pop();
+    ck("K2 केंद्र: शिकायत server को सही खानों में जाती है", !!ra && ra.data.classId === "k1" && ra.data.reason === HU.hold, JSON.stringify(ra && ra.data));
+    click(c, c.d.querySelector('[data-k1="abconfirm"][data-id="k6"]')); await settle(c); await settle(c);
+    click(c, c.d.querySelector('[data-k1="abwd"][data-id="k4"]')); await settle(c); await settle(c);
+    const cf = c.calls.filter(x => x.name === "confirmAbandon").pop(), wd = c.calls.filter(x => x.name === "withdrawAbandon").pop();
+    ck("K2 केंद्र: निशान और वापसी server को जाते हैं", !!cf && cf.data.classId === "k6" && !!wd && wd.data.classId === "k4"); }
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi"), t = txt(c, "myClsList");
+    ck("K2 शिक्षक: शिकायत और जवाब की आख़िरी तारीख़ दिखती है", /केंद्र ने शिकायत की है कि आप बिना सूचना आना बंद कर चुके हैं:/.test(t) && t.indexOf(HU.hold) > -1 && /जवाब देने की आख़िरी तारीख़:/.test(t));
+    ck("K2 शिक्षक: जवाब का बटन सिर्फ़ खुली शिकायत पर और 7 दिन के भीतर", has(c, '[data-k1="abreply"][data-id="k4"]') && c.d.querySelectorAll('[data-k1="abreply"]').length === 1);
+    ck("K2 शिक्षक: केंद्र के बटन यहाँ नहीं", !has(c, '[data-k1="abrep"]') && !has(c, '[data-k1="abwd"]') && !has(c, '[data-k1="abconfirm"]') && !has(c, '[data-k1="abup"]'));
+    ans(c, HU.ret); click(c, c.d.querySelector('[data-k1="abreply"][data-id="k4"]')); await settle(c); await settle(c);
+    const rp = c.calls.filter(x => x.name === "replyAbandon").pop();
+    ck("K2 शिक्षक: जवाब server को सही खानों में जाता है", !!rp && rp.data.classId === "k4" && rp.data.reply === HU.ret, JSON.stringify(rp && rp.data)); }
+  for (const who of ["founder", "admin"]) if (pg(who)) { const c = await openH(pg(who), "hi", "data", ["pnl-abandon"]), t = txt(c, "abqList");
+    ck("K2 " + who + ": पैनल काम-सूची में है", has(c, '#sideNav .si[data-go="pnl-abandon"]'));
+    ck("K2 " + who + ": दोनों पक्ष और दोनों फ़ैसले दिखते हैं", /केंद्र की शिकायत:/.test(t) && /शिक्षक का जवाब:/.test(t) && t.indexOf(HU.hold) > -1 && t.indexOf(HU.ret) > -1 && has(c, '[data-k1="abup"][data-id="k5"]') && has(c, '[data-k1="abno"][data-id="k5"]'), t.slice(0, 200));
+    click(c, c.d.querySelector('[data-k1="abup"]')); await settle(c);
+    ck("K2 " + who + ": कारण न लिखा हो तो फ़ैसला server को नहीं जाता", !c.calls.some(x => x.name === "decideAbandon"));
+    ans(c, HU.vnote); click(c, c.d.querySelector('[data-k1="abno"]')); await settle(c); await settle(c);
+    const dc = c.calls.filter(x => x.name === "decideAbandon").pop();
+    ck("K2 " + who + ": फ़ैसला server को सही खानों में जाता है", !!dc && dc.data.classId === "k5" && dc.data.uphold === false && dc.data.note === HU.vnote && /फ़ैसला दर्ज/.test(txt(c, "abqMsg")), JSON.stringify(dc && dc.data)); }
+  for (const who of ["zonal", "regional", "center", "teacher"]) if (pg(who)) { const html = fs.readFileSync(path.join(ROOT, pg(who)), "utf8");
+    ck("K2 " + who + ": फ़ैसले का पैनल इस घर में नहीं", html.indexOf('id="pnl-abandon"') < 0); }
   if (pg("student")) { const c = await openH(pg("student"), "hi"), t = txt(c, "mcClass");
     ck("K1 विद्यार्थी: शिक्षक का नाम, बैच और समय", /मेरी कक्षा:/.test(t) && /शिक्षक:/.test(t) && t.indexOf(HU.student) > -1 && /16:00 - 17:30/.test(t) && /सोमवार/.test(t), t.slice(0, 200));
     ck("K1 विद्यार्थी: शिक्षक तय न हो, या इंतज़ार में हो, तो साफ़ वाक्य", /शिक्षक अभी तय नहीं हुए/.test(t) && /अभी आप इंतज़ार में हैं/.test(t));
@@ -688,6 +728,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.8 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v1.9 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

@@ -13,7 +13,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 355,
+ "count": 366,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -786,7 +786,35 @@
    ]
   },
   {
+   "hi": "इस कक्षा पर कोई खुली शिकायत नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इस कक्षा पर कोई चालू सूचना नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "इस कक्षा पर जवाब देने लायक़ कोई शिकायत नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "इस कक्षा पर फ़ैसले लायक़ कोई शिकायत नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "इस कक्षा पर शिकायत पहले से दर्ज है",
    "in": [
     "class_server.js"
    ],
@@ -1207,6 +1235,20 @@
    ]
   },
   {
+   "hi": "जवाब देने के 7 दिन बीत चुके हैं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "जवाब लिखना ज़रूरी",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "जिसे काम मिलना है वह hold पर है — पहले un-hold करें।",
    "in": [
     "index.js"
@@ -1451,6 +1493,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "फ़ैसले का कारण लिखना ज़रूरी",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "फ़ोटो नहीं मिला",
@@ -1956,6 +2005,13 @@
    "from": "office-report"
   },
   {
+   "hi": "यह फ़ैसला सिर्फ़ ACS (Founder या Admin) कर सकता है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह बैच अब दूसरे शिक्षक को दिया जा चुका है; सूचना वापस नहीं हो सकती",
    "in": [
     "class_server.js"
@@ -2006,6 +2062,13 @@
    "in": [
     "cert_server.js"
    ]
+  },
+  {
+   "hi": "यह शिकायत चालू कक्षा पर ही दर्ज होती है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "यह सत्यापन-कमरा आपके लिए नहीं",
@@ -2106,6 +2169,20 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "शिक्षक का जवाब आ चुका है; अब फ़ैसला ACS करेगा",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "शिक्षक के जवाब का समय {0} तक है; उसके बाद ही निशान लग सकता है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "सत्यापन दर्ज नहीं हुआ — {0}",
