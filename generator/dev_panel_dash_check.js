@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v3.1 (18-Nov-2026; v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v3.2 (19-Nov-2026; v3.2 P-6b: "✉️ संदेश" (बातचीत, भेजना, अभिभावक का email, शिकायत), शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कार्ड से बातचीत, ACS की "🚩 शिकायतें" (O10); v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -226,7 +226,7 @@ async function dumpHindi(pages, out) {
 /* हर पाठ में जान-बूझकर ऐसा शब्द है जो पैक में भी है (केंद्र, शिक्षा, संगीत, माली): बचाव न हो, तो वह शब्द बदल जाएगा और जाँच पकड़ लेगी */
 const HU = { center: "शिव संगीत केंद्र", student: "संगीत माली", task: "केंद्र का दौरा", detail: "केंद्र में शिक्षा की जाँच करनी है", report: "आज केंद्र का काम पूरा हुआ", reason: "केंद्र की फ़ोटो साफ़ नहीं है",
   feeNote: "केंद्र पर पहली किस्त", subjects: "हिंदी, गणित, शिक्षा", dur: "3 महीने (शिक्षा सत्र)", ret: "केंद्र बंद है", hold: "केंद्र में अनुशासन की कमी", vnote: "केंद्र का पता ग़लत है",
-  ocTitle: "शिक्षा की बोलचाल कक्षा", ocAbout: "गाँव के बच्चों के लिए बोलचाल की सरल पढ़ाई, रोज़ एक घंटा", ocLang: "हिंदी और भोजपुरी", ccl: "शिक्षक के घर में शादी है" };
+  ocTitle: "शिक्षा की बोलचाल कक्षा", ocAbout: "गाँव के बच्चों के लिए बोलचाल की सरल पढ़ाई, रोज़ एक घंटा", ocLang: "हिंदी और भोजपुरी", ccl: "शिक्षक के घर में शादी है", msg: "कल की कक्षा में किताब लेकर आना", krs: "शिक्षक ने रात में बेवजह संदेश भेजा" };
 const HQ = ["सुरक्षा के लिए हेलमेट क्यों ज़रूरी है?", "सिर की सुरक्षा के लिए", "गाँव का नियम है", "शिक्षा के लिए", "खेल के लिए"];
 function hdataFix(data, info) {
   const C1 = "कंप्यूटर ऑपरेटर (Computer Operator)", C2 = "डेटा एंट्री ऑपरेटर", C3 = "मोटरसाइकिल (टू-व्हीलर) सर्विसिंग व EV का प्रमाणपत्र कोर्स (Certificate in Two-Wheeler Servicing & EV)";
@@ -297,7 +297,27 @@ const OC_HANDLERS = {
       { name: HU.student, regNo: "ACS-2026-999998", role: "jobseeker", status: "withdrawn", enrolledAtMs: Date.UTC(2026, 10, 13), attended: 0 },
       { name: HU.student, regNo: "ACS-2026-999997", role: "entrepreneur", status: "active", enrolledAtMs: Date.UTC(2026, 10, 14), attended: 1 }] }),
   cancelOnlineCourse: () => ({ ok: true, status: "cancelled", learners: 3, refunded: 3, due: 0, left: 0 }),
-  runOnlineRefunds: () => ({ ok: true, refunded: 2, due: 0, left: 1 })
+  runOnlineRefunds: () => ({ ok: true, refunded: 2, due: 0, left: 1 }),
+  /* (v3.2, P-6b) निजी संदेश, अभिभावक का email, संदेश-शिकायतें */
+  listMyThreads: () => ({ total: 2, blocked: false, items: [
+    { side: "teacher", courseId: "oc4", courseTitle: HU.ocTitle, regNo: "ACS-2026-999999", otherName: HU.student, minor: true, lastText: HU.msg, lastAtMs: Date.UTC(2026, 10, 19, 4), lastSide: "student", unread: 2 },
+    { side: "student", courseId: "oc9", courseTitle: HU.ocTitle, regNo: "ACS-2026-999999", otherName: HU.student, minor: true, lastText: HU.krs, lastAtMs: Date.UTC(2026, 10, 19, 3), lastSide: "student", unread: 0, complaint: false }] }),
+  openThread: (d) => ({ courseId: (d && d.courseId) || "oc4", courseTitle: HU.ocTitle, side: d && d.regNo ? "teacher" : "student", regNo: "ACS-2026-999999", otherName: HU.student, minor: true, lock: "",
+    complaint: false, total: 3, shown: 2, items: [
+      { id: "m1", mine: !(d && d.regNo), fromSide: "student", text: HU.msg, atMs: Date.UTC(2026, 10, 19, 3), copy: "sent" },
+      { id: "m2", mine: !!(d && d.regNo), fromSide: "teacher", text: HU.msg, atMs: Date.UTC(2026, 10, 19, 4), copy: "failed" }] }),
+  sendMessage: () => ({ ok: true, id: "m3", copy: "sent" }),
+  reportThread: () => ({ ok: true, complaintId: "k1" }),
+  myGuardianContact: () => ({ learner: true, minor: true, verified: false, email: "", pending: "" }),
+  setGuardianEmail: () => ({ ok: true, sentTo: "pa****@example.com" }),
+  confirmGuardianEmail: () => ({ ok: true, email: "pa****@example.com" }),
+  listMsgComplaints: (d) => ({ status: (d && d.status) || "open", total: 1, items: [{ complaintId: "k1", courseTitle: HU.ocTitle, teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222",
+    studentName: HU.student, studentRegNo: "ACS-2026-999999", minor: true, reason: HU.krs, atMs: Date.UTC(2026, 10, 19, 5), status: (d && d.status) || "open",
+    closeNote: d && d.status === "closed" ? HU.ccl : "", closedAtMs: 0, blocked: !!(d && d.status === "closed") }] }),
+  readComplaintThread: () => ({ complaintId: "k1", total: 2, items: [{ fromSide: "teacher", text: HU.msg, atMs: Date.UTC(2026, 10, 19, 3), copy: "sent" },
+    { fromSide: "student", text: HU.msg, atMs: Date.UTC(2026, 10, 19, 4), copy: "sent" }] }),
+  closeMsgComplaint: (d) => ({ ok: true, blocked: !!(d && d.block) }),
+  unblockTeacherMsg: () => ({ ok: true })
 };
 const K1_HANDLERS = {
   listMyClasses: () => ({
@@ -715,7 +735,7 @@ async function ocChecks(pages) {
     const L = clean(txt(c, "pnl-online")).match(/[ऀ-ॿ]+/g) || [];
     ck("O9 शिक्षक English: रद्द कोर्स और विद्यार्थी-सूची में हिंदी शून्य", L.length === 0 && !!q(".ocln"), L.slice(0, 8).join(" ‖ ")); c.dom.window.close(); }
   for (const who of ["founder", "admin"]) if (pg(who)) { const c = await openH(pg(who), "hi", "data", ["pnl-ocq"]), q = sel => c.d.querySelector(sel);
-    ck("O9 " + who + ": पाँच खाने, \"⛔ रद्द\" भी", c.d.querySelectorAll(".k1seg.oc5 .k1m").length === 5 && has(c, '[data-oc="qs"][data-v="cancelled"]'));
+    ck("O9 " + who + ": छह खाने, \"⛔ रद्द\" और \"🚩 शिकायतें\" भी", c.d.querySelectorAll(".k1seg.oc6 .k1m").length === 6 && has(c, '[data-oc="qs"][data-v="cancelled"]') && has(c, '[data-oc="qs"][data-v="msgk"]'));
     click(c, q('[data-oc="qs"][data-v="approved"]')); await settle(c); await settle(c);
     ck("O9 " + who + ": मंज़ूर कोर्स पर विद्यार्थी-सूची और रद्द के बटन", has(c, '#ocqList [data-oc="lrn"][data-id="oc2"]') && has(c, '#ocqList details.k1more [data-oc="ccl"][data-id="oc2"]'));
     ans(c, HU.ccl); c.confirmAnswer = true; click(c, q('#ocqList [data-oc="ccl"]')); await settle(c); await settle(c);
@@ -739,14 +759,103 @@ async function ocChecks(pages) {
     const cc = Array.from(c.d.querySelectorAll("#olMine .k1card")).find(x => /कोर्स रद्द/.test(x.textContent)), ct = cc ? cc.textContent : "";
     ck("O9 विद्यार्थी: रद्द कोर्स: कारण, पूरी फ़ीस ₹500 वापस, वापसी की हालत; कोई बटन नहीं", !!cc && ct.indexOf(HU.ccl) > -1 && /आपकी पूरी फ़ीस वापस:\s*₹500/.test(ct) && /वापसी हो रही है/.test(ct) && !cc.querySelector("[data-ol]"), ct.slice(0, 300));
     c.dom.window.close(); }
+  /* (v3.2, P-6b) निजी संदेश: शिक्षक की बातचीत, विद्यार्थी का अभिभावक-email और शिकायत, ACS की "🚩 शिकायतें" */
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi", "data", ["pnl-omsg"]), q = sel => c.d.querySelector(sel), qa = sel => Array.from(c.d.querySelectorAll(sel));
+    const lt = txt(c, "omList");
+    ck("O10 शिक्षक: संदेश-सूची: नाम, कोर्स, ACS नंबर, नए संदेश 2; अभिभावक-email का डिब्बा शिक्षक को नहीं", /नए संदेश:\s*2/.test(lt) && lt.indexOf(HU.msg) > -1 && /ACS-2026-999999/.test(lt) && !has(c, "#omGuard .omg") && /विद्यार्थी-सूची/.test(lt), lt.slice(0, 300));
+    click(c, q('[data-om="open"][data-id="oc4"]')); await settle(c); await settle(c);
+    const oc = c.calls.filter(x => x.name === "openThread").pop(), th = txt(c, "omThread");
+    ck("O10 शिक्षक: बातचीत खुली: विद्यार्थी के ACS नंबर से; बुलबुले, अभिभावक की प्रति की हालत, लिखने का डिब्बा", !!oc && oc.data.courseId === "oc4" && oc.data.regNo === "ACS-2026-999999" && qa("#omThread .omb").length === 2
+      && qa("#omThread .omb.me").length === 1 && /अभिभावक को प्रति गई/.test(th) && /अभिभावक को प्रति बाक़ी/.test(th) && /पुराने संदेश दिखाएँ/.test(th) && has(c, "#omText") && has(c, '[data-om="send"]') && !has(c, '[data-om="rep"]'), th.slice(0, 300));
+    click(c, q('[data-om="send"]')); await settle(c);
+    ck("O10 शिक्षक: ख़ाली संदेश server को नहीं जाता", !c.calls.some(x => x.name === "sendMessage") && /पहले संदेश लिखें/.test(txt(c, "omMsg")));
+    q("#omText").value = HU.msg; click(c, q('[data-om="send"]')); await settle(c); await settle(c); await settle(c);
+    const sm = c.calls.filter(x => x.name === "sendMessage").pop();
+    ck("O10 शिक्षक: संदेश ACS नंबर के साथ server को जाता है; अभिभावक को प्रति का संदेश", !!sm && sm.data.courseId === "oc4" && sm.data.regNo === "ACS-2026-999999" && sm.data.text === HU.msg && /अभिभावक को प्रति भी गई/.test(txt(c, "omMsg")), JSON.stringify(sm && sm.data));
+    click(c, q('[data-om="more"]')); await settle(c); await settle(c);
+    ck("O10 शिक्षक: \"पुराने संदेश\" आगे की खेप माँगता है", c.calls.filter(x => x.name === "openThread").pop().data.more === 2);
+    click(c, q('[data-om="close"]')); await settle(c);
+    ck("O10 शिक्षक: बातचीत बंद करने पर डिब्बा ख़ाली", !has(c, "#omTh"));
+    c.dom.window.close(); }
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi", "data", ["pnl-online"]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-oc="lrn"][data-id="oc4"]')); await settle(c); await settle(c);
+    const mb = Array.from(c.d.querySelectorAll('.ocln [data-oc="msg"]'));
+    ck("O10 शिक्षक: विद्यार्थी-सूची में हर जुड़े विद्यार्थी पर \"✉️ संदेश\"; छोड़ चुके पर नहीं", mb.length === 2 && mb.every(b => b.getAttribute("data-id") === "oc4") && !mb.some(b => b.getAttribute("data-r") === "ACS-2026-999998"));
+    click(c, mb[0]); await settle(c); await settle(c); await settle(c);
+    const oc = c.calls.filter(x => x.name === "openThread").pop();
+    ck("O10 शिक्षक: सूची से सीधे \"✉️ संदेश\" पैनल में उसी विद्यार्थी की बातचीत", c.d.getElementById("pnl-omsg").classList.contains("on") && !!oc && oc.data.regNo === "ACS-2026-999999" && has(c, "#omTh"));
+    c.dom.window.close(); }
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "en", "data", ["pnl-omsg"]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-om="open"][data-id="oc4"]')); await settle(c); await settle(c); const dd = q("#pnl-omsg details.k1rules"); if (dd) dd.open = true;
+    const L = clean(txt(c, "pnl-omsg") + " " + (q("#omText") ? q("#omText").getAttribute("placeholder") : "")).match(/[ऀ-ॿ]+/g) || [];
+    ck("O10 शिक्षक English: संदेश-पैनल और खुली बातचीत में हिंदी शून्य", L.length === 0 && !!q("#omTh"), L.slice(0, 8).join(" ‖ ")); c.dom.window.close(); }
+  if (pg("student")) { const c = await openH(pg("student"), "hi", "data", ["pnl-omsg"]), q = sel => c.d.querySelector(sel);
+    const g = txt(c, "omGuard");
+    ck("O10 विद्यार्थी (18 से कम): अभिभावक का email जोड़ने का डिब्बा", /अभिभावक का email जोड़ें/.test(g) && has(c, "#omGmail") && has(c, '[data-om="gsend"]'), g.slice(0, 200));
+    click(c, q('[data-om="gsend"]')); await settle(c);
+    ck("O10 विद्यार्थी: ख़ाली email server को नहीं जाता", !c.calls.some(x => x.name === "setGuardianEmail") && /अभिभावक का email लिखें/.test(txt(c, "omMsg")));
+    q("#omGmail").value = "parent@example.com"; click(c, q('[data-om="gsend"]')); await settle(c); await settle(c);
+    const se = c.calls.filter(x => x.name === "setGuardianEmail").pop();
+    ck("O10 विद्यार्थी: email server को, फिर code का डिब्बा", !!se && se.data.email === "parent@example.com" && has(c, "#omCode") && /pa\*\*\*\*@example\.com/.test(txt(c, "omGuard")) && /code अभिभावक के email पर भेजा गया/.test(txt(c, "omMsg")));
+    q("#omCode").value = "12ab"; click(c, q('[data-om="gconf"]')); await settle(c);
+    ck("O10 विद्यार्थी: 6 अंक न हों तो code server को नहीं जाता", !c.calls.some(x => x.name === "confirmGuardianEmail") && /6 अंकों का code लिखें/.test(txt(c, "omMsg")));
+    q("#omCode").value = "123456"; click(c, q('[data-om="gconf"]')); await settle(c); await settle(c); await settle(c);
+    ck("O10 विद्यार्थी: सही code server को; email जुड़ने का संदेश", c.calls.some(x => x.name === "confirmGuardianEmail" && x.data.code === "123456") && /अभिभावक का email जुड़ गया/.test(txt(c, "omMsg")));
+    click(c, q('[data-om="open"][data-id="oc9"]')); await settle(c); await settle(c);
+    const oc = c.calls.filter(x => x.name === "openThread").pop();
+    ck("O10 विद्यार्थी: अपनी बातचीत बिना ACS नंबर के खुलती है; शिकायत का बटन \"और विकल्प\" में", !!oc && oc.data.courseId === "oc9" && oc.data.regNo === undefined && has(c, '#omThread details.k1more [data-om="rep"]'));
+    ans(c, "बुरा"); click(c, q('[data-om="rep"]')); await settle(c);
+    ck("O10 विद्यार्थी: छोटी शिकायत server को नहीं जाती", !c.calls.some(x => x.name === "reportThread") && /कम से कम 5 अक्षर/.test(txt(c, "omMsg")));
+    ans(c, HU.krs); click(c, q('[data-om="rep"]')); await settle(c); await settle(c);
+    const rp = c.calls.filter(x => x.name === "reportThread").pop();
+    ck("O10 विद्यार्थी: शिकायत server को, कारण के साथ; \"सिर्फ़ ACS देखेगा\" बताया गया", !!rp && rp.data.courseId === "oc9" && rp.data.reason === HU.krs && c.dialogs.some(m => /सिर्फ़ ACS देखेगा/.test(m)) && /शिकायत ACS के पास पहुँच गई/.test(txt(c, "omMsg")));
+    c.dom.window.close(); }
+  if (pg("student")) { const c = await openH(pg("student"), "hi", "data", ["pnl-olearn"]), q = sel => c.d.querySelector(sel);
+    const mb = q('#olMine .k1card.st-active [data-ol="msg"]');
+    ck("O10 विद्यार्थी: जुड़े कोर्स के कार्ड पर \"✉️ शिक्षक को संदेश\"; रद्द कोर्स पर नहीं", !!mb && !c.d.querySelector('#olMine .k1card.st-returned [data-ol="msg"]'));
+    click(c, mb); await settle(c); await settle(c); await settle(c);
+    ck("O10 विद्यार्थी: कार्ड से सीधे उसी कोर्स की बातचीत", c.d.getElementById("pnl-omsg").classList.contains("on") && c.calls.some(x => x.name === "openThread" && x.data.courseId === mb.getAttribute("data-id")));
+    c.dom.window.close(); }
+  if (pg("student")) { const c = await openH(pg("student"), "en", "data", ["pnl-omsg"]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-om="open"][data-id="oc9"]')); await settle(c); await settle(c); const dd = q("#omThread details.k1more"); if (dd) dd.open = true;
+    const L = clean(txt(c, "pnl-omsg") + " " + q("#omGmail").getAttribute("placeholder") + " " + q("#omText").getAttribute("placeholder")).match(/[ऀ-ॿ]+/g) || [];
+    ck("O10 विद्यार्थी English: अभिभावक का डिब्बा और बातचीत में हिंदी शून्य", L.length === 0, L.slice(0, 8).join(" ‖ ")); c.dom.window.close(); }
+  for (const who of ["founder", "admin"]) if (pg(who)) { const c = await openH(pg(who), "hi", "data", ["pnl-ocq"]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-oc="qs"][data-v="msgk"]')); await settle(c); await settle(c);
+    const lk = c.calls.filter(x => x.name === "listMsgComplaints").pop(), t = txt(c, "ocqList");
+    ck("O10 " + who + ": \"🚩 शिकायतें\": खुली शिकायत, कारण, विद्यार्थी, शिक्षक, 18 से कम", !!lk && lk.data.status === "open" && t.indexOf(HU.krs) > -1 && /ACS-TE-2026-222222/.test(t) && /18 से कम/.test(t) && /शिक्षक को शिकायत नहीं दिखती/.test(t), t.slice(0, 300));
+    click(c, q('[data-oc="kread"]')); await settle(c); await settle(c);
+    ck("O10 " + who + ": पूरी बातचीत पढ़ी जाती है", c.calls.some(x => x.name === "readComplaintThread" && x.data.complaintId === "k1") && c.d.querySelectorAll(".omk .omb").length === 2);
+    ans(c, "ठीक"); click(c, q('[data-oc="kclose"]')); await settle(c);
+    ck("O10 " + who + ": छोटा नोट server को नहीं जाता", !c.calls.some(x => x.name === "closeMsgComplaint"));
+    ans(c, HU.ccl); click(c, q('[data-oc="kclose"]')); await settle(c); await settle(c);
+    const kc = c.calls.filter(x => x.name === "closeMsgComplaint").pop();
+    ck("O10 " + who + ": शिकायत बंद, संदेश रोके बिना", !!kc && kc.data.block === false && kc.data.note === HU.ccl && /शिकायत बंद हुई/.test(txt(c, "ocqMsg")));
+    c.confirmAnswer = true; ans(c, HU.ccl); click(c, q('#ocqList details.k1more [data-oc="kblock"]')); await settle(c); await settle(c);
+    const kb = c.calls.filter(x => x.name === "closeMsgComplaint").pop();
+    ck("O10 " + who + ": \"बंद करें और शिक्षक के संदेश रोकें\" पक्का करके", kb.data.block === true && c.dialogs.some(m => /सब संदेश रोकें/.test(m)) && /संदेश रोक दिए गए/.test(txt(c, "ocqMsg")));
+    click(c, q('[data-oc="kst"]')); await settle(c); await settle(c);
+    const kd = txt(c, "ocqList");
+    ck("O10 " + who + ": बंद शिकायतें: क्या किया, संदेश बंद, \"फिर खोलें\"", c.calls.filter(x => x.name === "listMsgComplaints").pop().data.status === "closed" && /क्या किया:/.test(kd) && /संदेश बंद हैं/.test(kd) && has(c, '[data-oc="kopen"]'));
+    ans(c, HU.ccl); click(c, q('[data-oc="kopen"]')); await settle(c); await settle(c);
+    ck("O10 " + who + ": संदेश फिर खोलना, कारण के साथ", c.calls.some(x => x.name === "unblockTeacherMsg" && x.data.note === HU.ccl) && /फिर खुल गए/.test(txt(c, "ocqMsg")));
+    c.dom.window.close(); }
+  if (pg("founder")) { const c = await openH(pg("founder"), "en", "data", ["pnl-ocq"]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-oc="qs"][data-v="msgk"]')); await settle(c); await settle(c); click(c, q('[data-oc="kread"]')); await settle(c); await settle(c);
+    let L = clean(txt(c, "pnl-ocq")).match(/[ऀ-ॿ]+/g) || [];
+    click(c, q('[data-oc="kst"]')); await settle(c); await settle(c); L = L.concat(clean(txt(c, "pnl-ocq")).match(/[ऀ-ॿ]+/g) || []);
+    ck("O10 founder English: \"🚩 शिकायतें\" में हिंदी शून्य", L.length === 0, L.slice(0, 8).join(" ‖ ")); c.dom.window.close(); }
   /* देखने का मोड: शिक्षक की नज़र से सूची पढ़ी जाती है, कोई लिखने वाला काम नहीं */
   if (pg("teacher")) { const c = await openNazar(pg("teacher"), "hi", "?nazar=" + NZ_REG);
     { const cb = c.d.querySelector('#ocList [data-oc="cls"]'); if (cb) { click(c, cb); await settle(c); await settle(c); } }
     ck("O3 नज़र शिक्षक: कक्षा-सूची पढ़ी गई (viewAs के साथ), कड़ी डालने का खाना नहीं", c.calls.some(x => x.name === "listOnlineClasses" && x.data.viewAs) && /कुल कक्षाएँ/.test(txt(c, "ocList")) && !c.d.querySelector(".oclink"));
     { const lb = c.d.querySelector('#ocList [data-oc="lrn"]'); if (lb) { click(c, lb); await settle(c); await settle(c); } }
+    { const ob = c.d.querySelector('[data-om="open"]'); if (ob) { click(c, ob); await settle(c); await settle(c); } }
+    ck("O10 नज़र शिक्षक: बातचीत पढ़ी गई (viewAs के साथ); लिखने का डिब्बा और भेजने का बटन नहीं", c.calls.some(x => x.name === "listMyThreads" && x.data.viewAs) && c.calls.some(x => x.name === "openThread" && x.data.viewAs)
+      && !!c.d.querySelector("#omTh") && !c.d.querySelector("#omText") && !c.d.querySelector('[data-om="send"]'));
     ck("O9 नज़र शिक्षक: विद्यार्थी-सूची पढ़ी गई (viewAs के साथ); रद्द का बटन नहीं", c.calls.some(x => x.name === "listOnlineLearners" && x.data.viewAs) && !c.d.querySelector('[data-oc="ccl"]'));
     ck("O3 नज़र शिक्षक: online कोर्स पढ़े गए (viewAs के साथ), कोई लिखने वाला काम नहीं", c.calls.some(x => x.name === "listMyOnlineCourses" && x.data.viewAs) && /शिक्षा की बोलचाल/.test(txt(c, "ocList"))
-      && !c.calls.some(x => /^(save|submit|withdraw|decide|cancel)OnlineCourse$|^setOnlineClassLink$/.test(x.name)));
+      && !c.calls.some(x => /^(save|submit|withdraw|decide|cancel)OnlineCourse$|^setOnlineClassLink$|^sendMessage$|^reportThread$/.test(x.name)));
     c.dom.window.close(); }
 }
 /* (v2.0, Founder का आदेश 17-Nov-2026: "Founder को सभी पैनल देखने का अधिकार दो") Founder का देखने वाला मोड।
@@ -769,7 +878,7 @@ async function openNazar(file, lang, query, opt) {
   const ls = {}; if (lang && lang !== "hi") ls.acs_dash_lang = lang; Object.assign(ls, opt.ls || {});
   const KV = f => (d => Object.assign(f(d), d && d.viewAs !== undefined && !opt.oldServer ? { viewed: true } : {}));
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), query: query || "", ls, expect: (lang && lang !== "hi") ? lang : undefined,
-    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, { listMyOnlineCourses: KV(OC_HANDLERS.listMyOnlineCourses), listOnlineClasses: KV(OC_HANDLERS.listOnlineClasses), listOnlineCatalog: KV(OC_HANDLERS.listOnlineCatalog), myOnlineCourses: KV(OC_HANDLERS.myOnlineCourses), listOnlineLearners: KV(OC_HANDLERS.listOnlineLearners), listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, { listMyOnlineCourses: KV(OC_HANDLERS.listMyOnlineCourses), listOnlineClasses: KV(OC_HANDLERS.listOnlineClasses), listOnlineCatalog: KV(OC_HANDLERS.listOnlineCatalog), myOnlineCourses: KV(OC_HANDLERS.myOnlineCourses), listOnlineLearners: KV(OC_HANDLERS.listOnlineLearners), listMyThreads: KV(OC_HANDLERS.listMyThreads), openThread: KV(OC_HANDLERS.openThread), myGuardianContact: KV(OC_HANDLERS.myGuardianContact), listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
   c.userVals.add(NAME_HI); c.userVals.add(NAME_HI.trim()[0]); c.userVals.add("सीता देवी"); Object.keys(HU).forEach(k => c.userVals.add(HU[k]));   /* उपयोगकर्ता का लिखा हर पाठ */
   await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden") || !c.d.getElementById("denyView").classList.contains("hidden"), 6000);
   await settle(c); await settle(c);
@@ -879,7 +988,7 @@ async function roopChecks(pages) {
     click(c, q('[data-roop="bc"][data-v="p"]')); await settle(c);
     ck("R11 टीम का घर: बटन का रंग बदला", c.d.documentElement.style.getPropertyValue("--blue") === "#5E35B1"); c.dom.window.close(); }
 }
-const NZ_OK = { claimSession: 1, listMyOnlineCourses: 1, listOnlineClasses: 1, listOnlineCatalog: 1, myOnlineCourses: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1, listNotices: 1, myNotices: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
+const NZ_OK = { claimSession: 1, listMyOnlineCourses: 1, listOnlineClasses: 1, listOnlineCatalog: 1, myOnlineCourses: 1, listOnlineLearners: 1, listMyThreads: 1, openThread: 1, myGuardianContact: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1, listNotices: 1, myNotices: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
 async function nazarChecks(pages) {
   const has = (c, sel) => !!c.d.querySelector(sel), txt = (c, id) => { const e = c.d.getElementById(id); return e ? e.textContent : ""; };
   const shown = (c, id) => { const e = c.d.getElementById(id); return !!e && !e.classList.contains("hidden"); };
@@ -1313,6 +1422,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.1 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.2 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

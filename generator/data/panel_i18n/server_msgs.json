@@ -13,7 +13,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 442,
+ "count": 464,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -47,10 +47,24 @@
    "from": "office-report"
   },
   {
+   "hi": "18 से कम उम्र के विद्यार्थी से संदेश तभी होता है, जब अभिभावक का email जुड़ जाए",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "18 से कम उम्र पर Guardian का नाम व mobile अनिवार्य है",
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "5 बार ग़लत code; नया code मँगाएँ",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "6-अंकों का सही पिन कोड चाहिए।",
@@ -250,6 +264,27 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "code का email अभी नहीं जा सका; थोड़ी देर बाद फिर कोशिश करें",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "code का समय निकल गया; नया code मँगाएँ",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "code ग़लत है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "courseId, lessonTitle, lessonId ज़रूरी",
@@ -614,6 +649,13 @@
    "from": "office-report"
   },
   {
+   "hi": "अभिभावक का सही email लिखें",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "अभी कोड नहीं बना — दोबारा दबाएँ",
    "in": [
     "index.js"
@@ -664,6 +706,13 @@
   },
   {
    "hi": "आगे की तारीख़ की हाज़िरी नहीं लग सकती",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "आज 3 बार code भेजा जा चुका; कल फिर कोशिश करें",
    "in": [
     "class_server.js"
    ],
@@ -773,6 +822,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "आपकी पहले की शिकायत अभी ACS के पास खुली है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "आपके खाते पर कोई रोक नहीं है",
@@ -1060,6 +1116,20 @@
    "from": "office-report"
   },
   {
+   "hi": "इस शिक्षक के संदेश ACS ने बंद किए हैं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "इस शिक्षक के संदेश बंद नहीं हैं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इस सेट का कम से कम समय अभी पूरा नहीं हुआ।",
    "in": [
     "apt_server.js"
@@ -1119,6 +1189,13 @@
   },
   {
    "hi": "एक कक्षा में {0} से ज़्यादा काम नहीं दिए जा सकते",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "एक घंटे में 30 से ज़्यादा संदेश नहीं; थोड़ी देर बाद भेजें",
    "in": [
     "class_server.js"
    ],
@@ -1336,6 +1413,13 @@
    "in": [
     "exam_server.js"
    ]
+  },
+  {
+   "hi": "क्या किया, यह थोड़ा पूरा लिखें (कम से कम 5 अक्षर)",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "ख़त्म होने का समय शुरू होने के समय के बाद हो",
@@ -2219,6 +2303,13 @@
    ]
   },
   {
+   "hi": "यह कोर्स अब चालू नहीं है; नया संदेश नहीं जाता",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह कोर्स अभी जाँच में है; बदलने के लिए पहले उसे जाँच से वापस लें",
    "in": [
     "class_server.js"
@@ -2477,7 +2568,28 @@
    "from": "office-report"
   },
   {
+   "hi": "यह विद्यार्थी इस कोर्स में नहीं मिला",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह शिकायत चालू कक्षा पर ही दर्ज होती है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह शिकायत पहले ही बंद है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह शिकायत मिली नहीं",
    "in": [
     "class_server.js"
    ],
@@ -2488,6 +2600,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "यह सिर्फ़ 18 से कम उम्र के विद्यार्थी के लिए है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "यह सेवा-भूमिका का आवेदन नहीं है",
@@ -2598,6 +2717,20 @@
    ]
   },
   {
+   "hi": "शिकायत थोड़ी पूरी लिखें (कम से कम 5 अक्षर)",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "शिकायत सिर्फ़ विद्यार्थी कर सकता है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "शिक्षक का जवाब आ चुका है; अब फ़ैसला ACS करेगा",
    "in": [
     "class_server.js"
@@ -2641,6 +2774,27 @@
   },
   {
    "hi": "शुरू की तारीख़ सही लिखें",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "संदेश ख़ाली है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "संदेश बहुत लंबा है (ज़्यादा से ज़्यादा 500 अक्षर)",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "संदेश में फ़ोन नंबर, email या कड़ी (link) नहीं भेजी जा सकती। बात ACS पर ही करें।",
    "in": [
     "class_server.js"
    ],

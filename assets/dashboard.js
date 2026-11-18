@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.35.0 · 19-Nov-2026 (P-6b: नया पैनल "✉️ संदेश" (om-block): शिक्षक और उसके online कोर्स के विद्यार्थी के बीच निजी संदेश; 18 से कम उम्र के विद्यार्थी का अभिभावक-email (code से पक्का); विद्यार्थी की शिकायत; शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कोर्स-कार्ड से सीधी बातचीत; ACS का खाना "🚩 शिकायतें": पूरी बातचीत पढ़ना, शिकायत बंद करना, शिक्षक के संदेश रोकना और फिर खोलना)
    v6.34.0 · 18-Nov-2026 (P-5b: शिक्षक और ACS के कार्ड पर "👥 विद्यार्थी-सूची" और "⛔ कोर्स रद्द करें (पूरी फ़ीस वापस)"; ACS की "⛔ रद्द" सूची और "💸 वापसी आगे बढ़ाएँ"; अटकी वापसी की पहचान; विद्यार्थी के कार्ड पर रद्द कोर्स, कारण और वापसी)
    v6.33.0 · 18-Nov-2026 (P-3b: विद्यार्थी के घरों में "💻 शिक्षकों के online कोर्स" (ol-block): खुले कोर्स, फ़ीस देकर जुड़ना, कक्षा खोलना, पहली कक्षा से पहले छोड़ना; शिक्षक/ACS के कार्ड पर जुड़े विद्यार्थी और पैसा; ACS की "वापसी बाक़ी" सूची; खाता-बही में हर भुगतान अपने नाम से)
    v6.32.0 · 18-Nov-2026 (P-2b: मंज़ूर online कोर्स की कक्षाएँ और हर कक्षा की YouTube कड़ी)
@@ -178,7 +179,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1, listOnlineCatalog:1, myOnlineCourses:1, listOnlineLearners:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1, listOnlineCatalog:1, myOnlineCourses:1, listOnlineLearners:1, listMyThreads:1, openThread:1, myGuardianContact:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -196,7 +197,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.34.0";
+const DASH_VER = "v6.35.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -714,6 +715,7 @@ let MYDESIG = "";
 const CERT_REL_HI={father:"पिता का नाम :", mother:"माता का नाम :", guardian:"अभिभावक का नाम :"};
 const CERT_REL_EN={father:"Father's name:", mother:"Mother's name:", guardian:"Guardian's name:"};
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
+let OM_OPEN = null;   /* (P-6b) "✉️ संदेश" की बातचीत खोलने का दरवाज़ा: om-block भरता है, oc-block और ol-block बुलाते हैं (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
 const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon","pnl-ocq","pnl-ghar"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
 /* (30-Jul सुधार-3) मिले-जुले पैनल: A खुले तो B के आलसी-इंजन भी चलें —
@@ -4793,7 +4795,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
   var LRN={}, LOPEN={};
   var ROLE_L={ student:"🎓 विद्यार्थी", jobseeker:"💼 नौकरी-इच्छुक", entrepreneur:"🏭 उद्यमी" };
   function msDate(ms){ return ms ? fd(new Date(Number(ms)+5.5*3600000).toISOString().slice(0,10)) : "—"; }
-  function lrnHtml(cid){
+  function lrnHtml(cid, side){
     var R=LRN[cid]; if(!LOPEN[cid]||!R) return "";
     var L=R.items||[], h='<div class="k1pane ocln"><div class="r2">'+S("कुल विद्यार्थी:")+' <b>'+(R.total||0)+'</b> · '+S("अभी जुड़े:")+' <b>'+(R.active||0)+'</b> · '+
       S("कक्षाएँ हो चुकीं:")+' <b>'+(R.held||0)+' / '+(R.classes||0)+'</b></div>'+
@@ -4802,7 +4804,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
     L.forEach(function(x,i){
       var chip=x.status==="withdrawn"?' <span class="chip">↩ छोड़ दिया</span>':(x.status==="cancelled"?' <span class="chip canc">⛔ रद्द</span>':'');
       h+='<div class="k1ar ocs"><div class="r2"><b>'+(i+1)+'.</b> '+US(rb(x.name))+' · '+esc(x.regNo||"")+' · '+S(ROLE_L[x.role]||ROLE_L.student)+chip+'</div>'+
-        '<div class="r2">'+S("खोली कक्षाएँ:")+' <b>'+(x.attended||0)+'</b> · '+S("जुड़े:")+' '+msDate(x.enrolledAtMs)+'</div></div>';
+        '<div class="r2">'+S("खोली कक्षाएँ:")+' <b>'+(x.attended||0)+'</b> · '+S("जुड़े:")+' '+msDate(x.enrolledAtMs)+'</div>'+
+        (side==="teacher"&&x.status==="active"?'<div>'+obtn("msg","✉️ संदेश",' data-id="'+esc(cid)+'" data-r="'+esc(x.regNo||"")+'"')+'</div>':'')+'</div>';
     });
     if(L.length<(R.total||0)) h+='<div>'+obtn("lrmore","⬇ और विद्यार्थी दिखाएँ",' data-id="'+esc(cid)+'"')+'</div>';
     return h+'</div>';
@@ -4875,7 +4878,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     if(foot||more) h+='<div class="k1foot">'+foot+(more?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+more+'</div></details>':'')+'</div>';
     if(side==="teacher"&&OF&&OF.courseId===c.courseId) h+=formHtml();
     if(st==="approved") h+=clsHtml(c.courseId, side);
-    if(st==="approved"||st==="cancelled") h+=lrnHtml(c.courseId);
+    if(st==="approved"||st==="cancelled") h+=lrnHtml(c.courseId, side);
     return h+'</div>';
   }
 
@@ -4922,7 +4925,28 @@ if (MODE==="external" && ALLOWED.length>=1) {
   LAZY["pnl-online"]=async function(){ try{ await reload(); }catch(e){ failTo("ocList")(e); } };
 
   /* ───────── ACS (Founder, Admin): pnl-ocq ───────── */
-  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर हुए"],["returned","↩ लौटाए गए"],["cancelled","⛔ रद्द"],["refund","💸 वापसी बाक़ी"]];
+  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर हुए"],["returned","↩ लौटाए गए"],["cancelled","⛔ रद्द"],["refund","💸 वापसी बाक़ी"],["msgk","🚩 शिकायतें"]];
+  /* (P-6b) संदेश-शिकायतें: KST = खुली या बंद, KT = पढ़ी गई बातचीत (शिकायत-वार) */
+  var KST="open", KT={};
+  function msWhen(ms){ if(!ms) return "—"; var d=new Date(Number(ms)+5.5*3600000).toISOString(); return d.slice(8,10)+"-"+d.slice(5,7)+"-"+d.slice(0,4)+" "+d.slice(11,16); }
+  function kcard(k){
+    var id=' data-id="'+esc(k.complaintId)+'"', open=k.status==="open", T=KT[k.complaintId];
+    var h='<div class="app k1row k1card st-returned"><div class="k1h"><div class="k1ti">'+US(rb(k.courseTitle))+'</div><div class="k1sub">'+
+      (open?'<span class="chip canc">🚩 खुली</span>':'<span class="chip">✔ बंद</span>')+'</div></div>'+
+      meta("🧑‍🎓", US(rb(k.studentName))+' · '+esc(k.studentRegNo||"")+(k.minor?' <span class="chip">'+S("18 से कम")+'</span>':''))+
+      meta("👨‍🏫", US(rb(k.teacherName))+' · '+esc(k.teacherRegNo||""))+
+      meta("🕒", msWhen(k.atMs))+
+      '<div class="k1call rd"><div class="ct">'+S("शिकायत:")+' '+US(rb(k.reason))+'</div></div>';
+    if(!open) h+='<div class="k1call"><div class="ct">'+S("क्या किया:")+' '+US(rb(k.closeNote))+'</div>'+(k.blocked?'<div class="cs">'+S("⛔ इस शिक्षक के संदेश बंद हैं।")+'</div>':'')+'</div>';
+    if(T){ h+='<div class="k1pane omk">'+(T.items||[]).map(function(m){
+        return '<div class="omb'+(m.fromSide==="teacher"?'':' me')+'"><div class="omt">'+US(rb(m.text))+'</div><div class="omm">'+S(m.fromSide==="teacher"?"🧑‍🏫 शिक्षक":"🎓 विद्यार्थी")+' · '+msWhen(m.atMs)+'</div></div>'; }).join("")+
+        ((T.items||[]).length?'':'<div class="note">'+S("इस बातचीत में अभी कोई संदेश नहीं है।")+'</div>')+'</div>'; }
+    var foot=obtn("kread", T?"✖ बातचीत छिपाएँ":"💬 बातचीत पढ़ें", id), more="";
+    if(open){ foot+=pbtn("kclose","✔ शिकायत बंद करें",id); more+=dbtn("kblock","⛔ बंद करें और शिक्षक के संदेश रोकें",id); }
+    else if(k.blocked) foot+=obtn("kopen","🔓 शिक्षक के संदेश फिर खोलें",id);
+    h+='<div class="k1foot">'+foot+(more?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+more+'</div></details>':'')+'</div>';
+    return h+'</div>';
+  }
   function refRow(r){
     var k=' data-id="'+esc(r.enrollmentId)+'"';
     var why=r.why==="cancelled"?S("⛔ कोर्स रद्द: पूरी फ़ीस (100 प्रतिशत)"):S("↩ विद्यार्थी ने छोड़ा: 90 प्रतिशत");
@@ -4937,19 +4961,24 @@ if (MODE==="external" && ALLOWED.length>=1) {
   }
   function drawQ(){
     var box=$("ocqList"); if(!box||!Q) return;
-    var h='<div class="k1seg oc5">'+QT.map(function(t){ return '<button type="button" class="k1m ocq'+(QS===t[0]?' on':'')+'" data-oc="qs" data-v="'+t[0]+'" aria-pressed="'+(QS===t[0]?'true':'false')+'">'+S(t[1])+'</button>'; }).join(" ")+'</div>';
+    var h='<div class="k1seg oc6">'+QT.map(function(t){ return '<button type="button" class="k1m ocq'+(QS===t[0]?' on':'')+'" data-oc="qs" data-v="'+t[0]+'" aria-pressed="'+(QS===t[0]?'true':'false')+'">'+S(t[1])+'</button>'; }).join(" ")+'</div>';
     var L=Q.items||[];
     if(QS==="refund"){ h+='<div class="k1foot" style="margin-top:10px">'+pbtn("rrun","💸 वापसी आगे बढ़ाएँ")+'</div>'+
         '<div class="note">'+S("रद्द कोर्स की जो वापसी अभी कतार में हैं, यह बटन उन्हें Razorpay से भेजता है।")+'</div>'+
         '<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+L.length+'</b></div>';
       if(!L.length) h+='<span class="note">'+S("अभी कोई वापसी बाक़ी नहीं है।")+'</span>';
       L.forEach(function(r){ h+=refRow(r); }); box.innerHTML=h; return; }
+    if(QS==="msgk"){ h+='<div class="note" style="margin-top:10px">'+S("यहाँ विद्यार्थियों की संदेश-शिकायतें हैं। शिक्षक को शिकायत नहीं दिखती।")+'</div>'+
+        '<div class="k1foot">'+obtn("kst", KST==="open"?"📁 बंद शिकायतें देखें":"🚩 खुली शिकायतें देखें")+'</div>'+
+        '<div class="r2" style="margin-top:10px">'+S(KST==="open"?"खुली शिकायतें:":"बंद शिकायतें:")+' <b>'+(Q.total||0)+'</b></div>';
+      if(!L.length) h+='<span class="note">'+S(KST==="open"?"अभी कोई खुली शिकायत नहीं है।":"अभी कोई बंद शिकायत नहीं है।")+'</span>';
+      L.forEach(function(k){ h+=kcard(k); }); box.innerHTML=h; return; }
     h+='<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+(Q.total||0)+'</b></div>';
     if(!L.length) h+='<span class="note">'+S(QS==="review"?"अभी जाँच के लिए कोई कोर्स नहीं है।":"इस सूची में अभी कोई कोर्स नहीं है।")+'</span>';
     L.forEach(function(c){ h+=card(c,"acs"); });
     box.innerHTML=h;
   }
-  async function loadQ(){ Q=((await call(QS==="refund"?"listOnlineRefundsDue":"listOnlineCourseQueue",{ status:QS })).data)||{}; drawQ(); }
+  async function loadQ(){ Q=((await call(QS==="refund"?"listOnlineRefundsDue":(QS==="msgk"?"listMsgComplaints":"listOnlineCourseQueue"),{ status:QS==="msgk"?KST:QS })).data)||{}; drawQ(); }
   LAZY["pnl-ocq"]=async function(){ try{ await loadQ(); }catch(e){ failTo("ocqList")(e); } };
 
   document.addEventListener("click", async function(ev){
@@ -4961,6 +4990,22 @@ if (MODE==="external" && ALLOWED.length>=1) {
         if(OPEN[id]){ delete OPEN[id]; drawMine(); drawQ(); return; }
         b.disabled=true; CLS[id]=((await call("listOnlineClasses",{ courseId:id })).data)||{}; OPEN[id]=1; drawMine(); drawQ(); return; }
       if(act==="lmore"){ MORE[id]=1; drawMine(); drawQ(); return; }
+      /* (P-6b) शिक्षक की विद्यार्थी-सूची से बातचीत; ACS की संदेश-शिकायतें */
+      if(act==="msg"){ navGo("pnl-omsg"); if(OM_OPEN) OM_OPEN(id, b.getAttribute("data-r")||""); return; }
+      if(act==="kst"){ KST=KST==="open"?"closed":"open"; KT={}; b.disabled=true; await loadQ(); return; }
+      if(act==="kread"){
+        if(KT[id]){ delete KT[id]; drawQ(); return; }
+        b.disabled=true; KT[id]=((await call("readComplaintThread",{ complaintId:id })).data)||{ items:[] }; drawQ(); return; }
+      if(act==="kclose"||act==="kblock"){
+        var kn=prompt(act==="kblock"?"क्या किया, यह लिखें (ज़रूरी)। इस शिक्षक के सब संदेश रुक जाएँगे:":"क्या किया, यह लिखें (ज़रूरी):"); if(!kn) return;
+        if(String(kn).trim().length<5){ sayQ(false,"थोड़ा पूरा लिखें (कम से कम 5 अक्षर)।"); return; }
+        if(act==="kblock"&&!confirm("इस शिक्षक के सब संदेश रोकें? वह किसी भी विद्यार्थी को संदेश नहीं भेज सकेगा, और विद्यार्थी भी उसे नहीं।")) return;
+        b.disabled=true; await call("closeMsgComplaint",{ complaintId:id, note:kn, block:act==="kblock" });
+        delete KT[id]; await loadQ(); sayQ(true, act==="kblock"?"⛔ शिकायत बंद हुई और शिक्षक के संदेश रोक दिए गए।":"✔ शिकायत बंद हुई।"); return; }
+      if(act==="kopen"){
+        var on=prompt("संदेश फिर खोलने का कारण लिखें (ज़रूरी):"); if(!on) return;
+        if(String(on).trim().length<5){ sayQ(false,"थोड़ा पूरा लिखें (कम से कम 5 अक्षर)।"); return; }
+        b.disabled=true; await call("unblockTeacherMsg",{ complaintId:id, note:on }); await loadQ(); sayQ(true,"🔓 शिक्षक के संदेश फिर खुल गए।"); return; }
       if(act==="lrn"){
         if(LOPEN[id]){ delete LOPEN[id]; drawMine(); drawQ(); return; }
         b.disabled=true; LRN[id]=((await call("listOnlineLearners",{ courseId:id, offset:0 })).data)||{}; LOPEN[id]=1; drawMine(); drawQ(); return; }
@@ -5040,6 +5085,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
   var DAYS=["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
   function pbtn(act, label, extra){ return '<button class="abtn k1b ok" data-ol="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
   function dbtn(act, label, extra){ return '<button class="abtn k1b ol dg" data-ol="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function obtn(act, label, extra){ return '<button class="abtn k1b ol" data-ol="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
   function meta(ico, body){ return '<div class="k1meta"><span class="mi">'+ico+'</span><span>'+body+'</span></div>'; }
   function days(x){ return (x.days||[]).map(function(d){ return S(DAYS[d]||""); }).join(", "); }
   function roleOf(r){ return S(r==="ustad"?"उस्ताद":"शिक्षक"); }
@@ -5084,7 +5130,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
         h+='<div class="k1call"><div class="ct">'+S("अगली कक्षा:")+' '+S("कक्षा")+' '+nx.n+' · '+S(DAYS[nx.day]||"")+' '+fd(nx.date)+' · '+esc(nx.from)+' - '+esc(nx.to)+'</div>'+
           '<div class="cs">'+S("कक्षा की कड़ी कक्षा से 15 मिनट पहले यहीं खुलेगी।")+'</div></div>';
       } else h+='<div class="note">'+S("इस कोर्स की सब कक्षाएँ हो चुकी हैं।")+'</div>';
-      if(x.canWithdraw) h+='<div class="k1foot"><details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+dbtn("leave","↩ कोर्स छोड़ें (90 प्रतिशत वापस)",id)+'</div></details></div>';
+      h+='<div class="k1foot">'+obtn("msg","✉️ शिक्षक को संदेश",id)+
+        (x.canWithdraw?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+dbtn("leave","↩ कोर्स छोड़ें (90 प्रतिशत वापस)",id)+'</div></details>':'')+'</div>';
     } else if(ccl){
       /* (P-5b) रद्द कोर्स: कारण और पूरी फ़ीस की वापसी */
       h+='<div class="k1call rd"><div class="ct">'+S("⛔ यह कोर्स रद्द हो गया है। कारण:")+' '+US(rb(x.cancelReason))+'</div>'+
@@ -5146,6 +5193,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
           modal:{ ondismiss:function(){ b.disabled=false; } } });
         rz.open(); return;
       }
+      if(act==="msg"){ navGo("pnl-omsg"); if(OM_OPEN) OM_OPEN(id, ""); return; }
       if(act==="open"){
         b.disabled=true;
         var r=((await call("openOnlineClass",{ courseId:id, classNo:Number(b.getAttribute("data-n")) })).data)||{};
@@ -5160,3 +5208,149 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }catch(e){ b.disabled=false; say(false,"नहीं हुआ: "+((e&&e.message)||e)); }
   });
 })(); /* ol-block end */
+
+/* ═══════════════════════════════════════════════════════════════
+   (P-6b · 19-Nov-2026) om-block: "✉️ संदेश" (pnl-omsg): शिक्षक और उसके online कोर्स के विद्यार्थी के बीच निजी संदेश।
+   server: class_server.js v2.2 (खेप P-6a): listMyThreads · openThread · sendMessage · reportThread ·
+   myGuardianContact · setGuardianEmail · confirmGuardianEmail।
+   Founder के तीन पहरे: 18 से कम उम्र के विद्यार्थी के हर संदेश की प्रति अभिभावक के email पर (email code से पक्का);
+   कोई संदेश न मिटे, न बदले (यहाँ ऐसा कोई बटन ही नहीं); विद्यार्थी का "🚩 शिकायत" बटन (शिक्षक को कभी नहीं दिखता)।
+   संदेश में फ़ोन नंबर, email या कड़ी नहीं: server रोकता है। देखने के मोड में बातचीत पढ़ी जाती है, लिखने का डिब्बा नहीं दिखता।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  function call(name, data){ return httpsCallable(functions, name)(data); }
+  function S(t){ return '<span>'+t+'</span>'; }
+  function rb(t){ return String(t==null?"":t).replace(/\[/g,"(").replace(/\]/g,")"); }
+  function pbtn(act, label, extra){ return '<button class="abtn k1b ok" data-om="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function obtn(act, label, extra){ return '<button class="abtn k1b ol" data-om="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function dbtn(act, label, extra){ return '<button class="abtn k1b ol dg" data-om="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function meta(ico, body){ return '<div class="k1meta"><span class="mi">'+ico+'</span><span>'+body+'</span></div>'; }
+  function when(ms){ if(!ms) return "—"; var d=new Date(Number(ms)+5.5*3600000).toISOString(); return d.slice(8,10)+"-"+d.slice(5,7)+"-"+d.slice(0,4)+" "+d.slice(11,16); }
+  var LIST=null, COURSES=null, GC=null, TH=null, CUR=null, DRAFT="";
+  function learnerHouse(){ return !!$("pnl-olearn"); }
+  function say(ok,t){ var m=$("omMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
+  function failTo(id){ return function(e){ var b=$(id); if(b) b.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }; }
+
+  /* अभिभावक का email (सिर्फ़ 18 से कम उम्र के विद्यार्थी के घर में) */
+  function drawGuard(){
+    var box=$("omGuard"); if(!box) return;
+    if(!GC||!GC.minor){ box.innerHTML=""; return; }
+    if(GC.verified&&!GC.edit){ box.innerHTML='<div class="k1call gn"><div class="ct">'+S("🛡️ अभिभावक का email जुड़ा है:")+' <b>'+esc(GC.email)+'</b></div>'+
+        '<div class="cs">'+S("आपके और शिक्षक के बीच के हर संदेश की प्रति इसी email पर जाती है।")+'</div>'+
+        (VIEW?'':'<div>'+obtn("gedit","✏️ email बदलें")+'</div>')+'</div>'; return; }
+    var h='<div class="k1call omg"><div class="ct">'+S("🛡️ अभिभावक का email जोड़ें")+'</div>'+
+      '<div class="cs">'+S("18 साल से कम उम्र में संदेश तभी खुलते हैं, जब अभिभावक का email जुड़ जाए। उस email पर हर संदेश की प्रति जाएगी।")+'</div>';
+    if(VIEW){ box.innerHTML=h+'<div class="cs">'+S("अभी अभिभावक का email नहीं जुड़ा है।")+'</div></div>'; return; }
+    if(GC.pending) h+='<div class="cs">'+S("code भेजा गया:")+' <b>'+esc(GC.pending)+'</b></div><div class="cs">'+S("अभिभावक से code पूछकर यहाँ लिखें।")+'</div>'+
+      '<div class="omf"><input id="omCode" type="text" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="6 अंकों का code"></div>'+
+      '<div>'+pbtn("gconf","✅ code जाँचें")+obtn("gnew","↻ दूसरा email या नया code")+'</div>';
+    else h+='<div class="omf"><input id="omGmail" type="email" inputmode="email" autocomplete="off" maxlength="120" placeholder="अभिभावक का email"></div>'+
+      '<div>'+pbtn("gsend","📧 code भेजें")+(GC.verified?obtn("gkeep","↩ पुराना email ही रखें"):'')+'</div>';
+    box.innerHTML=h+'</div>';
+  }
+
+  /* बातचीत की सूची */
+  function drawList(){
+    var box=$("omList"); if(!box||!LIST) return;
+    var L=LIST.items||[], h="";
+    if(LIST.blocked) h+='<div class="k1call rd"><div class="ct">'+S("⛔ आपके संदेश ACS ने बंद किए हैं। आप पुराने संदेश पढ़ सकते हैं।")+'</div></div>';
+    L.forEach(function(t){
+      var id=' data-id="'+esc(t.courseId)+'"'+(t.side==="teacher"?' data-r="'+esc(t.regNo)+'"':'');
+      h+='<div class="app k1row k1card st-active omrow"><div class="k1h"><div class="k1ti">'+US(rb(t.otherName))+'</div><div class="k1sub">'+
+        (t.unread?'<span class="chip appr">🔵 '+S("नए संदेश:")+' <b>'+t.unread+'</b></span>':'')+'</div></div>'+
+        meta("📗", US(rb(t.courseTitle))+(t.side==="teacher"?' · '+esc(t.regNo):''))+
+        (t.lastAtMs?meta("💬", (t.lastSide===t.side?S("आप:")+' ':'')+US(rb(t.lastText))+' · '+when(t.lastAtMs)):'')+
+        (t.complaint?'<div class="note">'+S("🚩 आपकी शिकायत ACS के पास है।")+'</div>':'')+
+        '<div class="k1foot">'+obtn("open","💬 बातचीत खोलें",id)+'</div></div>';
+    });
+    if(learnerHouse()&&COURSES){
+      var has={}; L.forEach(function(t){ if(t.side==="student") has[t.courseId]=1; });
+      COURSES.filter(function(c){ return c.status==="active"&&!has[c.courseId]; }).forEach(function(c){
+        h+='<div class="app k1row k1card st-review omrow"><div class="k1h"><div class="k1ti">'+US(rb(c.title))+'</div></div>'+
+          meta("🧑‍🏫", US(rb(c.teacherName)))+'<div class="k1foot">'+obtn("open","✉️ शिक्षक को संदेश लिखें",' data-id="'+esc(c.courseId)+'"')+'</div></div>'; });
+    }
+    if(!h) h='<span class="note">'+S("अभी कोई बातचीत नहीं है।")+'</span>';
+    if(!learnerHouse()) h+='<div class="note">'+S("किसी विद्यार्थी को संदेश लिखने के लिए \"💻 मेरे online कोर्स\" में \"👥 विद्यार्थी-सूची\" खोलें।")+'</div>';
+    box.innerHTML=h;
+  }
+
+  /* एक बातचीत */
+  var LOCK={ guardian:{ teacher:"🔒 इस विद्यार्थी के अभिभावक का email अभी नहीं जुड़ा है। जुड़ने पर ही संदेश जाएगा।", student:"🔒 अभिभावक का email जुड़ने के बाद ही संदेश खुलेंगे। ऊपर अभिभावक का email जोड़ें।" },
+    blocked:"⛔ इस शिक्षक के संदेश ACS ने बंद किए हैं।", inactive:"यह कोर्स अब चालू नहीं है। पुराने संदेश पढ़ सकते हैं, नया नहीं भेज सकते।" };
+  function drawThread(){
+    var box=$("omThread"); if(!box) return;
+    if(!TH){ box.innerHTML=""; return; }
+    var t=TH, me=t.side, h='<div class="k1card omth" id="omTh"><div class="k1h"><div class="k1ti">💬 '+US(rb(t.otherName))+'</div><div class="k1sub">'+
+      '<span class="chip">'+S(me==="teacher"?"🎓 विद्यार्थी":"🧑‍🏫 शिक्षक")+'</span></div></div>'+
+      meta("📗", US(rb(t.courseTitle))+(me==="teacher"?' · '+esc(t.regNo):''));
+    if(t.minor) h+='<div class="note">'+S("🛡️ इस बातचीत के हर संदेश की प्रति अभिभावक के email पर जाती है।")+'</div>';
+    if((t.shown||0)<(t.total||0)) h+='<div>'+obtn("more","⬆ पुराने संदेश दिखाएँ")+'</div>';
+    var I=t.items||[];
+    if(!I.length) h+='<div class="note">'+S("अभी कोई संदेश नहीं है। पहला संदेश लिखें।")+'</div>';
+    I.forEach(function(m){
+      var who=m.mine?"🙂 आप":(m.fromSide==="teacher"?"🧑‍🏫 शिक्षक":"🎓 विद्यार्थी"), cp="";
+      if(t.minor&&m.copy==="sent") cp=' · '+S("✔ अभिभावक को प्रति गई");
+      else if(t.minor&&(m.copy==="pending"||m.copy==="failed")) cp=' · '+S("⏳ अभिभावक को प्रति बाक़ी");
+      h+='<div class="omb'+(m.mine?' me':'')+'"><div class="omt">'+US(rb(m.text))+'</div><div class="omm">'+S(who)+' · '+when(m.atMs)+cp+'</div></div>';
+    });
+    if(t.lock) h+='<div class="k1call rd"><div class="ct">'+S(t.lock==="guardian"?LOCK.guardian[me]:LOCK[t.lock])+'</div></div>';
+    else if(!VIEW) h+='<div class="omf"><textarea id="omText" maxlength="500" rows="3" placeholder="अपना संदेश लिखें">'+esc(DRAFT)+'</textarea></div>'+
+      '<div class="note">'+S("फ़ोन नंबर, email या कड़ी (link) न लिखें। बात ACS पर ही करें।")+'</div>'+
+      '<div class="k1foot">'+pbtn("send","📨 भेजें")+'</div>';
+    var foot=obtn("close","✖ बातचीत बंद करें");
+    if(me==="student"&&!VIEW){ if(t.complaint) h+='<div class="note">'+S("🚩 आपकी शिकायत ACS के पास है।")+'</div>';
+      else foot+='<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+dbtn("rep","🚩 शिकायत करें")+'</div></details>'; }
+    box.innerHTML=h+'<div class="k1foot">'+foot+'</div></div>';
+  }
+  function keepDraft(){ var e=$("omText"); if(e) DRAFT=e.value; }
+  async function openT(cid, regNo, more){
+    var d={ courseId:cid }; if(regNo) d.regNo=regNo; if(more) d.more=more;
+    var r=((await call("openThread", d)).data)||{};
+    if(more&&TH&&CUR&&CUR.cid===cid){ r.items=(r.items||[]).concat(TH.items||[]); }
+    else DRAFT="";
+    TH=r; CUR={ cid:cid, regNo:regNo||"" }; drawThread();
+    var e=$("omTh"); if(e&&e.scrollIntoView&&!more) e.scrollIntoView({ block:"start" });
+  }
+  async function loadList(){
+    LIST=((await call("listMyThreads",{})).data)||{ items:[] };
+    if(learnerHouse()){
+      try{ COURSES=(((await call("myOnlineCourses",{})).data)||{}).items||[]; }catch(e){ COURSES=[]; }
+      try{ GC=((await call("myGuardianContact",{})).data)||null; }catch(e){ GC=null; }
+    }
+    drawGuard(); drawList();
+  }
+  OM_OPEN=function(cid, regNo){ openT(cid, regNo).catch(function(e){ say(false,"नहीं खुला: "+((e&&e.message)||e)); }); };
+  LAZY["pnl-omsg"]=async function(){ try{ await loadList(); }catch(e){ failTo("omList")(e); } };
+
+  document.addEventListener("click", async function(ev){
+    var b=ev.target&&ev.target.closest?ev.target.closest("[data-om]"):null; if(!b) return;
+    var act=b.getAttribute("data-om"), id=b.getAttribute("data-id")||"";
+    try{
+      keepDraft();
+      if(act==="open"){ b.disabled=true; await openT(id, b.getAttribute("data-r")||""); b.disabled=false; return; }
+      if(act==="close"){ TH=null; CUR=null; DRAFT=""; drawThread(); return; }
+      if(act==="more"){ if(!CUR) return; b.disabled=true; await openT(CUR.cid, CUR.regNo, (TH.items||[]).length); return; }
+      if(act==="send"){
+        if(!CUR) return; var tx=String(DRAFT||"").trim();
+        if(!tx){ say(false,"पहले संदेश लिखें।"); return; }
+        b.disabled=true; var r=((await call("sendMessage",{ courseId:CUR.cid, regNo:CUR.regNo||undefined, text:tx })).data)||{};
+        DRAFT=""; await openT(CUR.cid, CUR.regNo); try{ LIST=((await call("listMyThreads",{})).data)||LIST; drawList(); }catch(e2){}
+        say(true, r.copy==="failed"?"📨 संदेश गया। अभिभावक को प्रति अभी नहीं जा सकी; अगले संदेश के साथ जाएगी।":(r.copy==="sent"?"📨 संदेश गया। अभिभावक को प्रति भी गई।":"📨 संदेश गया।")); return; }
+      if(act==="rep"){
+        var rs=prompt("शिकायत लिखें (ज़रूरी)। यह सिर्फ़ ACS देखेगा, शिक्षक को नहीं दिखेगी:"); if(!rs) return;
+        if(String(rs).trim().length<5){ say(false,"शिकायत थोड़ी पूरी लिखें (कम से कम 5 अक्षर)।"); return; }
+        b.disabled=true; await call("reportThread",{ courseId:CUR.cid, reason:rs }); await openT(CUR.cid, ""); say(true,"🚩 शिकायत ACS के पास पहुँच गई।"); return; }
+      if(act==="gedit"){ GC.edit=true; drawGuard(); return; }
+      if(act==="gkeep"){ GC.edit=false; drawGuard(); return; }
+      if(act==="gnew"){ GC.pending=""; GC.edit=true; drawGuard(); return; }
+      if(act==="gsend"){
+        var em=String(($("omGmail")||{}).value||"").trim(); if(!em){ say(false,"अभिभावक का email लिखें।"); return; }
+        b.disabled=true; var gs=((await call("setGuardianEmail",{ email:em })).data)||{};
+        GC.pending=gs.sentTo||""; GC.edit=true; drawGuard(); say(true,"📧 code अभिभावक के email पर भेजा गया।"); return; }
+      if(act==="gconf"){
+        var cd=String(($("omCode")||{}).value||"").trim(); if(!/^\d{6}$/.test(cd)){ say(false,"6 अंकों का code लिखें।"); return; }
+        b.disabled=true; await call("confirmGuardianEmail",{ code:cd });
+        GC=((await call("myGuardianContact",{})).data)||GC; drawGuard(); if(CUR) await openT(CUR.cid, CUR.regNo); say(true,"✅ अभिभावक का email जुड़ गया। अब संदेश खुल गए।"); return; }
+    }catch(e){ b.disabled=false; say(false,"नहीं हुआ: "+((e&&e.message)||e)); }
+  });
+})(); /* om-block end */

@@ -488,9 +488,21 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .oclk a{word-break:break-all;color:var(--blue);font-weight:700}
 .k1ar.ocs{padding:10px 0;border-top:1px solid var(--border)}
 /* (P-3b) ACS की जाँच-सूची के चार खाने: मोबाइल पर 2+2, बड़े पर्दे पर एक पंक्ति */
-.k1seg.oc5{grid-template-columns:repeat(2,1fr)}
-.k1seg.oc5 .k1m:last-child{grid-column:1 / -1}
-@media (min-width:760px){ .k1seg.oc5{grid-template-columns:repeat(5,1fr);max-width:860px} .k1seg.oc5 .k1m:last-child{grid-column:auto} }
+.k1seg.oc6{grid-template-columns:repeat(2,1fr)}
+@media (min-width:760px){ .k1seg.oc6{grid-template-columns:repeat(3,1fr);max-width:760px} }
+@media (min-width:1100px){ .k1seg.oc6{grid-template-columns:repeat(6,1fr);max-width:1040px} }
+/* (P-6b) निजी संदेश: बातचीत के बुलबुले, लिखने का डिब्बा, अभिभावक का email */
+.omth{margin-top:14px;border-top:3px solid var(--blue)}
+.omb{max-width:88%;margin:10px 0;padding:10px 12px;border-radius:12px;background:#F1F4F8;border:1px solid #DDE3EA}
+.omb.me{margin-left:auto;background:#E8F2FD;border-color:#BBD7F5}
+.omb .omt{white-space:pre-wrap;overflow-wrap:anywhere;font-size:18px;line-height:1.6;color:var(--navy)}
+.omb .omm{font-size:16px;line-height:1.5;color:#4B5866;margin-top:4px}
+.omk{max-height:70vh;overflow:auto}
+.omf{margin-top:10px}
+.omf textarea,.omf input{width:100%;box-sizing:border-box;font-family:inherit;font-size:18px;line-height:1.6;min-height:48px;padding:10px 12px;border:1.5px solid #9aa9bd;border-radius:12px;background:#fff;color:var(--navy)}
+.omf textarea{min-height:110px;resize:vertical}
+.omf textarea:focus,.omf input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(249,168,37,.22)}
+.omg{border-left:4px solid var(--gold)}
 .k1card.st-active a.abtn{text-decoration:none;display:inline-block}
 .olgo{margin-top:10px}
 .olgo .abtn{margin:0}

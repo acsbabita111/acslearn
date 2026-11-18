@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.16 · 19-Nov-2026 (P-6b, निजी संदेश) : नया पैनल P_OMSG "✉️ संदेश" (शिक्षक, उस्ताद, विद्यार्थी, नौकरी-इच्छुक, उद्यमी); P_OC_Q में संदेश-शिकायतों की पंक्ति।
    v2.15 · 18-Nov-2026 (P-5b, कोर्स रद्द और विद्यार्थी-सूची) : P_ONLINE_CRS के नियमों में रद्द करने की पंक्ति; P_OC_Q में "⛔ रद्द" और "वापसी आगे बढ़ाएँ" की पंक्ति।
    v2.14 · 18-Nov-2026 (P-3b, फ़ीस और दाख़िला) : P_OLEARN (विद्यार्थी, नौकरी-इच्छुक, उद्यमी: "💻 शिक्षकों के online कोर्स"); P_PAY में छठी paid सेवा (Founder का फ़ैसला 16); P_OC_Q का पाठ।
    v2.13 · 18-Nov-2026 (P-2b, कक्षा की YouTube कड़ी) : P_ONLINE_CRS के नियमों में कड़ी के तीन वाक्य।
@@ -1114,6 +1115,24 @@ const P_PROGRESS = "<div class=\"pcard panel\" id=\"pnl-progress\" data-nav=\"�
 /* --- तीनों घरों की रचना --- */
 /* (P-3b · 18-Nov-2026) विद्यार्थी, नौकरी-इच्छुक और उद्यमी: शिक्षकों के paid online कोर्स: खुले कोर्स, फ़ीस देकर जुड़ना,
    मेरे कोर्स, कक्षा खोलना, पहली कक्षा से पहले छोड़ना (90% वापस)। server: class_server.js v2.0 (खेप P-3a)। */
+/* (v2.16, P-6b) निजी संदेश: शिक्षक और उसके online कोर्स के विद्यार्थी के बीच; Founder के तीन पहरे (om-block, dashboard.js) */
+const P_OMSG = (
+    '<div class="pcard panel" id="pnl-omsg" data-nav="✉️ संदेश" style="grid-column:1/-1">' +
+    '<div class="ph">✉️ संदेश</div>' +
+    '<div class="pd">यहाँ online कोर्स के शिक्षक और विद्यार्थी आपस में बात करते हैं।</div>' +
+    '<details class="k1rules"><summary>ℹ️ संदेश के नियम देखें</summary>' +
+    '<div class="pd">कोई भी संदेश न मिटता है, न बदलता है।</div>' +
+    '<div class="pd">संदेश में फ़ोन नंबर, email या कड़ी (link) नहीं भेजी जा सकती।</div>' +
+    '<div class="pd">18 साल से कम उम्र के विद्यार्थी के हर संदेश की प्रति अभिभावक के email पर जाती है।</div>' +
+    '<div class="pd">कुछ ग़लत लगे, तो विद्यार्थी "🚩 शिकायत करें" दबाए। शिकायत सिर्फ़ ACS देखता है, शिक्षक नहीं।</div>' +
+    '<div class="pd">शिक्षक को विद्यार्थी का फ़ोन, email या फ़ीस कभी नहीं दिखती।</div>' +
+    '</details>' +
+    '<div id="omGuard"></div>' +
+    '<div id="omList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="omThread"></div>' +
+    '<div id="omMsg" class="msg"></div>' +
+    '</div>');
+
 const P_OLEARN = (
     '<div class="pcard panel" id="pnl-olearn" data-nav="💻 शिक्षकों के online कोर्स" style="grid-column:1/-1">' +
     '<div class="ph">💻 शिक्षकों के online कोर्स</div>' +
@@ -1135,15 +1154,15 @@ const P_OLEARN = (
     '</div>');
 
 function studentPanels(){
-  return P_BADGE_GOLD + P_APTITUDE + P_COURSES + P_OLEARN + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
+  return P_BADGE_GOLD + P_APTITUDE + P_COURSES + P_OLEARN + P_OMSG + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
        + P_RULES_LINK("rules-consent-learner.html","विद्यार्थी (Student)") + P_LEDGER + P_HELP;
 }
 function jobseekerPanels(){
-  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_OLEARN + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
+  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_OLEARN + P_OMSG + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
        + P_RULES_LINK("rules-consent-learner.html","नौकरी-इच्छुक (Job-seeker)") + P_LEDGER + P_HELP;
 }
 function entrepreneurPanels(){
-  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_OLEARN + P_MYCTR + P_PROGRESS + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
+  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_OLEARN + P_OMSG + P_MYCTR + P_PROGRESS + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
        + P_RULES_LINK("rules-consent-learner.html","उद्यमी (Entrepreneur)") + P_LEDGER + P_HELP;
 }
 /* v2.0-सुधार (Founder 18-Jul-2026): online-पढ़ाई कमाई 90/100 — सिर्फ़ teacher
@@ -1153,7 +1172,7 @@ const P_TCH_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
     '<div class="pd"><b>कोर्स-royalty:');
 
 function teacherPanels(){
-  return P_TCH_CONTENT + P_TCH_CLASS("teacher") + P_ONLINE_CRS + P_IND_SAFE + P_TCH_EARN + P_TU_BADGE + P_PROMO
+  return P_TCH_CONTENT + P_TCH_CLASS("teacher") + P_ONLINE_CRS + P_OMSG + P_IND_SAFE + P_TCH_EARN + P_TU_BADGE + P_PROMO
        + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_LEDGER + P_HELP;
 }
 /* उस्ताद कमाई-गणित (Founder 18-Jul-2026): 90 सीधी-सिखाई · 7 recording-content ·
@@ -1168,7 +1187,7 @@ const P_UST_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
     '<div class="pd"><b>कोर्स-royalty:');
 
 function ustadPanels(){
-  return P_UST_CERTIFY + P_TCH_CLASS("ustad") + P_ONLINE_CRS + P_IND_SAFE + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_PROMO
+  return P_UST_CERTIFY + P_TCH_CLASS("ustad") + P_ONLINE_CRS + P_OMSG + P_IND_SAFE + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_PROMO
        + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_LEDGER + P_HELP;
 }
 function centerPanels(){
@@ -1278,6 +1297,7 @@ const P_OC_Q = (
     '<div class="pd">मंज़ूर कोर्स विद्यार्थियों की सूची में आ जाता है। वे फ़ीस देकर जुड़ते हैं।</div>' +
     '<div class="pd">"💸 वापसी बाक़ी" में वे वापसी दिखती हैं जो Razorpay ने अपने-आप नहीं भेजीं। उन्हें Razorpay के dashboard से भेजें, फिर यहाँ दर्ज करें।</div>' +
     '<div class="pd">कोई कोर्स न चल सके, तो मंज़ूर कोर्स के "⋯ और विकल्प" से उसे रद्द करें। हर जुड़े विद्यार्थी को पूरी फ़ीस वापस जाती है। रद्द कोर्स "⛔ रद्द" में दिखते हैं।</div>' +
+    '<div class="pd">"🚩 शिकायतें" में विद्यार्थियों की संदेश-शिकायतें आती हैं। वहाँ पूरी बातचीत पढ़ें, फिर शिकायत बंद करें। ज़रूरत हो, तो उस शिक्षक के संदेश रोकें।</div>' +
     '<div id="ocqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<div id="ocqMsg" class="msg"></div>' +
     '</div>');
