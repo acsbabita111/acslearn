@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v3.0 (18-Nov-2026; v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v3.1 (18-Nov-2026; v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -226,7 +226,7 @@ async function dumpHindi(pages, out) {
 /* हर पाठ में जान-बूझकर ऐसा शब्द है जो पैक में भी है (केंद्र, शिक्षा, संगीत, माली): बचाव न हो, तो वह शब्द बदल जाएगा और जाँच पकड़ लेगी */
 const HU = { center: "शिव संगीत केंद्र", student: "संगीत माली", task: "केंद्र का दौरा", detail: "केंद्र में शिक्षा की जाँच करनी है", report: "आज केंद्र का काम पूरा हुआ", reason: "केंद्र की फ़ोटो साफ़ नहीं है",
   feeNote: "केंद्र पर पहली किस्त", subjects: "हिंदी, गणित, शिक्षा", dur: "3 महीने (शिक्षा सत्र)", ret: "केंद्र बंद है", hold: "केंद्र में अनुशासन की कमी", vnote: "केंद्र का पता ग़लत है",
-  ocTitle: "शिक्षा की बोलचाल कक्षा", ocAbout: "गाँव के बच्चों के लिए बोलचाल की सरल पढ़ाई, रोज़ एक घंटा", ocLang: "हिंदी और भोजपुरी" };
+  ocTitle: "शिक्षा की बोलचाल कक्षा", ocAbout: "गाँव के बच्चों के लिए बोलचाल की सरल पढ़ाई, रोज़ एक घंटा", ocLang: "हिंदी और भोजपुरी", ccl: "शिक्षक के घर में शादी है" };
 const HQ = ["सुरक्षा के लिए हेलमेट क्यों ज़रूरी है?", "सिर की सुरक्षा के लिए", "गाँव का नियम है", "शिक्षा के लिए", "खेल के लिए"];
 function hdataFix(data, info) {
   const C1 = "कंप्यूटर ऑपरेटर (Computer Operator)", C2 = "डेटा एंट्री ऑपरेटर", C3 = "मोटरसाइकिल (टू-व्हीलर) सर्विसिंग व EV का प्रमाणपत्र कोर्स (Certificate in Two-Wheeler Servicing & EV)";
@@ -256,9 +256,11 @@ const OCC = (id, st, extra) => Object.assign({ courseId: id, mode: "live", title
   from: "18:00", to: "19:00", minutes: 60, startDate: "2026-12-01", lastDate: "2027-01-29", fee: 500, status: st, returnReason: "", returns: 0 }, extra || {});
 const OC_HANDLERS = {
   listMyOnlineCourses: () => ({ allowed: true, blocked: false, canCreate: true, maxOpen: 5, maxFee: 100000,
-    items: [OCC("oc1", "draft"), OCC("oc2", "review"), OCC("oc3", "returned", { returnReason: HU.ret, returns: 1 }), OCC("oc4", "approved")] }),
+    items: [OCC("oc1", "draft"), OCC("oc2", "review"), OCC("oc3", "returned", { returnReason: HU.ret, returns: 1 }), OCC("oc4", "approved"),
+      OCC("oc5", "cancelled", { cancelReason: HU.ccl, cancelledBy: "teacher", cancelledAtMs: Date.UTC(2026, 10, 18, 6), enrolled: 3 })] }),
   listOnlineCourseQueue: (d) => ({ status: (d && d.status) || "review", total: 1,
-    items: [OCC("oc2", (d && d.status) || "review", { teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", teacherRole: "teacher" })] }),
+    items: [OCC("oc2", (d && d.status) || "review", Object.assign({ teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", teacherRole: "teacher" },
+      d && d.status === "cancelled" ? { cancelReason: HU.ccl, cancelledBy: "acs", cancelledAtMs: Date.UTC(2026, 10, 18, 6), enrolled: 3 } : {}))] }),
   saveOnlineCourse: () => ({ ok: true, courseId: "oc9", status: "draft" }), submitOnlineCourse: () => ({ ok: true, status: "review" }),
   withdrawOnlineCourse: (d) => ({ ok: true, status: d && d.drop ? "dropped" : "draft" }), decideOnlineCourse: (d) => ({ ok: true, status: d && d.approve ? "approved" : "returned" }),
   /* (v2.9, P-2b) कक्षाएँ: 2 बीती, 1 अभी चालू (कड़ी लगी), 8 आने वाली (एक पर कड़ी) */
@@ -273,7 +275,9 @@ const OC_HANDLERS = {
     { courseId: "oc7", title: HU.ocTitle, teacherName: HU.student, teacherRole: "ustad", lang: HU.ocLang, days: [2], from: "10:00", to: "11:00", startDate: "2026-12-02", lastDate: "2026-12-30",
       classes: 5, held: 0, attended: 0, feeRupees: 300, status: "withdrawn", canWithdraw: false, refundPct: 90, refundRupees: 270, refundStatus: "refunded", next: null },
     { courseId: "oc8", title: HU.ocTitle, teacherName: HU.student, teacherRole: "teacher", lang: HU.ocLang, days: [4], from: "17:00", to: "18:00", startDate: "2026-12-10", lastDate: "2026-12-31",
-      classes: 4, held: 0, attended: 0, feeRupees: 200, status: "active", canWithdraw: true, refundPct: 90, refundRupees: 0, refundStatus: "", next: { n: 1, date: "2026-12-10", day: 4, from: "17:00", to: "18:00", state: "later" } }] }),
+      classes: 4, held: 0, attended: 0, feeRupees: 200, status: "active", canWithdraw: true, refundPct: 90, refundRupees: 0, refundStatus: "", next: { n: 1, date: "2026-12-10", day: 4, from: "17:00", to: "18:00", state: "later" } },
+    { courseId: "oc6", title: HU.ocTitle, teacherName: HU.student, teacherRole: "teacher", lang: HU.ocLang, days: [1], from: "17:00", to: "18:00", startDate: "2026-12-14", lastDate: "2026-12-28",
+      classes: 3, held: 0, attended: 0, feeRupees: 500, status: "cancelled", canWithdraw: false, refundPct: 90, refundRupees: 500, refundStatus: "queued", cancelReason: HU.ccl, next: null }] }),
   listOnlineCatalog: () => ({ items: [
     OCC("oc9", "approved", { teacherName: HU.student, teacherRole: "teacher", joined: false, own: false, enrolled: 12 }),
     OCC("oc8", "approved", { teacherName: HU.student, teacherRole: "ustad", joined: true, own: false, enrolled: 5 })] }),
@@ -283,8 +287,17 @@ const OC_HANDLERS = {
   openOnlineClass: (d) => ({ ok: true, classNo: d && d.classNo, link: "https://www.youtube.com/watch?v=AbCdEfGhIjK" }),
   withdrawOnlineEnrollment: () => ({ ok: true, status: "withdrawn", refundRupees: 180, refundStatus: "refunded" }),
   listOnlineRefundsDue: () => ({ items: [{ enrollmentId: "oc4_uS3", courseId: "oc4", courseTitle: HU.ocTitle, studentName: HU.student, studentRegNo: "ACS-2026-999999",
-    orderId: "order_A9", paymentId: "pay_A9", refundRupees: 450, atMs: Date.UTC(2026, 10, 18) }] }),
-  markOnlineRefundPaid: () => ({ ok: true })
+    orderId: "order_A9", paymentId: "pay_A9", refundRupees: 450, atMs: Date.UTC(2026, 10, 18), pct: 90, stuck: false, why: "withdrawn" },
+    { enrollmentId: "oc5_uS4", courseId: "oc5", courseTitle: HU.ocTitle, studentName: HU.student, studentRegNo: "ACS-2026-999998",
+      orderId: "order_B1", paymentId: "pay_B1", refundRupees: 500, atMs: Date.UTC(2026, 10, 18), pct: 100, stuck: true, why: "cancelled" }] }),
+  markOnlineRefundPaid: () => ({ ok: true }),
+  /* (v3.1, P-5b) विद्यार्थी-सूची (53 में से 3 एक बार में), कोर्स रद्द करना, वापसी आगे बढ़ाना */
+  listOnlineLearners: (d) => ({ total: 53, active: 51, held: 2, classes: 24, offset: (d && d.offset) || 0, pageSize: 50,
+    items: [{ name: HU.student, regNo: "ACS-2026-999999", role: "student", status: "active", enrolledAtMs: Date.UTC(2026, 10, 12), attended: 2 },
+      { name: HU.student, regNo: "ACS-2026-999998", role: "jobseeker", status: "withdrawn", enrolledAtMs: Date.UTC(2026, 10, 13), attended: 0 },
+      { name: HU.student, regNo: "ACS-2026-999997", role: "entrepreneur", status: "active", enrolledAtMs: Date.UTC(2026, 10, 14), attended: 1 }] }),
+  cancelOnlineCourse: () => ({ ok: true, status: "cancelled", learners: 3, refunded: 3, due: 0, left: 0 }),
+  runOnlineRefunds: () => ({ ok: true, refunded: 2, due: 0, left: 1 })
 };
 const K1_HANDLERS = {
   listMyClasses: () => ({
@@ -543,9 +556,9 @@ async function ocChecks(pages) {
     ck("O1 शिक्षक: चारों हालतें, नाम, दिन, समय, तारीख़ और फ़ीस दिखते हैं", has(c, ".k1card.st-draft") && has(c, ".k1card.st-review") && has(c, ".k1card.st-returned") && has(c, ".k1card.st-approved")
       && t.indexOf(HU.ocTitle) > -1 && /सोमवार/.test(t) && /18:00 - 19:00/.test(t) && /01-12-2026/.test(t) && /29-01-2027/.test(t) && /₹500/.test(t) && t.indexOf(HU.ocLang) > -1, t.slice(0, 200));
     ck("O1 शिक्षक: लौटाए गए कोर्स पर ACS का कारण", /ACS ने यह कोर्स लौटाया है। कारण:/.test(t) && t.indexOf(HU.ret) > -1);
-    ck("O1 शिक्षक: बटन हालत के हिसाब से (मसौदा और लौटाया: भेजें, बदलें; जाँच में: वापस लें; मंज़ूर: कुछ नहीं)",
+    ck("O1 शिक्षक: बटन हालत के हिसाब से (मसौदा और लौटाया: भेजें, बदलें; जाँच में: वापस लें; मंज़ूर: सिर्फ़ कक्षाएँ, विद्यार्थी-सूची, रद्द)",
       has(c, '[data-oc="send"][data-id="oc1"]') && has(c, '[data-oc="edit"][data-id="oc3"]') && has(c, '[data-oc="drop"][data-id="oc1"]') && has(c, '[data-oc="back"][data-id="oc2"]')
-      && !has(c, '[data-oc="send"][data-id="oc2"]') && !c.d.querySelector('#ocList .k1card.st-approved [data-oc]:not([data-oc="cls"])') && !has(c, '#ocList [data-oc="ok"]') && !has(c, '#ocList [data-oc="ret"]'));
+      && !has(c, '[data-oc="send"][data-id="oc2"]') && !c.d.querySelector('#ocList .k1card.st-approved [data-oc]:not([data-oc="cls"]):not([data-oc="lrn"]):not([data-oc="ccl"])') && !has(c, '#ocList [data-oc="ok"]') && !has(c, '#ocList [data-oc="ret"]'));
     ck("O1 शिक्षक: अपने कार्ड पर ACS-ID या फ़ोन नहीं", !/ACS-TE-|9\d{9}|@/.test(t));
     click(c, q('[data-oc="new"]')); await settle(c);
     ck("O1 शिक्षक: नए कोर्स का फ़ॉर्म पूरा खुला", ["ocTitle", "ocAbout", "ocLang", "ocClasses", "ocFrom", "ocTo", "ocStart", "ocFee"].every(id => has(c, "#" + id)) && c.d.querySelectorAll(".ocday").length === 7);
@@ -673,12 +686,67 @@ async function ocChecks(pages) {
     c.dom.window.close(); }
   for (const who of ["teacher", "center", "founder", "admin"]) if (pg(who)) { const html = fs.readFileSync(path.join(ROOT, pg(who)), "utf8");
     ck("O6 " + who + ": विद्यार्थी वाला पैनल इस घर में नहीं", html.indexOf('id="pnl-olearn"') < 0); }
+  /* (v3.1, P-5b) विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची, वापसी आगे बढ़ाना, विद्यार्थी के कार्ड पर रद्द कोर्स */
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi", "data", ["pnl-online"]), q = sel => c.d.querySelector(sel), qa = sel => Array.from(c.d.querySelectorAll(sel));
+    const cc = q("#ocList .k1card.st-cancelled"), ct = cc ? cc.textContent : "";
+    ck("O9 शिक्षक: रद्द कोर्स: कारण, किसने, पूरी फ़ीस वापस; कक्षा या रद्द का बटन नहीं, विद्यार्थी-सूची है", !!cc && /यह कोर्स रद्द हुआ। कारण:/.test(ct) && ct.indexOf(HU.ccl) > -1 && /शिक्षक ने रद्द किया/.test(ct)
+      && /18-11-2026/.test(ct) && /पूरी फ़ीस \(100 प्रतिशत\)/.test(ct) && !cc.querySelector('[data-oc="cls"]') && !cc.querySelector('[data-oc="ccl"]') && !!cc.querySelector('[data-oc="lrn"]'), ct.slice(0, 300));
+    ck("O9 शिक्षक: मंज़ूर कोर्स पर रद्द का बटन \"और विकल्प\" के भीतर, लाल रेखा वाला", has(c, '.k1card.st-approved details.k1more .abtn.dg[data-oc="ccl"][data-id="oc4"]') && qa('[data-oc="ccl"]').length === 1);
+    click(c, q('[data-oc="lrn"][data-id="oc4"]')); await settle(c); await settle(c);
+    const lc = c.calls.filter(x => x.name === "listOnlineLearners").pop(), pane = q(".ocln"), pt = pane ? pane.textContent : "";
+    ck("O9 शिक्षक: विद्यार्थी-सूची: गिनती, नाम, ACS नंबर, भूमिका, खोली कक्षाएँ; फ़ोन, email या फ़ीस नहीं", !!lc && lc.data.courseId === "oc4" && lc.data.offset === 0 && /कुल विद्यार्थी:\s*53/.test(pt) && /अभी जुड़े:\s*51/.test(pt)
+      && /ACS-2026-999998/.test(pt) && /💼 नौकरी-इच्छुक/.test(pt) && /🏭 उद्यमी/.test(pt) && /🎓 विद्यार्थी/.test(pt) && /↩ छोड़ दिया/.test(pt) && /खोली कक्षाएँ:\s*2/.test(pt) && /12-11-2026/.test(pt) && !/9\d{9}|@|₹/.test(pt), pt.slice(0, 300));
+    click(c, q('[data-oc="lrmore"]')); await settle(c); await settle(c);
+    const lc2 = c.calls.filter(x => x.name === "listOnlineLearners").pop();
+    ck("O9 शिक्षक: \"और विद्यार्थी दिखाएँ\" अगली खेप माँगता है और सूची में जोड़ता है", lc2.data.offset === 3 && qa(".ocln .ocs").length === 6);
+    click(c, q('[data-oc="lrn"][data-id="oc4"]')); await settle(c);
+    ck("O9 शिक्षक: दोबारा दबाने पर सूची बंद", !has(c, ".ocln"));
+    ans(c, null); click(c, q('[data-oc="ccl"]')); await settle(c);
+    ans(c, "नहीं"); click(c, q('[data-oc="ccl"]')); await settle(c);
+    ck("O9 शिक्षक: कारण न लिखा या बहुत छोटा: रद्द server को नहीं जाता", !c.calls.some(x => x.name === "cancelOnlineCourse") && /कम से कम 5 अक्षर/.test(txt(c, "ocMsg")));
+    ans(c, HU.ccl); c.confirmAnswer = false; click(c, q('[data-oc="ccl"]')); await settle(c);
+    ck("O9 शिक्षक: पक्का करने पर \"नहीं\" तो रद्द नहीं", !c.calls.some(x => x.name === "cancelOnlineCourse") && c.dialogs.some(m => /पूरी फ़ीस वापस जाएगी/.test(m)));
+    c.confirmAnswer = true; click(c, q('[data-oc="ccl"]')); await settle(c); await settle(c);
+    const cx = c.calls.filter(x => x.name === "cancelOnlineCourse").pop();
+    ck("O9 शिक्षक: रद्द करना कारण के साथ server को जाता है; संदेश", !!cx && cx.data.courseId === "oc4" && cx.data.reason === HU.ccl && /कोर्स रद्द हुआ/.test(txt(c, "ocMsg")), JSON.stringify(cx && cx.data));
+    c.dom.window.close(); }
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "en", "data", ["pnl-online"]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-oc="lrn"][data-id="oc4"]')); await settle(c); await settle(c); const dd = q('.k1card.st-approved details.k1more'); if (dd) dd.open = true;
+    const L = clean(txt(c, "pnl-online")).match(/[ऀ-ॿ]+/g) || [];
+    ck("O9 शिक्षक English: रद्द कोर्स और विद्यार्थी-सूची में हिंदी शून्य", L.length === 0 && !!q(".ocln"), L.slice(0, 8).join(" ‖ ")); c.dom.window.close(); }
+  for (const who of ["founder", "admin"]) if (pg(who)) { const c = await openH(pg(who), "hi", "data", ["pnl-ocq"]), q = sel => c.d.querySelector(sel);
+    ck("O9 " + who + ": पाँच खाने, \"⛔ रद्द\" भी", c.d.querySelectorAll(".k1seg.oc5 .k1m").length === 5 && has(c, '[data-oc="qs"][data-v="cancelled"]'));
+    click(c, q('[data-oc="qs"][data-v="approved"]')); await settle(c); await settle(c);
+    ck("O9 " + who + ": मंज़ूर कोर्स पर विद्यार्थी-सूची और रद्द के बटन", has(c, '#ocqList [data-oc="lrn"][data-id="oc2"]') && has(c, '#ocqList details.k1more [data-oc="ccl"][data-id="oc2"]'));
+    ans(c, HU.ccl); c.confirmAnswer = true; click(c, q('#ocqList [data-oc="ccl"]')); await settle(c); await settle(c);
+    const cx = c.calls.filter(x => x.name === "cancelOnlineCourse").pop();
+    ck("O9 " + who + ": ACS भी कारण के साथ रद्द करता है; संदेश ACS वाले डिब्बे में", !!cx && cx.data.courseId === "oc2" && cx.data.reason === HU.ccl && /कोर्स रद्द हुआ/.test(txt(c, "ocqMsg")));
+    click(c, q('[data-oc="qs"][data-v="cancelled"]')); await settle(c); await settle(c);
+    const ls = c.calls.filter(x => x.name === "listOnlineCourseQueue").pop(), t = txt(c, "ocqList");
+    ck("O9 " + who + ": \"रद्द\" सूची: कारण और \"ACS ने रद्द किया\"", !!ls && ls.data.status === "cancelled" && t.indexOf(HU.ccl) > -1 && /ACS ने रद्द किया/.test(t) && !has(c, '#ocqList [data-oc="ccl"]'));
+    click(c, q('[data-oc="qs"][data-v="refund"]')); await settle(c); await settle(c); const tr = txt(c, "ocqList");
+    ck("O9 " + who + ": वापसी-सूची: अटकी वापसी की पहचान, रद्द से 100 प्रतिशत, छोड़ने से 90 प्रतिशत", /⚠️ वापसी अटकी/.test(tr) && /बीच में अटकी है/.test(tr) && /कोर्स रद्द: पूरी फ़ीस \(100 प्रतिशत\)/.test(tr) && /विद्यार्थी ने छोड़ा: 90 प्रतिशत/.test(tr), tr.slice(0, 300));
+    click(c, q('[data-oc="rrun"]')); await settle(c); await settle(c);
+    ck("O9 " + who + ": \"वापसी आगे बढ़ाएँ\" server को जाता है; कुछ बाक़ी हों तो फिर दबाने को कहता है", c.calls.some(x => x.name === "runOnlineRefunds") && /बटन फिर दबाएँ/.test(txt(c, "ocqMsg")));
+    c.dom.window.close(); }
+  if (pg("founder")) { const c = await openH(pg("founder"), "en", "data", ["pnl-ocq"]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-oc="qs"][data-v="cancelled"]')); await settle(c); await settle(c);
+    let L = clean(txt(c, "pnl-ocq")).match(/[ऀ-ॿ]+/g) || [];
+    click(c, q('[data-oc="qs"][data-v="refund"]')); await settle(c); await settle(c); click(c, q('[data-oc="rrun"]')); await settle(c); await settle(c);
+    L = L.concat(clean(txt(c, "pnl-ocq")).match(/[ऀ-ॿ]+/g) || []);
+    ck("O9 founder English: रद्द सूची, वापसी-सूची और संदेश में हिंदी शून्य", L.length === 0, L.slice(0, 8).join(" ‖ ")); c.dom.window.close(); }
+  if (pg("student")) { const c = await openH(pg("student"), "hi", "data", ["pnl-olearn"]);
+    const cc = Array.from(c.d.querySelectorAll("#olMine .k1card")).find(x => /कोर्स रद्द/.test(x.textContent)), ct = cc ? cc.textContent : "";
+    ck("O9 विद्यार्थी: रद्द कोर्स: कारण, पूरी फ़ीस ₹500 वापस, वापसी की हालत; कोई बटन नहीं", !!cc && ct.indexOf(HU.ccl) > -1 && /आपकी पूरी फ़ीस वापस:\s*₹500/.test(ct) && /वापसी हो रही है/.test(ct) && !cc.querySelector("[data-ol]"), ct.slice(0, 300));
+    c.dom.window.close(); }
   /* देखने का मोड: शिक्षक की नज़र से सूची पढ़ी जाती है, कोई लिखने वाला काम नहीं */
   if (pg("teacher")) { const c = await openNazar(pg("teacher"), "hi", "?nazar=" + NZ_REG);
     { const cb = c.d.querySelector('#ocList [data-oc="cls"]'); if (cb) { click(c, cb); await settle(c); await settle(c); } }
     ck("O3 नज़र शिक्षक: कक्षा-सूची पढ़ी गई (viewAs के साथ), कड़ी डालने का खाना नहीं", c.calls.some(x => x.name === "listOnlineClasses" && x.data.viewAs) && /कुल कक्षाएँ/.test(txt(c, "ocList")) && !c.d.querySelector(".oclink"));
+    { const lb = c.d.querySelector('#ocList [data-oc="lrn"]'); if (lb) { click(c, lb); await settle(c); await settle(c); } }
+    ck("O9 नज़र शिक्षक: विद्यार्थी-सूची पढ़ी गई (viewAs के साथ); रद्द का बटन नहीं", c.calls.some(x => x.name === "listOnlineLearners" && x.data.viewAs) && !c.d.querySelector('[data-oc="ccl"]'));
     ck("O3 नज़र शिक्षक: online कोर्स पढ़े गए (viewAs के साथ), कोई लिखने वाला काम नहीं", c.calls.some(x => x.name === "listMyOnlineCourses" && x.data.viewAs) && /शिक्षा की बोलचाल/.test(txt(c, "ocList"))
-      && !c.calls.some(x => /^(save|submit|withdraw|decide)OnlineCourse$|^setOnlineClassLink$/.test(x.name)));
+      && !c.calls.some(x => /^(save|submit|withdraw|decide|cancel)OnlineCourse$|^setOnlineClassLink$/.test(x.name)));
     c.dom.window.close(); }
 }
 /* (v2.0, Founder का आदेश 17-Nov-2026: "Founder को सभी पैनल देखने का अधिकार दो") Founder का देखने वाला मोड।
@@ -701,7 +769,7 @@ async function openNazar(file, lang, query, opt) {
   const ls = {}; if (lang && lang !== "hi") ls.acs_dash_lang = lang; Object.assign(ls, opt.ls || {});
   const KV = f => (d => Object.assign(f(d), d && d.viewAs !== undefined && !opt.oldServer ? { viewed: true } : {}));
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), query: query || "", ls, expect: (lang && lang !== "hi") ? lang : undefined,
-    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, { listMyOnlineCourses: KV(OC_HANDLERS.listMyOnlineCourses), listOnlineClasses: KV(OC_HANDLERS.listOnlineClasses), listOnlineCatalog: KV(OC_HANDLERS.listOnlineCatalog), myOnlineCourses: KV(OC_HANDLERS.myOnlineCourses), listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, { listMyOnlineCourses: KV(OC_HANDLERS.listMyOnlineCourses), listOnlineClasses: KV(OC_HANDLERS.listOnlineClasses), listOnlineCatalog: KV(OC_HANDLERS.listOnlineCatalog), myOnlineCourses: KV(OC_HANDLERS.myOnlineCourses), listOnlineLearners: KV(OC_HANDLERS.listOnlineLearners), listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
   c.userVals.add(NAME_HI); c.userVals.add(NAME_HI.trim()[0]); c.userVals.add("सीता देवी"); Object.keys(HU).forEach(k => c.userVals.add(HU[k]));   /* उपयोगकर्ता का लिखा हर पाठ */
   await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden") || !c.d.getElementById("denyView").classList.contains("hidden"), 6000);
   await settle(c); await settle(c);
@@ -1245,6 +1313,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.0 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.1 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

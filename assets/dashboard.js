@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.34.0 · 18-Nov-2026 (P-5b: शिक्षक और ACS के कार्ड पर "👥 विद्यार्थी-सूची" और "⛔ कोर्स रद्द करें (पूरी फ़ीस वापस)"; ACS की "⛔ रद्द" सूची और "💸 वापसी आगे बढ़ाएँ"; अटकी वापसी की पहचान; विद्यार्थी के कार्ड पर रद्द कोर्स, कारण और वापसी)
    v6.33.0 · 18-Nov-2026 (P-3b: विद्यार्थी के घरों में "💻 शिक्षकों के online कोर्स" (ol-block): खुले कोर्स, फ़ीस देकर जुड़ना, कक्षा खोलना, पहली कक्षा से पहले छोड़ना; शिक्षक/ACS के कार्ड पर जुड़े विद्यार्थी और पैसा; ACS की "वापसी बाक़ी" सूची; खाता-बही में हर भुगतान अपने नाम से)
    v6.32.0 · 18-Nov-2026 (P-2b: मंज़ूर online कोर्स की कक्षाएँ और हर कक्षा की YouTube कड़ी)
    v6.31.0 · 18-Nov-2026 (P-1b: शिक्षक का paid online कोर्स (oc-block): प्रस्ताव और ACS की जाँच)
@@ -177,7 +178,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1, listOnlineCatalog:1, myOnlineCourses:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1, listOnlineCatalog:1, myOnlineCourses:1, listOnlineLearners:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -195,7 +196,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.33.0";
+const DASH_VER = "v6.34.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -4764,6 +4765,8 @@ if (MODE==="external" && ALLOWED.length>=1) {
 /* ═══════════════════════════════════════════════════════════════
    (P-1b · 18-Nov-2026) oc-block: शिक्षक/उस्ताद का paid online कोर्स (server: class_server.js v1.8)।
    (P-2b · 18-Nov-2026) मंज़ूर कोर्स की कक्षाएँ और हर कक्षा की YouTube कड़ी (server: class_server.js v1.9)।
+   (P-5b · 18-Nov-2026) विद्यार्थी-सूची (नाम, ACS नंबर, खोली कक्षाएँ; फ़ोन/email/फ़ीस कभी नहीं), पूरा कोर्स रद्द करना
+   (कारण ज़रूरी; हर विद्यार्थी को 100 प्रतिशत वापस), ACS की "⛔ रद्द" सूची और "वापसी आगे बढ़ाएँ" (server: class_server.js v2.1)।
    शिक्षक/उस्ताद: pnl-online (प्रस्ताव लिखना, बदलना, जाँच को भेजना, वापस लेना, मसौदा हटाना) ·
    Founder/Admin: pnl-ocq (जाँच में, मंज़ूर, लौटाए गए; मंज़ूर करना या कारण लिखकर लौटाना)।
    Founder के फ़ैसले (18-Nov): पहले live कक्षा; वीडियो अभी YouTube पर; जाँच Founder और Admin।
@@ -4781,11 +4784,29 @@ if (MODE==="external" && ALLOWED.length>=1) {
   function dbtn(act, label, extra){ return '<button class="abtn k1b ol dg" data-oc="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
   function meta(ico, body){ return '<div class="k1meta"><span class="mi">'+ico+'</span><span>'+body+'</span></div>'; }
   var CHIP={ draft:'<span class="chip">📝 मसौदा</span>', review:'<span class="chip prov">⏳ जाँच में</span>',
-             approved:'<span class="chip appr">✅ मंज़ूर</span>', returned:'<span class="chip canc">↩ लौटाया गया</span>' };
+             approved:'<span class="chip appr">✅ मंज़ूर हुआ</span>', returned:'<span class="chip canc">↩ लौटाया गया</span>', cancelled:'<span class="chip canc">⛔ रद्द</span>' };
   function tomorrow(){ return new Date(Date.now()+5.5*3600000+86400000).toISOString().slice(0,10); }
   var OC=null, OF=null, Q=null, QS="review";
   /* (P-2b) मंज़ूर कोर्स की कक्षाएँ और हर कक्षा की YouTube कड़ी: CLS = server की सूची, OPEN = खुला हुआ, INP = लिखी हुई कड़ी (पर्दा दोबारा बने तो भी रहे) */
   var CLS={}, OPEN={}, INP={}, MORE={};
+  /* (P-5b) विद्यार्थी-सूची: LRN = server की सूची (50-50 करके), LOPEN = खुली हुई */
+  var LRN={}, LOPEN={};
+  var ROLE_L={ student:"🎓 विद्यार्थी", jobseeker:"💼 नौकरी-इच्छुक", entrepreneur:"🏭 उद्यमी" };
+  function msDate(ms){ return ms ? fd(new Date(Number(ms)+5.5*3600000).toISOString().slice(0,10)) : "—"; }
+  function lrnHtml(cid){
+    var R=LRN[cid]; if(!LOPEN[cid]||!R) return "";
+    var L=R.items||[], h='<div class="k1pane ocln"><div class="r2">'+S("कुल विद्यार्थी:")+' <b>'+(R.total||0)+'</b> · '+S("अभी जुड़े:")+' <b>'+(R.active||0)+'</b> · '+
+      S("कक्षाएँ हो चुकीं:")+' <b>'+(R.held||0)+' / '+(R.classes||0)+'</b></div>'+
+      '<div class="note">'+S("यहाँ सिर्फ़ नाम और ACS नंबर दिखते हैं। विद्यार्थी का फ़ोन, email या फ़ीस नहीं दिखती।")+'</div>';
+    if(!L.length) h+='<div class="r2">'+S("अभी कोई विद्यार्थी नहीं जुड़ा है।")+'</div>';
+    L.forEach(function(x,i){
+      var chip=x.status==="withdrawn"?' <span class="chip">↩ छोड़ दिया</span>':(x.status==="cancelled"?' <span class="chip canc">⛔ रद्द</span>':'');
+      h+='<div class="k1ar ocs"><div class="r2"><b>'+(i+1)+'.</b> '+US(rb(x.name))+' · '+esc(x.regNo||"")+' · '+S(ROLE_L[x.role]||ROLE_L.student)+chip+'</div>'+
+        '<div class="r2">'+S("खोली कक्षाएँ:")+' <b>'+(x.attended||0)+'</b> · '+S("जुड़े:")+' '+msDate(x.enrolledAtMs)+'</div></div>';
+    });
+    if(L.length<(R.total||0)) h+='<div>'+obtn("lrmore","⬇ और विद्यार्थी दिखाएँ",' data-id="'+esc(cid)+'"')+'</div>';
+    return h+'</div>';
+  }
   function keepLinks(){ document.querySelectorAll(".oclink").forEach(function(x){ INP[x.getAttribute("data-id")+"_"+x.getAttribute("data-n")]=x.value; }); }
   function clsRow(cid, s, canSet){
     var k=' data-id="'+esc(cid)+'" data-n="'+s.n+'"', key=cid+"_"+s.n;
@@ -4836,6 +4857,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
     if(st==="review") h+='<div class="k1call"><div class="ct">'+S(side==="teacher"?"ACS की जाँच का इंतज़ार है।":"यह कोर्स आपकी जाँच का इंतज़ार कर रहा है।")+'</div></div>';
     if(st==="approved") h+='<div class="k1call gn"><div class="ct">'+S("✅ ACS ने यह कोर्स मंज़ूर किया है।")+'</div>'+
       '<div class="cs">'+S("कोर्स विद्यार्थियों की सूची में है। पहली कक्षा शुरू होने तक वे फ़ीस देकर जुड़ सकते हैं।")+'</div></div>';
+    /* (P-5b) रद्द कोर्स: किसने, कब, कारण; हर जुड़े विद्यार्थी को पूरी फ़ीस वापस */
+    if(st==="cancelled") h+=meta("👥", S("जुड़े विद्यार्थी:")+' <b>'+(c.enrolled||0)+'</b>')+
+      '<div class="k1call rd"><div class="ct">'+S("⛔ यह कोर्स रद्द हुआ। कारण:")+' '+US(rb(c.cancelReason))+'</div>'+
+      '<div class="cs">'+S(c.cancelledBy==="acs"?"ACS ने रद्द किया।":"शिक्षक ने रद्द किया।")+' '+msDate(c.cancelledAtMs)+'</div>'+
+      '<div class="cs">'+S("हर जुड़े विद्यार्थी को पूरी फ़ीस (100 प्रतिशत) वापस जाती है।")+'</div></div>';
     var foot="", more="";
     if(side==="teacher"){
       if(st==="draft"||st==="returned"){ foot+=pbtn("send","📤 जाँच के लिए भेजें",id)+obtn("edit","✏️ बदलें",id); more+=dbtn("drop","🗑️ मसौदा हटाएँ",id); }
@@ -4844,9 +4870,12 @@ if (MODE==="external" && ALLOWED.length>=1) {
       foot+=pbtn("ok","✅ मंज़ूर करें",id)+'<button class="abtn k1b no" data-oc="ret"'+id+'>↩ कारण लिखकर लौटाएँ</button> ';
     }
     if(st==="approved") foot+=obtn("cls", side==="teacher"?"🎥 कक्षाएँ और कड़ी":"🎥 कक्षाएँ देखें", id+' aria-expanded="'+(OPEN[c.courseId]?'true':'false')+'"');
+    if(st==="approved"||st==="cancelled") foot+=obtn("lrn","👥 विद्यार्थी-सूची", id+' aria-expanded="'+(LOPEN[c.courseId]?'true':'false')+'"');
+    if(st==="approved"&&!VIEW) more+=dbtn("ccl","⛔ कोर्स रद्द करें (पूरी फ़ीस वापस)",id);
     if(foot||more) h+='<div class="k1foot">'+foot+(more?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+more+'</div></details>':'')+'</div>';
     if(side==="teacher"&&OF&&OF.courseId===c.courseId) h+=formHtml();
     if(st==="approved") h+=clsHtml(c.courseId, side);
+    if(st==="approved"||st==="cancelled") h+=lrnHtml(c.courseId);
     return h+'</div>';
   }
 
@@ -4893,21 +4922,26 @@ if (MODE==="external" && ALLOWED.length>=1) {
   LAZY["pnl-online"]=async function(){ try{ await reload(); }catch(e){ failTo("ocList")(e); } };
 
   /* ───────── ACS (Founder, Admin): pnl-ocq ───────── */
-  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर"],["returned","↩ लौटाए गए"],["refund","💸 वापसी बाक़ी"]];
+  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर हुए"],["returned","↩ लौटाए गए"],["cancelled","⛔ रद्द"],["refund","💸 वापसी बाक़ी"]];
   function refRow(r){
     var k=' data-id="'+esc(r.enrollmentId)+'"';
-    return '<div class="app k1row k1card st-returned"><div class="k1h"><div class="k1ti">'+US(rb(r.courseTitle))+'</div><div class="k1sub"><span class="chip canc">'+S("💸 वापसी बाक़ी")+'</span></div></div>'+
+    var why=r.why==="cancelled"?S("⛔ कोर्स रद्द: पूरी फ़ीस (100 प्रतिशत)"):S("↩ विद्यार्थी ने छोड़ा: 90 प्रतिशत");
+    return '<div class="app k1row k1card st-returned"><div class="k1h"><div class="k1ti">'+US(rb(r.courseTitle))+'</div><div class="k1sub"><span class="chip canc">'+S(r.stuck?"⚠️ वापसी अटकी":"💸 वापसी बाक़ी")+'</span></div></div>'+
       meta("🧑‍🎓", US(rb(r.studentName))+' · '+esc(r.studentRegNo))+
-      meta("💰", S("लौटानी है:")+' <b>₹'+(r.refundRupees||0)+'</b>')+
+      meta("💰", S("लौटानी है:")+' <b>₹'+(r.refundRupees||0)+'</b> · '+why)+
       meta("🧾", 'order: '+esc(r.orderId)+(r.paymentId?' · payment: '+esc(r.paymentId):''))+
-      '<div class="k1call rd"><div class="ct">'+S("Razorpay ने यह वापसी अपने-आप नहीं भेजी।")+'</div><div class="cs">'+S("Razorpay के dashboard से यह payment खोलकर वापसी भेजें। फिर यहाँ दर्ज करें।")+'</div></div>'+
+      (r.stuck?'<div class="k1call rd"><div class="ct">'+S("यह वापसी बीच में अटकी है।")+'</div><div class="cs">'+S("पहले Razorpay के dashboard पर यह payment खोलकर देखें कि वापसी गई या नहीं।")+'</div>'+
+        '<div class="cs">'+S("गई हो, तो उसका नंबर यहाँ दर्ज करें। न गई हो, तो वहीं से भेजें और फिर दर्ज करें।")+'</div></div>'
+      :'<div class="k1call rd"><div class="ct">'+S("Razorpay ने यह वापसी अपने-आप नहीं भेजी।")+'</div><div class="cs">'+S("Razorpay के dashboard से यह payment खोलकर वापसी भेजें। फिर यहाँ दर्ज करें।")+'</div></div>')+
       '<div class="k1foot">'+pbtn("rdone","✅ वापसी भेज दी (दर्ज करें)",k)+'</div></div>';
   }
   function drawQ(){
     var box=$("ocqList"); if(!box||!Q) return;
-    var h='<div class="k1seg oc4">'+QT.map(function(t){ return '<button type="button" class="k1m ocq'+(QS===t[0]?' on':'')+'" data-oc="qs" data-v="'+t[0]+'" aria-pressed="'+(QS===t[0]?'true':'false')+'">'+S(t[1])+'</button>'; }).join(" ")+'</div>';
+    var h='<div class="k1seg oc5">'+QT.map(function(t){ return '<button type="button" class="k1m ocq'+(QS===t[0]?' on':'')+'" data-oc="qs" data-v="'+t[0]+'" aria-pressed="'+(QS===t[0]?'true':'false')+'">'+S(t[1])+'</button>'; }).join(" ")+'</div>';
     var L=Q.items||[];
-    if(QS==="refund"){ h+='<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+L.length+'</b></div>';
+    if(QS==="refund"){ h+='<div class="k1foot" style="margin-top:10px">'+pbtn("rrun","💸 वापसी आगे बढ़ाएँ")+'</div>'+
+        '<div class="note">'+S("रद्द कोर्स की जो वापसी अभी कतार में हैं, यह बटन उन्हें Razorpay से भेजता है।")+'</div>'+
+        '<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+L.length+'</b></div>';
       if(!L.length) h+='<span class="note">'+S("अभी कोई वापसी बाक़ी नहीं है।")+'</span>';
       L.forEach(function(r){ h+=refRow(r); }); box.innerHTML=h; return; }
     h+='<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+(Q.total||0)+'</b></div>';
@@ -4927,6 +4961,25 @@ if (MODE==="external" && ALLOWED.length>=1) {
         if(OPEN[id]){ delete OPEN[id]; drawMine(); drawQ(); return; }
         b.disabled=true; CLS[id]=((await call("listOnlineClasses",{ courseId:id })).data)||{}; OPEN[id]=1; drawMine(); drawQ(); return; }
       if(act==="lmore"){ MORE[id]=1; drawMine(); drawQ(); return; }
+      if(act==="lrn"){
+        if(LOPEN[id]){ delete LOPEN[id]; drawMine(); drawQ(); return; }
+        b.disabled=true; LRN[id]=((await call("listOnlineLearners",{ courseId:id, offset:0 })).data)||{}; LOPEN[id]=1; drawMine(); drawQ(); return; }
+      if(act==="lrmore"){
+        var R0=LRN[id]||{ items:[] }; b.disabled=true;
+        var R1=((await call("listOnlineLearners",{ courseId:id, offset:(R0.items||[]).length })).data)||{};
+        R1.items=(R0.items||[]).concat(R1.items||[]); LRN[id]=R1; drawMine(); drawQ(); return; }
+      if(act==="ccl"){
+        var cr=prompt("यह कोर्स रद्द करने का कारण लिखें (ज़रूरी)। हर जुड़ा विद्यार्थी यह कारण देखेगा:"); if(!cr) return;
+        if(String(cr).trim().length<5){ (acs?sayQ:say)(false,"कारण थोड़ा पूरा लिखें (कम से कम 5 अक्षर)।"); return; }
+        if(!confirm("यह कोर्स पूरा रद्द करें? हर जुड़े विद्यार्थी को पूरी फ़ीस वापस जाएगी। रद्द किया हुआ कोर्स दोबारा चालू नहीं होता।")) return;
+        b.disabled=true; var cx=((await call("cancelOnlineCourse",{ courseId:id, reason:cr })).data)||{};
+        delete OPEN[id]; delete LOPEN[id];
+        if(acs) await loadQ(); else await reload();
+        (acs?sayQ:say)(true, cx.left?"⛔ कोर्स रद्द हुआ। कुछ वापसी अभी कतार में हैं; वे अपने-आप आगे जाएँगी।":"⛔ कोर्स रद्द हुआ। सब विद्यार्थियों की पूरी फ़ीस वापस भेज दी गई।"); return; }
+      if(act==="rrun"){
+        b.disabled=true; var rr=((await call("runOnlineRefunds",{})).data)||{};
+        await loadQ();
+        sayQ(true, rr.left?"💸 वापसी आगे बढ़ी। कुछ वापसी अभी बाक़ी हैं; बटन फिर दबाएँ।":(rr.due?"💸 वापसी आगे बढ़ी। Razorpay ने कुछ वापसी नहीं लीं; वे नीचे की सूची में हैं।":"💸 कतार की सब वापसी भेज दी गईं।")); return; }
       if(act==="lset"||act==="lclr"){
         var no=Number(b.getAttribute("data-n")), v=act==="lclr"?"":String(INP[id+"_"+no]||"").trim();
         if(act==="lset"&&!v){ say(false,"YouTube की कड़ी डालें।"); return; }
@@ -4977,6 +5030,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
    फ़ीस की रक़म हमेशा server तय करता है। पहली कक्षा से पहले छोड़ने पर 90 प्रतिशत वापस (Founder का फ़ैसला 15)।
    18 से कम उम्र: भुगतान अभिभावक की सहमति से ही (server भी जाँचता है)।
    कक्षा की कड़ी दो कदम में: "▶ कक्षा खोलें" से server कड़ी देता है, फिर "▶ YouTube पर कक्षा देखें" (popup-रोक से बचाव)।
+   (P-5b · 18-Nov-2026) शिक्षक या ACS ने कोर्स रद्द किया: कार्ड पर "⛔ कोर्स रद्द", कारण, और पूरी फ़ीस की वापसी की हालत।
    ═══════════════════════════════════════════════════════════════ */
 (function(){
   function call(name, data){ return httpsCallable(functions, name)(data); }
@@ -5005,11 +5059,15 @@ if (MODE==="external" && ALLOWED.length>=1) {
   function say(ok,t){ var m=$("olMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
   function failTo(id){ return function(e){ var b=$(id); if(b) b.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }; }
 
+  function refundSay(st){
+    return S(st==="refunded"?"वापसी Razorpay से भेज दी गई है। बैंक में आने में 5 से 7 कार्य-दिवस लग सकते हैं।"
+      :(st==="due"?"वापसी ACS का दफ़्तर भेजेगा।":"वापसी हो रही है।"));
+  }
   /* मेरा एक कोर्स */
   function mineCard(x){
-    var id=' data-id="'+esc(x.courseId)+'"', act=x.status==="active";
+    var id=' data-id="'+esc(x.courseId)+'"', act=x.status==="active", ccl=x.status==="cancelled";
     var h='<div class="app k1row k1card st-'+(act?'active':'returned')+'"><div class="k1h"><div class="k1ti">'+US(rb(x.title))+'</div><div class="k1sub">'+
-      (act?'<span class="chip appr">✅ जुड़े हैं</span>':'<span class="chip">↩ छोड़ दिया</span>')+'</div></div>'+
+      (act?'<span class="chip appr">✅ जुड़े हैं</span>':(ccl?'<span class="chip canc">⛔ कोर्स रद्द</span>':'<span class="chip">↩ छोड़ दिया</span>'))+'</div></div>'+
       meta("🧑‍🏫", US(rb(x.teacherName))+' · '+roleOf(x.teacherRole))+
       meta("🗣️", S("पढ़ाने की भाषा:")+' '+US(rb(x.lang)))+
       meta("🗓️", days(x))+
@@ -5027,10 +5085,12 @@ if (MODE==="external" && ALLOWED.length>=1) {
           '<div class="cs">'+S("कक्षा की कड़ी कक्षा से 15 मिनट पहले यहीं खुलेगी।")+'</div></div>';
       } else h+='<div class="note">'+S("इस कोर्स की सब कक्षाएँ हो चुकी हैं।")+'</div>';
       if(x.canWithdraw) h+='<div class="k1foot"><details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+dbtn("leave","↩ कोर्स छोड़ें (90 प्रतिशत वापस)",id)+'</div></details></div>';
+    } else if(ccl){
+      /* (P-5b) रद्द कोर्स: कारण और पूरी फ़ीस की वापसी */
+      h+='<div class="k1call rd"><div class="ct">'+S("⛔ यह कोर्स रद्द हो गया है। कारण:")+' '+US(rb(x.cancelReason))+'</div>'+
+        '<div class="cs">'+S("आपकी पूरी फ़ीस वापस:")+' <b>₹'+(x.refundRupees||x.feeRupees||0)+'</b></div><div class="cs">'+refundSay(x.refundStatus)+'</div></div>';
     } else if(x.refundRupees){
-      h+='<div class="k1call"><div class="ct">'+S("वापसी:")+' <b>₹'+x.refundRupees+'</b></div><div class="cs">'+
-        S(x.refundStatus==="refunded"?"वापसी Razorpay से भेज दी गई है। बैंक में आने में 5 से 7 कार्य-दिवस लग सकते हैं।"
-          :(x.refundStatus==="pending"?"वापसी हो रही है।":"वापसी ACS का दफ़्तर भेजेगा।"))+'</div></div>';
+      h+='<div class="k1call"><div class="ct">'+S("वापसी:")+' <b>₹'+x.refundRupees+'</b></div><div class="cs">'+refundSay(x.refundStatus)+'</div></div>';
     }
     return h+'</div>';
   }

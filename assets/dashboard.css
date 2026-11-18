@@ -477,7 +477,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 /* (P-1b) online कोर्स के कार्ड: जाँच में = सुनहरा, मंज़ूर = हरा, लौटाया गया = लाल; मसौदा = धूसर (मूल) */
 .k1card.st-review{border-left-color:var(--gold)}
 .k1card.st-approved{border-left-color:var(--green)}
-.k1card.st-returned{border-left-color:#B71C1C}
+.k1card.st-returned,.k1card.st-cancelled{border-left-color:#B71C1C}
 .k1m.ocq.on{background:var(--blue);border-color:var(--blue);color:#fff}
 .k1call.gn{background:#E8F5E9;border-color:var(--green)}
 .k1call.gn .ct{color:var(--green)}
@@ -488,8 +488,9 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .oclk a{word-break:break-all;color:var(--blue);font-weight:700}
 .k1ar.ocs{padding:10px 0;border-top:1px solid var(--border)}
 /* (P-3b) ACS की जाँच-सूची के चार खाने: मोबाइल पर 2+2, बड़े पर्दे पर एक पंक्ति */
-.k1seg.oc4{grid-template-columns:repeat(2,1fr)}
-@media (min-width:760px){ .k1seg.oc4{grid-template-columns:repeat(4,1fr);max-width:680px} }
+.k1seg.oc5{grid-template-columns:repeat(2,1fr)}
+.k1seg.oc5 .k1m:last-child{grid-column:1 / -1}
+@media (min-width:760px){ .k1seg.oc5{grid-template-columns:repeat(5,1fr);max-width:860px} .k1seg.oc5 .k1m:last-child{grid-column:auto} }
 .k1card.st-active a.abtn{text-decoration:none;display:inline-block}
 .olgo{margin-top:10px}
 .olgo .abtn{margin:0}
