@@ -166,7 +166,7 @@ console.log("3-ङ. विद्यार्थी का नियम-पत्
   /* (v1.1) दोबारा सहमति अनिवार्य: एक साझा परदा, तीन जगह से बुलाया जाता है; server पर भी वही जाँच */
   var rg = rd("assets/rules-gate.js");
   ok(/export function rulesGate\(o\)/.test(rg) && /o\.httpsCallable\(o\.functions, "rulesStatus"\)/.test(rg) && /o\.httpsCallable\(o\.functions, "rulesAccept"\)/.test(rg) && /okb\.disabled = !chk\.checked/.test(rg) && /accept\(\{ version: st\.current, language: readLang \}\)/.test(rg) && /id="rulesGateRetry"/.test(rg), "साझा परदा (assets/rules-gate.js): server से पूछता है; निशान लगाए बिना बटन बंद; सहमति server को जाती है; जवाब न मिले तो भी परदा (दोबारा कोशिश)");
-  ok(/import\("\/assets\/rules-gate\.js"\)/.test(d) && d.indexOf("if(noGate) rulesGate();") > 0 && !/id="rulesGateChk"/.test(d), "dashboard: विद्यार्थी का घर खुलते ही साझा परदा बुलाया जाता है (अपना अलग परदा नहीं)");
+  ok(/import\("\/assets\/rules-gate\.js"\)/.test(d) && (d.indexOf("if(noGate) rulesGate();") > 0 || d.indexOf("if(noGate && !VIEW) rulesGate();") > 0) && !/id="rulesGateChk"/.test(d), "dashboard: विद्यार्थी का घर खुलते ही साझा परदा बुलाया जाता है (अपना अलग परदा नहीं)");
   var lg = rd("dashboard/index.html"), l1 = lg.indexOf("async function finishLogin("), l2 = lg.indexOf('if(["student","jobseeker","entrepreneur"].indexOf(role)>-1){', l1), l3 = lg.indexOf('await import("/assets/rules-gate.js")', l2), l4 = lg.indexOf('show("c5")', l3), l5 = lg.indexOf("location.href = url", l4);
   ok(l1 > 0 && l2 > l1 && l3 > l2 && l4 > l3 && l5 > l4, "login का पन्ना: विद्यार्थी के लिए नियम-पत्र की जाँच dashboard पर भेजने से पहले होती है");
   var ap = rd("assets/apt-pay.js");

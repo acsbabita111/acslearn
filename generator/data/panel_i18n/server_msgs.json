@@ -13,7 +13,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 423,
+ "count": 439,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -38,6 +38,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "18 साल से कम उम्र में भुगतान अभिभावक की सहमति से ही होता है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "18 से कम उम्र पर Guardian का नाम व mobile अनिवार्य है",
@@ -137,6 +144,13 @@
    "hi": "Point{0}_Desc शब्द-सीमा से बाहर: {1} (चाहिए ~110-120)",
    "in": [
     "addon.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "Razorpay की वापसी का नंबर या नोट लिखें",
+   "in": [
+    "class_server.js"
    ],
    "from": "office-report"
   },
@@ -593,6 +607,13 @@
    ]
   },
   {
+   "hi": "अपने ही कोर्स में विद्यार्थी नहीं बना जा सकता",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "अभी कोड नहीं बना — दोबारा दबाएँ",
    "in": [
     "index.js"
@@ -666,6 +687,20 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "आप इस कोर्स में जुड़े नहीं हैं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "आप इस कोर्स में पहले से जुड़े हैं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "आप टीम-सदस्य नहीं हैं।",
@@ -899,10 +934,24 @@
    ]
   },
   {
+   "hi": "इस कोर्स की फ़ीस सही नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इस कोर्स के भंडार से 120 प्रश्न नहीं बन पाए।",
    "in": [
     "exam_server.js"
    ]
+  },
+  {
+   "hi": "इस कोर्स में जुड़ने का समय बीत गया (पहली कक्षा शुरू हो चुकी है)",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "इस खंड का कम से कम समय अभी पूरा नहीं हुआ।",
@@ -1533,6 +1582,13 @@
    ]
   },
   {
+   "hi": "पहली कक्षा शुरू हो चुकी है; अब फ़ीस वापस नहीं होती",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "पहले Learner-registration पूरा करें",
    "in": [
     "index.js"
@@ -1568,6 +1624,13 @@
   },
   {
    "hi": "पहले यह कोर्स घोषित करें",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "पहले विद्यार्थी (Learner) का registration पूरा करें",
    "in": [
     "class_server.js"
    ],
@@ -1809,10 +1872,31 @@
    ]
   },
   {
+   "hi": "भुगतान का order नहीं बना",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "भुगतान का हस्ताक्षर ग़लत है; भुगतान मान्य नहीं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "भुगतान का हस्ताक्षर सही नहीं है।",
    "in": [
     "cert_server.js"
    ]
+  },
+  {
+   "hi": "भुगतान की जानकारी अधूरी है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "भुगतान की स्थिति अभी नहीं पूछी जा सकी। थोड़ी देर बाद अपने-आप दोबारा कोशिश होगी।",
@@ -2334,6 +2418,13 @@
    "from": "office-report"
   },
   {
+   "hi": "यह भुगतान अभी पूरा नहीं हुआ",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह भुगतान आपका नहीं",
    "in": [
     "index.js"
@@ -2346,6 +2437,13 @@
    ]
   },
   {
+   "hi": "यह भुगतान मिला नहीं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह भुगतान-record नहीं मिला",
    "in": [
     "index.js"
@@ -2356,6 +2454,20 @@
    "in": [
     "cert_server.js"
    ]
+  },
+  {
+   "hi": "यह वापसी बाक़ी नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह वापसी मिली नहीं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "यह शिकायत चालू कक्षा पर ही दर्ज होती है",

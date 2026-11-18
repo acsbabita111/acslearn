@@ -487,6 +487,12 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .ocl input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(249,168,37,.22)}
 .oclk a{word-break:break-all;color:var(--blue);font-weight:700}
 .k1ar.ocs{padding:10px 0;border-top:1px solid var(--border)}
+/* (P-3b) ACS की जाँच-सूची के चार खाने: मोबाइल पर 2+2, बड़े पर्दे पर एक पंक्ति */
+.k1seg.oc4{grid-template-columns:repeat(2,1fr)}
+@media (min-width:760px){ .k1seg.oc4{grid-template-columns:repeat(4,1fr);max-width:680px} }
+.k1card.st-active a.abtn{text-decoration:none;display:inline-block}
+.olgo{margin-top:10px}
+.olgo .abtn{margin:0}
 .k1h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:6px 12px}
 .k1ti{font-size:20px;font-weight:800;color:var(--navy);line-height:1.4}
 .k1sub{display:flex;flex-wrap:wrap;gap:6px;align-items:center}

@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.14 · 18-Nov-2026 (P-3b, फ़ीस और दाख़िला) : P_OLEARN (विद्यार्थी, नौकरी-इच्छुक, उद्यमी: "💻 शिक्षकों के online कोर्स"); P_PAY में छठी paid सेवा (Founder का फ़ैसला 16); P_OC_Q का पाठ।
    v2.13 · 18-Nov-2026 (P-2b, कक्षा की YouTube कड़ी) : P_ONLINE_CRS के नियमों में कड़ी के तीन वाक्य।
    v2.12 · 18-Nov-2026 (P-1b, शिक्षक का paid online कोर्स) : शिक्षक और उस्ताद के घर में "💻 मेरे online कोर्स" (P_ONLINE_CRS; पुराना ख़ाली "🎥 Live class" पैनल हटा); Founder और Admin के घर में "💻 online कोर्स की जाँच" (P_OC_Q)।
    v2.11 · 18-Nov-2026 (design D-3) : "Enrollment" (केंद्र, वर्कशॉप): घोषणा के नियम एक पंक्ति में मुड़े; हर हिस्से का माथा अलग (k9h); "अगले दौर" वाली बासी पंक्ति हटी (प्रगति और परीक्षा अब बने हुए हैं)।
@@ -207,8 +208,9 @@ function P_PAY(extra){
   return (
     '<div class="pcard panel" id="pnl-pay" data-nav="💳 मेरे भुगतान" style="grid-column:1/-1">' +
     '<div class="ph">💳 मेरे भुगतान</div>' +
-    '<div class="pd">paid सिर्फ़ ये 5 सेवाएँ: छपने-योग्य अभिरुचि-रिपोर्ट · offline प्रशिक्षण · workshop apprenticeship · ' +
-    'counselor सलाह · विदेश-एजेंट connection। बाक़ी सब — पढ़ना, जुड़ना, देखना — हमेशा मुफ़्त।</div>' +
+    '<div class="pd">paid सिर्फ़ ये 6 सेवाएँ: छपने-योग्य अभिरुचि-रिपोर्ट · offline प्रशिक्षण · workshop apprenticeship · ' +
+    'counselor सलाह · विदेश-एजेंट connection · शिक्षक का online कोर्स (live या recorded)। बाक़ी सब हमेशा मुफ़्त: पढ़ना, जुड़ना, देखना।</div>' +
+    '<div class="pd">ACS के अपने online कोर्स हमेशा मुफ़्त हैं।</div>' +
     (extra || '') +
     '<div class="note">💡 हर paid-सेवा पर भुगतान-बटन के ठीक ऊपर लिखा मिलेगा: सत्यापन असफल = 30 प्रतिशत जाँच-शुल्क। ' +
     'भुगतान से पहले मशीन-जाँच मुफ़्त होती है।</div>' +
@@ -1107,16 +1109,38 @@ const P_CAREER = (
 const P_PROGRESS = "<div class=\"pcard panel\" id=\"pnl-progress\" data-nav=\"📈 मेरी प्रगति\" style=\"grid-column:1/-1\"><div class=\"ph\">📈 मेरी प्रगति (इसी फ़ोन में)</div><div class=\"pd\">यह हिसाब आपके अपने फ़ोन में सुरक्षित रहता है — कोई server पर नहीं जाता (निजता सुरक्षित)। दूसरे फ़ोन पर हिसाब जोड़ने की सुविधा नामांकन-खाते के साथ अगले दौर में आएगी।</div><div id=\"acsProgBox\"><span class=\"note\">पढ़ाई का हिसाब यहाँ दिखेगा…</span></div><a class=\"abtn ok\" style=\"background:var(--blue);display:inline-block;text-decoration:none;margin-top:10px\" href=\"/courses/\">📖 पढ़ना जारी रखें</a><script>(function(){try{var d;try{d=JSON.parse(localStorage.getItem(\"acs_learn_progress\")||\"{}\");}catch(e){d={};}var n=0,k;if(d.read){for(k in d.read){if(d.read.hasOwnProperty(k))n++;}}var read=n,xp=n*10;var days=[];if(d.days){for(k in d.days){if(d.days.hasOwnProperty(k))days.push(k);}days.sort();}function ds(dt){return dt.getFullYear()+\"-\"+(\"0\"+(dt.getMonth()+1)).slice(-2)+\"-\"+(\"0\"+dt.getDate()).slice(-2);}var best=0,run=0,prev=null,i,pp,t;for(i=0;i<days.length;i++){pp=days[i].split(\"-\");t=new Date(pp[0],pp[1]-1,pp[2]);if(prev&&Math.round((t-prev)/86400000)===1){run++;}else{run=1;}if(run>best)best=run;prev=t;}var cur=0;if(days.length){var td=new Date();var yd=new Date(Date.now()-86400000);var last=days[days.length-1];cur=(last===ds(td)||last===ds(yd))?run:0;}var ms=[[300,\"🏅 पारंगत\"],[100,\"🥇 स्वर्ण\"],[50,\"🥈 रजत\"],[10,\"🥉 कांस्य\"],[1,\"🌱 शुरुआत\"]];var curM=\"—\",nextN=1,nextName=\"🌱 शुरुआत\",j;for(j=ms.length-1;j>=0;j--){if(read>=ms[j][0])curM=ms[j][1];}for(j=ms.length-1;j>=0;j--){if(read<ms[j][0]){nextN=ms[j][0];nextName=ms[j][1];break;}}var box=document.getElementById(\"acsProgBox\");if(!box)return;if(read===0){box.innerHTML='<div class=\"pd\">अभी आपने कोई पाठ पूरा नहीं पढ़ा। नीचे पढ़ना-जारी-रखें बटन दबाकर शुरू करें — हर पाठ पर यहीं अंक व मील-पत्थर अपने-आप जुड़ते जाएँगे। 🌱</div>';return;}var toNext=(read<300)?(\"अगले मील-पत्थर (\"+nextName+\") तक \"+(nextN-read)+\" पाठ और।\"):(\"आप सबसे ऊँचे मील-पत्थर पर हैं — बहुत बढ़िया!\");var streakLine=cur>0?(\"🔥 सीखने का सिलसिला: \"+cur+\" दिन लगातार\"):(\"आज एक पाठ पढ़कर नया सिलसिला शुरू करें 🌱\");box.innerHTML='<div class=\"pd\"><b>कुल अंक:</b> '+xp+' &nbsp; <b>पाठ पढ़े:</b> '+read+'</div>'+'<div class=\"pd\"><b>मौजूदा मील-पत्थर:</b> '+curM+' &nbsp; <b>सबसे लंबा सिलसिला:</b> '+best+' दिन</div>'+'<div class=\"pd\">'+streakLine+'</div>'+'<div class=\"note\">'+toNext+'</div>';}catch(e){}})();</script></div>";
 
 /* --- तीनों घरों की रचना --- */
+/* (P-3b · 18-Nov-2026) विद्यार्थी, नौकरी-इच्छुक और उद्यमी: शिक्षकों के paid online कोर्स: खुले कोर्स, फ़ीस देकर जुड़ना,
+   मेरे कोर्स, कक्षा खोलना, पहली कक्षा से पहले छोड़ना (90% वापस)। server: class_server.js v2.0 (खेप P-3a)। */
+const P_OLEARN = (
+    '<div class="pcard panel" id="pnl-olearn" data-nav="💻 शिक्षकों के online कोर्स" style="grid-column:1/-1">' +
+    '<div class="ph">💻 शिक्षकों के online कोर्स</div>' +
+    '<div class="pd">ये कोर्स ACS से जुड़े शिक्षक live पढ़ाते हैं। हर कोर्स ACS की जाँच के बाद ही यहाँ आता है।</div>' +
+    '<div class="pd">ACS के अपने online कोर्स हमेशा मुफ़्त हैं। शिक्षक के online कोर्स की फ़ीस लगती है।</div>' +
+    '<details class="k1rules"><summary>ℹ️ फ़ीस और वापसी के नियम देखें</summary>' +
+    '<div class="pd">पहली कक्षा शुरू होने से पहले कोर्स छोड़ें, तो फ़ीस का 90 प्रतिशत वापस मिलता है।</div>' +
+    '<div class="pd">पहली कक्षा शुरू होने के बाद फ़ीस वापस नहीं होती।</div>' +
+    '<div class="pd">ACS या शिक्षक की ग़लती से कक्षा न हो, तो पूरी फ़ीस वापस मिलती है।</div>' +
+    '<div class="pd">18 साल से कम उम्र में भुगतान अभिभावक की सहमति से ही होता है।</div>' +
+    '<div class="pd">कक्षा YouTube पर चलती है। कक्षा की कड़ी कक्षा से 15 मिनट पहले यहीं खुलती है।</div>' +
+    '<div class="pd">पहली कक्षा शुरू होने के बाद नया विद्यार्थी नहीं जुड़ सकता।</div>' +
+    '</details>' +
+    '<div class="ph" style="margin-top:14px">📗 मेरे online कोर्स</div>' +
+    '<div id="olMine"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div class="ph" style="margin-top:14px">🛒 जुड़ने के लिए खुले कोर्स</div>' +
+    '<div id="olCat"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="olMsg" class="msg"></div>' +
+    '</div>');
+
 function studentPanels(){
-  return P_BADGE_GOLD + P_APTITUDE + P_COURSES + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
+  return P_BADGE_GOLD + P_APTITUDE + P_COURSES + P_OLEARN + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY() + P_COUNSEL + P_WORKSHOP_ST
        + P_RULES_LINK("rules-consent-learner.html","विद्यार्थी (Student)") + P_LEDGER + P_HELP;
 }
 function jobseekerPanels(){
-  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
+  return P_JOBS + P_BADGE + P_APTITUDE + P_COURSES + P_OLEARN + P_MYCTR + P_PROGRESS + P_CAREER + P_EXAMS + P_PROOF + P_CERTS + P_PAY(P_PAY_JOBSEEKER_EXTRA) + P_COUNSEL
        + P_RULES_LINK("rules-consent-learner.html","नौकरी-इच्छुक (Job-seeker)") + P_LEDGER + P_HELP;
 }
 function entrepreneurPanels(){
-  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_MYCTR + P_PROGRESS + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
+  return P_UDYAM + P_ECOSYS + P_PARTNERS + P_TOUR + P_APTITUDE + P_COURSES + P_OLEARN + P_MYCTR + P_PROGRESS + P_EXAMCERT_ENT + P_PAY() + P_COUNSEL
        + P_RULES_LINK("rules-consent-learner.html","उद्यमी (Entrepreneur)") + P_LEDGER + P_HELP;
 }
 /* v2.0-सुधार (Founder 18-Jul-2026): online-पढ़ाई कमाई 90/100 — सिर्फ़ teacher
@@ -1248,7 +1272,8 @@ const P_OC_Q = (
     '<div class="ph">💻 online कोर्स की जाँच</div>' +
     '<div class="pd">शिक्षक और उस्ताद के paid online कोर्स के प्रस्ताव यहाँ आते हैं।</div>' +
     '<div class="pd">पूरा प्रस्ताव पढ़कर मंज़ूर करें। कमी हो, तो कारण लिखकर लौटाएँ।</div>' +
-    '<div class="pd">मंज़ूरी के बाद भी कोर्स अभी बिकता नहीं। फ़ीस और दाख़िले का रास्ता अगली खेप में खुलेगा।</div>' +
+    '<div class="pd">मंज़ूर कोर्स विद्यार्थियों की सूची में आ जाता है। वे फ़ीस देकर जुड़ते हैं।</div>' +
+    '<div class="pd">"💸 वापसी बाक़ी" में वे वापसी दिखती हैं जो Razorpay ने अपने-आप नहीं भेजीं। उन्हें Razorpay के dashboard से भेजें, फिर यहाँ दर्ज करें।</div>' +
     '<div id="ocqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<div id="ocqMsg" class="msg"></div>' +
     '</div>');
