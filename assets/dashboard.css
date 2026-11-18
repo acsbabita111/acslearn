@@ -481,6 +481,12 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .k1m.ocq.on{background:var(--blue);border-color:var(--blue);color:#fff}
 .k1call.gn{background:#E8F5E9;border-color:var(--green)}
 .k1call.gn .ct{color:var(--green)}
+/* (P-2b) कक्षा की YouTube कड़ी: खाना पूरी चौड़ाई, बटन नीचे; लंबी कड़ी टूटकर अगली पंक्ति में */
+.ocl{margin-top:8px;display:grid;gap:8px}
+.ocl input{width:100%;box-sizing:border-box;font-family:inherit;font-size:17px;min-height:48px;padding:9px 12px;border:1.5px solid #9aa9bd;border-radius:12px;background:#fff;color:var(--navy)}
+.ocl input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(249,168,37,.22)}
+.oclk a{word-break:break-all;color:var(--blue);font-weight:700}
+.k1ar.ocs{padding:10px 0;border-top:1px solid var(--border)}
 .k1h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:6px 12px}
 .k1ti{font-size:20px;font-weight:800;color:var(--navy);line-height:1.4}
 .k1sub{display:flex;flex-wrap:wrap;gap:6px;align-items:center}

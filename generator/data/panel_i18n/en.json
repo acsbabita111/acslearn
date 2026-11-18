@@ -2443,7 +2443,29 @@
   "🗑️ मसौदा हटा दिया गया।": "🗑️ Draft removed.",
   "यह कोर्स मंज़ूर करें?": "Approve this course?",
   "✅ कोर्स मंज़ूर हुआ।": "✅ Course approved.",
-  "↩ कोर्स कारण के साथ लौटाया गया।": "↩ Course sent back with the reason."
+  "↩ कोर्स कारण के साथ लौटाया गया।": "↩ Course sent back with the reason.",
+  "कोर्स मंज़ूर होने के बाद हर कक्षा की YouTube कड़ी यहीं डालें। कड़ी सिर्फ़ ACS के server पर रहती है।": "After the course is approved, put the YouTube link of each class here. The link stays only on the ACS server.",
+  "कड़ी सिर्फ़ फ़ीस देने वाले विद्यार्थी को मिलती है, कक्षा से 15 मिनट पहले से कक्षा ख़त्म होने तक।": "Only a student who paid the fee gets the link, from 15 minutes before the class until the class ends.",
+  "कोई विद्यार्थी कड़ी आगे भेज सकता है। इसे पूरी तरह रोका नहीं जा सकता।": "A student can pass the link on to others. This cannot be fully stopped.",
+  "🔴 अभी चालू": "🔴 On now",
+  "बीत गई": "Over",
+  "कक्षा": "Class",
+  "इस कक्षा की कड़ी नहीं लगी थी।": "No link was put for this class.",
+  "अभी कड़ी नहीं लगी।": "No link yet.",
+  "💾 कड़ी सहेजें": "💾 Save link",
+  "✖ कड़ी हटाएँ": "✖ Remove link",
+  "कड़ी लगी:": "Links put:",
+  "YouTube पर हर कक्षा का live बनाते समय \"Unlisted\" चुनें। फिर उसकी कड़ी यहाँ डालें।": "When you make the live of each class on YouTube, choose \"Unlisted\". Then put its link here.",
+  "फ़ीस देने वाले विद्यार्थी को कड़ी कक्षा से 15 मिनट पहले से कक्षा ख़त्म होने तक मिलती है।": "A student who paid the fee gets the link from 15 minutes before the class until the class ends.",
+  "आगे कोई कक्षा नहीं है।": "There is no class ahead.",
+  "⬇ सब आने वाली कक्षाएँ दिखाएँ": "⬇ Show all coming classes",
+  "बीती कक्षाएँ": "Past classes",
+  "🎥 कक्षाएँ और कड़ी": "🎥 Classes and links",
+  "🎥 कक्षाएँ देखें": "🎥 See classes",
+  "YouTube की कड़ी डालें।": "Put the YouTube link.",
+  "इस कक्षा की कड़ी हटाएँ?": "Remove the link of this class?",
+  "✖ कड़ी हटा दी गई।": "✖ Link removed.",
+  "🔗 कड़ी सहेजी गई।": "🔗 Link saved."
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",
@@ -3078,6 +3100,14 @@
   "शुरू की तारीख़ एक साल के भीतर की हो": "The start date should be within one year",
   "शुरू की तारीख़ बीत गई या आज ही है; कोर्स लौटाएँ ताकि शिक्षक नई तारीख़ दे": "The start date has passed or is today; send the course back so the teacher gives a new date",
   "शुरू की तारीख़ सही लिखें": "Write a correct start date",
-  "सिर्फ़ अधूरा या लौटाया हुआ कोर्स हटाया जा सकता है": "Only an unfinished or sent-back course can be removed"
+  "सिर्फ़ अधूरा या लौटाया हुआ कोर्स हटाया जा सकता है": "Only an unfinished or sent-back course can be removed",
+  "इस कोर्स की कक्षा सिर्फ़ फ़ीस देकर जुड़े विद्यार्थी देख सकते हैं": "Only students who joined by paying the fee can see the classes of this course",
+  "कक्षा की कड़ी कक्षा शुरू होने से 15 मिनट पहले खुलेगी": "The class link opens 15 minutes before the class starts",
+  "कड़ी सिर्फ़ मंज़ूर कोर्स की कक्षा में डाली जा सकती है": "A link can be put only in a class of an approved course",
+  "यह YouTube की सही कड़ी नहीं है; YouTube से कड़ी copy करके डालें": "This is not a correct YouTube link; copy the link from YouTube and put it here",
+  "यह कक्षा इस कोर्स में नहीं है": "This class is not in this course",
+  "यह कक्षा ख़त्म हो चुकी है": "This class has ended",
+  "यह कक्षा बीत चुकी है; उसकी कड़ी अब नहीं बदलती": "This class is over; its link can no longer be changed",
+  "शिक्षक ने इस कक्षा की कड़ी अभी नहीं डाली है; थोड़ी देर बाद फिर देखें": "The teacher has not put the link of this class yet; look again in a little while"
  }
 }

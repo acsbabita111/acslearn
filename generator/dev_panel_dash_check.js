@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v2.8 (18-Nov-2026; v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v2.9 (18-Nov-2026; v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -257,7 +257,12 @@ const OC_HANDLERS = {
   listOnlineCourseQueue: (d) => ({ status: (d && d.status) || "review", total: 1,
     items: [OCC("oc2", (d && d.status) || "review", { teacherName: HU.student, teacherRegNo: "ACS-TE-2026-222222", teacherRole: "teacher" })] }),
   saveOnlineCourse: () => ({ ok: true, courseId: "oc9", status: "draft" }), submitOnlineCourse: () => ({ ok: true, status: "review" }),
-  withdrawOnlineCourse: (d) => ({ ok: true, status: d && d.drop ? "dropped" : "draft" }), decideOnlineCourse: (d) => ({ ok: true, status: d && d.approve ? "approved" : "returned" })
+  withdrawOnlineCourse: (d) => ({ ok: true, status: d && d.drop ? "dropped" : "draft" }), decideOnlineCourse: (d) => ({ ok: true, status: d && d.approve ? "approved" : "returned" }),
+  /* (v2.9, P-2b) कक्षाएँ: 2 बीती, 1 अभी चालू (कड़ी लगी), 8 आने वाली (एक पर कड़ी) */
+  listOnlineClasses: () => ({ courseId: "oc4", title: HU.ocTitle, status: "approved", canSet: true, earlyMin: 15, linked: 3,
+    classes: Array.from({ length: 11 }, (_, i) => ({ n: i + 1, date: "2026-12-" + String(1 + i * 2).padStart(2, "0"), day: [1, 3, 5][i % 3], from: "18:00", to: "19:00",
+      state: i < 2 ? "past" : (i === 2 ? "open" : "later"), link: (i === 1 || i === 2 || i === 4) ? "https://www.youtube.com/watch?v=AbCdEfGhIjK" : "" })) }),
+  setOnlineClassLink: (d) => ({ ok: true, classNo: d && d.classNo, link: d && d.link ? "https://www.youtube.com/watch?v=AbCdEfGhIjK" : "" })
 };
 const K1_HANDLERS = {
   listMyClasses: () => ({
@@ -341,6 +346,8 @@ async function openH(file, lang, sc, navOnly, moreLs) {   /* navOnly (v1.7): स
       click(c, b); await settle(c); await settle(c); } }
   { const i = c.d.getElementById("k1Reg"), b = c.d.querySelector('[data-k1="find"]'); if (i && b) { i.value = "ACS-TE-2026-222222"; click(c, b); await settle(c); await settle(c); } }
   /* (v2.8, P-1b) online कोर्स: सूची की निष्क्रिय प्रति (भाषा-जाँच के लिए), फिर नए कोर्स का फ़ॉर्म खुला रहे */
+  { const cb = c.d.querySelector('#ocList [data-oc="cls"]'); if (cb) { click(c, cb); await settle(c); await settle(c);
+      const dd = c.d.querySelector("#ocList details.ocpast"); if (dd) dd.open = true; } }
   { const L = c.d.getElementById("ocList"), nb = c.d.querySelector('[data-oc="new"]');
     if (L && nb) { let h = c.d.getElementById("k1Snap"); if (!h) { h = c.d.createElement("div"); h.id = "k1Snap"; c.d.body.appendChild(h); }
       const k = L.cloneNode(true); k.removeAttribute("id"); k.querySelectorAll("*").forEach(x => { x.removeAttribute("data-oc"); x.removeAttribute("id"); x.removeAttribute("class"); }); h.appendChild(k);
@@ -516,7 +523,7 @@ async function ocChecks(pages) {
     ck("O1 शिक्षक: लौटाए गए कोर्स पर ACS का कारण", /ACS ने यह कोर्स लौटाया है। कारण:/.test(t) && t.indexOf(HU.ret) > -1);
     ck("O1 शिक्षक: बटन हालत के हिसाब से (मसौदा और लौटाया: भेजें, बदलें; जाँच में: वापस लें; मंज़ूर: कुछ नहीं)",
       has(c, '[data-oc="send"][data-id="oc1"]') && has(c, '[data-oc="edit"][data-id="oc3"]') && has(c, '[data-oc="drop"][data-id="oc1"]') && has(c, '[data-oc="back"][data-id="oc2"]')
-      && !has(c, '[data-oc="send"][data-id="oc2"]') && !c.d.querySelector('#ocList .k1card.st-approved [data-oc]') && !has(c, '#ocList [data-oc="ok"]') && !has(c, '#ocList [data-oc="ret"]'));
+      && !has(c, '[data-oc="send"][data-id="oc2"]') && !c.d.querySelector('#ocList .k1card.st-approved [data-oc]:not([data-oc="cls"])') && !has(c, '#ocList [data-oc="ok"]') && !has(c, '#ocList [data-oc="ret"]'));
     ck("O1 शिक्षक: अपने कार्ड पर ACS-ID या फ़ोन नहीं", !/ACS-TE-|9\d{9}|@/.test(t));
     click(c, q('[data-oc="new"]')); await settle(c);
     ck("O1 शिक्षक: नए कोर्स का फ़ॉर्म पूरा खुला", ["ocTitle", "ocAbout", "ocLang", "ocClasses", "ocFrom", "ocTo", "ocStart", "ocFee"].every(id => has(c, "#" + id)) && c.d.querySelectorAll(".ocday").length === 7);
@@ -571,10 +578,46 @@ async function ocChecks(pages) {
     ck("O2 " + who + ": जाँच का पैनल इस घर में नहीं", html.indexOf('id="pnl-ocq"') < 0); }
   for (const who of ["center", "student", "founder", "admin"]) if (pg(who)) { const html = fs.readFileSync(path.join(ROOT, pg(who)), "utf8");
     ck("O1 " + who + ": शिक्षक वाला पैनल इस घर में नहीं", html.indexOf('id="pnl-online"') < 0); }
+  /* (v2.9, P-2b) कक्षाएँ और YouTube कड़ी */
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi", "data", ["pnl-online"]), q = sel => c.d.querySelector(sel), qa = sel => Array.from(c.d.querySelectorAll(sel));
+    ck("O4 शिक्षक: कक्षाओं का बटन सिर्फ़ मंज़ूर कोर्स पर", qa('#ocList [data-oc="cls"]').length === 1 && has(c, '#ocList .k1card.st-approved [data-oc="cls"]'));
+    click(c, q('[data-oc="cls"]')); await settle(c); await settle(c); let t = txt(c, "ocList");
+    ck("O4 शिक्षक: कक्षा-सूची खुली: गिनती, अभी चालू, पहली 6 आने वाली, बीती कक्षाएँ मुड़ी हुई", /कुल कक्षाएँ:\s*11/.test(t) && /कड़ी लगी:\s*3/.test(t) && /अभी चालू/.test(t)
+      && qa(".oclink").length === 6 && has(c, '[data-oc="lmore"]') && has(c, "details.ocpast") && !q("details.ocpast").open && /बीती कक्षाएँ\s*\(2\)/.test(t), t.slice(0, 300));
+    ck("O4 शिक्षक: लगी कड़ी दिखती है और नई खिड़की में खुलती है; बीती कक्षा में डालने का खाना नहीं", has(c, '.oclk a[target="_blank"][href*="youtube.com"]') && !c.d.querySelector("details.ocpast .oclink")
+      && has(c, '[data-oc="lclr"][data-n="3"]') && !has(c, '[data-oc="lclr"][data-n="4"]'));
+    click(c, q('[data-oc="lmore"]')); await settle(c);
+    ck("O4 शिक्षक: \"सब दिखाएँ\" से सब 9 आने वाली कक्षाएँ", qa(".oclink").length === 9 && !has(c, '[data-oc="lmore"]'));
+    q('.oclink[data-n="4"]').value = "https://youtu.be/AbCdEfGhIjK"; q('.oclink[data-n="6"]').value = "लिखा हुआ";
+    click(c, q('[data-oc="lset"][data-n="4"]')); await settle(c); await settle(c);
+    const ls = c.calls.filter(x => x.name === "setOnlineClassLink").pop();
+    ck("O4 शिक्षक: कड़ी सही खानों में server को जाती है; दूसरे खाने में लिखी बात बची रहती है", !!ls && ls.data.courseId === "oc4" && ls.data.classNo === 4 && ls.data.link === "https://youtu.be/AbCdEfGhIjK"
+      && /कड़ी सहेजी गई/.test(txt(c, "ocMsg")) && (q('.oclink[data-n="6"]') || {}).value === "लिखा हुआ", JSON.stringify(ls && ls.data));
+    q('.oclink[data-n="7"]').value = ""; click(c, q('[data-oc="lset"][data-n="7"]')); await settle(c);
+    ck("O4 शिक्षक: ख़ाली कड़ी server को नहीं जाती", c.calls.filter(x => x.name === "setOnlineClassLink").length === 1 && /YouTube की कड़ी डालें/.test(txt(c, "ocMsg")));
+    c.confirmAnswer = false; click(c, q('[data-oc="lclr"][data-n="3"]')); await settle(c);
+    ck("O4 शिक्षक: कड़ी हटाने पर पुष्टि; \"नहीं\" तो कुछ नहीं", c.calls.filter(x => x.name === "setOnlineClassLink").length === 1);
+    c.confirmAnswer = true; click(c, q('[data-oc="lclr"][data-n="3"]')); await settle(c); await settle(c);
+    const lc = c.calls.filter(x => x.name === "setOnlineClassLink").pop();
+    ck("O4 शिक्षक: कड़ी हटाना server को ख़ाली कड़ी के साथ जाता है", lc.data.classNo === 3 && lc.data.link === "" && /कड़ी हटा दी गई/.test(txt(c, "ocMsg")));
+    click(c, q('[data-oc="cls"]')); await settle(c);
+    ck("O4 शिक्षक: दोबारा दबाने पर सूची बंद", !has(c, ".oclink") && !has(c, "details.ocpast"));
+    c.dom.window.close(); }
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "en", "data", ["pnl-online"]);
+    click(c, c.d.querySelector('[data-oc="cls"]')); await settle(c); await settle(c); const dd = c.d.querySelector("details.ocpast"); if (dd) dd.open = true;
+    const L = clean(txt(c, "pnl-online")).match(/[\u0900-\u097F]+/g) || [];
+    ck("O4 शिक्षक English: कक्षा-सूची में हिंदी शून्य", L.length === 0 && /Unlisted/.test(txt(c, "pnl-online")), L.slice(0, 8).join(" ‖ ")); c.dom.window.close(); }
+  for (const who of ["founder", "admin"]) if (pg(who)) { const c = await openH(pg(who), "hi", "data", ["pnl-ocq"]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-oc="qs"][data-v="approved"]')); await settle(c); await settle(c);
+    click(c, q('#ocqList [data-oc="cls"]')); await settle(c); await settle(c);
+    ck("O5 " + who + ": मंज़ूर कोर्स की कक्षाएँ और कड़ियाँ दिखती हैं, बदलने का खाना नहीं", /कुल कक्षाएँ:\s*11/.test(txt(c, "ocqList")) && has(c, '#ocqList .oclk a') && !has(c, "#ocqList .oclink") && !has(c, '#ocqList [data-oc="lset"]'));
+    c.dom.window.close(); }
   /* देखने का मोड: शिक्षक की नज़र से सूची पढ़ी जाती है, कोई लिखने वाला काम नहीं */
   if (pg("teacher")) { const c = await openNazar(pg("teacher"), "hi", "?nazar=" + NZ_REG);
+    { const cb = c.d.querySelector('#ocList [data-oc="cls"]'); if (cb) { click(c, cb); await settle(c); await settle(c); } }
+    ck("O3 नज़र शिक्षक: कक्षा-सूची पढ़ी गई (viewAs के साथ), कड़ी डालने का खाना नहीं", c.calls.some(x => x.name === "listOnlineClasses" && x.data.viewAs) && /कुल कक्षाएँ/.test(txt(c, "ocList")) && !c.d.querySelector(".oclink"));
     ck("O3 नज़र शिक्षक: online कोर्स पढ़े गए (viewAs के साथ), कोई लिखने वाला काम नहीं", c.calls.some(x => x.name === "listMyOnlineCourses" && x.data.viewAs) && /शिक्षा की बोलचाल/.test(txt(c, "ocList"))
-      && !c.calls.some(x => /^(save|submit|withdraw|decide)OnlineCourse$/.test(x.name)));
+      && !c.calls.some(x => /^(save|submit|withdraw|decide)OnlineCourse$|^setOnlineClassLink$/.test(x.name)));
     c.dom.window.close(); }
 }
 /* (v2.0, Founder का आदेश 17-Nov-2026: "Founder को सभी पैनल देखने का अधिकार दो") Founder का देखने वाला मोड।
@@ -597,7 +640,7 @@ async function openNazar(file, lang, query, opt) {
   const ls = {}; if (lang && lang !== "hi") ls.acs_dash_lang = lang; Object.assign(ls, opt.ls || {});
   const KV = f => (d => Object.assign(f(d), d && d.viewAs !== undefined && !opt.oldServer ? { viewed: true } : {}));
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), query: query || "", ls, expect: (lang && lang !== "hi") ? lang : undefined,
-    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, { listMyOnlineCourses: KV(OC_HANDLERS.listMyOnlineCourses), listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, { listMyOnlineCourses: KV(OC_HANDLERS.listMyOnlineCourses), listOnlineClasses: KV(OC_HANDLERS.listOnlineClasses), listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
   c.userVals.add(NAME_HI); c.userVals.add(NAME_HI.trim()[0]); c.userVals.add("सीता देवी"); Object.keys(HU).forEach(k => c.userVals.add(HU[k]));   /* उपयोगकर्ता का लिखा हर पाठ */
   await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden") || !c.d.getElementById("denyView").classList.contains("hidden"), 6000);
   await settle(c); await settle(c);
@@ -707,7 +750,7 @@ async function roopChecks(pages) {
     click(c, q('[data-roop="bc"][data-v="p"]')); await settle(c);
     ck("R11 टीम का घर: बटन का रंग बदला", c.d.documentElement.style.getPropertyValue("--blue") === "#5E35B1"); c.dom.window.close(); }
 }
-const NZ_OK = { claimSession: 1, listMyOnlineCourses: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1, listNotices: 1, myNotices: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
+const NZ_OK = { claimSession: 1, listMyOnlineCourses: 1, listOnlineClasses: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1, listNotices: 1, myNotices: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
 async function nazarChecks(pages) {
   const has = (c, sel) => !!c.d.querySelector(sel), txt = (c, id) => { const e = c.d.getElementById(id); return e ? e.textContent : ""; };
   const shown = (c, id) => { const e = c.d.getElementById(id); return !!e && !e.classList.contains("hidden"); };
@@ -1141,6 +1184,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.8 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v2.9 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

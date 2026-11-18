@@ -174,7 +174,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -192,7 +192,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.31.0";
+const DASH_VER = "v6.32.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -4751,6 +4751,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
 
 /* ═══════════════════════════════════════════════════════════════
    (P-1b · 18-Nov-2026) oc-block: शिक्षक/उस्ताद का paid online कोर्स (server: class_server.js v1.8)।
+   (P-2b · 18-Nov-2026) मंज़ूर कोर्स की कक्षाएँ और हर कक्षा की YouTube कड़ी (server: class_server.js v1.9)।
    शिक्षक/उस्ताद: pnl-online (प्रस्ताव लिखना, बदलना, जाँच को भेजना, वापस लेना, मसौदा हटाना) ·
    Founder/Admin: pnl-ocq (जाँच में, मंज़ूर, लौटाए गए; मंज़ूर करना या कारण लिखकर लौटाना)।
    Founder के फ़ैसले (18-Nov): पहले live कक्षा; वीडियो अभी YouTube पर; जाँच Founder और Admin।
@@ -4771,6 +4772,32 @@ if (MODE==="external" && ALLOWED.length>=1) {
              approved:'<span class="chip appr">✅ मंज़ूर</span>', returned:'<span class="chip canc">↩ लौटाया गया</span>' };
   function tomorrow(){ return new Date(Date.now()+5.5*3600000+86400000).toISOString().slice(0,10); }
   var OC=null, OF=null, Q=null, QS="review";
+  /* (P-2b) मंज़ूर कोर्स की कक्षाएँ और हर कक्षा की YouTube कड़ी: CLS = server की सूची, OPEN = खुला हुआ, INP = लिखी हुई कड़ी (पर्दा दोबारा बने तो भी रहे) */
+  var CLS={}, OPEN={}, INP={}, MORE={};
+  function keepLinks(){ document.querySelectorAll(".oclink").forEach(function(x){ INP[x.getAttribute("data-id")+"_"+x.getAttribute("data-n")]=x.value; }); }
+  function clsRow(cid, s, canSet){
+    var k=' data-id="'+esc(cid)+'" data-n="'+s.n+'"', key=cid+"_"+s.n;
+    var chip=s.state==="open"?' <span class="chip appr">🔴 अभी चालू</span>':(s.state==="past"?' <span class="chip">बीत गई</span>':'');
+    var h='<div class="k1ar ocs"><div class="r2"><b>'+S("कक्षा")+' '+s.n+'</b> · '+S(DAYS[s.day]||"")+' '+fd(s.date)+' · '+esc(s.from)+' - '+esc(s.to)+chip+'</div>';
+    h+=s.link?'<div class="r2 oclk">🔗 <a href="'+esc(s.link)+'" target="_blank" rel="noopener">'+esc(s.link)+'</a></div>'
+             :'<div class="r2">'+S(s.state==="past"?"इस कक्षा की कड़ी नहीं लगी थी।":"अभी कड़ी नहीं लगी।")+'</div>';
+    if(canSet&&s.state!=="past") h+='<div class="ocl"><input type="url" class="oclink" inputmode="url" autocomplete="off" placeholder="https://youtu.be/..."'+k+' value="'+esc(INP[key]!=null?INP[key]:s.link)+'">'+
+      '<div>'+pbtn("lset","💾 कड़ी सहेजें",k)+(s.link?dbtn("lclr","✖ कड़ी हटाएँ",k):'')+'</div></div>';
+    return h+'</div>';
+  }
+  function clsHtml(cid, side){
+    var R=CLS[cid]; if(!OPEN[cid]||!R) return "";
+    var canSet=side==="teacher"&&R.canSet&&!VIEW, L=R.classes||[], up=L.filter(function(x){ return x.state!=="past"; }), past=L.filter(function(x){ return x.state==="past"; });
+    var h='<div class="k1pane"><div class="r2">'+S("कुल कक्षाएँ:")+' <b>'+L.length+'</b> · '+S("कड़ी लगी:")+' <b>'+(R.linked||0)+'</b></div>';
+    if(canSet) h+='<div class="note">'+S("YouTube पर हर कक्षा का live बनाते समय \"Unlisted\" चुनें। फिर उसकी कड़ी यहाँ डालें।")+'</div>'+
+      '<div class="note">'+S("फ़ीस देने वाले विद्यार्थी को कड़ी कक्षा से 15 मिनट पहले से कक्षा ख़त्म होने तक मिलती है।")+'</div>';
+    if(!up.length) h+='<div class="r2">'+S("आगे कोई कक्षा नहीं है।")+'</div>';
+    var shown=MORE[cid]?up.length:Math.min(up.length,6);
+    up.slice(0,shown).forEach(function(x){ h+=clsRow(cid,x,canSet); });
+    if(shown<up.length) h+='<div>'+obtn("lmore","⬇ सब आने वाली कक्षाएँ दिखाएँ",' data-id="'+esc(cid)+'"')+'</div>';
+    if(past.length) h+='<details class="k1more ocpast"><summary>'+S("बीती कक्षाएँ")+' ('+past.length+')</summary><div>'+past.map(function(x){ return clsRow(cid,x,false); }).join("")+'</div></details>';
+    return h+'</div>';
+  }
   function say(ok,t){ var m=$("ocMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
   function sayQ(ok,t){ var m=$("ocqMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
   function failTo(id){ return function(e){ var b=$(id); if(b) b.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }; }
@@ -4800,8 +4827,10 @@ if (MODE==="external" && ALLOWED.length>=1) {
     } else if(st==="review"){
       foot+=pbtn("ok","✅ मंज़ूर करें",id)+'<button class="abtn k1b no" data-oc="ret"'+id+'>↩ कारण लिखकर लौटाएँ</button> ';
     }
+    if(st==="approved") foot+=obtn("cls", side==="teacher"?"🎥 कक्षाएँ और कड़ी":"🎥 कक्षाएँ देखें", id+' aria-expanded="'+(OPEN[c.courseId]?'true':'false')+'"');
     if(foot||more) h+='<div class="k1foot">'+foot+(more?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+more+'</div></details>':'')+'</div>';
     if(side==="teacher"&&OF&&OF.courseId===c.courseId) h+=formHtml();
+    if(st==="approved") h+=clsHtml(c.courseId, side);
     return h+'</div>';
   }
 
@@ -4863,9 +4892,20 @@ if (MODE==="external" && ALLOWED.length>=1) {
 
   document.addEventListener("click", async function(ev){
     var b=ev.target&&ev.target.closest?ev.target.closest("[data-oc]"):null; if(!b) return;
-    var act=b.getAttribute("data-oc"), id=b.getAttribute("data-id")||"", acs=(act==="ok"||act==="ret"||act==="qs");
+    var act=b.getAttribute("data-oc"), id=b.getAttribute("data-id")||"", acs=!!b.closest("#pnl-ocq");
     try{
-      keepForm();
+      keepForm(); keepLinks();
+      if(act==="cls"){
+        if(OPEN[id]){ delete OPEN[id]; drawMine(); drawQ(); return; }
+        b.disabled=true; CLS[id]=((await call("listOnlineClasses",{ courseId:id })).data)||{}; OPEN[id]=1; drawMine(); drawQ(); return; }
+      if(act==="lmore"){ MORE[id]=1; drawMine(); drawQ(); return; }
+      if(act==="lset"||act==="lclr"){
+        var no=Number(b.getAttribute("data-n")), v=act==="lclr"?"":String(INP[id+"_"+no]||"").trim();
+        if(act==="lset"&&!v){ say(false,"YouTube की कड़ी डालें।"); return; }
+        if(act==="lclr"&&!confirm("इस कक्षा की कड़ी हटाएँ?")) return;
+        b.disabled=true; await call("setOnlineClassLink",{ courseId:id, classNo:no, link:v });
+        delete INP[id+"_"+no]; CLS[id]=((await call("listOnlineClasses",{ courseId:id })).data)||{}; drawMine();
+        say(true, act==="lclr"?"✖ कड़ी हटा दी गई।":"🔗 कड़ी सहेजी गई।"); return; }
       if(act==="new"){ OF={ days:[] }; drawMine(); return; }
       if(act==="cancel"){ OF=null; drawMine(); return; }
       if(act==="edit"){ var c0=null; ((OC&&OC.items)||[]).forEach(function(x){ if(x.courseId===id) c0=x; }); if(!c0) return;

@@ -13,7 +13,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 415,
+ "count": 423,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -868,6 +868,13 @@
    "from": "office-report"
   },
   {
+   "hi": "इस कोर्स की कक्षा सिर्फ़ फ़ीस देकर जुड़े विद्यार्थी देख सकते हैं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इस कोर्स की खुली घोषणा नहीं है",
    "in": [
     "index.js"
@@ -1096,6 +1103,13 @@
    "from": "office-report"
   },
   {
+   "hi": "कक्षा की कड़ी कक्षा शुरू होने से 15 मिनट पहले खुलेगी",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "कक्षा के दिन चुनना ज़रूरी",
    "in": [
     "class_server.js"
@@ -1111,6 +1125,13 @@
   },
   {
    "hi": "कक्षाओं की गिनती 1 से 300 के बीच हो",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "कड़ी सिर्फ़ मंज़ूर कोर्स की कक्षा में डाली जा सकती है",
    "in": [
     "class_server.js"
    ],
@@ -1915,6 +1936,13 @@
    "from": "office-report"
   },
   {
+   "hi": "यह YouTube की सही कड़ी नहीं है; YouTube से कड़ी copy करके डालें",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह fund अब gift-योग्य नहीं (स्थिति: {0})",
    "in": [
     "index.js"
@@ -2001,6 +2029,20 @@
    "from": "office-report"
   },
   {
+   "hi": "यह कक्षा इस कोर्स में नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह कक्षा ख़त्म हो चुकी है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह कक्षा पहले ही बंद है",
    "in": [
     "class_server.js"
@@ -2016,6 +2058,13 @@
   },
   {
    "hi": "यह कक्षा बिना सूचना छोड़ी हुई नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह कक्षा बीत चुकी है; उसकी कड़ी अब नहीं बदलती",
    "in": [
     "class_server.js"
    ],
@@ -2431,6 +2480,13 @@
   },
   {
    "hi": "शिक्षक के जवाब का समय {0} तक है; उसके बाद ही निशान लग सकता है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "शिक्षक ने इस कक्षा की कड़ी अभी नहीं डाली है; थोड़ी देर बाद फिर देखें",
    "in": [
     "class_server.js"
    ],
