@@ -569,3 +569,12 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 a.abtn:not(.hidden){display:inline-block;text-decoration:none;text-align:center}
 #addStuCourse,.lrow select{font-family:inherit;font-size:17px;min-height:48px;padding:8px 10px;border:1.5px solid #9aa9bd;border-radius:12px;max-width:100%;background:#fff;color:var(--text);margin:8px 8px 0 0}
 .k1day{width:22px;height:22px;vertical-align:middle;margin-right:4px;accent-color:var(--blue)}
+
+/* ═══ (design D-4 · 18-Nov-2026) टीम के पैनल और सब घर: "ना" वाला बटन लाल रेखा में, बिना रूप वाले खाने बड़े, "ब्योरा देखें" दूसरे दर्जे का ═══
+   नियम: हाँ वाला काम भरा हरा; ना या ख़तरे वाला काम लाल रेखा में (भरा लाल कहीं नहीं)। */
+.abtn.no{background:#fff;color:#B71C1C;border:2px solid #B71C1C;box-shadow:none}
+.abtn.no:hover{background:#FDECEA}
+.app .vbtn{background:#fff;color:var(--blue);border:2px solid var(--blue);border-radius:10px;min-height:44px;padding:8px 16px;font-size:17px;font-weight:800;font-family:inherit}
+.app .vbtn:hover{background:#EAF2FC}
+:where(.panel) :where(select,textarea,input[type="text"],input[type="date"],input[type="number"],input[type="time"],input[type="email"],input[type="tel"],input:not([type])){font-family:inherit;font-size:17px;min-height:48px;padding:9px 12px;border:1.5px solid #9aa9bd;border-radius:12px;background:#fff;color:var(--text);max-width:100%}
+:where(.panel) :where(textarea){width:100%;line-height:1.6}

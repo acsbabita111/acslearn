@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.30.0 · 18-Nov-2026 (design D-4: टीम के पैनल: सेवा-क़तार में भूमिका का पूरा नाम (कूट-नाम नहीं); "ना" वाले बटन एक ही class से; "ब्योरा देखें")
    v6.29.0 · 18-Nov-2026 (design D-3: फ़ॉर्म का "बंद करें" बटन रेखा वाला)
    v6.28.0 · 18-Nov-2026 (design D-2: विद्यार्थी का "मेरा केंद्र": कक्षा नए कार्ड में, सूचनाएँ, हाज़िरी और काम मुड़ने वाले हिस्सों में)
    v6.27.0 · 18-Nov-2026 (design D-1: कक्षा-कार्ड का नया रूप (पाँच खाने, एक बार में एक; बटन के चार दर्जे; ख़तरे वाले काम "और विकल्प" के भीतर) और "मेरा रूप" (रंग, बटन का आकार, काम-सूची से छिपाना, ऊपर की पट्टी; पसंद इसी फ़ोन में))
@@ -191,7 +192,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.29.0";
+const DASH_VER = "v6.30.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -1130,7 +1131,7 @@ function drawApps(){
       '<div class="mrow"><b>दस्तावेज़:</b><br/>'+docLinks+'</div>'+
       rejInfo +
       actHtml + '</div>'+
-      '<button class="vbtn">👁️ view</button>';
+      '<button class="vbtn">👁️ ब्योरा देखें</button>';
     el.querySelector(".vbtn").addEventListener("click",()=>{ el.classList.toggle("open"); });
     el.querySelectorAll("[data-geo]").forEach(function(g){ const cs=String(g.getAttribute("data-geo")||"").split("|"); geoPretty(g, cs[0], cs[1]); });   /* (v6.20.0) कूट की जगह देश और राज्य के नाम */
     box.appendChild(el);
@@ -3676,17 +3677,17 @@ if (MODE==="external" && ALLOWED.length>=1) {
                : '<span style="color:#8a5a00;font-weight:700">⏳ सत्यापन बाक़ी</span>';
         const stt=it.status==="rejected"?' · <span style="color:#B71C1C">अस्वीकृत</span>':"";
         h+='<div class="pd" style="border:1px solid #dbe3ee;border-radius:10px;padding:10px;margin:8px 0">'+
-           '<b>'+US(it.name)+'</b> · '+esc(it.role)+(it.orgName?' · '+US(it.orgName):'')+
+           '<b>'+US(it.name)+'</b> · <span>'+esc(cardPub(it.role)||it.role)+'</span>'+(it.orgName?' · '+US(it.orgName):'')+
            '<br>Reg: '+esc(it.regNo)+' · '+GE(it.district||"—")+' / '+GE(it.state||"—")+stt+
            '<br>'+vf+(it.verifyNote?' — '+US(it.verifyNote):'')+
            '<div style="margin-top:6px">'+
            (it.verify!=="verified"
              ? '<button class="abtn ok" data-sevaq="ok" data-reg="'+esc(it.regNo)+'">✅ भौतिक-सत्यापन</button> '+
-               '<button class="abtn" style="background:#B71C1C;color:#fff" data-sevaq="fail" data-reg="'+esc(it.regNo)+'">❌ असफल</button> '
+               '<button class="abtn no" data-sevaq="fail" data-reg="'+esc(it.regNo)+'">❌ असफल</button> '
              : '')+
            (canFinal
              ? '<button class="abtn ok" style="background:#0B1F3A" data-sevaq="approve" data-reg="'+esc(it.regNo)+'">🏁 अंतिम स्वीकृति</button> '+
-               '<button class="abtn" style="background:#6b7280;color:#fff" data-sevaq="reject" data-reg="'+esc(it.regNo)+'">⛔ अस्वीकृति</button>'
+               '<button class="abtn no" data-sevaq="reject" data-reg="'+esc(it.regNo)+'">⛔ अस्वीकृति</button>'
              : (it.verify==="verified" ? '<span class="note">कदम-1 पूरा — अंतिम मुहर ZM/Founder करेंगे</span>' : ''))+
            '</div></div>';
       });
@@ -3840,7 +3841,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       (e.status==="requested"?' <span class="chip">⏳ निवेदन</span>':' <span class="chip">📩 प्रस्ताव</span>')+'</div>';
     var mine=(e.status==="requested")===forInst; /* फ़ैसला दूसरे पक्ष का: requested→केंद्र · offered→विद्यार्थी */
     if(mine) h+='<button class="abtn ok" data-k9acc="'+esc(e._id)+'">✅ स्वीकारें</button> '+
-                '<button class="abtn" style="background:#B71C1C;color:#fff" data-k9ret="'+esc(e._id)+'">❌ लौटाएँ</button>';
+                '<button class="abtn no" data-k9ret="'+esc(e._id)+'">❌ लौटाएँ</button>';
     else h+='<button class="abtn" data-k9wd="'+esc(e._id)+'">↩ वापस लें</button>';
     return h;
   }
