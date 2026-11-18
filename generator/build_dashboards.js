@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.12 · 18-Nov-2026 (P-1b, शिक्षक का paid online कोर्स) : शिक्षक और उस्ताद के घर में "💻 मेरे online कोर्स" (P_ONLINE_CRS; पुराना ख़ाली "🎥 Live class" पैनल हटा); Founder और Admin के घर में "💻 online कोर्स की जाँच" (P_OC_Q)।
    v2.11 · 18-Nov-2026 (design D-3) : "Enrollment" (केंद्र, वर्कशॉप): घोषणा के नियम एक पंक्ति में मुड़े; हर हिस्से का माथा अलग (k9h); "अगले दौर" वाली बासी पंक्ति हटी (प्रगति और परीक्षा अब बने हुए हैं)।
    v2.10 · 18-Nov-2026 (design D-2) : "मेरा केंद्र" (विद्यार्थी, नौकरी-इच्छुक, उद्यमी): जुड़ने का तरीक़ा एक पंक्ति में मुड़ा; "अगले दौर" वाली बासी पंक्ति हटी (काम, परीक्षा और प्रमाणपत्र अब बने हुए हैं)।
    v2.9 · 18-Nov-2026 (design D-1) : P_INST_CLASS और P_TCH_CLASS के नियम एक पंक्ति में मुड़े (details.k1rules)। टेम्पलेट: हर घर में पैनल "मेरा रूप" (pnl-roop), ऊपर का बटन "रूप बदलें" और ऊपर की पट्टी (roopBar)।
@@ -458,14 +459,28 @@ const P_TCH_CONTENT = (
     '<div class="note">इंजन बनने तक अपना कोर्स-प्रस्ताव (विषय + छोटा ख़ाका) 🆘 सहायता-पैनल के WhatsApp/Email से भेज सकते हैं।</div>' +
     '</div>');
 
-const P_TCH_LIVE = (
-    '<div class="pcard panel" id="pnl-live" data-nav="🎥 Live class" style="grid-column:1/-1">' +
-    '<div class="ph">🎥 Live class (व आगे — वाणी)</div>' +
-    '<div class="pd">आप अपनी भाषा में live class लेते हैं — fee आप तय करें (ACS न्यूनतम से नीचे नहीं)। ' +
-    'समय पर class लेना कर्तव्य है।</div>' +
-    '<div class="pd">🌏 आगे का सपना: ACS वाणी से आप अपनी भाषा में पढ़ाएँगे और Global South के बच्चे ' +
-    'अपनी-अपनी भाषा में सुनेंगे, अपनी भाषा में सवाल पूछेंगे — निर्माण अपने दौर में, चरण-दर-चरण।</div>' +
-    '<span class="soon">live-class इंजन अगले दौर में</span>' +
+/* (P-1b · 18-Nov-2026) शिक्षक/उस्ताद का paid online कोर्स: प्रस्ताव लिखना और ACS की जाँच। server: class_server.js v1.8।
+   Founder के फ़ैसले (18-Nov): पहले live कक्षा (उसी का वीडियो बाद में recorded कोर्स); वीडियो अभी YouTube पर;
+   जाँच Founder और Admin करें। यह पैनल पुराने "🎥 Live class" वाले ख़ाली पैनल (pnl-live) की जगह लेता है। */
+const P_ONLINE_CRS = (
+    '<div class="pcard panel" id="pnl-online" data-nav="💻 मेरे online कोर्स" style="grid-column:1/-1">' +
+    '<div class="ph">💻 मेरे online कोर्स</div>' +
+    '<div class="pd">यहाँ आप अपने paid online कोर्स का प्रस्ताव लिखते हैं।</div>' +
+    '<div class="pd">ACS की जाँच के बाद ही कोर्स आगे बढ़ता है।</div>' +
+    '<div class="pd">अभी live कक्षा वाला कोर्स बनता है। live कक्षा का वीडियो बाद में recorded कोर्स बनेगा।</div>' +
+    '<details class="k1rules"><summary>ℹ️ online कोर्स के नियम देखें</summary>' +
+    '<div class="pd">हर 100 रुपये फ़ीस में से 90 रुपये आपके। 5 रुपये ACS के, और 5 रुपये राज्य की टीम के।</div>' +
+    '<div class="pd">वीडियो का कोई ख़र्च हो, तो वह आपके 90 रुपये वाले हिस्से से कटता है।</div>' +
+    '<div class="pd">पहली कक्षा से पहले विद्यार्थी नाम वापस ले, तो उसे 90 प्रतिशत फ़ीस वापस मिलती है। पहली कक्षा के बाद वापसी नहीं।</div>' +
+    '<div class="pd">ACS या शिक्षक की ग़लती से कक्षा न हो, तो विद्यार्थी को पूरी फ़ीस वापस मिलती है।</div>' +
+    '<div class="pd">कक्षा का वीडियो अभी YouTube पर चलता है।</div>' +
+    '<div class="pd">YouTube पर live के लिए आपकी उम्र 16 साल या उससे ज़्यादा हो, और आपका channel verified हो।</div>' +
+    '<div class="pd">पहली बार live चालू होने में 24 घंटे तक लग सकते हैं।</div>' +
+    '<div class="pd">फ़ोन के YouTube app से live के लिए कम से कम 50 subscriber चाहिए। computer से live में यह शर्त नहीं है।</div>' +
+    '</details>' +
+    '<div class="pd">🌏 आगे का सपना: ACS वाणी से आप अपनी भाषा में पढ़ाएँगे, और बच्चे अपनी-अपनी भाषा में सुनेंगे।</div>' +
+    '<div id="ocList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="ocMsg" class="msg"></div>' +
     '</div>');
 
 /* --- सिर्फ़ उस्ताद (ustad) --- */
@@ -1107,7 +1122,7 @@ const P_TCH_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
     '<div class="pd"><b>कोर्स-royalty:');
 
 function teacherPanels(){
-  return P_TCH_CONTENT + P_TCH_CLASS("teacher") + P_IND_SAFE + P_TCH_EARN + P_TCH_LIVE + P_TU_BADGE + P_PROMO
+  return P_TCH_CONTENT + P_TCH_CLASS("teacher") + P_ONLINE_CRS + P_IND_SAFE + P_TCH_EARN + P_TU_BADGE + P_PROMO
        + P_RULES_LINK("rules-consent-teacher.html","शिक्षक (Teacher)") + P_LEDGER + P_HELP;
 }
 /* उस्ताद कमाई-गणित (Founder 18-Jul-2026): 90 सीधी-सिखाई · 7 recording-content ·
@@ -1122,7 +1137,7 @@ const P_UST_EARN = P_TU_EARN.replace('<div class="pd"><b>कोर्स-royalty
     '<div class="pd"><b>कोर्स-royalty:');
 
 function ustadPanels(){
-  return P_UST_CERTIFY + P_TCH_CLASS("ustad") + P_IND_SAFE + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_PROMO
+  return P_UST_CERTIFY + P_TCH_CLASS("ustad") + P_ONLINE_CRS + P_IND_SAFE + P_UST_SKILL + P_UST_MENTOR + P_UST_EARN + P_TU_BADGE + P_PROMO
        + P_RULES_LINK("rules-consent-ustad.html","उस्ताद (Ustad)") + P_LEDGER + P_HELP;
 }
 function centerPanels(){
@@ -1222,9 +1237,20 @@ const P_ABANDON_Q = (
     '<div id="abqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<div id="abqMsg" class="msg"></div>' +
     '</div>');
+/* (P-1b · 18-Nov-2026, Founder का फ़ैसला "अ") 💻 online कोर्स की जाँच: शिक्षक/उस्ताद के प्रस्ताव; जाँच Founder या चालू HQ Admin।
+   (बाद में एकेडमिक Head।) server: class_server.js v1.8। */
+const P_OC_Q = (
+    '<div class="pcard panel" id="pnl-ocq" data-nav="💻 online कोर्स की जाँच" style="grid-column:1/-1">' +
+    '<div class="ph">💻 online कोर्स की जाँच</div>' +
+    '<div class="pd">शिक्षक और उस्ताद के paid online कोर्स के प्रस्ताव यहाँ आते हैं।</div>' +
+    '<div class="pd">पूरा प्रस्ताव पढ़कर मंज़ूर करें। कमी हो, तो कारण लिखकर लौटाएँ।</div>' +
+    '<div class="pd">मंज़ूरी के बाद भी कोर्स अभी बिकता नहीं। फ़ीस और दाख़िले का रास्ता अगली खेप में खुलेगा।</div>' +
+    '<div id="ocqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="ocqMsg" class="msg"></div>' +
+    '</div>');
 const TEAM_EXTRAS = {
-  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q,
-  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q,
+  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q,
+  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q,
   "/dashboard/zonal/":    P_BADGE_QUEUE + P_SEVA_QUEUE,
   "/dashboard/regional/": P_BADGE_QUEUE + P_SEVA_QUEUE,
 };

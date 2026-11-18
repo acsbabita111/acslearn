@@ -174,7 +174,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -192,7 +192,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.30.0";
+const DASH_VER = "v6.31.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -711,7 +711,7 @@ const CERT_REL_HI={father:"पिता का नाम :", mother:"मात�
 const CERT_REL_EN={father:"Father's name:", mother:"Mother's name:", guardian:"Guardian's name:"};
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
-const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon","pnl-ghar"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
+const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon","pnl-ocq","pnl-ghar"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
 /* (30-Jul सुधार-3) मिले-जुले पैनल: A खुले तो B के आलसी-इंजन भी चलें —
    B का panel-वर्ग गया पर id/इंजन जीवित (generator applyStudentMerges)। */
 const MERGED_LAZY = { "pnl-status": ["pnl-badge"], "pnl-pay": ["pnl-ledger"] };
@@ -4748,3 +4748,153 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
   });
 })(); /* k1-block end */
+
+/* ═══════════════════════════════════════════════════════════════
+   (P-1b · 18-Nov-2026) oc-block: शिक्षक/उस्ताद का paid online कोर्स (server: class_server.js v1.8)।
+   शिक्षक/उस्ताद: pnl-online (प्रस्ताव लिखना, बदलना, जाँच को भेजना, वापस लेना, मसौदा हटाना) ·
+   Founder/Admin: pnl-ocq (जाँच में, मंज़ूर, लौटाए गए; मंज़ूर करना या कारण लिखकर लौटाना)।
+   Founder के फ़ैसले (18-Nov): पहले live कक्षा; वीडियो अभी YouTube पर; जाँच Founder और Admin।
+   अभी कुछ बिकता नहीं: फ़ीस, दाख़िला और कक्षा की कड़ी अगली खेपों (P-2, P-3) में।
+   data सिर्फ़ server-callables से। हर हिंदी टुकड़ा अपने अलग <span> में (भाषा-इंजन उसे पूरा मिलाकर बदलता है)।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  function call(name, data){ return httpsCallable(functions, name)(data); }
+  function S(t){ return '<span>'+t+'</span>'; }
+  function rb(t){ return String(t==null?"":t).replace(/\[/g,"(").replace(/\]/g,")"); }
+  function fd(s){ return /^\d{4}-\d{2}-\d{2}$/.test(String(s||"")) ? String(s).split("-").reverse().join("-") : "—"; }   /* 25-11-2026: हर भाषा में एक-सा */
+  var DAYS=["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
+  function pbtn(act, label, extra){ return '<button class="abtn k1b ok" data-oc="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function obtn(act, label, extra){ return '<button class="abtn k1b ol" data-oc="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function dbtn(act, label, extra){ return '<button class="abtn k1b ol dg" data-oc="'+act+'"'+(extra||'')+'>'+label+'</button> '; }
+  function meta(ico, body){ return '<div class="k1meta"><span class="mi">'+ico+'</span><span>'+body+'</span></div>'; }
+  var CHIP={ draft:'<span class="chip">📝 मसौदा</span>', review:'<span class="chip prov">⏳ जाँच में</span>',
+             approved:'<span class="chip appr">✅ मंज़ूर</span>', returned:'<span class="chip canc">↩ लौटाया गया</span>' };
+  function tomorrow(){ return new Date(Date.now()+5.5*3600000+86400000).toISOString().slice(0,10); }
+  var OC=null, OF=null, Q=null, QS="review";
+  function say(ok,t){ var m=$("ocMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
+  function sayQ(ok,t){ var m=$("ocqMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
+  function failTo(id){ return function(e){ var b=$(id); if(b) b.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }; }
+
+  /* एक कोर्स का कार्ड: side = "teacher" (अपना कोर्स) या "acs" (जाँच करने वाला) */
+  function card(c, side){
+    var st=String(c.status||""), id=' data-id="'+esc(c.courseId)+'"';
+    var h='<div class="app k1row k1card st-'+esc(st)+'"><div class="k1h"><div class="k1ti">'+US(rb(c.title))+'</div><div class="k1sub">'+(CHIP[st]||"")+'</div></div>';
+    if(side==="acs") h+=meta("🧑‍🏫", US(rb(c.teacherName))+' · '+esc(c.teacherRegNo||"")+' · '+S(c.teacherRole==="ustad"?"उस्ताद":"शिक्षक"));
+    h+=meta("🎥", S("live कक्षा"))+
+       meta("🗣️", S("पढ़ाने की भाषा:")+' '+US(rb(c.lang)))+
+       meta("🗓️", (c.days||[]).map(function(d){ return S(DAYS[d]||""); }).join(", "))+
+       meta("🕓", esc(c.from||"")+' - '+esc(c.to||"")+' · '+(c.minutes||0)+' '+S("मिनट"))+
+       meta("📅", S("पहली कक्षा:")+' <b>'+fd(c.startDate)+'</b> · '+S("आख़िरी कक्षा:")+' <b>'+fd(c.lastDate)+'</b>')+
+       meta("🔢", S("कुल कक्षाएँ:")+' <b>'+(c.classes||0)+'</b>')+
+       meta("💰", S("फ़ीस:")+' <b>₹'+(c.fee||0)+'</b>')+
+       meta("📄", US(rb(c.about)));
+    if(st==="returned") h+='<div class="k1call rd"><div class="ct">'+S("ACS ने यह कोर्स लौटाया है। कारण:")+' '+US(rb(c.returnReason))+'</div>'+
+      (side==="teacher"?'<div class="cs">'+S("कमी ठीक करके दोबारा भेजें।")+'</div>':'')+'</div>';
+    if(st==="review") h+='<div class="k1call"><div class="ct">'+S(side==="teacher"?"ACS की जाँच का इंतज़ार है।":"यह कोर्स आपकी जाँच का इंतज़ार कर रहा है।")+'</div></div>';
+    if(st==="approved") h+='<div class="k1call gn"><div class="ct">'+S("✅ ACS ने यह कोर्स मंज़ूर किया है।")+'</div>'+
+      '<div class="cs">'+S("फ़ीस और दाख़िले का रास्ता अगली खेप में खुलेगा।")+'</div></div>';
+    var foot="", more="";
+    if(side==="teacher"){
+      if(st==="draft"||st==="returned"){ foot+=pbtn("send","📤 जाँच के लिए भेजें",id)+obtn("edit","✏️ बदलें",id); more+=dbtn("drop","🗑️ मसौदा हटाएँ",id); }
+      if(st==="review") foot+=obtn("back","↩ जाँच से वापस लें",id);
+    } else if(st==="review"){
+      foot+=pbtn("ok","✅ मंज़ूर करें",id)+'<button class="abtn k1b no" data-oc="ret"'+id+'>↩ कारण लिखकर लौटाएँ</button> ';
+    }
+    if(foot||more) h+='<div class="k1foot">'+foot+(more?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+more+'</div></details>':'')+'</div>';
+    if(side==="teacher"&&OF&&OF.courseId===c.courseId) h+=formHtml();
+    return h+'</div>';
+  }
+
+  /* प्रस्ताव का फ़ॉर्म: नया कोर्स (courseId नहीं) या मसौदा/लौटाया हुआ कोर्स बदलना */
+  function formHtml(){
+    var f=OF, h='<div class="k9grid" style="margin-top:10px">';
+    h+='<div class="k9f k9full"><label>कोर्स का नाम (5 से 80 अक्षर)</label><input id="ocTitle" type="text" maxlength="80" value="'+esc(f.title||"")+'"></div>';
+    h+='<div class="k9f k9full"><label>कोर्स का परिचय (20 से 600 अक्षर)</label><textarea id="ocAbout" rows="4" maxlength="600">'+esc(f.about||"")+'</textarea></div>';
+    h+='<div class="k9f"><label>पढ़ाने की भाषा</label><input id="ocLang" type="text" maxlength="40" value="'+esc(f.lang||"")+'"></div>';
+    h+='<div class="k9f"><label>कुल कक्षाएँ (1 से 300)</label><input id="ocClasses" type="number" min="1" max="300" step="1" value="'+esc(f.classes==null?"":f.classes)+'"></div>';
+    h+='<div class="k9full"><b>'+S("कक्षा के दिन:")+'</b><br>';
+    DAYS.forEach(function(n,i){ h+='<label style="display:inline-block;margin:4px 12px 4px 0;font-size:17px">'+
+      '<input type="checkbox" class="ocday" value="'+i+'"'+((f.days||[]).indexOf(i)>-1?' checked':'')+'> '+S(n)+'</label>'; });
+    h+='</div><div class="k9f"><label>शुरू होने का समय</label><input id="ocFrom" type="time" value="'+esc(f.from||"")+'"></div>'+
+      '<div class="k9f"><label>ख़त्म होने का समय</label><input id="ocTo" type="time" value="'+esc(f.to||"")+'"></div>'+
+      '<div class="k9f"><label>पहली कक्षा की तारीख़</label><input id="ocStart" type="date" min="'+tomorrow()+'" value="'+esc(f.startDate||"")+'"></div>'+
+      '<div class="k9f"><label>फ़ीस (पूरे रुपये में)</label><input id="ocFee" type="number" min="1" max="100000" step="1" value="'+esc(f.fee==null?"":f.fee)+'"></div>'+
+      '<div class="k9full note">'+S("एक कक्षा 20 मिनट से 180 मिनट तक की हो।")+'</div>'+
+      '<div class="k9full">'+pbtn("save","💾 मसौदा सहेजें")+obtn("cancel","✖ बंद करें")+'</div></div>';
+    return h;
+  }
+  function keepForm(){
+    if(!OF) return;
+    var v=function(id){ var e=$(id); return e?e.value:undefined; };
+    if($("ocTitle")){ OF.title=v("ocTitle"); OF.about=v("ocAbout"); OF.lang=v("ocLang"); OF.classes=v("ocClasses"); OF.from=v("ocFrom"); OF.to=v("ocTo"); OF.startDate=v("ocStart"); OF.fee=v("ocFee");
+      var d=[]; document.querySelectorAll(".ocday:checked").forEach(function(x){ d.push(Number(x.value)); }); OF.days=d; }
+  }
+
+  /* ───────── शिक्षक/उस्ताद: pnl-online ───────── */
+  function drawMine(){
+    var box=$("ocList"); if(!box||!OC) return;
+    var sample=!!(VIEW&&VIEW.sample), h="";
+    if(!OC.allowed&&!sample){ box.innerHTML='<span class="note">आपका खाता स्वीकृत होने के बाद यहाँ online कोर्स बना सकेंगे।</span>'; return; }
+    if(OC.blocked) h+='<div class="k1call rd"><div class="ct">'+S("⚠️ आपका खाता अभी नई कक्षा के लिए बंद है। आप नया कोर्स जाँच के लिए नहीं भेज सकते।")+'</div></div>';
+    var L=OC.items||[];
+    if(OF&&!OF.courseId) h+=formHtml();
+    else if(OC.canCreate||sample) h+='<div>'+pbtn("new","➕ नया कोर्स लिखें")+'</div>';
+    else h+='<div class="note">'+S("एक समय में 5 से ज़्यादा अधूरे या जाँच वाले कोर्स नहीं रखे जा सकते।")+'</div>';
+    if(!L.length) h+='<div class="note">'+S("अभी आपका कोई online कोर्स नहीं है।")+'</div>';
+    L.forEach(function(c){ h+=card(c,"teacher"); });
+    box.innerHTML=h;
+  }
+  async function reload(){ OC=((await call("listMyOnlineCourses",{})).data)||{}; drawMine(); }
+  LAZY["pnl-online"]=async function(){ try{ await reload(); }catch(e){ failTo("ocList")(e); } };
+
+  /* ───────── ACS (Founder, Admin): pnl-ocq ───────── */
+  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर"],["returned","↩ लौटाए गए"]];
+  function drawQ(){
+    var box=$("ocqList"); if(!box||!Q) return;
+    var h='<div class="k1seg">'+QT.map(function(t){ return '<button type="button" class="k1m ocq'+(QS===t[0]?' on':'')+'" data-oc="qs" data-v="'+t[0]+'" aria-pressed="'+(QS===t[0]?'true':'false')+'">'+S(t[1])+'</button>'; }).join(" ")+'</div>';
+    var L=Q.items||[];
+    h+='<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+(Q.total||0)+'</b></div>';
+    if(!L.length) h+='<span class="note">'+S(QS==="review"?"अभी जाँच के लिए कोई कोर्स नहीं है।":"इस सूची में अभी कोई कोर्स नहीं है।")+'</span>';
+    L.forEach(function(c){ h+=card(c,"acs"); });
+    box.innerHTML=h;
+  }
+  async function loadQ(){ Q=((await call("listOnlineCourseQueue",{ status:QS })).data)||{}; drawQ(); }
+  LAZY["pnl-ocq"]=async function(){ try{ await loadQ(); }catch(e){ failTo("ocqList")(e); } };
+
+  document.addEventListener("click", async function(ev){
+    var b=ev.target&&ev.target.closest?ev.target.closest("[data-oc]"):null; if(!b) return;
+    var act=b.getAttribute("data-oc"), id=b.getAttribute("data-id")||"", acs=(act==="ok"||act==="ret"||act==="qs");
+    try{
+      keepForm();
+      if(act==="new"){ OF={ days:[] }; drawMine(); return; }
+      if(act==="cancel"){ OF=null; drawMine(); return; }
+      if(act==="edit"){ var c0=null; ((OC&&OC.items)||[]).forEach(function(x){ if(x.courseId===id) c0=x; }); if(!c0) return;
+        OF={ courseId:c0.courseId, title:c0.title, about:c0.about, lang:c0.lang, classes:c0.classes, days:(c0.days||[]).slice(), from:c0.from, to:c0.to, startDate:c0.startDate, fee:c0.fee };
+        drawMine(); return; }
+      if(act==="save"){
+        if(!String(OF.title||"").trim()){ say(false,"कोर्स का नाम लिखें।"); return; }
+        b.disabled=true;
+        var d={ title:OF.title, about:OF.about, lang:OF.lang, classes:Number(OF.classes), days:OF.days, from:OF.from, to:OF.to, startDate:OF.startDate, fee:Number(OF.fee) };
+        if(OF.courseId) d.courseId=OF.courseId;
+        await call("saveOnlineCourse", d); OF=null; await reload(); say(true,"💾 मसौदा सहेजा गया। अब इसे जाँच के लिए भेजें।"); return; }
+      if(act==="send"){
+        if(!confirm("यह कोर्स ACS की जाँच के लिए भेजें? जाँच के समय इसे बदला नहीं जा सकता।")) return;
+        b.disabled=true; await call("submitOnlineCourse",{ courseId:id }); OF=null; await reload(); say(true,"📤 कोर्स जाँच के लिए भेजा गया।"); return; }
+      if(act==="back"){
+        b.disabled=true; await call("withdrawOnlineCourse",{ courseId:id }); await reload(); say(true,"↩ कोर्स जाँच से वापस आ गया। अब आप इसे बदल सकते हैं।"); return; }
+      if(act==="drop"){
+        if(!confirm("यह मसौदा हटाएँ? हटाने के बाद यह वापस नहीं आता।")) return;
+        b.disabled=true; await call("withdrawOnlineCourse",{ courseId:id, drop:true }); if(OF&&OF.courseId===id) OF=null; await reload(); say(true,"🗑️ मसौदा हटा दिया गया।"); return; }
+      if(act==="qs"){ QS=b.getAttribute("data-v")||"review"; await loadQ(); return; }
+      if(act==="ok"){
+        if(!confirm("यह कोर्स मंज़ूर करें?")) return;
+        b.disabled=true; await call("decideOnlineCourse",{ courseId:id, approve:true }); await loadQ(); sayQ(true,"✅ कोर्स मंज़ूर हुआ।"); return; }
+      if(act==="ret"){
+        var why=prompt("लौटाने का कारण लिखें (ज़रूरी):"); if(!why) return;
+        b.disabled=true; await call("decideOnlineCourse",{ courseId:id, approve:false, reason:why }); await loadQ(); sayQ(true,"↩ कोर्स कारण के साथ लौटाया गया।"); return; }
+    }catch(e){
+      b.disabled=false;
+      (acs?sayQ:say)(false,"नहीं हुआ: "+((e&&e.message)||e));
+    }
+  });
+})(); /* oc-block end */

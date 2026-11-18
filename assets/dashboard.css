@@ -474,6 +474,13 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 .k1card.st-active{border-left-color:var(--green)}
 .k1card.st-notice,.k1card.st-offered{border-left-color:var(--gold)}
 .k1card.st-left_no_notice{border-left-color:#B71C1C}
+/* (P-1b) online कोर्स के कार्ड: जाँच में = सुनहरा, मंज़ूर = हरा, लौटाया गया = लाल; मसौदा = धूसर (मूल) */
+.k1card.st-review{border-left-color:var(--gold)}
+.k1card.st-approved{border-left-color:var(--green)}
+.k1card.st-returned{border-left-color:#B71C1C}
+.k1m.ocq.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.k1call.gn{background:#E8F5E9;border-color:var(--green)}
+.k1call.gn .ct{color:var(--green)}
 .k1h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:6px 12px}
 .k1ti{font-size:20px;font-weight:800;color:var(--navy);line-height:1.4}
 .k1sub{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
