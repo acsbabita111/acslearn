@@ -1492,7 +1492,8 @@
     }
     /* डिफ़ॉल्ट: text (Roman-capital खाने पर auto-uppercase क्लास) */
     var romanCls = f.roman ? ' id="fieldRoman_'+f.id+'"' : '';
-    return '<div class="row"><label>'+f.hi+reqStar+'</label><input type="text" '+idAttr+romanCls+' placeholder="'+(f.ph_hi||'')+'">'+hint+
+    var lenAttr = (f.maxlen!=null) ? ' maxlength="'+f.maxlen+'"' : '';   /* (19-Nov-2026) बोर्ड और बैनर वाला नाम: अधिकतम 60 अक्षर */
+    return '<div class="row"><label>'+f.hi+reqStar+'</label><input type="text" '+idAttr+romanCls+lenAttr+' placeholder="'+(f.ph_hi||'')+'">'+hint+
       (f.roman ? '<div class="hint">सिर्फ़ A-Z अक्षर व space।</div>' : '') + '</div>';
   }
 

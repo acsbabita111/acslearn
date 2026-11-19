@@ -1,5 +1,6 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.36.0 · 19-Nov-2026 (N-1b, Founder की सलाह "बोर्ड और बैनर वाला नाम"): पहचान-कार्ड पर "🏷️ बैनर का नाम" (केंद्र, वर्कशॉप, शिक्षक, उस्ताद); online कोर्स के कार्डों पर "कक्षा का नाम" (शिक्षक, ACS, विद्यार्थी); पहचान-पत्र (ID कार्ड) पर केंद्र का अपना नाम (org_name) — पहले मालिक का नाम छपता था
    v6.35.0 · 19-Nov-2026 (P-6b: नया पैनल "✉️ संदेश" (om-block): शिक्षक और उसके online कोर्स के विद्यार्थी के बीच निजी संदेश; 18 से कम उम्र के विद्यार्थी का अभिभावक-email (code से पक्का); विद्यार्थी की शिकायत; शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कोर्स-कार्ड से सीधी बातचीत; ACS का खाना "🚩 शिकायतें": पूरी बातचीत पढ़ना, शिकायत बंद करना, शिक्षक के संदेश रोकना और फिर खोलना)
    v6.34.0 · 18-Nov-2026 (P-5b: शिक्षक और ACS के कार्ड पर "👥 विद्यार्थी-सूची" और "⛔ कोर्स रद्द करें (पूरी फ़ीस वापस)"; ACS की "⛔ रद्द" सूची और "💸 वापसी आगे बढ़ाएँ"; अटकी वापसी की पहचान; विद्यार्थी के कार्ड पर रद्द कोर्स, कारण और वापसी)
    v6.33.0 · 18-Nov-2026 (P-3b: विद्यार्थी के घरों में "💻 शिक्षकों के online कोर्स" (ol-block): खुले कोर्स, फ़ीस देकर जुड़ना, कक्षा खोलना, पहली कक्षा से पहले छोड़ना; शिक्षक/ACS के कार्ड पर जुड़े विद्यार्थी और पैसा; ACS की "वापसी बाक़ी" सूची; खाता-बही में हर भुगतान अपने नाम से)
@@ -197,7 +198,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.35.0";
+const DASH_VER = "v6.36.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -527,6 +528,15 @@ function geoPretty(el, cc, st){
       if(cn && parts[i]===String(cc)){ parts[i]=cn; hit=true; }
       else if(sn && parts[i]===String(st)){ parts[i]=sn; hit=true; } }
     if(hit) el.textContent=parts.join(" · "); });
+}
+/* (v6.36, 19-Nov-2026, Founder की सलाह) बोर्ड और बैनर वाला नाम (केंद्र, वर्कशॉप, शिक्षक या उस्ताद की online कक्षा):
+   registration में लिखा, ACS की मंज़ूरी के बाद यही नाम खोज में। पहचान-कार्ड पर नाम के ठीक नीचे। */
+function showBannerName(bn){
+  const old=$("pubBannerRow"); if(old) old.remove();
+  bn=String(bn||"").trim(); const nm=$("pubName"); if(!bn||!nm) return;
+  const row=document.createElement("div"); row.className="pubrow"; row.id="pubBannerRow";
+  row.innerHTML='<b>🏷️ बैनर का नाम:</b> '+US(bn.slice(0,60));
+  nm.insertAdjacentElement("afterend", row);
 }
 function fillPubCard(name, photoUrl, desigLabel, area, district, state){
   setTxt("pubName",  name || "—");
@@ -1552,6 +1562,7 @@ async function guardExternalRender(user, reg){
     : (ffD.desired_district || reg.desired_district || reg.district || ffD.district || ffD.pincode_address || ""));
   const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
   fillPubCard(whoName, reg.photo_public || regDocPhoto(reg), ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
+  showBannerName(ffD.org_name || ffD.class_name || "");
   geoPretty($("pubArea"), reg.country, reg.state); geoPretty($("pubState"), reg.country, reg.state);
 
   /* दस्तावेज़-chips */
@@ -4201,7 +4212,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var role=($("idRole")&&$("idRole").value.trim())||"";
     var no=($("idNo")&&$("idNo").value.trim())||"";
     var isStu=($("idWho")&&$("idWho").value==="student");
-    var inst=rb((EXT_REG&&((EXT_REG.formFields&&(EXT_REG.formFields.center_name||EXT_REG.formFields.workshop_name))||EXT_REG.name_local))||DT("ACS केंद्र"));
+    var inst=rb((EXT_REG&&((EXT_REG.formFields&&(EXT_REG.formFields.org_name||EXT_REG.formFields.center_name||EXT_REG.formFields.workshop_name))||EXT_REG.name_local))||DT("ACS केंद्र"));   /* (v6.36) registration "org_name" लिखता है */
     x.clearRect(0,0,W,H);
     /* कार्ड — गोल-कोना, हल्की छाया-पट्टी */
     rr(x,6,6,W-12,H-12,34); x.fillStyle="#0B1F3A"; x.fill();
@@ -4843,6 +4854,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var st=String(c.status||""), id=' data-id="'+esc(c.courseId)+'"';
     var h='<div class="app k1row k1card st-'+esc(st)+'"><div class="k1h"><div class="k1ti">'+US(rb(c.title))+'</div><div class="k1sub">'+(CHIP[st]||"")+'</div></div>';
     if(side==="acs") h+=meta("🧑‍🏫", US(rb(c.teacherName))+' · '+esc(c.teacherRegNo||"")+' · '+S(c.teacherRole==="ustad"?"उस्ताद":"शिक्षक"));
+    if(c.className) h+=meta("🏷️", S("कक्षा का नाम:")+' '+US(rb(c.className)));   /* (v6.36) बोर्ड और बैनर वाला नाम */
     h+=meta("🎥", S("live कक्षा"))+
        meta("🗣️", S("पढ़ाने की भाषा:")+' '+US(rb(c.lang)))+
        meta("🗓️", (c.days||[]).map(function(d){ return S(DAYS[d]||""); }).join(", "))+
@@ -5114,6 +5126,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var id=' data-id="'+esc(x.courseId)+'"', act=x.status==="active", ccl=x.status==="cancelled";
     var h='<div class="app k1row k1card st-'+(act?'active':'returned')+'"><div class="k1h"><div class="k1ti">'+US(rb(x.title))+'</div><div class="k1sub">'+
       (act?'<span class="chip appr">✅ जुड़े हैं</span>':(ccl?'<span class="chip canc">⛔ कोर्स रद्द</span>':'<span class="chip">↩ छोड़ दिया</span>'))+'</div></div>'+
+      (x.className?meta("🏷️", S("कक्षा का नाम:")+' '+US(rb(x.className))):'')+
       meta("🧑‍🏫", US(rb(x.teacherName))+' · '+roleOf(x.teacherRole))+
       meta("🗣️", S("पढ़ाने की भाषा:")+' '+US(rb(x.lang)))+
       meta("🗓️", days(x))+
@@ -5145,6 +5158,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
   function catCard(c){
     var id=' data-id="'+esc(c.courseId)+'"';
     var h='<div class="app k1row k1card st-review"><div class="k1h"><div class="k1ti">'+US(rb(c.title))+'</div><div class="k1sub"><span class="k1bt">₹'+(c.fee||0)+'</span></div></div>'+
+      (c.className?meta("🏷️", S("कक्षा का नाम:")+' '+US(rb(c.className))):'')+
       meta("🧑‍🏫", US(rb(c.teacherName))+' · '+roleOf(c.teacherRole))+
       meta("📄", US(rb(c.about)))+
       meta("🗣️", S("पढ़ाने की भाषा:")+' '+US(rb(c.lang)))+

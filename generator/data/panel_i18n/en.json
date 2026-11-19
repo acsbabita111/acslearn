@@ -2651,7 +2651,18 @@
   "18 साल से कम उम्र के विद्यार्थी के हर संदेश की प्रति अभिभावक के email पर जाती है।": "For a student under 18, a copy of every message goes to the guardian's email.",
   "कुछ ग़लत लगे, तो विद्यार्थी \"🚩 शिकायत करें\" दबाए। शिकायत सिर्फ़ ACS देखता है, शिक्षक नहीं।": "If something feels wrong, the student presses \"🚩 Make a complaint\". Only ACS sees the complaint, not the teacher.",
   "शिक्षक को विद्यार्थी का फ़ोन, email या फ़ीस कभी नहीं दिखती।": "The teacher never sees a student's phone, email or fee.",
-  "\"🚩 शिकायतें\" में विद्यार्थियों की संदेश-शिकायतें आती हैं। वहाँ पूरी बातचीत पढ़ें, फिर शिकायत बंद करें। ज़रूरत हो, तो उस शिक्षक के संदेश रोकें।": "Students' complaints about messages come in \"🚩 Complaints\". Read the whole conversation there, then close the complaint. If needed, stop that teacher's messages."
+  "\"🚩 शिकायतें\" में विद्यार्थियों की संदेश-शिकायतें आती हैं। वहाँ पूरी बातचीत पढ़ें, फिर शिकायत बंद करें। ज़रूरत हो, तो उस शिक्षक के संदेश रोकें।": "Students' complaints about messages come in \"🚩 Complaints\". Read the whole conversation there, then close the complaint. If needed, stop that teacher's messages.",
+  "🏷️ बैनर का नाम:": "🏷️ Banner name:",
+  "बैनर का नाम:": "Banner name:",
+  "कक्षा का नाम:": "Class name:",
+  "आपकी online कक्षा का नाम (बैनर वाला)": "Your online class name (for the banner)",
+  "केंद्र का नाम (बोर्ड और बैनर वाला)": "Center name (for the board and banner)",
+  "वर्कशॉप का नाम (बोर्ड और बैनर वाला)": "Workshop name (for the board and banner)",
+  "यही नाम बोर्ड और बैनर पर लिखा जाएगा। ACS की मंज़ूरी के बाद यही नाम खोज में सबको दिखेगा।": "This name goes on the board and the banner. After ACS approves it, everyone sees this name in search.",
+  "जैसे: शर्मा गणित कक्षा": "e.g. Sharma Maths Class",
+  "जैसे: रफ़ीक़ बढ़ईगीरी कक्षा": "e.g. Rafiq Carpentry Class",
+  "जैसे: ज्ञान ज्योति कंप्यूटर केंद्र": "e.g. Gyan Jyoti Computer Center",
+  "जैसे: रहमान सिलाई वर्कशॉप": "e.g. Rahman Tailoring Workshop"
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",

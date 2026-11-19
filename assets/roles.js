@@ -1,5 +1,7 @@
 /* =====================================================================
-   ACS — roles.js  (v2.3 · 18-Jul-2026 · केंद्र/वर्कशॉप चरण-2 — Founder-आदेश "रास्ता-अ":
+   ACS — roles.js  (v2.4 · 19-Nov-2026 · Founder की सलाह: registration में बोर्ड और बैनर वाले नाम का साफ़ खाना —
+   केंद्र और वर्कशॉप के "org_name" का नाम-पाठ और समझाइश बदली; शिक्षक और उस्ताद में नया ज़रूरी खाना
+   "class_name" (online कक्षा का नाम)। ACS की मंज़ूरी के बाद यही नाम खोज में सबको दिखेगा। पिछला v2.3 · 18-Jul-2026 · केंद्र/वर्कशॉप चरण-2 — Founder-आदेश "रास्ता-अ":
    center+workshop अब बाक़ी सब roles की क़तार में — पता = पिनकोड (pincode_address),
    अलग "ज़िला" खाना हटा (ज़िला का एकमात्र सच = वांछित कार्य-क्षेत्र); मालिक की उम्र
    age(18); वर्कशॉप में स्थापना-वर्ष (estd_year) — 3-वर्ष की जाँच अब असल में लगती है;
@@ -97,6 +99,11 @@ window.ACS_ROLES = {
     F.docHighestEdu = { id:"doc_highest_edu", accept:"image/*,.pdf", required:true, hi:"अधिकतम शिक्षा का प्रमाण पत्र", en:"Highest education certificate" };
     F.docExperience = { id:"doc_experience", accept:"image/*,.pdf", required:false, hi:"अनुभव प्रमाण पत्र (यदि लागू)", en:"Experience certificate (if applicable)" };
     F.docSignature = { id:"doc_signature", accept:"image/*", required:true, hi:"हस्ताक्षर की स्कैन/फ़ोटो (JPG)", en:"Signature scan/photo (JPG)" };
+    /* (v2.4, 19-Nov-2026) बोर्ड और बैनर वाला नाम: केंद्र, वर्कशॉप, शिक्षक और उस्ताद की online कक्षा */
+    var BANNER_HI = "यही नाम बोर्ड और बैनर पर लिखा जाएगा। ACS की मंज़ूरी के बाद यही नाम खोज में सबको दिखेगा।";
+    var BANNER_EN = "This name goes on the board and the banner. After ACS approves it, everyone sees this name in search.";
+    F.className = function(phHi){ return { id:"class_name", type:"text", required:true, maxlen:60, hi:"आपकी online कक्षा का नाम (बैनर वाला)",
+      en:"Your online class name (for the banner)", ph_hi:phHi, hint_hi:BANNER_HI, hint_en:BANNER_EN }; };
     F.emergencyContact1 = { id:"emergency_contact_1", type:"emergency_contact", required:true, hi:"आपातकालीन संपर्क 1", en:"Emergency Contact 1" };
     F.emergencyContact2 = { id:"emergency_contact_2", type:"emergency_contact", required:true, hi:"आपातकालीन संपर्क 2", en:"Emergency Contact 2" };
 
@@ -130,7 +137,7 @@ window.ACS_ROLES = {
         collection:"teachers", dashboard:"/dashboard/teacher/",
         ruleFile:"rules-consent-teacher.html", gateway:true, needsGeo:false, needsRMOffice:false,
         subtypes:[], children:["teacher","ustad"], /* v2.2: क्लिक-पर-दो-विकल्प (ACS-टीम साँचा) */
-        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.address,
+        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.className("जैसे: शर्मा गणित कक्षा"), F.address,
           { id:"subject", type:"text", required:true, hi:"विषय / हुनर का क्षेत्र", en:"Subject / Skill area" },
           { id:"experience", type:"number", min:0, max:60, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
           F.nomineeName, F.nomineeRel, F.emergencyContact1, F.emergencyContact2 ],
@@ -143,7 +150,7 @@ window.ACS_ROLES = {
         collection:"ustads", dashboard:"/dashboard/ustad/",
         ruleFile:"rules-consent-ustad.html", gateway:true, needsGeo:false, needsRMOffice:false,
         subtypes:[],
-        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.address,
+        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.className("जैसे: रफ़ीक़ बढ़ईगीरी कक्षा"), F.address,
           { id:"subject", type:"text", required:true, hi:"हुनर का क्षेत्र (जैसे सिलाई, मशीन-मरम्मत, दूध-उत्पादन)", en:"Skill area (e.g., tailoring, machine repair, dairy)" },
           { id:"experience", type:"number", min:0, max:60, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
           F.nomineeName, F.nomineeRel, F.emergencyContact1, F.emergencyContact2 ],
@@ -161,7 +168,8 @@ window.ACS_ROLES = {
            age = मालिक/संचालक की उम्र (जन्मतिथि से अपने-आप, server भी यहीं से जाँचता है) */
         fields: [ F.nameLocal, F.nameRoman,
           F.age(18, "मालिक/संचालक की न्यूनतम उम्र 18 वर्ष — जन्मतिथि से अपने-आप भरती है"),
-          { id:"org_name", type:"text", required:true, hi:"केंद्र का नाम", en:"Center Name" },
+          { id:"org_name", type:"text", required:true, maxlen:60, hi:"केंद्र का नाम (बोर्ड और बैनर वाला)", en:"Center name (for the board and banner)",
+            ph_hi:"जैसे: ज्ञान ज्योति कंप्यूटर केंद्र", hint_hi:BANNER_HI, hint_en:BANNER_EN },
           F.address, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOut, F.docOrgPhotoIn, F.docOrgProof, F.docExperience ]
       },
@@ -175,7 +183,8 @@ window.ACS_ROLES = {
         /* (18-Jul-2026, चरण-2 "रास्ता-अ") center जैसा ही — साथ में estd_year (3-वर्ष की असली जाँच) */
         fields: [ F.nameLocal, F.nameRoman,
           F.age(18, "मालिक/संचालक की न्यूनतम उम्र 18 वर्ष — जन्मतिथि से अपने-आप भरती है"),
-          { id:"org_name", type:"text", required:true, hi:"वर्कशॉप का नाम", en:"Workshop Name" },
+          { id:"org_name", type:"text", required:true, maxlen:60, hi:"वर्कशॉप का नाम (बोर्ड और बैनर वाला)", en:"Workshop name (for the board and banner)",
+            ph_hi:"जैसे: रहमान सिलाई वर्कशॉप", hint_hi:BANNER_HI, hint_en:BANNER_EN },
           F.estdYear, F.address, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docOwnerPhoto, F.docOwnerId1, F.docOwnerId2, F.docSignature, F.docOrgPhotoOut, F.docWorkshopIn, F.docOrgProof, F.docExperience ]
       },
