@@ -618,7 +618,7 @@ async function runPage(file, sc) {
   sc = sc || "base";
   const c = await openDash(file, sc, LG);
   [NAME_HI, "सीता देवी"].forEach(v => { c.userVals.add(v); c.userVals.add(v.trim()[0]); });
-  [HU.bnr, HU.cls].forEach(v => c.userVals.add(v));   /* (N-1b) उपयोगकर्ता का लिखा बैनर-नाम: पूरा नाम ही */
+  [HU.bnr, HU.cls, HU.bnrNew, HU.bnrWhy].forEach(v => c.userVals.add(v));   /* (N-1b) उपयोगकर्ता का लिखा बैनर-नाम: पूरा नाम ही */
   const up = await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden") || !c.d.getElementById("denyView").classList.contains("hidden"), 6000);
   await settle(c); await settle(c);
   const tag = "D " + file.replace(/^dashboard\//, "").replace(/\/index\.html$/, "") + (sc === "base" ? "" : " [" + sc + "]");
@@ -858,7 +858,7 @@ async function dashSuite() {
       const e = await openDash(f, "data", LG); await openAll(e);
       click(e, e.d.querySelector('#acsPanelLangBar button[data-plang="en"]')); await waitFor(e, () => e.w.ACS_PANEL_I18N.lang() === "en"); await settle(e); await settle(e); await settle(e);
       [NAME_HI, "सीता देवी"].forEach(v => { e.userVals.add(v); e.userVals.add(v.trim()[0]); });
-      [HU.bnr, HU.cls].forEach(v => e.userVals.add(v));
+      [HU.bnr, HU.cls, HU.bnrNew, HU.bnrWhy].forEach(v => e.userVals.add(v));
       { const L = leaks(e); ck(tag + " : " + LG + " → English: देवनागरी शून्य", L.length === 0, L.slice(0, 5).join(" ‖ ")); }
       click(e, e.d.querySelector('#acsPanelLangBar button[data-plang="' + LG + '"]')); await waitFor(e, () => e.w.ACS_PANEL_I18N.lang() === LG); await settle(e); await settle(e); await settle(e);
       clean(e, tag + " : English → " + LG);

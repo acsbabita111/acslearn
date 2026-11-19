@@ -13,7 +13,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 464,
+ "count": 475,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -58,6 +58,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "30 दिन में 3 बार से ज़्यादा नया नाम नहीं माँगा जा सकता",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "5 बार ग़लत code; नया code मँगाएँ",
@@ -1592,6 +1599,20 @@
    ]
   },
   {
+   "hi": "नाम कम से कम 3 अक्षर का हो",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "नाम में फ़ोन, email या कड़ी नहीं हो सकती",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "नाम सही नहीं है। नाम में सिर्फ़ अक्षर हों (2 से 60), अंक या चिह्न नहीं।",
    "in": [
     "cert_server.js"
@@ -1944,6 +1965,13 @@
    ]
   },
   {
+   "hi": "बैनर का नाम सिर्फ़ स्वीकृत केंद्र, वर्कशॉप, शिक्षक या उस्ताद का होता है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "भाग-{0} parse-त्रुटि: {1}",
    "in": [
     "index.js"
@@ -2166,10 +2194,24 @@
    ]
   },
   {
+   "hi": "यह registration अब स्वीकृत नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह registration निरस्त है",
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "यह registration मिला नहीं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "यह आवेदन आपके कार्य-क्षेत्र में नहीं है।",
@@ -2278,6 +2320,13 @@
   },
   {
    "hi": "यह काम मिला नहीं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह काम सिर्फ़ Founder कर सकता है",
    "in": [
     "class_server.js"
    ],
@@ -2548,6 +2597,20 @@
    ]
   },
   {
+   "hi": "यह माँग अब जाँच में नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह माँग मिली नहीं",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह रिपोर्ट आपके खाते में नहीं मिली।",
    "in": [
     "cert_server.js"
@@ -2596,6 +2659,13 @@
    "from": "office-report"
   },
   {
+   "hi": "यह श्रेणी सूची में नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह सत्यापन-कमरा आपके लिए नहीं",
    "in": [
     "index.js"
@@ -2619,6 +2689,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "यही नाम पहले से लगा है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "रक़म (₹) ज़रूरी",

@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.37.0 · 19-Nov-2026 (N-2b, Founder की सलाह का दूसरा हिस्सा): प्रोफ़ाइल में "🏷️ बैनर का नाम" का डिब्बा (पहले से जुड़ा केंद्र, वर्कशॉप, शिक्षक या उस्ताद नया नाम माँगे;
+            ACS की जाँच के बाद ही लगे); ACS के "💻 online कोर्स की जाँच" में नया खाना "🏷️ बैनर-नाम" (मंज़ूर करें या कारण लिखकर लौटाएँ; Founder का "🔧 पुराने नाम ठीक करें")।
    v6.36.0 · 19-Nov-2026 (N-1b, Founder की सलाह "बोर्ड और बैनर वाला नाम"): पहचान-कार्ड पर "🏷️ बैनर का नाम" (केंद्र, वर्कशॉप, शिक्षक, उस्ताद); online कोर्स के कार्डों पर "कक्षा का नाम" (शिक्षक, ACS, विद्यार्थी); पहचान-पत्र (ID कार्ड) पर केंद्र का अपना नाम (org_name) — पहले मालिक का नाम छपता था
    v6.35.0 · 19-Nov-2026 (P-6b: नया पैनल "✉️ संदेश" (om-block): शिक्षक और उसके online कोर्स के विद्यार्थी के बीच निजी संदेश; 18 से कम उम्र के विद्यार्थी का अभिभावक-email (code से पक्का); विद्यार्थी की शिकायत; शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कोर्स-कार्ड से सीधी बातचीत; ACS का खाना "🚩 शिकायतें": पूरी बातचीत पढ़ना, शिकायत बंद करना, शिक्षक के संदेश रोकना और फिर खोलना)
    v6.34.0 · 18-Nov-2026 (P-5b: शिक्षक और ACS के कार्ड पर "👥 विद्यार्थी-सूची" और "⛔ कोर्स रद्द करें (पूरी फ़ीस वापस)"; ACS की "⛔ रद्द" सूची और "💸 वापसी आगे बढ़ाएँ"; अटकी वापसी की पहचान; विद्यार्थी के कार्ड पर रद्द कोर्स, कारण और वापसी)
@@ -180,7 +182,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1, listOnlineCatalog:1, myOnlineCourses:1, listOnlineLearners:1, listMyThreads:1, openThread:1, myGuardianContact:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1, listOnlineCatalog:1, myOnlineCourses:1, listOnlineLearners:1, listMyThreads:1, openThread:1, myGuardianContact:1, myBannerRequest:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -198,7 +200,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.36.0";
+const DASH_VER = "v6.37.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -537,6 +539,40 @@ function showBannerName(bn){
   const row=document.createElement("div"); row.className="pubrow"; row.id="pubBannerRow";
   row.innerHTML='<b>🏷️ बैनर का नाम:</b> '+US(bn.slice(0,60));
   nm.insertAdjacentElement("afterend", row);
+}
+/* (v6.37, N-2b) बैनर-नाम माँगना: पहले से जुड़ा केंद्र, वर्कशॉप, शिक्षक या उस्ताद अपना बैनर-नाम जोड़ता या बदलता है।
+   नया नाम ACS (Founder या Admin) की जाँच के बाद ही लगता है और तभी नेटवर्क की खोज में दिखता है। server: class_server.js v2.4।
+   देखने के मोड में सिर्फ़ स्थिति दिखती है; लिखने का खाना नहीं। */
+const BN_ROLE = { center:"जैसे: ज्ञान ज्योति कंप्यूटर केंद्र", workshop:"जैसे: रहमान सिलाई वर्कशॉप", teacher:"जैसे: शर्मा गणित कक्षा", ustad:"जैसे: रफ़ीक़ बढ़ईगीरी कक्षा" };
+function bannerBoxDraw(box, reg, d){
+  const r=d.request, cur=String(d.banner||"");
+  let h='<div class="ct"><span>🏷️ बैनर का नाम</span></div>'+
+    '<div class="cs" style="font-size:18px;font-weight:800">'+(cur?US(cur):'<span>अभी कोई बैनर-नाम नहीं है।</span>')+'</div>';
+  if(r&&r.status==="pending") h+='<div class="cs"><span>⏳ नया नाम जाँच में है:</span> '+US(r.name)+'</div>';
+  if(r&&r.status==="rejected") h+='<div class="cs" style="color:#B71C1C"><span>↩ यह नाम लौटाया गया:</span> '+US(r.name)+'</div><div class="cs"><span>लौटाने का कारण:</span> '+US(r.reason)+'</div>';
+  if(!VIEW) h+='<div class="k9f" style="margin-top:8px"><label>नया बैनर-नाम (3 से 60 अक्षर)</label><input id="bnIn" type="text" maxlength="60" placeholder="'+esc(BN_ROLE[reg.role]||"")+'"></div>'+
+    '<div class="k1foot"><button type="button" class="abtn k1b ok" data-bn="send"><span>📤 नया नाम जाँच के लिए भेजें</span></button></div>'+
+    '<div class="note"><span>नया नाम ACS की जाँच के बाद ही लगेगा। तब तक पुराना नाम ही दिखेगा।</span></div>'+
+    '<div class="note"><span>30 दिन में 3 बार तक नया नाम माँगा जा सकता है।</span></div>'+
+    '<div class="msg" id="bnMsg"></div>';
+  box.innerHTML=h;
+}
+async function bannerBox(reg){
+  const old=$("bnBox"); if(old) old.remove();
+  if(!BN_ROLE[String(reg.role||"")] || reg.status!=="approved" || !reg.regNo) return;
+  const at=$("photoUpMsg")||$("pubName"); if(!at) return;
+  const box=document.createElement("div"); box.id="bnBox"; box.className="k1call";
+  box.innerHTML='<span class="note">…</span>'; at.insertAdjacentElement("afterend", box);
+  const load=async()=>{ const d=((await httpsCallable(functions,"myBannerRequest")({ regNo:reg.regNo })).data)||{}; bannerBoxDraw(box, reg, d); };
+  box.addEventListener("click", async function(ev){
+    const b=ev.target&&ev.target.closest?ev.target.closest('[data-bn="send"]'):null; if(!b) return;
+    const inp=$("bnIn"), v=String(inp?inp.value:"").trim(), say=(ok,t)=>{ const m=$("bnMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } };
+    if(v.length<3){ say(false,"नया नाम लिखें (कम से कम 3 अक्षर)।"); return; }
+    b.disabled=true;
+    try{ await httpsCallable(functions,"requestBannerName")({ regNo:reg.regNo, name:v }); await load(); say(true,"✅ नया नाम जाँच के लिए भेज दिया गया।"); }
+    catch(e){ b.disabled=false; say(false,String((e&&e.message)||e)); }
+  });
+  try{ await load(); }catch(e){ box.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }
 }
 function fillPubCard(name, photoUrl, desigLabel, area, district, state){
   setTxt("pubName",  name || "—");
@@ -1563,6 +1599,7 @@ async function guardExternalRender(user, reg){
   const pubAreaE = [reg.country, reg.state, (reg.rm_districts&&reg.rm_districts.join)?reg.rm_districts.join(", "):""].filter(Boolean).join(" · ");
   fillPubCard(whoName, reg.photo_public || regDocPhoto(reg), ROLE_LABEL, pubAreaE, homeDistE, reg.state||"");
   showBannerName(ffD.org_name || ffD.class_name || "");
+  bannerBox(reg);   /* (v6.37, N-2b) बैनर-नाम जोड़ना या बदलना, ACS की जाँच के साथ */
   geoPretty($("pubArea"), reg.country, reg.state); geoPretty($("pubState"), reg.country, reg.state);
 
   /* दस्तावेज़-chips */
@@ -4937,9 +4974,25 @@ if (MODE==="external" && ALLOWED.length>=1) {
   LAZY["pnl-online"]=async function(){ try{ await reload(); }catch(e){ failTo("ocList")(e); } };
 
   /* ───────── ACS (Founder, Admin): pnl-ocq ───────── */
-  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर हुए"],["returned","↩ लौटाए गए"],["cancelled","⛔ रद्द"],["refund","💸 वापसी बाक़ी"],["msgk","🚩 शिकायतें"]];
+  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर हुए"],["returned","↩ लौटाए गए"],["cancelled","⛔ रद्द"],["refund","💸 वापसी बाक़ी"],["msgk","🚩 शिकायतें"],["bnr","🏷️ बैनर-नाम"]];
   /* (P-6b) संदेश-शिकायतें: KST = खुली या बंद, KT = पढ़ी गई बातचीत (शिकायत-वार) */
   var KST="open", KT={};
+  /* (N-2b) बैनर-नाम: केंद्र, वर्कशॉप, शिक्षक और उस्ताद का माँगा हुआ नाम; BST = जाँच में, मंज़ूर या लौटाए गए */
+  var BST="pending", BSTS=[["pending","⏳ जाँच में"],["approved","✅ मंज़ूर हुए"],["rejected","↩ लौटाए गए"]];
+  var BROLE={ center:"केंद्र", workshop:"वर्कशॉप", teacher:"शिक्षक", ustad:"उस्ताद" };
+  function bcard(x){
+    var id=' data-id="'+esc(x.regNo)+'"', pend=x.status==="pending", ok=x.status==="approved";
+    var h='<div class="app k1row k1card st-'+(pend?"review":(ok?"approved":"returned"))+'"><div class="k1h"><div class="k1ti">'+US(rb(x.name))+'</div><div class="k1sub">'+
+      (pend?'<span class="chip prov">'+S("⏳ जाँच में")+'</span>':(ok?'<span class="chip appr">'+S("✅ मंज़ूर हुआ")+'</span>':'<span class="chip canc">'+S("↩ लौटाया गया")+'</span>'))+'</div></div>'+
+      meta("🏢", S(BROLE[x.role]||"—")+' · '+esc(x.regNo||""))+
+      meta("🏷️", S("पुराना नाम:")+' '+(x.old?US(rb(x.old)):S("कोई नहीं")))+
+      (x.district?meta("📍", GE(x.district)):"")+
+      meta("🕒", msWhen(x.askedAtMs));
+    if(x.watch) h+='<div class="k1call rd"><div class="ct">'+S("⚠️ इस नाम में किसी संस्था या सरकार का नाम है।")+'</div><div class="cs">'+S("उस संस्था की लिखित अनुमति के बिना यह नाम मंज़ूर न करें।")+'</div></div>';
+    if(x.status==="rejected"&&x.reason) h+='<div class="k1call"><div class="ct">'+S("लौटाने का कारण:")+' '+US(rb(x.reason))+'</div></div>';
+    if(pend) h+='<div class="k1foot">'+pbtn("bok","✅ नाम मंज़ूर करें",id)+obtn("bret","↩ कारण लिखकर लौटाएँ",id)+'</div>';
+    return h+'</div>';
+  }
   function msWhen(ms){ if(!ms) return "—"; var d=new Date(Number(ms)+5.5*3600000).toISOString(); return d.slice(8,10)+"-"+d.slice(5,7)+"-"+d.slice(0,4)+" "+d.slice(11,16); }
   function kcard(k){
     var id=' data-id="'+esc(k.complaintId)+'"', open=k.status==="open", T=KT[k.complaintId];
@@ -4980,6 +5033,13 @@ if (MODE==="external" && ALLOWED.length>=1) {
         '<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+L.length+'</b></div>';
       if(!L.length) h+='<span class="note">'+S("अभी कोई वापसी बाक़ी नहीं है।")+'</span>';
       L.forEach(function(r){ h+=refRow(r); }); box.innerHTML=h; return; }
+    if(QS==="bnr"){ h+='<div class="note" style="margin-top:10px">'+S("यहाँ केंद्र, वर्कशॉप, शिक्षक और उस्ताद के माँगे हुए बैनर-नाम आते हैं।")+' '+S("मंज़ूरी के बाद यही नाम नेटवर्क की खोज में सबको दिखता है।")+'</div>'+
+        '<div class="k1seg">'+BSTS.map(function(t){ return '<button type="button" class="k1m ocq'+(BST===t[0]?' on':'')+'" data-oc="bst" data-v="'+t[0]+'" aria-pressed="'+(BST===t[0]?'true':'false')+'">'+S(t[1])+'</button>'; }).join(" ")+'</div>';
+      if(MYDESIG==="founder") h+='<div class="k1call"><div class="ct">'+S("पहले के कुछ नामांकन, पेशकश और कक्षाओं में केंद्र के नाम की जगह मालिक का नाम दर्ज हुआ था।")+'</div>'+
+        '<div class="cs">'+S("यह बटन उन्हें केंद्र के अपने नाम से ठीक करता है। प्रमाणपत्र नहीं बदलते।")+'</div><div class="k1foot">'+obtn("brepair","🔧 पुराने नाम ठीक करें")+'</div></div>';
+      h+='<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+(Q.total||0)+'</b></div>';
+      if(!L.length) h+='<span class="note">'+S("इस सूची में अभी कोई नाम नहीं है।")+'</span>';
+      L.forEach(function(x){ h+=bcard(x); }); box.innerHTML=h; return; }
     if(QS==="msgk"){ h+='<div class="note" style="margin-top:10px">'+S("यहाँ विद्यार्थियों की संदेश-शिकायतें हैं। शिक्षक को शिकायत नहीं दिखती।")+'</div>'+
         '<div class="k1foot">'+obtn("kst", KST==="open"?"📁 बंद शिकायतें देखें":"🚩 खुली शिकायतें देखें")+'</div>'+
         '<div class="r2" style="margin-top:10px">'+S(KST==="open"?"खुली शिकायतें:":"बंद शिकायतें:")+' <b>'+(Q.total||0)+'</b></div>';
@@ -4990,7 +5050,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
     L.forEach(function(c){ h+=card(c,"acs"); });
     box.innerHTML=h;
   }
-  async function loadQ(){ Q=((await call(QS==="refund"?"listOnlineRefundsDue":(QS==="msgk"?"listMsgComplaints":"listOnlineCourseQueue"),{ status:QS==="msgk"?KST:QS })).data)||{}; drawQ(); }
+  async function loadQ(){ Q=((await call(QS==="refund"?"listOnlineRefundsDue":(QS==="msgk"?"listMsgComplaints":(QS==="bnr"?"listBannerRequests":"listOnlineCourseQueue")),{ status:QS==="msgk"?KST:(QS==="bnr"?BST:QS) })).data)||{}; drawQ(); }
   LAZY["pnl-ocq"]=async function(){ try{ await loadQ(); }catch(e){ failTo("ocqList")(e); } };
 
   document.addEventListener("click", async function(ev){
@@ -5005,6 +5065,20 @@ if (MODE==="external" && ALLOWED.length>=1) {
       /* (P-6b) शिक्षक की विद्यार्थी-सूची से बातचीत; ACS की संदेश-शिकायतें */
       if(act==="msg"){ navGo("pnl-omsg"); if(OM_OPEN) OM_OPEN(id, b.getAttribute("data-r")||""); return; }
       if(act==="kst"){ KST=KST==="open"?"closed":"open"; KT={}; b.disabled=true; await loadQ(); return; }
+      /* (N-2b) बैनर-नाम की जाँच */
+      if(act==="bst"){ BST=b.getAttribute("data-v")||"pending"; b.disabled=true; await loadQ(); return; }
+      if(act==="bok"){
+        if(!confirm("यह नाम मंज़ूर करें? मंज़ूरी के बाद यही नाम खोज में सबको दिखेगा।")) return;
+        b.disabled=true; await call("decideBannerName",{ regNo:id, approve:true }); await loadQ(); sayQ(true,"✅ नाम मंज़ूर हुआ। अब यही नाम सबको दिखेगा।"); return; }
+      if(act==="bret"){
+        var br=prompt("नाम लौटाने का कारण लिखें (ज़रूरी):"); if(!br) return;
+        if(String(br).trim().length<5){ sayQ(false,"थोड़ा पूरा लिखें (कम से कम 5 अक्षर)।"); return; }
+        b.disabled=true; await call("decideBannerName",{ regNo:id, approve:false, reason:br }); await loadQ(); sayQ(true,"↩ नाम कारण के साथ लौटाया गया।"); return; }
+      if(act==="brepair"){
+        if(!confirm("सब केंद्रों के पुराने नाम ठीक करें? इसमें थोड़ा समय लग सकता है।")) return;
+        b.disabled=true; var rp=((await call("repairBannerNames",{})).data)||{};
+        var qm=$("ocqMsg"); if(qm){ qm.className="msg ok"; qm.innerHTML=S("🔧 पुराने नाम ठीक हुए। बदले गए रिकॉर्ड:")+' <b>'+(rp.changed||0)+'</b>'; }
+        b.disabled=false; return; }
       if(act==="kread"){
         if(KT[id]){ delete KT[id]; drawQ(); return; }
         b.disabled=true; KT[id]=((await call("readComplaintThread",{ complaintId:id })).data)||{ items:[] }; drawQ(); return; }
