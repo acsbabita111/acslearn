@@ -13,7 +13,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 484,
+ "count": 498,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -84,6 +84,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "90 दिन में आपकी रद्द कक्षाओं की गिनती {0} है; नया कोर्स भेजने पर रोक है। रोक ACS हटा सकता है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "ACS-ID लिखना ज़रूरी",
@@ -896,6 +903,13 @@
    "from": "office-report"
   },
   {
+   "hi": "इस ACS नंबर का कोई शिक्षक online कोर्स में नहीं मिला",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इस ID से login-खाता जुड़ा नहीं है",
    "in": [
     "index.js"
@@ -924,6 +938,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "इस कक्षा के लिए भरपाई-कक्षा अभी नहीं माँगी गई है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "इस कक्षा पर कोई खुली शिकायत नहीं है",
@@ -1196,6 +1217,20 @@
    "from": "office-report"
   },
   {
+   "hi": "इसी समय पर आपकी एक और online कक्षा है ({0}, कक्षा {1}, {2} से {3})",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "इसी समय पर आपकी एक भरपाई-कक्षा है ({0}, {1}, {2} से {3})",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इसी समय पर यह व्यक्ति पहले से एक और कक्षा में है ({0}, {1} से {2})",
    "in": [
     "class_server.js"
@@ -1265,6 +1300,20 @@
   },
   {
    "hi": "कक्षा के दिन चुनना ज़रूरी",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "कक्षा ख़त्म हुए 24 घंटे बीत गए; अब इसे रद्द नहीं किया जा सकता",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "कक्षा न होने का कारण लिखना ज़रूरी (कम से कम 5 अक्षर)",
    "in": [
     "class_server.js"
    ],
@@ -1395,6 +1444,13 @@
   },
   {
    "hi": "कारण लिखना ज़रूरी",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "कारण लिखना ज़रूरी (कम से कम 5 अक्षर)",
    "in": [
     "class_server.js"
    ],
@@ -2021,6 +2077,27 @@
    "from": "office-report"
   },
   {
+   "hi": "भरपाई-कक्षा अभी से कम से कम 12 घंटे बाद की हो, ताकि विद्यार्थियों को पता चल सके",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "भरपाई-कक्षा आज से 30 दिन के भीतर की हो",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "भरपाई-कक्षा की तारीख़ सही लिखें",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "भाग-{0} parse-त्रुटि: {1}",
    "in": [
     "index.js"
@@ -2310,6 +2387,20 @@
   },
   {
    "hi": "यह कक्षा बंद है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह कक्षा बहुत बार बदली जा चुकी है; ACS से बात करें",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह कक्षा बिना बताए नहीं हुई; इसकी सिर्फ़ भरपाई-कक्षा तय करें",
    "in": [
     "class_server.js"
    ],
@@ -2978,6 +3069,13 @@
    "in": [
     "vani_bhashini.js"
    ]
+  },
+  {
+   "hi": "सिर्फ़ मंज़ूर कोर्स की कक्षा बदली जा सकती है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "सिर्फ़ मंज़ूर कोर्स रद्द हो सकता है",

@@ -490,7 +490,7 @@ html,body{min-height:100%;font-family:'Inter','Noto Sans Devanagari',sans-serif;
 /* (P-3b) ACS की जाँच-सूची के चार खाने: मोबाइल पर 2+2, बड़े पर्दे पर एक पंक्ति */
 .k1seg.oc6{grid-template-columns:repeat(2,1fr)}
 @media (min-width:760px){ .k1seg.oc6{grid-template-columns:repeat(3,1fr);max-width:760px} }
-@media (min-width:1100px){ .k1seg.oc6{grid-template-columns:repeat(6,1fr);max-width:1040px} }
+@media (min-width:1100px){ .k1seg.oc6{grid-template-columns:repeat(4,1fr);max-width:1040px} }
 /* (P-6b) निजी संदेश: बातचीत के बुलबुले, लिखने का डिब्बा, अभिभावक का email */
 .omth{margin-top:14px;border-top:3px solid var(--blue)}
 .omb{max-width:88%;margin:10px 0;padding:10px 12px;border-radius:12px;background:#F1F4F8;border:1px solid #DDE3EA}
@@ -614,3 +614,8 @@ a.abtn:not(.hidden){display:inline-block;text-decoration:none;text-align:center}
 .lbp .lbh{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:4px}
 .lbp .k9f textarea{box-sizing:border-box}
 .lbpast{padding:8px 0;border-top:1px dashed #cfd8e3;font-size:17px;line-height:1.6}
+/* (P-8b, 19-Nov-2026) भरपाई-कक्षा: न हुई कक्षा की लाल रेखा; नियमों की सूची (root का reset सूची के अंक मिटा देता है, इसलिए साफ़ padding) */
+.k1ar.ocs.ocmiss{border-left:4px solid #B71C1C;padding-left:10px}
+.ocrules .ocrl{padding-left:26px;margin:8px 0;list-style:decimal outside}
+.ocrules .ocrl li{margin:4px 0;line-height:1.6}
+.ocmk textarea{width:100%}

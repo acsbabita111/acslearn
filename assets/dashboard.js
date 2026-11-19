@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.39.0 · 19-Nov-2026 (P-8b, Founder के "अ" वाले फ़ैसले): कक्षा न हो सके तो उसकी भरपाई-कक्षा (शिक्षक की कक्षा-सूची में "🚫 यह कक्षा नहीं हो सकेगी" और
+            बिना बताए न हुई कक्षा पर "📅 भरपाई-कक्षा तय करें"); रद्द कक्षाओं की गिनती (बताकर 1, बिना बताए 2; 90 दिन में 3 = निशान, 5 = नए कोर्स पर रोक);
+            विद्यार्थी के कार्ड पर भरपाई-कक्षा और न हुई कक्षा; ACS का नया खाना "🚫 रद्द कक्षाएँ" (गिनती शून्य करना, कारण के साथ)।
    v6.38.0 · 19-Nov-2026 (P-7b, Founder की माँग 17-Nov: "किसी 1 विद्यार्थी से सवाल, बाक़ी सब देखें"): "🎤 कक्षा-पट" (LIVEB): शिक्षक के मंज़ूर कोर्स के कार्ड पर और
             विद्यार्थी के कार्ड पर कक्षा के समय; हाथ उठाना, एक विद्यार्थी से सवाल, सिर्फ़ उसी का उत्तर, सबको दिखे; listener + 15 सेकंड वाला fallback।
    v6.37.0 · 19-Nov-2026 (N-2b, Founder की सलाह का दूसरा हिस्सा): प्रोफ़ाइल में "🏷️ बैनर का नाम" का डिब्बा (पहले से जुड़ा केंद्र, वर्कशॉप, शिक्षक या उस्ताद नया नाम माँगे;
@@ -202,7 +205,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.38.0";
+const DASH_VER = "v6.39.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -4955,6 +4958,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
   var OC=null, OF=null, Q=null, QS="review";
   /* (P-2b) मंज़ूर कोर्स की कक्षाएँ और हर कक्षा की YouTube कड़ी: CLS = server की सूची, OPEN = खुला हुआ, INP = लिखी हुई कड़ी (पर्दा दोबारा बने तो भी रहे) */
   var CLS={}, OPEN={}, INP={}, MORE={};
+  /* (P-8b) भरपाई-कक्षा का फ़ॉर्म: MKF["कोर्स_कक्षा"] = { kind: "told" (शिक्षक बताकर रद्द करे) | "untold" (बिना बताए न हुई), reason, date, from, to } */
+  var MKF={};
+  function todayD(){ return new Date(Date.now()+5.5*3600000).toISOString().slice(0,10); }
   /* (P-5b) विद्यार्थी-सूची: LRN = server की सूची (50-50 करके), LOPEN = खुली हुई */
   var LRN={}, LOPEN={};
   var ROLE_L={ student:"🎓 विद्यार्थी", jobseeker:"💼 नौकरी-इच्छुक", entrepreneur:"🏭 उद्यमी" };
@@ -4976,27 +4982,74 @@ if (MODE==="external" && ALLOWED.length>=1) {
   }
   function keepLinks(){ document.querySelectorAll(".oclink").forEach(function(x){ INP[x.getAttribute("data-id")+"_"+x.getAttribute("data-n")]=x.value; }); }
   function clsRow(cid, s, canSet){
-    var k=' data-id="'+esc(cid)+'" data-n="'+s.n+'"', key=cid+"_"+s.n;
-    var chip=s.state==="open"?' <span class="chip appr">🔴 अभी चालू</span>':(s.state==="past"?' <span class="chip">बीत गई</span>':'');
-    var h='<div class="k1ar ocs"><div class="r2"><b>'+S("कक्षा")+' '+s.n+'</b> · '+S(DAYS[s.day]||"")+' '+fd(s.date)+' · '+esc(s.from)+' - '+esc(s.to)+chip+'</div>';
-    h+=s.link?'<div class="r2 oclk">🔗 <a href="'+esc(s.link)+'" target="_blank" rel="noopener">'+esc(s.link)+'</a></div>'
-             :'<div class="r2">'+S(s.state==="past"?"इस कक्षा की कड़ी नहीं लगी थी।":"अभी कड़ी नहीं लगी।")+'</div>';
-    if(canSet&&s.state!=="past") h+='<div class="ocl"><input type="url" class="oclink" inputmode="url" autocomplete="off" placeholder="https://youtu.be/..."'+k+' value="'+esc(INP[key]!=null?INP[key]:s.link)+'">'+
+    var k=' data-id="'+esc(cid)+'" data-n="'+s.n+'"', key=cid+"_"+s.n, F=MKF[key], st=s.state, ended=(st==="past"||st==="wait"||st==="missed");
+    var chip=st==="open"?' <span class="chip appr">🔴 अभी चालू</span>':(st==="past"?' <span class="chip">बीत गई</span>'
+      :(st==="missed"?' <span class="chip canc">⛔ नहीं हुई</span>':(st==="wait"?' <span class="chip prov">⚠️ कड़ी नहीं लगी</span>':'')));
+    if(s.makeup) chip+=' <span class="chip">🔁 भरपाई-कक्षा</span>';
+    var h='<div class="k1ar ocs'+(st==="missed"?' ocmiss':'')+'"><div class="r2"><b>'+S("कक्षा")+' '+s.n+'</b> · '+S(DAYS[s.day]||"")+' '+fd(s.date)+' · '+esc(s.from)+' - '+esc(s.to)+chip+'</div>';
+    if(s.makeup) h+='<div class="r2">'+S("पहले की तारीख़:")+' '+fd(s.origDate)+'</div>';
+    if(st==="missed") h+='<div class="k1call rd"><div class="ct">'+S("यह कक्षा नहीं हुई। इसकी कड़ी नहीं लगी थी।")+'</div>'+
+      '<div class="cs">'+S("इसकी 2 गिनती लगी। इसकी भरपाई-कक्षा की तारीख़ तय करें।")+'</div></div>';
+    else if(st==="wait") h+='<div class="k1call"><div class="ct">'+S("कक्षा ख़त्म हुई, पर इसकी कड़ी नहीं लगी।")+'</div>'+
+      '<div class="cs">'+S("कक्षा नहीं हो सकी, तो 24 घंटे के भीतर इसे रद्द करके भरपाई-कक्षा तय करें (1 गिनती)।")+'</div>'+
+      '<div class="cs">'+S("वरना यह बिना बताए गिनी जाएगी (2 गिनती)।")+'</div></div>';
+    else h+=s.link?'<div class="r2 oclk">🔗 <a href="'+esc(s.link)+'" target="_blank" rel="noopener">'+esc(s.link)+'</a></div>'
+             :'<div class="r2">'+S(st==="past"?"इस कक्षा की कड़ी नहीं लगी थी।":"अभी कड़ी नहीं लगी।")+'</div>';
+    if(canSet&&!ended) h+='<div class="ocl"><input type="url" class="oclink" inputmode="url" autocomplete="off" placeholder="https://youtu.be/..."'+k+' value="'+esc(INP[key]!=null?INP[key]:s.link)+'">'+
       '<div>'+pbtn("lset","💾 कड़ी सहेजें",k)+(s.link?dbtn("lclr","✖ कड़ी हटाएँ",k):'')+'</div></div>';
+    /* (P-8b) कक्षा न हो सके: बताकर रद्द (1 गिनती) या बिना बताए न हुई कक्षा की भरपाई (2 गिनती) */
+    if(canSet&&F) h+=mkForm(cid, s, F);
+    else if(canSet&&s.canMakeup) h+='<div>'+pbtn("mkm","📅 भरपाई-कक्षा तय करें",k)+'</div>';
+    else if(canSet&&s.canCancel) h+=(st==="wait"?'<div>'+obtn("mkx","🚫 कक्षा नहीं हो सकी",k)+'</div>'
+      :'<details class="k1more"><summary>'+S(ended?"⋯ कक्षा नहीं हो सकी?":"⋯ कक्षा नहीं हो सकेगी?")+'</summary><div>'+dbtn("mkx", ended?"🚫 कक्षा नहीं हो सकी":"🚫 यह कक्षा नहीं हो सकेगी",k)+'</div></details>');
     return h+'</div>';
   }
+  /* (P-8b) भरपाई-कक्षा का फ़ॉर्म: तारीख़, शुरू और ख़त्म का समय; बताकर रद्द करने पर कारण भी */
+  function mkForm(cid, s, F){
+    var k=' data-id="'+esc(cid)+'" data-n="'+s.n+'"', told=F.kind==="told";
+    var h='<div class="k9grid ocmk" style="margin-top:8px">';
+    if(told) h+='<div class="k9f k9full"><label>कक्षा न होने का कारण (ज़रूरी)</label><textarea class="mkin" data-f="reason"'+k+' rows="2" maxlength="300">'+esc(F.reason||"")+'</textarea></div>';
+    h+='<div class="k9f"><label>भरपाई-कक्षा की तारीख़</label><input type="date" class="mkin" data-f="date"'+k+' min="'+todayD()+'" value="'+esc(F.date||"")+'"></div>'+
+      '<div class="k9f"><label>शुरू होने का समय</label><input type="time" class="mkin" data-f="from"'+k+' value="'+esc(F.from||"")+'"></div>'+
+      '<div class="k9f"><label>ख़त्म होने का समय</label><input type="time" class="mkin" data-f="to"'+k+' value="'+esc(F.to||"")+'"></div>'+
+      '<div class="k9full note">'+S("भरपाई-कक्षा अभी से कम से कम 12 घंटे बाद, और 30 दिन के भीतर हो।")+'</div>'+
+      (told?'<div class="k9full note">'+S("विद्यार्थियों को कारण नहीं, नई तारीख़ और समय दिखेगा। पुरानी तारीख़ की कड़ी हट जाएगी।")+'</div>':'')+
+      '<div class="k9full">'+pbtn("mksave", told?"✅ रद्द करें और भरपाई-कक्षा तय करें":"✅ भरपाई-कक्षा तय करें", k)+obtn("mkclose","✖ बंद करें",k)+'</div></div>';
+    return h;
+  }
+  function keepMk(){ document.querySelectorAll(".mkin").forEach(function(x){ var F=MKF[x.getAttribute("data-id")+"_"+x.getAttribute("data-n")]; if(F) F[x.getAttribute("data-f")]=x.value; }); }
   function clsHtml(cid, side){
     var R=CLS[cid]; if(!OPEN[cid]||!R) return "";
-    var canSet=side==="teacher"&&R.canSet&&!VIEW, L=R.classes||[], up=L.filter(function(x){ return x.state!=="past"; }), past=L.filter(function(x){ return x.state==="past"; });
-    var h='<div class="k1pane"><div class="r2">'+S("कुल कक्षाएँ:")+' <b>'+L.length+'</b> · '+S("कड़ी लगी:")+' <b>'+(R.linked||0)+'</b></div>';
+    var canSet=side==="teacher"&&R.canSet&&!VIEW, L=R.classes||[];
+    var rank={ missed:0, wait:1 }, up=L.filter(function(x){ return x.state!=="past"; }).sort(function(a,b){ return (rank[a.state]!=null?rank[a.state]:2)-(rank[b.state]!=null?rank[b.state]:2); }),
+        past=L.filter(function(x){ return x.state==="past"; });
+    var h='<div class="k1pane"><div class="r2">'+S("कुल कक्षाएँ:")+' <b>'+L.length+'</b> · '+S("कड़ी लगी:")+' <b>'+(R.linked||0)+'</b>'+
+      (R.missed?' · '+S("भरपाई बाक़ी:")+' <b>'+R.missed+'</b>':'')+'</div>';
     if(canSet) h+='<div class="note">'+S("YouTube पर हर कक्षा का live बनाते समय \"Unlisted\" चुनें। फिर उसकी कड़ी यहाँ डालें।")+'</div>'+
-      '<div class="note">'+S("फ़ीस देने वाले विद्यार्थी को कड़ी कक्षा से 15 मिनट पहले से कक्षा ख़त्म होने तक मिलती है।")+'</div>';
+      '<div class="note">'+S("फ़ीस देने वाले विद्यार्थी को कड़ी कक्षा से 15 मिनट पहले से कक्षा ख़त्म होने तक मिलती है।")+'</div>'+
+      '<div class="note">'+S("कोई कक्षा न हो सके, तो उसी कक्षा में \"कक्षा नहीं हो सकेगी\" दबाएँ और भरपाई-कक्षा की तारीख़ दें।")+'</div>';
     if(!up.length) h+='<div class="r2">'+S("आगे कोई कक्षा नहीं है।")+'</div>';
     var shown=MORE[cid]?up.length:Math.min(up.length,6);
     up.slice(0,shown).forEach(function(x){ h+=clsRow(cid,x,canSet); });
     if(shown<up.length) h+='<div>'+obtn("lmore","⬇ सब आने वाली कक्षाएँ दिखाएँ",' data-id="'+esc(cid)+'"')+'</div>';
-    if(past.length) h+='<details class="k1more ocpast"><summary>'+S("बीती कक्षाएँ")+' ('+past.length+')</summary><div>'+past.map(function(x){ return clsRow(cid,x,false); }).join("")+'</div></details>';
+    if(past.length) h+='<details class="k1more ocpast"'+(past.some(function(x){ return MKF[cid+"_"+x.n]; })?' open':'')+'><summary>'+S("बीती कक्षाएँ")+' ('+past.length+')</summary><div>'+past.map(function(x){ return clsRow(cid,x,canSet&&x.canCancel); }).join("")+'</div></details>';
     return h+'</div>';
+  }
+  /* (P-8b) रद्द कक्षाओं की गिनती: नियम और गिनी गई कक्षाएँ (शिक्षक का अपना पैनल) */
+  function cpItem(i){
+    return '<div class="k1ar ocs"><div class="r2">'+US(rb(i.title))+' · '+S("कक्षा")+' '+i.n+' · '+fd(i.date)+' · '+esc(i.from||"")+' - '+esc(i.to||"")+'</div>'+
+      '<div class="r2">'+(i.kind==="told"?S("बताकर रद्द: 1 गिनती"):S("बिना बताए नहीं हुई: 2 गिनती"))+(i.reason?' · '+US(rb(i.reason)):'')+'</div></div>';
+  }
+  function cpRules(cp){
+    var R=["कक्षा न हो सके, तो उसकी भरपाई-कक्षा ज़रूरी है।","कक्षा से पहले बताकर रद्द करें, या कक्षा के बाद 24 घंटे के भीतर बताएँ: 1 गिनती।",
+      "कक्षा की कड़ी न लगे और 24 घंटे में कोई न बताए: 2 गिनती।","पिछले 90 दिन में 3 गिनती: निशान (चेतावनी)।",
+      "पिछले 90 दिन में 5 गिनती: नया online कोर्स भेजने पर रोक। चल रहे कोर्स चलते रहेंगे।"];
+    var h='<details class="k1more ocrules"><summary>'+S("📋 कक्षा न हो सके तो: नियम और आपकी गिनती")+' ('+((cp&&cp.points)||0)+')</summary><div>'+
+      '<ol class="ocrl">'+R.map(function(t){ return '<li>'+S(t)+'</li>'; }).join("")+'</ol>';
+    var L=(cp&&cp.items)||[];
+    if(L.length) h+='<div class="r2"><b>'+S("गिनी गई कक्षाएँ (90 दिन):")+'</b></div>'+L.map(cpItem).join("");
+    else h+='<div class="note">'+S("अभी आपकी कोई गिनती नहीं है।")+'</div>';
+    return h+'</div></details>';
   }
   function say(ok,t){ var m=$("ocMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
   function sayQ(ok,t){ var m=$("ocqMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.textContent=t; } }
@@ -5023,6 +5076,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
     if(st==="returned") h+='<div class="k1call rd"><div class="ct">'+S("ACS ने यह कोर्स लौटाया है। कारण:")+' '+US(rb(c.returnReason))+'</div>'+
       (side==="teacher"?'<div class="cs">'+S("कमी ठीक करके दोबारा भेजें।")+'</div>':'')+'</div>';
     if(st==="review") h+='<div class="k1call"><div class="ct">'+S(side==="teacher"?"ACS की जाँच का इंतज़ार है।":"यह कोर्स आपकी जाँच का इंतज़ार कर रहा है।")+'</div></div>';
+    /* (P-8b) भरपाई-कक्षा बाक़ी (शिक्षक); शिक्षक की रद्द कक्षाओं की गिनती (ACS) */
+    if(side==="teacher"&&st==="approved"&&c.needMakeup) h+='<div class="k1call rd"><div class="ct">'+S("⚠️ भरपाई-कक्षा बाक़ी:")+' <b>'+c.needMakeup+'</b></div>'+
+      '<div class="cs">'+S("\"🎥 कक्षाएँ और कड़ी\" खोलकर उसकी तारीख़ तय करें।")+'</div></div>';
+    if(side==="acs"&&c.cp&&(c.cp.points||c.cp.needMakeup)) h+='<div class="k1call'+(c.cp.stop?' rd':'')+'"><div class="ct">'+S("⚠️ इस शिक्षक की रद्द कक्षाओं की गिनती (90 दिन):")+' <b>'+c.cp.points+'</b>'+
+      (c.cp.stop?' '+S("(रोक)"):(c.cp.mark?' '+S("(निशान)"):''))+'</div>'+(c.cp.needMakeup?'<div class="cs">'+S("भरपाई-कक्षा बाक़ी:")+' '+c.cp.needMakeup+'</div>':'')+'</div>';
     if(st==="approved") h+='<div class="k1call gn"><div class="ct">'+S("✅ ACS ने यह कोर्स मंज़ूर किया है।")+'</div>'+
       '<div class="cs">'+S("कोर्स विद्यार्थियों की सूची में है। पहली कक्षा शुरू होने तक वे फ़ीस देकर जुड़ सकते हैं।")+'</div></div>';
     /* (P-5b) रद्द कोर्स: किसने, कब, कारण; हर जुड़े विद्यार्थी को पूरी फ़ीस वापस */
@@ -5080,6 +5138,16 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var sample=!!(VIEW&&VIEW.sample), h="";
     if(!OC.allowed&&!sample){ box.innerHTML='<span class="note">आपका खाता स्वीकृत होने के बाद यहाँ online कोर्स बना सकेंगे।</span>'; return; }
     if(OC.blocked) h+='<div class="k1call rd"><div class="ct">'+S("⚠️ आपका खाता अभी नई कक्षा के लिए बंद है। आप नया कोर्स जाँच के लिए नहीं भेज सकते।")+'</div></div>';
+    /* (P-8b) रद्द कक्षाओं की गिनती: रोक (5), निशान (3), भरपाई बाक़ी */
+    var cp=OC.cp;
+    if(cp&&cp.stop) h+='<div class="k1call rd"><div class="ct">'+S("⛔ पिछले 90 दिन में आपकी रद्द कक्षाओं की गिनती:")+' <b>'+cp.points+'</b></div>'+
+      '<div class="cs">'+S("5 या ज़्यादा गिनती पर नया online कोर्स जाँच के लिए नहीं भेजा जा सकता।")+'</div>'+
+      '<div class="cs">'+S("आपके चल रहे कोर्स चलते रहेंगे। यह रोक ACS हटा सकता है।")+'</div></div>';
+    else if(cp&&cp.mark) h+='<div class="k1call"><div class="ct">'+S("⚠️ निशान: पिछले 90 दिन में आपकी रद्द कक्षाओं की गिनती:")+' <b>'+cp.points+'</b></div>'+
+      '<div class="cs">'+S("5 गिनती होने पर नया कोर्स भेजने पर रोक लगेगी।")+'</div></div>';
+    if(cp&&cp.needMakeup) h+='<div class="k1call rd"><div class="ct">'+S("⚠️ भरपाई-कक्षा बाक़ी:")+' <b>'+cp.needMakeup+'</b></div>'+
+      '<div class="cs">'+S("नीचे कोर्स के \"🎥 कक्षाएँ और कड़ी\" में उसकी तारीख़ तय करें।")+'</div></div>';
+    if(OC.allowed||sample) h+=cpRules(cp);
     var L=OC.items||[];
     if(OF&&!OF.courseId) h+=formHtml();
     else if(OC.canCreate||sample) h+='<div>'+pbtn("new","➕ नया कोर्स लिखें")+'</div>';
@@ -5092,7 +5160,19 @@ if (MODE==="external" && ALLOWED.length>=1) {
   LAZY["pnl-online"]=async function(){ try{ await reload(); }catch(e){ failTo("ocList")(e); } };
 
   /* ───────── ACS (Founder, Admin): pnl-ocq ───────── */
-  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर हुए"],["returned","↩ लौटाए गए"],["cancelled","⛔ रद्द"],["refund","💸 वापसी बाक़ी"],["msgk","🚩 शिकायतें"],["bnr","🏷️ बैनर-नाम"]];
+  var QT=[["review","⏳ जाँच में"],["approved","✅ मंज़ूर हुए"],["returned","↩ लौटाए गए"],["cancelled","⛔ रद्द"],["refund","💸 वापसी बाक़ी"],["msgk","🚩 शिकायतें"],["bnr","🏷️ बैनर-नाम"],["cpk","🚫 रद्द कक्षाएँ"]];
+  /* (P-8b) "🚫 रद्द कक्षाएँ": जिन शिक्षकों की online कक्षा रद्द हुई या बिना बताए नहीं हुई; गिनती शून्य करना (कारण के साथ) */
+  function cpCard(x){
+    var id=' data-id="'+esc(x.teacherRegNo)+'"';
+    var h='<div class="app k1row k1card st-'+(x.stop?'returned':(x.mark?'review':'approved'))+'"><div class="k1h"><div class="k1ti">'+US(rb(x.teacherName))+'</div><div class="k1sub">'+
+      (x.stop?'<span class="chip canc">'+S("⛔ रोक")+'</span>':(x.mark?'<span class="chip prov">'+S("⚠️ निशान")+'</span>':''))+'</div></div>'+
+      meta("🧑‍🏫", esc(x.teacherRegNo||"")+' · '+S(x.teacherRole==="ustad"?"उस्ताद":"शिक्षक"))+
+      meta("🔢", S("गिनती (90 दिन):")+' <b>'+(x.points||0)+'</b> · '+S("बताकर रद्द:")+' '+(x.told||0)+' · '+S("बिना बताए:")+' '+(x.untold||0))+
+      (x.needMakeup?meta("📅", S("भरपाई-कक्षा बाक़ी:")+' <b>'+x.needMakeup+'</b>'):'');
+    (x.items||[]).slice(0,10).forEach(function(i){ h+=cpItem(i); });
+    if(x.points) h+='<div class="k1foot">'+obtn("cplift", x.stop?"🔓 रोक हटाएँ (गिनती शून्य करें)":"🔓 गिनती शून्य करें", id)+'</div>';
+    return h+'</div>';
+  }
   /* (P-6b) संदेश-शिकायतें: KST = खुली या बंद, KT = पढ़ी गई बातचीत (शिकायत-वार) */
   var KST="open", KT={};
   /* (N-2b) बैनर-नाम: केंद्र, वर्कशॉप, शिक्षक और उस्ताद का माँगा हुआ नाम; BST = जाँच में, मंज़ूर या लौटाए गए */
@@ -5158,6 +5238,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
       h+='<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+(Q.total||0)+'</b></div>';
       if(!L.length) h+='<span class="note">'+S("इस सूची में अभी कोई नाम नहीं है।")+'</span>';
       L.forEach(function(x){ h+=bcard(x); }); box.innerHTML=h; return; }
+    if(QS==="cpk"){ h+='<div class="note" style="margin-top:10px">'+S("यहाँ वे शिक्षक हैं जिनकी online कक्षा रद्द हुई, या बिना बताए नहीं हुई।")+'</div>'+
+        '<div class="note">'+S("बताकर रद्द = 1 गिनती। बिना बताए = 2 गिनती। 90 दिन में 3 गिनती = निशान, 5 गिनती = नए कोर्स पर रोक।")+'</div>'+
+        '<div class="r2" style="margin-top:10px">'+S("कुल:")+' <b>'+(Q.total||0)+'</b></div>';
+      if(!L.length) h+='<span class="note">'+S("अभी किसी शिक्षक की कोई गिनती नहीं है।")+'</span>';
+      L.forEach(function(x){ h+=cpCard(x); }); box.innerHTML=h; return; }
     if(QS==="msgk"){ h+='<div class="note" style="margin-top:10px">'+S("यहाँ विद्यार्थियों की संदेश-शिकायतें हैं। शिक्षक को शिकायत नहीं दिखती।")+'</div>'+
         '<div class="k1foot">'+obtn("kst", KST==="open"?"📁 बंद शिकायतें देखें":"🚩 खुली शिकायतें देखें")+'</div>'+
         '<div class="r2" style="margin-top:10px">'+S(KST==="open"?"खुली शिकायतें:":"बंद शिकायतें:")+' <b>'+(Q.total||0)+'</b></div>';
@@ -5168,14 +5253,34 @@ if (MODE==="external" && ALLOWED.length>=1) {
     L.forEach(function(c){ h+=card(c,"acs"); });
     box.innerHTML=h;
   }
-  async function loadQ(){ Q=((await call(QS==="refund"?"listOnlineRefundsDue":(QS==="msgk"?"listMsgComplaints":(QS==="bnr"?"listBannerRequests":"listOnlineCourseQueue")),{ status:QS==="msgk"?KST:(QS==="bnr"?BST:QS) })).data)||{}; drawQ(); }
+  async function loadQ(){ Q=((await call(QS==="refund"?"listOnlineRefundsDue":(QS==="msgk"?"listMsgComplaints":(QS==="bnr"?"listBannerRequests":(QS==="cpk"?"listCancelMarks":"listOnlineCourseQueue"))),{ status:QS==="msgk"?KST:(QS==="bnr"?BST:QS) })).data)||{}; drawQ(); }
   LAZY["pnl-ocq"]=async function(){ try{ await loadQ(); }catch(e){ failTo("ocqList")(e); } };
 
   document.addEventListener("click", async function(ev){
     var b=ev.target&&ev.target.closest?ev.target.closest("[data-oc]"):null; if(!b) return;
     var act=b.getAttribute("data-oc"), id=b.getAttribute("data-id")||"", acs=!!b.closest("#pnl-ocq");
     try{
-      keepForm(); keepLinks();
+      keepForm(); keepLinks(); keepMk();
+      /* (P-8b) भरपाई-कक्षा */
+      if(act==="mkx"||act==="mkm"){
+        var sN=Number(b.getAttribute("data-n")), s0=null; ((CLS[id]&&CLS[id].classes)||[]).forEach(function(x){ if(x.n===sN) s0=x; }); if(!s0) return;
+        MKF[id+"_"+sN]={ kind:act==="mkx"?"told":"untold", reason:"", date:"", from:s0.from, to:s0.to }; drawMine(); return; }
+      if(act==="mkclose"){ delete MKF[id+"_"+b.getAttribute("data-n")]; drawMine(); return; }
+      if(act==="mksave"){
+        var mN=Number(b.getAttribute("data-n")), MF=MKF[id+"_"+mN]; if(!MF) return;
+        if(MF.kind==="told"&&String(MF.reason||"").trim().length<5){ say(false,"कक्षा न होने का कारण लिखें (कम से कम 5 अक्षर)।"); return; }
+        if(!MF.date||!MF.from||!MF.to){ say(false,"भरपाई-कक्षा की तारीख़, शुरू और ख़त्म का समय भरें।"); return; }
+        if(!confirm(MF.kind==="told"?"यह कक्षा रद्द करें? इसकी 1 गिनती लगेगी। विद्यार्थियों को नई तारीख़ दिखेगी।":"भरपाई-कक्षा की यह तारीख़ तय करें?")) return;
+        b.disabled=true;
+        var mr=((await call(MF.kind==="told"?"cancelOnlineClass":"setMakeupClass", { courseId:id, classNo:mN, reason:MF.reason||"", date:MF.date, from:MF.from, to:MF.to })).data)||{};
+        delete MKF[id+"_"+mN]; CLS[id]=((await call("listOnlineClasses",{ courseId:id })).data)||{}; await reload();
+        var mk=mr.makeup||MF;
+        say(true,"🔁 भरपाई-कक्षा तय हुई: "+String(mk.date).split("-").reverse().join("-")+", "+mk.from+" - "+mk.to); return; }
+      if(act==="cplift"){
+        var lr=prompt("गिनती शून्य करने का कारण लिखें (ज़रूरी):"); if(!lr) return;
+        if(String(lr).trim().length<5){ sayQ(false,"थोड़ा पूरा लिखें (कम से कम 5 अक्षर)।"); return; }
+        if(!confirm("इस शिक्षक की गिनती शून्य करें? निशान और रोक हट जाएँगे। बाक़ी भरपाई-कक्षा फिर भी देनी होगी।")) return;
+        b.disabled=true; await call("liftCancelStop",{ regNo:id, reason:lr }); await loadQ(); sayQ(true,"🔓 गिनती शून्य हुई। निशान और रोक हट गए।"); return; }
       if(act==="cls"){
         if(OPEN[id]){ delete OPEN[id]; drawMine(); drawQ(); return; }
         b.disabled=true; CLS[id]=((await call("listOnlineClasses",{ courseId:id })).data)||{}; OPEN[id]=1; drawMine(); drawQ(); return; }
@@ -5332,9 +5437,14 @@ if (MODE==="external" && ALLOWED.length>=1) {
           (LINK[x.courseId] ? '<a class="abtn k1b ok" target="_blank" rel="noopener" href="'+esc(LINK[x.courseId])+'">▶ <span>YouTube पर कक्षा देखें</span></a>'
                             : pbtn("open","▶ कक्षा खोलें",id+' data-n="'+nx.n+'"'))+LIVEB.btn(x.courseId,"learner")+'</div></div>'+LIVEB.slot(x.courseId);
       } else if(nx){
-        h+='<div class="k1call"><div class="ct">'+S("अगली कक्षा:")+' '+S("कक्षा")+' '+nx.n+' · '+S(DAYS[nx.day]||"")+' '+fd(nx.date)+' · '+esc(nx.from)+' - '+esc(nx.to)+'</div>'+
+        h+='<div class="k1call"><div class="ct">'+S("अगली कक्षा:")+' '+S("कक्षा")+' '+nx.n+' · '+S(DAYS[nx.day]||"")+' '+fd(nx.date)+' · '+esc(nx.from)+' - '+esc(nx.to)+(nx.makeup?' <span class="chip">🔁 भरपाई-कक्षा</span>':'')+'</div>'+
           '<div class="cs">'+S("कक्षा की कड़ी कक्षा से 15 मिनट पहले यहीं खुलेगी।")+'</div></div>';
       } else h+='<div class="note">'+S("इस कोर्स की सब कक्षाएँ हो चुकी हैं।")+'</div>';
+      /* (P-8b) न हुई कक्षा (शिक्षक भरपाई की तारीख़ देंगे) और आने वाली भरपाई-कक्षाएँ */
+      (x.missed||[]).forEach(function(m){ h+='<div class="k1call rd"><div class="ct">'+S("⚠️ यह कक्षा नहीं हुई:")+' '+S("कक्षा")+' '+m.n+' · '+fd(m.date)+'</div>'+
+        '<div class="cs">'+S("शिक्षक इसकी भरपाई-कक्षा की तारीख़ देंगे। वह यहीं दिखेगी।")+'</div></div>'; });
+      (x.makeups||[]).forEach(function(m){ h+='<div class="k1call"><div class="ct">'+S("🔁 भरपाई-कक्षा:")+' '+S("कक्षा")+' '+m.n+' · '+S(DAYS[m.day]||"")+' '+fd(m.date)+' · '+esc(m.from)+' - '+esc(m.to)+'</div>'+
+        '<div class="cs">'+S("पहले की तारीख़:")+' '+fd(m.origDate)+'</div></div>'; });
       h+='<div class="k1foot">'+obtn("msg","✉️ शिक्षक को संदेश",id)+
         (x.canWithdraw?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+dbtn("leave","↩ कोर्स छोड़ें (90 प्रतिशत वापस)",id)+'</div></details>':'')+'</div>';
     } else if(ccl){
