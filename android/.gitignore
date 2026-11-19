@@ -1,0 +1,13 @@
+# ACS EXAM app (batch E-1): what a build makes stays out of the repo.
+.gradle/
+build/
+app/build/
+local.properties
+*.iml
+.idea/
+# The signing key and its password are NEVER in the repo (they live in the key folder on the office laptop and in GitHub secrets).
+*.p12
+*.jks
+*.keystore
+*.b64
+PASSWORD.txt

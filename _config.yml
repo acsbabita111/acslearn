@@ -7,3 +7,4 @@
 exclude:
   - generator
   - matrix
+  - android    # ACS EXAM app का स्रोत (19-Nov-2026, E-1): APK GitHub Release से मिलता है, साइट पर नहीं

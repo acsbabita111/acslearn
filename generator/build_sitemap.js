@@ -62,6 +62,7 @@ const main = [
 ].concat(CAREER_LANGS.map(c => "/" + c + "/career.html")).concat([
   "/registration-guide.html",
   "/refund.html", "/privacy.html", "/terms.html",
+  "/exam-app.html" /* 19-Nov-2026, E-1: ACS परीक्षा-ऐप का डाउनलोड पन्ना */,
   /* 13-Sep SEO: English पेज (मूल→अंग्रेज़ी→बाक़ी क्रम) + उद्यम-विकी + rules-consent */
   "/en/", "/en/mission.html", "/en/counseling.html", "/en/industries/", "/en/aptitude-test.html", "/vani/en/", "/udyam/wiki.html"
 ]).concat(fs.readdirSync(ROOT).filter(f => /^rules-consent-.*\.html$/.test(f)).sort().map(f => "/" + f))

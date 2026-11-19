@@ -1,0 +1,17 @@
+// ACS EXAM app (batch E-1, 19-Nov-2026). Built by GitHub (.github/workflows/exam-app.yml), never on this computer by hand.
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "ACSExam"
+include ':app'

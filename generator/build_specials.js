@@ -702,6 +702,79 @@ buildSpecial({
   content: APT_CONTENT
 });
 
+/* ===================== ACS परीक्षा-ऐप (ACS EXAM) का डाउनलोड पन्ना : batch E-1, 19-Nov-2026 =====================
+   Founder के फ़ैसले (19-Nov-2026): 1-अ एंड्रॉयड 10 या नया · 2-ब चेहरे का मिलान मशीन से (E-3) · 3 नाम "ACS EXAM"।
+   ऐप Play Store पर नहीं: GitHub अपने-आप APK बनाकर release "acs-exam-app" में रखता है (.github/workflows/exam-app.yml)।
+   पता हमेशा एक: नीचे का EXAM_APK। ताला (E-2) व कैमरा (E-3) आने पर इस पन्ने की "अभी" वाली पंक्तियाँ बदलेंगी। */
+const EXAM_APK = "https://github.com/acsbabita111/acslearn/releases/download/acs-exam-app/ACS-EXAM.apk";
+const EXAMAPP_CONTENT =
+'<div class="lg-wrap">' +
+'<div style="text-align:center;margin:6px 0 4px"><img src="/assets/exam-app-icon.png" width="96" height="96" alt="ACS परीक्षा-ऐप का निशान" style="border-radius:22px"></div>' +
+'<h1 class="lg-h1" style="text-align:center">📱 ACS परीक्षा-ऐप (ACS EXAM)</h1>' +
+'<p class="lg-lead" style="text-align:center">कोर्स की अंतिम परीक्षा के लिए ACS का अपना ऐप।</p>' +
+'<p class="lg-lead" style="text-align:center">यह ऐप मुफ़्त है।</p>' +
+
+'<div style="text-align:center;margin:18px 0 8px"><a href="' + EXAM_APK + '" rel="nofollow" style="display:inline-block;background:#2E7D32;color:#fff;font-size:21px;font-weight:800;text-decoration:none;padding:15px 26px;border-radius:14px;box-shadow:0 5px 14px rgba(46,125,50,.35)">⬇️ ऐप डाउनलोड करें</a></div>' +
+'<p style="text-align:center;font-size:17px;color:#5a6b7d;margin:4px 0 14px">सिर्फ़ एंड्रॉयड (Android) 10 या उससे नए फ़ोन के लिए।</p>' +
+
+'<div class="lg-warn">' +
+'<p>ऐप सिर्फ़ इसी पन्ने के बटन से डाउनलोड करें।</p>' +
+'<p>किसी और का भेजा हुआ ऐप कभी न लगाएँ।</p>' +
+'<p>ACS कभी भी ऐप के लिए पैसा नहीं माँगता।</p>' +
+'</div>' +
+
+'<div class="lg-card"><h2>📋 यह ऐप किसके लिए है</h2>' +
+'<p>यह ऐप कोर्स की अंतिम परीक्षा देने वालों के लिए है।</p>' +
+'<p>फ़ोन में एंड्रॉयड (Android) 10 या उससे नया होना चाहिए।</p>' +
+'<p>पुराने फ़ोन वाले परीक्षा वेबसाइट से ही देंगे।</p>' +
+'<p>करियर टेस्ट के लिए यह ऐप ज़रूरी नहीं है।</p>' +
+'</div>' +
+
+'<div class="lg-card"><h2>🔧 ऐप कैसे लगाएँ</h2><ol style="padding-left:28px;list-style-position:outside">' +
+'<li>ऊपर का हरा बटन दबाएँ।</li>' +
+'<li>फ़ोन चेतावनी दे सकता है कि यह फ़ाइल नुकसान कर सकती है।</li>' +
+'<li>यह फ़ाइल ACS की अपनी है, इसलिए फिर भी डाउनलोड करें।</li>' +
+'<li>डाउनलोड पूरा होने पर फ़ाइल खोलें।</li>' +
+'<li>फ़ोन इस जगह से ऐप लगाने की अनुमति माँग सकता है।</li>' +
+'<li>तब सेटिंग (Settings) में जाकर अनुमति दें और वापस आएँ।</li>' +
+'<li>अब लगाएँ (Install) दबाएँ।</li>' +
+'<li>ऐप खोलें और अपने ACS खाते से लॉगिन करें।</li>' +
+'</ol></div>' +
+
+'<div class="lg-card"><h2>🔄 ऐप का नया रूप</h2>' +
+'<p>नया रूप आने पर इसी पन्ने से फिर डाउनलोड करें।</p>' +
+'<p>नया रूप पुराने के ऊपर लग जाता है।</p>' +
+'<p>आपका खाता और नतीजे हमारे सर्वर पर सुरक्षित रहते हैं।</p>' +
+'</div>' +
+
+'<div class="lg-card"><h2>🛡️ परीक्षा के नियम</h2>' +
+'<p>अभी ऐप में वही डैशबोर्ड खुलता है, जो वेबसाइट पर है।</p>' +
+'<p>अगले चरण से ऐप में परीक्षा का ताला जुड़ेगा।</p>' +
+'<p>तब परीक्षा के समय कोई कॉल न आएगी, न जाएगी।</p>' +
+'<p>परीक्षा के बीच ऐप छोड़ा, तो परीक्षा वहीं ख़त्म हो जाएगी।</p>' +
+'<p>तब परीक्षा का ₹100 वाला चांस वापस नहीं मिलेगा।</p>' +
+'<p>परीक्षा के समय कैमरे की अनुमति देनी होगी।</p>' +
+'<p>18 साल से कम उम्र वालों के लिए अभिभावक की सहमति ज़रूरी होगी।</p>' +
+'</div>' +
+
+'<div class="lg-card"><h2>📞 मदद</h2>' +
+'<p>ऐप न चले, तो हमें व्हाट्सऐप (WhatsApp) पर लिखें।</p>' +
+'<p>हमारा पता और फ़ोन नीचे फुटर में दिया है।</p>' +
+'</div>' +
+
+'<p class="lg-updated">आख़िरी बदलाव: 19 नवंबर 2026</p>' +
+'<div class="lg-links"><a href="/">🏠 होम</a><a href="/refund.html">💰 वापसी</a><a href="/privacy.html">🔒 गोपनीयता</a><a href="/terms.html">📜 शर्तें</a></div>' +
+'</div>';
+
+buildSpecial({
+  out: "exam-app.html", langStrict: true,
+  title: "ACS परीक्षा-ऐप डाउनलोड करें (ACS EXAM) | अप्लाइड कंप्यूटर स्कूल",
+  desc: "कोर्स की अंतिम परीक्षा के लिए ACS का अपना मुफ़्त ऐप। एंड्रॉयड 10 या नए फ़ोन के लिए। डाउनलोड और लगाने का तरीक़ा सरल हिंदी में।",
+  head: ['<link rel="stylesheet" href="/assets/legal.css">'],
+  foot: [],
+  content: EXAMAPP_CONTENT
+});
+
 /* ===================== salah content (काम-अभिरुचि-भुगतान, 22-Jul) =====================
    पहले हाथ से बना था (कोई generator-निशान नहीं) — परत-4 का उल्लंघन था
    (मशीन-ऑडिट से पकड़ा गया)। अब यहीं generator-रास्ते में लाया गया —

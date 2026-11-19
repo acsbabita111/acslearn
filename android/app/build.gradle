@@ -1,0 +1,56 @@
+// ACS EXAM app (batch E-1). No outside library: only Android's own parts, so nothing else is downloaded into the app.
+// The version number comes from GitHub's build number, so every new APK installs over the old one.
+// The signing key is never in the repo: GitHub puts it in a file for the build only (secrets ACS_EXAM_KS_B64, ACS_EXAM_KS_PASS).
+plugins {
+    id 'com.android.application'
+}
+
+def runNo = (System.getenv("GITHUB_RUN_NUMBER") ?: "1") as Integer
+def ksFile = System.getenv("ACS_EXAM_KS_FILE")
+def ksPass = System.getenv("ACS_EXAM_KS_PASS")
+
+android {
+    namespace 'com.acslearn.exam'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.acslearn.exam"
+        minSdk 29          // Founder's choice 1-a (19-Nov-2026): Android 10 or newer, where calls can be stopped during the exam
+        targetSdk 34
+        versionCode runNo
+        versionName "1.0." + runNo
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    signingConfigs {
+        release {
+            if (ksFile) {
+                storeFile file(ksFile)
+                storeType "pkcs12"
+                storePassword ksPass
+                keyAlias "acsexam"
+                keyPassword ksPass
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig ksFile ? signingConfigs.release : null   // no key = an unsigned APK (only for a test build)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+    }
+}

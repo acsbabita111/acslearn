@@ -1,0 +1,4 @@
+// ACS EXAM app: the Android plugin version is pinned (no "latest").
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
+}

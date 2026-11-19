@@ -1,0 +1,89 @@
+# ============================================================================
+# ACS EXAM app : GitHub makes the APK itself  v1.0 (batch E-1, 19-Nov-2026)
+# When anything in android/ changes (or the Founder presses "Run workflow"), GitHub:
+#   1. builds the app with Gradle (Java 17, Android 14 platform, minimum Android 10),
+#   2. signs it with ACS's own key (the key lives only in GitHub secrets: ACS_EXAM_KS_B64, ACS_EXAM_KS_PASS),
+#   3. puts it in the release "acs-exam-app" as ACS-EXAM.apk (same address every time, the old file is replaced).
+# Download address (the page exam-app.html links here):
+#   https://github.com/acsbabita111/acslearn/releases/download/acs-exam-app/ACS-EXAM.apk
+# No secret = the build stops with a clear message; an unsigned APK is never published.
+# ============================================================================
+name: ACS EXAM app
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "android/**"
+      - ".github/workflows/exam-app.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: acs-exam-app
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Java 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Gradle 8.9
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: "8.9"
+
+      - name: The signing key (from GitHub secrets only)
+        env:
+          KS_B64: ${{ secrets.ACS_EXAM_KS_B64 }}
+          KS_PASS: ${{ secrets.ACS_EXAM_KS_PASS }}
+        run: |
+          if [ -z "$KS_B64" ] || [ -z "$KS_PASS" ]; then
+            echo "::error::The signing key is not in GitHub secrets yet. Run CHADHAO.bat of batch E-1 on the office laptop (it makes the key once and gives it to GitHub), then run this workflow again."
+            exit 1
+          fi
+          echo "$KS_B64" | base64 -d > "$RUNNER_TEMP/acs-exam-key.p12"
+          echo "ACS_EXAM_KS_FILE=$RUNNER_TEMP/acs-exam-key.p12" >> "$GITHUB_ENV"
+          echo "ACS_EXAM_KS_PASS=$KS_PASS" >> "$GITHUB_ENV"
+          echo "::add-mask::$KS_PASS"
+
+      - name: Build the APK
+        run: gradle -p android --no-daemon assembleRelease
+
+      - name: Check the signature
+        run: |
+          APK=android/app/build/outputs/apk/release/app-release.apk
+          test -f "$APK" || { echo "::error::No signed APK was made."; ls -R android/app/build/outputs || true; exit 1; }
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          "$BT/apksigner" verify --print-certs "$APK" | tee signer.txt
+          grep -q "CN=ACS EXAM" signer.txt || { echo "::error::The APK is not signed with the ACS key."; exit 1; }
+          "$BT/aapt" dump badging "$APK" | head -4
+          cp "$APK" ACS-EXAM.apk
+          sha256sum ACS-EXAM.apk > ACS-EXAM.apk.sha256
+          cat ACS-EXAM.apk.sha256
+
+      - name: Publish to the release "acs-exam-app"
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if ! gh release view acs-exam-app >/dev/null 2>&1; then
+            gh release create acs-exam-app --title "ACS EXAM app" --latest=false \
+              --notes "ACS EXAM app for Android 10 or newer. Download page: https://acslearn.com/exam-app.html"
+          fi
+          gh release upload acs-exam-app ACS-EXAM.apk ACS-EXAM.apk.sha256 --clobber
+          echo "Done: https://github.com/${{ github.repository }}/releases/download/acs-exam-app/ACS-EXAM.apk"
+
+      - name: Remove the key file
+        if: always()
+        run: rm -f "$RUNNER_TEMP/acs-exam-key.p12"
