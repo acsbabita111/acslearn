@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v3.6 (19-Nov-2026; v3.6 P-8b: भरपाई-कक्षा और रद्द-गिनती (O14); v3.5 P-7b: कक्षा-पट (O13); v3.4 N-2b: बैनर-नाम माँगना और ACS की जाँच (O12); v3.3 N-1b: बोर्ड और बैनर वाला नाम: पहचान-कार्ड, online कोर्स के कार्ड (O11); v3.2 P-6b: "✉️ संदेश" (बातचीत, भेजना, अभिभावक का email, शिकायत), शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कार्ड से बातचीत, ACS की "🚩 शिकायतें" (O10); v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v3.7 (19-Nov-2026; v3.7 E-3b: परीक्षा में चेहरे की जाँच वाला पैनल (pnl-xface) data के साथ: झंडे, फ़ोटो, फ़ैसला (O15);
+   v3.6 (19-Nov-2026; v3.6 P-8b: भरपाई-कक्षा और रद्द-गिनती (O14); v3.5 P-7b: कक्षा-पट (O13); v3.4 N-2b: बैनर-नाम माँगना और ACS की जाँच (O12); v3.3 N-1b: बोर्ड और बैनर वाला नाम: पहचान-कार्ड, online कोर्स के कार्ड (O11); v3.2 P-6b: "✉️ संदेश" (बातचीत, भेजना, अभिभावक का email, शिकायत), शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कार्ड से बातचीत, ACS की "🚩 शिकायतें" (O10); v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -365,6 +366,23 @@ const OC_HANDLERS = {
   closeMsgComplaint: (d) => ({ ok: true, blocked: !!(d && d.block) }),
   unblockTeacherMsg: () => ({ ok: true })
 };
+/* (v3.7, E-3b) 📷 परीक्षा में चेहरे की जाँच: एक खुला मामला (सब तरह के झंडे) और उसकी फ़ोटो, ताकि हर भाषा में पूरा पैनल दिखे */
+const XF_ITEM = () => ({ sid: "a1b2c3d4e5f6a1b2c3d4e5f6", courseId: "SE022", course: "टू-व्हीलर", regNo: "ACS-ST-2026-123456", name: HU.student, minor: true,
+  startedAt: Date.UTC(2026, 11, 9, 6), endAt: Date.UTC(2026, 11, 9, 7, 30), status: "done", band: "unsure", score: 0.31, photos: 5, gone: false, fq: "open",
+  flags: ["start:unsure", "start:nomatch", "start:noface", "start:noref", "start:bad", "start:err", "start:many", "leave", "leave", "many", "back:nomatch", "back:unsure", "back:noface", "back:noref", "back:bad", "back:err", "nostart"],
+  review: { by: "u9", desig: "hq_examination", at: Date.UTC(2026, 11, 9, 9), verdict: "bad", note: HU.reason } });
+const XF_HANDLERS = {
+  examFaceQueue: () => ({ ok: true, you: "founder", items: [XF_ITEM()], more: true }),
+  examFaceView: () => ({ ok: true, you: "founder", sid: "a1b2c3d4e5f6a1b2c3d4e5f6", courseId: "SE022", regNo: "ACS-ST-2026-123456", name: HU.student, minor: true, guardian: true,
+    startedAt: Date.UTC(2026, 11, 9, 6), endAt: Date.UTC(2026, 11, 9, 7, 30), status: "done", reason: null, events: [{ k: "screenoff", at: Date.UTC(2026, 11, 9, 6, 20) }],
+    flags: ["leave"], tries: 1, ref: "https://storage.example/ref.jpg", gone: false, fq: "open", review: null, urlUntil: Date.UTC(2026, 11, 9, 7, 45),
+    photos: [{ k: "start", at: Date.UTC(2026, 11, 9, 6), band: "match", score: 0.71, faces: 1, url: "https://storage.example/1.jpg" },
+      { k: "leave", at: Date.UTC(2026, 11, 9, 6, 30), band: "noface", score: null, faces: 0, url: "https://storage.example/2.jpg" },
+      { k: "back", at: Date.UTC(2026, 11, 9, 6, 31), band: "nomatch", score: 0.12, faces: 1, url: "https://storage.example/3.jpg" },
+      { k: "many", at: Date.UTC(2026, 11, 9, 6, 40), band: "many", score: null, faces: 2, url: "https://storage.example/4.jpg" },
+      { k: "back", at: Date.UTC(2026, 11, 9, 6, 41), band: "one", score: null, faces: 1, url: "" }] }),
+  examFaceDecide: () => ({ ok: true, fq: "ok" })
+};
 const K1_HANDLERS = {
   listMyClasses: () => ({
     asCenter: [{ courseId: "PJ001", courseName: "कंप्यूटर ऑपरेटर (Computer Operator)", status: "open", seats: 60, students: 31, cap: 30, maxBatches: 4, waiting: 1,
@@ -428,7 +446,7 @@ async function openH(file, lang, sc, navOnly, moreLs) {   /* navOnly (v1.7): स
   hdataFix(data, info);
   const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang && lang !== "hi") ls.acs_dash_lang = lang; Object.assign(ls, moreLs || {});
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: (lang && lang !== "hi") ? lang : undefined,
-    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS), fb: makeFB(data, user) });
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, XF_HANDLERS), fb: makeFB(data, user) });
   if (navOnly) { await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c);
     for (const id of navOnly) { const b = c.d.querySelector('#sideNav .si[data-go="' + id + '"]'); if (b) { click(c, b); await settle(c); await settle(c); } }
     await settle(c); return c; }
@@ -453,6 +471,8 @@ async function openH(file, lang, sc, navOnly, moreLs) {   /* navOnly (v1.7): स
     if (L && nb) { let h = c.d.getElementById("k1Snap"); if (!h) { h = c.d.createElement("div"); h.id = "k1Snap"; c.d.body.appendChild(h); }
       const k = L.cloneNode(true); k.removeAttribute("id"); k.querySelectorAll("*").forEach(x => { x.removeAttribute("data-oc"); x.removeAttribute("id"); x.removeAttribute("class"); }); h.appendChild(k);
       click(c, nb); await settle(c); await settle(c); } }
+  /* (v3.7, E-3b) चेहरे की जाँच: फ़ोटो खोलना (रजिस्ट्रेशन की फ़ोटो, हर तरह की फ़ोटो, नतीजे और ऐप की घटनाएँ) */
+  { const vb = c.d.querySelector('#xfList [data-xf="view"]'); if (vb) { click(c, vb); await settle(c); await settle(c); } }
   await settle(c); return c;
 }
 /* (v1.8, कक्षा-परत K-1b) पर्दों की अपनी जाँच: केंद्र, शिक्षक और विद्यार्थी के घर में कक्षा-परत सचमुच दिखती और चलती है */
@@ -1078,6 +1098,27 @@ async function ocChecks(pages) {
     const t = txt(c, "ocList");
     ck("O14 नज़र शिक्षक: गिनती और न हुई कक्षा दिखती हैं; भरपाई या रद्द का कोई बटन नहीं", /रद्द कक्षाओं की गिनती/.test(t) && /⛔ नहीं हुई/.test(t) && !q('[data-oc="mkm"]') && !q('[data-oc="mkx"]') && !q(".mkin"), t.slice(0, 200));
     c.dom.window.close(); }
+  /* (v3.7, E-3b) 📷 परीक्षा में चेहरे की जाँच: Founder के घर में खुला मामला, फ़ोटो, और फ़ैसला */
+  if (pg("founder")) { const c = await openH(pg("founder"), "hi", "data", ["pnl-xface"]), q = sel => c.d.querySelector(sel);
+    let t = txt(c, "xfList");
+    ck("O15 Founder: खुला मामला: नाम, 18 से कम, शुरू की फ़ोटो पर शक, झंडे (दोहराए झंडे की गिनती), पुराना फ़ैसला", c.calls.some(x => x.name === "examFaceQueue" && x.data.show === "open")
+      && t.indexOf(HU.student) > -1 && /18 से कम/.test(t) && /मेल पर शक/.test(t) && /चेहरा कैमरे से हटा/.test(t) && /×2/.test(t) && /शुरू की फ़ोटो नहीं आई/.test(t)
+      && /फ़ैसला: गड़बड़/.test(t) && t.indexOf(HU.reason) > -1 && /सिर्फ़ पहली 100/.test(t), t.slice(0, 300));
+    { const vb = q('#xfList [data-xf="view"]'); if (vb) { click(c, vb); await settle(c); await settle(c); } }
+    t = txt(c, "xfList");
+    const imgs = c.d.querySelectorAll("#xfList img");
+    ck("O15 Founder: फ़ोटो खुलीं: रजिस्ट्रेशन की फ़ोटो + 4 फ़ोटो (एक की कड़ी नहीं), नतीजे और ऐप की घटनाएँ", c.calls.some(x => x.name === "examFaceView" && x.data.sid === "a1b2c3d4e5f6a1b2c3d4e5f6")
+      && imgs.length === 5 && imgs[0].getAttribute("src") === "https://storage.example/ref.jpg" && /रजिस्ट्रेशन की फ़ोटो/.test(t) && /चेहरा लौटा/.test(t) && /screenoff/.test(t), imgs.length + " " + t.slice(0, 200));
+    c.w.confirm = () => true;
+    { const ob = q('#xfList [data-xf="ok"]'); if (ob) { click(c, ob); await settle(c); await settle(c); } }
+    const dc = c.calls.filter(x => x.name === "examFaceDecide").pop();
+    ck("O15 Founder: \"सही है\" से फ़ैसला server को जाता है", !!dc && dc.data.verdict === "ok" && dc.data.sid === "a1b2c3d4e5f6a1b2c3d4e5f6", JSON.stringify(dc));
+    c.dom.window.close(); }
+  for (const lg of ["en"]) if (pg("founder")) { const c = await openH(pg("founder"), lg, "data", ["pnl-xface"]), q = sel => c.d.querySelector(sel);
+    { const vb = q('#xfList [data-xf="view"]'); if (vb) { click(c, vb); await settle(c); await settle(c); } }
+    const t = txt(c, "xfList"), L = (clean(t).split(HU.student).join("").split(HU.reason).join("").match(/[\u0900-\u097F]+/g) || []);
+    ck("O15 Founder " + lg + ": चेहरे की जाँच का पैनल (झंडे, फ़ोटो, फ़ैसला) में हिंदी शून्य (लिखा पाठ छोड़कर)", t.length > 80 && L.length === 0 && /Face check|Start photo/.test(t), L.slice(0, 8).join(" "));
+    c.dom.window.close(); }
   /* देखने का मोड: शिक्षक की नज़र से सूची पढ़ी जाती है, कोई लिखने वाला काम नहीं */
   if (pg("teacher")) { const c = await openNazar(pg("teacher"), "hi", "?nazar=" + NZ_REG);
     { const cb = c.d.querySelector('#ocList [data-oc="cls"]'); if (cb) { click(c, cb); await settle(c); await settle(c); } }
@@ -1658,6 +1699,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.6 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.7 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

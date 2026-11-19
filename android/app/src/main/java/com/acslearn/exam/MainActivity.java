@@ -1,5 +1,5 @@
 /* ============================================================================
-   ACS EXAM app : MainActivity.java  v1.1 (batch E-2, 19-Nov-2026; v1.0 batch E-1)
+   ACS EXAM app : MainActivity.java  v1.2 (batch E-3, 19-Nov-2026; v1.1 batch E-2; v1.0 batch E-1)
    Founder's choices (19-Nov-2026): 1-a Android 10 or newer, calls stopped · 2-b face matched by machine (batch E-3) · 3 "ACS EXAM".
    Founder's exam rules: no call comes in or goes out during the exam; no other app can touch the exam;
    leaving the app ends the exam and the Rs 100 chance is not given back.
@@ -20,6 +20,13 @@
    2. Speech for every page inside the app: Android's WebView has no speechSynthesis and no SpeechRecognition.
       assets/acs_speech.js gives the page both, backed by the phone's own voice engine and speech recogniser.
       So the "listen" and "speak" questions of the language exams work in the app.
+   What E-3 adds (Founder's face rules, only for the course final exam):
+   3. The front camera (FaceCam.java) with a small round face picture in a corner during the exam.
+      The page asks for it (window.ACSApp.faceOpen) before the exam; the phone asks the camera permission the first time.
+      One photo at the start (asked by the page), then the app itself makes a photo only when the face leaves the camera
+      for 3 seconds, when it comes back, or when more than one face is seen. The page sends every photo to ACS's server
+      (examFace), and tells the app when it has arrived (faceAck); until then the app keeps it in memory and gives it again.
+      Faces are matched only on ACS's server, never on the phone. No photo is saved on the phone.
    Only one outside library: androidx.webkit (Google's own WebView helper), to load acs_speech.js before the page's scripts.
    ============================================================================ */
 package com.acslearn.exam;
@@ -86,6 +93,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -94,8 +102,9 @@ public class MainActivity extends Activity {
 
     static final String HOME = "https://acslearn.com/dashboard/";
     static final String PREF = "acs_exam";
-    static final int REQ_FILE = 11, REQ_ROLE = 12, REQ_MIC = 13;
-    static final int LOCK_FEATURE = 1, SPEECH_FEATURE = 1;
+    static final int REQ_FILE = 11, REQ_ROLE = 12, REQ_MIC = 13, REQ_CAM = 14;
+    static final int LOCK_FEATURE = 1, SPEECH_FEATURE = 1, FACE_FEATURE = 1;
+    static final int FACE_PENDING_MAX = 30;
     static final String[] OWN_HOSTS = { "acslearn.com" };
     static final Set<String> SPEECH_ORIGINS = new HashSet<>(Arrays.asList("https://acslearn.com", "https://www.acslearn.com"));
     static final String[] OUTSIDE_SCHEMES = { "upi", "tel", "mailto", "sms", "whatsapp", "tez", "phonepe", "paytmmp", "bhim", "credpay" };
@@ -137,6 +146,28 @@ public class MainActivity extends Activity {
     String srId = null;
     Object[] srWait = null;
 
+    /* the face camera (E-3) */
+    FaceCam cam;
+    boolean camAsked = false;
+    int faceSeq = 0;
+    final LinkedHashMap<String, String[]> facePend = new LinkedHashMap<>();   /* photos not yet confirmed by the page: id -> {kind, base64, faces} */
+    final FaceCam.Listener faceL = new FaceCam.Listener() {
+        @Override public void onCam(String st) {
+            js("__acsFace", "cam", st);
+            if (examOn && st.startsWith("fail:")) flag("nocam", st.substring(5));
+        }
+        @Override public void onFaces(int n) { js("__acsFace", "seen", String.valueOf(n)); }
+        @Override public void onPhoto(String kind, String b64, int faces) {
+            if (b64 == null || b64.isEmpty()) { js("__acsFace", "nophoto", kind); return; }
+            String id = "f" + (++faceSeq);
+            synchronized (facePend) {
+                facePend.put(id, new String[] { kind, b64, String.valueOf(faces) });
+                while (facePend.size() > FACE_PENDING_MAX) facePend.remove(facePend.keySet().iterator().next());
+            }
+            sendPhoto(id, kind, b64, faces);
+        }
+    };
+
     @Override
     protected void onCreate(Bundle state) {
         super.onCreate(state);
@@ -150,6 +181,7 @@ public class MainActivity extends Activity {
         bar.setMax(100);
         setContentView(root);
         makeWeb();
+        cam = new FaceCam(this, root, faceL);
         try { registerReceiver(screenRx, new IntentFilter(Intent.ACTION_SCREEN_OFF)); } catch (Exception ignore) { }
         ui.postDelayed(this::ensureTts, 1500);   /* voices ready before the first "listen" button */
         if (state != null && web.restoreState(state) != null) return;
@@ -412,7 +444,7 @@ public class MainActivity extends Activity {
             }
         }
 
-        /* the camera comes only in batch E-3; until then no page gets it */
+        /* no page gets the camera or the microphone directly: the exam photos are made by the app itself (FaceCam, batch E-3) */
         @Override
         public void onPermissionRequest(PermissionRequest r) { r.deny(); }
     }
@@ -508,6 +540,7 @@ public class MainActivity extends Activity {
         ui.postDelayed(monitor, 1000);
         String readers = screenReaders();
         if (!readers.isEmpty()) flag("a11y", readers);
+        if (cam.isOn()) { synchronized (facePend) { facePend.clear(); } cam.setAuto(true); }   /* E-3: from now on the app makes its own photos */
         return "ok";
     }
 
@@ -515,6 +548,8 @@ public class MainActivity extends Activity {
     void endExam(boolean clearAll) {
         examOn = false;
         ui.removeCallbacks(monitor);
+        cam.setAuto(false);
+        cam.close();   /* photos not yet sent stay in memory until the page confirms them */
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SECURE | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         if (Build.VERSION.SDK_INT >= 31) { try { getWindow().setHideOverlayWindows(false); } catch (Exception ignore) { } }
         if (lockState() != ActivityManager.LOCK_TASK_MODE_NONE) { try { stopLockTask(); } catch (Exception ignore) { } }
@@ -598,6 +633,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
+        cam.pause();   /* Android does not let an app in the background use the camera */
         if (!examOn) return;
         stopped = true;
         stoppedAt = System.currentTimeMillis();
@@ -612,6 +648,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+        cam.resume();
         if (examOn && stopped) {
             stopped = false;
             if (screenOff) { screenOff = false; flag("screenon", ""); }
@@ -773,11 +810,28 @@ public class MainActivity extends Activity {
     @Override
     public void onRequestPermissionsResult(int req, String[] perms, int[] res) {
         super.onRequestPermissionsResult(req, perms, res);
+        if (req == REQ_CAM) {
+            camAsked = false;
+            if (res.length > 0 && res[0] == PackageManager.PERMISSION_GRANTED) cam.open();
+            else js("__acsFace", "cam", "fail:perm");
+            return;
+        }
         if (req != REQ_MIC || srWait == null) return;
         Object[] w = srWait;
         srWait = null;
         if (res.length > 0 && res[0] == PackageManager.PERMISSION_GRANTED) startListening((String) w[0], (String) w[1], (Boolean) w[2], (Integer) w[3]);
         else srEnd((String) w[0], "not-allowed");
+    }
+
+    void sendPhoto(String id, String kind, String b64, int faces) {
+        try {
+            JSONObject o = new JSONObject();
+            o.put("id", id);
+            o.put("k", kind);
+            o.put("img", b64);
+            o.put("faces", faces);
+            js("__acsFace", "photo", o.toString());
+        } catch (Exception ignore) { }
     }
 
     /* call a function of the page: window.<fn>(...strings) */
@@ -822,6 +876,7 @@ public class MainActivity extends Activity {
         ui.removeCallbacksAndMessages(null);
         try { unregisterReceiver(screenRx); } catch (Exception ignore) { }
         stopRecognizer();
+        if (cam != null) cam.shutdown();
         if (tts != null) { try { tts.shutdown(); } catch (Exception ignore) { } tts = null; }
         if (web != null) {
             web.removeJavascriptInterface("ACSApp");
@@ -840,7 +895,7 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public String info() {
             return "{\"app\":\"ACS EXAM\",\"version\":\"" + BuildConfig.VERSION_NAME + "\",\"code\":" + BuildConfig.VERSION_CODE
-                + ",\"sdk\":" + Build.VERSION.SDK_INT + ",\"lock\":" + LOCK_FEATURE + ",\"speech\":" + SPEECH_FEATURE + "}";
+                + ",\"sdk\":" + Build.VERSION.SDK_INT + ",\"lock\":" + LOCK_FEATURE + ",\"speech\":" + SPEECH_FEATURE + ",\"face\":" + FACE_FEATURE + "}";
         }
 
         @JavascriptInterface
@@ -915,6 +970,52 @@ public class MainActivity extends Activity {
         public void abortDone(String sid) {
             if (!ownPage()) return;
             runOnUiThread(() -> { if (!examOn && String.valueOf(sid).equals(prefs.getString("sid", ""))) prefs.edit().clear().apply(); });
+        }
+
+        /* ---- the face camera (E-3) ---- */
+        @JavascriptInterface
+        public void faceOpen() {
+            if (!ownPage()) return;
+            runOnUiThread(() -> {
+                if (cam.hasPermission()) { cam.open(); return; }
+                if (camAsked) return;
+                camAsked = true;
+                requestPermissions(new String[] { android.Manifest.permission.CAMERA }, REQ_CAM);
+            });
+        }
+
+        @JavascriptInterface
+        public void faceClose() {
+            if (!ownPage()) return;
+            runOnUiThread(() -> { if (!examOn) cam.close(); });
+        }
+
+        /* the page asks for the start photo; the other photos are made by the app itself */
+        @JavascriptInterface
+        public void facePhoto(String kind) {
+            if (!ownPage() || !"start".equals(kind)) return;
+            runOnUiThread(() -> { if (cam.isOn()) cam.photo("start"); else js("__acsFace", "nophoto", "start"); });
+        }
+
+        /* the page sent the photo to ACS's server: the app can forget it */
+        @JavascriptInterface
+        public void faceAck(String id) {
+            if (!ownPage()) return;
+            synchronized (facePend) { facePend.remove(String.valueOf(id)); }
+        }
+
+        /* the page (opened again) asks for the photos it has not confirmed */
+        @JavascriptInterface
+        public void facePending() {
+            if (!ownPage()) return;
+            final ArrayList<String[]> list = new ArrayList<>();
+            synchronized (facePend) {
+                for (java.util.Map.Entry<String, String[]> e : facePend.entrySet()) {
+                    String[] v = e.getValue();
+                    list.add(new String[] { e.getKey(), v[0], v[1], v[2] });
+                }
+            }
+            runOnUiThread(() -> { for (String[] x : list) sendPhoto(x[0], x[1], x[2], Integer.parseInt(x[3])); });
         }
 
         @JavascriptInterface

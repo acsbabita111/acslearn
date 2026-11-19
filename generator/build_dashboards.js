@@ -1306,11 +1306,25 @@ const P_OC_Q = (
     '<div id="ocqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<div id="ocqMsg" class="msg"></div>' +
     '</div>');
+/* (E-3 · 19-Nov-2026, Founder के चेहरे वाले नियम) 📷 परीक्षा में चेहरे की जाँच: ACS EXAM ऐप की वे कोर्स-परीक्षाएँ जिनमें मशीन ने
+   झंडा उठाया। फ़ैसला इंसान का: Founder, चालू HQ Admin, या चालू एग्जामिनेशन Head। server: exam_server.js v1.3। */
+const P_EXAM_FACE = (
+    '<div class="pcard panel" id="pnl-xface" data-nav="📷 परीक्षा में चेहरे की जाँच" style="grid-column:1/-1">' +
+    '<div class="ph">📷 परीक्षा में चेहरे की जाँच</div>' +
+    '<div class="pd">यहाँ ACS EXAM ऐप की वे कोर्स-परीक्षाएँ आती हैं, जिनमें मशीन ने झंडा उठाया।</div>' +
+    '<div class="pd">जैसे: शुरू की फ़ोटो रजिस्ट्रेशन की फ़ोटो से नहीं मिली, चेहरा कैमरे से हटा, या एक से ज़्यादा चेहरे दिखे।</div>' +
+    '<div class="pd">मशीन फ़ैसला नहीं करती। फ़ोटो देखकर आप फ़ैसला करें: "सही है", या कारण लिखकर "गड़बड़"।</div>' +
+    '<div class="pd">परीक्षा की फ़ोटो 7 दिन बाद मिट जाती हैं, इसलिए जाँच जल्दी करें। फ़ोटो की कड़ी 15 मिनट तक चलती है।</div>' +
+    '<div class="pd">ये फ़ोटो सिर्फ़ जाँच के लिए हैं। इन्हें कहीं साझा न करें, ख़ासकर 18 साल से कम उम्र वालों की।</div>' +
+    '<div id="xfList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="xfMsg" class="msg"></div>' +
+    '</div>');
 const TEAM_EXTRAS = {
-  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q,
-  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q,
+  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q + P_EXAM_FACE,
+  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q + P_EXAM_FACE,
   "/dashboard/zonal/":    P_BADGE_QUEUE + P_SEVA_QUEUE,
   "/dashboard/regional/": P_BADGE_QUEUE + P_SEVA_QUEUE,
+  "/dashboard/hq/examination/": P_EXAM_FACE,
 };
 
 /* ══════════ (30-Jul-2026 Founder-सुधार-3) student-घर पैनल-विलय ══════════

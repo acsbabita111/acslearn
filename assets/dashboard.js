@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.41.0 · 19-Nov-2026 (खेप E-3, परीक्षा में चेहरे की जाँच): Founder, Admin और एग्जामिनेशन Head के घर में नया पैनल
+            "📷 परीक्षा में चेहरे की जाँच" (pnl-xface): ACS EXAM ऐप की वे कोर्स-परीक्षाएँ जिनमें मशीन ने झंडा उठाया; फ़ोटो देखना
+            (15 मिनट वाली कड़ी) और फ़ैसला "सही है" या "गड़बड़" (कारण के साथ)। server: exam_server.js v1.3। परीक्षा का इंजन अब v1.4।
    v6.40.0 · 19-Nov-2026 (खेप E-2, ACS EXAM ऐप का ताला): ऐप में परीक्षा के बीच ऐप बंद होकर दोबारा खुले, या पन्ना दोबारा
             खुले, तो विद्यार्थी के पैनल खुलते ही परीक्षा का परदा अपने-आप खुलता है (बंद हुई परीक्षा का कारण server तक जाता है,
             या चलती परीक्षा जारी होती है)। परीक्षा चलते समय 10 मिनट वाला अपने-आप logout नहीं होता (window.__acsExamActive)।
@@ -209,7 +212,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.40.0";
+const DASH_VER = "v6.41.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -886,7 +889,7 @@ const CERT_REL_EN={father:"Father's name:", mother:"Mother's name:", guardian:"G
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 let OM_OPEN = null;   /* (P-6b) "✉️ संदेश" की बातचीत खोलने का दरवाज़ा: om-block भरता है, oc-block और ol-block बुलाते हैं (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
-const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon","pnl-ocq","pnl-ghar"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
+const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon","pnl-ocq","pnl-ghar","pnl-xface"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
 /* (30-Jul सुधार-3) मिले-जुले पैनल: A खुले तो B के आलसी-इंजन भी चलें —
    B का panel-वर्ग गया पर id/इंजन जीवित (generator applyStudentMerges)। */
 const MERGED_LAZY = { "pnl-status": ["pnl-badge"], "pnl-pay": ["pnl-ledger"] };
@@ -5681,3 +5684,84 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }catch(e){ b.disabled=false; say(false,"नहीं हुआ: "+((e&&e.message)||e)); }
   });
 })(); /* om-block end */
+
+/* ═══════════════════════════════════════════════════════════════
+   (E-3 · 19-Nov-2026, Founder के चेहरे वाले नियम) pnl-xface: परीक्षा में चेहरे की जाँच।
+   ACS EXAM ऐप की वे कोर्स-परीक्षाएँ जिनमें मशीन ने झंडा उठाया। फ़ैसला इंसान का (Founder, चालू HQ Admin, चालू एग्जामिनेशन Head)।
+   server: exam_server.js v1.3 (examFaceQueue, examFaceView, examFaceDecide)। यह टीम का पैनल है: देखने के मोड में नहीं खुलता।
+   फ़ोटो की कड़ी 15 मिनट चलती है; पन्ने में कुछ सेव नहीं होता।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  function call(name, data){ return httpsCallable(functions, name)(data); }
+  function S(t){ return '<span>'+t+'</span>'; }
+  var XS="open", XQ=null, XV={};
+  var BAND={ match:"✅ मेल", unsure:"⚠️ मेल पर शक", nomatch:"❌ मेल नहीं", noface:"❌ फ़ोटो में चेहरा नहीं", noref:"⚠️ रजिस्ट्रेशन फ़ोटो में चेहरा नहीं",
+    bad:"⚠️ फ़ोटो नहीं खुली", err:"⚠️ जाँच नहीं हो सकी", one:"🙂 एक चेहरा", many:"👥 एक से ज़्यादा चेहरे" };
+  var KIND={ start:"📸 शुरू की फ़ोटो", leave:"🚶 चेहरा हटा", back:"↩ चेहरा लौटा", many:"👥 एक से ज़्यादा चेहरे" };
+  var FLAG={ "start:unsure":"शुरू की फ़ोटो: मेल पर शक", "start:nomatch":"शुरू की फ़ोटो: रजिस्ट्रेशन फ़ोटो से मेल नहीं", "start:noface":"शुरू की फ़ोटो में चेहरा नहीं",
+    "start:noref":"रजिस्ट्रेशन की फ़ोटो में चेहरा नहीं मिला", "start:bad":"शुरू की फ़ोटो नहीं खुली", "start:err":"शुरू की फ़ोटो जाँची नहीं जा सकी",
+    "start:many":"शुरू में एक से ज़्यादा चेहरे", "leave":"चेहरा कैमरे से हटा", "many":"एक से ज़्यादा चेहरे दिखे",
+    "back:nomatch":"लौटा चेहरा मेल नहीं खाता", "back:unsure":"लौटा चेहरा: मेल पर शक", "back:noface":"लौटे चेहरे की फ़ोटो में चेहरा नहीं",
+    "back:noref":"लौटे चेहरे की जाँच: रजिस्ट्रेशन फ़ोटो में चेहरा नहीं", "back:bad":"लौटे चेहरे की फ़ोटो नहीं खुली", "back:err":"लौटे चेहरे की जाँच नहीं हो सकी",
+    "nostart":"शुरू की फ़ोटो नहीं आई" };
+  function when(ms){ if(!ms) return "—"; var d=new Date(Number(ms)+5.5*3600000).toISOString(); return d.slice(8,10)+"-"+d.slice(5,7)+"-"+d.slice(0,4)+" "+d.slice(11,16); }
+  function band(b, sc){ return S(BAND[b]||"—")+(sc===null||sc===undefined?"":' <span data-i18n-skip>('+Number(sc).toFixed(2)+')</span>'); }
+  function flags(L){ var seen={}, out=[]; (L||[]).forEach(function(f){ if(seen[f]) { seen[f]++; return; } seen[f]=1; out.push(f); });
+    return out.map(function(f){ return '<span class="chip canc">'+S(FLAG[f]||"झंडा")+(seen[f]>1?' <span data-i18n-skip>×'+seen[f]+'</span>':'')+'</span>'; }).join(" "); }
+  function row(i, t){ return '<div class="k1row"><span>'+i+'</span> '+t+'</div>'; }
+  function verdict(r){ if(!r) return "";
+    return '<div class="k1call'+(r.verdict==="bad"?' rd':'')+'"><div class="ct">'+S(r.verdict==="bad"?"❌ फ़ैसला: गड़बड़":"✅ फ़ैसला: सही है")+'</div>'+
+      '<div class="cs">'+when(r.at)+(r.note?' · '+US(r.note):'')+'</div></div>'; }
+  function pics(v){
+    if(v.gone) return '<div class="note">'+S("इस परीक्षा की फ़ोटो 7 दिन बाद मिट चुकी हैं।")+'</div>';
+    var h='<div style="display:flex;flex-wrap:wrap;gap:10px;margin:10px 0">';
+    h+='<figure style="margin:0;width:140px;text-align:center">'+(v.ref?'<img src="'+esc(v.ref)+'" alt="" loading="lazy" style="width:140px;height:170px;object-fit:cover;border-radius:12px;border:3px solid #1565C0">':'<div class="note">'+S("रजिस्ट्रेशन की फ़ोटो नहीं मिली")+'</div>')+
+      '<figcaption style="font-size:16px;font-weight:700">'+S("🪪 रजिस्ट्रेशन की फ़ोटो")+'</figcaption></figure>';
+    (v.photos||[]).forEach(function(p){
+      h+='<figure style="margin:0;width:140px;text-align:center">'+(p.url?'<img src="'+esc(p.url)+'" alt="" loading="lazy" style="width:140px;height:170px;object-fit:cover;border-radius:12px;border:3px solid #cfd8e3">':'<div class="note">—</div>')+
+        '<figcaption style="font-size:16px;line-height:1.4">'+S(KIND[p.k]||"फ़ोटो")+'<br>'+when(p.at)+'<br>'+band(p.band, p.score)+'</figcaption></figure>';
+    });
+    return h+'</div>';
+  }
+  function card(x){
+    var id=' data-id="'+esc(x.sid)+'"', open=x.fq==="open", v=XV[x.sid];
+    var h='<div class="app k1row k1card st-'+(open?"review":(x.fq==="ok"?"approved":"returned"))+'"><div class="k1h"><div class="k1ti">'+US(x.name||"—")+'</div><div class="k1sub">'+
+      (open?'<span class="chip prov">'+S("⏳ जाँच बाक़ी")+'</span>':(x.fq==="ok"?'<span class="chip appr">'+S("✅ सही है")+'</span>':'<span class="chip canc">'+S("❌ गड़बड़")+'</span>'))+
+      (x.minor?' <span class="chip">'+S("18 से कम")+'</span>':'')+'</div></div>'+
+      row("🪪", esc(x.regNo||"—"))+row("📚", CN(x.courseId, x.course||x.courseId||"—"))+row("🕒", when(x.endAt||x.startedAt))+
+      row("📸", S("शुरू की फ़ोटो:")+' '+band(x.band, x.score))+row("🖼️", S("फ़ोटो:")+' <b>'+(x.photos||0)+'</b>')+
+      '<div style="margin:8px 0">'+flags(x.flags)+'</div>'+verdict(x.review);
+    if(v) h+=pics(v)+(v.events&&v.events.length?'<div class="note">'+S("ऐप की घटनाएँ:")+' <span data-i18n-skip>'+v.events.map(function(e){ return esc(e.k); }).join(", ")+'</span></div>':'');
+    var foot='<button class="abtn k1b ol" data-xf="view"'+id+'>'+S(v?"✖ फ़ोटो छिपाएँ":"📷 फ़ोटो देखें")+'</button> ';
+    if(open||XQ&&XQ.you==="founder"){ foot+='<button class="abtn k1b" data-xf="ok"'+id+'>'+S("✅ सही है")+'</button> '+'<button class="abtn k1b ol dg" data-xf="bad"'+id+'>'+S("❌ गड़बड़ (कारण लिखें)")+'</button> '; }
+    return h+'<div class="k1foot">'+foot+'</div></div>';
+  }
+  function draw(){
+    var box=$("xfList"); if(!box||!XQ) return;
+    var h='<div class="k1seg">'+[["open","⏳ जाँच बाक़ी"],["done","✔ फ़ैसला हो चुका"]].map(function(t){
+      return '<button type="button" class="k1m'+(XS===t[0]?' on':'')+'" data-xf="seg" data-v="'+t[0]+'" aria-pressed="'+(XS===t[0]?'true':'false')+'">'+S(t[1])+'</button>'; }).join(" ")+'</div>';
+    var L=XQ.items||[];
+    if(!L.length) h+='<span class="note">'+S(XS==="open"?"अभी जाँच के लिए कोई परीक्षा नहीं है।":"अभी कोई फ़ैसला दर्ज नहीं है।")+'</span>';
+    L.forEach(function(x){ h+=card(x); });
+    if(XQ.more) h+='<div class="note">'+S("सिर्फ़ पहली 100 परीक्षाएँ दिख रही हैं।")+'</div>';
+    box.innerHTML=h;
+  }
+  function say(ok, t){ var m=$("xfMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.innerHTML=S(t); } }
+  async function load(){ XQ=((await call("examFaceQueue",{ show:XS })).data)||{ items:[] }; XV={}; draw(); }
+  LAZY["pnl-xface"]=async function(){ try{ await load(); }catch(e){ var b=$("xfList"); if(b) b.innerHTML='<span class="note" style="color:#B71C1C">'+S("नहीं खुला:")+' '+esc((e&&e.message)||e)+'</span>'; } };
+  document.addEventListener("click", async function(ev){
+    var b=ev.target&&ev.target.closest?ev.target.closest("[data-xf]"):null; if(!b) return;
+    var act=b.getAttribute("data-xf"), id=b.getAttribute("data-id")||"";
+    try{
+      if(act==="seg"){ XS=b.getAttribute("data-v")||"open"; b.disabled=true; await load(); return; }
+      if(act==="view"){ if(XV[id]){ delete XV[id]; draw(); return; } b.disabled=true; XV[id]=((await call("examFaceView",{ sid:id })).data)||{}; draw(); return; }
+      if(act==="ok"){
+        if(!confirm("यह परीक्षा सही मानें? झंडा हट जाएगा और यह फ़ैसला दर्ज रहेगा।")) return;
+        b.disabled=true; await call("examFaceDecide",{ sid:id, verdict:"ok" }); await load(); say(true,"✅ फ़ैसला दर्ज हुआ: सही है।"); return; }
+      if(act==="bad"){
+        var r=prompt("गड़बड़ का कारण लिखें (ज़रूरी):"); if(!r) return;
+        if(String(r).trim().length<5){ say(false,"थोड़ा पूरा लिखें (कम से कम 5 अक्षर)।"); return; }
+        b.disabled=true; await call("examFaceDecide",{ sid:id, verdict:"bad", note:r }); await load(); say(true,"❌ फ़ैसला दर्ज हुआ: गड़बड़।"); return; }
+    }catch(e){ b.disabled=false; say(false, String((e&&e.message)||e)); }
+  });
+})();

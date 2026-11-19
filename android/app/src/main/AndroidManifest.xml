@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- ACS EXAM app (batch E-2, 19-Nov-2026; E-1 the same day).
+<!-- ACS EXAM app (batch E-3, 19-Nov-2026; E-2 and E-1 the same day).
      E-2: the microphone (only for the "speak" questions, asked the first time a speak button is pressed),
      hiding other apps' floating windows during the exam (Android 12 and newer), and refusing calls during the exam (CallGuard).
-     The camera comes in batch E-3. -->
+     E-3: the front camera, only for the course final exam (asked the first time an exam is started in the app).
+     The camera is not required to install the app: a phone without a front camera can still use the website exam. -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
 
     <queries>
         <intent>

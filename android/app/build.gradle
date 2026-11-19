@@ -1,4 +1,4 @@
-// ACS EXAM app (batch E-2; E-1 the same day). One outside library only: androidx.webkit (Google's own WebView helper),
+// ACS EXAM app (batch E-3; E-2 and E-1 the same day). One outside library only: androidx.webkit (Google's own WebView helper),
 // to load the page's speech file before the page's own scripts. Its version is pinned (no "latest").
 // The version number comes from GitHub's build number, so every new APK installs over the old one.
 // The signing key is never in the repo: GitHub puts it in a file for the build only (secrets ACS_EXAM_KS_B64, ACS_EXAM_KS_PASS).
