@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
+   v2.5 (20-Nov-2026, E-5b): वेबसाइट की परीक्षा में पहले चेहरे की जाँच, इसलिए परीक्षा-जाँच नक़ली कैमरे से उस पन्ने से गुज़रती है (dev_panel_dash_check.js का startExamWithFace), और वह पन्ना भी इसी भाषा में जाँचा जाता है।
    dev_panel_lang_check.js v1.9 (17-Nov-2026) · English के अलावा हर पैनल-भाषा का पहरेदार (पहली भाषा: कन्नड़, खेप क-1)
    Founder का आदेश (15-Nov-2026): "कोई यूजर एक बार अपने पैनल को ... ले तो उसको देवनागरी में कुछ भी नहीं दिखना चाहिए।"
    यह robot असली पन्ने (लॉगिन, रजिस्ट्रेशन, रजिस्ट्रेशन गाइड, सब dashboard) jsdom में उस भाषा में खोलकर हर बटन दबाता है और देखता है:
@@ -711,7 +712,9 @@ async function dashSuite() {
           ck("D student [हिंदी data] : कोर्स का सहेजा नाम " + (n1 !== "Data Entry Operator" ? "इसी भाषा में (नाम-तालिका से)" : "सूची के English नाम से") + ", हिंदी नाम नहीं बचा", tE.indexOf(n1) > -1 && tE.indexOf(n2) > -1 && !/धान/.test(tE) && (!TERMS || (own(n1) && own(n2) && !/Data Entry Operator|Computer Operator/.test(tE))), n1 + " | " + (tE.match(/.{0,40}(धान|कृषि|ऑपरेटर|Operator).{0,40}/) || [""])[0]);
           const eb = e.d.querySelector("[data-exam]");
           if (eb) { click(e, eb); await waitFor(e, () => e.d.getElementById("xmStart"), 4000); await settle(e);
-            const st = e.d.getElementById("xmStart"); if (st) { click(e, st); await waitFor(e, () => e.d.querySelector(".xm-q"), 4000); await settle(e); await settle(e); }
+            await P2.startExamWithFace(e, async ok => {   /* (v2.5, E-5b) वेबसाइट की परीक्षा में पहले चेहरे की जाँच (नक़ली कैमरा); वह पन्ना भी इसी भाषा में */
+              ck("D परीक्षा (वेबसाइट) : पहले चेहरे की जाँच का पन्ना, एक चेहरा दिखने पर \"आगे\" का बटन खुलता है", ok, (e.d.getElementById("xmState") || {}).textContent || "");
+              if (ok) clean(e, "D परीक्षा (वेबसाइट) : चेहरे की जाँच का पन्ना " + LG + " में"); });
             const q = (e.d.querySelector(".xm-q") || {}).textContent || "", ops = Array.from(e.d.querySelectorAll(".xm-opt span")).map(x => x.textContent), ab = Array.from(e.d.querySelectorAll(".xm-opt i")).map(x => x.textContent).join("");
             ck("D परीक्षा : प्रश्न और विकल्प कोर्स की भाषा में, अक्षर-अक्षर वैसे (भाषा-इंजन नहीं छूता); विकल्प के अक्षर A B C D", q.indexOf(HQ[0]) === 0 && ops.join("|") === HQ.slice(1).join("|") && ab === "ABCD", q.slice(0, 80) + " ‖ " + ops.join("|") + " ‖ " + ab);
             HQ.forEach(v => e.userVals.add(v));
@@ -887,6 +890,6 @@ async function dashSuite() {
   if (JSDOM_RACE) console.log("(जानकारी) jsdom की बंद खिड़की वाली दौड़ " + JSDOM_RACE + " बार हुई और छोड़ी गई (जाँच का औज़ार; पन्ने का code नहीं)");
   console.log("अभी English में (इस भाषा के अपने रूप बनने तक): E1 नियम-पत्र " + HOLES.E1 + " बार देखा · E2 परदे की नियम-पत्र कड़ी " + HOLES.E2 + " · E3 " + (HOLES.certEn ? "प्रमाणपत्र, " : "") + "बिना अपने रूप वाले मेनू-पन्ने " + HOLES.E3);
   if (TERMS) console.log("जगह के नाम जो data में सिर्फ़ रोमन में हैं (विदेश के राज्य, कुछ राज्यों के जिले; हिंदी पैनल में भी रोमन में): " + PLACES.size + " देखे गए");
-  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v2.4 : पैनल " + LG + " (" + LI.hi + ") पास");
+  console.log(fail ? "⛔ dev_panel_lang_check (" + LG + ") रुका" : "🏁 dev_panel_lang_check v2.5 : पैनल " + LG + " (" + LI.hi + ") पास");
   process.exit(fail ? 1 : 0);
 })();

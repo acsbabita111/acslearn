@@ -242,7 +242,7 @@ const AREA_SRC={ login:["dashboard/_LOGIN_TEMPLATE.html"], join:["_JOIN_TEMPLATE
     if(d.name==="hq") for(const h of fs.readdirSync(path.join(ROOT,"dashboard/hq"))) team.push("dashboard/hq/"+h+"/index.html");
     else add("dashboard/"+d.name+"/index.html"); }
   AREA_SRC["dash-ext"]=ext2.sort(); AREA_SRC["dash-team"]=team.filter(f=>fs.existsSync(path.join(ROOT,f))).sort(); })();
-const DASH_JS=["assets/dashboard.js","assets/vani.js","assets/exam-session.js","assets/academic_subjects.js"];
+const DASH_JS=["assets/dashboard.js","assets/vani.js","assets/exam-session.js","assets/academic_subjects.js","assets/face-web.js"];   /* (खेप E-5) face-web.js: वेबसाइट की परीक्षा का कैमरा (कोने का चित्र) */
 const need=new Map();
 function want(t,src){ t=norm(t); if(!t||!DEV.test(t)||SKIP.has(t)) return; if(/^[ऀ-ॿ]{1,2}$/.test(t)&&!KEEP_SHORT.has(t)) return; if(!need.has(t)) need.set(t,src); }
 for(const a of SCOPE) for(const p of (AREA_SRC[a]||[])) htmlSegs(p).forEach(t=>want(t,p));

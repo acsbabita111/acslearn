@@ -1,5 +1,5 @@
 /* ============================================================================
-   /assets/exam-session.js : v1.5 (19-Nov-2026, खेप E-4: वेबसाइट पर 3 चेतावनी, प्रमाणपत्र जाँच के बाद) · v1.4 (19-Nov-2026, खेप E-3: ऐप में चेहरे की जाँच) · v1.3 (19-Nov-2026, खेप E-2: ACS EXAM ऐप का ताला) · v1.2 (15-Nov-2026; v1.2 पैनल-4ख: प्रश्न/विकल्प भाषा-इंजन से सुरक्षित, विकल्प-अक्षर और कोर्स-नाम English पैनल में English; v1.1 13-Nov-2026)
+   /assets/exam-session.js : v1.6 (19-Nov-2026, खेप E-5: वेबसाइट पर भी कैमरे से चेहरे की जाँच) · v1.5 (19-Nov-2026, खेप E-4: वेबसाइट पर 3 चेतावनी, प्रमाणपत्र जाँच के बाद) · v1.4 (19-Nov-2026, खेप E-3: ऐप में चेहरे की जाँच) · v1.3 (19-Nov-2026, खेप E-2: ACS EXAM ऐप का ताला) · v1.2 (15-Nov-2026; v1.2 पैनल-4ख: प्रश्न/विकल्प भाषा-इंजन से सुरक्षित, विकल्प-अक्षर और कोर्स-नाम English पैनल में English; v1.1 13-Nov-2026)
    कोर्स की अंतिम परीक्षा का फ़ोन-इंजन (खेप 2)। dashboard.js इसे तभी लाता है जब विद्यार्थी "परीक्षा दें" दबाता है।
    Founder के नियम (13-Nov-2026): बैज या ₹100 · दिन में 2 परीक्षाएँ · 3 खंड x 40 प्रश्न · हर खंड 20 से 40 मिनट ·
    खंड 1 और 2 के बाद 1 से 5 मिनट का विराम · हर कोर्स में सबसे अच्छा अंक ही दर्ज · कोर्स के 5 हिस्सों का प्रतिशत, 7 दिन तक।
@@ -25,19 +25,29 @@
      परीक्षा चलती है; चौथी बार परीक्षा वहीं ख़त्म (server बंद करता है)। विराम में और खंड शुरू होने से पहले यह नहीं गिना जाता।
      ऐप में चेहरे की जाँच में झंडा उठा हो, तो नतीजे पर "जाँच बाक़ी" दिखता है: प्रमाणपत्र जाँच के बाद मिलता है।
      Android 10 या नए फ़ोन पर वेबसाइट से खुलने पर ACS EXAM ऐप की सलाह दिखती है।
+   v1.6 (खेप E-5, Founder के फ़ैसले 19-Nov-2026: 1-अ, 2-अ, 3-अ, 4-ब):
+     4-ब: वेबसाइट की हर कोर्स-परीक्षा में भी कैमरे से चेहरे की जाँच (लैपटॉप, कंप्यूटर, टैबलेट, ऐप के बिना फ़ोन)। कैमरा /assets/face-web.js
+       चलाता है (ऐप के FaceCam जैसा: कोने में गोल चित्र, शुरू की फ़ोटो, चेहरा हटा/लौटा/एक से ज़्यादा चेहरे)। कैमरा ज़रूरी है;
+       server भी कैमरे के बिना वेबसाइट की परीक्षा शुरू नहीं करता। परीक्षा दोबारा खोलने पर कैमरा अपने-आप फिर चालू होता है।
+       खंड चलते समय पन्ना खुला हो और कैमरा 10 सेकंड से ज़्यादा बंद रहे, तो server को "camoff" जाता है (झंडा; फ़ैसला इंसान का)।
+     1-अ: लैपटॉप/कंप्यूटर (माउस वाला) पर दूसरी खिड़की में 2 सेकंड से ज़्यादा रहना भी "पन्ना छोड़ना" गिना जाता है।
+       अपने ही पूछने वाले डिब्बे (confirm), माइक की अनुमति, और कैमरे की अनुमति पूछते समय यह नहीं गिना जाता।
+     2-अ: बड़े Android टैबलेट (Chrome "कंप्यूटर वाली साइट" मोड में) को भी Android पहचाना जाता है: ऐप की सलाह दिखती है।
+     3-अ: वेबसाइट पर "फ़ोन" की जगह हर device पर ठीक बैठने वाले शब्द; बोलो वाले प्रश्न की निजता-पंक्ति सच के मुताबिक़।
    खोलना: window.ACS_EXAM.open({ cid, call(name, data), tts, uid, loadRazorpay(), onClose(changed) })
    ============================================================================ */
 (function () {
   "use strict";
   var LS = "acs_exam_v1", OPT = ["अ", "ब", "स", "द"], SAVE_EVERY = 5, SAVE_IDLE_MS = 20000, LAST_MS = 60000, FINAL_MS = 8000;
   var NOTE = { wait: "✍️ नए जवाब कुछ ही देर में सहेजे जाएँगे।", saving: "⏳ जवाब सहेजे जा रहे हैं…", ok: "✅ जवाब server पर सहेज लिए गए।",
-    fail: "📶 जवाब अभी सहेजे नहीं जा सके। internet देखिए; फ़ोन कोशिश करता रहेगा।", late: "⌛ समय पूरा हो चुका था, इसलिए ये जवाब नहीं गिने गए।" };
+    fail: "📶 जवाब अभी सहेजे नहीं जा सके। internet देखिए; पन्ना कोशिश करता रहेगा।", late: "⌛ समय पूरा हो चुका था, इसलिए ये जवाब नहीं गिने गए।" };
   var C = null;          /* open() की सेटिंग */
   var G = null;          /* द्वार का आख़िरी जवाब */
   var S = null;          /* चलती परीक्षा: { sid, cid, set, qs, ans, idx, deadline, releaseAt, name, pass, rules, dirty, changes, saving, note } */
   var tick = null, skew = 0, busy = false, changed = false;
   var APP = null, AK = "";   /* (v1.3) ऐप की जानकारी, और इस परीक्षा की ऐप-चाबी */
-  var FACE = { cam: "", seen: -1, sid: "", ak: "", q: [], up: false, startAsk: 0, paint: null };   /* (v1.4) ऐप का कैमरा और फ़ोटो की क़तार */
+  var FACE = { cam: "", seen: -1, sid: "", ak: "", q: [], up: false, startAsk: 0, paint: null,   /* (v1.4) ऐप का कैमरा और फ़ोटो की क़तार */
+    mode: "", wantStart: false, timer: null, offSince: 0, offSent: false };   /* (v1.6) mode: "app" या "web" (वेबसाइट का कैमरा) */
 
   function esc(s) { return String(s === undefined || s === null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
   function now() { return Date.now() + skew; }
@@ -119,7 +129,20 @@
   function locked() { var st = appState(); return !!(st && st.active); }
   function akey(sid) { if (AK) return AK; var st = appState(); return (st && st.akey && (!sid || st.sid === sid)) ? st.akey : ""; }
   function K(o) { var k = akey(o.sid); if (k) o.akey = k; return o; }
-  function appOff() { AK = ""; if (appLock()) { try { window.ACSApp.examOff(); } catch (e) {} } }
+  function appOff() { AK = ""; if (appLock()) { try { window.ACSApp.examOff(); } catch (e) {} } webCamOff(); }
+  /* (v1.6) वेबसाइट का कैमरा: /assets/face-web.js (ज़रूरत पड़ने पर ही लाया जाता है) */
+  var FW_LOAD = null;
+  function fwLoad() {
+    if (window.ACSFaceWeb) return Promise.resolve(true);
+    if (!FW_LOAD) FW_LOAD = new Promise(function (res) {
+      var sc = document.createElement("script"); sc.src = "/assets/face-web.js";
+      sc.onload = function () { res(!!window.ACSFaceWeb); }; sc.onerror = function () { FW_LOAD = null; res(false); };
+      document.head.appendChild(sc);
+    });
+    return FW_LOAD;
+  }
+  function webCamOff() { camWatch(false); FACE.wantStart = false; if (window.ACSFaceWeb) { try { window.ACSFaceWeb.close(); } catch (e) {} if (FACE.mode !== "app") { FACE.cam = ""; FACE.seen = -1; } } }
+  function isPC() { try { return !!(window.matchMedia && window.matchMedia("(pointer: fine)").matches); } catch (e) { return false; } }
   function appPrepare() {
     return new Promise(function (res, rej) {
       window.__acsLockCb = function (r) { window.__acsLockCb = null; if (r && r.ok) res(r); else rej(r || {}); };
@@ -178,7 +201,8 @@
   }
   /* ---------- (v1.4, खेप E-3) ऐप का कैमरा: चेहरे की जाँच और फ़ोटो ---------- */
   function faceApp() { return !!(appLock() && Number(APP.face) >= 1 && typeof window.ACSApp.faceOpen === "function"); }
-  function faceOff() { if (faceApp()) { try { window.ACSApp.faceClose(); } catch (e) {} } }
+  function faceOff() { if (faceApp()) { try { window.ACSApp.faceClose(); } catch (e) {} } else webCamOff(); }
+  function camOpen(web) { if (web) { if (window.ACSFaceWeb) window.ACSFaceWeb.open(); else FACE.cam = "fail:support"; } else window.ACSApp.faceOpen(); }
   function fnote(t) {
     var el = $("xmFaceNote");
     if (!el) { el = document.createElement("div"); el.id = "xmFaceNote"; el.className = "xm-fnote"; document.body.appendChild(el); }
@@ -186,16 +210,29 @@
     clearTimeout(fnote.t); fnote.t = setTimeout(function () { el.style.display = "none"; }, 7000);
   }
   function faceCard() {
+    var web = !appLock();   /* (v1.6) वेबसाइट पर भी */
     return '<div class="xm-card" id="xmFaceRules"><h2>📷 चेहरे की जाँच</h2>' +
-      "<p>ऐप में परीक्षा के समय सामने वाला कैमरा चालू रहेगा। कोने में आपका छोटा गोल चित्र दिखेगा।</p>" +
+      (web ? "<p>वेबसाइट पर परीक्षा के समय कैमरा चालू रहेगा। कोने में आपका छोटा गोल चित्र दिखेगा।</p><p>कैमरा ज़रूरी है। कैमरे के बिना परीक्षा शुरू नहीं होती।</p>"
+        : "<p>ऐप में परीक्षा के समय सामने वाला कैमरा चालू रहेगा। कोने में आपका छोटा गोल चित्र दिखेगा।</p>") +
       "<p>शुरू में आपकी एक फ़ोटो ली जाएगी। फिर फ़ोटो सिर्फ़ तब ली जाएगी, जब चेहरा कैमरे से हटे या लौटे, या एक से ज़्यादा चेहरे दिखें।</p>" +
       "<p>चेहरा हटना सिर्फ़ दर्ज होता है, परीक्षा नहीं रुकती। जाँच ACS का एक व्यक्ति करता है।</p>" +
       "<p>परीक्षा अकेले बैठकर दें। चेहरा साफ़ दिखे, और रोशनी सामने से हो।</p>" +
       (G && G.minor ? '<label class="xm-chk"><input type="checkbox" id="xmGuard"> <span>मेरे अभिभावक ने इस परीक्षा में कैमरे और फ़ोटो की सहमति दी है।</span></label>' +
         '<p style="font-size:16px">आपकी उम्र 18 साल से कम है, इसलिए यह सहमति ज़रूरी है।</p>' : "") + "</div>";
   }
-  function faceState() {
+  function faceState(web) {
     var c = FACE.cam;
+    if (web) {   /* (v1.6) वेबसाइट का कैमरा */
+      if (c === "fail:perm") return { cls: "bad", t: "❌ कैमरे की अनुमति नहीं मिली। परीक्षा के लिए कैमरा ज़रूरी है। browser में पते के पास कैमरे का निशान दबाकर अनुमति दें, फिर \"दोबारा\" दबाएँ।", re: true };
+      if (c === "fail:nocam") return { cls: "bad", t: "❌ इस device में कैमरा नहीं मिला। परीक्षा के लिए कैमरा ज़रूरी है। कैमरा लगाएँ, या ACS EXAM ऐप वाले फ़ोन से परीक्षा दें।", re: true };
+      if (c === "fail:support") return { cls: "bad", t: "❌ इस browser में कैमरा नहीं चलता। Chrome या Edge में परीक्षा दीजिए।", re: false };
+      if (c === "fail:model") return { cls: "bad", t: "❌ चेहरे की जाँच का औज़ार नहीं खुला। internet देखकर \"दोबारा\" दबाएँ।", re: true };
+      if (c.indexOf("fail:") === 0) return { cls: "bad", t: "❌ कैमरा नहीं खुला। कोई दूसरा ऐप या पन्ना कैमरा चला रहा हो, तो उसे बंद करें और \"दोबारा\" दबाएँ।", re: true };
+      if (c !== "ok" || FACE.seen < 0) return { cls: "", t: "⏳ कैमरा खुल रहा है…", re: false };
+      if (FACE.seen === 1) return { cls: "ok", t: "✅ आपका चेहरा दिख रहा है। अब आगे बढ़ें।", go: true };
+      if (FACE.seen === 0) return { cls: "bad", t: "❌ चेहरा नहीं दिख रहा। कैमरे के सामने बैठें।", re: false };
+      return { cls: "bad", t: "⚠️ एक से ज़्यादा चेहरे दिख रहे हैं। परीक्षा अकेले दें।", re: false };
+    }
     if (c === "fail:perm") return { cls: "bad", t: "❌ कैमरे की अनुमति नहीं मिली। ऐप में परीक्षा के लिए कैमरा ज़रूरी है। नीचे \"दोबारा\" दबाएँ और अनुमति दें। फ़ोन न पूछे, तो फ़ोन की सेटिंग में ACS EXAM को कैमरे की अनुमति दें।", re: true };
     if (c === "fail:nofront") return { cls: "bad", t: "❌ इस फ़ोन में सामने वाला कैमरा नहीं मिला। यह परीक्षा वेबसाइट से दें।", re: false };
     if (c.indexOf("fail:") === 0) return { cls: "bad", t: "❌ कैमरा नहीं खुला। कोई दूसरा ऐप कैमरा चला रहा हो, तो उसे बंद करें और \"दोबारा\" दबाएँ।", re: true };
@@ -204,11 +241,14 @@
     if (FACE.seen === 0) return { cls: "bad", t: "❌ चेहरा नहीं दिख रहा। फ़ोन को चेहरे के सामने रखें।", re: false };
     return { cls: "bad", t: "⚠️ एक से ज़्यादा चेहरे दिख रहे हैं। परीक्षा अकेले दें।", re: false };
   }
-  function faceCheck(next) {
+  function faceCheck(next, web) {
     FACE.cam = ""; FACE.seen = -1;
     frame(topBar(G && G.course ? G.course.name : "कोर्स-परीक्षा"), '<div class="xm-card" id="xmState" data-st="facecheck"><h2>📷 चेहरे की जाँच</h2>' +
-      "<p>ऊपर दाएँ कोने में आपका छोटा गोल चित्र दिखेगा। उसे उँगली से खिसका भी सकते हैं।</p>" +
-      "<p>फ़ोन को चेहरे के सामने रखें, ताकि पूरा चेहरा दिखे। हरा घेरा = एक चेहरा, लाल = चेहरा नहीं, पीला = एक से ज़्यादा चेहरे।</p>" +
+      (web ? "<p>ऊपर दाएँ कोने में आपका छोटा गोल चित्र दिखेगा। उसे उँगली या माउस से खिसका भी सकते हैं।</p>" +
+        "<p>browser कैमरे की अनुमति माँगे, तो \"Allow\" (अनुमति दें) दबाएँ।</p>" +
+        "<p>कैमरे के सामने बैठें, ताकि पूरा चेहरा दिखे। हरा घेरा = एक चेहरा, लाल = चेहरा नहीं, पीला = एक से ज़्यादा चेहरे।</p>"
+      : "<p>ऊपर दाएँ कोने में आपका छोटा गोल चित्र दिखेगा। उसे उँगली से खिसका भी सकते हैं।</p>" +
+      "<p>फ़ोन को चेहरे के सामने रखें, ताकि पूरा चेहरा दिखे। हरा घेरा = एक चेहरा, लाल = चेहरा नहीं, पीला = एक से ज़्यादा चेहरे।</p>") +
       '<p class="xm-fst" id="xmFaceSt">⏳ कैमरा खुल रहा है…</p>' +
       '<div class="xm-nav"><button class="xm-btn green" id="xmFaceGo" type="button" disabled>✅ आगे बढ़ें</button>' +
       '<button class="xm-btn blue" id="xmFaceRe" type="button" style="display:none">🔄 दोबारा</button>' +
@@ -216,26 +256,27 @@
     wireClose();
     FACE.paint = function () {
       var el = $("xmFaceSt"), go = $("xmFaceGo"), re = $("xmFaceRe"); if (!el) { FACE.paint = null; return; }
-      var f = faceState(); el.textContent = f.t; el.className = "xm-fst" + (f.cls ? " " + f.cls : "");
+      var f = faceState(web); el.textContent = f.t; el.className = "xm-fst" + (f.cls ? " " + f.cls : "");
       go.disabled = !f.go; re.style.display = f.re ? "" : "none";
     };
     $("xmFaceGo").onclick = function () { if ($("xmFaceGo").disabled) return; FACE.paint = null; next(); };
-    $("xmFaceRe").onclick = function () { FACE.cam = ""; FACE.seen = -1; FACE.paint(); try { window.ACSApp.faceOpen(); } catch (e) {} };
+    $("xmFaceRe").onclick = function () { FACE.cam = ""; FACE.seen = -1; FACE.paint(); try { camOpen(web); } catch (e) {} };
     $("xmFaceNo").onclick = function () { FACE.paint = null; busy = false; faceOff(); gate(); };
-    try { window.ACSApp.faceOpen(); } catch (e) { FACE.cam = "fail:app"; }
+    try { camOpen(web); } catch (e) { FACE.cam = web ? "fail:support" : "fail:app"; }
     FACE.paint();
   }
   /* फ़ोटो की क़तार: एक-एक करके server को; पहुँची तो ऐप को बताओ; internet न हो तो रुककर फिर */
-  function faceAck(id) { try { window.ACSApp.faceAck(String(id)); } catch (e) {} }
+  function faceAck(id) { if (FACE.mode === "web") return; try { window.ACSApp.faceAck(String(id)); } catch (e) {} }
   function faceUp() {
     if (FACE.up || !FACE.q.length || !C) return;
     var p = FACE.q[0];
-    if (!FACE.sid || !FACE.ak) { FACE.q.shift(); faceAck(p.id); faceUp(); return; }
+    if (!FACE.sid || (FACE.mode !== "web" && !FACE.ak)) { FACE.q.shift(); faceAck(p.id); faceUp(); return; }
     FACE.up = true;
-    C.call("examFace", { sid: FACE.sid, akey: FACE.ak, k: p.k, img: p.img }).then(function (r) {
+    var fd = FACE.mode === "web" ? { sid: FACE.sid, k: p.k, img: p.img } : { sid: FACE.sid, akey: FACE.ak, k: p.k, img: p.img };   /* (v1.6) वेबसाइट: कोई चाबी नहीं */
+    C.call("examFace", fd).then(function (r) {
       FACE.up = false; FACE.q.shift(); faceAck(p.id);
       if (p.k === "start" && r && r.retake) {
-        fnote("📷 शुरू की फ़ोटो में चेहरा साफ़ नहीं दिखा। फ़ोन को चेहरे के सामने रखें। फ़ोटो फिर ली जाएगी।");
+        fnote(FACE.mode === "web" ? "📷 शुरू की फ़ोटो में चेहरा साफ़ नहीं दिखा। कैमरे के सामने बैठें। फ़ोटो फिर ली जाएगी।" : "📷 शुरू की फ़ोटो में चेहरा साफ़ नहीं दिखा। फ़ोन को चेहरे के सामने रखें। फ़ोटो फिर ली जाएगी।");
         setTimeout(faceStartPhoto, 5000);
       }
       faceUp();
@@ -249,10 +290,40 @@
   function faceStartPhoto() {
     if (!FACE.sid || FACE.startAsk >= 3) return;
     FACE.startAsk++;
-    try { window.ACSApp.facePhoto("start"); } catch (e) {}
+    try { if (FACE.mode === "web") { if (window.ACSFaceWeb) window.ACSFaceWeb.photo("start"); } else window.ACSApp.facePhoto("start"); } catch (e) {}
+  }
+  /* (v1.6) वेबसाइट: खंड चलते समय, पन्ना खुला हो और कैमरा 10 सेकंड से ज़्यादा बंद रहे, तो server को "camoff" (झंडा) */
+  function camWatch(on) {
+    if (FACE.timer) { clearInterval(FACE.timer); FACE.timer = null; }
+    FACE.offSince = 0; FACE.offSent = false;
+    if (!on) return;
+    FACE.timer = setInterval(function () {
+      if (FACE.mode !== "web" || !FACE.sid || !C) return;
+      if (FACE.cam === "ok") {
+        if (FACE.offSent) { FACE.offSent = false; C.call("examAppEvent", { sid: FACE.sid, k: "camon" }).catch(function () {}); }
+        FACE.offSince = 0; return;
+      }
+      if (document.hidden || !webExam()) { FACE.offSince = 0; return; }
+      if (!FACE.offSince) { FACE.offSince = Date.now(); return; }
+      if (!FACE.offSent && Date.now() - FACE.offSince >= 10000) {
+        FACE.offSent = true;
+        fnote("📷 कैमरा नहीं चल रहा। परीक्षा जारी है, पर यह दर्ज हो रहा है। कैमरा फिर चालू करें।");
+        C.call("examAppEvent", { sid: FACE.sid, k: "camoff" }).catch(function () {});
+      }
+    }, 2000);
+  }
+  function webCamStart(sid, fresh) {   /* (v1.6) वेबसाइट की परीक्षा शुरू या दोबारा खुली: कैमरा अपने-आप फ़ोटो लेगा */
+    FACE.mode = "web"; FACE.sid = sid; FACE.ak = ""; FACE.q = []; FACE.startAsk = 0; FACE.up = false;
+    camWatch(true);
+    if (window.ACSFaceWeb) window.ACSFaceWeb.setAuto(true);
+    if (fresh && FACE.cam === "ok") faceStartPhoto(); else FACE.wantStart = true;   /* कैमरा अभी खुल रहा है: "ok" आते ही शुरू की फ़ोटो (server पहले वाली हो, तो छोड़ देता है) */
   }
   window.__acsFace = function (kind, detail) {
-    if (kind === "cam") { FACE.cam = String(detail || ""); if (FACE.cam.indexOf("fail:") === 0) FACE.seen = -1; if (FACE.paint) FACE.paint(); return; }
+    if (kind === "cam") {
+      FACE.cam = String(detail || ""); if (FACE.cam.indexOf("fail:") === 0) FACE.seen = -1; if (FACE.paint) FACE.paint();
+      if (FACE.cam === "ok" && FACE.wantStart && FACE.mode === "web") { FACE.wantStart = false; setTimeout(faceStartPhoto, 1500); }   /* (v1.6) */
+      return;
+    }
     if (kind === "seen") { FACE.seen = Number(detail); if (FACE.paint) FACE.paint(); return; }
     if (kind === "nophoto") { if (detail === "start") setTimeout(faceStartPhoto, 3000); return; }
     if (kind !== "photo") return;
@@ -290,7 +361,7 @@
       "<li>पहले और दूसरे खंड के बाद " + Math.round(r.pauseMinSec / 60) + " से " + Math.round(r.pauseMaxSec / 60) + " मिनट का विराम मिलता है।</li>" +
       "<li>घड़ी शुरू होने के बाद रुकती नहीं है, पन्ना बंद करने पर भी नहीं।</li>" +
       "<li>समय पूरा होते ही खंड अपने-आप जमा हो जाता है। ख़ाली छूटे प्रश्न ग़लत गिने जाते हैं।</li>" +
-      "<li>" + Math.round(r.maxSetSec / 60) + " मिनट पूरे होने के बाद दिया गया जवाब नहीं गिना जाता। फ़ोन आपके जवाब बीच-बीच में server पर सहेजता रहता है, इसलिए internet चालू रखिए।</li>" +
+      "<li>" + Math.round(r.maxSetSec / 60) + " मिनट पूरे होने के बाद दिया गया जवाब नहीं गिना जाता। परीक्षा का पन्ना आपके जवाब बीच-बीच में server पर सहेजता रहता है, इसलिए internet चालू रखिए।</li>" +
       "<li>पूरी परीक्षा शुरू होने के " + Math.floor(r.sessionSec / 3600) + " घंटे " + Math.round((r.sessionSec % 3600) / 60) + " मिनट के भीतर पूरी करनी है। नहीं तो वह रद्द मानी जाती है: कोई अंक दर्ज नहीं होता, पर वह दिन की गिनती में गिनी जाती है।</li>" +
       "<li>एक दिन में सब परीक्षाएँ मिलाकर " + r.dailyMax + " ही दी जा सकती हैं (करियर टेस्ट भी इसी गिनती में है)।</li></ul>";
   }
@@ -298,12 +369,15 @@
     return '<div class="xm-note">🔒 इस परीक्षा की जाँच server करता है, इसलिए आपके जवाब server को जाते हैं। server जवाब को उसी समय जाँचता है और सिर्फ़ यह रखता है कि प्रश्न सही हुआ या ग़लत।' +
       '<details><summary>server क्या रखता है (पूरा ब्योरा)</summary>' +
       "<p>परीक्षा के दौरान server यह रिकॉर्ड रखता है: आपके खाते की पहचान, कोर्स, परीक्षा का रास्ता (बैज या ₹100, और ₹100 का order-नंबर), चुने गए 120 प्रश्नों के नंबर, हर प्रश्न के विकल्पों का क्रम, हर खंड के शुरू और पूरा होने का समय और समय-सीमाएँ, और जाँचे जा चुके हर प्रश्न का अंक। आज आपने कितनी परीक्षाएँ शुरू और पूरी कीं, इसकी गिनती भी रहती है।</p>" +
-      "<p>बोलो वाले प्रश्न में आपकी आवाज़ कहीं नहीं जाती। फ़ोन आवाज़ को पाठ में बदलता है, और सिर्फ़ वह पाठ जाँच के लिए server को जाता है। server उसे सेव नहीं करता।</p>" +
+      "<p>बोलो वाले प्रश्न में आपकी आवाज़ ACS के server पर नहीं आती। आवाज़ को पाठ में आपका फ़ोन या browser बदलता है। इसके लिए फ़ोन या browser आवाज़ को Google की सेवा को भेज सकता है।</p>" +
+      "<p>ACS के server को सिर्फ़ बना हुआ पाठ जाता है, जाँच के लिए। server उसे सेव नहीं करता।</p>" +
       "<p>परीक्षा पूरी होने, छोड़ने या समय निकलने पर यह रिकॉर्ड मिटा दिया जाता है। नतीजे में ये बातें दर्ज रहती हैं: आपका नाम और रजिस्ट्रेशन-नंबर, कोर्स, अंक, प्रतिशत, और पास या फेल। 5 हिस्सों का ब्योरा 7 दिन रहता है।</p>" +
       "<p>हर कोर्स में सिर्फ़ आपका सबसे अच्छा नतीजा दर्ज रहता है। भुगतान का रिकॉर्ड (जैसे ₹100 का चांस कब और किस परीक्षा में लगा) हिसाब के लिए रहता है।</p>" +
       "<p>📱 ACS EXAM ऐप से दी गई परीक्षा में server एक छोटा रिकॉर्ड और रखता है: ऐप का संस्करण, फ़ोन के Android का अंक, कॉल रोकने की अनुमति थी या नहीं, और परीक्षा के बीच की घटनाएँ (जैसे पर्दा बंद होना, कॉल का बजना, ऐप छोड़ना)।</p>" +
       "<p>फ़ोन में पर्दा पढ़ने वाली कोई सेवा (जैसे TalkBack) चालू हो, तो उसका नाम भी दर्ज होता है। यह रिकॉर्ड 30 दिन बाद अपने-आप मिट जाता है।</p>" +
       "<p>📷 ऐप में परीक्षा के समय सामने वाला कैमरा चालू रहता है। शुरू में आपकी एक फ़ोटो server को जाती है। फिर फ़ोटो सिर्फ़ तब जाती है, जब चेहरा कैमरे से हटे या लौटे, या एक से ज़्यादा चेहरे दिखें।</p>" +
+      "<p>💻 वेबसाइट से दी गई परीक्षा में भी कैमरा चालू रहता है, और फ़ोटो ठीक ऐप की तरह जाती हैं। कैमरे की तस्वीर में चेहरे आपके ही device पर गिने जाते हैं। वह तस्वीर कहीं नहीं जाती।</p>" +
+      "<p>वेबसाइट की परीक्षा का भी एक छोटा रिकॉर्ड रहता है: device का प्रकार (माउस वाला कंप्यूटर, या फ़ोन और टैबलेट), कैमरा बंद रहने की घटना, और पन्ना छोड़ने की चेतावनियाँ। यह रिकॉर्ड भी 30 दिन बाद अपने-आप मिट जाता है।</p>" +
       "<p>ACS का server शुरू वाली फ़ोटो को आपकी रजिस्ट्रेशन वाली फ़ोटो से मशीन से मिलाता है। यह मिलान ACS के अपने server पर होता है, कोई फ़ोटो बाहर नहीं जाती। मशीन फ़ैसला नहीं करती: शक हो, तो ACS का एक व्यक्ति फ़ोटो देखकर फ़ैसला करता है।</p>" +
       "<p>परीक्षा की फ़ोटो 7 दिन बाद मिट जाती हैं। पास होकर सबसे अच्छा अंक बने, तो शुरू वाली एक फ़ोटो प्रमाणपत्र के लिए रखी जाती है। चेहरे का गणित-नक़्शा कहीं सेव नहीं होता।</p></details></div>";
   }
@@ -325,7 +399,7 @@
         "<p>पास होने के लिए " + d.course.pass + "% चाहिए।</p>" + rulesHtml(r) + "</div>" +
         '<div class="xm-card"><h2>📊 आपका नतीजा</h2>' + bestHtml(d.best) +
         (d.best ? '<p style="font-size:16px">नियम: हर कोर्स में सबसे अच्छा अंक ही दर्ज रहता है। नई परीक्षा का अंक तभी दर्ज होगा जब वह ' + d.best.pct + "% से ज़्यादा हो। कम या बराबर आए, तो " + d.best.pct + "% ही रहेगा।</p>" : "") + "</div>";
-      var act = "", st0 = appState(), here = !!(d.open && st0 && st0.sid === d.open.sid && st0.active), lockNote = "";
+      var act = "", st0 = appState(), here = !!(d.open && st0 && st0.sid === d.open.sid && st0.active), lockNote = "", webFace = "";
       if (d.open && d.open.courseId === C.cid && d.open.via === "app" && !here) {
         act = "<h2>⏳ आपकी यह परीक्षा ACS EXAM ऐप में चल रही है</h2>" +
           (appLock() ? "<p>यह परीक्षा इस फ़ोन के ऐप में नहीं चल रही, इसलिए यहाँ आगे नहीं बढ़ सकती। आप इसे छोड़ सकते हैं।</p>"
@@ -342,10 +416,10 @@
         act = "<h2>🌙 आज की सीमा पूरी</h2><p>आज की " + r.dailyMax + " परीक्षाएँ हो चुकी हैं। अगली परीक्षा कल रात 12 बजे के बाद दे सकेंगे।</p>";
       } else if (d.mode === "badge") {
         act = "<h2>✅ आपका बैज सक्रिय है</h2><p>यह परीक्षा आपके लिए मुफ़्त है।</p>" + '<div class="xm-nav"><button class="xm-btn green" id="xmStart" type="button">' + (appLock() ? "🔒 ताला लगाकर परीक्षा शुरू करें" : "🚀 परीक्षा शुरू करें") + "</button></div>";
-        if (appLock()) lockNote = lockCard() + (faceApp() ? faceCard() : "");
+        if (appLock()) lockNote = lockCard() + (faceApp() ? faceCard() : ""); else webFace = faceCard();
       } else if (d.mode === "attempt") {
         act = "<h2>✅ आपके पास ₹100 का एक चांस है</h2><p>परीक्षा शुरू करते ही यह चांस इस्तेमाल हो जाएगा। ₹100 का चांस वापस नहीं होता। सिर्फ़ हमारी तकनीकी ग़लती हो, तो पूरा पैसा वापस मिलता है।</p>" + '<div class="xm-nav"><button class="xm-btn green" id="xmStart" type="button">' + (appLock() ? "🔒 ताला लगाकर परीक्षा शुरू करें" : "🚀 परीक्षा शुरू करें") + "</button></div>";
-        if (appLock()) lockNote = lockCard() + (faceApp() ? faceCard() : "");
+        if (appLock()) lockNote = lockCard() + (faceApp() ? faceCard() : ""); else webFace = faceCard();
       } else {
         act = "<h2>🔑 परीक्षा के लिए बैज या ₹100</h2><p>विद्यार्थी का गोल्डन बैज या नौकरी-इच्छुक का हरा बैज हो, तो परीक्षा मुफ़्त है।</p><p>बैज न हो, तो ₹100 देकर एक परीक्षा दे सकते हैं। यह चांस भुगतान के बाद 30 दिन तक चलता है, और किसी भी एक परीक्षा में लगता है (किसी कोर्स की परीक्षा या करियर टेस्ट)।</p>" +
           '<div class="xm-nav"><button class="xm-btn gold" id="xmPay" type="button">₹100 देकर एक चांस लें</button></div>' +
@@ -353,7 +427,7 @@
           '<p style="font-size:16px">पूरा नियम: <a href="/refund.html" target="_blank" rel="noopener">वापसी-नीति</a></p>';
       }
       if (APP && !appLock()) lockNote = '<div class="xm-card" id="xmAppOld"><p>📱 ACS EXAM ऐप का नया रूप आ गया है। उसमें परीक्षा पर ताला लगता है। नया ऐप acslearn.com/exam-app.html से लें।</p></div>';
-      if (!appLock()) lockNote += webRuleHtml();   /* (v1.5) वेबसाइट पर: 3 चेतावनी का नियम, और Android 10 या नए फ़ोन पर ऐप की सलाह */
+      if (!appLock()) lockNote += webRuleHtml() + webFace;   /* (v1.5) वेबसाइट पर: 3 चेतावनी का नियम, और Android 10 या नए फ़ोन पर ऐप की सलाह; (v1.6) कैमरे का नियम */
       if (appLock() && !faceApp()) lockNote += '<div class="xm-card" id="xmAppOld"><p>📷 ACS EXAM ऐप का नया रूप आ गया है। उसमें परीक्षा के समय चेहरे की जाँच होती है। नया ऐप acslearn.com/exam-app.html से लें।</p></div>';
       frame(topBar(d.course.name), h + lockNote + '<div class="xm-card" id="xmAct">' + act + '<div class="xm-warn" id="xmMsg"></div></div>' + privacyHtml());
       wireClose();
@@ -365,14 +439,20 @@
   }
   /* ---------- (v1.5) वेबसाइट की परीक्षा: खंड चलते समय पन्ना छोड़ा, तो चेतावनी (Founder का फ़ैसला 13) ----------
      3 चेतावनी तक परीक्षा चलती है; चौथी बार server परीक्षा बंद कर देता है। ऐप के ताले में यह नहीं गिना जाता (वहाँ ऐप छोड़ना = परीक्षा ख़त्म)। */
-  var WW = { on: false, away: 0, busy: false };
-  function isAndroid() { return /Android/i.test(String((navigator && navigator.userAgent) || "")); }
+  var WW = { on: false, away: 0, busy: false, blurT: null, dlg: false, mic: false };   /* (v1.6) dlg/mic: अपना डिब्बा या माइक की अनुमति खुली है */
+  function isAndroid() {   /* (v1.6, फ़ैसला 2-अ) बड़े Android टैबलेट पर Chrome "कंप्यूटर वाली साइट" मोड में Linux बताता है: छूने वाला Linux = Android */
+    var ua = String((navigator && navigator.userAgent) || "");
+    if (/Android/i.test(ua)) return true;
+    try { if (navigator.userAgentData && /Android/i.test(String(navigator.userAgentData.platform || ""))) return true; } catch (e) {}
+    return /X11; Linux x86_64/.test(ua) && !/CrOS/.test(ua) && (Number(navigator.maxTouchPoints) || 0) > 1;
+  }
   function webRuleHtml() {
     return '<div class="xm-card" id="xmWebRule"><h2>⚠️ वेबसाइट पर परीक्षा का नियम</h2>' +
       "<p>खंड चलते समय परीक्षा का पन्ना छोड़ा (दूसरा ऐप, दूसरा पन्ना, या पर्दा बंद), तो चेतावनी मिलेगी।</p>" +
+      "<p>लैपटॉप या कंप्यूटर पर: किसी दूसरी खिड़की में 2 सेकंड से ज़्यादा रहे, तो भी चेतावनी मिलेगी।</p>" +
       "<p>3 चेतावनी तक परीक्षा चलती है। चौथी बार पन्ना छोड़ने पर परीक्षा वहीं ख़त्म हो जाती है: कोई अंक दर्ज नहीं होता, और ₹100 का चांस वापस नहीं होता।</p>" +
       "<p>विराम के समय पन्ना छोड़ना नहीं गिना जाता।</p>" +
-      (isAndroid() && !APP ? '<p id="xmAppTip">📱 आपका फ़ोन Android 10 या नया है, तो परीक्षा ACS EXAM ऐप से दें। ऐप में परीक्षा पर ताला लगता है। <a href="/exam-app.html" target="_blank" rel="noopener">ACS EXAM ऐप लें</a></p>' : "") +
+      (isAndroid() && !APP ? '<p id="xmAppTip">📱 आपका फ़ोन या टैबलेट Android 10 या नया है, तो परीक्षा ACS EXAM ऐप से दें। ऐप में परीक्षा पर ताला लगता है। <a href="/exam-app.html" target="_blank" rel="noopener">ACS EXAM ऐप लें</a></p>' : "") +
       "</div>";
   }
   function webExam() {   /* सिर्फ़ खंड चलते समय (प्रश्न का परदा, या कम से कम समय का इंतज़ार); विराम में नहीं */
@@ -392,34 +472,46 @@
     var b = document.getElementById("xmWwOk"); if (b) { b.onclick = wwClose; try { b.focus(); } catch (e) {} }
   }
   function webEnded() {
-    wwClose(); stopTick(); drop(); changed = true; S = null;
+    wwClose(); stopTick(); drop(); changed = true; S = null; appOff();   /* (v1.6) कैमरा बंद */
     frame(topBar(G && G.course ? G.course.name : "कोर्स-परीक्षा"), '<div class="xm-card" id="xmState" data-st="webend"><h2>⛔ परीक्षा ख़त्म हो गई</h2>' +
       "<p>आपने 3 चेतावनी के बाद फिर परीक्षा का पन्ना छोड़ा। इसलिए यह परीक्षा वहीं ख़त्म हो गई।</p>" +
       "<p>इसका कोई अंक दर्ज नहीं हुआ। यह परीक्षा आज की गिनती में गिनी गई।</p>" +
       '<div class="xm-nav"><button class="xm-btn blue" id="xmBack" type="button">↩ परीक्षा के द्वार पर लौटें</button></div></div>');
     wireClose(); if ($("xmBack")) $("xmBack").onclick = gate;
   }
+  function exempt() { return WW.dlg || WW.mic || !!(window.ACSFaceWeb && window.ACSFaceWeb.state().asking); }
+  function ask(t) { WW.dlg = true; try { return window.confirm(t); } finally { setTimeout(function () { WW.dlg = false; }, 400); clearTimeout(WW.blurT); } }
   function webWarnInit() {
     if (WW.on) return; WW.on = true;
     document.addEventListener("visibilitychange", function () {
-      if (document.hidden) { if (webExam()) WW.away = Date.now(); return; }
-      if (!WW.away) return;
-      WW.away = 0;
-      if (!webExam() || WW.busy || !C) return;
-      WW.busy = true;
-      C.call("examWebWarn", { sid: S.sid }).then(function (d) {
-        WW.busy = false;
-        if (!d || d.app) return;
-        if (d.ended) { webEnded(); return; }
-        wwShow(d.n, d.max || 3);
-      }).catch(function (e) {
-        WW.busy = false;
-        if (codeOf(e) === "gone") { wwClose(); drop(); changed = true; S = null; gate(); }
-      });
+      if (document.hidden) { clearTimeout(WW.blurT); if (webExam() && !WW.away) WW.away = Date.now(); return; }
+      wwBack();
+    });
+    /* (v1.6, फ़ैसला 1-अ) लैपटॉप/कंप्यूटर: दूसरी खिड़की में 2 सेकंड से ज़्यादा */
+    window.addEventListener("blur", function () {
+      if (!isPC() || document.hidden || WW.away || !webExam() || exempt()) return;
+      clearTimeout(WW.blurT);
+      WW.blurT = setTimeout(function () { if (!document.hidden && !WW.away && webExam() && !exempt() && !document.hasFocus()) WW.away = Date.now(); }, 2000);
+    });
+    window.addEventListener("focus", function () { clearTimeout(WW.blurT); if (!document.hidden) wwBack(); });
+  }
+  function wwBack() {   /* पन्ने पर लौटे: छोड़ना गिना गया हो, तो server को बताओ */
+    if (!WW.away) return;
+    WW.away = 0;
+    if (!webExam() || WW.busy || !C) return;
+    WW.busy = true;
+    C.call("examWebWarn", { sid: S.sid }).then(function (d) {
+      WW.busy = false;
+      if (!d || d.app) return;
+      if (d.ended) { webEnded(); return; }
+      wwShow(d.n, d.max || 3);
+    }).catch(function (e) {
+      WW.busy = false;
+      if (codeOf(e) === "gone") { wwClose(); drop(); changed = true; S = null; appOff(); gate(); }
     });
   }
   function abandon(sid) {
-    if (!window.confirm("पक्का छोड़ें? यह परीक्षा दिन की गिनती में गिनी जाएगी, और इसका कोई अंक दर्ज नहीं होगा। ₹100 का चांस लगा हो, तो वह इस्तेमाल हो चुका है और वापस नहीं मिलेगा।")) return;
+    if (!ask("पक्का छोड़ें? यह परीक्षा दिन की गिनती में गिनी जाएगी, और इसका कोई अंक दर्ज नहीं होगा। ₹100 का चांस लगा हो, तो वह इस्तेमाल हो चुका है और वापस नहीं मिलेगा।")) return;
     busyCard("परीक्षा छोड़ी जा रही है…");
     C.call("examFinish", K({ sid: sid, cancel: true, reason: "user" })).then(function () { drop(); changed = true; appOff(); gate(); }).catch(function (e) { if (codeOf(e) === "gone") { drop(); appOff(); gate(); } else errCard(msgOf(e), gate); });
   }
@@ -451,8 +543,17 @@
   }
   function start() {
     if (busy) return;
-    if (!appLock()) { busy = true; return startNow(null); }
-    var cam = faceApp(), guard = !!(G && G.minor);
+    var guard0 = !!(G && G.minor);
+    if (!appLock()) {   /* (v1.6, फ़ैसला 4-ब) वेबसाइट: पहले कैमरे से चेहरे की जाँच */
+      if (guard0 && !($("xmGuard") && $("xmGuard").checked)) { var m0 = $("xmMsg"); if (m0) m0.textContent = "अभिभावक की सहमति वाले खाने पर ✓ लगाएँ।"; return; }
+      busy = true; busyCard("कैमरा तैयार हो रहा है…");
+      fwLoad().then(function (ok) {
+        if (!ok) { busy = false; errCard("कैमरे वाला हिस्सा नहीं खुला। internet देखकर दोबारा कोशिश करें।", gate); return; }
+        faceCheck(function () { startNow(null, guard0, true); }, true);
+      });
+      return;
+    }
+    var cam = faceApp(), guard = guard0;
     if (cam && guard && !($("xmGuard") && $("xmGuard").checked)) { var m = $("xmMsg"); if (m) m.textContent = "अभिभावक की सहमति वाले खाने पर ✓ लगाएँ।"; return; }
     busy = true;
     function lock() {
@@ -462,9 +563,10 @@
     }
     if (cam) faceCheck(lock); else lock();
   }
-  function startNow(app, guardian) {
+  function startNow(app, guardian, web) {
     busyCard("प्रश्न चुने जा रहे हैं…");
     var req = app ? { courseId: C.cid, app: app } : { courseId: C.cid };
+    if (web) req.web = { face: true, dev: isPC() ? "pc" : "touch" };   /* (v1.6) */
     if (guardian) req.guardian = true;
     C.call("examStart", req).then(function (d) {
       busy = false; changed = true; drop();
@@ -472,12 +574,13 @@
         var on = "bad"; try { on = window.ACSApp.examOn(d.sid, d.courseId || C.cid, d.akey || ""); } catch (e) {}
         AK = d.akey || "";
         if (on !== "ok") { S = { sid: d.sid }; appAbort(on === "split" ? "split" : "unpin"); return; }
-        if (d.face && d.face.on) { FACE.sid = d.sid; FACE.ak = AK; FACE.q = []; FACE.startAsk = 0; faceStartPhoto(); }
-      }
+        if (d.face && d.face.on) { FACE.mode = "app"; FACE.sid = d.sid; FACE.ak = AK; FACE.q = []; FACE.startAsk = 0; faceStartPhoto(); }
+      } else if (web) webCamStart(d.sid, true);   /* (v1.6) */
       adopt(d);
     }).catch(function (e) {
       busy = false; appOff(); var c = codeOf(e);
       if (c === "open" || c === "limit" || c === "pay") gate();
+      else if (c === "webcam") { faceOff(); errCard(msgOf(e), gate); }
       else if (c === "guardian") errCard("आपकी उम्र 18 साल से कम है। कैमरे वाली परीक्षा के लिए अभिभावक की सहमति ज़रूरी है। द्वार पर सहमति वाले खाने पर ✓ लगाएँ।", gate);
       else errCard(msgOf(e), gate);
     });
@@ -495,7 +598,11 @@
       }).catch(function (r) { busy = false; appOff(); errCard(lockMsg(r), function () { resume(o); }); });
       return;
     }
-    if (st && st.sid === o.sid) { AK = st.akey || ""; if (faceApp() && AK) { FACE.sid = o.sid; FACE.ak = AK; } }
+    if (st && st.sid === o.sid) { AK = st.akey || ""; if (faceApp() && AK) { FACE.mode = "app"; FACE.sid = o.sid; FACE.ak = AK; } }
+    if (!appLock() && o.face) {   /* (v1.6) वेबसाइट की कैमरे वाली परीक्षा दोबारा खुली: कैमरा फिर चालू */
+      webCamStart(o.sid, false);
+      fwLoad().then(function (ok) { if (!ok || FACE.sid !== o.sid) return; window.ACSFaceWeb.open(); window.ACSFaceWeb.setAuto(true); });
+    }
     resumeNow(o);
   }
   function resumeNow(o) {
@@ -522,7 +629,7 @@
       '<div class="xm-q">' + qq.html + "</div>";
     if (qq.mic) {
       h += '<div class="xm-mic"><button type="button" class="xm-btn blue" id="xmMic" style="width:100%">🎤 बोलिए</button><div id="xmMicOut" style="margin-top:8px">' +
-        (typeof a === "string" && a ? '✅ फ़ोन ने सुना: <b dir="auto" data-i18n-skip>' + esc(a) + "</b>" : "माइक का बटन दबाकर ज़ोर से और साफ़ बोलिए।") + "</div></div>";
+        (typeof a === "string" && a ? '✅ सुना गया: <b dir="auto" data-i18n-skip>' + esc(a) + "</b>" : "माइक का बटन दबाकर ज़ोर से और साफ़ बोलिए।") + "</div></div>";
     } else {
       for (var j = 0; j < q.o.length; j++) h += '<button type="button" class="xm-opt' + (a === j ? " sel" : "") + '" data-o="' + j + '"><i data-tr-en="' + "ABCD".charAt(j) + '">' + OPT[j] + '</i><span dir="auto" data-i18n-skip>' + esc(q.o[j]) + "</span></button>";
     }
@@ -551,7 +658,7 @@
     }, 1000);
   }
   function say(text, slow) {
-    if (!("speechSynthesis" in window)) { var m = $("xmMsg"); if (m) m.textContent = "इस फ़ोन में आवाज़ नहीं चल रही। Chrome में खोलिए।"; return; }
+    if (!("speechSynthesis" in window)) { var m = $("xmMsg"); if (m) m.textContent = "इस browser में आवाज़ नहीं चल रही। Chrome में खोलिए।"; return; }
     speechSynthesis.cancel();
     var u = new SpeechSynthesisUtterance(text), TL = C.tts || "en-IN", TB = TL.split("-")[0].toLowerCase();
     u.lang = TL; u.rate = slow ? 0.65 : 0.9;
@@ -562,18 +669,20 @@
   }
   function mic() {
     var SR = window.SpeechRecognition || window.webkitSpeechRecognition, out = $("xmMicOut"), b = $("xmMic"), at = S.idx, sidAt = S.sid, setAt = S.set;
-    if (!SR) { out.innerHTML = '<span style="color:#B71C1C">इस browser में बोली की पहचान नहीं चलती। Chrome (Android) में परीक्षा दीजिए।</span>'; return; }
+    if (!SR) { out.innerHTML = '<span style="color:#B71C1C">इस browser में बोली की पहचान नहीं चलती। Chrome या Edge में परीक्षा दीजिए।</span>'; return; }
     try { speechSynthesis.cancel(); } catch (e) {}
     var r = new SR(), got = false; r.lang = C.tts || "en-IN"; r.interimResults = false; r.maxAlternatives = 1; r.continuous = false;
     b.disabled = true; b.textContent = "🎙️ सुन रहा हूँ… बोलिए"; out.innerHTML = '<span style="color:#1565C0">माइक चालू है। साफ़ बोलिए, फिर रुकिए।</span>';
     r.onresult = function (ev) {
       var t = ""; try { t = ev.results[0][0].transcript; } catch (e) {}
       if (!S || S.sid !== sidAt || S.set !== setAt) return;
-      if (t && String(t).trim() && S.deadline - now() > 0) { got = true; S.ans[at] = String(t).trim().slice(0, 400); save(); markDirty(); if (S.idx === at && $("xmMicOut")) $("xmMicOut").innerHTML = '✅ फ़ोन ने सुना: <b dir="auto" data-i18n-skip>' + esc(t) + '</b><br><span style="font-size:16px">ठीक नहीं लगा? दोबारा बोल सकते हैं।</span>'; }
+      if (t && String(t).trim() && S.deadline - now() > 0) { got = true; S.ans[at] = String(t).trim().slice(0, 400); save(); markDirty(); if (S.idx === at && $("xmMicOut")) $("xmMicOut").innerHTML = '✅ सुना गया: <b dir="auto" data-i18n-skip>' + esc(t) + '</b><br><span style="font-size:16px">ठीक नहीं लगा? दोबारा बोल सकते हैं।</span>'; }
     };
-    r.onerror = function (ev) { if ($("xmMicOut")) $("xmMicOut").innerHTML = '<span style="color:#B71C1C">माइक नहीं चला (' + esc(ev.error || "") + ")। माइक की अनुमति दीजिए, फिर दोबारा दबाइए।</span>"; };
-    r.onend = function () { var bb = $("xmMic"); if (bb) { bb.disabled = false; bb.textContent = "🎤 बोलिए"; } if (!got && $("xmMicOut") && !/माइक नहीं चला/.test($("xmMicOut").textContent)) $("xmMicOut").innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया। दोबारा बोलिए।</span>'; };
-    try { r.start(); } catch (e) { b.disabled = false; b.textContent = "🎤 बोलिए"; }
+    r.onstart = function () { WW.mic = false; };   /* (v1.6) माइक की अनुमति पूछी जा चुकी */
+    r.onerror = function (ev) { WW.mic = false; if ($("xmMicOut")) $("xmMicOut").innerHTML = '<span style="color:#B71C1C">माइक नहीं चला (' + esc(ev.error || "") + ")। माइक की अनुमति दीजिए, फिर दोबारा दबाइए।</span>"; };
+    r.onend = function () { WW.mic = false; var bb = $("xmMic"); if (bb) { bb.disabled = false; bb.textContent = "🎤 बोलिए"; } if (!got && $("xmMicOut") && !/माइक नहीं चला/.test($("xmMicOut").textContent)) $("xmMicOut").innerHTML = '<span style="color:#B71C1C">कुछ सुनाई नहीं दिया। दोबारा बोलिए।</span>'; };
+    WW.mic = true; setTimeout(function () { WW.mic = false; }, 12000);
+    try { r.start(); } catch (e) { WW.mic = false; b.disabled = false; b.textContent = "🎤 बोलिए"; }
   }
   /* जवाब server को भेजना। done=false: सिर्फ़ सहेजना (server उसी समय जाँचकर अंक रख लेता है)। done=true: खंड पूरा करना। */
   function send(done) {
@@ -606,7 +715,7 @@
   }
   function askSubmit() {
     var blank = S.qs.length - countDone(S.ans);
-    if (blank > 0 && !window.confirm(blank + " प्रश्न ख़ाली हैं। ख़ाली प्रश्न ग़लत गिने जाएँगे। क्या खंड अभी जमा करना है?")) return;
+    if (blank > 0 && !ask(blank + " प्रश्न ख़ाली हैं। ख़ाली प्रश्न ग़लत गिने जाएँगे। क्या खंड अभी जमा करना है?")) return;
     submit(false);
   }
   function submit(auto) {

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v3.8 (19-Nov-2026; v3.8 E-4b: प्रमाणपत्र पर फ़ोटो (O16); v3.7 E-3b: परीक्षा में चेहरे की जाँच वाला पैनल (pnl-xface) data के साथ: झंडे, फ़ोटो, फ़ैसला (O15);
+   dev_panel_dash_check.js v4.0 (20-Nov-2026; v4.0 E-5b: वेबसाइट की परीक्षा में पहले चेहरे की जाँच, इसलिए परीक्षा-जाँच नक़ली कैमरे (एक चेहरा) से उस पन्ने से गुज़रती है, और वह पन्ना भी English में जाँचा जाता है; v3.9 E-5b: चेहरे की जाँच वाले पैनल में ऐप या वेबसाइट, वेबसाइट की चेतावनियाँ, "कैमरा बंद रहा" (O17); v3.8 E-4b: प्रमाणपत्र पर फ़ोटो (O16); v3.7 E-3b: परीक्षा में चेहरे की जाँच वाला पैनल (pnl-xface) data के साथ: झंडे, फ़ोटो, फ़ैसला (O15);
    v3.6 (19-Nov-2026; v3.6 P-8b: भरपाई-कक्षा और रद्द-गिनती (O14); v3.5 P-7b: कक्षा-पट (O13); v3.4 N-2b: बैनर-नाम माँगना और ACS की जाँच (O12); v3.3 N-1b: बोर्ड और बैनर वाला नाम: पहचान-कार्ड, online कोर्स के कार्ड (O11); v3.2 P-6b: "✉️ संदेश" (बातचीत, भेजना, अभिभावक का email, शिकायत), शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कार्ड से बातचीत, ACS की "🚩 शिकायतें" (O10); v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
@@ -371,9 +371,15 @@ const XF_ITEM = () => ({ sid: "a1b2c3d4e5f6a1b2c3d4e5f6", courseId: "SE022", cou
   startedAt: Date.UTC(2026, 11, 9, 6), endAt: Date.UTC(2026, 11, 9, 7, 30), status: "done", band: "unsure", score: 0.31, photos: 5, gone: false, fq: "open",
   flags: ["start:unsure", "start:nomatch", "start:noface", "start:noref", "start:bad", "start:err", "start:many", "leave", "leave", "many", "back:nomatch", "back:unsure", "back:noface", "back:noref", "back:bad", "back:err", "nostart"],
   review: { by: "u9", desig: "hq_examination", at: Date.UTC(2026, 11, 9, 9), verdict: "bad", note: HU.reason } });
+const XF_WEB_SID = "f0e1d2c3b4a5f0e1d2c3b4a5";   /* (v3.9, E-5b) वेबसाइट से दी गई परीक्षा का मामला */
+const XF_ITEM_WEB = () => Object.assign(XF_ITEM(), { sid: XF_WEB_SID, via: "web", dev: "pc", flags: ["camoff", "leave"], review: null, minor: false });
+const XF_VIEW_WEB = () => ({ ok: true, you: "founder", sid: XF_WEB_SID, courseId: "SE022", regNo: "ACS-ST-2026-123456", name: HU.student, minor: false, guardian: false,
+  startedAt: Date.UTC(2026, 11, 9, 6), endAt: Date.UTC(2026, 11, 9, 7, 30), status: "done", reason: null, app: null, via: "web", dev: "pc", warn: 2, warnMax: 3,
+  events: [{ k: "camoff", at: Date.UTC(2026, 11, 9, 6, 20) }, { k: "camon", at: Date.UTC(2026, 11, 9, 6, 21) }], flags: ["camoff"], tries: 1, ref: "", gone: false, fq: "open", review: null,
+  urlUntil: Date.UTC(2026, 11, 9, 7, 45), photos: [{ k: "start", at: Date.UTC(2026, 11, 9, 6), band: "match", score: 0.71, faces: 1, url: "https://storage.example/w1.jpg" }] });
 const XF_HANDLERS = {
-  examFaceQueue: () => ({ ok: true, you: "founder", items: [XF_ITEM()], more: true }),
-  examFaceView: () => ({ ok: true, you: "founder", sid: "a1b2c3d4e5f6a1b2c3d4e5f6", courseId: "SE022", regNo: "ACS-ST-2026-123456", name: HU.student, minor: true, guardian: true,
+  examFaceQueue: () => ({ ok: true, you: "founder", items: [XF_ITEM(), XF_ITEM_WEB()], more: true }),
+  examFaceView: (d) => d && d.sid === XF_WEB_SID ? XF_VIEW_WEB() : ({ ok: true, you: "founder", sid: "a1b2c3d4e5f6a1b2c3d4e5f6", courseId: "SE022", regNo: "ACS-ST-2026-123456", name: HU.student, minor: true, guardian: true,
     startedAt: Date.UTC(2026, 11, 9, 6), endAt: Date.UTC(2026, 11, 9, 7, 30), status: "done", reason: null, events: [{ k: "screenoff", at: Date.UTC(2026, 11, 9, 6, 20) }],
     flags: ["leave"], tries: 1, ref: "https://storage.example/ref.jpg", gone: false, fq: "open", review: null, urlUntil: Date.UTC(2026, 11, 9, 7, 45),
     photos: [{ k: "start", at: Date.UTC(2026, 11, 9, 6), band: "match", score: 0.71, faces: 1, url: "https://storage.example/1.jpg" },
@@ -441,6 +447,28 @@ const H_HANDLERS = {
 };
 const visText = c => { const b = c.d.body.cloneNode(true); b.querySelectorAll("script,style,noscript,#acsPanelLangBar").forEach(x => x.remove()); return b.textContent; };
 const countOf = (t, v) => t.split(v).length - 1;
+/* (v4.0, E-5b) वेबसाइट की परीक्षा: "परीक्षा शुरू करें" के बाद पहले चेहरे की जाँच का पन्ना आता है।
+   robot के browser में कैमरा नहीं, इसलिए नक़ली कैमरा (हमेशा एक चेहरा) दिया जाता है। असली assets/face-web.js नहीं लदती
+   (exam-session.js पहले से बना window.ACSFaceWeb देखकर उसे नहीं माँगती)। onFace: उस पन्ने पर अपनी जाँच। */
+function fakeFaceWeb(w) {
+  const st = { want: false, cam: "", seen: -1, auto: false, asking: false, ms: 0 };
+  const tell = (k, v) => { try { if (w.__acsFace) w.__acsFace(k, v); } catch (er) {} };
+  return { version: "robot", supported: () => true,
+    open() { st.want = true; setTimeout(() => { st.cam = "ok"; st.seen = 1; tell("cam", "ok"); tell("seen", 1); }, 0); },
+    close() { st.want = false; st.cam = ""; st.seen = -1; }, photo() {}, ack() {}, setAuto(on) { st.auto = !!on; }, state: () => Object.assign({}, st) };
+}
+async function startExamWithFace(e, onFace) {
+  const st = e.d.getElementById("xmStart"); if (!st) return false;
+  e.w.ACSFaceWeb = fakeFaceWeb(e.w);
+  click(e, st);
+  await waitFor(e, () => { const g = e.d.getElementById("xmFaceGo"); return !!g && !g.disabled; }, 4000); await settle(e);
+  const fs0 = e.d.getElementById("xmState"), ok = !!fs0 && fs0.getAttribute("data-st") === "facecheck" && !!e.d.getElementById("xmFaceGo") && !e.d.getElementById("xmFaceGo").disabled;
+  if (onFace) await onFace(ok);
+  if (!ok) return false;
+  click(e, e.d.getElementById("xmFaceGo"));
+  await waitFor(e, () => e.d.querySelector(".xm-q"), 4000); await settle(e); await settle(e);
+  return true;
+}
 async function openH(file, lang, sc, navOnly, moreLs) {   /* navOnly (v1.7): सिर्फ़ ये पैनल खोलो (id की सूची); न हो तो सब */
   const info = pageInfo(file), data = fixture(info, sc || "data"), user = { uid: "u1", email: "ram@example.com" };
   hdataFix(data, info);
@@ -1114,8 +1142,20 @@ async function ocChecks(pages) {
     const dc = c.calls.filter(x => x.name === "examFaceDecide").pop();
     ck("O15 Founder: \"सही है\" से फ़ैसला server को जाता है", !!dc && dc.data.verdict === "ok" && dc.data.sid === "a1b2c3d4e5f6a1b2c3d4e5f6", JSON.stringify(dc));
     c.dom.window.close(); }
+  /* (v3.9, E-5b) वेबसाइट से दी गई परीक्षा: कार्ड पर "वेबसाइट से (माउस वाला कंप्यूटर)", फ़ोटो खोलने पर चेतावनियाँ 2 / 3 और वेबसाइट की घटनाएँ */
+  if (pg("founder")) { const c = await openH(pg("founder"), "hi", "data", ["pnl-xface"]);
+    let t = txt(c, "xfList");
+    ck("O17 Founder: ऐप वाला मामला \"ACS EXAM ऐप से\", वेबसाइट वाला \"वेबसाइट से (माउस वाला कंप्यूटर)\" और झंडा \"वेबसाइट पर कैमरा बंद रहा\"",
+      /📱 ACS EXAM ऐप से/.test(t) && /💻 वेबसाइट से/.test(t) && /\(माउस वाला कंप्यूटर\)/.test(t) && /वेबसाइट पर कैमरा बंद रहा/.test(t), t.slice(0, 300));
+    const vb = c.d.querySelector('#xfList [data-xf="view"][data-id="' + XF_WEB_SID + '"]'); if (vb) { click(c, vb); await settle(c); await settle(c); }
+    t = txt(c, "xfList");
+    ck("O17 Founder: वेबसाइट वाले मामले की फ़ोटो खुलीं: चेतावनियाँ 2 / 3, \"वेबसाइट की घटनाएँ: camoff, camon\"; ऐप वाले की गिनती नहीं",
+      c.calls.some(x => x.name === "examFaceView" && x.data.sid === XF_WEB_SID) && /वेबसाइट पर पन्ना छोड़ने की चेतावनियाँ:\s*2 \/ 3/.test(t) && /वेबसाइट की घटनाएँ:\s*camoff, camon/.test(t)
+      && (t.match(/चेतावनियाँ:/g) || []).length === 1, t.slice(0, 400));
+    c.dom.window.close(); }
   for (const lg of ["en"]) if (pg("founder")) { const c = await openH(pg("founder"), lg, "data", ["pnl-xface"]), q = sel => c.d.querySelector(sel);
     { const vb = q('#xfList [data-xf="view"]'); if (vb) { click(c, vb); await settle(c); await settle(c); } }
+    { const vw = q('#xfList [data-xf="view"][data-id="' + XF_WEB_SID + '"]'); if (vw) { click(c, vw); await settle(c); await settle(c); } }   /* (v3.9) वेबसाइट वाला भी */
     const t = txt(c, "xfList"), L = (clean(t).split(HU.student).join("").split(HU.reason).join("").match(/[\u0900-\u097F]+/g) || []);
     ck("O15 Founder " + lg + ": चेहरे की जाँच का पैनल (झंडे, फ़ोटो, फ़ैसला) में हिंदी शून्य (लिखा पाठ छोड़कर)", t.length > 80 && L.length === 0 && /Face check|Start photo/.test(t), L.slice(0, 8).join(" "));
     c.dom.window.close(); }
@@ -1374,7 +1414,11 @@ async function hdataChecks(pages, all) {
         const eb = e.d.querySelector("[data-exam]");
         if (eb) { click(e, eb); await waitFor(e, () => e.d.getElementById("xmStart"), 4000); await settle(e);
           const top = (e.d.querySelector(".xm-top") || {}).textContent || "";
-          const st = e.d.getElementById("xmStart"); if (st) { click(e, st); await waitFor(e, () => e.d.querySelector(".xm-q"), 4000); await settle(e); await settle(e); }
+          await startExamWithFace(e, async ok => {   /* (v4.0, E-5b) चेहरे की जाँच का पन्ना भी English में */
+            const tx = ((e.d.getElementById("xmState") || {}).textContent || "");
+            const lf = hindiLeaks(e).filter(x => { let y = x.replace(/^\[skip-ज़ोन\] /, ""); UV.forEach(v => { y = y.split(v).join(""); }); return DEV.test(y); });
+            ck("परीक्षा (वेबसाइट) : पहले चेहरे की जाँच का पन्ना, एक चेहरा दिखने पर \"आगे\" का बटन खुलता है", ok && /camera|face/i.test(tx), tx.slice(0, 120));
+            ck("परीक्षा (वेबसाइट) : चेहरे की जाँच का पन्ना English में", ok && lf.length === 0, lf.slice(0, 4).join(" ‖ ")); });
           const q = (e.d.querySelector(".xm-q") || {}).textContent || "", ops = Array.from(e.d.querySelectorAll(".xm-opt span")).map(x => x.textContent), ab = Array.from(e.d.querySelectorAll(".xm-opt i")).map(x => x.textContent).join("");
           ck("परीक्षा : प्रश्न और विकल्प कोर्स की भाषा में, अक्षर-अक्षर वैसे (भाषा-इंजन नहीं छूता)", q.indexOf(HQ[0]) === 0 && ops.join("|") === HQ.slice(1).join("|"), q.slice(0, 80) + " ‖ " + ops.join("|"));
           ck("परीक्षा : विकल्प के अक्षर A B C D, और शीर्ष पर कोर्स का English नाम", ab === "ABCD" && /Motorcycle & Two-Wheeler Repair/.test(top) && !DEV.test(top), ab + " ‖ " + top.slice(0, 90));
@@ -1635,7 +1679,7 @@ async function docChecks(pages) {
     e.dom.window.close(); h.dom.window.close();
   } catch (err) { ck("काग़ज़ (केंद्र) : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
 }
-module.exports = { openNazar, nazarChecks, k1Checks, roopChecks, ocChecks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
+module.exports = { startExamWithFace, fakeFaceWeb, openNazar, nazarChecks, k1Checks, roopChecks, ocChecks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
 if (require.main === module) (async function main() {
   const only = process.argv[2] || "";
   const listPages = () => fs.readdirSync(path.join(ROOT, "dashboard"), { withFileTypes: true }).filter(e => e.isDirectory())
@@ -1706,6 +1750,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.8 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v4.0 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

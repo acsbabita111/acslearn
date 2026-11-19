@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.43.0 · 19-Nov-2026 (खेप E-5, वेबसाइट पर भी कैमरे से चेहरे की जाँच): "📷 परीक्षा में चेहरे की जाँच" पैनल में हर परीक्षा के साथ
+            बताया जाता है कि वह ACS EXAM ऐप से हुई या वेबसाइट से (और किस device से: माउस वाला कंप्यूटर, या फ़ोन/टैबलेट)।
+            वेबसाइट की परीक्षा में पन्ना छोड़ने की चेतावनियों की गिनती, और नया झंडा "वेबसाइट पर कैमरा बंद रहा"। server: exam_server.js v1.5।
    v6.42.0 · 19-Nov-2026 (खेप E-4, प्रमाणपत्र पर फ़ोटो): ऐप की कैमरे वाली परीक्षा से बने नतीजे के प्रमाणपत्र पर विद्यार्थी की एक फ़ोटो
             (QR और हस्ताक्षर के बीच; server: examCertPhoto)। चेहरे की जाँच बाक़ी हो, तो "मेरे कोर्स" में प्रमाणपत्र की जगह "⏳ चेहरे की जाँच बाक़ी";
             "गड़बड़" वाला नतीजा सबसे अच्छे में नहीं गिना जाता। प्रमाणपत्र का order रुके, तो server का साफ़ संदेश।
@@ -215,7 +218,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.42.0";
+const DASH_VER = "v6.43.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -5710,7 +5713,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
 
 /* ═══════════════════════════════════════════════════════════════
    (E-3 · 19-Nov-2026, Founder के चेहरे वाले नियम) pnl-xface: परीक्षा में चेहरे की जाँच।
-   ACS EXAM ऐप की वे कोर्स-परीक्षाएँ जिनमें मशीन ने झंडा उठाया। फ़ैसला इंसान का (Founder, चालू HQ Admin, चालू एग्जामिनेशन Head)।
+   ACS EXAM ऐप की (और v6.43.0 से वेबसाइट की भी) वे कोर्स-परीक्षाएँ जिनमें मशीन ने झंडा उठाया। फ़ैसला इंसान का (Founder, चालू HQ Admin, चालू एग्जामिनेशन Head)।
    server: exam_server.js v1.3 (examFaceQueue, examFaceView, examFaceDecide)। यह टीम का पैनल है: देखने के मोड में नहीं खुलता।
    फ़ोटो की कड़ी 15 मिनट चलती है; पन्ने में कुछ सेव नहीं होता।
    ═══════════════════════════════════════════════════════════════ */
@@ -5726,7 +5729,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
     "start:many":"शुरू में एक से ज़्यादा चेहरे", "leave":"चेहरा कैमरे से हटा", "many":"एक से ज़्यादा चेहरे दिखे",
     "back:nomatch":"लौटा चेहरा मेल नहीं खाता", "back:unsure":"लौटा चेहरा: मेल पर शक", "back:noface":"लौटे चेहरे की फ़ोटो में चेहरा नहीं",
     "back:noref":"लौटे चेहरे की जाँच: रजिस्ट्रेशन फ़ोटो में चेहरा नहीं", "back:bad":"लौटे चेहरे की फ़ोटो नहीं खुली", "back:err":"लौटे चेहरे की जाँच नहीं हो सकी",
-    "nostart":"शुरू की फ़ोटो नहीं आई" };
+    "nostart":"शुरू की फ़ोटो नहीं आई", "camoff":"वेबसाइट पर कैमरा बंद रहा" };   /* (v6.43.0) */
+  function via(x){ if(x.via!=="web") return S("📱 ACS EXAM ऐप से");
+    return S("💻 वेबसाइट से")+(x.dev==="pc"?' '+S("(माउस वाला कंप्यूटर)"):(x.dev==="touch"?' '+S("(फ़ोन या टैबलेट)"):"")); }
   function when(ms){ if(!ms) return "—"; var d=new Date(Number(ms)+5.5*3600000).toISOString(); return d.slice(8,10)+"-"+d.slice(5,7)+"-"+d.slice(0,4)+" "+d.slice(11,16); }
   function band(b, sc){ return S(BAND[b]||"—")+(sc===null||sc===undefined?"":' <span data-i18n-skip>('+Number(sc).toFixed(2)+')</span>'); }
   function flags(L){ var seen={}, out=[]; (L||[]).forEach(function(f){ if(seen[f]) { seen[f]++; return; } seen[f]=1; out.push(f); });
@@ -5751,10 +5756,11 @@ if (MODE==="external" && ALLOWED.length>=1) {
     var h='<div class="app k1row k1card st-'+(open?"review":(x.fq==="ok"?"approved":"returned"))+'"><div class="k1h"><div class="k1ti">'+US(x.name||"—")+'</div><div class="k1sub">'+
       (open?'<span class="chip prov">'+S("⏳ जाँच बाक़ी")+'</span>':(x.fq==="ok"?'<span class="chip appr">'+S("✅ सही है")+'</span>':'<span class="chip canc">'+S("❌ गड़बड़")+'</span>'))+
       (x.minor?' <span class="chip">'+S("18 से कम")+'</span>':'')+'</div></div>'+
-      row("🪪", esc(x.regNo||"—"))+row("📚", CN(x.courseId, x.course||x.courseId||"—"))+row("🕒", when(x.endAt||x.startedAt))+
+      row("🪪", esc(x.regNo||"—"))+row("📚", CN(x.courseId, x.course||x.courseId||"—"))+row("🕒", when(x.endAt||x.startedAt))+row("🧭", via(x))+
       row("📸", S("शुरू की फ़ोटो:")+' '+band(x.band, x.score))+row("🖼️", S("फ़ोटो:")+' <b>'+(x.photos||0)+'</b>')+
       '<div style="margin:8px 0">'+flags(x.flags)+'</div>'+verdict(x.review);
-    if(v) h+=pics(v)+(v.events&&v.events.length?'<div class="note">'+S("ऐप की घटनाएँ:")+' <span data-i18n-skip>'+v.events.map(function(e){ return esc(e.k); }).join(", ")+'</span></div>':'');
+    if(v) h+=pics(v)+(v.via==="web"?'<div class="note">'+S("वेबसाइट पर पन्ना छोड़ने की चेतावनियाँ:")+' <b data-i18n-skip>'+(Number(v.warn)||0)+' / '+(Number(v.warnMax)||3)+'</b></div>':'')+
+      (v.events&&v.events.length?'<div class="note">'+S(v.via==="web"?"वेबसाइट की घटनाएँ:":"ऐप की घटनाएँ:")+' <span data-i18n-skip>'+v.events.map(function(e){ return esc(e.k); }).join(", ")+'</span></div>':'');
     var foot='<button class="abtn k1b ol" data-xf="view"'+id+'>'+S(v?"✖ फ़ोटो छिपाएँ":"📷 फ़ोटो देखें")+'</button> ';
     if(open||XQ&&XQ.you==="founder"){ foot+='<button class="abtn k1b" data-xf="ok"'+id+'>'+S("✅ सही है")+'</button> '+'<button class="abtn k1b ol dg" data-xf="bad"'+id+'>'+S("❌ गड़बड़ (कारण लिखें)")+'</button> '; }
     return h+'<div class="k1foot">'+foot+'</div></div>';
