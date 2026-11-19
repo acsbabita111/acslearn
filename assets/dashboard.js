@@ -1,5 +1,9 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.40.0 · 19-Nov-2026 (खेप E-2, ACS EXAM ऐप का ताला): ऐप में परीक्षा के बीच ऐप बंद होकर दोबारा खुले, या पन्ना दोबारा
+            खुले, तो विद्यार्थी के पैनल खुलते ही परीक्षा का परदा अपने-आप खुलता है (बंद हुई परीक्षा का कारण server तक जाता है,
+            या चलती परीक्षा जारी होती है)। परीक्षा चलते समय 10 मिनट वाला अपने-आप logout नहीं होता (window.__acsExamActive)।
+            परीक्षा का इंजन /assets/exam-session.js v1.3।
    v6.39.0 · 19-Nov-2026 (P-8b, Founder के "अ" वाले फ़ैसले): कक्षा न हो सके तो उसकी भरपाई-कक्षा (शिक्षक की कक्षा-सूची में "🚫 यह कक्षा नहीं हो सकेगी" और
             बिना बताए न हुई कक्षा पर "📅 भरपाई-कक्षा तय करें"); रद्द कक्षाओं की गिनती (बताकर 1, बिना बताए 2; 90 दिन में 3 = निशान, 5 = नए कोर्स पर रोक);
             विद्यार्थी के कार्ड पर भरपाई-कक्षा और न हुई कक्षा; ACS का नया खाना "🚫 रद्द कक्षाएँ" (गिनती शून्य करना, कारण के साथ)।
@@ -205,7 +209,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.39.0";
+const DASH_VER = "v6.40.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -1793,7 +1797,7 @@ async function startSessionWatch(user){
 
 /* ═══ 10-मिनट auto-logout (screen-silent) ═══ */
 let idleT=null;
-function resetIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ if(window.__acsVaniActive){ resetIdle(); return; } alert("10 मिनट से कोई हलचल नहीं — सुरक्षा के लिए logout।"); doLogout(); }, 10*60*1000); }
+function resetIdle(){ clearTimeout(idleT); idleT=setTimeout(()=>{ if(window.__acsVaniActive || window.__acsExamActive){ resetIdle(); return; }   /* (v6.40.0) परीक्षा चलते समय भी नहीं */ alert("10 मिनट से कोई हलचल नहीं — सुरक्षा के लिए logout।"); doLogout(); }, 10*60*1000); }
 function startIdleTimer(){
   ["click","keydown","scroll","touchstart","mousemove"].forEach(ev=>document.addEventListener(ev,resetIdle,{passive:true}));
   resetIdle();
@@ -1828,6 +1832,13 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
   }
 
   window.__acsExtReady = function(reg){
+    /* (v6.40.0, खेप E-2) ACS EXAM ऐप में परीक्षा अधूरी हो (ऐप बंद होकर खुला, या पन्ना दोबारा खुला): परीक्षा का परदा अपने-आप खुले */
+    try{
+      if(window.ACSApp && typeof window.ACSApp.examState==="function"){
+        const xs = JSON.parse(window.ACSApp.examState()||"null");
+        if(xs && xs.cid && (xs.active || xs.pending)) setTimeout(function(){ examOpenNew(xs.cid); }, 400);
+      }
+    }catch(e){}
     try{
       const d = new Date(String(reg.dob||""));
       if(isNaN(d.getTime())) return;

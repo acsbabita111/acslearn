@@ -1,5 +1,5 @@
 /* ============================================================================
-   /assets/exam-session.js : v1.2 (15-Nov-2026; v1.2 पैनल-4ख: प्रश्न/विकल्प भाषा-इंजन से सुरक्षित, विकल्प-अक्षर और कोर्स-नाम English पैनल में English; v1.1 13-Nov-2026)
+   /assets/exam-session.js : v1.3 (19-Nov-2026, खेप E-2: ACS EXAM ऐप का ताला) · v1.2 (15-Nov-2026; v1.2 पैनल-4ख: प्रश्न/विकल्प भाषा-इंजन से सुरक्षित, विकल्प-अक्षर और कोर्स-नाम English पैनल में English; v1.1 13-Nov-2026)
    कोर्स की अंतिम परीक्षा का फ़ोन-इंजन (खेप 2)। dashboard.js इसे तभी लाता है जब विद्यार्थी "परीक्षा दें" दबाता है।
    Founder के नियम (13-Nov-2026): बैज या ₹100 · दिन में 2 परीक्षाएँ · 3 खंड x 40 प्रश्न · हर खंड 20 से 40 मिनट ·
    खंड 1 और 2 के बाद 1 से 5 मिनट का विराम · हर कोर्स में सबसे अच्छा अंक ही दर्ज · कोर्स के 5 हिस्सों का प्रतिशत, 7 दिन तक।
@@ -9,6 +9,12 @@
      और वापसी-नीति का पेज (refund.html) भी अब यही कहता है। 2 घंटे 15 मिनट वाला नियम (Founder की हाँ) द्वार पर लिखा है।
    v1.1 (ऑडिट K2-H01): 40 मिनट की सीमा पक्की है; सीमा के बाद पहुँचा जवाब server नहीं गिनता। इसलिए फ़ोन जवाब बीच-बीच में सहेजता है:
    5 बदलाव होते ही, नहीं तो 20 सेकंड में; आख़िरी मिनट में हर बदलाव के 1 सेकंड बाद; और सीमा से 8 सेकंड पहले एक आख़िरी बार।
+   v1.3 (खेप E-2, Founder के फ़ैसले 19-Nov-2026): ACS EXAM ऐप में परीक्षा पर ताला। ऐप हो (window.ACSApp, lock 1 या नया), तो
+     शुरू करने से पहले फ़ोन दो अनुमतियाँ माँगता है (कॉल रोकना, ऐप पिन करना); server ऐप की चाबी (akey) देता है जो हर माँग के साथ जाती है।
+     ऐप छोड़ा, पिन हटाया, पर्दा बाँटा, कॉल उठाई या फ़ोन बंद होकर ऐप दोबारा खुला: ऐप बताता है (__acsAppEvent), और यह फ़ाइल
+     परीक्षा को उसी कारण के साथ छोड़ देती है। पर्दा बंद होना, कॉल का बजना जैसी बातें सिर्फ़ दर्ज होती हैं (examAppEvent)।
+     वेबसाइट पर (ऐप के बिना) परीक्षा पहले जैसी ही चलती है; ऐप में शुरू हुई परीक्षा वेबसाइट से सिर्फ़ छोड़ी जा सकती है।
+     परीक्षा चलते समय dashboard का 10 मिनट वाला अपने-आप logout रुका रहता है (window.__acsExamActive)।
    खोलना: window.ACS_EXAM.open({ cid, call(name, data), tts, uid, loadRazorpay(), onClose(changed) })
    ============================================================================ */
 (function () {
@@ -20,6 +26,7 @@
   var G = null;          /* द्वार का आख़िरी जवाब */
   var S = null;          /* चलती परीक्षा: { sid, cid, set, qs, ans, idx, deadline, releaseAt, name, pass, rules, dirty, changes, saving, note } */
   var tick = null, skew = 0, busy = false, changed = false;
+  var APP = null, AK = "";   /* (v1.3) ऐप की जानकारी, और इस परीक्षा की ऐप-चाबी */
 
   function esc(s) { return String(s === undefined || s === null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
   function now() { return Date.now() + skew; }
@@ -66,9 +73,10 @@
     if (!ov) { style(); ov = document.createElement("div"); ov.id = "xmOverlay"; ov.className = "xm-ov"; document.body.appendChild(ov); document.body.style.overflow = "hidden"; }
     return ov;
   }
-  function frame(top, body) { stopTick(); try { speechSynthesis.cancel(); } catch (e) {} var ov = box(); ov.innerHTML = '<div class="xm-top">' + top + '</div><div class="xm-wrap">' + body + "</div>"; ov.scrollTop = 0; }
+  function frame(top, body) { stopTick(); try { speechSynthesis.cancel(); } catch (e) {} window.__acsExamActive = !!(S && S.sid) || locked(); var ov = box(); ov.innerHTML = '<div class="xm-top">' + top + '</div><div class="xm-wrap">' + body + "</div>"; ov.scrollTop = 0; }
   function close() {
-    stopTick(); try { speechSynthesis.cancel(); } catch (e) {}
+    if (locked()) return;   /* (v1.3) ऐप के ताले में परीक्षा चलते समय परदा बंद नहीं होता */
+    stopTick(); try { speechSynthesis.cancel(); } catch (e) {} window.__acsExamActive = false;
     var ov = $("xmOverlay"); if (ov) ov.remove(); document.body.style.overflow = "";
     var cb = C && C.onClose, ch = changed; S = null; G = null; changed = false;
     if (cb) { try { cb(ch); } catch (e) {} }
@@ -82,7 +90,78 @@
       (retry ? '<button class="xm-btn blue" id="xmRetry" type="button">🔄 दोबारा कोशिश करें</button>' : "") + '<button class="xm-btn grey" id="xmBack" type="button">← वापस</button></div></div>');
     wireClose(); if (retry) $("xmRetry").onclick = retry; $("xmBack").onclick = function () { gate(); };
   }
-  function wireClose() { var b = $("xmClose"); if (b) b.onclick = function () { if (S && S.qs) save(); close(); }; }
+  function wireClose() { var b = $("xmClose"); if (!b) return; if (locked()) { b.remove(); return; } b.onclick = function () { if (S && S.qs) save(); close(); }; }
+
+  /* ---------- (v1.3, खेप E-2) ACS EXAM ऐप का ताला ---------- */
+  function appInfo() { try { if (window.ACSApp && typeof window.ACSApp.info === "function") { var i = JSON.parse(window.ACSApp.info()); if (i && typeof i === "object") return i; } } catch (e) {} return null; }
+  function appLock() { return !!(APP && Number(APP.lock) >= 1 && typeof window.ACSApp.lockPrepare === "function"); }
+  function appState() { if (!appLock()) return null; try { return JSON.parse(window.ACSApp.examState() || "null"); } catch (e) { return null; } }
+  function locked() { var st = appState(); return !!(st && st.active); }
+  function akey(sid) { if (AK) return AK; var st = appState(); return (st && st.akey && (!sid || st.sid === sid)) ? st.akey : ""; }
+  function K(o) { var k = akey(o.sid); if (k) o.akey = k; return o; }
+  function appOff() { AK = ""; if (appLock()) { try { window.ACSApp.examOff(); } catch (e) {} } }
+  function appPrepare() {
+    return new Promise(function (res, rej) {
+      window.__acsLockCb = function (r) { window.__acsLockCb = null; if (r && r.ok) res(r); else rej(r || {}); };
+      try { window.ACSApp.lockPrepare(); } catch (e) { window.__acsLockCb = null; rej({ step: "app" }); }
+    });
+  }
+  function lockMsg(r) {
+    var st = r && r.step;
+    if (st === "call") return "कॉल रोकने की अनुमति नहीं मिली। ऐप में परीक्षा के लिए यह ज़रूरी है। दोबारा कोशिश करें और फ़ोन पूछे तो ACS EXAM चुनें।";
+    if (st === "pin") return "ऐप पिन नहीं हुआ। फ़ोन पूछे तो पिन करने की हाँ दें। फ़ोन न पूछे, तो फ़ोन की सेटिंग में ऐप पिन करना (App pinning) चालू करें।";
+    if (st === "split") return "पर्दा दो हिस्सों में बँटा है। पूरा पर्दा करके दोबारा कोशिश करें।";
+    return "ऐप का ताला नहीं लगा। दोबारा कोशिश करें।";
+  }
+  function lockCard() {
+    return '<div class="xm-card" id="xmLock"><h2>🔒 ऐप का ताला</h2>' +
+      "<p>परीक्षा शुरू करने से पहले फ़ोन दो बातें पूछेगा।</p>" +
+      "<ul><li>पहली: कॉल पहचानने वाला ऐप। तब ACS EXAM चुनें। इससे परीक्षा के समय अनजान नंबर की कॉल अपने-आप कट जाती है।</li>" +
+      "<li>दूसरी: ऐप पिन करना। तब पिन करने की हाँ दें।</li></ul>" +
+      "<p>परीक्षा के समय सूचनाएँ नहीं दिखेंगी, और पर्दे की फ़ोटो नहीं खिंचेगी।</p>" +
+      '<p><b>परीक्षा के बीच ऐप छोड़ा, पिन हटाया, पर्दा बाँटा, या कॉल उठाई, तो परीक्षा वहीं ख़त्म हो जाएगी।</b></p>' +
+      "<p>तब कोई अंक दर्ज नहीं होगा, और ₹100 का चांस लगा हो तो वह वापस नहीं मिलेगा।</p>" +
+      "<p>पर्दा बंद होने पर परीक्षा नहीं रुकती, सिर्फ़ यह बात दर्ज होती है।</p>" +
+      "<p>शुरू करने से पहले फ़ोन चार्ज कर लें और अलार्म बंद कर दें।</p></div>";
+  }
+  var ABORT_TXT = {
+    left: "परीक्षा के बीच ऐप छोड़ा गया।", unpin: "परीक्षा के बीच ऐप का पिन हटाया गया।", split: "परीक्षा के बीच पर्दा दो हिस्सों में बाँटा गया।",
+    call: "परीक्षा के बीच कॉल उठाई गई।", restart: "परीक्षा के बीच फ़ोन बंद हुआ, या ऐप बंद होकर दोबारा खुला।", nav: "परीक्षा के बीच पन्ना बदल गया।"
+  };
+  /* ऐप ने बताया कि नियम टूटा: परीक्षा उसी कारण के साथ छोड़ी जाती है */
+  function appAbort(reason) {
+    var st = appState(), sid = (st && st.sid) || (S && S.sid) || "";
+    if (!sid || !C) return;
+    var key = AK || (st && st.akey) || "", why = ABORT_TXT[reason] ? reason : "left";
+    stopTick(); busy = true; S = null; AK = "";
+    frame("<b>❌</b>", '<div class="xm-card" id="xmState" data-st="appabort-wait" style="text-align:center">⏳ परीक्षा बंद की जा रही है…</div>');
+    C.call("examFinish", { sid: sid, cancel: true, reason: why, akey: key }).then(done).catch(function (e) {
+      if (codeOf(e) === "gone") return done();
+      busy = false;
+      frame("<b>❌</b>", '<div class="xm-card" id="xmState" data-st="appabort-fail"><h2>📶 server तक बात नहीं पहुँची</h2><p>' + esc(msgOf(e)) + "</p><p>internet चालू करके दोबारा दबाइए।</p>" +
+        '<div class="xm-nav"><button class="xm-btn blue" id="xmRetry" type="button">🔄 दोबारा कोशिश करें</button></div></div>');
+      $("xmRetry").onclick = function () { appAbort(why); };
+    });
+    function done() {
+      busy = false; drop(); changed = true;
+      try { window.ACSApp.abortDone(sid); } catch (e2) {}
+      frame(topBar(G && G.course ? G.course.name : "कोर्स-परीक्षा"), '<div class="xm-card" id="xmState" data-st="appabort" data-why="' + why + '"><h2>❌ परीक्षा ख़त्म हो गई</h2>' +
+        "<p>" + ABORT_TXT[why] + "</p><p>ऐप के नियम के अनुसार परीक्षा वहीं ख़त्म हो गई। कोई अंक दर्ज नहीं हुआ।</p>" +
+        "<p>यह परीक्षा आज की गिनती में गिनी गई है। ₹100 का चांस लगा था, तो वह वापस नहीं मिलेगा।</p>" +
+        '<div class="xm-nav"><button class="xm-btn blue" id="xmDone" type="button">ठीक है, बंद करें</button></div></div>');
+      wireClose(); $("xmDone").onclick = close;
+    }
+  }
+  /* ऐप की घटनाएँ: "abort" = परीक्षा ख़त्म, "flag" = सिर्फ़ दर्ज */
+  window.__acsAppEvent = function (kind, detail) {
+    if (!C) return;
+    if (kind === "abort") { appAbort(String(detail || "")); return; }
+    if (kind !== "flag") return;
+    var st = appState(), sid = (S && S.sid) || (st && st.sid);
+    if (!sid) return;
+    var p = String(detail || "").split(":"), k = p.shift();
+    C.call("examAppEvent", K({ sid: sid, k: k, x: p.join(":") })).catch(function () {});
+  };
 
   /* ---------- द्वार ---------- */
   function partsHtml(parts, n) {
@@ -110,7 +189,9 @@
       "<p>परीक्षा के दौरान server यह रिकॉर्ड रखता है: आपके खाते की पहचान, कोर्स, परीक्षा का रास्ता (बैज या ₹100, और ₹100 का order-नंबर), चुने गए 120 प्रश्नों के नंबर, हर प्रश्न के विकल्पों का क्रम, हर खंड के शुरू और पूरा होने का समय और समय-सीमाएँ, और जाँचे जा चुके हर प्रश्न का अंक। आज आपने कितनी परीक्षाएँ शुरू और पूरी कीं, इसकी गिनती भी रहती है।</p>" +
       "<p>बोलो वाले प्रश्न में आपकी आवाज़ कहीं नहीं जाती। फ़ोन आवाज़ को पाठ में बदलता है, और सिर्फ़ वह पाठ जाँच के लिए server को जाता है। server उसे सेव नहीं करता।</p>" +
       "<p>परीक्षा पूरी होने, छोड़ने या समय निकलने पर यह रिकॉर्ड मिटा दिया जाता है। नतीजे में ये बातें दर्ज रहती हैं: आपका नाम और रजिस्ट्रेशन-नंबर, कोर्स, अंक, प्रतिशत, और पास या फेल। 5 हिस्सों का ब्योरा 7 दिन रहता है।</p>" +
-      "<p>हर कोर्स में सिर्फ़ आपका सबसे अच्छा नतीजा दर्ज रहता है। भुगतान का रिकॉर्ड (जैसे ₹100 का चांस कब और किस परीक्षा में लगा) हिसाब के लिए रहता है।</p></details></div>";
+      "<p>हर कोर्स में सिर्फ़ आपका सबसे अच्छा नतीजा दर्ज रहता है। भुगतान का रिकॉर्ड (जैसे ₹100 का चांस कब और किस परीक्षा में लगा) हिसाब के लिए रहता है।</p>" +
+      "<p>📱 ACS EXAM ऐप से दी गई परीक्षा में server एक छोटा रिकॉर्ड और रखता है: ऐप का संस्करण, फ़ोन के Android का अंक, कॉल रोकने की अनुमति थी या नहीं, और परीक्षा के बीच की घटनाएँ (जैसे पर्दा बंद होना, कॉल का बजना, ऐप छोड़ना)।</p>" +
+      "<p>फ़ोन में पर्दा पढ़ने वाली कोई सेवा (जैसे TalkBack) चालू हो, तो उसका नाम भी दर्ज होता है। आपकी आवाज़ या फ़ोटो इसमें नहीं जाती। यह रिकॉर्ड 30 दिन बाद अपने-आप मिट जाता है।</p></details></div>";
   }
   function bestHtml(b) {
     if (!b) return '<p>इस कोर्स में आपका कोई अंक अभी दर्ज नहीं है।</p>';
@@ -129,26 +210,34 @@
         "<p>पास होने के लिए " + d.course.pass + "% चाहिए।</p>" + rulesHtml(r) + "</div>" +
         '<div class="xm-card"><h2>📊 आपका नतीजा</h2>' + bestHtml(d.best) +
         (d.best ? '<p style="font-size:16px">नियम: हर कोर्स में सबसे अच्छा अंक ही दर्ज रहता है। नई परीक्षा का अंक तभी दर्ज होगा जब वह ' + d.best.pct + "% से ज़्यादा हो। कम या बराबर आए, तो " + d.best.pct + "% ही रहेगा।</p>" : "") + "</div>";
-      var act = "";
-      if (d.open && d.open.courseId === C.cid) {
+      var act = "", st0 = appState(), here = !!(d.open && st0 && st0.sid === d.open.sid && st0.active), lockNote = "";
+      if (d.open && d.open.courseId === C.cid && d.open.via === "app" && !here) {
+        act = "<h2>⏳ आपकी यह परीक्षा ACS EXAM ऐप में चल रही है</h2>" +
+          (appLock() ? "<p>यह परीक्षा इस फ़ोन के ऐप में नहीं चल रही, इसलिए यहाँ आगे नहीं बढ़ सकती। आप इसे छोड़ सकते हैं।</p>"
+            : "<p>इसे उसी फ़ोन के ऐप में ही जारी रखें। यहाँ से यह परीक्षा सिर्फ़ छोड़ी जा सकती है।</p>") +
+          '<div class="xm-nav"><button class="xm-btn line" id="xmAbandon" type="button">❌ परीक्षा छोड़ें</button></div>';
+      } else if (d.open && d.open.courseId === C.cid) {
         act = "<h2>⏳ आपकी यह परीक्षा चल रही है</h2><p>अभी खंड " + d.open.set + " चल रहा है। घड़ी चल रही है।</p>" +
-          '<div class="xm-nav"><button class="xm-btn green" id="xmResume" type="button">▶ जारी रखें</button><button class="xm-btn line" id="xmAbandon" type="button">❌ परीक्षा छोड़ें</button></div>';
+          '<div class="xm-nav"><button class="xm-btn green" id="xmResume" type="button">' + (appLock() && !here ? "🔒 ताला लगाकर जारी रखें" : "▶ जारी रखें") + '</button><button class="xm-btn line" id="xmAbandon" type="button">❌ परीक्षा छोड़ें</button></div>';
       } else if (d.open) {
         act = "<h2>⏳ आपकी एक और परीक्षा चल रही है</h2><p>" + cname(d.open.name, d.open.courseId) + "</p><p>एक समय में एक ही कोर्स-परीक्षा चल सकती है। पहले उसे पूरा कीजिए, या उसे छोड़ दीजिए।</p>" +
           '<div class="xm-nav"><button class="xm-btn line" id="xmAbandon" type="button">❌ वह परीक्षा छोड़ें</button></div>';
       } else if (!q.canStart) {
         act = "<h2>🌙 आज की सीमा पूरी</h2><p>आज की " + r.dailyMax + " परीक्षाएँ हो चुकी हैं। अगली परीक्षा कल रात 12 बजे के बाद दे सकेंगे।</p>";
       } else if (d.mode === "badge") {
-        act = "<h2>✅ आपका बैज सक्रिय है</h2><p>यह परीक्षा आपके लिए मुफ़्त है।</p>" + '<div class="xm-nav"><button class="xm-btn green" id="xmStart" type="button">🚀 परीक्षा शुरू करें</button></div>';
+        act = "<h2>✅ आपका बैज सक्रिय है</h2><p>यह परीक्षा आपके लिए मुफ़्त है।</p>" + '<div class="xm-nav"><button class="xm-btn green" id="xmStart" type="button">' + (appLock() ? "🔒 ताला लगाकर परीक्षा शुरू करें" : "🚀 परीक्षा शुरू करें") + "</button></div>";
+        if (appLock()) lockNote = lockCard();
       } else if (d.mode === "attempt") {
-        act = "<h2>✅ आपके पास ₹100 का एक चांस है</h2><p>परीक्षा शुरू करते ही यह चांस इस्तेमाल हो जाएगा। ₹100 का चांस वापस नहीं होता। सिर्फ़ हमारी तकनीकी ग़लती हो, तो पूरा पैसा वापस मिलता है।</p>" + '<div class="xm-nav"><button class="xm-btn green" id="xmStart" type="button">🚀 परीक्षा शुरू करें</button></div>';
+        act = "<h2>✅ आपके पास ₹100 का एक चांस है</h2><p>परीक्षा शुरू करते ही यह चांस इस्तेमाल हो जाएगा। ₹100 का चांस वापस नहीं होता। सिर्फ़ हमारी तकनीकी ग़लती हो, तो पूरा पैसा वापस मिलता है।</p>" + '<div class="xm-nav"><button class="xm-btn green" id="xmStart" type="button">' + (appLock() ? "🔒 ताला लगाकर परीक्षा शुरू करें" : "🚀 परीक्षा शुरू करें") + "</button></div>";
+        if (appLock()) lockNote = lockCard();
       } else {
         act = "<h2>🔑 परीक्षा के लिए बैज या ₹100</h2><p>विद्यार्थी का गोल्डन बैज या नौकरी-इच्छुक का हरा बैज हो, तो परीक्षा मुफ़्त है।</p><p>बैज न हो, तो ₹100 देकर एक परीक्षा दे सकते हैं। यह चांस भुगतान के बाद 30 दिन तक चलता है, और किसी भी एक परीक्षा में लगता है (किसी कोर्स की परीक्षा या करियर टेस्ट)।</p>" +
           '<div class="xm-nav"><button class="xm-btn gold" id="xmPay" type="button">₹100 देकर एक चांस लें</button></div>' +
           '<p style="font-size:17px;font-weight:700" id="xmRefund">₹100 का चांस वापस नहीं होता। सिर्फ़ हमारी तकनीकी ग़लती हो, तो पूरा पैसा वापस मिलता है।</p>' +
           '<p style="font-size:16px">पूरा नियम: <a href="/refund.html" target="_blank" rel="noopener">वापसी-नीति</a></p>';
       }
-      frame(topBar(d.course.name), h + '<div class="xm-card" id="xmAct">' + act + '<div class="xm-warn" id="xmMsg"></div></div>' + privacyHtml());
+      if (APP && !appLock()) lockNote = '<div class="xm-card" id="xmAppOld"><p>📱 ACS EXAM ऐप का नया रूप आ गया है। उसमें परीक्षा पर ताला लगता है। नया ऐप acslearn.com/exam-app.html से लें।</p></div>';
+      frame(topBar(d.course.name), h + lockNote + '<div class="xm-card" id="xmAct">' + act + '<div class="xm-warn" id="xmMsg"></div></div>' + privacyHtml());
       wireClose();
       if ($("xmStart")) $("xmStart").onclick = start;
       if ($("xmResume")) $("xmResume").onclick = function () { resume(d.open); };
@@ -159,7 +248,7 @@
   function abandon(sid) {
     if (!window.confirm("पक्का छोड़ें? यह परीक्षा दिन की गिनती में गिनी जाएगी, और इसका कोई अंक दर्ज नहीं होगा। ₹100 का चांस लगा हो, तो वह इस्तेमाल हो चुका है और वापस नहीं मिलेगा।")) return;
     busyCard("परीक्षा छोड़ी जा रही है…");
-    C.call("examFinish", { sid: sid, cancel: true }).then(function () { drop(); changed = true; gate(); }).catch(function (e) { if (codeOf(e) === "gone") { drop(); gate(); } else errCard(msgOf(e), gate); });
+    C.call("examFinish", K({ sid: sid, cancel: true, reason: "user" })).then(function () { drop(); changed = true; appOff(); gate(); }).catch(function (e) { if (codeOf(e) === "gone") { drop(); appOff(); gate(); } else errCard(msgOf(e), gate); });
   }
   function pay() {
     if (busy) return; busy = true; var m = $("xmMsg"); if (m) m.textContent = "⏳ भुगतान की तैयारी…";
@@ -188,14 +277,44 @@
     if (countDone(ans) > 0) { S.dirty = true; planSave(1500); }   /* फ़ोन में रखे जवाब (पन्ना बंद होने से पहले के) server पर भी पहुँचा दिए जाते हैं */
   }
   function start() {
-    if (busy) return; busy = true; busyCard("प्रश्न चुने जा रहे हैं…");
-    C.call("examStart", { courseId: C.cid }).then(function (d) { busy = false; changed = true; drop(); adopt(d); })
-      .catch(function (e) { busy = false; var c = codeOf(e); if (c === "open" || c === "limit" || c === "pay") gate(); else errCard(msgOf(e), gate); });
+    if (busy) return; busy = true;
+    if (!appLock()) return startNow(null);
+    busyCard("ऐप का ताला लग रहा है… फ़ोन जो पूछे, उसकी हाँ दें।");
+    appPrepare().then(function (r) { startNow({ v: APP.version, code: APP.code, sdk: APP.sdk, call: !!r.call }); })
+      .catch(function (r) { busy = false; appOff(); errCard(lockMsg(r), start); });
+  }
+  function startNow(app) {
+    busyCard("प्रश्न चुने जा रहे हैं…");
+    C.call("examStart", app ? { courseId: C.cid, app: app } : { courseId: C.cid }).then(function (d) {
+      busy = false; changed = true; drop();
+      if (app) {
+        var on = "bad"; try { on = window.ACSApp.examOn(d.sid, d.courseId || C.cid, d.akey || ""); } catch (e) {}
+        AK = d.akey || "";
+        if (on !== "ok") { S = { sid: d.sid }; appAbort(on === "split" ? "split" : "unpin"); return; }
+      }
+      adopt(d);
+    }).catch(function (e) { busy = false; appOff(); var c = codeOf(e); if (c === "open" || c === "limit" || c === "pay") gate(); else errCard(msgOf(e), gate); });
   }
   function resume(o) {
+    var st = appState();
+    if (appLock() && !(st && st.sid === o.sid && st.active)) {
+      /* वेबसाइट पर शुरू हुई परीक्षा ऐप में: पहले ताला */
+      if (busy) return; busy = true; busyCard("ऐप का ताला लग रहा है… फ़ोन जो पूछे, उसकी हाँ दें।");
+      appPrepare().then(function () {
+        var on = "bad"; try { on = window.ACSApp.examOn(o.sid, o.courseId, ""); } catch (e) {}
+        busy = false;
+        if (on !== "ok") { appOff(); errCard(lockMsg({ step: on === "split" ? "split" : "pin" }), function () { resume(o); }); return; }
+        resumeNow(o);
+      }).catch(function (r) { busy = false; appOff(); errCard(lockMsg(r), function () { resume(o); }); });
+      return;
+    }
+    if (st && st.sid === o.sid) AK = st.akey || "";
+    resumeNow(o);
+  }
+  function resumeNow(o) {
     if (o.done >= o.set && o.set < 3) { S = { sid: o.sid, cid: o.courseId, set: o.set, rules: G.rules, name: G.course.name }; pause(o.doneAt, o.breakFrom); return; }
     busyCard("परीक्षा खोली जा रही है…");
-    C.call("examNext", { sid: o.sid, set: o.set }).then(adopt).catch(function (e) { if (codeOf(e) === "expired" || codeOf(e) === "gone") { drop(); gate(); } else errCard(msgOf(e), gate); });
+    C.call("examNext", K({ sid: o.sid, set: o.set })).then(adopt).catch(function (e) { if (codeOf(e) === "expired" || codeOf(e) === "gone") { drop(); appOff(); gate(); } else errCard(msgOf(e), gate); });
   }
   function isDone(a) { return (typeof a === "number" && a >= 0) || (typeof a === "string" && a.length > 0); }
   function countDone(a) { var n = 0; for (var i = 0; i < a.length; i++) if (isDone(a[i])) n++; return n; }
@@ -271,8 +390,8 @@
   }
   /* जवाब server को भेजना। done=false: सिर्फ़ सहेजना (server उसी समय जाँचकर अंक रख लेता है)। done=true: खंड पूरा करना। */
   function send(done) {
-    return S.set < 3 ? C.call("examNext", { sid: S.sid, set: S.set + 1, answers: S.ans, done: done })
-      : C.call("examFinish", { sid: S.sid, answers: S.ans, done: done });
+    return S.set < 3 ? C.call("examNext", K({ sid: S.sid, set: S.set + 1, answers: S.ans, done: done }))
+      : C.call("examFinish", K({ sid: S.sid, answers: S.ans, done: done }));
   }
   /* ---- बीच-बीच में सहेजना: server उसी समय जाँचकर इस खंड के अंक रख लेता है ---- */
   function setNote(k) { if (!S) return; S.note = k; var e = $("xmSave"); if (e) e.textContent = NOTE[k] || ""; }
@@ -313,12 +432,12 @@
       skew = (d.now || Date.now()) - Date.now();
       if (d.early) return waitMin(d.waitSec);
       if (d.pause) { drop(); return pause(d.doneAt, d.breakFrom); }
-      if (d.cancelled) { drop(); return gate(); }
-      drop(); changed = true; result(d);
+      if (d.cancelled) { drop(); appOff(); return gate(); }
+      drop(); changed = true; appOff(); result(d);
     }).catch(function (e) {
       busy = false; if (S !== st) return;
       var c = codeOf(e);
-      if (c === "expired" || c === "gone") { drop(); changed = true; frame(topBar(S.name || "कोर्स-परीक्षा"), '<div class="xm-card" id="xmState" data-st="expired"><h2>⌛ परीक्षा का समय पूरा हो चुका है</h2><p>यह परीक्षा समय पर पूरी नहीं हुई, इसलिए इसका कोई अंक दर्ज नहीं हुआ। यह दिन की गिनती में गिनी गई है।</p><div class="xm-nav"><button class="xm-btn blue" id="xmBack" type="button">← वापस</button></div></div>'); wireClose(); $("xmBack").onclick = gate; return; }
+      if (c === "expired" || c === "gone") { drop(); changed = true; appOff(); frame(topBar(S.name || "कोर्स-परीक्षा"), '<div class="xm-card" id="xmState" data-st="expired"><h2>⌛ परीक्षा का समय पूरा हो चुका है</h2><p>यह परीक्षा समय पर पूरी नहीं हुई, इसलिए इसका कोई अंक दर्ज नहीं हुआ। यह दिन की गिनती में गिनी गई है।</p><div class="xm-nav"><button class="xm-btn blue" id="xmBack" type="button">← वापस</button></div></div>'); wireClose(); $("xmBack").onclick = gate; return; }
       frame("<b>खंड " + S.set + " / 3</b>", '<div class="xm-card" id="xmState" data-st="sendfail"><h2>📶 खंड जमा नहीं हो पाया</h2><p>' + esc(msgOf(e)) + "</p><p>जो जवाब पहले सहेजे जा चुके हैं, वे server पर सुरक्षित हैं और गिने जाएँगे। internet देखकर दोबारा दबाइए। घड़ी चल रही है।</p>" +
         '<div class="xm-nav"><button class="xm-btn blue" id="xmRetry" type="button">🔄 दोबारा जमा करें</button></div></div>');
       $("xmRetry").onclick = function () { submit(auto); };
@@ -345,10 +464,10 @@
       '<div class="xm-warn" id="xmMsg"></div></div>');
     function go() {
       if (busy) return; busy = true; stopTick(); if ($("xmGo")) $("xmGo").disabled = true;
-      C.call("examNext", { sid: st.sid, set: nextSet }).then(function (d) { busy = false; adopt(d); }).catch(function (e) {
+      C.call("examNext", K({ sid: st.sid, set: nextSet })).then(function (d) { busy = false; adopt(d); }).catch(function (e) {
         busy = false; var c = codeOf(e);
         if (c === "early") { var w = (e.details.waitSec || 5) * 1000; min = now() + w; tick = setInterval(upd, 1000); return; }
-        if (c === "expired" || c === "gone") { drop(); changed = true; gate(); return; }
+        if (c === "expired" || c === "gone") { drop(); changed = true; appOff(); gate(); return; }
         if ($("xmMsg")) $("xmMsg").textContent = msgOf(e) + " दोबारा दबाइए।"; if ($("xmGo")) $("xmGo").disabled = false; tick = setInterval(upd, 1000);
       });
     }
@@ -379,10 +498,13 @@
   }
 
   window.ACS_EXAM = {
-    version: "1.1",
+    version: "1.3",
     open: function (cfg) {
       if (!cfg || !cfg.cid || typeof cfg.call !== "function") return;
-      C = cfg; changed = false; busy = false; box(); gate();
+      C = cfg; changed = false; busy = false; APP = appInfo(); AK = ""; box();
+      var st = appState();
+      if (st && st.pending) { appAbort(st.pending); return; }   /* ऐप पिछली बार परीक्षा के बीच बंद हुआ था: वह परीक्षा पहले बंद होती है */
+      gate();
     }
   };
 })();

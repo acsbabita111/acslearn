@@ -1,5 +1,6 @@
 # ============================================================================
-# ACS EXAM app : GitHub makes the APK itself  v1.0 (batch E-1, 19-Nov-2026)
+# ACS EXAM app : GitHub makes the APK itself  v1.1 (batch E-2, 19-Nov-2026; v1.0 batch E-1)
+# v1.1: the three helper actions moved to their v5 (GitHub warned that v4 runs on the old Node.js 20).
 # When anything in android/ changes (or the Founder presses "Run workflow"), GitHub:
 #   1. builds the app with Gradle (Java 17, Android 14 platform, minimum Android 10),
 #   2. signs it with ACS's own key (the key lives only in GitHub secrets: ACS_EXAM_KS_B64, ACS_EXAM_KS_PASS),
@@ -31,16 +32,16 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Get the code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Java 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
 
       - name: Gradle 8.9
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
         with:
           gradle-version: "8.9"
 
