@@ -1,6 +1,9 @@
 rules_version = '2';
 /* ════════════════════════════════════════════════════════════
-   ACS Firestore Security Rules — v12
+   ACS Firestore Security Rules — v13
+   v13 (19-Nov-2026, P-7): liveBoards — online कोर्स की live कक्षा का पट। पढ़े: उस कोर्स का
+   चालू विद्यार्थी · उस कोर्स का शिक्षक · Founder। लिखे: कोई नहीं (सिर्फ़ server)। office पर यह
+   हिस्सा patch_rules_P7.js से जुड़ता है (बाक़ी नियम-फ़ाइल अछूती)।
    v12 (30-Jul, इंजन-दौर): examAttempts — server-मोड परीक्षा (PJ016/DCA)
    का निजी attempt-रिकॉर्ड (qids+perms सर्वर-निजी, client कभी नहीं पढ़ता
    सीधे — startCourseExam/submitCourseExam callable-functions ही इसे
@@ -42,6 +45,19 @@ rules_version = '2';
    ════════════════════════════════════════════════════════════ */
 service cloud.firestore {
   match /databases/{database}/documents {
+    // ── liveBoards (P7-LIVEBOARD · 19-Nov-2026): online कोर्स की live कक्षा का पट ──
+    //    पढ़े: उस कोर्स का चालू (active) विद्यार्थी · उस कोर्स का शिक्षक · Founder।
+    //    लिखे: कोई नहीं (सिर्फ़ server)। इसमें खाते की पहचान, ACS नंबर, फ़ोन या email नहीं।
+    match /liveBoards/{cid} {
+      allow read: if request.auth != null && (
+        (exists(/databases/$(database)/documents/onlineEnrollments/$(cid + '_' + request.auth.uid))
+          && get(/databases/$(database)/documents/onlineEnrollments/$(cid + '_' + request.auth.uid)).data.status == 'active')
+        || (exists(/databases/$(database)/documents/onlineCourses/$(cid))
+          && get(/databases/$(database)/documents/onlineCourses/$(cid)).data.teacherUid == request.auth.uid)
+        || (exists(/databases/$(database)/documents/teams/$(request.auth.uid))
+          && get(/databases/$(database)/documents/teams/$(request.auth.uid)).data.designation == 'founder'));
+      allow write: if false;
+    }
 
     // ── कौन Founder है? (teams में designation 'founder') ──
     function isFounder() {

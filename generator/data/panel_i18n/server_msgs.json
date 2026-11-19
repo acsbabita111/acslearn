@@ -13,7 +13,7 @@
   "rules_server.js",
   "vani_bhashini.js"
  ],
- "count": 475,
+ "count": 484,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -611,6 +611,13 @@
    ]
   },
   {
+   "hi": "अगला सवाल 5 सेकंड बाद पूछें",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "अधूरी जानकारी",
    "in": [
     "index.js"
@@ -882,6 +889,13 @@
    "from": "office-report"
   },
   {
+   "hi": "इस ACS नंबर का कोई विद्यार्थी इस कोर्स में नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इस ID से login-खाता जुड़ा नहीं है",
    "in": [
     "index.js"
@@ -1137,6 +1151,13 @@
    "from": "office-report"
   },
   {
+   "hi": "इस सवाल का उत्तर दिया जा चुका है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इस सेट का कम से कम समय अभी पूरा नहीं हुआ।",
    "in": [
     "apt_server.js"
@@ -1251,6 +1272,20 @@
   },
   {
    "hi": "कक्षा शुरू होने से पहले की हाज़िरी नहीं लग सकती",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "कक्षा-पट पर सवाल सिर्फ़ इस कोर्स का शिक्षक पूछ सकता है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "कक्षा-पट सिर्फ़ कक्षा के समय खुलता है",
    "in": [
     "class_server.js"
    ],
@@ -1549,6 +1584,13 @@
   },
   {
    "hi": "तारीख़ सही नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "थोड़ा पूरा लिखें",
    "in": [
     "class_server.js"
    ],
@@ -1882,6 +1924,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "फ़ोन, email या कड़ी नहीं लिखी जा सकती",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "फीस (₹) ज़रूरी — 0 भी चलेगा",
@@ -2670,6 +2719,20 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "यह सवाल अब खुला नहीं है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "यह सवाल आपसे नहीं पूछा गया है",
+   "in": [
+    "class_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "यह सिर्फ़ 18 से कम उम्र के विद्यार्थी के लिए है",

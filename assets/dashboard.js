@@ -1,5 +1,7 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.38.0 · 19-Nov-2026 (P-7b, Founder की माँग 17-Nov: "किसी 1 विद्यार्थी से सवाल, बाक़ी सब देखें"): "🎤 कक्षा-पट" (LIVEB): शिक्षक के मंज़ूर कोर्स के कार्ड पर और
+            विद्यार्थी के कार्ड पर कक्षा के समय; हाथ उठाना, एक विद्यार्थी से सवाल, सिर्फ़ उसी का उत्तर, सबको दिखे; listener + 15 सेकंड वाला fallback।
    v6.37.0 · 19-Nov-2026 (N-2b, Founder की सलाह का दूसरा हिस्सा): प्रोफ़ाइल में "🏷️ बैनर का नाम" का डिब्बा (पहले से जुड़ा केंद्र, वर्कशॉप, शिक्षक या उस्ताद नया नाम माँगे;
             ACS की जाँच के बाद ही लगे); ACS के "💻 online कोर्स की जाँच" में नया खाना "🏷️ बैनर-नाम" (मंज़ूर करें या कारण लिखकर लौटाएँ; Founder का "🔧 पुराने नाम ठीक करें")।
    v6.36.0 · 19-Nov-2026 (N-1b, Founder की सलाह "बोर्ड और बैनर वाला नाम"): पहचान-कार्ड पर "🏷️ बैनर का नाम" (केंद्र, वर्कशॉप, शिक्षक, उस्ताद); online कोर्स के कार्डों पर "कक्षा का नाम" (शिक्षक, ACS, विद्यार्थी); पहचान-पत्र (ID कार्ड) पर केंद्र का अपना नाम (org_name) — पहले मालिक का नाम छपता था
@@ -182,7 +184,7 @@ const $ = (id)=>document.getElementById(id);
    यह सिर्फ़ पर्दा है: जो Founder नहीं है, उसे database और server दोनों मना करते हैं (matrix-सुरक्षा नियम)। */
 let VIEW = null;                                   /* { uid, regNo, sample } */
 const VIEW_OWN  = { claimSession:1 };               /* Founder के अपने खाते का काम: ज्यों का त्यों */
-const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1, listOnlineCatalog:1, myOnlineCourses:1, listOnlineLearners:1, listMyThreads:1, openThread:1, myGuardianContact:1, myBannerRequest:1 };
+const VIEW_READ = { listMyClasses:1, classRoster:1, listAttendance:1, myAttendance:1, listWork:1, myWork:1, listNotices:1, myNotices:1, listMyOnlineCourses:1, listOnlineClasses:1, listOnlineCatalog:1, myOnlineCourses:1, listOnlineLearners:1, listMyThreads:1, openThread:1, myGuardianContact:1, myBannerRequest:1, liveBoardState:1, listLiveHands:1 };
 /* पहरा जब तक तय न कर ले कि पन्ना किस रूप में खुला है (अपना खाता, या देखने का मोड), server का कोई काम आगे नहीं जाता:
    वरना पन्ना खुलते ही चलने वाला काम Founder के अपने खाते से चल जाता और दूसरे की नज़र वाले पर्दे पर Founder का data दिखता। */
 let modeKnown; const MODE_READY = new Promise(function(r){ modeKnown=r; });
@@ -200,7 +202,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.37.0";
+const DASH_VER = "v6.38.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -574,6 +576,120 @@ async function bannerBox(reg){
   });
   try{ await load(); }catch(e){ box.innerHTML='<span class="note" style="color:#B71C1C">नहीं खुला: '+esc((e&&e.message)||e)+'</span>'; }
 }
+/* ═══ (v6.38, P-7b) live कक्षा का पट ("🎤 कक्षा-पट") ═══
+   Founder (17-Nov-2026): online कक्षा में शिक्षक किसी 1 विद्यार्थी से सवाल पूछे, और बाक़ी सब विद्यार्थी देखें, चाहे लाखों हों।
+   वीडियो YouTube पर ही; यह उसके साथ का पट है। server: class_server.js v2.5 (liveBoardState, raiseHand, listLiveHands,
+   askLearner, answerLiveTurn, closeLiveTurn)। पट liveBoards/{courseId} से listener से पढ़ा जाता है (हर बदलाव पर हर विद्यार्थी
+   का एक read); listener न चले, तो हर 15 सेकंड server से। Founder के देखने के मोड में सिर्फ़ पढ़ना (server से), कोई बटन नहीं।
+   शिक्षक: हाथ उठाने वाले, ACS नंबर से एक विद्यार्थी को सवाल, "👏 शाबाश" या "✔ बंद करें"। विद्यार्थी: "✋ मुझसे पूछिए",
+   और सवाल उसी से पूछा गया हो, तो उत्तर लिखने का खाना (सिर्फ़ उसी को)। हर हिंदी टुकड़ा अपने <span> में। */
+const LIVEB = (function(){
+  const ST = {};
+  const call = (n, d) => httpsCallable(functions, n)(d).then(r => (r && r.data) || {});
+  const sp = t => '<span>'+t+'</span>';
+  const st = cid => (ST[cid] = ST[cid] || { role:"learner", open:false, res:null, hands:null, inp:{ reg:"", q:"", a:"" }, unsub:null, poll:null, hpoll:null, busy:false, msg:null });
+  function btn(cid, role){ const s=ST[cid];
+    return '<button type="button" class="abtn k1b ol" data-lb="toggle" data-id="'+esc(cid)+'" data-lbrole="'+role+'" aria-expanded="'+(s&&s.open?'true':'false')+'">'+sp(s&&s.open?'✖ कक्षा-पट बंद करें':'🎤 कक्षा-पट')+'</button> '; }
+  function slot(cid){ const s=ST[cid], on=!!(s&&s.open); return '<div id="lbP-'+esc(cid)+'" class="'+(on?'k1pane lbp':'lbp')+'">'+(on?inner(cid):'')+'</div>'; }
+  function paint(cid){ const el=document.getElementById("lbP-"+cid); if(!el) return; const on=!!(ST[cid]&&ST[cid].open);
+    el.className=on?'k1pane lbp':'lbp'; el.innerHTML=on?inner(cid):'';
+    document.querySelectorAll('[data-lb="toggle"][data-id="'+cid+'"]').forEach(b=>{ b.setAttribute("aria-expanded",on?"true":"false"); b.innerHTML=sp(on?'✖ कक्षा-पट बंद करें':'🎤 कक्षा-पट'); }); }
+  function when(ms){ if(!ms) return "—"; const d=new Date(Number(ms)+5.5*3600000).toISOString(); return d.slice(8,10)+"-"+d.slice(5,7)+"-"+d.slice(0,4)+" "+d.slice(11,16); }
+  function turnBox(cid, t){
+    const s=ST[cid], teacher=s.role==="teacher", mine=!teacher&&s.res&&s.res.tok&&t.forTok===s.res.tok, id=' data-id="'+esc(cid)+'" data-t="'+esc(t.id)+'"';
+    let h='<div class="k1call'+(t.status==="answered"?' gn':'')+'"><div class="ct">❓ '+US(t.question)+'</div>'+
+      '<div class="cs">'+sp('सवाल किससे:')+' <b>'+US(t.name)+'</b>'+(mine?' '+sp('(आपसे)'):'')+'</div>'+
+      (t.status==="answered"?'<div class="cs">💬 '+sp('उत्तर:')+' <b>'+US(t.answer)+'</b></div>':'<div class="cs">'+sp('⏳ उत्तर का इंतज़ार है।')+'</div>');
+    if(mine&&t.status==="asked"&&!VIEW) h+='<div class="k9f" style="margin-top:8px"><label>'+sp('उत्तर लिखें (ज़्यादा से ज़्यादा 300 अक्षर)')+'</label>'+
+      '<textarea data-lbin="a" data-id="'+esc(cid)+'" maxlength="300" rows="2">'+esc(s.inp.a)+'</textarea></div>'+
+      '<div class="k1foot"><button type="button" class="abtn k1b ok" data-lb="ans"'+id+'>'+sp('📤 उत्तर भेजें')+'</button></div>';
+    if(teacher&&!VIEW) h+='<div class="k1foot">'+(t.status==="answered"?'<button type="button" class="abtn k1b ok" data-lb="good"'+id+'>'+sp('👏 शाबाश कहकर बंद करें')+'</button> ':'')+
+      '<button type="button" class="abtn k1b ol" data-lb="close"'+id+'>'+sp(t.status==="answered"?'✔ बंद करें':'✔ बंद करें (उत्तर नहीं आया)')+'</button></div>';
+    return h+'</div>';
+  }
+  function inner(cid){
+    const s=ST[cid], r=s.res, teacher=s.role==="teacher";
+    let h='<div class="lbh">'+sp('🎤 कक्षा-पट')+(r&&r.live?' · '+sp('कक्षा')+' '+r.live.n:'')+'</div>'+
+      '<div class="note">'+sp('शिक्षक किसी एक विद्यार्थी से सवाल पूछते हैं। सवाल और उत्तर कक्षा के सब विद्यार्थी देखते हैं।')+'</div>';
+    if(!r) return h+'<div class="note">…</div>'+msgHtml(s);
+    if(!r.live){ const nx=s.hands&&s.hands.next;
+      return h+'<div class="k1call"><div class="ct">'+sp('कक्षा-पट कक्षा के समय ही खुलता है (कक्षा शुरू होने से 15 मिनट पहले से)।')+'</div>'+
+        (nx?'<div class="cs">'+sp('अगली कक्षा:')+' '+sp('कक्षा')+' '+nx.n+' · '+when(nx.startMs)+'</div>':'')+'</div>'+msgHtml(s); }
+    if(teacher){
+      const H=s.hands||{ hands:[], total:0 };
+      h+='<div class="r2" style="margin-top:8px">'+sp('✋ हाथ उठाए:')+' <b>'+(H.total||0)+'</b></div>';
+      (H.hands||[]).slice(0,30).forEach(x=>{ h+='<div class="k1meta"><span class="mi">✋</span><span>'+US(x.name)+' · '+esc(x.regNo)+
+        (VIEW?'':' <button type="button" class="abtn k1b ol" data-lb="pick" data-id="'+esc(cid)+'" data-reg="'+esc(x.regNo)+'">'+sp('❓ इनसे पूछें')+'</button>')+'</span></div>'; });
+      if((H.hands||[]).length>30) h+='<div class="note">'+sp('पहले 30 हाथ दिख रहे हैं।')+'</div>';
+      h+='<div class="k1foot"><button type="button" class="abtn k1b ol" data-lb="hands" data-id="'+esc(cid)+'">'+sp('🔄 हाथ फिर देखें')+'</button></div>';
+      if(!VIEW) h+='<div class="k9grid" style="margin-top:8px"><div class="k9f"><label>'+sp('विद्यार्थी का ACS नंबर')+'</label>'+
+        '<input data-lbin="reg" data-id="'+esc(cid)+'" type="text" maxlength="40" placeholder="ACS-ST-2026-XXXXXX" value="'+esc(s.inp.reg)+'"></div>'+
+        '<div class="k9f k9full"><label>'+sp('सवाल (ज़्यादा से ज़्यादा 300 अक्षर)')+'</label><textarea data-lbin="q" data-id="'+esc(cid)+'" maxlength="300" rows="2">'+esc(s.inp.q)+'</textarea></div></div>'+
+        '<div class="k1foot"><button type="button" class="abtn k1b ok" data-lb="ask" data-id="'+esc(cid)+'">'+sp('📢 सवाल पूछें')+'</button></div>'+
+        '<div class="note">'+sp('किसी भी विद्यार्थी का ACS नंबर "👥 विद्यार्थी-सूची" में मिलता है।')+'</div>';
+    } else if(!VIEW){
+      h+='<div class="k1foot">'+(r.raised?'<button type="button" class="abtn k1b ol" data-lb="down" data-id="'+esc(cid)+'">'+sp('✋ हाथ नीचे करें')+'</button>'+' <span class="chip appr">'+sp('✋ आपका हाथ उठा है')+'</span>'
+        :'<button type="button" class="abtn k1b ok" data-lb="hand" data-id="'+esc(cid)+'">'+sp('✋ मुझसे पूछिए')+'</button>')+'</div>';
+    }
+    const b=r.board||{}, past=b.past||[];
+    if(b.turn) h+=turnBox(cid, b.turn); else h+='<div class="note">'+sp('अभी कोई सवाल खुला नहीं है।')+'</div>';
+    if(past.length) h+='<details class="k1more"><summary>'+sp('इस कक्षा के पहले के सवाल')+' ('+past.length+')</summary><div>'+past.slice().reverse().map(p=>
+      '<div class="lbpast"><div>❓ '+US(p.question)+'</div><div class="cs">👤 '+US(p.name)+' · '+(p.answer?'💬 '+US(p.answer):sp('उत्तर नहीं आया'))+(p.good?' · '+sp('👏 शाबाश'):'')+'</div></div>').join("")+'</div></details>';
+    return h+msgHtml(s);
+  }
+  function msgHtml(s){ return s.msg?'<div class="msg '+(s.msg.ok?'ok':'err')+'">'+(s.msg.html||esc(s.msg.t))+'</div>':''; }
+  function say(cid, ok, t){ st(cid).msg={ ok:ok, html:'<span>'+esc(t)+'</span>' }; paint(cid); }
+  function stop(cid){ const s=ST[cid]; if(!s) return; if(s.unsub){ try{ s.unsub(); }catch(e){} s.unsub=null; } if(s.poll){ clearInterval(s.poll); s.poll=null; } if(s.hpoll){ clearInterval(s.hpoll); s.hpoll=null; } }
+  async function refresh(cid){ const s=st(cid);
+    s.res=await call("liveBoardState",{ courseId:cid });
+    if(s.role==="teacher") s.hands=await call("listLiveHands",{ courseId:cid });
+    paint(cid); }
+  function listen(cid){ const s=st(cid); stop(cid);
+    if(!s.open||!s.res||!s.res.live) return;
+    const poll=()=>{ if(!s.poll) s.poll=setInterval(()=>{ if(!s.open){ stop(cid); return; } refresh(cid).catch(()=>{}); }, 15000); };
+    if(s.role==="teacher"&&!VIEW) s.hpoll=setInterval(()=>{ if(!s.open) return; call("listLiveHands",{ courseId:cid }).then(h=>{ s.hands=h; paint(cid); }).catch(()=>{}); }, 20000);
+    if(VIEW){ poll(); return; }
+    try{ s.unsub=onSnapshot(doc(db,"liveBoards",cid), function(snap){
+        const live=s.res&&s.res.live; if(!live) return;
+        if(Date.now()>live.endMs){ refresh(cid).then(()=>listen(cid)).catch(()=>{}); return; }
+        const d=snap&&snap.exists&&snap.exists()?snap.data():null;
+        s.res.board=(d&&d.classNo===live.n)?{ classNo:d.classNo, turn:d.turn||null, past:d.past||[] }:{ classNo:live.n, turn:null, past:[] };
+        paint(cid); }, function(){ s.unsub=null; poll(); });
+    }catch(e){ s.unsub=null; poll(); }
+  }
+  async function toggle(cid, role){ const s=st(cid); s.role=role;
+    if(s.open){ s.open=false; stop(cid); paint(cid); return; }
+    s.open=true; s.msg=null; s.res=null; paint(cid);
+    try{ await refresh(cid); listen(cid); }catch(e){ say(cid,false,String((e&&e.message)||e)); }
+  }
+  document.addEventListener("input", function(ev){ const t=ev.target; if(!t||!t.getAttribute) return; const k=t.getAttribute("data-lbin"); if(!k) return; st(t.getAttribute("data-id")||"").inp[k]=t.value; });
+  document.addEventListener("click", async function(ev){
+    const b=ev.target&&ev.target.closest?ev.target.closest("[data-lb]"):null; if(!b) return;
+    const act=b.getAttribute("data-lb"), cid=b.getAttribute("data-id")||"", s=st(cid);
+    if(act==="toggle"){ await toggle(cid, b.getAttribute("data-lbrole")||"learner"); return; }
+    if(act==="pick"){ s.inp.reg=b.getAttribute("data-reg")||""; s.msg=null; paint(cid); const q=document.querySelector('#lbP-'+cid+' [data-lbin="q"]'); if(q) q.focus(); return; }
+    if(s.busy) return; s.busy=true; b.disabled=true;
+    try{
+      if(act==="hands"){ s.hands=await call("listLiveHands",{ courseId:cid }); s.msg=null; paint(cid); }
+      else if(act==="hand"||act==="down"){ await call("raiseHand",{ courseId:cid, down:act==="down" }); await refresh(cid); say(cid,true, act==="down"?"हाथ नीचे हो गया।":"✋ आपका हाथ उठ गया। शिक्षक आपसे पूछ सकते हैं।"); }
+      else if(act==="ask"){
+        const reg=String(s.inp.reg||"").trim(), q=String(s.inp.q||"").trim();
+        if(!reg){ say(cid,false,"विद्यार्थी का ACS नंबर लिखें।"); return; }
+        if(q.length<2){ say(cid,false,"सवाल लिखें।"); return; }
+        const r=await call("askLearner",{ courseId:cid, regNo:reg, question:q }); s.inp.q=""; s.inp.reg="";
+        await refresh(cid); s.msg={ ok:true, html:'<span>📢 सवाल पूछा गया:</span> <b>'+US(r.name||"")+'</b>' }; paint(cid); }
+      else if(act==="ans"){
+        const a=String(s.inp.a||"").trim(); if(a.length<2){ say(cid,false,"उत्तर लिखें।"); return; }
+        await call("answerLiveTurn",{ courseId:cid, turnId:b.getAttribute("data-t")||"", answer:a }); s.inp.a="";
+        await refresh(cid); say(cid,true,"✅ आपका उत्तर सबके सामने है।"); }
+      else if(act==="good"||act==="close"){
+        await call("closeLiveTurn",{ courseId:cid, turnId:b.getAttribute("data-t")||"", good:act==="good" });
+        await refresh(cid); say(cid,true, act==="good"?"👏 शाबाश कहकर सवाल बंद हुआ।":"✔ सवाल बंद हुआ।"); }
+    }catch(e){ say(cid,false,String((e&&e.message)||e)); }
+    finally{ s.busy=false; b.disabled=false; }
+  });
+  return { btn:btn, slot:slot, _st:ST };
+})();
 function fillPubCard(name, photoUrl, desigLabel, area, district, state){
   setTxt("pubName",  name || "—");
   setTxt("pubDesig", desigLabel || "—");
@@ -4923,11 +5039,13 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }
     if(st==="approved") foot+=obtn("cls", side==="teacher"?"🎥 कक्षाएँ और कड़ी":"🎥 कक्षाएँ देखें", id+' aria-expanded="'+(OPEN[c.courseId]?'true':'false')+'"');
     if(st==="approved"||st==="cancelled") foot+=obtn("lrn","👥 विद्यार्थी-सूची", id+' aria-expanded="'+(LOPEN[c.courseId]?'true':'false')+'"');
+    if(st==="approved"&&side==="teacher") foot+=LIVEB.btn(c.courseId,"teacher");   /* (v6.38, P-7b) live कक्षा का पट */
     if(st==="approved"&&!VIEW) more+=dbtn("ccl","⛔ कोर्स रद्द करें (पूरी फ़ीस वापस)",id);
     if(foot||more) h+='<div class="k1foot">'+foot+(more?'<details class="k1more"><summary>'+S("⋯ और विकल्प")+'</summary><div>'+more+'</div></details>':'')+'</div>';
     if(side==="teacher"&&OF&&OF.courseId===c.courseId) h+=formHtml();
     if(st==="approved") h+=clsHtml(c.courseId, side);
     if(st==="approved"||st==="cancelled") h+=lrnHtml(c.courseId, side);
+    if(st==="approved"&&side==="teacher") h+=LIVEB.slot(c.courseId);
     return h+'</div>';
   }
 
@@ -5212,7 +5330,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(nx&&nx.state==="open"){
         h+='<div class="k1call gn"><div class="ct">'+S("🔴 कक्षा अभी चालू है:")+' '+S("कक्षा")+' '+nx.n+'</div><div class="olgo">'+
           (LINK[x.courseId] ? '<a class="abtn k1b ok" target="_blank" rel="noopener" href="'+esc(LINK[x.courseId])+'">▶ <span>YouTube पर कक्षा देखें</span></a>'
-                            : pbtn("open","▶ कक्षा खोलें",id+' data-n="'+nx.n+'"'))+'</div></div>';
+                            : pbtn("open","▶ कक्षा खोलें",id+' data-n="'+nx.n+'"'))+LIVEB.btn(x.courseId,"learner")+'</div></div>'+LIVEB.slot(x.courseId);
       } else if(nx){
         h+='<div class="k1call"><div class="ct">'+S("अगली कक्षा:")+' '+S("कक्षा")+' '+nx.n+' · '+S(DAYS[nx.day]||"")+' '+fd(nx.date)+' · '+esc(nx.from)+' - '+esc(nx.to)+'</div>'+
           '<div class="cs">'+S("कक्षा की कड़ी कक्षा से 15 मिनट पहले यहीं खुलेगी।")+'</div></div>';

@@ -610,3 +610,7 @@ a.abtn:not(.hidden){display:inline-block;text-decoration:none;text-align:center}
 .app .vbtn:hover{background:#EAF2FC}
 :where(.panel) :where(select,textarea,input[type="text"],input[type="date"],input[type="number"],input[type="time"],input[type="email"],input[type="tel"],input:not([type])){font-family:inherit;font-size:17px;min-height:48px;padding:9px 12px;border:1.5px solid #9aa9bd;border-radius:12px;background:#fff;color:var(--text);max-width:100%}
 :where(.panel) :where(textarea){width:100%;line-height:1.6}
+/* (v6.38, P-7b) 🎤 कक्षा-पट: live कक्षा में एक विद्यार्थी से सवाल, सब देखें */
+.lbp .lbh{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:4px}
+.lbp .k9f textarea{box-sizing:border-box}
+.lbpast{padding:8px 0;border-top:1px dashed #cfd8e3;font-size:17px;line-height:1.6}

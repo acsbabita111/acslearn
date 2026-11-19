@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v3.4 (19-Nov-2026; v3.4 N-2b: बैनर-नाम माँगना और ACS की जाँच (O12); v3.3 N-1b: बोर्ड और बैनर वाला नाम: पहचान-कार्ड, online कोर्स के कार्ड (O11); v3.2 P-6b: "✉️ संदेश" (बातचीत, भेजना, अभिभावक का email, शिकायत), शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कार्ड से बातचीत, ACS की "🚩 शिकायतें" (O10); v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
+   dev_panel_dash_check.js v3.5 (19-Nov-2026; v3.5 P-7b: कक्षा-पट (O13); v3.4 N-2b: बैनर-नाम माँगना और ACS की जाँच (O12); v3.3 N-1b: बोर्ड और बैनर वाला नाम: पहचान-कार्ड, online कोर्स के कार्ड (O11); v3.2 P-6b: "✉️ संदेश" (बातचीत, भेजना, अभिभावक का email, शिकायत), शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कार्ड से बातचीत, ACS की "🚩 शिकायतें" (O10); v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
    हिंदी पैनल में ये हिंदी में ही; भाषा बदलने पर कड़ियाँ और कार्ड साथ बदलते हैं।
@@ -61,7 +61,7 @@ function installDocKit(w, ctx) {
 }
 function makeFB(data, user) {
   return function (w, ctx) {
-    installDocKit(w, ctx);
+    installDocKit(w, ctx); ctx.fbData = data;   /* (v3.5) जाँच नक़ली data बदल सके (कक्षा-पट का listener) */
     const ref = (coll, id) => ({ __t: "doc", coll, id });
     const snapOf = (coll, id) => { const d = (data[coll] || {})[id]; return { exists: () => !!d, data: () => d, id, ref: { id } }; };
     return {
@@ -78,7 +78,10 @@ function makeFB(data, user) {
           .map(id => ({ id, data: () => all[id], ref: { id } }));
         return Promise.resolve({ docs, empty: !docs.length, size: docs.length, forEach: f => docs.forEach(f) });
       },
-      onSnapshot: (r, cb) => { setTimeout(() => cb(snapOf(r.coll, r.id)), 0); return () => {}; },
+      /* (v3.5, P-7b) listener दर्ज रहते हैं: जाँच data बदलकर ctx.fire(coll, id) से उन्हें फिर चला सकती है; बंद करने पर हटते हैं */
+      onSnapshot: (r, cb, er) => { const rec = { r, cb, er }; ctx.snaps = (ctx.snaps || []).concat([rec]); setTimeout(() => cb(snapOf(r.coll, r.id)), 0);
+        ctx.fire = (coll, id) => (ctx.snaps || []).filter(x => x.r.coll === coll && x.r.id === id).forEach(x => x.cb(snapOf(coll, id))); ctx.fbData = data;
+        return () => { ctx.snaps = (ctx.snaps || []).filter(x => x !== rec); }; },
       getFunctions: () => ({}), httpsCallable: (f, name) => (d => w.__CALL(name, d).then(r => ({ data: r })))
     };
   };
@@ -104,6 +107,7 @@ function fixture(info, sc) {
     /* (v3.3, N-1b) बोर्ड और बैनर वाला नाम: केंद्र और वर्कशॉप का org_name, शिक्षक और उस्ताद का class_name */
     if (role === "center" || role === "workshop") reg.formFields = { org_name: HU.bnr };
     if (role === "teacher" || role === "ustad") reg.formFields = { class_name: HU.cls };
+    data.liveBoards = { oc4: LB_BOARD() };   /* (v3.5, P-7b) listener का पहला दृश्य */
     data.payments = {
       p1: { uid: "u1", purpose: "badge", status: "paid", amount: 30000, rmStatus: "approved", badgeType: role === "student" ? "golden" : "green", badgeRole: role,
         badgeActiveFrom: TS(2026, 11, 2), badgeExpiresAt: TS(2027, 11, 2), createdAt: TS(2026, 11, 2), orderId: "order_A1", tier: "village" },
@@ -258,7 +262,17 @@ const K1AB = (st, days, reply) => ({ abandon: { status: st, reason: HU.hold, rep
 /* (v2.8, P-1b) शिक्षक का paid online कोर्स: चारों हालतें (मसौदा, जाँच में, लौटाया गया, मंज़ूर) */
 const OCC = (id, st, extra) => Object.assign({ courseId: id, mode: "live", title: HU.ocTitle, about: HU.ocAbout, lang: HU.ocLang, classes: 24, days: [1, 3, 5],
   from: "18:00", to: "19:00", minutes: 60, startDate: "2026-12-01", lastDate: "2027-01-29", fee: 500, status: st, returnReason: "", returns: 0 }, extra || {});
+const LB = { name: "सीमा कुमारी", name2: "राजू यादव", q: "पौधे को पानी क्यों चाहिए?", q2: "सूरज किस दिशा से उगता है?", a2: "पूरब से", a: "भोजन बनाने के लिए", newQ: "हवा में कौन-सी गैस ज़्यादा है?" };   /* कक्षा-पट का लिखा पाठ (उपयोगकर्ता का) */
+/* (v3.5) एक ही पट: server का जवाब (liveBoardState) और listener का पहला दृश्य (fixture का liveBoards) एक जैसे, जैसे असल में */
+const LB_BOARD = () => ({ classNo: 3, turn: { id: "t5", classNo: 3, name: LB.name, forTok: "tokME", question: LB.q, answer: "", status: "asked", good: false, askedAtMs: Date.UTC(2026, 11, 9, 12, 40) },
+  past: [{ id: "t4", classNo: 3, name: LB.name2, forTok: "tokX", question: LB.q2, answer: LB.a2, status: "done", good: true }] });
 const OC_HANDLERS = {
+  /* (v3.5, P-7b) कक्षा-पट: कक्षा 3 चालू; एक सवाल खुला (इसी खाते से पूछा गया, token tokME), एक पुराना सवाल "शाबाश" वाला */
+  liveBoardState: () => ({ live: { n: 3, date: "2026-12-09", startMs: Date.UTC(2026, 11, 9, 12, 30), endMs: Date.UTC(2099, 11, 9, 13, 30) }, teacher: false, tok: "tokME", raised: false, board: LB_BOARD() }),
+  listLiveHands: () => ({ live: { n: 3, startMs: Date.UTC(2026, 11, 9, 12, 30), endMs: Date.UTC(2026, 11, 9, 13, 30) }, total: 1, hands: [{ regNo: "ACS-ST-2026-700001", name: LB.name, atMs: Date.UTC(2026, 11, 9, 12, 35) }] }),
+  raiseHand: (d) => ({ ok: true, raised: !(d && d.down) }),
+  askLearner: () => ({ ok: true, turnId: "t6", name: LB.name }),
+  answerLiveTurn: () => ({ ok: true }), closeLiveTurn: () => ({ ok: true }),
   /* (v3.4, N-2b) बैनर-नाम: अपनी माँग (लौटाई हुई, कारण के साथ), ACS की जाँच-सूची, Founder की मरम्मत */
   myBannerRequest: () => ({ banner: HU.bnr, canAsk: true, request: { regNo: "ACS-2026-123456", role: "center", name: HU.bnrNew, old: HU.bnr, status: "rejected", reason: HU.bnrWhy,
     askedAtMs: Date.UTC(2026, 10, 18, 6), decidedAtMs: Date.UTC(2026, 10, 19, 6), watch: false } }),
@@ -913,6 +927,62 @@ async function ocChecks(pages) {
     let L = clean(txt(c, "pnl-ocq")).match(/[ऀ-ॿ]+/g) || [];
     click(c, q('[data-oc="bst"][data-v="rejected"]')); await settle(c); await settle(c); L = L.concat(clean(txt(c, "pnl-ocq")).match(/[ऀ-ॿ]+/g) || []);
     ck("O12 Founder English: \"🏷️ बैनर-नाम\" में हिंदी शून्य", L.length === 0 && /Banner names/.test(txt(c, "pnl-ocq")), L.slice(0, 8).join(" ‖ ")); c.dom.window.close(); }
+  /* (v3.5, P-7b) 🎤 कक्षा-पट: शिक्षक और विद्यार्थी, कक्षा के समय */
+  const LBV = Object.keys(LB).map(k => LB[k]), lbClean = t => { LBV.concat(UV).sort((a, b) => b.length - a.length).forEach(v => { t = t.split(v).join(""); }); return t; };
+  const typ = (c, el, v) => { el.value = v; el.dispatchEvent(new c.w.Event("input", { bubbles: true })); };
+  if (pg("teacher")) { const c = await openH(pg("teacher"), "hi", "data", ["pnl-online"]), q = sel => c.d.querySelector(sel);
+    ck("O13 शिक्षक: मंज़ूर कोर्स पर \"🎤 कक्षा-पट\" का बटन; मसौदा या जाँच वाले पर नहीं", !!q('#ocList .k1card.st-approved [data-lb="toggle"][data-id="oc4"]') && !q('#ocList .k1card.st-draft [data-lb="toggle"]') && !q('#ocList .k1card.st-review [data-lb="toggle"]'));
+    click(c, q('[data-lb="toggle"][data-id="oc4"]')); await settle(c); await settle(c);
+    let t = txt(c, "lbP-oc4");
+    ck("O13 शिक्षक: पट खुला: कक्षा 3, उठे हाथ (नाम और ACS नंबर), सवाल पूछने का खाना, खुला सवाल, पहले के सवाल", c.calls.some(x => x.name === "liveBoardState" && x.data.courseId === "oc4") && c.calls.some(x => x.name === "listLiveHands")
+      && /कक्षा-पट/.test(t) && /कक्षा\s*3/.test(t) && /हाथ उठाए:\s*1/.test(t) && t.indexOf(LB.name) > -1 && /ACS-ST-2026-700001/.test(t) && !!q('#lbP-oc4 [data-lbin="reg"]') && !!q('#lbP-oc4 [data-lbin="q"]')
+      && t.indexOf(LB.q) > -1 && /उत्तर का इंतज़ार/.test(t) && !!q('#lbP-oc4 [data-lb="close"]') && !q('#lbP-oc4 [data-lb="ans"]') && /पहले के सवाल/.test(t) && t.indexOf(LB.a2) > -1 && /शाबाश/.test(t), t.slice(0, 400));
+    ck("O13 शिक्षक: पट listener से पढ़ा जाता है (liveBoards/oc4)", (c.snaps || []).some(x => x.r.coll === "liveBoards" && x.r.id === "oc4"));
+    click(c, q('#lbP-oc4 [data-lb="pick"]')); await settle(c);
+    ck("O13 शिक्षक: \"❓ इनसे पूछें\" से ACS नंबर भर जाता है", q('#lbP-oc4 [data-lbin="reg"]').value === "ACS-ST-2026-700001");
+    click(c, q('#lbP-oc4 [data-lb="ask"]')); await settle(c);
+    ck("O13 शिक्षक: ख़ाली सवाल पर साफ़ संदेश, server को कुछ नहीं", /सवाल लिखें/.test(txt(c, "lbP-oc4")) && !c.calls.some(x => x.name === "askLearner"));
+    typ(c, q('#lbP-oc4 [data-lbin="q"]'), LB.newQ); click(c, q('#lbP-oc4 [data-lb="ask"]')); await settle(c); await settle(c);
+    const ak = c.calls.filter(x => x.name === "askLearner").pop();
+    ck("O13 शिक्षक: सवाल पूछा गया (उसी विद्यार्थी के ACS नंबर से)", !!ak && ak.data.courseId === "oc4" && ak.data.regNo === "ACS-ST-2026-700001" && ak.data.question === LB.newQ && /सवाल पूछा गया/.test(txt(c, "lbP-oc4")), JSON.stringify(ak));
+    c.fbData.liveBoards = { oc4: { classNo: 3, turn: { id: "t6", classNo: 3, name: LB.name, forTok: "tokME", question: LB.newQ, answer: LB.a, status: "answered", good: false }, past: [] } };
+    c.fire("liveBoards", "oc4"); await settle(c); t = txt(c, "lbP-oc4");
+    ck("O13 शिक्षक: listener से उत्तर तुरंत दिखा; \"👏 शाबाश\" का बटन आया", t.indexOf(LB.a) > -1 && !!q('#lbP-oc4 [data-lb="good"]'), t.slice(0, 300));
+    click(c, q('#lbP-oc4 [data-lb="good"]')); await settle(c); await settle(c);
+    const cl = c.calls.filter(x => x.name === "closeLiveTurn").pop();
+    ck("O13 शिक्षक: शाबाश कहकर सवाल बंद", !!cl && cl.data.turnId === "t6" && cl.data.good === true, JSON.stringify(cl));
+    click(c, q('[data-lb="toggle"][data-id="oc4"]')); await settle(c);
+    ck("O13 शिक्षक: पट बंद करने पर listener भी बंद", !(c.snaps || []).some(x => x.r.coll === "liveBoards") && !q('#lbP-oc4 [data-lbin]'));
+    c.dom.window.close(); }
+  if (pg("student")) { const c = await openH(pg("student"), "hi", "data", ["pnl-olearn"]), q = sel => c.d.querySelector(sel);
+    ck("O13 विद्यार्थी: चालू कक्षा वाले कोर्स पर \"🎤 कक्षा-पट\"", !!q('#olMine [data-lb="toggle"][data-id="oc4"]'));
+    click(c, q('#olMine [data-lb="toggle"][data-id="oc4"]')); await settle(c); await settle(c);
+    let t = txt(c, "lbP-oc4");
+    ck("O13 विद्यार्थी: पट पर सवाल \"(आपसे)\", उत्तर लिखने का खाना, हाथ उठाने का बटन; उठे हाथों की सूची नहीं", t.indexOf(LB.q) > -1 && /\(आपसे\)/.test(t) && !!q('#lbP-oc4 [data-lbin="a"]') && !!q('#lbP-oc4 [data-lb="hand"]')
+      && !/हाथ उठाए:/.test(t) && !q('#lbP-oc4 [data-lbin="reg"]') && !c.calls.some(x => x.name === "listLiveHands"), t.slice(0, 300));
+    click(c, q('#lbP-oc4 [data-lb="hand"]')); await settle(c); await settle(c);
+    ck("O13 विद्यार्थी: \"✋ मुझसे पूछिए\"", c.calls.some(x => x.name === "raiseHand" && x.data.courseId === "oc4" && x.data.down === false) && /हाथ उठ गया/.test(txt(c, "lbP-oc4")));
+    typ(c, q('#lbP-oc4 [data-lbin="a"]'), LB.a); click(c, q('#lbP-oc4 [data-lb="ans"]')); await settle(c); await settle(c);
+    const an = c.calls.filter(x => x.name === "answerLiveTurn").pop();
+    ck("O13 विद्यार्थी: उत्तर भेजा (उसी सवाल का)", !!an && an.data.turnId === "t5" && an.data.answer === LB.a && /उत्तर सबके सामने है/.test(txt(c, "lbP-oc4")), JSON.stringify(an));
+    c.dom.window.close(); }
+  if (pg("student")) { const c = await openH(pg("student"), "hi", "data", ["pnl-olearn"]), q = sel => c.d.querySelector(sel);
+    c.handlers.liveBoardState = d => Object.assign(OC_HANDLERS.liveBoardState(d), { tok: "tokOTHER" });
+    click(c, q('#olMine [data-lb="toggle"][data-id="oc4"]')); await settle(c); await settle(c);
+    const t = txt(c, "lbP-oc4");
+    ck("O13 दूसरा विद्यार्थी: वही सवाल दिखता है, पर \"(आपसे)\" नहीं और उत्तर का खाना नहीं", t.indexOf(LB.q) > -1 && !/\(आपसे\)/.test(t) && !q('#lbP-oc4 [data-lbin="a"]'), t.slice(0, 300));
+    c.dom.window.close(); }
+  for (const [who, nav] of [["teacher", "pnl-online"], ["student", "pnl-olearn"]]) if (pg(who)) { const c = await openH(pg(who), "en", "data", [nav]), q = sel => c.d.querySelector(sel);
+    click(c, q('[data-lb="toggle"][data-id="oc4"]')); await settle(c); await settle(c);
+    const t = txt(c, "lbP-oc4"), L = lbClean(clean(t)).match(/[ऀ-ॿ]+/g) || [];
+    ck("O13 " + who + " English: कक्षा-पट में हिंदी शून्य (लिखा पाठ छोड़कर)", t.length > 50 && L.length === 0 && /Class board/.test(t), L.slice(0, 8).join(" ‖ "));
+    c.dom.window.close(); }
+  if (pg("teacher")) { const c = await openNazar(pg("teacher"), "hi", "?nazar=" + NZ_REG), q = sel => c.d.querySelector(sel);
+    const tb = q('[data-lb="toggle"][data-id="oc4"]'); if (tb) { click(c, tb); await settle(c); await settle(c); }
+    const lb = c.calls.filter(x => x.name === "liveBoardState").pop(), t = txt(c, "lbP-oc4");
+    ck("O13 नज़र शिक्षक: कक्षा-पट उसी खाते की नज़र से (viewAs), पर सवाल पूछने, चुनने या बंद करने का बटन नहीं, listener नहीं", !!tb && !!lb && lb.data.viewAs === "uX"
+      && c.calls.some(x => x.name === "listLiveHands" && x.data.viewAs === "uX") && t.indexOf(LB.q) > -1 && !q('#lbP-oc4 [data-lbin]') && !q('#lbP-oc4 [data-lb="pick"]') && !q('#lbP-oc4 [data-lb="close"]')
+      && !(c.snaps || []).some(x => x.r.coll === "liveBoards"), JSON.stringify(lb)); c.dom.window.close(); }
   /* देखने का मोड: शिक्षक की नज़र से सूची पढ़ी जाती है, कोई लिखने वाला काम नहीं */
   if (pg("teacher")) { const c = await openNazar(pg("teacher"), "hi", "?nazar=" + NZ_REG);
     { const cb = c.d.querySelector('#ocList [data-oc="cls"]'); if (cb) { click(c, cb); await settle(c); await settle(c); } }
@@ -946,7 +1016,7 @@ async function openNazar(file, lang, query, opt) {
   const ls = {}; if (lang && lang !== "hi") ls.acs_dash_lang = lang; Object.assign(ls, opt.ls || {});
   const KV = f => (d => Object.assign(f(d), d && d.viewAs !== undefined && !opt.oldServer ? { viewed: true } : {}));
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), query: query || "", ls, expect: (lang && lang !== "hi") ? lang : undefined,
-    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, { listMyOnlineCourses: KV(OC_HANDLERS.listMyOnlineCourses), listOnlineClasses: KV(OC_HANDLERS.listOnlineClasses), listOnlineCatalog: KV(OC_HANDLERS.listOnlineCatalog), myOnlineCourses: KV(OC_HANDLERS.myOnlineCourses), listOnlineLearners: KV(OC_HANDLERS.listOnlineLearners), listMyThreads: KV(OC_HANDLERS.listMyThreads), openThread: KV(OC_HANDLERS.openThread), myGuardianContact: KV(OC_HANDLERS.myGuardianContact), myBannerRequest: KV(OC_HANDLERS.myBannerRequest), listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, { listMyOnlineCourses: KV(OC_HANDLERS.listMyOnlineCourses), listOnlineClasses: KV(OC_HANDLERS.listOnlineClasses), listOnlineCatalog: KV(OC_HANDLERS.listOnlineCatalog), myOnlineCourses: KV(OC_HANDLERS.myOnlineCourses), listOnlineLearners: KV(OC_HANDLERS.listOnlineLearners), listMyThreads: KV(OC_HANDLERS.listMyThreads), openThread: KV(OC_HANDLERS.openThread), myGuardianContact: KV(OC_HANDLERS.myGuardianContact), myBannerRequest: KV(OC_HANDLERS.myBannerRequest), liveBoardState: KV(OC_HANDLERS.liveBoardState), listLiveHands: KV(OC_HANDLERS.listLiveHands), listMyClasses: KV(K1_HANDLERS.listMyClasses), classRoster: KV(K1_HANDLERS.classRoster), listAttendance: KV(K1_HANDLERS.listAttendance), myAttendance: KV(K1_HANDLERS.myAttendance), listWork: KV(K1_HANDLERS.listWork), myWork: KV(K1_HANDLERS.myWork), listNotices: KV(K1_HANDLERS.listNotices), myNotices: KV(K1_HANDLERS.myNotices) }), fb: makeFB(data, user) });
   c.userVals.add(NAME_HI); c.userVals.add(NAME_HI.trim()[0]); c.userVals.add("सीता देवी"); Object.keys(HU).forEach(k => c.userVals.add(HU[k]));   /* उपयोगकर्ता का लिखा हर पाठ */
   await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden") || !c.d.getElementById("denyView").classList.contains("hidden"), 6000);
   await settle(c); await settle(c);
@@ -1056,7 +1126,7 @@ async function roopChecks(pages) {
     click(c, q('[data-roop="bc"][data-v="p"]')); await settle(c);
     ck("R11 टीम का घर: बटन का रंग बदला", c.d.documentElement.style.getPropertyValue("--blue") === "#5E35B1"); c.dom.window.close(); }
 }
-const NZ_OK = { claimSession: 1, myBannerRequest: 1, listMyOnlineCourses: 1, listOnlineClasses: 1, listOnlineCatalog: 1, myOnlineCourses: 1, listOnlineLearners: 1, listMyThreads: 1, openThread: 1, myGuardianContact: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1, listNotices: 1, myNotices: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
+const NZ_OK = { claimSession: 1, myBannerRequest: 1, liveBoardState: 1, listLiveHands: 1, listMyOnlineCourses: 1, listOnlineClasses: 1, listOnlineCatalog: 1, myOnlineCourses: 1, listOnlineLearners: 1, listMyThreads: 1, openThread: 1, myGuardianContact: 1, listMyClasses: 1, classRoster: 1, listAttendance: 1, myAttendance: 1, listWork: 1, myWork: 1, listNotices: 1, myNotices: 1 };   /* देखने के मोड में server तक सिर्फ़ ये जा सकते हैं */
 async function nazarChecks(pages) {
   const has = (c, sel) => !!c.d.querySelector(sel), txt = (c, id) => { const e = c.d.getElementById(id); return e ? e.textContent : ""; };
   const shown = (c, id) => { const e = c.d.getElementById(id); return !!e && !e.classList.contains("hidden"); };
@@ -1493,6 +1563,6 @@ if (require.main === module) (async function main() {
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.4 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v3.5 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();
