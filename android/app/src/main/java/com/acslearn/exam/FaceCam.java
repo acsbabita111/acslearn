@@ -1,5 +1,5 @@
 /* ============================================================================
-   ACS EXAM app : FaceCam.java  v1.0 (batch E-3, 19-Nov-2026)
+   ACS EXAM app : FaceCam.java  v1.1 (batch E-4, 19-Nov-2026: the picture's screen-reader name follows the panel language; v1.0 batch E-3)
    Founder's face rules (19-Nov-2026), only for the course final exam (never the career test):
      - a small face picture is always on the screen during the exam;
      - one photo at the start, then a photo only when the face leaves the camera or comes back;
@@ -103,6 +103,14 @@ public class FaceCam {
     ImageView thumb;
     GradientDrawable ringBg;
     float downX, downY, startTX, startTY;
+
+    /* (E-4) the picture's name for screen readers, in the panel language (Words.java) */
+    String label = "चेहरे का कैमरा";
+    void setLabel(String s) {
+        if (s == null || s.isEmpty()) return;
+        label = s;
+        if (ring != null) ring.setContentDescription(s);
+    }
 
     public FaceCam(Activity act, FrameLayout root, Listener l) {
         this.act = act;
@@ -482,7 +490,7 @@ public class FaceCam {
         ringBg.setStroke(dp(4), C_WAIT);
         ring.setBackground(ringBg);
         ring.setElevation(dp(8));
-        ring.setContentDescription("चेहरे का कैमरा");
+        ring.setContentDescription(label);
         thumb = new ImageView(act);
         thumb.setScaleType(ImageView.ScaleType.CENTER_CROP);
         thumb.setOutlineProvider(new ViewOutlineProvider() {

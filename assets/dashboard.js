@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.42.0 · 19-Nov-2026 (खेप E-4, प्रमाणपत्र पर फ़ोटो): ऐप की कैमरे वाली परीक्षा से बने नतीजे के प्रमाणपत्र पर विद्यार्थी की एक फ़ोटो
+            (QR और हस्ताक्षर के बीच; server: examCertPhoto)। चेहरे की जाँच बाक़ी हो, तो "मेरे कोर्स" में प्रमाणपत्र की जगह "⏳ चेहरे की जाँच बाक़ी";
+            "गड़बड़" वाला नतीजा सबसे अच्छे में नहीं गिना जाता। प्रमाणपत्र का order रुके, तो server का साफ़ संदेश।
    v6.41.0 · 19-Nov-2026 (खेप E-3, परीक्षा में चेहरे की जाँच): Founder, Admin और एग्जामिनेशन Head के घर में नया पैनल
             "📷 परीक्षा में चेहरे की जाँच" (pnl-xface): ACS EXAM ऐप की वे कोर्स-परीक्षाएँ जिनमें मशीन ने झंडा उठाया; फ़ोटो देखना
             (15 मिनट वाली कड़ी) और फ़ैसला "सही है" या "गड़बड़" (कारण के साथ)। server: exam_server.js v1.3। परीक्षा का इंजन अब v1.4।
@@ -212,7 +215,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.41.0";
+const DASH_VER = "v6.42.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -2063,7 +2066,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
         let ex;
         /* (v6.8.0) सबसे अच्छा अंक दिखता है, और परीक्षा दोबारा दी जा सकती है (नया अंक ज़्यादा हो तभी दर्ज होता है) */
         if(res) ex='<span class="lvok">📄 '+res.pct+'%'+(res.pass?' ✅':' ❌')+'</span>'+(canExam?' <button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 ब्योरा / दोबारा दें</button>':'');
-        else if(canExam) ex='<button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें</button>';
+        else if(canExam) ex=(FACE_BAD[m.c.id]?'<span class="lvmut">❌ चेहरे की जाँच में नतीजा रद्द</span> ':'')+'<button class="lvbtn blue" type="button" data-exam="'+esc(m.c.id)+'">🎓 परीक्षा दें</button>';
         else if(bank) ex='<span class="lvmut">🔒 '+bank.minLessons+' पाठ बाद</span>';
         else ex='<span class="lvmut">—</span>';
         let ct;
@@ -2077,6 +2080,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
             if(ci.status==="expired") ct='<span class="lvmut">'+TT('⌛ online जाँच की अवधि '+certDayNum(ci.validUntil)+' को पूरी हुई', '⌛ Online verification period ended on '+certDayNum(ci.validUntil))+'</span> <button class="lvbtn green" type="button" data-certext="'+esc(ci.certNo)+'">'+lbl+'</button>';
             else ct=dl+' <span class="lvmut">'+TT('मान्य: '+certDayNum(ci.validUntil)+' तक', 'Valid until '+certDayNum(ci.validUntil))+'</span> <button class="lvbtn blue" type="button" data-certext="'+esc(ci.certNo)+'">'+lbl+'</button>'; }
         }
+        else if(res && res.pass && res.face==="open") ct='<span class="lvmut">⏳ चेहरे की जाँच बाक़ी</span>';   /* (v6.42.0) जाँच के बाद प्रमाणपत्र */
         else if(res && res.pass) ct='<button class="lvbtn green" type="button" data-cert="'+esc(res.id)+'">📜 लें ₹125</button>';
         else ct='<span class="lvmut">—</span>';
         const go = done ? '<span class="lvok">🏆 पूरा</span>'
@@ -2138,7 +2142,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     }catch(e){ bx.innerHTML='<span class="note" style="color:#B71C1C">केंद्र-सूची नहीं खुली: '+esc((e&&e.message)||e)+'</span>'; }
   }
   /* ── (30-Jul, रास्ता-1) 🎓 परीक्षा → 📄 result → 📜 ₹125 प्रमाणपत्र ── */
-  let EXAM_RES={}, CERT_BY={}, CERT_CRS={}, CERT_INFO={}, CERT_GUARD=null;   /* CERT_GUARD (v6.17.0): प्रमाणपत्र पर छपने वाला नाम {rel,name}; server में एक बार सहेजा हुआ */
+  let EXAM_RES={}, CERT_BY={}, CERT_CRS={}, CERT_INFO={}, CERT_GUARD=null, FACE_BAD={};   /* FACE_BAD (v6.42.0, खेप E-4): चेहरे की जाँच में "गड़बड़" वाला नतीजा (सबसे अच्छे में नहीं गिना जाता) */   /* CERT_GUARD (v6.17.0): प्रमाणपत्र पर छपने वाला नाम {rel,name}; server में एक बार सहेजा हुआ */
   /* (v6.9.0, खेप 3-क) प्रमाणपत्र की तिथियाँ: server "2031-11-12" जैसा रूप देता है */
   const CERT_MHI=["जनवरी","फ़रवरी","मार्च","अप्रैल","मई","जून","जुलाई","अगस्त","सितंबर","अक्टूबर","नवंबर","दिसंबर"];
   const CERT_MEN=["January","February","March","April","May","June","July","August","September","October","November","December"];
@@ -2151,13 +2155,14 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       const g=(cl.data||{}).guardian; CERT_GUARD=(g && CERT_REL_HI[g.rel] && g.name) ? {rel:g.rel, name:String(g.name)} : null; }catch(e){}
   }
   async function loadExamState(){
-    EXAM_RES={}; CERT_BY={}; CERT_CRS={};
+    EXAM_RES={}; CERT_BY={}; CERT_CRS={}; FACE_BAD={};
     try{ const u=auth.currentUser; if(!u) return;
       const rs=await getDocs(query(collection(db,"examResults"), where("uid","==",vu(u))));
       rs.forEach(d=>{ const x=d.data()||{}; const k=x.courseId;
         const t=x.at&&x.at.toMillis?x.at.toMillis():0;
         /* (v6.8.0) हर कोर्स का सबसे अच्छा अंक (पास हो या फेल); बराबर हो तो नया */
         const p=Number(x.pct)||0, o=EXAM_RES[k];
+        if(x.face==="bad"){ FACE_BAD[k]=true; return; }   /* (v6.42.0) "गड़बड़" वाला नतीजा सबसे अच्छा नहीं गिना जाता (server भी यही करता है) */
         if(!o || p>o.pct || (p===o.pct && t>o._t)) EXAM_RES[k]=Object.assign({},x,{_t:t,id:d.id,pct:p}); });
       const cs=await getDocs(query(collection(db,"certificates"), where("uid","==",vu(u))));
       cs.forEach(d=>{ const x=d.data()||{}; CERT_BY[x.resultId]=x; if(x.courseId && !CERT_CRS[x.courseId]) CERT_CRS[x.courseId]=x; });
@@ -2506,7 +2511,9 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
               await loadExamState(); crsMineFill();
             }catch(e2){ alert("verify-त्रुटि: "+((e2&&e2.message)||e2)); cb.disabled=false; } } });
         rz.open();
-      }catch(e){ alert("cert-order त्रुटि: "+((e&&e.message)||e)); cb.disabled=false; } return; }
+      }catch(e){ const fc=e&&e.details&&e.details.code;   /* (v6.42.0) चेहरे की जाँच बाक़ी या गड़बड़: server का साफ़ संदेश, बिना "त्रुटि" */
+        if(fc==="faceHold"||fc==="faceBad"){ alert(String(e.message||"")); await loadExamState(); crsMineFill(); return; }
+        alert("cert-order त्रुटि: "+((e&&e.message)||e)); cb.disabled=false; } return; }
     const db2=ev.target.closest("[data-certdl]");
     if(db2){ const c0=JSON.parse(db2.getAttribute("data-certdl"));
       if(!CERT_INFO[c0.certNo]) await certInfoLoad();
@@ -2518,7 +2525,9 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       /* (v6.17.0, Founder का आदेश 15-Nov-2026) प्रमाणपत्र निकालने से पहले: पिता, माता या अभिभावक में से एक का नाम।
          नाम server में एक ही बार सहेजा जाता है; सहेजा हो तो दोबारा नहीं पूछा जाता। नाम के बिना प्रमाणपत्र नहीं निकलता। */
       if(!CERT_GUARD){ const g=await certGuardAsk(); if(!g) return; }
-      certDraw(Object.assign({},c0,{examOn:ci.examOn,issuedOn:ci.issuedOn,validUntil:ci.validUntil,guardian:CERT_GUARD})); return; }
+      /* (v6.42.0, खेप E-4) ऐप की कैमरे वाली परीक्षा से बना नतीजा हो, तो विद्यार्थी की एक फ़ोटो प्रमाणपत्र पर (server: examCertPhoto)। फ़ोटो न मिले, तो प्रमाणपत्र बिना फ़ोटो के */
+      let photo=null; try{ const ph=await httpsCallable(functions,"examCertPhoto")({certNo:c0.certNo}); const im=(ph.data||{}).img; if(im && /^data:image\/jpeg;base64,/.test(im)) photo=await loadImg(im); }catch(e){}
+      certDraw(Object.assign({},c0,{examOn:ci.examOn,issuedOn:ci.issuedOn,validUntil:ci.validUntil,guardian:CERT_GUARD,photo:photo})); return; }
     const xb=ev.target.closest("[data-certext]");
     if(xb){ const no=xb.getAttribute("data-certext"), ci=CERT_INFO[no]; if(!ci) return;
       const amt=Math.round(ci.extend.due/100), cr=Math.round((ci.extend.credit||0)/100);
@@ -2805,6 +2814,17 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     x.bezierCurveTo(cx+51*scale,y-15*scale, cx+61*scale,y+3*scale, cx+74*scale,y-10*scale);
     x.stroke(); x.restore();
   }
+  /* (v6.42.0, खेप E-4; Founder का नियम "एक फ़ोटो प्रमाणपत्र पर") विद्यार्थी की फ़ोटो: QR और हस्ताक्षर के बीच, सुनहरे फ़्रेम में। फ़ोटो न हो, तो कुछ नहीं बनता */
+  function certPhoto(x, cx, top, img){
+    if(!img) return;
+    const w=124, h=152, L=cx-w/2, iw=img.naturalWidth||img.width||w, ih=img.naturalHeight||img.height||h, sc=Math.max(w/iw, h/ih);
+    x.save();
+    roundRectPath(x, L-7, top-7, w+14, h+14, 10); x.fillStyle="#ffffff"; x.fill();
+    x.strokeStyle="#F9A825"; x.lineWidth=4; x.stroke();
+    roundRectPath(x, L, top, w, h, 6); x.clip();
+    x.drawImage(img, L+(w-iw*sc)/2, top+(h-ih*sc)/2, iw*sc, ih*sc);
+    x.restore();
+  }
   function roundRectPath(x,rx,ry,rw,rh,r){
     x.beginPath(); x.moveTo(rx+r,ry);
     x.arcTo(rx+rw,ry,rx+rw,ry+rh,r); x.arcTo(rx+rw,ry+rh,rx,ry+rh,r);
@@ -2884,6 +2904,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 
     /* QR बायीं तरफ़, हस्ताक्षर और मुहर दायीं तरफ़ */
     const rowY=y, leftX=CX-300, rightX=CX+260;
+    certPhoto(x, CX, rowY, c.photo);   /* (v6.42.0) */
     x.strokeStyle="#0B1F3A22"; x.lineWidth=1.5; x.strokeRect(leftX-72,rowY,144,144);
     try{
       await loadQR();
@@ -3050,6 +3071,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 
     /* QR बायीं तरफ़, हस्ताक्षर और मुहर दायीं तरफ़ */
     const rowY=y, leftX=CX-300, rightX=CX+260;
+    if(!dry) certPhoto(x, CX, rowY, c.photo);   /* (v6.42.0) */
     x.strokeStyle="#0B1F3A22"; x.lineWidth=1.5; x.strokeRect(leftX-72,rowY,144,144);
     if(!dry){
       try{
@@ -3274,6 +3296,7 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
     /* QR बायीं तरफ़, सिर्फ़ FFGPMT का हस्ताक्षर+मुहर दायीं तरफ़ ("प्रधान ट्रस्टी, FFGPMT") */
     const rowY=y;
     const leftX=CX-300, rightX=CX+260;
+    certPhoto(x, CX, rowY, c.photo);   /* (v6.42.0) */
     x.strokeStyle="#0B1F3A22"; x.lineWidth=1.5; x.strokeRect(leftX-72,rowY,144,144);
     try{
       await loadQR();

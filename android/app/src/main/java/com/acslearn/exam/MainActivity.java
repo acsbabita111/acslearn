@@ -1,5 +1,7 @@
 /* ============================================================================
-   ACS EXAM app : MainActivity.java  v1.2 (batch E-3, 19-Nov-2026; v1.1 batch E-2; v1.0 batch E-1)
+   ACS EXAM app : MainActivity.java  v1.3 (batch E-4, 19-Nov-2026; v1.2 batch E-3; v1.1 batch E-2; v1.0 batch E-1)
+   E-4: the app's own few words (Back during the exam, the no-internet page, the face picture's name for screen readers)
+   follow the panel language (Hindi, English, Kannada, Bengali): the page tells it with window.ACSApp.setLang (Words.java).
    Founder's choices (19-Nov-2026): 1-a Android 10 or newer, calls stopped · 2-b face matched by machine (batch E-3) · 3 "ACS EXAM".
    Founder's exam rules: no call comes in or goes out during the exam; no other app can touch the exam;
    leaving the app ends the exam and the Rs 100 chance is not given back.
@@ -103,7 +105,7 @@ public class MainActivity extends Activity {
     static final String HOME = "https://acslearn.com/dashboard/";
     static final String PREF = "acs_exam";
     static final int REQ_FILE = 11, REQ_ROLE = 12, REQ_MIC = 13, REQ_CAM = 14;
-    static final int LOCK_FEATURE = 1, SPEECH_FEATURE = 1, FACE_FEATURE = 1;
+    static final int LOCK_FEATURE = 1, SPEECH_FEATURE = 1, FACE_FEATURE = 1, LANG_FEATURE = 1;
     static final int FACE_PENDING_MAX = 30;
     static final String[] OWN_HOSTS = { "acslearn.com" };
     static final Set<String> SPEECH_ORIGINS = new HashSet<>(Arrays.asList("https://acslearn.com", "https://www.acslearn.com"));
@@ -124,6 +126,9 @@ public class MainActivity extends Activity {
     volatile String lastUrl = HOME, curUrl = HOME;
     String speechJs = "";
     boolean docStart = false;
+
+    /* (E-4) the language of the app's own words: hi, en, kn or bn (set by the page) */
+    String lang() { return prefs == null ? "hi" : Words.norm(prefs.getString("lang", "hi")); }
 
     /* the exam lock */
     SharedPreferences prefs;
@@ -182,6 +187,7 @@ public class MainActivity extends Activity {
         setContentView(root);
         makeWeb();
         cam = new FaceCam(this, root, faceL);
+        cam.setLabel(Words.t(lang(), "cam"));
         try { registerReceiver(screenRx, new IntentFilter(Intent.ACTION_SCREEN_OFF)); } catch (Exception ignore) { }
         ui.postDelayed(this::ensureTts, 1500);   /* voices ready before the first "listen" button */
         if (state != null && web.restoreState(state) != null) return;
@@ -351,7 +357,7 @@ public class MainActivity extends Activity {
         @Override
         public void onReceivedError(WebView v, WebResourceRequest r, WebResourceError e) {
             if (!r.isForMainFrame()) return;
-            v.loadDataWithBaseURL(null, OFFLINE, "text/html", "utf-8", null);
+            v.loadDataWithBaseURL(null, Words.offline(lang()), "text/html", "utf-8", null);
         }
 
         /* the page's engine stopped (a phone with little memory). A new page opens; an exam in progress is kept and resumes */
@@ -664,7 +670,7 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        if (examOn) { Toast.makeText(this, "परीक्षा के बीच पीछे नहीं जा सकते", Toast.LENGTH_SHORT).show(); return; }
+        if (examOn) { Toast.makeText(this, Words.t(lang(), "back"), Toast.LENGTH_SHORT).show(); return; }
         if (web != null && web.canGoBack()) web.goBack();
         else super.onBackPressed();
     }
@@ -895,7 +901,18 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public String info() {
             return "{\"app\":\"ACS EXAM\",\"version\":\"" + BuildConfig.VERSION_NAME + "\",\"code\":" + BuildConfig.VERSION_CODE
-                + ",\"sdk\":" + Build.VERSION.SDK_INT + ",\"lock\":" + LOCK_FEATURE + ",\"speech\":" + SPEECH_FEATURE + ",\"face\":" + FACE_FEATURE + "}";
+                + ",\"sdk\":" + Build.VERSION.SDK_INT + ",\"lock\":" + LOCK_FEATURE + ",\"speech\":" + SPEECH_FEATURE + ",\"face\":" + FACE_FEATURE
+                + ",\"lang\":\"" + lang() + "\"}";
+        }
+
+        /* (E-4) the panel language, so that the app's own words follow it */
+        @JavascriptInterface
+        public void setLang(String code) {
+            if (!ownPage()) return;
+            final String l = Words.norm(code);
+            if (l.equals(lang())) return;
+            prefs.edit().putString("lang", l).apply();
+            runOnUiThread(() -> { if (cam != null) cam.setLabel(Words.t(l, "cam")); });
         }
 
         @JavascriptInterface
@@ -1059,12 +1076,5 @@ public class MainActivity extends Activity {
         }
     }
 
-    static final String OFFLINE =
-        "<!doctype html><html lang='hi'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>"
-        + "<style>body{margin:0;font-family:sans-serif;background:#F5F7FA;color:#0B1F3A;display:flex;min-height:100vh;align-items:center;justify-content:center}"
-        + ".b{max-width:420px;margin:20px;background:#fff;border-radius:16px;padding:24px;text-align:center;box-shadow:0 6px 18px rgba(11,31,58,.15)}"
-        + "h1{font-size:22px;margin:0 0 10px}p{font-size:18px;line-height:1.6;margin:8px 0}"
-        + "button{margin-top:14px;background:#1565C0;color:#fff;border:0;border-radius:12px;font-size:19px;font-weight:700;padding:14px 22px}</style></head>"
-        + "<body><div class='b'><h1>📶 इंटरनेट नहीं मिला</h1><p>इंटरनेट चालू करें।</p><p>फिर नीचे का बटन दबाएँ।</p>"
-        + "<button onclick='ACSApp.retry()'>🔄 फिर से कोशिश करें</button></div></body></html>";
+    /* (E-4) the no-internet page is made by Words.offline(lang) */
 }

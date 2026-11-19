@@ -1,5 +1,5 @@
 /* ════════════════════════════════════════════════════════════
-   panel_i18n.js v1.8 · 16-Nov-2026 · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख, कन्नड़ क-1, कन्नड़ क-3)
+   panel_i18n.js v1.8 · 16-Nov-2026 (+ 19-Nov-2026 खेप E-4: भाषा बदलते ही ACS EXAM ऐप को बताया जाता है, ACSApp.setLang) · पैनल का साझा भाषा-इंजन (पैनल-1, पैनल-1ख, पैनल-2, पैनल-3, पैनल-4, पैनल-4ख, कन्नड़ क-1, कन्नड़ क-3)
    • (v1.8, कन्नड़ क-3) data के नाम उस भाषा में: पैक की नाम-तालिका "N" (English नाम → उस भाषा का नाम) और साँचे "NT"
      (जैसे "Certificate in Spoken {भाषा}")। data-tr-en वाला नाम तालिका में मिले, तो वही दिखता है; न मिले, तो पहले जैसा English।
      नया रास्ता: ACS_PANEL_I18N.name(English नाम) (प्रमाणपत्र जैसे काग़ज़ों के लिए)। English और हिंदी में कुछ नहीं बदला।
@@ -365,6 +365,9 @@ function sortAll(on){
 }
 function emit(){ try{ var ev; if(typeof CustomEvent==="function") ev=new CustomEvent("acs-panel-lang",{detail:{lang:CUR}});
   else { ev=document.createEvent("CustomEvent"); ev.initCustomEvent("acs-panel-lang",false,false,{lang:CUR}); } document.dispatchEvent(ev); }catch(e){} }
+/* (19-Nov-2026, खेप E-4) ACS EXAM ऐप के भीतर: ऐप के अपने कुछ शब्द (पीछे का बटन, इंटरनेट न होने का पन्ना) इसी भाषा में दिखें */
+function appLang(){ try{ if(window.ACSApp && typeof window.ACSApp.setLang==="function") window.ACSApp.setLang(String(CUR)); }catch(e){} }
+document.addEventListener("acs-panel-lang", appLang);
 var TITLE0=null;
 function activate(){
   if(!D||!document.body) return;
@@ -457,7 +460,7 @@ if(START!=="hi"){
     (document.head||document.documentElement).appendChild(st); }catch(e){}
   setTimeout(unwait, 4000);   /* पैक देर करे तो भी पन्ना 4 सेकंड में दिखे (हिंदी में) */
 }
-function boot(){ bar(); if(START!=="hi") useLang(START); }
+function boot(){ bar(); if(START!=="hi") useLang(START); else appLang(); }
 if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",boot); else boot();
 
 window.ACS_PANEL_I18N={ version:VER, lang:function(){ return CUR; }, langs:LANGS, has:known, set:set, tr:function(t){ return tr(String(t)); },

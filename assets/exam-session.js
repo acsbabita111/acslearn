@@ -1,5 +1,5 @@
 /* ============================================================================
-   /assets/exam-session.js : v1.4 (19-Nov-2026, खेप E-3: ऐप में चेहरे की जाँच) · v1.3 (19-Nov-2026, खेप E-2: ACS EXAM ऐप का ताला) · v1.2 (15-Nov-2026; v1.2 पैनल-4ख: प्रश्न/विकल्प भाषा-इंजन से सुरक्षित, विकल्प-अक्षर और कोर्स-नाम English पैनल में English; v1.1 13-Nov-2026)
+   /assets/exam-session.js : v1.5 (19-Nov-2026, खेप E-4: वेबसाइट पर 3 चेतावनी, प्रमाणपत्र जाँच के बाद) · v1.4 (19-Nov-2026, खेप E-3: ऐप में चेहरे की जाँच) · v1.3 (19-Nov-2026, खेप E-2: ACS EXAM ऐप का ताला) · v1.2 (15-Nov-2026; v1.2 पैनल-4ख: प्रश्न/विकल्प भाषा-इंजन से सुरक्षित, विकल्प-अक्षर और कोर्स-नाम English पैनल में English; v1.1 13-Nov-2026)
    कोर्स की अंतिम परीक्षा का फ़ोन-इंजन (खेप 2)। dashboard.js इसे तभी लाता है जब विद्यार्थी "परीक्षा दें" दबाता है।
    Founder के नियम (13-Nov-2026): बैज या ₹100 · दिन में 2 परीक्षाएँ · 3 खंड x 40 प्रश्न · हर खंड 20 से 40 मिनट ·
    खंड 1 और 2 के बाद 1 से 5 मिनट का विराम · हर कोर्स में सबसे अच्छा अंक ही दर्ज · कोर्स के 5 हिस्सों का प्रतिशत, 7 दिन तक।
@@ -20,6 +20,11 @@
      18 से कम उम्र (द्वार बताता है: minor) पर अभिभावक की सहमति वाला ✓ ज़रूरी। परीक्षा शुरू होते ही शुरू की फ़ोटो;
      फिर ऐप ख़ुद फ़ोटो देता है (चेहरा हटा, लौटा, या एक से ज़्यादा चेहरे)। यह फ़ाइल हर फ़ोटो server (examFace) को भेजती है,
      और पहुँचने पर ऐप को बताती है (faceAck)। internet न हो, तो फ़ोटो रुककर दोबारा जाती है। परीक्षा कभी नहीं रुकती।
+   v1.5 (खेप E-4, Founder का फ़ैसला 13 और E-3 के चुने नियम "अ"): वेबसाइट पर (ऐप के ताले के बिना) खंड चलते समय पन्ना छोड़ा
+     (दूसरा ऐप, दूसरा पन्ना, पर्दा बंद), तो लौटते ही server (examWebWarn) को बताया जाता है और चेतावनी दिखती है। 3 चेतावनी तक
+     परीक्षा चलती है; चौथी बार परीक्षा वहीं ख़त्म (server बंद करता है)। विराम में और खंड शुरू होने से पहले यह नहीं गिना जाता।
+     ऐप में चेहरे की जाँच में झंडा उठा हो, तो नतीजे पर "जाँच बाक़ी" दिखता है: प्रमाणपत्र जाँच के बाद मिलता है।
+     Android 10 या नए फ़ोन पर वेबसाइट से खुलने पर ACS EXAM ऐप की सलाह दिखती है।
    खोलना: window.ACS_EXAM.open({ cid, call(name, data), tts, uid, loadRazorpay(), onClose(changed) })
    ============================================================================ */
 (function () {
@@ -75,8 +80,13 @@
       ".xm-chk{display:flex;gap:10px;align-items:flex-start;font-size:18px;font-weight:700;margin:12px 0 4px;cursor:pointer}.xm-chk input{width:24px;height:24px;flex:0 0 24px;margin-top:3px}" +
       ".xm-fst{font-size:19px;font-weight:800;padding:12px;border-radius:12px;background:#F5F7FA;margin:12px 0}.xm-fst.ok{background:#E4F2E5;color:#1B5E20}.xm-fst.bad{background:#FDECEA;color:#B71C1C}" +
       ".xm-fnote{position:fixed;left:10px;right:96px;bottom:14px;z-index:10000;background:#0B1F3A;color:#fff;border:2px solid #F9A825;border-radius:12px;padding:10px 12px;font-size:17px;line-height:1.5;display:none}";
+    st.textContent += WW_CSS;   /* (v1.5) */
     document.head.appendChild(st);
   }
+  /* (v1.5) वेबसाइट की चेतावनी का डिब्बा: परीक्षा के परदे के ऊपर */
+  var WW_CSS = ".xm-ww{position:fixed;inset:0;z-index:2147483000;background:rgba(11,31,58,.55);display:flex;align-items:center;justify-content:center;padding:16px}" +
+    ".xm-wwc{background:#fff;border-radius:16px;padding:20px;max-width:440px;width:100%;border-top:8px solid #B71C1C;box-shadow:0 10px 30px rgba(0,0,0,.25);color:#0B1F3A;font-size:18px;line-height:1.6}" +
+    ".xm-wwc h2{margin:0 0 8px;color:#B71C1C;font-size:22px}.xm-wwc p{margin:8px 0}.xm-wwc .xm-btn{width:100%;margin-top:10px}";
   function box() {
     var ov = $("xmOverlay");
     if (!ov) { style(); ov = document.createElement("div"); ov.id = "xmOverlay"; ov.className = "xm-ov"; document.body.appendChild(ov); document.body.style.overflow = "hidden"; }
@@ -303,6 +313,7 @@
     if (b.parts) h += partsHtml(b.parts, b.partsN) + (b.certNo ? "" : '<p style="font-size:16px">यह ब्योरा ' + new Date(b.detailUntil).toLocaleDateString("hi-IN") + " तक दिखेगा। उसके बाद सिर्फ़ अंक दिखेगा।" + (b.pass ? " ₹125 का प्रमाणपत्र लेने पर ब्योरा नहीं मिटता।" : "") + "</p>");
     else h += '<p style="font-size:16px">5 हिस्सों वाला ब्योरा 7 दिन तक ही दिखता है।</p>';
     if (b.certNo) h += "<p>📜 इस नतीजे पर प्रमाणपत्र लिया जा चुका है: " + esc(b.certNo) + "</p>";
+    else if (b.pass && b.face === "open") h += '<p id="xmFaceHold">⏳ इस परीक्षा में चेहरे की जाँच अभी बाक़ी है। जाँच पूरी होने के बाद प्रमाणपत्र ले सकेंगे।</p>';   /* (v1.5) */
     else if (b.pass) h += '<p>📜 प्रमाणपत्र ₹125 में मिलता है। उसे "मेरे कोर्स" की तालिका से लीजिए।</p>';
     return h;
   }
@@ -322,6 +333,7 @@
           '<div class="xm-nav"><button class="xm-btn line" id="xmAbandon" type="button">❌ परीक्षा छोड़ें</button></div>';
       } else if (d.open && d.open.courseId === C.cid) {
         act = "<h2>⏳ आपकी यह परीक्षा चल रही है</h2><p>अभी खंड " + d.open.set + " चल रहा है। घड़ी चल रही है।</p>" +
+          (d.open.via === "web" && d.open.warn > 0 ? '<p id="xmWarnCount"><span>अब तक मिली चेतावनी:</span> <b data-i18n-skip>' + d.open.warn + " / " + (d.open.warnMax || 3) + "</b></p>" : "") +   /* (v1.5) */
           '<div class="xm-nav"><button class="xm-btn green" id="xmResume" type="button">' + (appLock() && !here ? "🔒 ताला लगाकर जारी रखें" : "▶ जारी रखें") + '</button><button class="xm-btn line" id="xmAbandon" type="button">❌ परीक्षा छोड़ें</button></div>';
       } else if (d.open) {
         act = "<h2>⏳ आपकी एक और परीक्षा चल रही है</h2><p>" + cname(d.open.name, d.open.courseId) + "</p><p>एक समय में एक ही कोर्स-परीक्षा चल सकती है। पहले उसे पूरा कीजिए, या उसे छोड़ दीजिए।</p>" +
@@ -341,7 +353,8 @@
           '<p style="font-size:16px">पूरा नियम: <a href="/refund.html" target="_blank" rel="noopener">वापसी-नीति</a></p>';
       }
       if (APP && !appLock()) lockNote = '<div class="xm-card" id="xmAppOld"><p>📱 ACS EXAM ऐप का नया रूप आ गया है। उसमें परीक्षा पर ताला लगता है। नया ऐप acslearn.com/exam-app.html से लें।</p></div>';
-      else if (appLock() && !faceApp()) lockNote += '<div class="xm-card" id="xmAppOld"><p>📷 ACS EXAM ऐप का नया रूप आ गया है। उसमें परीक्षा के समय चेहरे की जाँच होती है। नया ऐप acslearn.com/exam-app.html से लें।</p></div>';
+      if (!appLock()) lockNote += webRuleHtml();   /* (v1.5) वेबसाइट पर: 3 चेतावनी का नियम, और Android 10 या नए फ़ोन पर ऐप की सलाह */
+      if (appLock() && !faceApp()) lockNote += '<div class="xm-card" id="xmAppOld"><p>📷 ACS EXAM ऐप का नया रूप आ गया है। उसमें परीक्षा के समय चेहरे की जाँच होती है। नया ऐप acslearn.com/exam-app.html से लें।</p></div>';
       frame(topBar(d.course.name), h + lockNote + '<div class="xm-card" id="xmAct">' + act + '<div class="xm-warn" id="xmMsg"></div></div>' + privacyHtml());
       wireClose();
       if ($("xmStart")) $("xmStart").onclick = start;
@@ -349,6 +362,61 @@
       if ($("xmAbandon")) $("xmAbandon").onclick = function () { abandon(d.open.sid); };
       if ($("xmPay")) $("xmPay").onclick = pay;
     }).catch(function (e) { errCard(msgOf(e), gate); });
+  }
+  /* ---------- (v1.5) वेबसाइट की परीक्षा: खंड चलते समय पन्ना छोड़ा, तो चेतावनी (Founder का फ़ैसला 13) ----------
+     3 चेतावनी तक परीक्षा चलती है; चौथी बार server परीक्षा बंद कर देता है। ऐप के ताले में यह नहीं गिना जाता (वहाँ ऐप छोड़ना = परीक्षा ख़त्म)। */
+  var WW = { on: false, away: 0, busy: false };
+  function isAndroid() { return /Android/i.test(String((navigator && navigator.userAgent) || "")); }
+  function webRuleHtml() {
+    return '<div class="xm-card" id="xmWebRule"><h2>⚠️ वेबसाइट पर परीक्षा का नियम</h2>' +
+      "<p>खंड चलते समय परीक्षा का पन्ना छोड़ा (दूसरा ऐप, दूसरा पन्ना, या पर्दा बंद), तो चेतावनी मिलेगी।</p>" +
+      "<p>3 चेतावनी तक परीक्षा चलती है। चौथी बार पन्ना छोड़ने पर परीक्षा वहीं ख़त्म हो जाती है: कोई अंक दर्ज नहीं होता, और ₹100 का चांस वापस नहीं होता।</p>" +
+      "<p>विराम के समय पन्ना छोड़ना नहीं गिना जाता।</p>" +
+      (isAndroid() && !APP ? '<p id="xmAppTip">📱 आपका फ़ोन Android 10 या नया है, तो परीक्षा ACS EXAM ऐप से दें। ऐप में परीक्षा पर ताला लगता है। <a href="/exam-app.html" target="_blank" rel="noopener">ACS EXAM ऐप लें</a></p>' : "") +
+      "</div>";
+  }
+  function webExam() {   /* सिर्फ़ खंड चलते समय (प्रश्न का परदा, या कम से कम समय का इंतज़ार); विराम में नहीं */
+    var e = $("xmState"), st = e ? e.getAttribute("data-st") : "";
+    return !!(S && S.sid && S.qs) && (st === "run" || st === "wait") && !locked();
+  }
+  function wwClose() { var w = document.getElementById("xmWebWarn"); if (w && w.parentNode) w.parentNode.removeChild(w); }
+  function wwShow(n, max) {
+    wwClose();
+    var w = document.createElement("div"); w.id = "xmWebWarn"; w.className = "xm-ww"; w.setAttribute("role", "alertdialog");
+    w.innerHTML = '<div class="xm-wwc"><h2><span>⚠️ चेतावनी</span> <b data-i18n-skip>' + n + " / " + max + "</b></h2>" +
+      "<p>आपने परीक्षा के बीच परीक्षा का पन्ना छोड़ा।</p>" +
+      (n >= max ? "<p><b>यह आख़िरी चेतावनी है। अब पन्ना छोड़ा, तो परीक्षा वहीं ख़त्म हो जाएगी।</b></p>"
+        : "<p>परीक्षा का पन्ना न छोड़ें। 3 चेतावनी के बाद चौथी बार पन्ना छोड़ने पर परीक्षा ख़त्म हो जाती है।</p>") +
+      '<button class="xm-btn green" id="xmWwOk" type="button">✅ समझ गया, परीक्षा जारी रखें</button></div>';
+    document.body.appendChild(w);
+    var b = document.getElementById("xmWwOk"); if (b) { b.onclick = wwClose; try { b.focus(); } catch (e) {} }
+  }
+  function webEnded() {
+    wwClose(); stopTick(); drop(); changed = true; S = null;
+    frame(topBar(G && G.course ? G.course.name : "कोर्स-परीक्षा"), '<div class="xm-card" id="xmState" data-st="webend"><h2>⛔ परीक्षा ख़त्म हो गई</h2>' +
+      "<p>आपने 3 चेतावनी के बाद फिर परीक्षा का पन्ना छोड़ा। इसलिए यह परीक्षा वहीं ख़त्म हो गई।</p>" +
+      "<p>इसका कोई अंक दर्ज नहीं हुआ। यह परीक्षा आज की गिनती में गिनी गई।</p>" +
+      '<div class="xm-nav"><button class="xm-btn blue" id="xmBack" type="button">↩ परीक्षा के द्वार पर लौटें</button></div></div>');
+    wireClose(); if ($("xmBack")) $("xmBack").onclick = gate;
+  }
+  function webWarnInit() {
+    if (WW.on) return; WW.on = true;
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) { if (webExam()) WW.away = Date.now(); return; }
+      if (!WW.away) return;
+      WW.away = 0;
+      if (!webExam() || WW.busy || !C) return;
+      WW.busy = true;
+      C.call("examWebWarn", { sid: S.sid }).then(function (d) {
+        WW.busy = false;
+        if (!d || d.app) return;
+        if (d.ended) { webEnded(); return; }
+        wwShow(d.n, d.max || 3);
+      }).catch(function (e) {
+        WW.busy = false;
+        if (codeOf(e) === "gone") { wwClose(); drop(); changed = true; S = null; gate(); }
+      });
+    });
   }
   function abandon(sid) {
     if (!window.confirm("पक्का छोड़ें? यह परीक्षा दिन की गिनती में गिनी जाएगी, और इसका कोई अंक दर्ज नहीं होगा। ₹100 का चांस लगा हो, तो वह इस्तेमाल हो चुका है और वापस नहीं मिलेगा।")) return;
@@ -607,7 +675,8 @@
     if (d.isBest) {
       h += "<p>यह आपका अब तक का सबसे अच्छा अंक है, इसलिए यही दर्ज हुआ: <b>" + d.pct + "%</b>।</p>" +
         "<p>ऊपर वाला 5 हिस्सों का ब्योरा " + new Date(d.detailUntil).toLocaleDateString("hi-IN") + " तक दिखेगा। उसके बाद सिर्फ़ अंक दिखेगा।</p>" +
-        (d.pass ? '<p>📜 प्रमाणपत्र ₹125 में मिलता है। उसे "मेरे कोर्स" की तालिका से लीजिए। प्रमाणपत्र लेने पर यह ब्योरा नहीं मिटता।</p>' : "<p>फिर से पढ़कर दोबारा परीक्षा दे सकते हैं।</p>");
+        (d.pass ? (d.face === "open" ? '<p id="xmFaceHold">⏳ इस परीक्षा में चेहरे की जाँच अभी बाक़ी है। जाँच पूरी होने के बाद प्रमाणपत्र ले सकेंगे।</p>'   /* (v1.5) */
+          : '<p>📜 प्रमाणपत्र ₹125 में मिलता है। उसे "मेरे कोर्स" की तालिका से लीजिए। प्रमाणपत्र लेने पर यह ब्योरा नहीं मिटता।</p>') : "<p>फिर से पढ़कर दोबारा परीक्षा दे सकते हैं।</p>");
     } else {
       h += "<p>आपका पहले का अंक <b>" + d.best.pct + "%</b> " + (d.best.pct === d.pct ? "इससे बराबर है, इसलिए वही दर्ज रहेगा।" : "इससे ज़्यादा है, इसलिए वही दर्ज रहेगा।") + "</p>" +   /* (पैनल-2) पूरे वाक्य: भाषा-इंजन एक साथ बदले */
         "<p>इस परीक्षा का 5 हिस्सों वाला ब्योरा सिर्फ़ अभी दिख रहा है। यह पन्ना बंद करने के बाद वह दोबारा नहीं दिखेगा।</p>";
@@ -617,10 +686,10 @@
   }
 
   window.ACS_EXAM = {
-    version: "1.4",
+    version: "1.5",
     open: function (cfg) {
       if (!cfg || !cfg.cid || typeof cfg.call !== "function") return;
-      C = cfg; changed = false; busy = false; APP = appInfo(); AK = ""; box();
+      C = cfg; changed = false; busy = false; APP = appInfo(); AK = ""; box(); webWarnInit();
       var st = appState();
       if (faceApp() && st && st.sid && st.akey) { FACE.sid = st.sid; FACE.ak = st.akey; try { window.ACSApp.facePending(); } catch (e) {} }   /* (v1.4) पहुँचने से रह गई फ़ोटो */
       if (st && st.pending) { appAbort(st.pending); return; }   /* ऐप पिछली बार परीक्षा के बीच बंद हुआ था: वह परीक्षा पहले बंद होती है */

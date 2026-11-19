@@ -2917,7 +2917,26 @@
   "📸 शुरू की फ़ोटो": "📸 Start photo",
   "🙂 एक चेहरा": "🙂 One face",
   "🚶 चेहरा हटा": "🚶 Face left",
-  "🪪 रजिस्ट्रेशन की फ़ोटो": "🪪 Registration photo"
+  "🪪 रजिस्ट्रेशन की फ़ोटो": "🪪 Registration photo",
+  "❌ चेहरे की जाँच में नतीजा रद्द": "❌ Result cancelled in the face check",
+  "⏳ चेहरे की जाँच बाक़ी": "⏳ Face check pending",
+  "⏳ इस परीक्षा में चेहरे की जाँच अभी बाक़ी है। जाँच पूरी होने के बाद प्रमाणपत्र ले सकेंगे।": "⏳ The face check of this exam is still pending. You can get the certificate after the check is complete.",
+  "अब तक मिली चेतावनी:": "Warnings so far:",
+  "⚠️ वेबसाइट पर परीक्षा का नियम": "⚠️ Rule for the exam on the website",
+  "खंड चलते समय परीक्षा का पन्ना छोड़ा (दूसरा ऐप, दूसरा पन्ना, या पर्दा बंद), तो चेतावनी मिलेगी।": "If you leave the exam page while a section is running (another app, another page, or the screen off), you get a warning.",
+  "3 चेतावनी तक परीक्षा चलती है। चौथी बार पन्ना छोड़ने पर परीक्षा वहीं ख़त्म हो जाती है: कोई अंक दर्ज नहीं होता, और ₹100 का चांस वापस नहीं होता।": "The exam goes on up to 3 warnings. If you leave the page a fourth time, the exam ends right there: no score is recorded, and the ₹100 chance is not refunded.",
+  "विराम के समय पन्ना छोड़ना नहीं गिना जाता।": "Leaving the page during a break is not counted.",
+  "📱 आपका फ़ोन Android 10 या नया है, तो परीक्षा ACS EXAM ऐप से दें। ऐप में परीक्षा पर ताला लगता है।": "📱 If your phone has Android 10 or newer, take the exam in the ACS EXAM app. In the app the exam is locked.",
+  "ACS EXAM ऐप लें": "Get the ACS EXAM app",
+  "⚠️ चेतावनी": "⚠️ Warning",
+  "आपने परीक्षा के बीच परीक्षा का पन्ना छोड़ा।": "You left the exam page during the exam.",
+  "यह आख़िरी चेतावनी है। अब पन्ना छोड़ा, तो परीक्षा वहीं ख़त्म हो जाएगी।": "This is the last warning. If you leave the page now, the exam will end right there.",
+  "परीक्षा का पन्ना न छोड़ें। 3 चेतावनी के बाद चौथी बार पन्ना छोड़ने पर परीक्षा ख़त्म हो जाती है।": "Do not leave the exam page. After 3 warnings, leaving the page a fourth time ends the exam.",
+  "✅ समझ गया, परीक्षा जारी रखें": "✅ Understood, continue the exam",
+  "⛔ परीक्षा ख़त्म हो गई": "⛔ The exam has ended",
+  "आपने 3 चेतावनी के बाद फिर परीक्षा का पन्ना छोड़ा। इसलिए यह परीक्षा वहीं ख़त्म हो गई।": "You left the exam page again after 3 warnings. So this exam ended right there.",
+  "इसका कोई अंक दर्ज नहीं हुआ। यह परीक्षा आज की गिनती में गिनी गई।": "No score was recorded for it. This exam was counted in today's count.",
+  "↩ परीक्षा के द्वार पर लौटें": "↩ Back to the exam page"
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",
@@ -3644,6 +3663,9 @@
   "फ़ोटो ठीक नहीं है।": "The photo is not right.",
   "फ़ोटो बहुत बड़ी है।": "The photo is too big.",
   "यह काम सिर्फ़ Founder, Admin और एग्जामिनेशन Head कर सकते हैं।": "Only the Founder, the Admin and the Examination Head can do this.",
-  "यह परीक्षा जाँच की सूची में नहीं है।": "This exam is not in the check list."
+  "यह परीक्षा जाँच की सूची में नहीं है।": "This exam is not in the check list.",
+  "इस परीक्षा में चेहरे की जाँच अभी बाक़ी है। जाँच पूरी होने के बाद प्रमाणपत्र ले सकेंगे।": "The face check of this exam is still pending. You can get the certificate after the check is complete.",
+  "चेहरे की जाँच में इस परीक्षा में गड़बड़ पाई गई। इसलिए इस नतीजे का प्रमाणपत्र नहीं मिलेगा। दोबारा परीक्षा देकर पास होने पर प्रमाणपत्र मिल सकता है।": "The face check found a problem in this exam. So there is no certificate for this result. You can get a certificate by taking the exam again and passing.",
+  "यह प्रमाणपत्र नहीं मिला।": "This certificate was not found."
  }
 }
