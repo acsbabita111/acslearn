@@ -1,5 +1,7 @@
 /* ============================================================
    build_specials.js — one-off विशेष पेजों का generator (परत-4)
+   v8.2 · 21-Nov-2026 (खेप M-1, Founder: चारों भाषाओं में मेन्यू का हर पन्ना): /verify/ के head में hreflang का गुच्छा
+   (generator/lib_menu_lang.js से); English/कन्नड़/बांग्ला पन्ने generator/build_menu_lang.js बनाता है। बाक़ी पन्ने अछूते।
    v8.0 · 31-Aug-2026 (KKB मास्टर-प्रतिकृति: en+7 भाषाएँ (ar/fr/es/ja/ko/de/ru) के 90-दिन एकीकृत कोर्स-पेज
    KKB2_LANGS से बनते हैं — kkb2.css/kkb2.js + भाषा-वार L1+L2 data; KKB_LANGS की इन 8 प्रविष्टियों का L1-पेज
    निर्माण बंद (KKB2_CODES-छलनी) — पुरानी redirect-पर्चियाँ यथावत। english पेज अब generator-मुहर में (30-Aug
@@ -401,6 +403,7 @@ buildSpecial({
 /* ===================== प्रमाण पत्र की जाँच (verify) : खेप 3-क, 14-Nov-2026 =====================
    यह पेज पहले हाथ से बना था और प्रमाणपत्र का रिकॉर्ड सीधे browser से पढ़ने की कोशिश करता था, जो server के नियमों से
    बंद है; इसलिए बाहर का कोई आदमी जाँच नहीं कर पाता था। अब यह यंत्र से बनता है और जाँच server के certVerify से होती है। */
+const MENU_LANG = require("./lib_menu_lang.js");
 const VERIFY_CONTENT =
 '<div class="lg-wrap">' +
 '<h1 class="lg-h1">🏆 प्रमाण पत्र की जाँच</h1>' +
@@ -522,7 +525,8 @@ buildSpecial({
   title: "प्रमाण पत्र की जाँच (Certificate Verification) | अप्लाइड कंप्यूटर स्कूल",
   desc: "ACS के प्रमाण पत्र या करियर टेस्ट की सहेजी हुई रिपोर्ट का नंबर लिखकर उसकी सच्चाई जाँचिए।",
 
-  head: ['<link rel="stylesheet" href="/assets/legal.css">', '<script src="/assets/appcheck-config.js"></scr' + 'ipt>'],
+  /* v8.2 (21-Nov-2026, खेप M-1): hreflang का गुच्छा (हिंदी + जिन भाषाओं में यह पन्ना है) lib_menu_lang.js से; भाषा-पन्ने build_menu_lang.js बनाता है */
+  head: ['<link rel="stylesheet" href="/assets/legal.css">', '<script src="/assets/appcheck-config.js"></scr' + 'ipt>'].concat(MENU_LANG.hreflangLines(MENU_LANG.readLinks(), "verify")),
   foot: [VERIFY_JS],
   content: VERIFY_CONTENT
 });

@@ -22,10 +22,10 @@ const ACS_LINKS = {
     /* (Founder-आदेश 14-Jul-2026) रजिस्ट्रेशन अब पहले guide-पृष्ठ खोले — 12 भूमिकाएँ,
        दस्तावेज़-सूची, अधिकार-कर्तव्य, टीम-योग्यताएँ; वहीं से form का बटन। menu-नाम वही (10-लॉक)। */
     { key: "register", icon: "📝", label: "रजिस्ट्रेशन",   href: "/registration-guide.html", label_en: "Registration", href_en: "/registration-guide.html" },
-    { key: "verify",   icon: "🏆", label: "प्रमाण पत्र",   href: "/verify/", label_en: "Certificate", href_en: "/verify/" },
-    { key: "network",  icon: "🤝", label: "नेटवर्क",       href: "/hi/network.html", label_en: "Network", href_en: "/hi/network.html" },
+    { key: "verify",   icon: "🏆", label: "प्रमाण पत्र",   href: "/verify/", label_en: "Certificate", href_en: "/en/verify/" },
+    { key: "network",  icon: "🤝", label: "नेटवर्क",       href: "/hi/network.html", label_en: "Network", href_en: "/en/network.html" },
     { key: "vani",     icon: "📱", label: "वाणी",          href: "/vani/", label_en: "Vani", href_en: "/vani/en/" },
-    { key: "contact",  icon: "📞", label: "संपर्क",        href: "/contact/hi/", label_en: "Contact", href_en: "/contact/hi/" }
+    { key: "contact",  icon: "📞", label: "संपर्क",        href: "/contact/hi/", label_en: "Contact", href_en: "/contact/en/" }
   ],
 
   /* ---------- 🔑 Login/Dashboard (menu का साथी — 11वाँ item नहीं) ---------- */

@@ -1,5 +1,16 @@
 rules_version = '2';
 /* ════════════════════════════════════════════════════════════
+   ⚠️ संदर्भ-प्रति (REFERENCE COPY) — यह फ़ाइल कभी deploy नहीं होती।  [M11-REFCOPY]
+   (22-Nov-2026, खेप M-1.1, ChatGPT ऑडिट M11-G03)
+   असली (source of truth) = office laptop की acs-deploy\firestore.rules।
+   firebase deploy सिर्फ़ वहीं से चलता है: इस repo में firebase.json नहीं है, और GitHub के
+   किसी workflow में firebase deploy नहीं है। यह प्रति पीछे हो सकती है (उदाहरण: नीचे roleCols में
+   workshops, ustads, finance_mitras, vendors नहीं हैं, जो office पर v5 से हैं)।
+   इसलिए: यह प्रति office पर कभी copy न करें, इससे कभी deploy न करें।
+   मिलान: server zip का DEPLOY-SERVER.bat दोनों प्रतियों का अंतर RULES-COMPARE-M11.txt में लिखता है
+   (कुछ बदलता नहीं)। ताज़ा करने का तरीक़ा: office की प्रति ही यहाँ copy हो, अलग खेप में।
+   ════════════════════════════════════════════════════════════ */
+/* ════════════════════════════════════════════════════════════
    ACS Firestore Security Rules — v13
    v13 (19-Nov-2026, P-7): liveBoards — online कोर्स की live कक्षा का पट। पढ़े: उस कोर्स का
    चालू विद्यार्थी · उस कोर्स का शिक्षक · Founder। लिखे: कोई नहीं (सिर्फ़ server)। office पर यह

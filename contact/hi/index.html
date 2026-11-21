@@ -10,11 +10,12 @@
   <title>संपर्क करें | Applied Computer School™</title>
   <meta name="description" content="ACS से संपर्क करें — फ़ोन, WhatsApp, ईमेल या संदेश भेजें। ACS Building, Chautham, Khagaria, Bihar। हम आपकी मदद के लिए हैं।"/>
   <link rel="canonical" href="https://acslearn.com/contact/hi/"/>
+<link rel="alternate" hreflang="hi" href="https://acslearn.com/contact/hi/">
+<link rel="alternate" hreflang="en" href="https://acslearn.com/contact/en/">
+<link rel="alternate" hreflang="x-default" href="https://acslearn.com/contact/hi/">
   <meta name="robots" content="index,follow"/>
 
   <!-- मूल → अंग्रेज़ी → बाक़ी; generator हर भाषा के लिए hreflang भरे -->
-    <link rel="alternate" hreflang="hi" href="https://acslearn.com/contact/hi/"/>
-  <link rel="alternate" hreflang="x-default" href="https://acslearn.com/contact/hi/"/>
 
   <!-- Open Graph / सोशल शेयर -->
   <meta property="og:type" content="website"/>
@@ -26,6 +27,7 @@
 
   <!-- PWA / icon / रंग -->
   <meta name="theme-color" content="#0B1F3A"/>
+  <script src="/assets/appcheck-config.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,11 +131,11 @@
   <div class="notice-card" style="margin-top:16px">
     <div style="font-weight:800;color:var(--navy);font-size:1.15rem;margin-bottom:10px">✍️ हमें संदेश भेजें</div>
     <label class="clabel" for="cName">आपका नाम</label>
-    <input class="cinp" id="cName" type="text" placeholder="पूरा नाम"/>
+    <input class="cinp" id="cName" type="text" maxlength="80" placeholder="पूरा नाम"/>
     <label class="clabel" for="cMob">मोबाइल नंबर</label>
     <input class="cinp" id="cMob" type="tel" placeholder="10 अंकों का मोबाइल" maxlength="10"/>
     <label class="clabel" for="cMsg">आपका संदेश</label>
-    <textarea class="cinp" id="cMsg" rows="4" placeholder="यहाँ अपनी बात लिखें..."></textarea>
+    <textarea class="cinp" id="cMsg" rows="4" maxlength="1000" placeholder="यहाँ अपनी बात लिखें..."></textarea>
     <button class="btn btn-primary" style="width:100%;margin-top:12px" type="button" onclick="sendContact()">📨 संदेश भेजें</button>
     <div class="pg-result" id="cResult" style="display:none;margin-top:14px"></div>
   </div>
@@ -149,17 +151,24 @@
   .clabel{display:block;font-weight:700;color:var(--navy);margin:10px 0 6px}
   .cinp{width:100%;padding:13px;border:2px solid var(--border);border-radius:12px;font-size:18px;font-family:inherit;box-sizing:border-box}
   .pg-info{background:var(--offwhite);border-radius:12px;padding:14px;font-weight:700;color:var(--navy)}
-  .pg-ok{background:var(--offwhite);border:2px solid var(--green);border-radius:12px;padding:16px;color:var(--navy)}
+  .pg-ok{background:var(--offwhite);border:2px solid var(--green);border-radius:12px;padding:16px;color:var(--navy);overflow-wrap:anywhere}
   .pg-bad{background:var(--offwhite);border:2px solid var(--danger);border-radius:12px;padding:16px;color:var(--danger);font-weight:700}
 </style>
 
 <!-- असली संपर्क-form (Firestore contact_messages) — ज्यों-का-त्यों (सिर्फ़ "भेजा जा रहा" का रंग palette में) -->
 <script type="module">
 import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js";
+import { initializeAppCheck, ReCaptchaEnterpriseProvider } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app-check.js";
 const cfg = { apiKey:"AIzaSyCpn4m76f-hIFgiWKoWAPYgD8lBmJaO-PM", authDomain:"acslearn-platform.firebaseapp.com", projectId:"acslearn-platform", storageBucket:"acslearn-platform.firebasestorage.app", messagingSenderId:"435395814481", appId:"1:435395814481:web:655f99452a90f8efbc4470" };
 const app = getApps().length ? getApp() : initializeApp(cfg);
-const db = getFirestore(app);
+/* (22-Nov-2026 M-1.1, ऑडिट M11-G01) संदेश अब सीधे database में नहीं जाता: server का submitContactMessage लिखता है।
+   server App Check token माँगता है और रोज़ की सीमा गिनता है (contact_server.js)। key का घर: /assets/appcheck-config.js */
+const AC_KEY = String(window.ACS_APPCHECK_SITE_KEY || "");
+if (AC_KEY) initializeAppCheck(app, { provider: new ReCaptchaEnterpriseProvider(AC_KEY), isTokenAutoRefreshEnabled: true });
+const sendMsg = httpsCallable(getFunctions(app, "us-central1"), "submitContactMessage");
+// (21-Nov-2026 M-1.1) नाम दिखाने से पहले सुरक्षित करो (कोई HTML/script न चले)
+const esc = (v) => String(v).replace(/[&<>"']/g, (c) => "&#" + c.charCodeAt(0) + ";");
 window.sendContact = async function(){
   const box=document.getElementById('cResult');
   const name=document.getElementById('cName').value.trim();
@@ -168,13 +177,15 @@ window.sendContact = async function(){
   box.style.display='block';
   if(!name||!mob||!msg){ box.innerHTML='<div class="pg-bad">⚠️ कृपया नाम, मोबाइल और संदेश — तीनों भरें।</div>'; return; }
   if(!/^[0-9]{10}$/.test(mob)){ box.innerHTML='<div class="pg-bad">⚠️ मोबाइल नंबर 10 अंकों का होना चाहिए।</div>'; return; }
+  if(!AC_KEY){ box.innerHTML='<div class="pg-bad">⚠️ अभी संदेश नहीं भेजा जा सका। कृपया WhatsApp पर संपर्क करें।</div>'; return; }
   box.innerHTML='<div class="pg-info">⏳ भेजा जा रहा है...</div>';
   try{
-    await addDoc(collection(db,'contact_messages'),{ name, mobile:mob, message:msg, createdAt:serverTimestamp() });
-    box.innerHTML='<div class="pg-ok"><div style="font-size:22px;font-weight:800;margin-bottom:4px">✅ संदेश भेज दिया गया</div>धन्यवाद '+name+'! हम जल्द संपर्क करेंगे।</div>';
+    await sendMsg({ name, mobile:mob, message:msg, lang:(document.documentElement.lang||"hi").slice(0,3) });
+    box.innerHTML='<div class="pg-ok"><div style="font-size:22px;font-weight:800;margin-bottom:4px">✅ संदेश भेज दिया गया</div>धन्यवाद '+esc(name)+'! हम जल्द संपर्क करेंगे।</div>';
     document.getElementById('cName').value='';document.getElementById('cMob').value='';document.getElementById('cMsg').value='';
   }catch(e){
-    box.innerHTML='<div class="pg-bad">⚠️ अभी संदेश नहीं भेजा जा सका। कृपया WhatsApp पर संपर्क करें।</div>';
+    if(String((e&&e.code)||"").indexOf("resource-exhausted")>=0) box.innerHTML='<div class="pg-bad">⚠️ आज संदेश भेजने की सीमा पूरी हो गई। कल फिर भेजें, या WhatsApp पर संपर्क करें।</div>';
+    else box.innerHTML='<div class="pg-bad">⚠️ अभी संदेश नहीं भेजा जा सका। कृपया WhatsApp पर संपर्क करें।</div>';
   }
 };
 </script>

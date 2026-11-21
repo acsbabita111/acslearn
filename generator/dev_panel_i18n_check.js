@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /* ================================================================
-   dev_panel_i18n_check.js v1.8 (16-Nov-2026) : पैनल-1 का पहरेदार
+   dev_panel_i18n_check.js v1.9 (21-Nov-2026) : पैनल-1 का पहरेदार
+   v1.9 (खेप M-1): LE जाँच में भाषा-घर का "Login / Dashboard": पैनल वाली भाषा (kn) पर ?lang=kn, बाक़ी (te) पर ?lang=en,
+   और /contact/en/ जैसे पते (भाषा दूसरे हिस्से में) पर ?lang=en (acs-universal.js v2.9)।
    v1.8 (कन्नड़ क-1 v1.3, ऑडिट की शर्त): English नियम-पत्र बासी या ग़ायब हो, तो हिंदी नियम पन्ने के भीतर नहीं दिखते (J6, J7, J7b):
      सूचना + हिंदी नियम-पत्र की अलग कड़ी + दोबारा कोशिश; सहमति नहीं ली जाती। पहले यहाँ हिंदी मूल पन्ने के भीतर दिखता था।
    v1.7 (कन्नड़ क-1 v1.2, Founder का आदेश 16-Nov-2026): हर ग़ैर-हिंदी भाषा में साफ़ लिखा हो कि क़ानूनन हिंदी नियम-पत्र ही मान्य है, और हिंदी
@@ -389,7 +391,9 @@ async function loginSuite() {
   /* LE English साइट का "Login / Dashboard" → ?lang=en */
   const mini = '<!doctype html><html><head><meta charset="utf-8"></head><body><a id="acsLogin" href="/dashboard/">Login</a><div id="acsMenuList"></div><div id="acsFooterMenu"></div>' +
     '<script src="/assets/acs-config.js"></script><script src="/assets/links.js"></script><script src="/assets/acs-universal.js"></script></body></html>';
-  for (const [p, want] of [["/en/", "/dashboard/?lang=en"], ["/", "/dashboard/"], ["/te/", "/dashboard/"]]) {
+  /* v1.9 (21-Nov-2026, खेप M-1; Founder 16-Nov: "हिंदी के बाद कहीं हिंदी नहीं, दक्षिण भारत में English डिफ़ॉल्ट"):
+     जिस भाषा-घर का पैनल है (kn, bn) वहाँ ?lang=<कोड>; बाक़ी भाषा-घर (जैसे te) से ?lang=en (पहले हिंदी पैनल खुल सकता था) */
+  for (const [p, want] of [["/en/", "/dashboard/?lang=en"], ["/", "/dashboard/"], ["/te/", "/dashboard/?lang=en"], ["/kn/", "/dashboard/?lang=kn"], ["/contact/en/", "/dashboard/?lang=en"]]) {
     const dom = new JSDOM(mini, { url: "https://acslearn.com" + p, runScripts: "dangerously", resources: new Loader(), virtualConsole: new VirtualConsole() });
     await new Promise(r => { dom.window.addEventListener("load", r); setTimeout(r, 3000); });
     ck("LE " + p + " पर Login-कड़ी = " + want, dom.window.document.getElementById("acsLogin").getAttribute("href") === want, dom.window.document.getElementById("acsLogin").getAttribute("href"));
@@ -819,6 +823,6 @@ if (require.main === module) (async function main() {
     if (!only || only === "join") await joinSuite();
   } catch (e) { ck("robot बीच में रुका", false, e && e.stack); }
   console.log("\nजाँचें: पास " + pass + " · FAIL " + fail + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.8 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
+  console.log(fail ? "⛔ dev_panel_i18n_check रुका" : "🏁 dev_panel_i18n_check v1.9 : पैनल-1 (लॉगिन + रजिस्ट्रेशन + रजिस्ट्रेशन गाइड) English पास");
   process.exit(fail ? 1 : 0);
 })();

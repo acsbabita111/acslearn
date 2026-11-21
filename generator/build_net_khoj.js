@@ -1,4 +1,5 @@
-/* build_net_khoj.js v1.0 (19-Nov-2026) : नेटवर्क पेज (/hi/network.html) की खोज, generator से।
+/* build_net_khoj.js v1.1 (21-Nov-2026, खेप M-1.1: नीचे की पंक्ति में रॉयल्टी का दावा सही किया — Constitution के अनुसार जीवन भर रॉयल्टी (7%) सिर्फ़ कोर्स बनाने वाले शिक्षक की है)
+   v1.0 (19-Nov-2026) : नेटवर्क पेज (/hi/network.html) की खोज, generator से।
    Founder की सलाह (19-Nov-2026): registration में लिखा बोर्ड और बैनर वाला नाम, ACS की मंज़ूरी के बाद, खोज में सबको दिखे।
 
    यह generator नेटवर्क पेज के तीन हिस्से अपने हाथ में रखता है (बाक़ी पेज byte-अछूता):
@@ -47,7 +48,7 @@ const BLOCK = [
   '    <div id="netResult" class="nk-res" aria-live="polite"><p class="nk-note">सूची लाई जा रही है…</p></div>',
   '    <noscript><p class="nk-note">यह सूची देखने के लिए browser में JavaScript चालू करें।</p></noscript>',
   '    <div class="nk-cta">',
-  '      <p>अपने सुंदर भविष्य के लिए Applied Computer School के नेटवर्क में जुड़ें और जीवन भर रॉयल्टी (royalty) पाएँ।</p>',
+  '      <p>अपने सुंदर भविष्य के लिए Applied Computer School के नेटवर्क में जुड़ें। जो शिक्षक अपना कोर्स बनाता है, उसे उस कोर्स पर जीवन भर रॉयल्टी (royalty) मिलती है।</p>',
   '      <a href="/join.html" class="btn btn-primary">📝 नेटवर्क में जुड़ें</a>',
   '    </div>',
   '  </div>',

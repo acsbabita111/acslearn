@@ -95,6 +95,16 @@
       "</ul>";
   }
 
+  /* v2.1 (21-Nov-2026, खेप M-1): भाषा-पन्नों (/en/, /contact/en/ …) पर इस script के अपने तीन वाक्य उसी भाषा में;
+     भाषा = पन्ने का <html lang> (हिंदी पन्ने पर सब पहले जैसा)। */
+  var PL = String((document.documentElement && document.documentElement.getAttribute("lang")) || "hi").slice(0, 2);
+  var PT = {
+    hi: { pick: "भाषा चुनें / Select Language", close: "भाषा पैनल बंद करें", wa: "WhatsApp पर संपर्क करें" },
+    en: { pick: "Select Language", close: "Close the language panel", wa: "Contact on WhatsApp" },
+    kn: { pick: "ಭಾಷೆ ಆಯ್ಕೆಮಾಡಿ", close: "ಮುಚ್ಚಿ", wa: "WhatsApp ನಲ್ಲಿ ಸಂಪರ್ಕಿಸಿ" },
+    bn: { pick: "ভাষা বেছে নিন", close: "বন্ধ করুন", wa: "WhatsApp-এ যোগাযোগ করুন" }
+  }[PL] || { pick: "Select Language", close: "Close the language panel", wa: "Contact on WhatsApp" };
+
   /* ════════════ 2) भाषा-panel ════════════ */
   function buildLangPanel() {
     var lang = currentLang();
@@ -122,8 +132,8 @@
 
     panel.innerHTML =
       '<div class="lang-panel-header">' +
-        "<h3>भाषा चुनें / Select Language</h3>" +
-        '<button id="closeLangPanel" type="button" aria-label="भाषा पैनल बंद करें">✕</button>' +
+        "<h3>" + PT.pick + "</h3>" +
+        '<button id="closeLangPanel" type="button" aria-label="' + PT.close + '">✕</button>' +
       "</div>" +
       '<div class="lang-grid">' + opts + "</div>";
   }
@@ -134,7 +144,7 @@
     var url = (window.ACS_CONFIG && window.ACS_CONFIG.org.whatsapp) || "https://wa.me/919431210092";
     var a = document.createElement("a");
     a.className = "whatsapp-float"; a.href = url; a.target = "_blank"; a.rel = "noopener";
-    a.setAttribute("aria-label", "WhatsApp पर संपर्क करें");
+    a.setAttribute("aria-label", PT.wa);
     a.innerHTML =
       '<svg class="wa-svg" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" ' +
       'd="M16.02 3C8.85 3 3.03 8.82 3.03 15.99c0 2.29.6 4.53 1.75 6.5L3 29l6.66-1.74a12.86 12.86 0 0 0 ' +

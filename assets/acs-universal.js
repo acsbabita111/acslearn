@@ -1,5 +1,11 @@
 /* ============================================================
-   acs-universal.js v2.8 (17-Nov-2026: भाषा-घर के पन्नों पर मेन्यू के नाम उसी भाषा में, links.js के "labels" से; पहली भाषा कन्नड़) · v2.7 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची + रोमन नाम + देवनागरी छाया-नाम)
+   acs-universal.js v2.9 (21-Nov-2026, खेप M-1, Founder: पैनल की चारों भाषाओं में मेन्यू का हर पन्ना उसी भाषा में):
+   (क) पन्ने की भाषा पते से: पहला हिस्सा (/en/, /kn/ …) या, जहाँ हिंदी का पता /courses/hi/ जैसा है, दूसरा हिस्सा
+       (/courses/en/, /contact/kn/): acsPathLang()। पहले /contact/en/ जैसे पन्ने पर यह हिंदी लिख देता।
+   (ख) भाषा-घर के पन्नों पर मेन्यू का पता links.js के href_lang से (उस भाषा का अपना पन्ना हो तो वही; नहीं तो English)।
+   (ग) भाषा-घर से "Login / Dashboard": जिस भाषा का पैनल है (links.js की labels पंक्ति), वहाँ ?lang=<कोड>; बाक़ी पर ?lang=en
+       (पहले यहाँ से पैनल हिंदी में खुल सकता था)।
+   v2.8 (17-Nov-2026: भाषा-घर के पन्नों पर मेन्यू के नाम उसी भाषा में, links.js के "labels" से; पहली भाषा कन्नड़) · v2.7 — header + menu + footer का एक दिमाग़ (09-Nov: mirror-mode + भाषा-होम isHome; 12-Nov: 🌐 भाषा-सूची + रोमन नाम + देवनागरी छाया-नाम)
    v2.7 (15-Nov, पैनल-1): 🌐 से चुनी भाषा "acs_dash_lang" में भी लिखी जाती है (लॉगिन/रजिस्ट्रेशन उसी भाषा में खुलें)।
    जिस पन्ने पर पैनल का भाषा-इंजन (ACS_PANEL_I18N) है और वह भाषा उसमें है, वहाँ पन्ना छोड़कर नहीं जाते: वहीं भाषा बदलती है।
    English पन्नों पर "Login / Dashboard" कड़ी /dashboard/?lang=en पर जाती है।
@@ -13,7 +19,7 @@ var ACS_LANG_ROMAN = {"hi":"Hindi","en":"English","zh":"Chinese","es":"Spanish",
 var ACS_LANG_DEVA = {"hi":"हिन्दी","en":"अंग्रेज़ी","zh":"चीनी","es":"स्पेनिश","ar":"अरबी","fr":"फ़्रेंच","bn":"बांग्ला","pt":"पुर्तगाली","ru":"रूसी","id":"इंडोनेशियाई","ur":"उर्दू","de":"जर्मन","ja":"जापानी","mr":"मराठी","te":"तेलुगु","ko":"कोरियाई","he":"हिब्रू","ta":"तमिल","kn":"कन्नड","gu":"गुजराती","ml":"मलयालम","pa":"पंजाबी","or":"उड़िया","as":"असमिया","ne":"नेपाली","ms":"मलय","tl":"तागालोग","vi":"वियतनामी","th":"थाई","sw":"स्वाहिली","tr":"तुर्की","fa":"फ़ारसी","uz":"उज़्बेक","kk":"कज़ाख","az":"अज़रबैजानी","so":"सोमाली","am":"अम्हारिक","ha":"हाउसा","yo":"योरूबा","zu":"ज़ुलु","si":"सिंहली","my":"बर्मी","km":"खमेर","ps":"पश्तो","sd":"सिंधी"}; /* भाषा के देवनागरी नाम (🌐 सूची में बटन की छाया); एकमात्र स्रोत = generator/data/bhasha_register.json; हाथ से न बदलें */
 function acsUniversalInit(){
   var C = window.ACS_CONFIG || {}, L = window.ACS_LINKS || {};
-  var seg0 = ((location.pathname||"").split("/")[1]||"");
+  var seg0 = acsPathLang();
   var lang = seg0==="en" ? "en" : (ACS_LANG_HOMES[seg0] ? "mirror" : "hi");
   /* mirror-mode: पेज का baked अनुवाद ही सच — यह script उस पाठ को कभी न लिखे */
   /* v2.8 (17-Nov-2026): जिस भाषा-घर की पंक्ति links.js के "labels" में है (अभी कन्नड़), वहाँ मेन्यू, नीचे का मेन्यू, नीति की
@@ -78,9 +84,11 @@ function acsUniversalInit(){
        fm पर निर्भर है, पुराने बेक-किए footer वाले पेजों पर वह पंक्ति फिर भी जुड़नी चाहिए। */
     var dlEmpty = !dl || dl.children.length === 0;
     var fmEmpty = !fm || fm.children.length === 0;
+    var MI = {}; (L.menu||[]).forEach(function(x){ if(x&&x.key) MI[x.key]=x; });
     items.forEach(function(m){
       var label = (OWNL && m.key && OWNL[m.key]) || m.text || m.label;
       var href = (OWNL && m.key==="home") ? "/"+seg0+"/" : m.href;
+      var hl = (lang==="mirror" && MI[m.key] && MI[m.key].href_lang && MI[m.key].href_lang[seg0]) || ""; if(hl) href = hl;   /* v2.9 */
       if(dl && dlEmpty){ var a=document.createElement("a"); a.href=href;
         a.innerHTML='<span class="e">'+m.icon+'</span>'+label; a.onclick=window.acsCloseMenu; dl.appendChild(a); }
       if(fm && fmEmpty){ var b=document.createElement("a"); b.href=href;
@@ -96,7 +104,7 @@ function acsUniversalInit(){
         : '<a href="/refund.html">💳 Refund Policy</a> · <a href="/privacy.html">🔒 Privacy Policy</a> · <a href="/terms.html">📜 Terms</a>';
       fm.parentNode.insertBefore(lgl, fm.nextSibling); }
     var lg2=document.getElementById("acsLogin");
-    if(lg2){ lg2.href=(login.href||"/dashboard/")+(lang==="en"?"?lang=en":"");
+    if(lg2){ lg2.href=(login.href||"/dashboard/")+(lang==="en"?"?lang=en":(lang==="mirror"?"?lang="+(OWNL?seg0:"en"):""));
       if(lang!=="mirror"){ lg2.innerHTML='<span class="e">'+(login.icon||"🔑")+'</span> '+((login.label&&(login.label[lang]||login.label.hi))||"Login / Dashboard"); } }
     /* v2.8: पन्ने में पहले से लिखे English नाम (पढ़ने वाली मशीन के लिए) भी उसी भाषा में */
     if(OWNL){
@@ -131,7 +139,15 @@ function acsCloseMenu(){ var d=document.getElementById("acsDrawer"),s=document.g
    यह सिर्फ़ सजावट है (aria-hidden), पढ़ने वाली मशीन इसे नहीं पढ़ती। देवनागरी नाम का घर = भाषा-रजिस्टर (bhasha_register.json का "hi" खाना)।
    जिस भाषा का अपना नाम ही वही देवनागरी शब्द है (हिन्दी, मराठी, नेपाली), वहाँ छाया-नाम दोबारा नहीं आता।
    यह Founder के कहने पर "दूसरी भाषा के पेज पर देवनागरी नहीं" नियम की दर्ज छूट है : सिर्फ़ इसी छाया-नाम के लिए। */
-function acsLangCur(){ var s=((location.pathname||"").split("/")[1]||""); return ACS_LANG_HOMES[s] ? s : "hi"; }
+function acsLangCur(){ var s=acsPathLang(); return ACS_LANG_HOMES[s] ? s : "hi"; }   /* v2.9 */
+/* v2.9 (function hoisting से acsUniversalInit भी इसे बुलाता है): पन्ने की भाषा पते से (पहला हिस्सा, या /courses/en/ जैसे पते में दूसरा) */
+function acsPathLang(){
+  var s=(location.pathname||"").split("/"), a=s[1]||"", b=s[2]||"";
+  if(a==="en"||ACS_LANG_HOMES[a]) return a;
+  if(a==="hi") return "hi";
+  if(s.length>3 && (b==="en"||b==="hi"||ACS_LANG_HOMES[b])) return b;
+  return "hi";
+}
 function acsLangHome(c){ return c==="hi" ? "/" : "/"+c+"/"; }
 function acsLangTargets(c){
   var P=location.pathname||"/", seg=P.split("/"), i, at=-1, out=[];
@@ -332,7 +348,7 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
       bTop.type="button"; bTop.className="udy-fbtn"; bTop.textContent="⬆";
       var fbHi=((document.documentElement.getAttribute("lang")||"hi").indexOf("hi")===0);
       /* v2.8: भाषा-घर के पन्ने पर, जिसकी पंक्ति links.js के "labels" में है, दोनों बटनों के नाम उसी भाषा में */
-      var fbSeg=((location.pathname||"").split("/")[1]||""), fbOwn=null;
+      var fbSeg=acsPathLang(), fbOwn=null;   /* v2.9 */
       try{ fbOwn=(ACS_LANG_HOMES[fbSeg] && window.ACS_LINKS && window.ACS_LINKS.labels && window.ACS_LINKS.labels[fbSeg]) || null; }catch(e){ fbOwn=null; }
       var fbTop = fbHi?"पेज के ऊपर जाएँ":((fbOwn&&fbOwn.top)||"Back to top"), fbBack = fbHi?"पीछे जाएँ":((fbOwn&&fbOwn.back)||"Go back");
       bTop.setAttribute("aria-label", fbTop);

@@ -1,5 +1,6 @@
 /* ============================================================
    build_sitemap.js v2.5 (परत-4) — sitemap-index + 4 खंड-sitemap
+   v2.6 (21-Nov-2026, खेप M-1): मेन्यू के भाषा-पन्ने (/en/verify/, /contact/en/, /en/network.html …), generator/build_menu_lang.js से बने; सूची lib_menu_lang.js से (जो फ़ाइल मौजूद हो)।
    v2.5 (16-Nov-2026, कन्नड़ क-2क): किसी भी भाषा-घर के भूमिका-नियम-पत्र (/<कोड>/rules-consent-<भूमिका>.html) जुड़ते हैं; अभी कन्नड़ के 26।
    v2.4 (15-Nov-2026, पैनल-5): 26 भूमिकाओं के English नियम-पत्र (/en/rules-consent-<भूमिका>.html) जुड़े।
    v1.1 — स्रोत: (1) assets/udyam_data.js की intro-कड़ियाँ (2) मुख्य सार्वजनिक
@@ -74,7 +75,11 @@ const main = [
   /* v2.5 (16-Nov-2026, कन्नड़ क-2क): बाक़ी भाषाओं के 26 भूमिका-नियम-पत्र (generator/build_rules_consent_en.js <कोड> से बने), जो फ़ाइल मौजूद हो */
   .concat(MIRROR.reduce((a, c) => a.concat(fs.readdirSync(path.join(ROOT, c)).filter(f => /^rules-consent-.*\.html$/.test(f) && f !== "rules-consent-learner.html").sort().map(f => "/" + c + "/" + f)), []))
   /* v2.3: अभिरुचि-परीक्षा के भाषा-पन्ने (हिंदी और English ऊपर पहले से): LIVE-सूची का एकमात्र घर generator/lib_apt_langs.js */
-  .concat(require("./lib_apt_langs.js").LIVE.filter(c => c !== "hi" && c !== "en" && fs.existsSync(path.join(ROOT, c, "aptitude-test.html"))).map(c => "/" + c + "/aptitude-test.html"));
+  .concat(require("./lib_apt_langs.js").LIVE.filter(c => c !== "hi" && c !== "en" && fs.existsSync(path.join(ROOT, c, "aptitude-test.html"))).map(c => "/" + c + "/aptitude-test.html"))
+  /* v2.6 (21-Nov-2026, खेप M-1): मेन्यू के भाषा-पन्ने (generator/build_menu_lang.js से बने); सूची का घर lib_menu_lang.js */
+  .concat((function () { const MLG = require("./lib_menu_lang.js"), LK = MLG.readLinks(), out = [];
+    for (const k of Object.keys(MLG.PAGES)) for (const lg of MLG.PAGES[k].make) { const u = MLG.hrefOf(LK, k, lg); if (u && fs.existsSync(path.join(ROOT, MLG.fileOf(u)))) out.push(u); }
+    return out; })());
 
 const data = fs.readFileSync(path.join(ROOT, "assets/udyam_data.js"), "utf8");
 const intros = [...data.matchAll(/"intro": "(\/udyam\/[^"]+)"/g)].map(m => m[1]);
