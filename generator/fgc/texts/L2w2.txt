@@ -1,0 +1,100 @@
+1|Mo touléjou ka lévé anvan solèy lévé.
+2|Dabitid mo ka rivé travay witèr.
+3|Défwè mo ka travay lannwit.
+4|Mo pa janmen ka fimen.
+5|Kilèr ou ka lévé?
+6|Mo ka lévé senkèr chak jou.
+7|Pronmyen, mo ka lavé mo figi.
+8|Aprésa, mo ka fè dité.
+9|Dèyèsa, mo ka alé travay.
+10|Mo ka pran roun pozé inèr.
+11|Mo ka lavé mo lenj dimanch.
+12|Mo ka alé dronmi dizèr.
+13|Kouman ou ka alé travay?
+14|Mo ka alé travay a pyé.
+15|Sa ka pran ven minit.
+16|Mo ka anprann kréyòl roun dimi èr chak jou.
+17|Mo ka aplé mo fanmi dé fwè chak simenn.
+18|Dimanch mo ka pozé tout lajòrnen.
+19|Mo jou ka koumansé bònò é li ka fini ta.
+20|Travay rèd pa janmen ka pédi.
+21|Kisa ou kwit jodla?
+22|Mo kwit douri ké kari ponmdité.
+23|Pronmyen, lavé douri-a byen.
+24|Bouyi dilo-a anvan.
+25|Koupé zonyon-yan an piti moso.
+26|Mété roun tibi sèl.
+27|Manjé-a paré.
+28|Sa kari-a bon toubònman.
+29|Douri-a pa byen kwit.
+30|Nou bézwen dilwil ké zépis.
+31|Boutèy gaz-a vid.
+32|Mo ké poté roun nouvo boutèy.
+33|Jodla nou ké kwit ansanm.
+34|Kimoun divèt kwit jodla?
+35|Jodla a mo tou.
+36|Pa gaspiyé manjé.
+37|Gardé manjé-a kouvri.
+38|Mo manjé tròp jodla.
+39|Manjé kaz miyò pasé manjé rèstoran.
+40|Bwè rounso dilo pròp.
+41|Mo gen lafyèv dipi ayè.
+42|Mo tèt ka fè mo mal.
+43|Mo ka tousé é mo gen larim.
+44|Tout mo kò ka fè mo mal.
+45|Dipi kitan ou malad?
+46|Montré mo ou lanng.
+47|Pran sa rimèd-a apré manjé.
+48|Pran roun konprimé bonmanten é roun lannwit.
+49|Bwè dilo cho.
+50|Pozé dé jou.
+51|Mo pran rimèd-a a lèr.
+52|Aprézan mo ka santi mo miyò.
+53|Mo pa té pouvé alé travay ké lafyèv-a.
+54|Konmyen sa rimèd-a ka kouté?
+55|Ès i gen roun lopital gouvèrnman pròch isi-a?
+56|Doktò-a ka vini dizèr.
+57|Souplé, ékri mo non pou doktò-a.
+58|Manjé a lèr é dronmi byen.
+59|Lavé to lanmen anvan to manjé.
+60|Lasanté a vré richès-a.
+61|Jodla pi cho pasé ayè.
+62|Aprézan i ka fè frèt toubònman bonmanten.
+63|Sézon frèt-a ka vini.
+64|Mété lenj cho.
+65|Mo achté roun triko simenn pasé.
+66|Séché lenj-a annan solèy-a.
+67|Mo lenj mouyé annan lapli-a.
+68|Sézon lapli-a ké koumansé mwa ka vini a.
+69|Té gen roun gro van ayè aswè.
+70|A kouman tan-an fika jodla?
+71|Tan-an bèl toubònman jodla.
+72|Pa travay anba gro solèy.
+73|Bwè plis dilo annan sézon cho-a.
+74|Kouvri to tèt anba solèy-a.
+75|Sa lenj-a tro piti pou mo.
+76|Mo bézwen roun pi gran tay.
+77|Sa chimiz-a ka alé mo byen.
+78|Lavé sa chimiz-a apa.
+79|Mo soulyé déchiré.
+80|Mo ké achté nouvo soulyé jou salèr-a.
+81|Ès mo pouvé palé ké patron-an?
+82|Souplé, antann roun minit.
+83|Li pa isi-a aprézan.
+84|Souplé, aplé apré roun èr.
+85|Pardon, ou gen mové niméro-a.
+86|Mo té gen roun aplé manké dipi sa niméro-a.
+87|Kimoun aplé mo bonmanten?
+88|Souplé, voyé roun mésaj pou mo.
+89|Mo ké voyé adrès-a pou ou asou WhatsApp.
+90|Souplé, voyé foto papyé-a pou mo.
+91|Mo pa gen krédi téléfòn ankò.
+92|Mo batri fèb.
+93|Rézo-a fèb isi-a.
+94|Aplé-a koupé.
+95|Mo ké raplé ou annan senk minit.
+96|Souplé, gardé mo niméro.
+97|Ékri sa niméro-a.
+98|Palé roun tibi pi fò, souplé.
+99|Mo voyé roun mésaj pou ou ayè.
+100|Ès ou trouvé mo mésaj?

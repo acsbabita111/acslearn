@@ -1,0 +1,100 @@
+1|Konmyen salèr-a?
+2|Konmyen pou roun jou?
+3|Senk san pou roun jou.
+4|Kitan yé ké péyé mo?
+5|Yé ké péyé to vandrédi.
+6|Mo pa touché mo salèr.
+7|Mo péyman ta.
+8|Sa mwens pasé sa nou té di.
+9|Ou té promèt sis san.
+10|Souplé, péyé mo jodla.
+11|Mo travay dis jou.
+12|Mo fè èr siplémantèr.
+13|Souplé, bay mo roun rési.
+14|Kach oben labank?
+15|Souplé, péyé asou mo kont labank.
+16|Mo bézwen roun avans.
+17|Ès mo pouvé gen roun tibi soumaké aprézan?
+18|Poukisa yé koupé mo salèr?
+19|Mo lé roun kontra ékri.
+20|Mo pa ké travay san salèr.
+21|Koté labank-a fika?
+22|Koté ATM-an fika?
+23|Mo lé louvri roun kont.
+24|Mo lé voyé soumaké pou mo fanmi.
+25|Konmyen ou lé voyé?
+26|Mo lé voyé senk mil.
+27|Konmyen fré-a?
+28|Souplé, ranpli sa papyé-a.
+29|Mo pa pouvé ékri kréyòl.
+30|Souplé, idé mo ranpli papyé-a.
+31|ATM-an pa ka maché.
+32|Mo kart bloké.
+33|Mo bliyé mo PIN.
+34|Konmyen mo gen asou mo kont?
+35|Soumaké-a pa rivé.
+36|Souplé, vérifyé mo kont.
+37|Montré mo ou livré labank.
+38|Siyen isi-a.
+39|Mo lé tiré soumaké.
+40|Ès labank-a louvri jodla?
+41|Koté kontwar anréjistréman-an fika?
+42|Montré mo ou paspò.
+43|A mo paspò.
+44|A mo tiké.
+45|Koté mo pòt fika?
+46|Pòt niméro douz.
+47|Poukisa ou vini isi-a?
+48|Mo isi-a pou travay.
+49|Sa a mo viza.
+50|Sa a lèt mo konpanyi.
+51|Koté mo sak fika?
+52|Mo sak pa rivé.
+53|Koté taksi-ya fika?
+54|Souplé, mennen mo sa adrès-a.
+55|Roun moun ké vini sasé mo.
+56|Mo ka antann mo konpanyi.
+57|Koté mo pouvé achté roun kart SIM?
+58|Louvri ou sak, souplé.
+59|Alé ròt kontwar-a.
+60|Souplé, antann annan ran-an.
+61|Arèsté!
+62|Danjé!
+63|Pa touché sa.
+64|Pa vini isi-a.
+65|Mété to kas.
+66|Mété to gan-yan.
+67|Mété soulyé sékirité.
+68|Mété sentir sékirité-a.
+69|Koupé kouran-an.
+70|Ès kouran-an koupé?
+71|Rété lwen machin-an.
+72|Gadé anwo.
+73|Rékilé.
+74|Tchenbé sa rèd.
+75|Pa travay to rounso.
+76|Pòt sékou-a la.
+77|Koté bwat sékou-a fika?
+78|Sa pa sir.
+79|Mo bézwen roun kas.
+80|Souplé, bay mo gan sékirité.
+81|Mo fè mo mal.
+82|Mo blésé.
+83|Mo lanmen koupé.
+84|Mo tonbé.
+85|Mo pa pouvé boujé mo janm.
+86|I gen disan.
+87|Aplé chèf-a.
+88|Li blésé.
+89|Li pa ka rèspiré.
+90|Souplé, mennen li lopital.
+91|Machin-an danjéré.
+92|I gen roun lodò gaz.
+93|Fil-a dékouvri.
+94|Mo pran roun kou kouran.
+95|Li ka fè tro cho pou travay.
+96|Mo tèt ka viré.
+97|Mo bézwen asiz.
+98|Koté sa ka fè ou mal?
+99|Sa ka fè mo mal isi-a.
+100|Mo lé siyalé sa.

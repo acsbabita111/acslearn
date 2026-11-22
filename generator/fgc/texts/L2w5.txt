@@ -1,0 +1,150 @@
+1|Ki travay ou ka fè?
+2|Mo sa roun soudèr annan roun atélyé.
+3|Mo ka travay kou mason.
+4|Mo zanmi sa roun tayèr.
+5|Li ka travay annan roun lizin lenj.
+6|Mo ka fè sa travay-a dipi 2020.
+7|Mo gen senk lannen èspéryans.
+8|Konmyen èspéryans ou gen?
+9|Mo anprann sa travay-a ké mo ustad.
+10|Mo pouvé fè soudir ké montaj, tou dé.
+11|Mo ka anprann roun nouvo machin aprézan.
+12|Koté ou ka travay sa jou-ya?
+13|Mo ka travay asou roun chantyé.
+14|Nou konpanyi ka fè baryè asyé.
+15|Mo ka kondwi roun otorikcha annan lavil-a.
+16|Mo frè ka réparé téléfòn pòrtab.
+17|Sa a roun travay métché.
+18|Bon travay ka mennen bon soumaké.
+19|Mo ka travay wit èr chak jou.
+20|Défwè mo ka trouvé èr siplémantèr.
+21|Ki travay ou papa ka fè?
+22|Li sa roun kiltivatèr annan vilaj-a.
+23|Mo lé vini roun mèt roun jou.
+24|Chak travay gen so rèspé.
+25|Mo ka fè mo travay ké tout mo tchò.
+26|Mo travay a mo idantité.
+27|Ès ou nouvo isi-a?
+28|Wi, mo koumansé simenn pasé.
+29|Byenvini annan nou ékip.
+30|Mèrsi, mo ké anprann vit.
+31|Ès ou bézwen louvriyé?
+32|Ès i gen roun plas lib isi-a?
+33|Nou bézwen dé èd.
+34|Ki travay mo ké divèt fè?
+35|To ké idé mason-an.
+36|Konmyen salèr roun jou?
+37|Sis san roupi pou roun jou.
+38|Ès manjé ké lojman konté annan?
+39|Kitan mo ké touché péyman-an?
+40|Péyman-an a chak sanmdi.
+41|Ès mo pouvé koumansé dipi dimen?
+42|Wi, vini witèr bonmanten.
+43|Poté ou kart Aadhaar.
+44|Roun zanmi di mo gen sa travay-a.
+45|Antréprenèr-a konnèt mo byen.
+46|Réglé salèr-a anvan to koumansé.
+47|Pran to péyman a lèr.
+48|Pa travay san doumandé pri-a.
+49|Mo ka sasé travay pròch ké mo chanm.
+50|Sa travay-a lwen mo kaz.
+51|Ès i gen travay lannwit osi?
+52|Travay lannwit ka péyé plis.
+53|Mo pouvé lévé bagaj lou.
+54|Mo savé li plan.
+55|Bay mo roun chans, mouché.
+56|Travay roun jou, aprésa nou ké wè.
+57|Mo fè travay èsè-a byen.
+58|Nou chwézi to.
+59|Mo trouvé travay-a gras a mo métché.
+60|Pa janmen péyé soumaké pou trouvé roun travay.
+61|Mouché, ki travay i gen jodla?
+62|Fini travay ayè-a anvan.
+63|Mo konprann konsign-an.
+64|Pardon, mo pa konprann.
+65|Souplé, répété li dousman.
+66|Souplé, fè li roun fwè é montré mo.
+67|Aprézan mo ké fè li mo menm.
+68|Mouché, travay-a fini.
+69|Souplé, vérifyé mo travay roun fwè, mouché.
+70|To fè roun bon travay.
+71|I gen roun ti fot isi-a.
+72|Mo ké korijé li aprézan menm.
+73|Mo fè roun fot, pardon mouché.
+74|Pa fè sa fot-a ankò.
+75|Mo ké fè atansyon fwè ka vini a.
+76|Mouché, matéryo-a fini.
+77|Nou bézwen plis siman.
+78|Machin-an arèsté.
+79|Mo di problèm-an touswit.
+80|Aplé mékanisyen-an pou vérifyé li.
+81|Konmyen tan sa travay-a ké pran?
+82|Li ké pran dé èr ankò.
+83|Ès mo pouvé alé kaz bònò jodla?
+84|Fini sa moso-a, aprésa alé.
+85|Mouché, souplé èspliké nouvo plan-an.
+86|Doumandé mo si to gen roun dout.
+87|Doumandé miyò pasé fè roun fot.
+88|Mo fini travay-a anvan lèr.
+89|Chèf-a félisité mo jodla.
+90|Palé klè ka fè ganyen tan.
+91|Koté mo zouti-ya fika?
+92|Marto-a annan bwat-a.
+93|Bay mo sa klé-a.
+94|Tchenbé léchèl-a rèd.
+95|Miziré miray-a anvan.
+96|Li lonng dis pyé.
+97|Koupé bar-a a senk pyé.
+98|Lam-an pa filé.
+99|Chanjé lam-an anvan to koupé.
+100|Mété to kas sékirité.
+101|Touléjou mété gan pou sa travay-a.
+102|Fè atansyon ké machin-an.
+103|Étenn machin-an anvan to nétwayé li.
+104|Gardé atè-a sèk.
+105|Atè mouyé pouvé fè moun tonbé.
+106|Koté bwat sékou-a fika?
+107|Li òbò lapòt biro-a.
+108|Nétwayé to zouti-ya apré travay.
+109|Konté zouti-ya anvan to pati.
+110|Roun klé ka manké.
+111|Mo trouvé li anba tab-a.
+112|Sa machin-an nouvo, sèrvi li ké atansyon.
+113|Mété dilwil annan machin-an chak simenn.
+114|Matéryo-a rivé annan kamyon-an.
+115|Déchajé sak-ya ké atansyon.
+116|Pa lévé bagaj lou to rounso.
+117|Doumandé èd lò to bézwen.
+118|Bon zouti ka fè travay fasil.
+119|Sékirité anvan, travay apré.
+120|Roun louvriyé ki ka fè atansyon ka rivé kaz san malò.
+121|Mouché, mo bézwen roun jou konjé.
+122|Mo bézwen konjé lendi.
+123|I gen roun travay présé kaz.
+124|Mo papa pa byen.
+125|Mo divèt alé labank.
+126|Ès mo pouvé pran roun dimi jou konjé?
+127|Souplé, bay mo pèrmisyon, mouché.
+128|Mo ké viré travay mèrkrédi.
+129|Mo ké fini mo travay anvan mo pati.
+130|Konjé-a akòrdé.
+131|Avèrti mo roun jou anvan.
+132|Ékri roun démann konjé.
+133|Mo pa savé kouman ékri li.
+134|Aplikasyon AI-a pouvé idé to.
+135|Mo doumandé aplikasyon AI-a ékri mo démann.
+136|Di aplikasyon-an to non ké rézon-an.
+137|Palé Hindi, li ké ékri an kréyòl.
+138|Touléjou li anvan to voyé.
+139|Vérifyé non-an ké dat-a to menm.
+140|AI-a osi pouvé fè fot.
+141|Mo ka doumandé aplikasyon AI-a vérifyé mo kréyòl.
+142|Mo ka pratiké palé ké aplikasyon AI-a.
+143|Tapé to mésaj é voyé li.
+144|Mo voyé démann-an asou WhatsApp.
+145|Mouché aksèpté mo konjé asou téléfòn-an.
+146|Pa pran konjé san avèrti.
+147|Tròp konjé ka koupé péyman-an.
+148|Préparé to konjé anvan fèt-a.
+149|Roun rézon onèt ka ganyen konfyans.
+150|Nouvo zouti, nouvo tan: kontinyé anprann.

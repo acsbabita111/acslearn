@@ -1,0 +1,61 @@
+test0|Mo sa Endyen.
+test1|Mo gen roun travay soudèr la.
+test2|Wi, mo ké viré apré kontra-a.
+test3|Pa janmen bay ajan-an paspò orijinal-a.
+test4|Gardé niméro anbasad Lend-a.
+test5|Pati an sékirité, viré sir.
+lisQ0|Poukisa ou lé alé Dubai?
+lisA0|Mo gen roun travay soudèr la.
+lisQ1|Konmyen tan ou kontra ka diré?
+lisA1|Mo kontra a pou dé lannen.
+lisQ2|Kimoun péyé ou tiké?
+lisA2|Konpanyi-a péyé.
+lisQ3|Ès ou ké viré Lend?
+lisA3|Wi, mo ké viré.
+lisQ4|Konmyen ou ké touché la?
+lisA4|Mil senk san dirham.
+lisQ5|Koté ou ka alé?
+lisA5|Mo ka alé Dubai pou travay.
+dlg0|Bonjou, poukisa ou lé alé Dubai?
+dlg1|Mo gen roun travay soudèr la, mo kontra a pou dé lannen.
+dlg2|Konmyen ou ké touché la?
+dlg3|Mil senk san dirham pou roun mwa, é konpanyi-a ka bay lojman-an.
+dlg4|Ès ou ké viré Lend apré kontra-a?
+dlg5|Wi, mo fanmi ké mo tè Lend.
+dlg6|Dakò, ou paspò an règ.
+dlg7|Mèrsi bokou mouché.
+d1tw0|Paspò
+d1tw1|Viza
+d1tw2|Viza travay
+d1tw3|Konpanyi anplwayò
+d1tw4|Kontra
+d1tw5|Endyen
+d1dr0_0|Mo sa
+d2tw0|Manti
+d2tw1|Anilé
+d2tw2|Ajan
+d2tw3|Tès médikal
+d2tw4|Anprent dwèt
+d2tw5|Plan pou viré
+d2dr0_0|Lavérité
+d3tw0|Valab
+d3tw1|Dosyé
+d3tw2|Vérifikasyon lapolis
+d3tw3|Asirans
+d3tw4|Kontak ijans
+d3tw5|Kopi
+d3dr0_0|Gardé
+d4tw0|Anréjistréman
+d4tw1|Kart anbarkman
+d4tw2|Kontròl sékirité
+d4tw3|Dépar
+d4tw4|Imigrasyon
+d4tw5|Sentir sékirité
+d4dr0_0|Pronmyen
+d5tw0|eMigrate
+d5tw1|Pòtay èd
+d5tw2|Anréjistré
+d5tw3|Anbasad
+d5tw4|Èskro
+d5tw5|Promès
+d5dr0_0|Véyé to kò

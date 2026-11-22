@@ -1,0 +1,57 @@
+test0|Jodla mo kour A2 fini.
+test1|Mo anprann mil senk san nouvo fraz.
+test2|Mo pouvé palé kaz, annan travay, marché ké ayéropòr.
+test3|Tout mo vilaj fyè pou mo.
+test4|Sa bout-a a roun nouvo koumansman.
+test5|Mo lanng, mo zèl.
+lisQ0|Kisa ou ka fè annan ou tan lib?
+lisA0|Mo ka tandé chanté.
+lisQ1|Konmyen thali légim-an?
+lisA1|Mo ké doumandé sèrvò-a.
+lisQ2|A kouman to frè fika?
+lisA2|Li wo é mèg.
+lisQ3|Kitan fèt-a?
+lisA3|Dimanch aswè.
+lisQ4|Ès to fini kour-a?
+lisA4|Wi, mo fini li jodla.
+lisQ5|Kisa pròchen nivo-a?
+lisA5|Ègzanmen mondyal-a.
+dlg0|Mo ka envité to pou annivèrsèr mo tiboug, dimanch aswè.
+dlg1|Mèrsi, sir mo ké vini ké mo fanmi.
+dlg2|Bèl bagaj! Nou ké wè dimanch.
+dlg3|A tanto, mèrsi pou envitasyon-an.
+d1tw0|Pastan
+d1tw1|Tan lib
+d1tw2|Chanté
+d1tw3|Jwé
+d1tw4|Pozé
+d1tw5|Pi kontan
+d1dr0_0|Mo pastan
+d2tw0|Méni
+d2tw1|Thali
+d2tw2|Pimanté
+d2tw3|Pou poté alé
+d2tw4|Sèrvò
+d2tw5|Dous
+d2dr0_0|Souplé
+d3tw0|Wo
+d3tw1|Kourt
+d3tw2|Bab
+d3tw3|Kaskèt
+d3tw4|Janti
+d3tw5|Jenn
+d3dr0_0|Li
+d4tw0|Envité
+d4tw1|Fèt
+d4tw2|Aksèpté
+d4tw3|Annivèrsèr
+d4tw4|Sir
+d4tw5|Fwè ka vini a
+d4dr0_0|Mo ka envité to
+d5tw0|Konplèt
+d5tw1|Nivo
+d5tw2|Ègzanmen
+d5tw3|Fyèrté
+d5tw4|Koumansman
+d5tw5|Zèl
+d5dr0_0|Mo fini

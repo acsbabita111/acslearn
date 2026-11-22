@@ -1,0 +1,61 @@
+test0|Rézèrvé tiké tren-an bònò.
+test1|Maré to bagaj ké chenn anba plas-a.
+test2|Pa pran manjé ké étranjé.
+test3|Sonjé roun répè pou chak koté.
+test4|Mo rivé byen, pa enkyèt.
+test5|Vwayajé ansanm a vwayajé an sékirité.
+lisQ0|Koté sa bis-a ka alé?
+lisA0|Li ka alé marché-a.
+lisQ1|Kilakèl platfòm pou tren Patna-a?
+lisA1|Platfòm niméro trwa.
+lisQ2|Ès sa otorikcha-a gen roun kontò?
+lisA2|Wi, i gen roun.
+lisQ3|Kouman mo ka alé kolèj-a?
+lisA3|Alé drèt divan, aprésa viré a goch.
+lisQ4|Koté lign èd tren-an fika?
+lisA4|Niméro-a a roun trwa nèf.
+lisQ5|Ès ou rivé byen?
+lisA5|Wi, mo rivé byen.
+dlg0|Koté sa bis-a ka alé?
+dlg1|Li ka alé annan zòn endistriyèl-a. Monté vit.
+dlg2|Konmyen fré-a?
+dlg3|Rounso ven roupi.
+dlg4|Ki arè pou gran lopital-a?
+dlg5|Pròchen arè-a, mo ké di ou.
+dlg6|Mèrsi bokou.
+dlg7|Pa gen pou sa.
+d1tw0|Pri tiké
+d1tw1|Kontrolò
+d1tw2|Arè
+d1tw3|Plas lafinèt
+d1tw4|Plen moun
+d1tw5|Désann
+d1dr0_0|Koté
+d2tw0|Rézèrvasyon
+d2tw1|Platfòm
+d2tw2|Vagon jénéral
+d2tw3|PNR
+d2tw4|Lis antann
+d2tw5|Ransèyman
+d2dr0_0|Kilakèl platfòm
+d3tw0|Kouchèt
+d3tw1|TT
+d3tw2|Chenn
+d3tw3|Bagaj
+d3tw4|Kouchèt mitan
+d3tw5|Dèstinasyon
+d3dr0_0|Pa fè
+d4tw0|Otorikcha patajé
+d4tw1|Dapré kontò-a
+d4tw2|Drèt divan
+d4tw3|Viré
+d4tw4|Répè
+d4tw5|Distans a pyé
+d4dr0_0|Alé drèt divan
+d5tw0|Lign èd tren
+d5tw1|Pédi
+d5tw2|Trouvé
+d5tw3|Anons
+d5tw4|Tiké platfòm
+d5tw5|Tout détay
+d5dr0_0|Mo pédi mo chimen

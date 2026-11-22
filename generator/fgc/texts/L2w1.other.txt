@@ -1,0 +1,69 @@
+test0|I gen senk moun annan mo fanmi.
+test1|Mo ka rété ké mo paran-yan.
+test2|Mo kaz annan roun piti vilaj.
+test3|Mo ka travay rèd pas mo fanmi bézwen soumaké.
+test4|Mo ké viré koté mo fanmi talò.
+lisQ0|Ki ou non?
+lisA0|Mo non a Ahmed.
+lisQ1|Koté ou soti?
+lisA1|Mo soti Bihar.
+lisQ2|Konmyen moun i gen annan ou fanmi?
+lisA2|I gen senk moun annan mo fanmi.
+lisQ3|Koté ou ka rété?
+lisA3|Mo ka rété annan roun chanm mo ka lwé.
+lisQ4|Kisa ou fè ayè?
+lisA4|Mo alé travay ayè.
+lisQ5|Kisa ou ké fè dimen?
+lisA5|Mo ka alé labank dimen.
+dlg0|Bonjou, a kouman ou fika?
+dlg1|Mo byen, mèrsi. É ou?
+dlg2|Mo byen osi. Konmyen moun i gen annan ou fanmi?
+dlg3|I gen senk moun: mo paran-yan, mo frè ké mo sò.
+dlg4|Koté ou ka rété aprézan?
+dlg5|Mo ka rété annan roun chanm mo ka lwé pròch ké marché-a.
+dlg6|Ès ou ka sonjé ou fanmi?
+dlg7|Wi, bokou. Mo ké viré talò, si Bondjé lé.
+d1tw0|Fanmi
+d1tw1|Paran
+d1tw2|Pi gran
+d1tw3|Pi piti
+d1tw4|Ansanm
+d1tw5|Soutyen
+d1dr0_0|Mo
+d1dr0_1|To
+d1dr0_2|Li
+d2tw0|Vilaj
+d2tw1|Chanm lwé
+d2tw2|Étaj
+d2tw3|Dèyè
+d2tw4|Divan
+d2tw5|Twa
+d2dr0_0|annan
+d2dr0_1|asou
+d2dr0_2|pròch ké
+d2dr0_3|dèyè
+d3tw0|Ayè
+d3tw1|Mo lévé
+d3tw2|Mo alé
+d3tw3|Mo achté
+d3tw4|Mo trouvé
+d3tw5|Ayè aswè
+d3dr0_0|jodla
+d3dr0_1|Ayè
+d4tw0|Dimen
+d4tw1|Mo ké fè li
+d4tw2|Simenn ka vini a
+d4tw3|Métché
+d4tw4|Éséyé
+d4tw5|Parapli
+d4dr0_0|jodla
+d4dr0_1|Dimen
+d5tw0|Pas
+d5tw1|Kidonk
+d5tw2|Rézon
+d5tw3|Ta
+d5tw4|Konjé
+d5tw5|Mété soumaké asou koté
+d5dr0_0|fraz 1
+d5dr0_1|fraz 2
+d5dr0_2|roun fraz

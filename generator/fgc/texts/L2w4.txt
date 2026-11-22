@@ -1,0 +1,100 @@
+1|Bon labitid ka fè roun bon lavi.
+2|Lévé bònò chak jou.
+3|Brosé to dan dé fwè chak jou.
+4|Benyen chak jou.
+5|Gardé to zong koupé.
+6|Touléjou di lavérité.
+7|Rivé travay a lèr.
+8|Pa gaspiyé soumaké annan mové labitid.
+9|Rété lwen gutka ké alkòl.
+10|Mété roun tibi soumaké asou koté chak simenn.
+11|Mo arèsté bwè dité lannwit.
+12|Aprézan mo ka dronmi miyò.
+13|Maché ven minit chak jou.
+14|Li roun bagaj nouvo chak jou.
+15|Mo ka pratiké kréyòl lò mo ka maché.
+16|Roun tibi pratik chak jou ka bay roun gro rézilta.
+17|Gardé to téléfòn lwen lò to ka travay.
+18|Mové labitid fasil pou koumansé, rèd pou kité.
+19|Chanjé roun ti labitid sa simenn-an.
+20|Mo bon labitid-ya a mo richès.
+21|Jodla a ki dat?
+22|Jodla a senk mars.
+23|Mo péyman ka rivé sèt mwa-a.
+24|Lwayé-a divèt péyé pronmyen mwa-a.
+25|Mo fèt annan mil nèf san katréven-kenz.
+26|Ki ou dat nésans?
+27|Biro-a fronmen dézyèm sanmdi-a.
+28|Vini jis névèr édimi.
+29|Aprézan li senkèr mwen kar.
+30|Bis-a ka pati sizèr édimi.
+31|Mo ké rivé annan roun èr édimi.
+32|Nou an rétar dis minit.
+33|Vini senk minit bònò.
+34|Mo konjé ka koumansé dipi ven mwa-a.
+35|Konmyen jou i gen annan sa mwa-a?
+36|Sa mwa-a gen trantéroun jou.
+37|Ki jou ka tonbé kenz mwa-a?
+38|A roun vandrédi.
+39|Ékri dat-a asou papyé-a.
+40|Tan ki pasé pa janmen ka viré.
+41|Bonjou manman, mo byen isi-a.
+42|Mo trouvé ou mésaj ayè.
+43|Pardon si mo réponn ta.
+44|Travay ka maché byen isi-a.
+45|Mo voyé senk mil roupi.
+46|Souplé, vérifyé é di mo.
+47|A kouman lasanté papa fika aprézan?
+48|Di li pran rimèd chak jou.
+49|Kouman timoun-yan ka anprann?
+50|Mo ké vini kaz mwa ka vini a.
+51|Mo ké poté lenj pou tout moun.
+52|Pran swen ou kò.
+53|Di granpapa bonjou pou mo.
+54|Mo ké voyé roun mésaj vwa dimanch.
+55|Réponn lò ou gen tan.
+56|Voyé roun foto tout moun pou mo.
+57|Li sa mésaj-a pou manman.
+58|Mo voyé roun lonng mésaj apré bokou jou.
+59|Ou palò ka bay mo kouraj.
+60|Mo ka sonjé manjé kaz bokou.
+61|Byenvini annan nou kaz.
+62|Souplé, asiz.
+63|Ès ou ké pran dité oben dilo?
+64|Rounso dilo, mèrsi.
+65|A kouman tout moun fika kaz?
+66|Tout moun byen, gras a Bondjé.
+67|Ou vini apré bokou tan.
+68|Mo té okipé ké travay.
+69|Souplé, rété pou soupé.
+70|Awa, mo divèt pati bònò.
+71|Vini ankò ké ou fanmi.
+72|Sir, mo ké vini.
+73|Nou kontré annan mayaj-a lannen pasé.
+74|Ès ou ka sonjé mo?
+75|Wi, byen sir mo ka sonjé ou.
+76|Mo kontan toubònman wè ou ankò.
+77|Di tout moun kaz namasté pou mo.
+78|Pou nou, envité-ya kou Bondjé.
+79|Aplé mo lò ou rivé kaz.
+80|Aswè-a té bèl toubònman.
+81|Lannen pasé mo té annan vilaj-a, aprézan mo annan lavil-a.
+82|Lavi lavil pi vit pasé lavi vilaj.
+83|Mo vini isi-a pas pa té gen travay kaz.
+84|Okoumansman tout bagaj té rèd.
+85|Dousman-dousman mo anprann travay-a.
+86|Aprézan mo travay miyò pasé anvan.
+87|Chak mwa mo ka mété dé mil roupi asou koté.
+88|Lannen ka vini a mo ké mennen mo fanmi isi-a.
+89|Mo timoun-yan ké anprann annan roun bon lékòl.
+90|Ayè mo palé kréyòl ké mo chèf.
+91|Li té kontan pas mo palé klè.
+92|Kréyòl ka louvri nouvo lapòt pou mo.
+93|Mo fini roun mwa annan sa kour-a.
+94|Mo anprann kat san nouvo fraz.
+95|Dipi dimen mo ké anprann trant fraz chak jou.
+96|Pratik ka fè tout bagaj fasil.
+97|Mo fanmi fyè pou mo.
+98|Mo ka fè mo lavni ké mo pròp lanmen.
+99|Koté i gen volonté, i gen chimen.
+100|Mo vwayaj soti koumansé.

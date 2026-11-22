@@ -450,4 +450,6 @@ const FGC = mkFR({
   g2pX: []
 });
 
-module.exports = { crs: CRS, acf: ACF, dcf: DCF, rcf: RCF, fgc: FGC };
+/* 22-Nov-2026: fgc इस pivot-यंत्र से बाहर — कोर्स v3.0 हाथ से, स्रोत-आधारित लिखा गया (assets/kkb_fgc_data.js, kkb2_fgc_data.js)।
+   यह यंत्र fgc पर दोबारा चला तो वह पूरा काम मिट जाएगा; इसलिए build_khema_ya.js अब fgc पर "अनजान कोड" कहकर रुकता है। */
+module.exports = { crs: CRS, acf: ACF, dcf: DCF, rcf: RCF };

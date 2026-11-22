@@ -1,0 +1,6 @@
+test0|Mo ka sasé travay
+test1|Ès ou gen roun travay
+test2|Mo bézwen roun djòb
+test3|Ki travay ou pouvé fè
+test4|Mo pouvé fè soudir
+test5|Mo pouvé kondwi

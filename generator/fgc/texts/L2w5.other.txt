@@ -1,0 +1,59 @@
+test0|Mo sa roun soudèr annan roun atélyé.
+test1|Mo gen senk lannen èspéryans.
+test2|Mo konprann konsign-an.
+test3|Mété to kas sékirité.
+test4|Sékirité anvan, travay apré.
+test5|Mo ka fè mo travay ké tout mo tchò.
+lisQ0|Ki travay ou ka fè?
+lisA0|Mo sa roun soudèr.
+lisQ1|Konmyen salèr roun jou?
+lisA1|Sis san roupi.
+lisQ2|Ès ou konprann konsign-yan?
+lisA2|Wi, mo konprann.
+lisQ3|Koté marto-a fika?
+lisA3|Annan bwat-a.
+lisQ4|Kitan ou ké viré?
+lisA4|Mo ké viré mèrkrédi.
+lisQ5|Ès konjé-a akòrdé?
+lisA5|Wi, li akòrdé.
+dlg0|Mouché, ki travay i gen jodla?
+dlg1|Fini travay ayè-a anvan, aprésa nou ké koumansé nouvo-a.
+dlg2|Mo konprann. Souplé, montré mo roun fwè.
+dlg3|Dakò, gadé byen.
+dlg4|Mèrsi, aprézan mo byen konprann.
+dlg5|Byen. Travay ké atansyon.
+d1tw0|Mason
+d1tw1|Soudèr
+d1tw2|Tayèr
+d1tw3|Èspéryans
+d1tw4|Dipi
+d1tw5|Èr siplémantèr
+d1dr0_0|Mo sa
+d2tw0|Plas lib
+d2tw1|Salèr roun jou
+d2tw2|Antréprenèr
+d2tw3|Koumansé travay
+d2tw4|Péyman
+d2tw5|Èsè
+d2dr0_0|Ès
+d3tw0|Chèf
+d3tw1|Konsign
+d3tw2|Konprann
+d3tw3|Répété
+d3tw4|Fot
+d3tw5|Avèrti
+d3dr0_0|Wi, mouché
+d4tw0|Zouti
+d4tw1|Marto
+d4tw2|Miziré
+d4tw3|Kas sékirité
+d4tw4|Gan
+d4tw5|Atansyon
+d4dr0_0|Koté
+d5tw0|Démann konjé
+d5tw1|Nésésèr
+d5tw2|Pèrmisyon
+d5tw3|Aplikasyon AI
+d5tw4|Vérifyé
+d5tw5|Tapé
+d5dr0_0|Mouché

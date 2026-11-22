@@ -1,0 +1,63 @@
+test0|Bonjou mouché, a Ramesh ka palé.
+test1|Mo travayò é mo onèt.
+test2|Konmyen salèr-a pou roun mwa?
+test3|Mo pouvé koumansé dipi lendi.
+test4|Mèrsi pas ou palé ké mo, mouché.
+test5|Mo kréyòl, mo fòs.
+lisQ0|Koté ou soti?
+lisA0|Mo soti Bihar.
+lisQ1|Konmyen salèr-a pou roun mwa?
+lisA1|Mo ké doumandé asou salèr-a.
+lisQ2|Ès ou gen roun sèrtifika?
+lisA2|Wi, mo gen roun sèrtifika.
+lisQ3|Kitan ou pouvé koumansé?
+lisA3|Mo pouvé koumansé dipi lendi.
+lisQ4|Ès chanm-an gratis?
+lisA4|Wi, chanm-an gratis.
+lisQ5|Konmyen ou ganyen sa mwa-a?
+lisA5|Mo ganyen plis pasé mwa pasé.
+dlg0|Bonjou mouché, a Ramesh ka palé.
+dlg1|Bonjou, di mo kimoun ou sa.
+dlg2|Mo soti Bihar, mo sa roun montò, ké senk lannen èspéryans.
+dlg3|Byen. Kitan ou pouvé koumansé?
+dlg4|Mo pouvé koumansé lendi. Ès salèr-a pou chak mwa?
+dlg5|Wi, é orè-a dipi névèr jouk sizèr.
+dlg6|Mèrsi mouché, mo paré pou èsè-a.
+dlg7|Dakò, vini dimen névèr.
+d1tw0|Postilé
+d1tw1|Ki gen konfyans
+d1tw2|Travayò
+d1tw3|Onèt
+d1tw4|Référans
+d1tw5|Èsè
+d1dr0_0|Mo sa
+d2tw0|Kèksyon
+d2tw1|Pou chak mwa
+d2tw2|Orè
+d2tw3|Koté
+d2tw4|Konfirmé
+d2tw5|Raplé
+d2dr0_0|Konmyen
+d3tw0|Rapò foto
+d3tw1|Anvan-apré
+d3tw2|Group
+d3tw3|Voyé dèrò
+d3tw4|Éfasé
+d3tw5|Mésaj vwa
+d3dr0_0|anvan
+d3dr0_1|apré
+d4tw0|Lagar
+d4tw1|Kart SIM
+d4tw2|Réchaj
+d4tw3|Kart chimen
+d4tw4|Kantin
+d4tw5|Enstalé
+d4dr0_0|Pronmyen jou
+d5tw0|Prèv
+d5tw1|Sékirité
+d5tw2|Progré
+d5tw3|Ganyen
+d5tw4|Ékip
+d5tw5|Listwè
+d5dr0_0|okoumansman
+d5dr0_1|aprézan

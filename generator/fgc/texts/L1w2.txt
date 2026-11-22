@@ -1,0 +1,100 @@
+1|Konmyen sa ka kouté?
+2|Konmyen?
+3|Dé san roupi.
+4|Li tro chè.
+5|Souplé, bésé pri-a.
+6|Ès ou gen sa?
+7|Mo lé sa-a.
+8|Bay mo roun kilo.
+9|Bay mo dé.
+10|Kisa ou lé?
+11|Mo pa lé sa.
+12|Montré mo roun ròt.
+13|Ès sa bon?
+14|Koté magazen-an fika?
+15|Ès magazen-an louvri?
+16|Magazen-an fronmen.
+17|Souplé, anbalé li.
+18|Bay mo roun sak.
+19|Ès ou lé ròt bagaj?
+20|Sa tout.
+21|Roun dité, souplé.
+22|Roun plat douri, souplé.
+23|Mo lé manjé san vyann.
+24|Pa vyann, souplé.
+25|Pa tro piman, souplé.
+26|Kisa ou gen?
+27|Kisa ou ké manjé?
+28|Dilo, souplé.
+29|Ladisyon, souplé.
+30|Konmyen ladisyon-an?
+31|Mo ké péyé kach.
+32|Mo ké péyé ké téléfòn.
+33|Ès ou ka pran UPI?
+34|Souplé, rann mo lamonnen.
+35|Mo pa gen lamonnen.
+36|Gardé lamonnen-an.
+37|Sa pa kòrèk.
+38|Souplé, vérifyé ankò.
+39|Koté mo pouvé manjé?
+40|Manjé-a bon.
+41|Koté ou lé alé?
+42|Mo lé alé lagar.
+43|Konmyen jouk lagar?
+44|Senkant roupi.
+45|Souplé, asiz.
+46|Souplé, arèsté isi-a.
+47|Souplé, antann.
+48|Kilakèl bis ka alé la?
+49|Ès sa bis-a ka alé marché?
+50|Roun tiké, souplé.
+51|Kitan pròchen tren-an ka rivé?
+52|Kilakèl platfòm?
+53|Platfòm niméro dé.
+54|Ès sa plas-a lib?
+55|Souplé, di mo lò nou rivé.
+56|Mo pa konnèt sa plas-a.
+57|Souplé, montré mo koté li fika.
+58|Alé vit, souplé.
+59|Alé dousman, souplé.
+60|Nou rivé.
+61|Mo bézwen roun chanm.
+62|Konmyen lwayé-a?
+63|Trwa mil pou roun mwa.
+64|Ès dilo-a annan pri-a?
+65|Ès kouran-an annan pri-a?
+66|Ès mo pouvé wè chanm-an?
+67|Chanm-an piti.
+68|Vantilatèr-a pa ka maché.
+69|Pa gen dilo.
+70|Souplé, réparé li.
+71|Kitan mo divèt péyé lwayé-a?
+72|Péyé pronmyen jou mwa-a.
+73|Souplé, bay mo laklé-a.
+74|Mo lé roun réchaj.
+75|Réchaj pou dé san.
+76|Mo téléfòn pa ka maché.
+77|Mo pa gen entèrnèt.
+78|Ki ou niméro?
+79|Mo niméro a ___.
+80|Souplé, aplé mo.
+81|Kilèr li fika?
+82|Li sétèr.
+83|Ki jou jodla?
+84|Jodla a lendi.
+85|Dimen.
+86|Ayè.
+87|Bonmanten.
+88|Aswè.
+89|Lannwit.
+90|Jodla i ka fè cho toubònman.
+91|Lapli ka tonbé.
+92|I ka fè frèt.
+93|Bèl lannwit.
+94|A tanto.
+95|Mo ka alé marché.
+96|Koté ou ka alé?
+97|Mo ka alé travay.
+98|Mo ka rété isi-a.
+99|Sa a mo vwazen.
+100|Souplé, rantré.

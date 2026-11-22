@@ -1,0 +1,62 @@
+test0|Idé mo, souplé vini vit!
+test1|Mo bézwen roun anbilans.
+test2|Mo konnèt mo drwa.
+test3|Mo lé roun répons pa ékri.
+test4|Mo bézwen roun doktò aprézan menm.
+test5|Ou fraz, ou fòs.
+lisQ0|Idé mo, souplé vini vit!
+lisA0|Mo ka rivé!
+lisQ1|Kisa ki pasé?
+lisA1|Mo zanmi tonbé.
+lisQ2|Koté ou alé?
+lisA2|Mo pédi mo chimen.
+lisQ3|Kisa ou bézwen?
+lisA3|Mo bézwen roun doktò.
+lisQ4|Konmyen ou salèr?
+lisA4|Mo ké vérifyé kontra-a.
+lisQ5|Ès ou konprann?
+lisA5|Awa, souplé èspliké ankò.
+dlg0|Mouché, mo péyman an rétar dipi dis jou.
+dlg1|Kité mo vérifyé kayé-a.
+dlg2|Mo kont ka di nèf san.
+dlg3|Ou gen rézon, pardon pou rétar-a.
+dlg4|Souplé, péyé asou mo kont labank.
+dlg5|Dakò, mo ké péyé jodla.
+dlg6|Mèrsi, mo ka rèspèkté ou travay.
+dlg7|É mo osi ka rèspèkté ou travay.
+d1tw0|Ijans
+d1tw1|Blésé
+d1tw2|Anbilans
+d1tw3|Difé
+d1tw4|Vòlò
+d1tw5|Rèspiré
+d1dr0_0|Idé mo
+d2tw0|Konprann
+d2tw1|Èspliké
+d2tw2|Matéryèl sékirité
+d2tw3|Rifizé
+d2tw4|Répété
+d2tw5|Rèspé
+d2dr0_0|Souplé
+d3tw0|Rétni
+d3tw1|An rétar
+d3tw2|Pou roun èr
+d3tw3|Pa ékri
+d3tw4|Témwen
+d3tw5|Èr siplémantèr péyé
+d3dr0_0|Konmyen
+d4tw0|Réponn
+d4tw1|Rété
+d4tw2|Zouti
+d4tw3|Fini
+d4tw4|Travay yé bay
+d4tw5|Répons
+d4dr0_0|Tandé
+d4dr0_1|Réponn
+d5tw0|Modèl
+d5tw1|Vid
+d5tw2|Palò
+d5tw3|Fraz
+d5tw4|Pròp
+d5tw5|Sitiyasyon
+d5dr0_0|Mo bézwen

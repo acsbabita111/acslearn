@@ -1,4 +1,4 @@
-/* generator/build_kkb_bank.js — v2.0 (01-Sep-2026, Founder-नियम 40/40/40: + बोलो-प्रश्न T15/T16/T17 · en भी इसी इंजन से) · v1.1 (+ हिब्रू he) · v1.0 (31-Aug-2026) · Founder-मुहर: 7 भाषाओं के server-परीक्षा बैंक
+/* generator/build_kkb_bank.js — v2.1 (22-Nov-2026: परीक्षा-आवाज़ "hi-dev", घर generator/data/kkb_exam_awaaz.json) · v2.0 (01-Sep-2026, Founder-नियम 40/40/40: + बोलो-प्रश्न T15/T16/T17 · en भी इसी इंजन से) · v1.1 (+ हिब्रू he) · v1.0 (31-Aug-2026) · Founder-मुहर: 7 भाषाओं के server-परीक्षा बैंक
    ACS Certificate in Spoken <भाषा> — build_eng_bank.js (v2.0) का भाषा-सामान्यीकरण। English बैंक अछूता (वही eng-generator से)।
    चलाना: node generator/build_kkb_bank.js <ar|fr|es|ja|ko|de|ru>   (repo-रूट से)
    स्रोत (सब frozen corpus से — कुछ गढ़ा नहीं): 2,150 वाक्य + लक्ष्य-शब्द + सुनो-जवाब जोड़े + संवाद-जोड़ियाँ।
@@ -164,11 +164,19 @@ eval(fs.readFileSync(DP[1], "utf8").replace("window.KKB2_DATA", "global.window.K
 var D1 = global.window.KKB_DATA, D2 = global.window.KKB2_DATA;
 function clean(t) { return String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, "").replace(/^\([^()\s]{1,8}\)\s*/, "").replace(/\s*\([^()]*[\u0900-\u097F][^()]*\)\s*$/, ""); } /* v2.0: (שמע)/(דבר)-जैसे लिपि-टैग व अंत का (देवनागरी-उच्चारण) भी हटे — listen-भंडारण-रूप */
 function spokenT(t) { t = clean(t); if (CODE === "ja" || CODE === "zh" || CODE === "nan") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* 04-Sep: zh भी pinyin-कोष्ठक AU-टकराव-मुक्त */
+/* v2.1 (22-Nov-2026) परीक्षा-आवाज़ "hi-dev": जिस भाषा की अपनी मशीन-आवाज़ और बोली-पहचान नहीं (dashboard EXAM_TTS = hi-IN),
+   वहाँ सुनो-पाठ ((AU:)) और बोलो का अपेक्षित उत्तर (sp) देवनागरी उच्चारण में जाते हैं। कोर्स भी यही करता है
+   (kkb2.js: "देवनागरी उच्चारण हिंदी आवाज़ में")। एकमात्र घर: generator/data/kkb_exam_awaaz.json। सूची में न हो = पुराना व्यवहार हूबहू। */
+var AWAAZ = JSON.parse(fs.readFileSync("generator/data/kkb_exam_awaaz.json", "utf8"))[CODE] || null;
+var HIDEV = !!(AWAAZ && AWAAZ.mode === "hi-dev"), TRL = HIDEV ? require(process.cwd() + "/" + AWAAZ.translit) : null, DEVOF = {};
+function sayT(t) { t = spokenT(t); if (!HIDEV) return t; return DEVOF[t] || TRL.line(t); }
+var NOTE_AU = " (ध्यान दें: यह आवाज़ हिंदी मशीन की है, " + L + " की असली आवाज़ नहीं)";
+var NOTE_MIC = " (ध्यान दें: फ़ोन हिंदी की पहचान से सुनता है। देवनागरी उच्चारण जैसा साफ़ बोलिए)";
 var ALL = [], TW = [], LIS = [], DLG = [];
 [D1, D2].forEach(function (D) {
   D.weeks.forEach(function (w) {
     w.days.forEach(function (d) {
-      d.items.forEach(function (it) { ALL.push({ en: clean(it[0]), dev: it[1], hi: it[2] }); });
+      d.items.forEach(function (it) { ALL.push({ en: clean(it[0]), dev: it[1], hi: it[2] }); if (HIDEV) DEVOF[spokenT(it[0])] = it[1]; });
       (d.tw || []).forEach(function (t) { if (CFG[CODE].skipLatinTw && /^[A-Za-z][A-Za-z-]*$/.test(t[0])) return; /* v1.1: Latin brand-शब्द (UPI/OTP/eMigrate…) — असली-लिपि भाषाओं में शब्द-प्रश्न बेमानी, छोड़ो */ TW.push({ w: t[0], dev: t[1], hi: t[2] }); });
     });
     (w.listen || []).forEach(function (p) { LIS.push({ q: clean(p[0]), a: clean(p[1]) }); });
@@ -247,15 +255,15 @@ B[12] = function (it) { /* सही शब्द-क्रम: ग़लत व
 };
 B[13] = function (it) { /* सुनो→अर्थ: वाक्य सिर्फ़ आवाज़ से — पाठ में नहीं */
   var ds = pick3(ALL, it.hi, function (x) { return x.hi; });
-  return ds && mkQ(13, "🔊 सुनो-प्रश्न: नीचे बटन दबाकर " + L + " वाक्य सिर्फ़ कान से सुनिए (पढ़ने को नहीं मिलेगा) — फिर उसका सही हिंदी अर्थ चुनिए ((AU:" + spokenT(it.en) + "))", it.hi, ds);
+  return ds && mkQ(13, "🔊 सुनो-प्रश्न: नीचे बटन दबाकर " + L + " वाक्य सिर्फ़ कान से सुनिए (पढ़ने को नहीं मिलेगा) — फिर उसका सही हिंदी अर्थ चुनिए ((AU:" + sayT(it.en) + "))", it.hi, ds);
 };
 B[14] = function (it) { /* सुनो→उच्चारण पहचानो */
   var ds = pick3(ALL, it.dev, function (x) { return x.dev; });
-  return ds && mkQ(14, "🔊 सुनो-प्रश्न: बटन दबाकर वाक्य सुनिए — जो सुना, उसका सही उच्चारण चुनिए ((AU:" + spokenT(it.en) + "))", it.dev, ds);
+  return ds && mkQ(14, "🔊 सुनो-प्रश्न: बटन दबाकर वाक्य सुनिए — जो सुना, उसका सही उच्चारण चुनिए ((AU:" + sayT(it.en) + "))", it.dev, ds);
 };
 /* ---- v2.0 बोलो-प्रश्न (Founder-नियम 01-Sep: 120 में 40 बोलो): o ख़ाली, a:-1, sp = अपेक्षित वाक्य (client को कभी नहीं जाता —
    server outQ में sp कटता है); client माइक से पहचाना text भेजे, server sp से मिलाए (आंशिक अंक)। पाठ में ((MIC)) = माइक-निशान। ---- */
-function mkSp(typ, t, sp) { return { typ: typ, t: t, o: [], a: -1, sp: spokenT(sp) }; }
+function mkSp(typ, t, sp) { return { typ: typ, t: t, o: [], a: -1, sp: sayT(sp) }; }
 B[15] = function (it) { /* पढ़कर बोलो: वाक्य दिखे (असली लिपि + देवनागरी), ज़ोर से बोलो */
   return mkSp(15, "🎤 बोलो-प्रश्न: यह " + L + " वाक्य ज़ोर से बोलिए — \u201C" + spokenT(it.en) + "\u201D (" + it.dev + ") ((MIC))", it.en);
 };
@@ -263,7 +271,7 @@ B[16] = function (it) { /* हिंदी देखो, उस भाषा म
   return mkSp(16, "🎤 बोलो-प्रश्न: इसे " + L + " में बोलिए — \u201C" + it.hi + "\u201D ((MIC))", it.en);
 };
 B[17] = function (p) { /* सवाल सुनो, जवाब बोलो (listen/dialog-जोड़ी से) */
-  return mkSp(17, "🔊🎤 सुनो-बोलो प्रश्न: बटन दबाकर " + L + " सवाल सुनिए (पढ़ने को नहीं मिलेगा), फिर उसका जवाब " + L + " में बोलिए ((AU:" + spokenT(p.q) + ")) ((MIC))", p.a);
+  return mkSp(17, "🔊🎤 सुनो-बोलो प्रश्न: बटन दबाकर " + L + " सवाल सुनिए (पढ़ने को नहीं मिलेगा), फिर उसका जवाब " + L + " में बोलिए ((AU:" + sayT(p.q) + ")) ((MIC))", p.a);
 };
 /* tw-धारा */
 B[8] = function (t) { var ds = pick3(TW, t.hi, function (x) { return x.hi; }); return ds && mkQ(8, L + " शब्द \u201C" + t.w + "\u201D (" + t.dev + ") का सही हिंदी अर्थ चुनिए", t.hi, ds); };
@@ -315,6 +323,10 @@ var byType = {}; BANK.forEach(function (Q) { (byType[Q.typ] = byType[Q.typ] || [
 var order = [1, 13, 15, 8, 3, 10, 16, 5, 14, 17, 2, 9, 6, 11, 4, 7, 12], MIX = [], left = BANK.length;
 while (left > 0) for (var o2 = 0; o2 < order.length; o2++) { var arr = byType[order[o2]]; if (arr && arr.length) { MIX.push(arr.shift()); left--; } }
 BANK = MIX;
+if (HIDEV) BANK.forEach(function (Q) {   /* v2.1: ईमानदार सूचना प्रश्न में ही (आवाज़-ईमानदारी नियम) */
+  if (Q.t.indexOf("((AU:") > -1) Q.t = Q.t.replace(/\s*\(\(AU:/, NOTE_AU + " ((AU:");
+  if (Q.t.indexOf("((MIC))") > -1) Q.t = Q.t.replace(/\s*\(\(MIC\)\)/, NOTE_MIC + " ((MIC))");
+});
 /* server-इंजन हर प्रश्न में स्थायी id माँगता है (attempt की qids-सूची इसी से) */
 BANK.forEach(function (Q, qi) { Q.id = CODE + "-" + ("0000" + (qi + 1)).slice(-4); });
 

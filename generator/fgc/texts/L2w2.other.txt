@@ -1,0 +1,64 @@
+test0|Mo ka lévé senkèr chak jou.
+test1|Mo ka alé travay a pyé.
+test2|Mo ka aplé mo fanmi dé fwè chak simenn.
+test3|Lasanté a vré richès-a.
+test4|Mo ka sonjé mo fanmi bokou.
+lisQ0|Kouman ou ka alé travay?
+lisA0|Mo ka alé a pyé.
+lisQ1|Kisa ou kwit jodla?
+lisA1|Mo kwit douri.
+lisQ2|Dipi kitan ou malad?
+lisA2|Dipi ayè.
+lisQ3|A kouman tan-an fika jodla?
+lisA3|Tan-an bèl.
+lisQ4|Souplé, aplé apré roun èr.
+lisA4|Dakò, mo ké raplé.
+lisQ5|Ès ou trouvé mo mésaj?
+lisA5|Wi, mo trouvé li.
+dlg0|Bonjou, ès mo pouvé palé ké patron-an?
+dlg1|Pardon, li pa isi-a aprézan.
+dlg2|Kitan li ké viré?
+dlg3|Annan roun èr konsa. Raplé atò.
+dlg4|Dakò, mèrsi. Mo ké raplé annan roun èr.
+dlg5|Pa gen problèm.
+d1tw0|Touléjou
+d1tw1|Dabitid
+d1tw2|Défwè
+d1tw3|Janmen
+d1tw4|A pyé
+d1tw5|Chak jou
+d1dr0_0|pronmyen
+d1dr0_1|aprésa
+d1dr0_2|dèyèsa
+d2tw0|Kwit
+d2tw1|Bouyi
+d2tw2|Koupé
+d2tw3|Bon gou
+d2tw4|Vid
+d2tw5|Tou
+d2dr0_0|Fè sa
+d3tw0|Lafyèv
+d3tw1|Konprimé
+d3tw2|Tousé
+d3tw3|Miyò
+d3tw4|Pozé
+d3tw5|Pròch
+d3dr0_0|mo tèt
+d3dr0_1|mo vant
+d3dr0_2|mo do
+d4tw0|Tan
+d4tw1|Frèt
+d4tw2|Mouyé
+d4tw3|Gro van
+d4tw4|Tay
+d4tw5|Apa
+d4dr0_0|jodla
+d4dr0_1|Ayè
+d5tw0|Antann
+d5tw1|Mové niméro
+d5tw2|Mésaj
+d5tw3|Batri
+d5tw4|Rézo
+d5tw5|Pi fò
+d5dr0_0|Bay mo
+d5dr0_1|Souplé, bay mo

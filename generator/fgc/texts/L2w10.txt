@@ -1,0 +1,150 @@
+1|Koté sa bis-a ka alé?
+2|Ès li ka alé annan zòn endistriyèl-a?
+3|Wi, monté vit.
+4|Ki pri tiké-a pou marché-a?
+5|Rounso ven roupi.
+6|Roun tiké pou dèrnyé arè-a.
+7|Gardé tiké-a jouk to désann.
+8|Kontrolò-a ka vérifyé tiké-ya.
+9|Ès sa plas-a vid?
+10|Souplé, boujé roun tibi.
+11|Mo kontan plas òbò lafinèt-a.
+12|Bis-a plen moun jodla.
+13|Tchenbé bar-a annan roun bis ki ka maché.
+14|Pa rété doubout òbò lapòt-a.
+15|Bay gran moun-yan plas-a.
+16|Ki arè pou gran lopital-a?
+17|Désann annan pròchen arè-a.
+18|Souplé, di mo lò li rivé.
+19|Sonnen klòch-a anvan to arè.
+20|Dèrnyé bis-a ka pati dizèr.
+21|Mo manké bis-a pou dé minit.
+22|Pròchen bis-a ka rivé annan roun dimi èr.
+23|Gardé to sak asou to jounou.
+24|Véyé to pòch annan lafoul-a.
+25|Kart bis pou mwa-a ka fè ganyen soumaké.
+26|Fè kart-a ké roun foto.
+27|Mo ka alé travay ké bis chak jou.
+28|Bis-a mwens chè pasé otorikcha-a.
+29|Anprann niméro bis to chimen.
+30|Bon bis, bon lèr, lavi fasil.
+31|Mo divèt alé kaz mwa ka vini a.
+32|Rézèrvé tiké tren-an bònò.
+33|Rézèrvé bònò ka bay roun plas konfirmé.
+34|Mo rézèrvé li asou aplikasyon téléfòn-an.
+35|Mo tiké asou lis antann-an.
+36|Vérifyé PNR-a chak jou.
+37|Tiké-a konfirmé jodla.
+38|Kilakèl platfòm pou tren Patna-a?
+39|Platfòm niméro trwa.
+40|Doumandé òbò biro ransèyman-an.
+41|Tren-an an rétar roun èr.
+42|Gadé lèr tren-an asou pano-a.
+43|Vagon jénéral-a divan.
+44|Mo vagon a S-kat.
+45|Lis vagon-yan pròch ké pon-an.
+46|Travèsé rounso asou pon pou moun a pyé-a.
+47|Pa janmen travèsé lign tren-an.
+48|Rété dèyè lign jòn-an.
+49|Tren-an ka arèsté isi-a dé minit.
+50|Monté trankil ké lafoul-a.
+51|Pa kouri dèyè roun tren ki ka maché.
+52|I gen roun ròt tren lannwit.
+53|Achté tiké jénéral-a òbò kontwar-a.
+54|Aplikasyon UTS-a osi ka bay tiké jénéral.
+55|Pa janmen vwayajé san tiké.
+56|Lanmann-an pi gro pasé pri tiké-a.
+57|Gardé foto tiké-a annan to téléfòn.
+58|Rivé lagar-a trant minit bònò.
+59|Roun koumansman trankil ka fè roun bon vwayaj.
+60|Tiké annan pòch, traka dèrò.
+61|Mo kouchèt anwo, niméro venn-dé.
+62|Èskizé mo, sa a mo kouchèt.
+63|Souplé, montré mo ou tiké.
+64|TT-a ké vini apré pròchen lagar-a.
+65|Mouché, a mo tiké ké mo Aadhaar.
+66|Kouchèt mitan-an ka louvri lannwit.
+67|Fronmen kouchèt mitan-an bonmanten.
+68|Maré to bagaj ké chenn anba plas-a.
+69|Mo poté roun ti kadna ké roun chenn.
+70|Dronmi ké to sak pròch ké to tèt.
+71|Pa pran manjé ké étranjé.
+72|I gen vòlò ki ka bay manjé ké rimèd annan.
+73|Achté dilo annan boutik-a oben IRCTC.
+74|Vérifyé sélé boutèy dilo-a.
+75|Koté priz pou charjé-a fika?
+76|Li asou koté lapòt-a.
+77|Pa kité téléfòn-an ka charjé li rounso.
+78|Chenn-an rounso pou vré danjé.
+79|Tiré chenn-an san rézon ka mennen roun lanmann.
+80|Ki lagar ka vini aprézan?
+81|Mo dèstinasyon ka rivé senkèr bonmanten.
+82|Mété roun alarm roun èr anvan.
+83|Ranjé to bagaj anvan lagar-a.
+84|Konté to sak: roun, dé, trwa.
+85|Mo ka patajé mo plas lajòrnen.
+86|Patajé plas-a a bon mannyè.
+87|Palé mwens asou to soumaké annan tren-an.
+88|Mo ka li mo fraz kréyòl annan vwayaj-a.
+89|Roun vwayaj a roun klas ki ka maché.
+90|Bon vwayaj, fanmi kontan.
+91|Ès ou ké alé chowk louvriyé-a?
+92|Konmyen ou ké pran?
+93|Katréven roupi, pri fiks.
+94|Otorikcha patajé-a ka pran ven.
+95|Mo ké alé ké otorikcha patajé.
+96|Ès sa otorikcha-a gen roun kontò?
+97|Souplé, limen kontò-a.
+98|Réglé pri-a anvan to asiz.
+99|Frè, kouman mo ka alé kolèj ITI-a?
+100|Alé drèt divan jouk ponp lésans-a.
+101|Aprésa viré a goch òbò tanp-a.
+102|Aprésa, pran dézyèm chimen a drèt-a.
+103|Kolèj-a òbò résèrvwa dilo-a.
+104|Ès mo pouvé rivé la a pyé dipi isi-a?
+105|Wi, rounso dis minit a pyé.
+106|Sonjé roun répè pou chak koté.
+107|Mo chanm dèyè gran mòské-a.
+108|Di répè-a, pa rounso non chimen-an.
+109|Mo ka voyé mo pozisyon an dirèk pou ou.
+110|Swiv pwen blé-a asou kart chimen-an.
+111|Mo doubout òbò gran baryè-a.
+112|Antann la, mo ka rivé annan senk minit.
+113|Chimen-an fronmen pou réparasyon.
+114|Pran ti chimen koté-a ké atansyon.
+115|Travèsé chimen-an asou pasaj pyéton-an.
+116|Gadé a drèt é a goch, aprésa travèsé.
+117|Mété kas-a lò to asou moto.
+118|Pa asiz trwa moun asou roun sèl moto.
+119|Roun répè ou konnèt pa janmen ka kité ou pédi.
+120|Doumandé dé fwè, maché roun fwè.
+121|Lign èd tren-an a roun trwa nèf.
+122|Aplé li pou nenpòt problèm tren.
+123|Mo sak pédi annan lagar-a.
+124|Alé annan biro lapolis tren-an.
+125|Ékri plent-a ké tout détay-ya.
+126|Mo sak nwè ké roun bann rouj.
+127|Yé anonsé mo non.
+128|Tandé chak anons ké atansyon.
+129|Sak-a yé trouvé viré pou mo.
+130|Mèrsi, lapolis tren.
+131|Ékri to non annan sak-a.
+132|Mété roun étikèt ké niméro téléfòn asou bagaj-a.
+133|Pa monté annan mové tren pas to présé.
+134|Konfirmé non ké niméro tren-an.
+135|Pou rantré asou platfòm-an, pran roun tiké platfòm.
+136|Idé manman-an ki ké timoun-an.
+137|Li pa té pouvé trouvé so vagon.
+138|Mo montré li vagon-an ké so tiké.
+139|Roun ti èd ka mennen roun gran bénédiksyon.
+140|Annan danjé, alé koté lafoul ké limyè.
+141|Noté vagon ké plas to zanmi.
+142|Nou ka vwayajé ansanm dipi vilaj-a.
+143|Vwayajé ansanm a vwayajé an sékirité.
+144|Gardé ti biyé pou péyé tiké-a.
+145|Pa montré tout to pòtmoné divan moun.
+146|Bwè dilo é manjé léjè annan vwayaj-a.
+147|Aplé kaz apré to rivé.
+148|Mo rivé byen, pa enkyèt.
+149|Vwayaj-a ka fini, sa ou anprann ka rété.
+150|Simenn ka vini a: antrétyen pou viza.

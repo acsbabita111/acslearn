@@ -1,0 +1,150 @@
+1|Ki pri tomat-ya?
+2|Karann roupi roun kilo.
+3|Bay mo roun kilo tomat.
+4|Bay roun dimi kilo piman vèr.
+5|Ès sa légim-yan frèch?
+6|Yé rivé jodla bonmanten.
+7|Sa tomat-a pouri, chanjé li.
+8|Kité mo chwézi ké mo pròp lanmen.
+9|Zonyon chè sa simenn-an.
+10|Ponmdité mwens chè pasé simenn pasé.
+11|Achté légim sézon-an, yé pa chè.
+12|Ki frwi bon jodla?
+13|Bakov dous é pa chè.
+14|Bay roun douzenn bakov.
+15|Vérifyé pwa-a asou balans-a.
+16|Balans-a divèt montré zéro anvan.
+17|To balans ka montré mwens.
+18|Pézé li ankò, souplé.
+19|Aprézan pwa-a bon.
+20|Total-a a san ven.
+21|Mo bay ou roun biyé senk san.
+22|Rann mo trwa san katréven.
+23|Konté lamonnen-an anvan to pati.
+24|Gardé légim-yan annan roun sak twal.
+25|Di awa pou sak plastik-a.
+26|Lavé légim-yan anvan to kwit.
+27|Défwè marché aswè-a mwens chè.
+28|Mo ka achté légim pou tout simenn-an.
+29|Roun achtò malen ka doumandé annan dé magazen.
+30|Manjé frèch, kò an bon lasanté.
+31|Fè roun lis anvan to alé achté.
+32|Roun lis ka fè ganyen soumaké ké tan.
+33|Mo bézwen douri, dal ké dilwil.
+34|Bay senk kilo douri annan sa sak-a.
+35|Ès dal an vrak mwens chè pasé pakèt-a?
+36|Vérifyé dat limit-a asou pakèt-a.
+37|Sa pakèt-a pròch ké so dat limit.
+38|Bay mo roun pakèt frèch.
+39|Pa janmen péyé plis pasé MRP-a.
+40|MRP-a ékri asou pakèt-a.
+41|To ka pran plis pasé MRP-a.
+42|Bwason frèt pi chè pasé MRP-a pa kòrèk.
+43|Ès ou gen ti sachè dilwil?
+44|Gro pakèt-a mwens chè pou roun kilo.
+45|Ajouté roun savon ké roun pat dan.
+46|Konmyen total faktir-a?
+47|Souplé, fè roun faktir ékri.
+48|Vérifyé bagaj faktir-a roun pa roun.
+49|To ékri sik dé fwè.
+50|Pardon, mo ké rayé li.
+51|Ès mo pouvé péyé simenn ka vini a?
+52|Achté rounso sa to pouvé péyé.
+53|Ékri rasyon mwa-a annan roun kayé.
+54|Konparé pri-a annan dé magazen.
+55|Magazen an gro-a mwens chè pou gro kantité.
+56|Nou senk ka achté rasyon ansanm.
+57|Ansanm nou ka trouvé roun miyò pri.
+58|Gardé rasyon sèk lwen dilo.
+59|Roun faktir ékri a ou prèv.
+60|Achté ké atansyon a mwatyé ékonomi.
+61|Mo lé roun chimiz pou travay chak jou.
+62|Montré mo twal ki solid.
+63|Ki pri sa chimiz-a?
+64|Sis san, dèrnyé pri.
+65|Sa tròp pou mo.
+66|Mo ké bay kat san.
+67|Ajouté senkant, pran li pou kat san senkant.
+68|Dakò, anbalé li pou kat san senkant.
+69|Machandé ké roun souri, pa ké roun goumen.
+70|Ès mo pouvé éséyé li annan kabin-an?
+71|Manch-ya roun tibi lonng.
+72|Ès ou gen sa an koulò blé?
+73|Ès koulò-a ké pati lò mo lavé li?
+74|Awa, koulò-a ka tchenbé byen.
+75|Mo bézwen roun pèr soulyé travay.
+76|Mo tay a niméro wit.
+77|Fè dé pa é vérifyé.
+78|Soulyé goch-a séré.
+79|Bay roun tay pi gran.
+80|Ès i gen roun garanti asou sa?
+81|Roun mwa garanti asou koud-a.
+82|Ékri garanti-a asou faktir-a.
+83|Achté pou travay anvan, pou fè wè apré.
+84|Dé chimiz senp miyò pasé roun chimiz chè.
+85|Lavant fèt-a ka bay roun vré rabè.
+86|I gen pano ki ka montré fo rabè.
+87|Vérifyé pronmyen pri-a ké pri rabè-a.
+88|Mo achté lenj pou timoun-yan osi.
+89|Bon machandaj, pòch kontan.
+90|Bézwen anvan, anvi apré.
+91|Ékran mo vyé téléfòn kasé.
+92|Réparé oben achté nouvo, kisa ki miyò?
+93|Réparasyon-an ka kouté dé mil.
+94|Roun nouvo téléfòn ka koumansé a sèt mil.
+95|Montré mo roun téléfòn ké roun gro batri.
+96|Konparé dé modèl anvan to achté.
+97|Ki kalité sa modèl-a gen?
+98|Vérifyé pri-a asou entèrnèt osi.
+99|Ès i gen roun garanti asou sa téléfòn-an?
+100|Roun lannen garanti konpanyi-a.
+101|Pran tout bwat-a ké faktir-a.
+102|Bwat-a gen charjò-a ké papyé-a.
+103|Konparé niméro bwat-a ké niméro téléfòn-an.
+104|Gardé faktir-a pou garanti-a.
+105|Ès ou ka vann téléfòn dézyèm lanmen?
+106|Achté dézyèm lanmen rounso annan roun magazen to konnèt.
+107|Roun téléfòn vòlò ka mennen problèm ké lapolis.
+108|Ès mo pouvé péyé an EMI?
+109|EMI fasil jodla, lou dimen.
+110|Konté total EMI-a anvan.
+111|Pri kach-a mwens pasé pri EMI-a.
+112|Mo ké mété soumaké asou koté dé mwa é péyé kach.
+113|Mété roun kouvèr ké roun vit pronmyen jou-a.
+114|Mété roun kòd asou nouvo téléfòn-an.
+115|Noté niméro IMEI téléfòn-an.
+116|Sa ka idé si téléfòn-an pédi.
+117|Vann vyé téléfòn-an apré to éfasé tout bagaj.
+118|Gro acha bézwen roun tèt frèt.
+119|Dronmi roun lannwit anvan roun gro acha.
+120|Soumaké ou réfléchi dé fwè a soumaké ou gardé.
+121|Sa chimiz-a gen roun défo.
+122|Koud-a louvri asou roun koté.
+123|Mo lé chanjé li.
+124|A faktir ayè-a.
+125|Chanjé fasil ké faktir-a.
+126|Pardon, nou ké chanjé li aprézan.
+127|Ès mo pouvé trouvé roun ranbousman olyé sa?
+128|Ranbousman-an ka rivé annan trwa jou.
+129|Vérifyé sélé-a anvan to achté.
+130|Roun sélé kasé lé di roun pakèt ki louvri.
+131|Sa boutèy-a ka parèt fo.
+132|Orijinal-a gen roun lékri klè.
+133|Mové òtograf a roun gro sign.
+134|Sa ki tro pa chè pouvé fo.
+135|Pa achté rimèd asou trotwa-a.
+136|Doumandé faktir-a pou chak gro bagaj.
+137|Pa gen faktir, pa gen prèv.
+138|Marchann-an rifizé chanjé li.
+139|Palé poli mé fèrm.
+140|Sa a mo drwa kou achtò.
+141|Mo ké fè roun plent asou lign èd konsomatò-a.
+142|Lign èd konsomatò-a a roun nèf roun senk.
+143|Lò li tandé sa, li chanjé chimiz-a.
+144|Koumand asou entèrnèt bézwen dé fwè plis atansyon.
+145|Fè roun vidéyo lò to ka louvri koli-a.
+146|Vidéyo-a a prèv pou rann bagaj-a.
+147|Vérifyé koli-a anvan livrò-a pati.
+148|Roun achtò ki konnèt so drwa, yé pa ka tronpé li dé fwè.
+149|Ou soumaké, ou vwa.
+150|Achté ké wèy louvri, dronmi ké tchò léjè.

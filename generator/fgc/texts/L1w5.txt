@@ -1,0 +1,100 @@
+1|Bonjou, mouché.
+2|Bonjou, madanm.
+3|Ès mo pouvé rantré?
+4|Souplé, asiz.
+5|Di mo kimoun ou sa.
+6|Mo non a Ram Kumar.
+7|Mo soti Patna, Bihar.
+8|Mo fè lékòl jouk klas wit.
+9|Mo fè roun kour soudir.
+10|Mo gen trwa lannen èspéryans.
+11|Koté ou té ka travay anvan?
+12|Mo té ka travay Delhi.
+13|Poukisa ou kité sa travay-a?
+14|Travay-a té fini.
+15|Mo lé roun miyò travay.
+16|Ès ou maryé?
+17|Wi, mo maryé.
+18|Mo gen dé timoun.
+19|Mo pouvé koumansé touswit.
+20|Mèrsi pou ou tan.
+21|Kisa ou pouvé fè?
+22|Mo pouvé li plan-yan.
+23|Mo pouvé sèrvi sa machin-an.
+24|Mo konnèt soudir ark.
+25|Mo gen roun pèrmi kondwi.
+26|Mo ka anprann vit.
+27|Mo onèt é mo ka travay rèd.
+28|Ès ou pouvé travay lannwit?
+29|Wi, mo pouvé travay lannwit.
+30|Ès ou pouvé travay dèrò lavil-a?
+31|Wi, mo pouvé alé nenpòt koté.
+32|Ki salèr ou lé?
+33|Mo lé kenz mil.
+34|Ki salèr gen isi-a?
+35|Ès i gen roun plas pou dronmi?
+36|Ès ou gen kèksyon?
+37|Kitan ou ké di mo?
+38|Nou ké aplé ou.
+39|Souplé, bay mo roun chans.
+40|Mo pa ké kasé ou konfyans.
+41|Alo, bonjou.
+42|Mo ka aplé dipi Patna.
+43|Ès mo pouvé palé ké chèf-a?
+44|Kimoun ka palé?
+45|A Ram ka palé.
+46|Kouman mo pouvé idé ou?
+47|Mo gen roun problèm ké mo SIM.
+48|Mo réchaj pa ka maché.
+49|Mo lé savé konmyen mo gen asou mo kont.
+50|Souplé, di mo ki plan mo gen.
+51|Souplé, rété asou lign-an.
+52|Ès ou ka tandé mo?
+53|Mo pa ka tandé ou.
+54|Souplé, palé kréyòl dousman.
+55|Souplé, répété niméro-a.
+56|Ki ou niméro pòrtab?
+57|Mo ké raplé ou.
+58|Ès i gen ròt bagaj?
+59|Awa, sa tout. Mèrsi.
+60|Mèrsi pou ou aplé.
+61|Koté ou lé alé, mouché?
+62|Souplé, asiz, mouché.
+63|Sa ka fè san roupi.
+64|Dapré kontò-a.
+65|I gen bokou loto asou chimen-an jodla.
+66|Sa ké pran ven minit.
+67|Ki koté, mouché?
+68|Goch oben drèt?
+69|Souplé, voyé pozisyon-an asou téléfòn.
+70|Nou rivé, mouché.
+71|Souplé, péyé kach.
+72|Mo gen lamonnen.
+73|Souplé, mété sentir sékirité-a.
+74|Ès ou pouvé arèsté òbò ATM-an?
+75|Wi, mouché. Pa gen problèm.
+76|Souplé, antann senk minit.
+77|Tan antann ka péyé an plis.
+78|Ès AC-a ka maché?
+79|Pa kondwi vit konsa.
+80|Mèrsi, mouché. Pasé roun bon jou.
+81|Koté chantyé-a fika?
+82|Mo sa roun soudèr.
+83|Mo sa roun èd.
+84|Koté machin soudir-a fika?
+85|Mo bézwen élèktròd.
+86|Mo bézwen roun mas soudir.
+87|Vérifyé boutèy gaz-a.
+88|Soudé sa jwen-an.
+89|Limé li jouk li lis.
+90|Jwen-an pa solid.
+91|Mélanjé siman-an.
+92|Poté brik-ya vini.
+93|Poté sa anwo.
+94|Sa tro lou.
+95|Mo bézwen roun moun an plis.
+96|Échafodaj-a pa sir.
+97|Vérifyé nivo-a.
+98|Konmyen moso?
+99|Travay-a fini.
+100|Souplé, gadé travay-a.

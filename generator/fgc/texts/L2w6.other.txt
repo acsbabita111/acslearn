@@ -1,0 +1,60 @@
+test0|Mo touché mo salèr jodla.
+test1|Sa mwa-a mo mété trwa mil asou koté.
+test2|Mo voyé kat mil ké UPI.
+test3|Mo trouvé roun promosyon mwa pasé.
+test4|Mo rèv a mo pròp atélyé.
+test5|Mo lavni pi gran pasé mo pasé.
+lisQ0|Konmyen ou touché pou èr siplémantèr?
+lisA0|Mo touché wit san.
+lisQ1|Koté ATM pi pròch-a fika?
+lisA1|Òbò marché-a.
+lisQ2|Koté ou soti, frè?
+lisA2|Mo soti Khagaria.
+lisQ3|Kisa ki pasé?
+lisA3|Li pran mo zouti san doumandé.
+lisQ4|Ès mo pouvé trouvé roun ogmantasyon?
+lisA4|Montré to travay anvan.
+lisQ5|Konmyen ou salèr aprézan?
+lisA5|Mo salèr a ven mil.
+dlg0|Mouché, mo anprann tout machin-yan annan sa atélyé-a.
+dlg1|Byen toubònman. Kisa to lé?
+dlg2|Souplé, bay mo plis rèsponsabilité.
+dlg3|Dakò, dipi jodla to ké dirijé roun ékip.
+dlg4|Mèrsi bokou mouché, mo pa ké kasé ou konfyans.
+dlg5|Mo gen konfyans annan to.
+d1tw0|Salèr
+d1tw1|Konté
+d1tw2|Rétni
+d1tw3|Avans
+d1tw4|Total
+d1tw5|Rési
+d1dr0_0|roupi
+d2tw0|Kont
+d2tw1|ATM
+d2tw2|UPI
+d2tw3|Voyé soumaké
+d2tw4|Kòd OTP
+d2tw5|Soumaké ki rété
+d2dr0_0|Pa di
+d3tw0|Dispit
+d3tw1|Kalm
+d3tw2|Pardon
+d3tw3|Fot
+d3tw4|Dakò
+d3tw5|Pasyans
+d3dr0_0|Kalmé to kò
+d4tw0|Kolèg
+d4tw1|Prézanté
+d4tw2|Pozé dité
+d4tw3|Vilaj nésans
+d4tw4|Konfyans
+d4tw5|Rounso
+d4dr0_0|Sa a
+d5tw0|Promosyon
+d5tw1|Ogmantasyon salèr
+d5tw2|Rèsponsabilité
+d5tw3|Sèrtifika
+d5tw4|Kour
+d5tw5|Rèv
+d5dr0_0|pronmyen
+d5dr0_1|aprézan

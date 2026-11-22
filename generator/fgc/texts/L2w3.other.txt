@@ -1,0 +1,60 @@
+test0|Nou vwazen-yan bon toubònman.
+test1|Nou ka idé roun-ròt.
+test2|Mo fyè pou mo timoun-yan.
+test3|Bon fèt pou ou ké ou fanmi.
+test4|Lèspwa ka fè nou vansé.
+lisQ0|Annan ki klas ou tiboug fika?
+lisA0|Li annan klas senk.
+lisQ1|Konmyen réparasyon-an ké kouté?
+lisA1|Senkant roupi konsa.
+lisQ2|Kimoun ka rété annan sa kaz-a?
+lisA2|Roun nouvo fanmi.
+lisQ3|Ki fèt ou pi kontan?
+lisA3|Mo kontan Holi.
+lisQ4|Poukisa ou tris?
+lisA4|Mo ka sonjé mo fanmi.
+lisQ5|Ès ou tifi trouvé bon nòt?
+lisA5|Wi, li trouvé.
+dlg0|I gen roun réinyon annan vilaj-a jodla, ès ou ké vini?
+dlg1|Wi, mo ké vini. Asou kisa nou ké palé?
+dlg2|Nou ké nétwayé létan vilaj-a ansanm.
+dlg3|Bon lidé! Linyon ka fè lafòs.
+dlg4|Vini senkèr aswè.
+dlg5|Dakò, mo ké la.
+d1tw0|Dévwar
+d1tw1|Nòt
+d1tw2|Fyè
+d1tw3|Chè
+d1tw4|Lédikasyon
+d1tw5|Montré
+d1dr0_0|mo tiboug
+d1dr0_1|mo tifi
+d2tw0|Balyé
+d2tw1|Koulé
+d2tw2|Réparasyon
+d2tw3|Salté
+d2tw4|Faktir
+d2tw5|Poubèl
+d2dr0_0|Fè
+d3tw0|Vwazen
+d3tw1|Roun-ròt
+d3tw2|Réinyon
+d3tw3|Réglé
+d3tw4|Rèspé
+d3tw5|Akéyi
+d3dr0_0|nou
+d4tw0|Fèt
+d4tw1|Bonbon
+d4tw2|Konjé
+d4tw3|Rézèrvé anvan
+d4tw4|Patajé
+d4tw5|Èspésyal
+d4dr0_0|pronmyen
+d4dr0_1|aprésa
+d5tw0|Kontan
+d5tw1|Tris
+d5tw2|Enkyèt
+d5tw3|Faché
+d5tw4|Pè
+d5tw5|Lèspwa
+d5dr0_0|Mo ka santi mo

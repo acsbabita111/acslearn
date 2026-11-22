@@ -1,0 +1,150 @@
+1|Idé mo, souplé vini vit!
+2|Roun moun idé mo, souplé!
+3|Mo blésé grav.
+4|Mo lanmen ka sengnen.
+5|Mo bézwen roun anbilans.
+6|Aplé lapolis.
+7|I gen roun difé.
+8|Difé! Kouri soti aprézan!
+9|Mo pa pouvé rèspiré.
+10|Mo zanmi tonbé.
+11|Li pa ka boujé.
+12|Pa touché fil-a!
+13|Étenn machin-an!
+14|Mo pédi mo chimen.
+15|Mo pa pouvé trouvé mo chanm.
+16|Mo paspò pédi.
+17|Yé vòlò mo téléfòn.
+18|Yé vòlò mo soumaké.
+19|Roun moun ka swiv mo.
+20|Souplé, rété ké mo.
+21|Mennen mo lopital.
+22|Sa ka fè mo mal isi-a menm.
+23|Mo janm ka fè mo mal bokou.
+24|Mo tèt ka viré.
+25|Poté dilo vit.
+26|Aplé mo frè, sa niméro-a.
+27|Mo rimèd annan mo sak.
+28|Koté pòt sékou-a fika?
+29|Rété kalm, èd ka vini.
+30|Roun vwa fò ka sové lavi annan danjé.
+31|Mo pa konprann.
+32|Souplé, èspliké li roun fwè ankò.
+33|Souplé, palé roun tibi dousman.
+34|Souplé, répété dèrnyé fraz-a.
+35|Kisa sa palò-a lé di?
+36|Souplé, ékri li pou mo.
+37|Mo pa pouvé fè sa san matéryèl sékirité.
+38|Souplé, bay mo gan ké linèt.
+39|Sa travay-a pa sir.
+40|Mo ké fè li apré kontròl sékirité-a.
+41|Awa, mo pa pouvé fè sa.
+42|Di awa a pa roun krim.
+43|Mo bézwen mo péyman.
+44|Mo bézwen li jodla, souplé.
+45|Mo lé wè kontra-a.
+46|Mo pa ké bay ou mo paspò.
+47|Souplé, rann mo mo paspò.
+48|Souplé, rann mo mo papyé-ya jodla.
+49|Mo pa té dakò ké sa.
+50|Sa pa té annan sa nou té di.
+51|Mo ké doumandé mo anbasad.
+52|Mo konnèt mo drwa.
+53|Souplé, palé ké rèspé.
+54|Pa kriyé asou mo.
+55|Mo ka doumandé poli.
+56|Bay mo roun minit pou réfléchi.
+57|Mo ké réponn apré mo li.
+58|Ès mo pouvé pozé roun kèksyon?
+59|Roun kèksyon jodla ka anpéché roun pèrt dimen.
+60|Vwa dous, palò fò.
+61|Konmyen mo salèr?
+62|Kitan ou ké péyé mo?
+63|Mo péyman an rétar dipi dis jou.
+64|Mo fè èr siplémantèr ayè.
+65|Ès èr siplémantèr ka péyé isi-a?
+66|Ki pri pou roun èr?
+67|Souplé, montré mo mo kontra.
+68|Mo lé roun kopi mo kontra.
+69|Poukisa yé koupé soumaké?
+70|Souplé, èspliké sa rétni-a.
+71|Montré rétni-a pa ékri.
+72|Mo lé roun répons pa ékri.
+73|Mo kont ka di nèf san.
+74|Annou vérifyé li ansanm.
+75|Mo zanmi a mo témwen.
+76|Li wè tout mo travay.
+77|Mo gen foto mo jou travay.
+78|A mo kayé prézans.
+79|Mwatyé péyman a pa tout péyman-an.
+80|Mo ké pran rès-a simenn ka vini a, pa ékri.
+81|Rétni san rézon pa kòrèk.
+82|Komisyon ajan-an té ja péyé.
+83|Mo gen rési-a ké mo.
+84|Souplé, péyé asou mo kont labank.
+85|Kach san rési a roun risk.
+86|Mo ké fè roun plent annan biro travay-a.
+87|Pronmyen mo ké palé, aprésa mo ké fè plent.
+88|Mouché, mo ka rèspèkté ou é mo travay.
+89|Péyman jis ka fè travay fò.
+90|Mo swè, mo drwa.
+91|Montré mo ou paspò, souplé.
+92|Mouché, a mo paspò.
+93|Poukisa ou isi-a?
+94|Mo vini travay isi-a.
+95|Koté ou ka rété?
+96|Mo ka rété annan sa adrès-a.
+97|Kimoun ka antann ou dèrò?
+98|Wonm mo konpanyi-a ka antann dèrò.
+99|Souplé, louvri ou sak pou kontròl.
+100|Wi mouché, a li, li louvri.
+101|Vini dimen sétèr, pa rivé ta.
+102|Dakò mouché, mo ké vini sétèr.
+103|Pran sa zouti-a.
+104|Kilakèl zouti, mouché, rouj-a?
+105|Wi, rouj-a, é koumansé aprézan.
+106|Dakò mouché, mo ka koumansé aprézan.
+107|Fini sa travay-a anvan manjé midi.
+108|Mo ké fini li anvan manjé midi.
+109|Nétwayé koté-a apré travay-a.
+110|Byen sir mouché, mo ké nétwayé li.
+111|Jodla ou travay annan tou lannwit-a.
+112|Dakò, mo ké dronmi lajòrnen.
+113|Bis-a ké pati annan senk minit.
+114|Mo ka vini, souplé antann.
+115|Vini annan biro-a ké ou kart.
+116|Mo ka poté mo kart, mouché.
+117|Mété to kas anvan to rantré.
+118|Mo ka mété li, mouché.
+119|Zòrè anvan, bouch apré.
+120|Tandé tout, réponn kourt.
+121|Anprann modèl-a, fè to pròp fraz.
+122|Modèl roun: Mo bézwen (vid).
+123|Mo bézwen roun taksi.
+124|Mo bézwen roun doktò aprézan menm.
+125|Mo bézwen roun chanm pou roun mwa.
+126|Modèl dé: Koté (vid) fika?
+127|Koté fontenn dilo frèt-a fika?
+128|Koté biro chantyé-a fika?
+129|Koté baryè pou soti-a fika?
+130|Modèl trwa: Ès mo pouvé (vid)?
+131|Ès mo pouvé asiz isi-a roun minit?
+132|Ès mo pouvé pati senkèr jodla?
+133|Ès mo pouvé aplé mo kaz aprézan?
+134|Modèl kat: Konmyen (vid) ka kouté?
+135|Konmyen roun lannwit ka kouté isi-a?
+136|Konmyen taksi-a ka kouté jouk kan-an?
+137|Modèl senk: Souplé, (vid).
+138|Souplé, louvri baryè-a.
+139|Souplé, aplé chèf-a.
+140|Souplé, vérifyé mo non annan lis-a.
+141|Modèl sis: Mo pouvé (vid).
+142|Mo pouvé koumansé jodla.
+143|Mo pouvé travay dimanch si sa nésésèr.
+144|Roun modèl ka bay dis fraz.
+145|Chanjé roun palò, fè roun nouvo fraz.
+146|Di modèl-a annan to pròp sitiyasyon.
+147|Pratiké roun modèl chak jou.
+148|Modèl ka fè lanng-an lib.
+149|Palò a brik, modèl a miray.
+150|Ou fraz, ou fòs.

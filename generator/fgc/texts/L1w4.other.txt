@@ -1,0 +1,6 @@
+test0|Konmyen salèr-a
+test1|Konmyen pou roun jou
+test2|Senk san pou roun jou
+test3|Kitan yé ké péyé mo
+test4|Yé ké péyé to vandrédi
+test5|Mo pa touché mo salèr

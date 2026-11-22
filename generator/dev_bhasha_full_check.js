@@ -77,14 +77,16 @@ ok(ent && /90/.test(String(ent.duration)) && Number(ent.lessons) === 90, "course
 ok(ent && /Certificate in Spoken/.test(ent.name_hi), "नाम 'Certificate in Spoken …' (सर्टिफिकेट नाम-नियम v6.1-क)");
 var G = global.window.KKB_GROUPS || []; var inG = ent && G.some(function (g) { return g.ids.indexOf(ent.id) > -1; });
 ok(inG, "KKB_GROUPS (courses_data) में " + (ent ? ent.id : "?"));
-ok(slug && (rd("sitemap.xml") + rd("sitemap-bhasha.xml")).indexOf("/courses/hi/bhasha/" + slug + "/index.html") > -1, "sitemap(-bhasha).xml में पेज"); /* 20-Oct लाल10-ब: sitemap अब index-फ़ाइल — असली URL sitemap-bhasha.xml में (पुरानी जाँच हर भाषा पर झूठा-fail देती थी) */
+ok(slug && (function (sm) { return sm.indexOf("/courses/hi/bhasha/" + slug + "/index.html") > -1 || sm.indexOf("/courses/hi/bhasha/" + slug + "/</loc>") > -1; })(rd("sitemap.xml") + rd("sitemap-bhasha.xml")), "sitemap(-bhasha).xml में पेज"); /* 22-Nov-2026: साफ़-/ रूप (08-Nov canonical-नियम) भी मान्य */ /* 20-Oct लाल10-ब: sitemap अब index-फ़ाइल — असली URL sitemap-bhasha.xml में (पुरानी जाँच हर भाषा पर झूठा-fail देती थी) */
 
 console.log("═══ F परीक्षा-द्वार (40/40/40) ═══");
 var PID = ent ? ent.id : null;
 var ed = rd("assets/exam_data.js"), dj = rd("assets/dashboard.js");
 ok(PID && ed.indexOf('"' + PID + '"') > -1, "exam_data में " + PID);
 ok(PID && new RegExp(PID + ":\\s*true").test(dj), "dashboard SERVER_EXAM_COURSES में " + PID);
-ok(PID && new RegExp(PID + ':\\s*"' + LANG.tts + '"').test(dj), "dashboard EXAM_TTS " + PID + " = " + LANG.tts);
+var AWZ = JSON.parse(rd("generator/data/kkb_exam_awaaz.json"))[CODE] || null;   /* 22-Nov: परीक्षा-आवाज़ "hi-dev" = बैंक देवनागरी उच्चारण भेजता है, इसलिए EXAM_TTS hi-IN ही सही */
+var EXTTS = (AWZ && AWZ.mode === "hi-dev") ? "hi-IN" : LANG.tts;
+ok(PID && new RegExp(PID + ':\\s*"' + EXTTS + '"').test(dj), "dashboard EXAM_TTS " + PID + " = " + EXTTS + (EXTTS !== LANG.tts ? " (hi-dev: बैंक देवनागरी उच्चारण भेजता है)" : ""));
 var bankCode = MAIN || CODE;
 var bankP = "functions/" + (EN ? "eng" : bankCode) + "_bank.js";
 if (fs.existsSync(bankP)) {

@@ -1,0 +1,150 @@
+1|Jodla a jou péyman.
+2|Mo touché mo salèr jodla.
+3|Konté soumaké-a anvan to pati.
+4|Mo konté li dé fwè.
+5|Dé san roupi ka manké.
+6|Mouché, souplé vérifyé total-a ankò.
+7|Yé koupé pou dé jou konjé.
+8|Aprézan total-a bon.
+9|Konmyen ou touché pou èr siplémantèr?
+10|Mo touché wit san an plis.
+11|Mo pran roun ti avans simenn pasé.
+12|Yé koupé avans-a annan mo salèr.
+13|Souplé, bay mo roun rési salèr.
+14|Gardé chak rési byen.
+15|Ékri to travay chak jou annan roun kayé.
+16|Mo kont ké so kont té diféran.
+17|Nou vérifyé kayé-a ansanm.
+18|Fot-a té annan roun lign.
+19|Li péyé tout soumaké-a.
+20|Soumaké konté pa janmen ka mennen goumen.
+21|Konmyen ou ka dépansé pou manjé?
+22|Mo ka dépansé trwa mil pou manjé.
+23|Lwayé chanm-an a dé mil.
+24|Mo ka ékri mo dépans chak lannwit.
+25|Ti dépans ka manjé gro soumaké.
+26|Pa pran prè pou fè wè.
+27|Ranbousé prè-a anvan.
+28|Sa mwa-a mo mété trwa mil asou koté.
+29|Soumaké ou mété asou koté a soumaké ou ganyen.
+30|Kont klè ka fè bon zanmi.
+31|Mo gen roun kont labank.
+32|Mo kont annan labank vilaj-a.
+33|Ranpli sa papyé-a pou voyé soumaké.
+34|Ékri niméro kont-a ké atansyon.
+35|Roun sèl chif mové pouvé voyé soumaké pou roun étranjé.
+36|Mo voyé kat mil ké UPI.
+37|Soumaké-a rivé annan roun minit.
+38|Manman trouvé mésaj-a asou so téléfòn.
+39|Vérifyé konmyen to gen asou to kont apré to voyé.
+40|Mo gen sis mil asou mo kont aprézan.
+41|Koté ATM pi pròch-a fika?
+42|ATM-an òbò marché-a.
+43|Mo tiré dé mil annan ATM-an.
+44|Kouvri to lanmen lò to ka tapé PIN-an.
+45|Pa janmen di to PIN pou pyès moun.
+46|Pa janmen bay OTP-a asou téléfòn.
+47|Labank pa janmen ka doumandé OTP.
+48|Sa aplé-a té roun fròd.
+49|Mo koupé aplé-a touswit.
+50|Di labank si yé vòlò to soumaké.
+51|Ès labank louvri sanmdi?
+52|Labank ka louvri dizèr.
+53|Poté ou livré labank pou mété li ajou.
+54|Mo mété mo livré labank ajou jodla.
+55|Mété to niméro pòrtab asou kont-a.
+56|Mo ka voyé soumaké kaz pronmyen dimanch-a.
+57|Mwatyé salèr-a ka alé kaz, mwatyé ka rété isi-a.
+58|Louvri roun kont pou to madanm osi.
+59|Soumaké labank pi an sékirité pasé soumaké pòch.
+60|Dwèt ki ka fè atansyon ka gardé soumaké an sékirité.
+61|Té gen roun dispit annan travay jodla.
+62|Dé louvriyé té ka kriyé.
+63|Souplé, kalmé to kò, frè.
+64|Pa kriyé, palé dousman.
+65|Kisa ki pasé?
+66|Li pran mo zouti san doumandé.
+67|Sa té mo fot, pardon.
+68|Fwè ka vini a, souplé doumandé mo anvan.
+69|Dakò, mo dakò.
+70|Bay lanmen é bliyé sa.
+71|Nou sa roun sèl ékip.
+72|Goumen ka gaté tout jou-a.
+73|Tandé anvan, palé apré.
+74|Pitèt li pa fè li èspré.
+75|Bay li roun chans pou èspliké.
+76|Mo di pardon é li souri.
+77|Roun ti pardon ka anpéché roun gro goumen.
+78|Pasyans a zanmi louvriyé-a.
+79|Pa mennen kòlè òbò machin-an.
+80|Lanmen faché ka fè aksidan.
+81|Palé ké chèf-a si sa grav.
+82|Li réglé zafè-a annan senk minit.
+83|Zòt tou dé sa bon louvriyé.
+84|Travay ansanm, ganyen ansanm.
+85|Pa goumen pou vilaj oben kast.
+86|Nou tout ka travay pou nou fanmi.
+87|Apré dispit-a nou bwè dité ansanm.
+88|Aprézan nou ka ri asou sa.
+89|Roun lèspri kalm ka travay pi byen.
+90|Lapè annan travay, lapè annan kaz.
+91|Sa a mo kolèg Ramesh.
+92|Kité mo prézanté to pou ékip-a.
+93|Koté ou soti, frè?
+94|Mo soti Khagaria.
+95|O, nou soti annan menm distrik-a!
+96|Vini, bwè dité ké nou.
+97|Nou ka pran roun pozé dité katrèr.
+98|Li patajé so tifin ké mo.
+99|Pronmyen jou-a mo té rounso toubònman.
+100|Li montré mo tout chantyé-a.
+101|Bon zanmi ka fè travay rèd vini léjè.
+102|Ès to pouvé montré mo sa machin-an?
+103|Byen sir, gadé mo lanmen.
+104|Dousman-dousman to ké anprann tout bagaj.
+105|Frè, mèrsi pou tout to èd.
+106|Nou ka alé annan chanm-an ansanm apré travay.
+107|Dimanch nou ka kwit manjé èspésyal ansanm.
+108|Li prété mo soumaké lò mo té annan mové tan.
+109|Mo rann li jou péyman-an.
+110|Rann soumaké yé prété to a lèr.
+111|Konfyans ka pran lannen, li ka kasé annan roun minit.
+112|Pa palé dèyè do pyès moun.
+113|Félisité to zanmi divan tout moun.
+114|Di so fot rounso pou li menm.
+115|Nou sa senk zanmi ki soti annan senk éta.
+116|Nou ka anprann palò roun-ròt.
+117|Li montré mo dis palò Kannada.
+118|Mo montré li dis palò Hindi.
+119|Lwen kaz, zanmi a fanmi.
+120|Roun vré zanmi a roun gro richès.
+121|Mo lé vansé annan mo travay.
+122|Dipi èd mo vini mistri.
+123|Sa pran mo trwa lannen.
+124|Mouché, mo anprann tout machin-yan.
+125|Souplé, bay mo plis rèsponsabilité.
+126|Ès mo pouvé trouvé roun ogmantasyon sa lannen-an?
+127|Montré to travay, aprésa doumandé ogmantasyon-an.
+128|Mo travay ka palé pou mo.
+129|Mo trouvé roun promosyon mwa pasé.
+130|Aprézan mo ka dirijé roun ékip kat moun.
+131|Roun bon chèf ka travay anvan.
+132|Mo ka fè roun kour gratis asou entèrnèt.
+133|Mo ka anprann asou mo téléfòn lannwit.
+134|Mo ké trouvé roun sèrtifika apré ègzanmen-an.
+135|Roun sèrtifika ka louvri nouvo lapòt.
+136|Kréyòl nésésèr pou pi gro travay-a.
+137|Mo ka pratiké kréyòl ké mo kolèg-ya.
+138|Roun métché plis roun lanng, sa a roun gran fòs.
+139|Mo rèv a mo pròp atélyé.
+140|Mo ka mété soumaké asou koté pou zouti-ya.
+141|Louvriyé anvan, aprésa mèt, aprésa patron.
+142|Mach pa mach, léchèl-a ka monté.
+143|Pa konparé to pronmyen jou ké so dizyèm lannen.
+144|Anprann roun bagaj nouvo chak mwa.
+145|Montré nouvo èd-a jantiman.
+146|Èd jodla a mèt dimen.
+147|Mo chèf gen konfyans annan mo.
+148|Mo pa ké kasé sa konfyans-a.
+149|Travay rèd plis anprann ka bay progré.
+150|Mo lavni pi gran pasé mo pasé.

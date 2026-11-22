@@ -1,0 +1,100 @@
+1|Mo ka sasé travay.
+2|Ès ou gen roun travay?
+3|Mo bézwen roun djòb.
+4|Ki travay ou pouvé fè?
+5|Mo pouvé fè soudir.
+6|Mo pouvé kondwi.
+7|Mo pouvé fè nenpòt ki travay.
+8|Mo pouvé travay rèd.
+9|Mo gen dé lannen èspéryans.
+10|Mo ka anprann.
+11|Koté plas travay-a fika?
+12|Konmyen èr travay?
+13|Wit èr chak jou.
+14|Ès yé ka bay manjé?
+15|Ès yé ka bay roun chanm?
+16|Kitan mo pouvé koumansé?
+17|Vini dimen.
+18|Vini sétèr.
+19|Dakò, mo ké vini sétèr.
+20|Mèrsi, mouché.
+21|Vini isi-a.
+22|Alé la.
+23|Koumansé travay-a.
+24|Arèsté travay-a.
+25|Fè li konsa.
+26|Fè li ankò.
+27|Poté sa vini.
+28|Pran sa.
+29|Mété li isi-a.
+30|Fè vit.
+31|Fè atansyon.
+32|Antann isi-a.
+33|Nétwayé sa koté-a.
+34|Fini li jodla.
+35|Vini ké mo.
+36|Idé li.
+37|Pa konsa.
+38|Bon travay.
+39|Pran roun pozé.
+40|Alé to kaz aprézan.
+41|Wi, mouché. Mo ka vini.
+42|Kisa mo divèt fè?
+43|Kouman mo ka fè sa?
+44|Souplé, montré mo roun fwè.
+45|Ès sa kòrèk?
+46|Ès mo divèt fè li aprézan?
+47|Aprézan oben pita?
+48|Mo fini.
+49|Li pa fini.
+50|Mo bézwen plis tan.
+51|Koté mo divèt mété sa?
+52|Kilakèl?
+53|Sa-a oben ròt-a?
+54|Konmyen?
+55|Mo pa konprann travay-a.
+56|Souplé, èspliké ankò.
+57|Mo ké fè li.
+58|Mo pouvé fè li.
+59|Mo pa pouvé fè sa.
+60|Souplé, vérifyé mo travay.
+61|Koté zouti-ya fika?
+62|Bay mo marto-a.
+63|Mo bézwen roun léchèl.
+64|Machin-an pa ka maché.
+65|Sa kasé.
+66|Nou bézwen plis matéryo.
+67|Matéryo-a fini.
+68|Koté dilo pou travay-a fika?
+69|Limen machin-an.
+70|Étenn machin-an.
+71|Kilèr nou ka koumansé?
+72|Kilèr nou ka fini?
+73|Kilèr nou ka manjé midi?
+74|Nou ka manjé inèr.
+75|Ès i gen travay dimanch?
+76|Ès i gen èr siplémantèr?
+77|Mo ké rivé ta jodla.
+78|Pardon, mo rivé ta.
+79|Miziré sa.
+80|Koupé li isi-a.
+81|Ki ou non, frè?
+82|Koté ou ka travay?
+83|Ès ou pouvé idé mo ké sa?
+84|Mo ké idé ou.
+85|Annou alé ansanm.
+86|Mo fè roun fot.
+87|Pardon, sa té mo fot.
+88|Mo pa ké fè li ankò.
+89|Sa pa té mo fot.
+90|Mo bézwen roun jou konjé.
+91|Mo bézwen dé jou konjé.
+92|Mo divèt alé annan mo vilaj.
+93|Mo manman malad.
+94|Ès mo pouvé pati bònò jodla?
+95|Mo ké viré lendi.
+96|Poukisa to rivé ta?
+97|Poukisa to pa vini ayè?
+98|Mo té malad ayè.
+99|Souplé, pa kriyé.
+100|Souplé, palé ké mo ké rèspé.

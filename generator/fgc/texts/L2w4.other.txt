@@ -1,0 +1,62 @@
+test0|Lévé bònò chak jou.
+test1|Mété roun tibi soumaké asou koté chak simenn.
+test2|Travay ka maché byen isi-a.
+test3|Dousman-dousman mo anprann travay-a.
+test4|Mo ka fè mo lavni ké mo pròp lanmen.
+test5|Mo vwayaj soti koumansé.
+lisQ0|Ki ou dat nésans?
+lisA0|Mo fèt annan mil nèf san katréven-kenz.
+lisQ1|A kouman lasanté papa fika?
+lisA1|Li byen aprézan.
+lisQ2|Ès ou ka sonjé mo?
+lisA2|Wi, mo ka sonjé byen.
+lisQ3|Ki jou ka tonbé kenz mwa-a?
+lisA3|A roun vandrédi.
+lisQ4|Konmyen jou i gen annan sa mwa-a?
+lisA4|Trantéroun jou.
+lisQ5|Kouman timoun-yan ka anprann?
+lisA5|Mo byen, mèrsi.
+dlg0|Byenvini, souplé asiz.
+dlg1|Mèrsi, mo kontan wè ou.
+dlg2|Ès ou ké pran dité oben dilo?
+dlg3|Rounso dilo, mèrsi.
+dlg4|A kouman ou fanmi fika?
+dlg5|Tout moun byen, gras a Bondjé.
+dlg6|Vini ankò ké ou fanmi.
+dlg7|Sir, mo ké vini, mèrsi bokou.
+d1tw0|Labitid
+d1tw1|Lavérité
+d1tw2|Pratik
+d1tw3|Rézilta
+d1tw4|Gaspiyé
+d1tw5|Richès
+d1dr0_0|Fè sa chak jou
+d2tw0|Dat
+d2tw1|Divèt péyé
+d2tw2|Édimi
+d2tw3|Mwen kar
+d2tw4|Jis
+d2tw5|Dat nésans
+d2dr0_0|Li
+d3tw0|Mésaj vwa
+d3tw1|Répons
+d3tw2|Bonjou
+d3tw3|Kouraj
+d3tw4|Trouvé
+d3tw5|Ké lanmou
+d3dr0_0|Bonjou
+d4tw0|Envité
+d4tw1|Plas pou asiz
+d4tw2|Okipé
+d4tw3|Sir
+d4tw4|Sonjé
+d4tw5|Ankò
+d4dr0_0|Byenvini
+d5tw0|Koumansman
+d5tw1|Dousman-dousman
+d5tw2|Lavni
+d5tw3|Vwayaj
+d5tw4|Rèd
+d5tw5|Klè
+d5dr0_0|okoumansman
+d5dr0_1|aprézan

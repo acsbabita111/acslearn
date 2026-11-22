@@ -1,0 +1,150 @@
+1|Mo lé travay annan roun péyi Golf.
+2|Mo sa Endyen.
+3|Sa a mo paspò.
+4|Mo viza a roun viza travay.
+5|Poukisa ou lé alé Dubai?
+6|Mo gen roun travay soudèr la.
+7|Kimoun a ou anplwayò?
+8|Mo anplwayò a roun konpanyi asyé.
+9|Non konpanyi-a asou mo lèt travay.
+10|Konmyen ou ké touché la?
+11|Mil senk san dirham pou roun mwa.
+12|Manjé ké chanm, a konpanyi-a ki ka bay yé.
+13|Konmyen tan ou kontra ka diré?
+14|Mo kontra a pou dé lannen.
+15|Mo li mo kontra.
+16|Fè roun moun li kontra-a pou to anvan to siyen.
+17|Ki travay ou fè Lend?
+18|Mo fè soudir pandan senk lannen.
+19|Ès ou ja alé annan péyi étranjé?
+20|Awa, a mo pronmyen fwè.
+21|Kimoun gen annan ou fanmi?
+22|Mo madanm ké mo dé timoun annan vilaj-a.
+23|Réponn ké fraz kourt é senp.
+24|Gadé ofisyé-a é palé.
+25|Asiz drèt, rété kalm.
+26|Di 'Pardon, souplé répété' si to pa tandé.
+27|Ofisyé-a doumandé, mo réponn klè.
+28|Mo papyé-ya konplèt é vré.
+29|Pratiké sa répons-ya ké roun zanmi.
+30|Répons paré, antrétyen fasil.
+31|Pa janmen manti annan antrétyen-an.
+32|Roun sèl manti pouvé anilé viza-a.
+33|Lavérité pouvé pran tan, mé li sir.
+34|Si to pa savé, di li.
+35|Pardon mouché, mo pa savé sa.
+36|Kimoun péyé ou tiké?
+37|Konpanyi-a péyé mo tiké.
+38|Konmyen ou péyé ajan-an?
+39|Di rounso vré montan-an.
+40|Mo ajan a roun ajan ki gen lisans.
+41|Ès ou ké viré Lend?
+42|Wi, mo ké viré apré kontra-a.
+43|Mo fanmi ké mo tè Lend.
+44|Mo plan pou viré klè.
+45|Ès ou pasé tès médikal-a?
+46|Wi, mo tès médikal bon.
+47|Tès médikal-a té fèt annan roun sant otorizé.
+48|Yé ké pran anprent ou dwèt.
+49|Mété dwèt-a plat asou machin-an.
+50|Gadé kaméra-a pou foto-a.
+51|Ès ou pouvé di ou non ké ou travay?
+52|Mo non a Ramesh, mo sa roun soudèr.
+53|Annan ki lavil ou ké rété?
+54|Mo ké rété annan kan konpanyi-a.
+55|Pa diskité ké ofisyé-a.
+56|Si yé rifizé, doumandé rézon-an poli.
+57|Ou pouvé postilé ankò ké tout papyé-ya.
+58|Mo répons-ya té menm ké mo papyé-ya.
+59|Menm lavérité asou papyé é annan bouch.
+60|Viza-a rivé, rèv-a vansé.
+61|Roun paspò a ou pronmyen laklé.
+62|Postilé rounso asou sit entèrnèt gouvèrnman-an.
+63|Biro paspò-a aplé mo pou papyé-ya.
+64|Vérifikasyon lapolis-a vini mo kaz.
+65|Di lapolis vré adrès-a.
+66|Mo paspò valab pou dis lannen.
+67|Vérifyé si li valab anvan viza-a.
+68|Li divèt valab sis mwa omwen.
+69|Gardé paspò-a annan roun dosyé plastik.
+70|Fè trwa fotokopi chak papyé.
+71|Gardé roun pakèt kopi kaz.
+72|Voyé roun pakèt kopi asou to téléfòn.
+73|Pa janmen bay ajan-an paspò orijinal-a.
+74|Paspò-a ka rété annan ou lanmen.
+75|Annan péyi étranjé, konpanyi-a pa pouvé gardé ou paspò.
+76|A ou drwa dapré lalwa.
+77|Mo dosyé médikal gen tout rapò-ya.
+78|Tès disan ké tès wèy fèt.
+79|Pran roun asirans vwayaj pou dé lannen.
+80|Asirans ka idé si ou malad annan péyi étranjé.
+81|Ékri dé kontak pou ijans.
+82|Roun niméro kaz, roun niméro biro Lend.
+83|Anprann to niméro paspò pa tchò.
+84|Siyen rounso koté yé montré to.
+85|Li chak paj anvan to siyen.
+86|Vérifyé si non-an menm asou tout papyé-ya.
+87|Roun sèl mové òtograf ka arèsté dosyé-a.
+88|Korijé li bònò annan biro-a.
+89|Dosyé konplèt, pa gen traka.
+90|Papyé paré, zèl paré.
+91|Nou rivé ayéropòr-a trwa èr bònò.
+92|Li gran pano-ya: Departure ké Arrival.
+93|Departure a pou pati, Arrival a pou rivé.
+94|Rété annan ran-an òbò kontwar anréjistréman-an.
+95|Montré paspò-a ké tiké-a.
+96|Mété gro sak-a asou tapi-a.
+97|Limit pwa sak-a a trant kilo.
+98|Mo sak gen dé kilo an plis.
+99|Tiré dé-trwa bagaj oben péyé an plis.
+100|A ou kart anbarkman.
+101|Niméro pòt-a asou kart anbarkman-an.
+102|Aprésa a kontròl sékirité-a.
+103|Mété téléfòn-an ké sentir-a annan plato-a.
+104|Yé pa ka pèrmèt boutèy dilo.
+105|Lévé ou lanmen pou kontròl-a.
+106|No Smoking ékri toupatou.
+107|Pano vèr Exit-a ka montré chimen pou soti.
+108|Aprézan alé òbò kontwar imigrasyon-an.
+109|Ofisyé-a doumandé: koté ou ka alé?
+110|Mo ka alé Dubai pou travay.
+111|Li tanponnen mo paspò.
+112|Antann òbò pòt niméro douz.
+113|Tandé anons to vòl.
+114|Anbarkman koumansé, montré kart-a ankò.
+115|Mo plas a 34A, koté lafinèt.
+116|Maré sentir sékirité-a konsa.
+117|Gardé téléfòn-an asou mòd avyon.
+118|Avyon-an dékolé, mo tchò souri.
+119|Mo ka poté roun chimiz blé, kontré mo dèrò.
+120|Dipi vilaj-a jouk syèl-a.
+121|Alé annan péyi étranjé rounso ké roun ajan anréjistré.
+122|Vérifyé ajan-an asou sit eMigrate-a.
+123|Roun vré ajan gen roun niméro lisans.
+124|Doumandé lisans-a é noté li.
+125|Roun èskro ka kouri divan sa kèksyon-an.
+126|Pa gen pyès bagaj kou 'viza gratis'.
+127|Gro promès, gro danjé.
+128|Pran roun rési pou chak péyman.
+129|Péyé ké labank, pa rounso ké kach.
+130|Péyman labank a ou prèv.
+131|Palé ké dé louvriyé sa konpanyi-a.
+132|Doumandé yé asou salèr ké chanm.
+133|Aplé vidéyo ka montré vré kan-an.
+134|Viza touris pou travay a roun pyèj.
+135|Travay rounso ké roun viza travay.
+136|Gardé niméro anbasad sa péyi-a.
+137|Anbasad Lend ka idé Endyen-yan annan péyi étranjé.
+138|MADAD a pòtay èd gouvèrnman-an.
+139|Ékri to problèm asou MADAD.
+140|Yé pa péyé to salèr? Fè roun plent la.
+141|Gardé to fanmi annan chak plan.
+142|Voyé yé détay ajan-an ké konpanyi-a.
+143|Patajé to vòl ké adrès kan-an.
+144|Aplé kaz dé fwè chak simenn dipi péyi étranjé.
+145|Si ou annan traka, pa kaché li.
+146|Fanmi, anbasad ké MADAD a ou trwa lapòt.
+147|Roun lèspri ki paré pa janmen rounso.
+148|Ganyen dèrò, monté to kaz.
+149|Pati ké papyé, viré ké fyèrté.
+150|Pati an sékirité, viré sir.

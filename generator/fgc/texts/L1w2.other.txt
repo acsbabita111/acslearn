@@ -1,0 +1,6 @@
+test0|Konmyen sa ka kouté
+test1|Konmyen
+test2|Dé san roupi
+test3|Li tro chè
+test4|Souplé, bésé pri-a
+test5|Ès ou gen sa

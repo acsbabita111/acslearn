@@ -1,0 +1,100 @@
+1|I gen senk moun annan mo fanmi.
+2|Mo ka rété ké mo paran-yan.
+3|Mo papa té kiltivatèr.
+4|Mo manman ka okipé kaz-a.
+5|Mo gran frè ka travay Delhi.
+6|Mo piti sò ka alé lékòl.
+7|Mo dé timoun-yan ka anprann lékòl.
+8|Mo tiboug gen dis lannen.
+9|Mo tifi lé vini doktò.
+10|Konmyen moun i gen annan ou fanmi?
+11|Ès ou ka rété ké ou fanmi?
+12|Awa, mo fanmi ka rété annan vilaj-a.
+13|Mo ka voyé soumaké pou mo fanmi chak mwa.
+14|Mo ka palé ké mo manman chak aswè.
+15|Mo granpapa gen katréven lannen.
+16|Nou tout ka soupé ansanm.
+17|Mo madanm ka travay osi.
+18|Kimoun sa asou foto-a?
+19|Sa a fanmi mo tonton.
+20|Fanmi a pi gran soutyen-an.
+21|Mo kaz annan roun piti vilaj.
+22|Nou kaz gen trwa chanm.
+23|I gen roun ponp dilo pròch ké mo kaz.
+24|Nou gen roun piti bati.
+25|Mo vilaj pròch ké larivyè-a.
+26|Lékòl-a dèyè mo kaz.
+27|Marché-a divan tanp-a.
+28|Koté ou vilaj fika?
+29|Mo vilaj annan Bihar.
+30|Li dé èr lwen Patna.
+31|Aprézan mo ka rété annan roun chanm mo ka lwé.
+32|Nou trwa ka rété annan roun chanm.
+33|Nou chanm asou dézyèm étaj-a.
+34|Lakwizin-an piti toubònman.
+35|Nou ka fè manjé lannwit.
+36|I gen roun résèrvwa dilo asou twa-a.
+37|Mo vilaj pi bèl pasé lavil-a.
+38|Mo ka sonjé mo vilaj.
+39|Mo ké alé annan mo vilaj pou fèt-a.
+40|Kitan ou ké alé ou kaz?
+41|Ayè mo lévé senkèr.
+42|Mo lavé mo figi é mo benyen.
+43|Mo manjé douri ké dal bonmanten.
+44|Mo alé travay witèr.
+45|Mo travay dis èr ayè.
+46|Mo viré mo kaz lannwit.
+47|Mo té las toubònman.
+48|Mo dronmi bònò ayè aswè.
+49|Kisa ou fè ayè?
+50|Koté ou alé dimanch?
+51|Mo alé marché dimanch.
+52|Mo achté légim ké douri.
+53|Mo kontré mo vyé zanmi ayè.
+54|Nou palé dé èr.
+55|Mwa pasé mo alé annan mo vilaj.
+56|Mo pa travay ayè.
+57|Lapli tonbé bokou ayè aswè.
+58|Mo pa té pouvé dronmi ké chalò-a.
+59|Ès ou manjé bonmanten?
+60|Wi, mo manjé anvan mo vini.
+61|Dimen mo ké lévé bònò.
+62|Mo ké anprann dis nouvo palò chak jou.
+63|Mo ka alé labank dimen.
+64|Mo ké voyé soumaké pou mo fanmi lendi.
+65|Lannen ka vini a mo ké achté roun bisiklèt.
+66|Mo lé anprann roun nouvo métché.
+67|Kisa ou ké fè dimen?
+68|Ès ou ké vini travay dimanch?
+69|Wi, mo ké vini névèr.
+70|Awa, mo ké pozé dimanch.
+71|Mo ké aplé ou dimen bonmanten.
+72|Nou ké fini sa travay-a anvan aswè.
+73|Mo frè ké vini simenn ka vini a.
+74|Mo ka alé louvri roun piti magazen.
+75|Roun jou mo ké monté mo pròp kaz.
+76|Mo pa ké rivé ta dimen.
+77|Lapli ké tonbé jodla.
+78|Pran roun parapli ké to.
+79|Mo ké fè tout sa mo pouvé.
+80|Tout bagaj ké byen pasé.
+81|Mo rivé ta pas bis-a té ta.
+82|Poukisa ou rivé ta jodla?
+83|Mo pa té pouvé vini pas mo té malad.
+84|Mo ka travay rèd pou mo fanmi.
+85|Poukisa ou lé anprann kréyòl?
+86|Mo ka anprann kréyòl pas mo lé roun miyò travay.
+87|Magazen-an fronmen pas jodla a roun jou konjé.
+88|Mo té las, kidonk mo dronmi bònò.
+89|Lapli té ka tonbé, kidonk mo rété mo kaz.
+90|Mo mété soumaké asou koté, kidonk mo pouvé alé mo kaz.
+91|Poukisa ou kité sa chanm-an?
+92|Mo kité li pas lwayé-a té tro chè.
+93|Mo kontan sa travay-a pas salèr-a bon.
+94|Li kontan pas li trouvé roun travay.
+95|Mo ka lévé bònò pou mo pa rivé ta.
+96|Souplé, èspliké rézon-an.
+97|A pou sa mo aplé ou.
+98|Mo ka mété soumaké asou koté pou mayaj mo sò.
+99|Poukisa machin-an étenn?
+100|Li étenn pas pa gen kouran.

@@ -1,0 +1,61 @@
+test0|Mo ka travay annan roun lizin lenj.
+test1|Pòt sékou-a a goch.
+test2|Mo ka sasé roun chanm an sékirité.
+test3|Vérifyé fil kouran chanm-an.
+test4|Fè to kart louvriyé.
+test5|Rété an sékirité, travay ké fòs.
+lisQ0|Ki pri sa bagaj-a?
+lisA0|Pri-a asou étikèt-a.
+lisQ1|Konmyen pri mandi-a jodla?
+lisA1|Mo ké vérifyé asou téléfòn-an.
+lisQ2|Ès i gen dilo pròp isi-a?
+lisA2|Wi, gen.
+lisQ3|Koté lign èd-a fika?
+lisA3|Niméro-a ékri isi-a.
+lisQ4|Konmyen lwayé-a ké dépo-a?
+lisA4|Lwayé-a a dé mil é dépo-a a kat mil.
+lisQ5|Ès ou ka travay annan lizin-an?
+lisA5|Wi, mo ka travay la.
+dlg0|Mo ka sasé roun chanm an sékirité pròch ké lizin-an.
+dlg1|Mo gen roun chanm, lwayé-a a dé mil pou roun mwa.
+dlg2|Ès i gen roun kontra ékri?
+dlg3|Wi, roun kontra senp ké roun rési.
+dlg4|Ès fil kouran-yan an sékirité?
+dlg5|Wi, mo vérifyé yé simenn pasé.
+dlg6|Dakò, mo ké pran chanm-an.
+dlg7|Byenvini, koté an sékirité, travay ké fòs.
+d1tw0|Lizin
+d1tw1|Tou travay
+d1tw2|Lésé-pasé
+d1tw3|Inifòrm
+d1tw4|Objèktif
+d1tw5|Pòt sékou
+d1dr0_0|To divèt
+d2tw0|Kliyan
+d2tw1|Pri
+d2tw2|Rabè
+d2tw3|Koumand
+d2tw4|Sèrvi
+d2tw5|Poli
+d2dr0_0|Byenvini
+d3tw0|Rékòt
+d3tw1|Planté
+d3tw2|Kilti
+d3tw3|Mandi
+d3tw4|Pri mandi
+d3tw5|Pézé
+d3dr0_0|pronmyen
+d4tw0|Propriyétèr
+d4tw1|Kontra ékri
+d4tw2|Dépo
+d4tw3|Fil kouran
+d4tw4|Étranjé
+d4tw5|Adrès
+d4dr0_0|Vérifyé
+d5tw0|Kart louvriyé
+d5tw1|Lign èd
+d5tw2|Program
+d5tw3|Gratis
+d5tw4|Drwa
+d5tw5|Plent
+d5dr0_0|Konnèt to drwa

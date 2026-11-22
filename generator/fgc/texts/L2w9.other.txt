@@ -1,0 +1,60 @@
+test0|Ki pri tomat-ya?
+test1|Pa janmen péyé plis pasé MRP-a.
+test2|Machandé ké roun souri, pa ké roun goumen.
+test3|Souplé, fè roun faktir ékri.
+test4|Pa gen faktir, pa gen prèv.
+test5|Achté ké atansyon a mwatyé ékonomi.
+lisQ0|Ki pri tomat-ya?
+lisA0|Karann roupi roun kilo.
+lisQ1|Ès sa légim-yan frèch?
+lisA1|Wi, yé frèch.
+lisQ2|Ki pri sa chimiz-a?
+lisA2|Sis san, dèrnyé pri.
+lisQ3|Ès i gen roun garanti asou sa?
+lisA3|Wi, roun lannen garanti.
+lisQ4|Ès mo pouvé trouvé roun ranbousman?
+lisA4|Wi, annan trwa jou.
+lisQ5|Ès li fo?
+lisA5|Awa, li orijinal.
+dlg0|Bonjou, mo lé roun chimiz pou travay.
+dlg1|A li, roun twal solid. Sis san roupi.
+dlg2|Sa tròp. Mo ké bay kat san.
+dlg3|Ajouté senkant, pran li pou kat san senkant.
+dlg4|Dakò, anbalé li souplé.
+dlg5|A faktir-a, mèrsi pas ou vini.
+d1tw0|Difé
+d1tw1|Pouri
+d1tw2|Kilo
+d1tw3|Balans
+d1tw4|Douzenn
+d1tw5|Sézon
+d1dr0_0|Ki pri sa bagaj-a
+d2tw0|Épisri
+d2tw1|Lis
+d2tw2|Pakèt
+d2tw3|Dat limit
+d2tw4|Pri ékri
+d2tw5|An vrak
+d2dr0_0|Mo bézwen
+d3tw0|Machandaj
+d3tw1|Dèrnyé pri
+d3tw2|Kabin éséyaj
+d3tw3|Koulò
+d3tw4|Garanti
+d3tw5|Pèr
+d3dr0_0|Konmyen
+d4tw0|Garanti
+d4tw1|Bwat
+d4tw2|Dézyèm lanmen
+d4tw3|EMI
+d4tw4|Konparé
+d4tw5|Kalité
+d4dr0_0|réparasyon
+d4dr0_1|nouvo
+d5tw0|Chanjé
+d5tw1|Défo
+d5tw2|Sélé
+d5tw3|Fo
+d5tw4|Ranbousman
+d5tw5|Orijinal
+d5dr0_0|I gen roun défo

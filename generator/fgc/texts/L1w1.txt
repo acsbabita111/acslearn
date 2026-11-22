@@ -1,0 +1,100 @@
+1|Mo non a Ram.
+2|Ki ou non?
+3|Mo soti Bihar.
+4|Mo soti Lend.
+5|Koté ou soti?
+6|Mo sa roun louvriyé.
+7|Mo sa roun chofèr.
+8|Mo vini isi-a pou travay.
+9|Mo kontan kontré ké ou.
+10|A kouman ou fika?
+11|Mo byen, mèrsi.
+12|Sa a mo zanmi.
+13|Mo nouvo isi-a.
+14|Mo ka palé roun tibi kréyòl.
+15|Mo ka palé Hindi.
+16|Ès ou ka palé Hindi?
+17|Konmyen lannen ou gen?
+18|Mo gen venn-senk lannen.
+19|Bonjou.
+20|Ovwar. Nou ké wè dimen.
+21|Mo pa konprann.
+22|Souplé, palé dousman.
+23|Souplé, répété sa.
+24|Kisa sa lé di?
+25|Wi.
+26|Awa.
+27|Dakò.
+28|Mèrsi.
+29|Pardon.
+30|Souplé.
+31|Èskizé mo.
+32|Ès ou konprann?
+33|Mo konprann.
+34|Antann roun minit.
+35|Roun moman, souplé.
+36|Ès ou pouvé ékri sa?
+37|Souplé, montré mo.
+38|Mo savé.
+39|Mo pa savé.
+40|Pa gen problèm.
+41|Mo bézwen èd.
+42|Ès ou pouvé idé mo?
+43|Mo bézwen dilo.
+44|Mo bézwen manjé.
+45|Mo fen.
+46|Mo swèf.
+47|Koté twalèt-a fika?
+48|Mo pa byen.
+49|Mo malad.
+50|Mo gen lafyèv.
+51|Mo gen doulò isi-a.
+52|Koté lopital-a fika?
+53|Mo bézwen roun doktò.
+54|Mo bézwen rimèd.
+55|Koté farmasi-a fika?
+56|Ki problèm-an?
+57|Ès ou byen?
+58|Mo las.
+59|Mo lé pozé.
+60|Pran sa rimèd-a.
+61|Koté sa plas-a fika?
+62|Kouman mo ka alé la?
+63|Ès li lwen?
+64|Li pròch.
+65|Li lwen.
+66|Alé drèt divan.
+67|Viré a goch.
+68|Viré a drèt.
+69|Arèsté isi-a.
+70|Koté arè bis-a fika?
+71|Koté lagar-a fika?
+72|Koté marché-a fika?
+73|Mo pédi mo chimen.
+74|Souplé, montré mo chimen-an.
+75|Ès mo pouvé maché jouk la?
+76|Konmyen minit?
+77|Dis minit.
+78|Sa a mo adrès.
+79|Kilakèl chimen?
+80|Swiv mo.
+81|Koté pòs lapolis-a fika?
+82|Souplé, aplé lapolis.
+83|Mo pédi mo téléfòn.
+84|Mo pédi mo sak.
+85|Mo pédi mo papyé-ya.
+86|Mo pa gen soumaké.
+87|Roun moun pran mo soumaké.
+88|Mo lé alé mo kaz.
+89|A roun ijans.
+90|Souplé, aplé sa niméro-a.
+91|Ès mo pouvé sèrvi ou téléfòn?
+92|I gen roun aksidan.
+93|Aplé roun anbilans.
+94|Difé!
+95|Idé mo!
+96|Montré mo ou kart idantité.
+97|Sa a mo kart idantité.
+98|Mo an sékirité.
+99|Koté ou ka rété?
+100|Mo ka rété pròch ké lagar-a.

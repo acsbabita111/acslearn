@@ -1,0 +1,100 @@
+1|Mo timoun-yan ka alé lékòl gouvèrnman-an.
+2|Lékòl ka koumansé névèr.
+3|Mo tifi annan klas senk.
+4|Li bon lékòl.
+5|Mo tiboug ka fè so dévwar lannwit.
+6|Ès to fini to dévwar?
+7|Anprann chak jou, pa rounso anvan ègzanmen-an.
+8|Ègzanmen-an ké koumansé mwa ka vini a.
+9|Mo tifi trouvé bon nòt.
+10|Mo fyè pou mo timoun-yan.
+11|Liv ké kayé chè aprézan.
+12|Mo achté roun sak lékòl pou mo tiboug.
+13|Timoun-yan ka trouvé manjé lékòl.
+14|Voyé timoun-yan lékòl chak jou.
+15|Mo pa té pouvé anprann bokou.
+16|Mé mo timoun-yan ké anprann byen.
+17|Lédikasyon ka louvri bokou lapòt.
+18|Mo ka montré mo tifi lèson aswè.
+19|Annan ki klas ou tiboug fika?
+20|Li annan klas wit.
+21|Mo ka nétwayé chanm-an chak bonmanten.
+22|Balyé atè-a anvan.
+23|Plen bokit-a ké dilo.
+24|Robiné-a ka koulé.
+25|Anpoul-a pa ka maché.
+26|Mo ké chanjé anpoul-a jodla.
+27|Séri lapòt-a kasé.
+28|Aplé roun moun pou réparé li.
+29|Konmyen réparasyon-an ké kouté?
+30|Gardé to bagaj annan yé plas.
+31|Jité salté-a annan poubèl-a.
+32|Pa jité salté asou chimen-an.
+33|Fronmen robiné-a apré to sèrvi li.
+34|Étenn limyè-a lò to ka soti.
+35|Mo réparé chèz-a mo menm.
+36|Faktir kouran-an rivé jodla.
+37|Faktir-a pi gro pasé mwa pasé.
+38|Sèrvi mwens kouran.
+39|Roun kaz pròp ka gardé nou an bon lasanté.
+40|Tout moun divèt idé annan travay kaz-a.
+41|Nou vwazen-yan bon toubònman.
+42|Mo konnèt li dipi dis lannen.
+43|Nou ka idé roun-ròt.
+44|Li prété mo so bisiklèt ayè.
+45|Souplé, véyé mo chanm pou dé jou.
+46|I gen roun réinyon annan vilaj-a jodla.
+47|Tout moun divèt vini annan réinyon-an.
+48|Nou nétwayé létan vilaj-a ansanm.
+49|Linyon ka fè lafòs.
+50|Tiboug mo vwazen trouvé roun travay annan lavil-a.
+51|Nou fété ansanm.
+52|Pa goumen pou ti bagaj.
+53|Palé é réglé problèm-an.
+54|Vyé mouché-a bézwen nou èd.
+55|Mo poté so sak jouk so kaz.
+56|Rèspèkté gran moun-yan.
+57|Kimoun ka rété annan sa kaz-a?
+58|Roun nouvo fanmi rivé la.
+59|Annou akéyi yé.
+60|Bon vwazen-yan kou fanmi.
+61|Ki fèt ou pi kontan?
+62|Mo kontan Chhath ké Holi.
+63|Fèt-a ka vini simenn ka vini a.
+64|Nou ké nétwayé tout kaz-a.
+65|Mo manman ké fè bonbon.
+66|Nou achté nouvo lenj pou timoun-yan.
+67|Mo ké trouvé trwa jou konjé.
+68|Tiké tren-yan ja plen.
+69|Mo rézèrvé mo tiké mwa pasé.
+70|Tout moun ké vini kaz pou fèt-a.
+71|Nou ké kontré apré roun lannen.
+72|Tout vilaj-a ka parèt bèl.
+73|Bon fèt pou ou ké ou fanmi.
+74|Pou ou osi.
+75|Nou limen lanp aswè.
+76|Timoun-yan jwé tout lajòrnen.
+77|Nou patajé bonbon ké vwazen-yan.
+78|Fèt ka sanblé moun.
+79|Apré fèt-a mo ké viré travay.
+80|Sa lannen-an fèt-a té èspésyal toubònman.
+81|Mo kontan toubònman jodla.
+82|Poukisa ou tris?
+83|Mo enkyèt pou soumaké.
+84|Pa enkyèt, tout bagaj ké byen.
+85|Mo ka sonjé mo fanmi.
+86|Mo té ka santi mo rounso toubònman annan lavil-a.
+87|Mo zanmi-ya fè mo ri.
+88|Mo té faché, mé mo rété trankil.
+89|Kòlè ka gaté travay.
+90|Mo pè pédi sa travay-a.
+91|Pa pè, travay ké atansyon.
+92|Mo té fyè lò mo tiboug pasé.
+93|Mèrsi pas ou rété òbò mo.
+94|I gen jou ki rèd.
+95|Mé jou rèd-ya osi ka pasé.
+96|Palé ké roun moun lò to tris.
+97|Roun bon palé ka fè tchò-a léjè.
+98|Mo ka santi mo kontan apré mo aplé kaz.
+99|Souri é koumansé jou-a.
+100|Lèspwa ka fè nou vansé.

@@ -1,0 +1,150 @@
+1|Mo ka travay annan roun lizin lenj.
+2|Mo tou travay ka koumansé sétèr.
+3|Mo annan tou bonmanten-an sa simenn-an.
+4|Montré to lésé-pasé òbò baryè-a.
+5|Mo bliyé mo lésé-pasé jodla.
+6|Souplé, fè roun nouvo kart pou mo.
+7|Mété inifòrm-an annan lizin-an.
+8|Mété to téléfòn annan kazyé-a.
+9|Mo machin a niméro douz.
+10|Mo ka travay asou lign koud-a.
+11|Lign-an ka arèsté si roun machin arèsté.
+12|Objèktif jodla a dé san moso.
+13|Nou fini objèktif-a anvan lèr.
+14|Kontrolò kalité-a aksèpté mo moso-ya.
+15|Dé moso viré pou réparasyon.
+16|Mo ké koud yé ankò ké atansyon.
+17|Pozé midi-a dipi inèr jouk dézèr.
+18|Manjé kantin-an pa chè.
+19|Bwè dilo chak èr annan sézon cho-a.
+20|Pa touché kourwa-a lò li ka maché.
+21|Maré to chivé pròch ké machin-an.
+22|Avèrti touswit si i gen roun fwit oben roun lodò.
+23|Pòt sékou-a a goch.
+24|Pa janmen fronmen pòt sékou-a ké laklé.
+25|Nou fè roun ègzèrsis difé jodla.
+26|Siyen rèjis-a anvan to pati.
+27|Èr siplémantèr ka péyé an plis isi-a.
+28|Doumandé to kart ESI.
+29|Lizin-an ka bay PF osi.
+30|Konnèt to drwa, fè to dévwar.
+31|Mo ka travay annan roun magazen téléfòn pòrtab.
+32|Byenvini, kisa ou bézwen?
+33|Souplé, gadé sa nouvo modèl-a.
+34|Ki pri sa bagaj-a?
+35|Pri-a asou étikèt-a.
+36|Ès ou pouvé bay roun ti rabè?
+37|Mo pouvé bay senk pousan rabè.
+38|Kliyan-an touléjou anvan.
+39|Palé poli ké chak kliyan.
+40|Roun souri ka fè kliyan-an viré.
+41|Mouché, ou koumand paré.
+42|Mo ka sèrvi dité ké ti manjé annan roun lotèl.
+43|Souplé, antann, ou tab ka vini.
+44|Nétwayé tab-a vit.
+45|Lavé to lanmen anvan to sèrvi.
+46|Ès ou lé li anbalé?
+47|A ou faktir, mouché.
+48|Ès ou gen lamonnen?
+49|Ou pouvé péyé ké UPI osi.
+50|Souplé, skané sa kòd-a.
+51|Mèrsi, souplé vini ankò.
+52|Konté stòk-a chak aswè.
+53|Dé bwat ka manké annan stòk-a.
+54|Di patron-an sa jodla.
+55|Gardé magazen-an pròp é klè.
+56|Ranjé nouvo bagaj-ya divan.
+57|Roun kliyan faché bézwen roun zòrè trankil.
+58|Pardon mouché, nou ké chanjé li aprézan.
+59|Magazen onèt, kliyan ka viré.
+60|Sèrvis ké tchò ka vann plis.
+61|Mo ka travay annan bati-a annan sézon-an.
+62|Aprézan a tan planté.
+63|Nou ka planté blé annan novanm.
+64|Bon grenn ka bay bon kilti.
+65|Achté grenn annan roun magazen ki gen lisans.
+66|Gardé faktir grenn ké angrè-a.
+67|Rozé bati-a aswè.
+68|Ponp-a ka maché ké kouran.
+69|Lapli pouvé tonbé, kouvri grenn-an.
+70|Kilti-a paré pou rékòt.
+71|Nou ké koumansé rékòt-a lendi.
+72|Ven louvriyé vini pou rékòt-a.
+73|Ès salèr rékòt-a pou roun jou oben pou roun bigha?
+74|Réglé li klè anvan travay-a.
+75|Konmyen pri mandi-a jodla?
+76|Vérifyé pri-a asou téléfòn anvan.
+77|Pri-a miyò annan gran mandi-a.
+78|Pézé sak-ya divan to.
+79|Pran rési pwa-a ké rési péyman-an.
+80|Vann lò pri-a bon, pa an présé.
+81|Gardé grenn-an annan roun koté sèk.
+82|Rat pouvé gaté grenn ki gardé.
+83|Apré sézon-an mo ka alé lavil pou travay.
+84|Travay bati ké travay lavil ka fè mo kaz maché.
+85|Kilti chanpignon bézwen roun tibi tè.
+86|Mo li sa annan roun kour gratis asou entèrnèt.
+87|Nouvo kilti pouvé doublé soumaké ki ka rantré.
+88|Doumandé lign èd Kisan-an konsèy.
+89|Latè a nou manman.
+90|Lanmen ki ka travay rèd ka planté manjé péyi-a.
+91|Mo ka sasé roun chanm an sékirité.
+92|Konmyen lwayé-a ké dépo-a?
+93|Pran roun rési pou dépo-a.
+94|Doumandé roun kontra ékri ki senp.
+95|Li li anvan to siyen.
+96|Kontré propriyétèr-a, pa rounso ajan-an.
+97|Gadé chanm-an lajòrnen.
+98|Vérifyé séri lapòt-a ké lafinèt-a.
+99|Ès i gen dilo pròp isi-a?
+100|Koté sal ben-an ké twalèt-a fika?
+101|Vérifyé fil kouran chanm-an.
+102|Vyé fil ki pa kouvri pouvé mété difé.
+103|Konnèt chimen pou soti annan batiman-an.
+104|Pa bloké èskalyé-a ké bagaj.
+105|Fronmen gaz-a apré to kwit.
+106|Pa dronmi ké réchò-a limen.
+107|Patajé chanm-an rounso ké moun to konnèt.
+108|Pa gardé roun étranjé pou lannwit-a.
+109|Bay roun fotokopi, pa janmen papyé orijinal-a.
+110|Ékri rézon-an ké dat-a asou kopi-a.
+111|Ranpli papyé vérifikasyon lapolis-a ké lavérité.
+112|Gardé niméro propriyétèr-a annan to téléfòn.
+113|Voyé to adrès konplèt pou to fanmi.
+114|Konnèt non to vwazen-yan.
+115|Viré anvan li tro ta.
+116|Gardé roun tibi soumaké annan dé koté.
+117|Pran rési lwayé-a chak mwa.
+118|Noté chif kontò-a pronmyen jou-a.
+119|Roun chanm an sékirité ka bay roun bon sonmèy.
+120|Rété an sékirité, travay ké fòs.
+121|Fè to kart louvriyé.
+122|Kart eShram-an gratis.
+123|Yé ka fè li ké Aadhaar é téléfòn pòrtab.
+124|Yé ka ranpli papyé-a annan sant entèrnèt-a.
+125|Pa janmen péyé an plis pou roun kart gratis.
+126|Program gouvèrnman-an ka idé louvriyé pòv.
+127|Doumandé asou program-an annan biro blòk-a.
+128|Gardé to papyé annan roun sèl dosyé.
+129|Aadhaar, livré labank ké foto a papyé prensipal-ya.
+130|Mo tifi trouvé roun bours lékòl.
+131|Magazen rasyon-an ka louvri a lèr.
+132|Vérifyé pwa rasyon-an.
+133|Pwa-a mwens? Fè roun plent.
+134|Plent a ou drwa, a pa roun goumen.
+135|Noté niméro lign èd-ya.
+136|Aplé roun roun dé annan nenpòt ijans.
+137|Niméro anbilans-a a roun zéro wit.
+138|Kart lasanté-a ka bay swen gratis.
+139|Doumandé biro lopital-a asou kart-a.
+140|Pa siyen roun papyé vid.
+141|Li li oben fè roun moun li li pou to anvan to siyen.
+142|Ou pous a ou siyati osi.
+143|Salèr ki pi ba pasé pri fiksé-a pa kòrèk.
+144|Palé ansanm, doumandé ansanm.
+145|Biro travay-a ka tandé louvriyé-ya.
+146|Gardé prèv to jou travay.
+147|Roun foto chantyé-a pouvé sèrvi kou prèv.
+148|Lalwa ké louvriyé onèt-a.
+149|Konnèt program-an, sèrvi program-an.
+150|Roun louvriyé ki konnèt so drwa a roun louvriyé ki fò.

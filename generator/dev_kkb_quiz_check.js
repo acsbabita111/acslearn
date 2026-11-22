@@ -27,10 +27,13 @@ eval(fs.readFileSync(CODE === "en" ? "assets/kkb2_data.js" : "assets/kkb2_" + CO
 var SPOK = {};
 function clean(t) { return String(t).replace(/^\((सुनो|बोलो)[^)]*\)\s*/, "").replace(/^\([^()\s]{1,8}\)\s*/, "").replace(/\s*\([^()]*[\u0900-\u097F][^()]*\)\s*$/, ""); } /* v2.0: (שמע)/(דבר)-जैसे लिपि-टैग व अंत का (देवनागरी-उच्चारण) भी हटे — listen-भंडारण-रूप */
 function spokenT(t) { t = clean(t); if (CODE === "ja" || CODE === "zh" || CODE === "nan") t = t.replace(/\s*\([^()]*\)\s*$/, ""); return t; } /* 04-Sep: zh भी pinyin-कोष्ठक AU-टकराव-मुक्त */
+/* v2.1 (22-Nov-2026) परीक्षा-आवाज़ "hi-dev" (घर: generator/data/kkb_exam_awaaz.json): AU-पाठ और sp = देवनागरी उच्चारण */
+var AWAAZ = JSON.parse(fs.readFileSync("generator/data/kkb_exam_awaaz.json", "utf8"))[CODE] || null;
+var HIDEV = !!(AWAAZ && AWAAZ.mode === "hi-dev"), TRL = HIDEV ? require(process.cwd() + "/" + AWAAZ.translit) : null;
 [global.window.KKB_DATA, global.window.KKB2_DATA].forEach(function (D) {
-  D.weeks.forEach(function (w) { w.days.forEach(function (d) { d.items.forEach(function (it) { SPOK[spokenT(it[0])] = 1; }); });
-    (w.listen || []).forEach(function (p) { SPOK[spokenT(p[0])] = 1; SPOK[spokenT(p[1])] = 1; });   /* v2.0: T17 के सवाल-जवाब listen/dialog से */
-    (w.dialog || []).forEach(function (d2) { SPOK[spokenT(d2[1])] = 1; }); });
+  D.weeks.forEach(function (w) { w.days.forEach(function (d) { d.items.forEach(function (it) { SPOK[HIDEV ? it[1] : spokenT(it[0])] = 1; }); });
+    (w.listen || []).forEach(function (p) { SPOK[HIDEV ? TRL.line(spokenT(p[0])) : spokenT(p[0])] = 1; SPOK[HIDEV ? TRL.line(spokenT(p[1])) : spokenT(p[1])] = 1; });   /* v2.0: T17 के सवाल-जवाब listen/dialog से */
+    (w.dialog || []).forEach(function (d2) { SPOK[HIDEV ? TRL.line(spokenT(d2[1])) : spokenT(d2[1])] = 1; }); });
 });
 
 var ids = {}, biased = 0, eligible = 0, au = 0, auBad = 0, sp = 0, CYR = /[\u0400-\u04FF]/;
@@ -42,6 +45,7 @@ BANK.forEach(function (Q, i) {
     sp++; ok(Array.isArray(Q.o) && Q.o.length === 0 && Q.a === -1, "बोलो-प्रश्न में विकल्प/उत्तर-सूचक #" + i);
     ok(typeof Q.sp === "string" && Q.sp.length > 1 && SPOK[Q.sp], "बोलो-प्रश्न का sp corpus में नहीं #" + i + ": " + Q.sp);
     ok(Q.t.indexOf("((MIC))") > -1, "बोलो-प्रश्न में ((MIC)) निशान नहीं #" + i);
+    if (HIDEV) { ok(!/[A-Za-z]/.test(Q.sp) && /[\u0900-\u097F]/.test(Q.sp), "hi-dev: sp देवनागरी नहीं #" + i + ": " + Q.sp); ok(Q.t.indexOf("हिंदी की पहचान से सुनता है") > -1, "hi-dev: बोलो-प्रश्न में पहचान-सूचना नहीं #" + i); }
     if (Q.typ === 17) ok(/\(\(AU:/.test(Q.t), "T17 में सुनो-निशान नहीं #" + i);
     return;
   }
@@ -56,6 +60,7 @@ BANK.forEach(function (Q, i) {
   if (m) {
     au++;
     if (!SPOK[m[1]]) auBad++;
+    if (HIDEV) { ok(!/[A-Za-z]/.test(m[1]) && /[\u0900-\u097F]/.test(m[1]), "hi-dev: AU-पाठ देवनागरी नहीं #" + i + ": " + m[1]); ok(Q.t.indexOf("हिंदी मशीन की है") > -1, "hi-dev: सुनो-प्रश्न में आवाज़-सूचना नहीं #" + i); }
     if (CODE === "ja") ok(!/\([^()]*\)\s*$/.test(m[1]), "ja AU-पाठ में अंत-romaji #" + i);
   }
   var mx = -1, mi = -1, tie = false;

@@ -33,13 +33,16 @@ const PIPES = [
   { name: "बोलो-वर्कबुक + शब्दकोश (build_bolo_shabd)", cmds: ["build_bolo_shabd.js"], expect: "debt",
     note: "11-Nov दर्ज क़र्ज़: संथाली के 2 पेज generator से अलग बनते हैं (ओल-चिकी दौर के बाद); बाक़ी 830 पेज बराबर" },
   { name: "भाषा-होम (build_mirror_homes)", cmds: ["build_mirror_homes.js"], expect: "zero" },
-  { name: "career-हिंदी (landing4 → patch_career_hi)", cmds: ["build_landing4.js", "patch_career_hi.js"], expect: "zero" },
+  /* 22-Nov-2026: तीसरा कदम patch_career_hi_rules.js जोड़ा (13-Nov के नियम-सुधार इसी से आते हैं); इसके बिना यह जाँच live career.html को झूठा "बेमेल" बताती थी */
+  { name: "career-हिंदी (landing4 → patch_career_hi → patch_career_hi_rules)", cmds: ["build_landing4.js", "patch_career_hi.js", "patch_career_hi_rules.js"], expect: "zero" },
   /* रजिस्टर की हर भाषा का career-पेज (en + mirror-data की कुंजियाँ) */
   { name: "career-भाषा सब (build_career_lang × रजिस्टर)", expect: "zero",
     cmds: ["en"].concat(Object.keys(require("./data/mirror_home_strings.js"))).map(c => "build_career_lang.js " + c) },
   { name: "career-English (build_career_en)", cmds: ["build_career_en.js"], expect: "nowrite" },
   { name: "उद्यम-परिचय 950 (build_udyam_intro_pages)", cmds: ["build_udyam_intro_pages.js"], expect: "zero" },
   { name: "redirect-पर्चियाँ (build_moved_stubs)", cmds: ["build_moved_stubs.js"], expect: "zero" },
+  /* 22-Nov-2026: फ़्रेंच-गयानीज़-क्रियोल (fgc) कोर्स v3.0 का data-यंत्र और उसके दो पन्ने */
+  { name: "fgc कोर्स (fgc/build → व्याकरण, चित्र-पुस्तक)", cmds: ["fgc/build.js", "build_vyakaran.js fgc", "build_chitra_pustak.js fgc"], expect: "zero" },
   { name: "लिपि-परिचय (build_lipi_pages)", cmds: ["build_lipi_pages.js"], expect: "debt",
     note: "10-Nov दर्ज क़र्ज़: अभ्यास-अक्षर Math.random से — हर दौड़ नया क्रम (हानि नहीं, शोर); भाषा-कोड से तय-क्रम अगला दौर" },
   { name: "dashboards (build_dashboards)", cmds: ["build_dashboards.js"], expect: "debt",
