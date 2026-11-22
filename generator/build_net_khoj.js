@@ -1,4 +1,8 @@
-/* build_net_khoj.js v1.1 (21-Nov-2026, खेप M-1.1: नीचे की पंक्ति में रॉयल्टी का दावा सही किया — Constitution के अनुसार जीवन भर रॉयल्टी (7%) सिर्फ़ कोर्स बनाने वाले शिक्षक की है)
+/* build_net_khoj.js v1.2 (22-Nov-2026, खेप N-1: Founder का आदेश "ये सूची नेटवर्क मे दिखना चाहिए, एक टैग के साथ": खोज के ठीक नीचे
+   नया हिस्सा "व्यावहारिक सीखने की जगहें" (NET-PRAKTIK:START … END), data generator/build_network.js का, चलाने वाला
+   /assets/net-praktik.js; शब्द generator/data/network/ui.js से (lib_network.hubText)। खोज की पंक्ति "हर नाम ACS की जाँच के बाद"
+   अब "इस खोज में हर नाम …" ताकि नीचे की सर्वे-सूची ("जाँच बाक़ी" निशान वाली) से टकराव न लगे।)
+   v1.1 (21-Nov-2026, खेप M-1.1: नीचे की पंक्ति में रॉयल्टी का दावा सही किया — Constitution के अनुसार जीवन भर रॉयल्टी (7%) सिर्फ़ कोर्स बनाने वाले शिक्षक की है)
    v1.0 (19-Nov-2026) : नेटवर्क पेज (/hi/network.html) की खोज, generator से।
    Founder की सलाह (19-Nov-2026): registration में लिखा बोर्ड और बैनर वाला नाम, ACS की मंज़ूरी के बाद, खोज में सबको दिखे।
 
@@ -27,7 +31,7 @@ const BLOCK = [
   '  <div class="notice-card">',
   '    <div style="font-weight:800;color:var(--navy);font-size:1.15rem;margin-bottom:6px">🔍 नेटवर्क खोजें</div>',
   '    <p class="nk-help">ACS से जुड़े स्वीकृत केंद्र, वर्कशॉप और शिक्षकों की online कक्षाएँ यहाँ मिलती हैं।</p>',
-  '    <p class="nk-help">हर नाम ACS की जाँच के बाद ही यहाँ आता है।</p>',
+  '    <p class="nk-help">इस खोज में हर नाम ACS की जाँच के बाद ही आता है।</p>',
   '    <div class="net-filters">',
   '      <select class="net-sel" id="fCountry" aria-label="देश"><option value="">सब देश</option></select>',
   '      <select class="net-sel" id="fState" aria-label="राज्य"><option value="">सब राज्य</option></select>',
@@ -75,6 +79,39 @@ const BLOCK = [
   END
 ].join("\n");
 
+/* ---------- v1.2: व्यावहारिक सीखने की जगहें (NET-PRAKTIK) ---------- */
+const crypto = require("crypto");
+const NW = require("./lib_network.js");
+const PSTART = "<!-- NET-PRAKTIK:START (generator/build_net_khoj.js से बना; हाथ से न बदलें) -->";
+const PEND = "<!-- NET-PRAKTIK:END -->";
+const vOf = (rel) => crypto.createHash("sha1").update(fs.readFileSync(path.join(ROOT, rel))).digest("hex").slice(0, 10);
+function praktik() {
+  for (const rel of ["assets/network.css", "assets/net-praktik.js", "assets/network/index.json"]) if (!fs.existsSync(path.join(ROOT, rel))) stop(rel + " नहीं (पहले generator/build_network.js चलाएँ)");
+  const H = NW.hubText("hi"), e = (v) => String(v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");   /* पाठ में " जस-का-तस (अनुवाद-टुकड़ा हूबहू मिले) */
+  return [
+    PSTART,
+    '<link rel="stylesheet" href="/assets/network.css?v=' + vOf("assets/network.css") + '"/>',
+    '<section class="section-container" id="praktik" style="max-width:900px;padding-top:8px">',
+    '  <div class="notice-card">',
+    '    <div class="np-h">' + e(H.h) + "</div>",
+    '    <p class="nk-help">' + e(H.help) + "</p>",
+    '    <p class="nw-notice">' + e(H.notice) + "</p>",
+    '    <div id="npApp" data-index="/assets/network/index.json?v=' + vOf("assets/network/index.json") + '"><p class="nk-note">' + e(H.loading) + "</p></div>",
+    '    <noscript><p class="nk-note">' + e(H.nojs) + "</p></noscript>",
+    H.lists.map((x) => '    <p class="np-links"><a href="' + x.href + '">' + e(x.text) + "</a></p>").join("\n"),
+    '    <div class="np-reg">',
+    '      <div class="np-h">' + e(H.regH) + "</div>",
+    '      <div class="nw-btns"><a class="nw-btn" href="/join.html?role=workshop">' + e(H.regFirm) + '</a><a class="nw-btn alt" href="/join.html?role=ustad">' + e(H.regUstad) + "</a></div>",
+    '      <p class="nw-note">' + e(H.regNote) + "</p>",
+    "    </div>",
+    '    <p class="nw-disc">' + e(H.disc) + "</p>",
+    "  </div>",
+    "</section>",
+    PEND
+  ].join("\n");
+}
+const PJS_RE = /<script src="\/assets\/net-praktik\.js\?v=[0-9a-f]+"><\/script>\n/;
+
 /* पहली दौड़ में जो पुराना हिस्सा हूबहू मिलना चाहिए */
 const OLD_START = "<!-- खोज / फ़िल्टर -->\n<section class=\"section-container\" style=\"max-width:900px;padding-top:24px\">";
 const OLD_END_TEXT = "      <a href=\"/join.html\" class=\"btn btn-primary\">📝 नेटवर्क में जुड़ें</a>\n    </div>\n  </div>\n</section>";
@@ -116,6 +153,15 @@ function build(src) {
     let tail = b + "</script>".length; if (s[tail] === "\n") tail++;
     s = s.slice(0, k) + NEW_JS + s.slice(tail);
   } else once(s, JS_MARK, "JS marker");
+  /* 4. (v1.2) व्यावहारिक सीखने की जगहें: खोज के ठीक नीचे */
+  const PB = praktik();
+  if (s.indexOf(PSTART) > -1) {
+    once(s, PSTART, "NET-PRAKTIK START"); once(s, PEND, "NET-PRAKTIK END");
+    s = s.slice(0, s.indexOf(PSTART)) + PB + s.slice(s.indexOf(PEND) + PEND.length);
+  } else { once(s, END, "END marker"); s = s.replace(END, END + "\n\n" + PB); }
+  const PJS = '<script src="/assets/net-praktik.js?v=' + vOf("assets/net-praktik.js") + '"></script>\n';
+  if (PJS_RE.test(s)) s = s.replace(PJS_RE, PJS);
+  else { const nk = '<script src="/assets/net-khoj.js"></script>\n'; once(s, nk, "net-khoj.js script"); s = s.replace(nk, nk + PJS); }
   return s;
 }
 
@@ -125,7 +171,8 @@ if (build(out) !== out) stop("दूसरी दौड़ पेज बदल �
 /* पहरे: पुरानी चीज़ें गईं, नई ठीक एक बार */
 if (/udyam_data\.js|COUNTRY_GROUPS|SAARC_DATA|class="net-count"|TODO\(future\)/.test(out)) stop("पुराना हिस्सा बचा रह गया");
 for (const id of ["fCountry", "fState", "fDistrict", "fQ", "fGo", "netResult"].concat(STAT_IDS)) if (out.split('id="' + id + '"').length !== 2) stop("id " + id + " ठीक एक बार नहीं");
-if (/\[|\]/.test(BLOCK.replace(/<[^>]+>/g, ""))) stop("चौकोर कोष्ठक मिला");
+if (/\[|\]/.test((BLOCK + praktik()).replace(/<[^>]+>/g, ""))) stop("चौकोर कोष्ठक मिला");
+if (out.split('id="npApp"').length !== 2 || out.split('id="praktik"').length !== 2 || out.split("/assets/net-praktik.js?v=").length !== 2) stop("व्यावहारिक-सूची का हिस्सा ठीक एक बार नहीं");
 if (CHECK) {
   if (out !== src) { console.error("⛔ --check: hi/network.html ताज़ा नहीं; generator चलाएँ।"); process.exit(1); }
   console.log("🏁 --check पास: hi/network.html ताज़ा है।"); process.exit(0);

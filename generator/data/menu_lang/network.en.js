@@ -1,5 +1,7 @@
 /* ============================================================
-   menu_lang/network.en.js v1.1 (परत-3, 21-Nov-2026, खेप M-1; v1.1 = खेप M-1.1: रॉयल्टी और 80% की दो पंक्तियाँ हिंदी मूल के साथ सही की गईं) : नेटवर्क का English पन्ना (/en/network.html)
+   menu_lang/network.en.js v1.2 (परत-3, 21-Nov-2026, खेप M-1; v1.1 = खेप M-1.1: रॉयल्टी और 80% की दो पंक्तियाँ हिंदी मूल के साथ सही की गईं;
+   v1.2 = 22-Nov खेप N-1: "व्यावहारिक सीखने की जगहें" हिस्से के शब्द यहाँ हाथ से नहीं लिखे, generator/data/network/ui.js से
+   (lib_network.hubText: हिंदी और English एक ही घर से) + उस हिस्से की कड़ियाँ English पन्नों पर (LINKS)) : नेटवर्क का English पन्ना (/en/network.html)
    हिंदी पन्ना /hi/network.html के हर हिंदी टुकड़े का English (ढाँचा _chrome.en.js में)। यंत्र: generator/build_menu_lang.js।
    खोज के नतीजे assets/net-khoj.js v1.1 पन्ने की भाषा में लिखता है; राज्य और ज़िले के नाम INJECT से
    (पैनल-पैक generator/data/panel_i18n/en.json की geo-तालिका: एक चीज़ = एक जगह)।
@@ -7,9 +9,7 @@
    ============================================================ */
 "use strict";
 const geoInject = require("./_geo_inject.js");
-module.exports = {
-  INJECT: lang => geoInject(lang, '<script src="/assets/net-khoj.js"'),
-  T: {
+const T = {
     "ACS का नेटवर्क — गाँव से दुनिया तक | Applied Computer School™": "The ACS Network: from villages to the world | Applied Computer School™",
     "ACS नेटवर्क — देश, राज्य व ज़िले के अनुसार सेंटर, शिक्षक, काउंसलर, नियोक्ता व एजेंट खोजें। नेटवर्क में जुड़ें; अपना कोर्स बनाने वाले शिक्षक को जीवन भर रॉयल्टी मिलती है।": "The ACS network: find centers, teachers, counselors, employers and agents by country, state and district. Join the network; a teacher who makes their own course gets royalty on it for life.",
     "✅ जुड़ना और सीखना — सबके लिए निःशुल्क": "✅ Joining and learning are free for everyone",
@@ -26,7 +26,7 @@ module.exports = {
     "लाभार्थी": "Beneficiaries",
     "🔍 नेटवर्क खोजें": "🔍 Search the network",
     "ACS से जुड़े स्वीकृत केंद्र, वर्कशॉप और शिक्षकों की online कक्षाएँ यहाँ मिलती हैं।": "Here you find approved centers, workshops and teachers' online classes linked with ACS.",
-    "हर नाम ACS की जाँच के बाद ही यहाँ आता है।": "Every name comes here only after a check by ACS.",
+    "इस खोज में हर नाम ACS की जाँच के बाद ही आता है।": "In this search, every name comes only after a check by ACS.",
     "सब देश": "All countries",
     "राज्य": "State",
     "सब राज्य": "All states",
@@ -54,5 +54,16 @@ module.exports = {
     "💰 कमाई — 80% आपका": "💰 Earnings: 80% is yours",
     "कोर्स-प्रशिक्षण की फीस का सबसे बड़ा हिस्सा (80%) केंद्र को जाता है। बाक़ी पारदर्शी रूप से बँटता है।": "The biggest share (80%) of the course training fee goes to the center. The rest is shared openly.",
     "✅ ऑनलाइन पढ़ाई हमेशा निःशुल्क": "✅ Online learning is always free"
-  }
+};
+/* v1.2: व्यावहारिक सीखने की जगहें (NET-PRAKTIK) : शब्द और कड़ियाँ generator/data/network/ui.js और lib_network.js से */
+const NW = require("../../lib_network.js"), HI = NW.hubText("hi"), EN = NW.hubText("en");
+const LINKS = { "/join.html?role=workshop": "/join.html?role=workshop&amp;lang=en", "/join.html?role=ustad": "/join.html?role=ustad&amp;lang=en" };
+for (const k of Object.keys(HI)) {
+  if (k === "lists") { HI.lists.forEach((x, i) => { T[x.text] = EN.lists[i].text; LINKS[x.href] = EN.lists[i].href; }); continue; }
+  if (T[HI[k]] !== undefined && T[HI[k]] !== EN[k]) throw new Error("network.en.js: एक हिंदी टुकड़े के दो अनुवाद: " + HI[k]);
+  T[HI[k]] = EN[k];
+}
+module.exports = {
+  INJECT: lang => geoInject(lang, '<script src="/assets/net-khoj.js"'),
+  T, LINKS
 };

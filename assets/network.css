@@ -1,0 +1,93 @@
+/* ============================================================
+   /assets/network.css v1.0 (22-Nov-2026, खेप N-1) : व्यावहारिक प्रशिक्षण नेटवर्क
+   (1) गहरे पन्ने: /network/... और /en/network/... (generator/build_network.js से बने)
+   (2) नेटवर्क-पन्ने (/hi/network.html, /en/network.html) का "व्यावहारिक सीखने की जगहें" हिस्सा (assets/net-praktik.js)
+   रंग सिर्फ़ ACS के पाँच (style.css के var): navy, blue, gold, green, off-white। कोई अक्षर 16px से छोटा नहीं।
+   पहचान-चिह्न: ◷ जाँच बाक़ी = सुनहरी किनारी (पक्का नहीं), ✅ सत्यापित = भरा हरा (RM-सबूत से)।
+   ============================================================ */
+/* गहरे पन्ने root मास्टर टेम्पलेट पर हैं, जिसकी पृष्ठभूमि गहरी है: पन्ना अपना हल्का पर्दा साथ लाता है */
+body[data-page="network"] #acs-content{background:var(--offwhite)}
+.nw-wrap{max-width:900px;margin:0 auto;padding:18px 14px 30px;text-align:left;color:var(--navy)}
+.nw-wrap p{margin:0 0 8px}
+.nw-crumb{font-size:16px;line-height:1.8;color:var(--muted,#475569);margin:0 0 10px;overflow-wrap:anywhere}
+.nw-crumb a{color:var(--blue);font-weight:700;text-decoration:none}
+.nw-crumb a:hover,.nw-crumb a:focus{text-decoration:underline}
+.nw-h1{font-size:1.7rem;line-height:1.35;color:var(--navy);margin:4px 0 8px;overflow-wrap:anywhere}
+.nw-sub{font-size:17px;color:var(--muted,#475569);margin:0 0 14px;line-height:1.8}
+.nw-box{background:#fff;border:1px solid var(--border,#E8EDF5);border-radius:14px;padding:16px;margin:0 0 14px}
+.nw-box h2{font-size:1.25rem;color:var(--navy);margin:0 0 10px;line-height:1.4}
+.nw-note{font-size:16px;color:var(--muted,#475569);line-height:1.7;margin:8px 0 0}
+.nw-notice{background:var(--offwhite);border-left:5px solid var(--gold);border-radius:10px;padding:12px 14px;font-size:17px;line-height:1.75;color:var(--navy);margin:0 0 14px}
+.nw-disc{font-size:16px;color:var(--muted,#475569);line-height:1.7;margin:14px 0 8px}
+/* जाँच की स्थिति का निशान */
+.nw-tag{display:inline-block;font-size:16px;font-weight:800;line-height:1.3;padding:3px 11px;border-radius:999px;margin:2px 4px 2px 0;white-space:nowrap}
+.nw-tag.tbv{background:#fff;color:var(--navy);border:2px solid var(--gold)}
+.nw-tag.ver{background:var(--green);color:#fff;border:2px solid var(--green)}
+.nw-tag.cat{background:var(--offwhite);color:var(--navy);border:2px solid var(--offwhite);white-space:normal}
+.nw-stat{border-width:2px}
+.nw-stat.tbv{border-color:var(--gold)}
+.nw-stat.ver{border-color:var(--green)}
+.nw-stat b{font-size:1.15rem;color:var(--navy)}
+.nw-stat p{margin:6px 0 0;font-size:17px;line-height:1.75;color:var(--navy)}
+/* फ़र्म की जानकारी */
+.nw-dl{display:grid;grid-template-columns:minmax(120px,34%) 1fr;gap:0;margin:0;font-size:17px;line-height:1.7}
+.nw-dl dt{font-weight:800;color:var(--muted,#475569);padding:8px 10px 8px 0;border-bottom:1px solid var(--border,#E8EDF5)}
+.nw-dl dd{margin:0;padding:8px 0;border-bottom:1px solid var(--border,#E8EDF5);color:var(--navy);overflow-wrap:anywhere}
+.nw-dl a{color:var(--blue);font-weight:700}
+@media (max-width:520px){.nw-dl{grid-template-columns:1fr}.nw-dl dt{border-bottom:0;padding-bottom:0}}
+.nw-src{margin:0;padding-left:22px;font-size:17px;line-height:1.8}
+.nw-src li{margin-bottom:6px;overflow-wrap:anywhere}
+.nw-src a{color:var(--blue);font-weight:700}
+/* सूची (ज़िला-पन्ना) */
+.nw-cov{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:4px 0 0}
+.nw-cv{background:var(--offwhite);border-radius:12px;padding:10px 12px;text-align:center}
+.nw-cv b{display:block;font-size:1.5rem;font-weight:900;color:var(--blue);line-height:1.2}
+.nw-cv span{font-size:16px;font-weight:700;color:var(--muted,#475569)}
+.nw-cats{margin:0;padding-left:22px;font-size:17px;line-height:1.8;color:var(--navy)}
+.nw-dlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin:0;padding:0;list-style:none}
+.nw-dlist a{display:block;background:var(--offwhite);border:1px solid var(--border,#E8EDF5);border-radius:10px;padding:10px 12px;font-size:17px;font-weight:700;color:var(--navy);text-decoration:none;line-height:1.4}
+.nw-dlist a:hover,.nw-dlist a:focus{border-color:var(--blue);color:var(--blue)}
+.nw-dlist small{display:block;font-size:16px;font-weight:600;color:var(--muted,#475569)}
+.nw-jump{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px;padding:0;list-style:none}
+.nw-jump a{display:inline-block;font-size:16px;font-weight:700;color:var(--blue);background:#fff;border:1px solid var(--border,#E8EDF5);border-radius:999px;padding:4px 12px;text-decoration:none}
+.nw-blk{margin:18px 0 6px}
+.nw-blk h2{font-size:1.2rem;color:var(--navy);margin:0 0 8px;padding-bottom:6px;border-bottom:2px solid var(--border,#E8EDF5)}
+.nw-cards{list-style:none;margin:0;padding:0}
+.nw-card{background:#fff;border:1px solid var(--border,#E8EDF5);border-left:6px solid var(--gold);border-radius:12px;padding:12px 14px;margin:0 0 10px}
+.nw-card.ver{border-left-color:var(--green)}
+.nw-name{display:block;font-size:19px;font-weight:900;color:var(--navy);line-height:1.4;text-decoration:none;overflow-wrap:anywhere;margin-bottom:4px}
+a.nw-name:hover,a.nw-name:focus{color:var(--blue);text-decoration:underline}
+.nw-row{font-size:17px;color:var(--navy);line-height:1.7;overflow-wrap:anywhere}
+.nw-row a{color:var(--blue);font-weight:700}
+.nw-row.muted{color:var(--muted,#475569);font-size:16px}
+/* बटन और फ़ॉर्म */
+.nw-btns{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 0}
+.nw-btn{display:inline-block;background:var(--blue);color:#fff;font-weight:800;font-size:17px;line-height:1.4;padding:11px 16px;border-radius:12px;text-decoration:none;border:0;cursor:pointer}
+.nw-btn.alt{background:#fff;color:var(--navy);border:2px solid var(--blue)}
+.nw-btn.wa{background:var(--green)}
+.nw-btn:focus-visible,.nw-inp:focus-visible,.nw-dlist a:focus-visible,.np-chip:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.nw-fixlink{display:inline-block;font-size:16px;font-weight:700;color:var(--blue);margin:0 0 14px}
+.nw-lbl{display:block;font-weight:800;color:var(--navy);margin:12px 0 6px;font-size:17px}
+.nw-inp{width:100%;box-sizing:border-box;padding:12px;border:2px solid var(--border,#E8EDF5);border-radius:12px;font-size:18px;font-family:inherit;background:#fff;color:var(--navy)}
+.nw-res{margin-top:12px;font-size:17px;line-height:1.7}
+.nw-res .ok{background:var(--offwhite);border:2px solid var(--green);border-radius:12px;padding:12px;color:var(--navy)}
+.nw-res .bad{background:var(--offwhite);border:2px solid var(--gold);border-radius:12px;padding:12px;color:var(--navy);font-weight:700}
+.nw-res .wait{background:var(--offwhite);border-radius:12px;padding:12px;color:var(--navy)}
+/* नेटवर्क-पन्ने का हिस्सा (net-praktik.js) */
+.np-h{font-weight:800;color:var(--navy);font-size:1.15rem;margin-bottom:6px}
+.np-chips{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.np-chip{padding:9px 14px;border:2px solid var(--border,#E8EDF5);border-radius:999px;background:#fff;font-weight:700;font-size:16px;cursor:pointer;color:var(--navy);line-height:1.35;text-align:left}
+.np-chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.np-chip small{display:block;font-size:16px;font-weight:600;opacity:.85}
+.np-lbl{display:block;font-weight:800;color:var(--navy);font-size:16px;margin:0 0 4px}
+.np-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:0 0 12px}
+.np-grid select,.np-grid input{width:100%;box-sizing:border-box;padding:11px;border:2px solid var(--border,#E8EDF5);border-radius:12px;font-size:17px;font-family:inherit;background:#fff;color:var(--navy)}
+.np-grid select:disabled,.np-grid input:disabled{background:var(--offwhite);color:var(--muted,#475569)}
+.np-tot{font-size:17px;font-weight:800;color:var(--navy);margin:4px 0 10px}
+.np-more{display:block;margin:6px auto 0;min-height:48px}
+.np-links{margin:12px 0 0;font-size:17px;line-height:1.8}
+.np-links a{color:var(--blue);font-weight:800}
+.np-reg{margin-top:16px;padding-top:14px;border-top:1px dashed var(--border,#E8EDF5)}
+.np-reg .np-h{font-size:1.05rem}
+@media (prefers-reduced-motion:reduce){.nw-btn,.np-chip{transition:none}}
+@media print{.nw-btns,#sudhar,.np-reg{display:none}}

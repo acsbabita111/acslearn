@@ -1,5 +1,5 @@
 /* ============================================================
-   build_menu_lang.js v1.0 (परत-4, 21-Nov-2026, खेप M-1) : मेन्यू के पन्ने दूसरी भाषा में
+   build_menu_lang.js v1.1 (परत-4, 21-Nov-2026, खेप M-1; v1.1 = 22-Nov खेप N-1: कड़ी का पूरा पता (? समेत) भी अनुवाद-फ़ाइल की LINKS से बदल सकता है; translate/linkMap export, ताकि नेटवर्क के गहरे पन्नों का English ढाँचा इसी यंत्र से बने; बाक़ी व्यवहार वही) : मेन्यू के पन्ने दूसरी भाषा में
    Founder का आदेश (21-Nov-2026): पैनल की चारों भाषाओं (हिंदी, English, कन्नड़, बांग्ला) में मेन्यू का हर
    आइटम उसी भाषा के पन्ने पर खुले, उसका पूरा पन्ना बने।
 
@@ -164,7 +164,8 @@ function collectUnits(html) {
 /* ---------- अनुवाद ---------- */
 function translate(html, T, links, used) {
   const tr = (u) => { if (!Object.prototype.hasOwnProperty.call(T, u)) throw new Error("अनुवाद नहीं मिला: " + u.slice(0, 80)); used.add(u); return T[u]; };
-  const link = (v) => { const m = /^([^?#]*)(.*)$/.exec(v); return Object.prototype.hasOwnProperty.call(links, m[1]) ? links[m[1]] + m[2] : v; };
+  /* v1.1: पहले पूरा पता हूबहू (जैसे "/join.html?role=workshop"), फिर सिर्फ़ पथ (बाक़ी ?… #… जस-का-तस) */
+  const link = (v) => { if (Object.prototype.hasOwnProperty.call(links, v)) return links[v]; const m = /^([^?#]*)(.*)$/.exec(v); return Object.prototype.hasOwnProperty.call(links, m[1]) ? links[m[1]] + m[2] : v; };
   let out = "";
   for (const sg of segments(html)) {
     if (sg.k === "mk") {
@@ -313,6 +314,11 @@ function syncCluster(key, L, stats) {
   }
 }
 
+/* ---------- दूसरे यंत्रों के लिए (v1.1, 22-Nov-2026, खेप N-1): नेटवर्क के गहरे पन्नों (generator/build_network.js) का
+   English ढाँचा इसी अनुवाद-यंत्र और _chrome.en.js से बनता है (ढाँचे का अनुवाद एक ही जगह) ---------- */
+module.exports = { translate, linkMap, DEV };
+if (require.main !== module) return;
+
 /* ---------- चलाना ---------- */
 if (UI > -1) {
   const key = process.argv[UI + 1], P = M.PAGES[key];
@@ -335,4 +341,4 @@ if (CHECK) {
   console.log("🏁 build_menu_lang --check: सब पन्ने generator से मेल खाते हैं (" + stats.same + ")"); process.exit(0);
 }
 stats.wrote.forEach(f => console.log("✅ लिखा: " + f));
-console.log("🏁 build_menu_lang v1.0 : लिखे " + stats.wrote.length + ", पहले जैसे " + stats.same);
+console.log("🏁 build_menu_lang v1.1 : लिखे " + stats.wrote.length + ", पहले जैसे " + stats.same);

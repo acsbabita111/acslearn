@@ -1,5 +1,7 @@
 /* ============================================================
    build_sitemap.js v2.5 (परत-4) — sitemap-index + 4 खंड-sitemap
+   v2.7 (22-Nov-2026, खेप N-1): पाँचवाँ खंड sitemap-network.xml : व्यावहारिक प्रशिक्षण नेटवर्क के पन्ने (राज्य × सेक्टर, ज़िले, हर फ़र्म;
+        हिंदी और English), generator/build_network.js से बने; सूची का एकमात्र घर lib_network.js का pageUrls (जो फ़ाइल मौजूद हो)।
    v2.6 (21-Nov-2026, खेप M-1): मेन्यू के भाषा-पन्ने (/en/verify/, /contact/en/, /en/network.html …), generator/build_menu_lang.js से बने; सूची lib_menu_lang.js से (जो फ़ाइल मौजूद हो)।
    v2.5 (16-Nov-2026, कन्नड़ क-2क): किसी भी भाषा-घर के भूमिका-नियम-पत्र (/<कोड>/rules-consent-<भूमिका>.html) जुड़ते हैं; अभी कन्नड़ के 26।
    v2.4 (15-Nov-2026, पैनल-5): 26 भूमिकाओं के English नियम-पत्र (/en/rules-consent-<भूमिका>.html) जुड़े।
@@ -109,11 +111,15 @@ const LEGacy = ["/courses/hi/digital/dca/", "/courses/hi/digital/ai-digital-mast
 /* ---------- खंड-बँटवारा (हर URL ठीक एक खंड में) ---------- */
 const bhasha = coursePages.filter(u => u.startsWith("/courses/hi/bhasha/"));
 const hunar  = coursePages.filter(u => !u.startsWith("/courses/hi/bhasha/")).concat(LEGacy);
+/* v2.7: नेटवर्क के पन्ने (lib_network.js) */
+const NW = require("./lib_network.js");
+const network = NW.pageUrls(NW.loadRecords()).filter(u => fs.existsSync(path.join(ROOT, NW.fileOf(u))));
 const SECTIONS = [
   ["sitemap-core.xml",   main],
   ["sitemap-udyam.xml",  intros],
   ["sitemap-bhasha.xml", bhasha],
-  ["sitemap-hunar.xml",  hunar]
+  ["sitemap-hunar.xml",  hunar],
+  ["sitemap-network.xml", network]
 ];
 
 /* ---------- सच्चा lastmod: बही-खाता (ledger) ---------- */
@@ -209,5 +215,5 @@ fs.writeFileSync(IDX_FILE, idx);
 const LEDGER_ALL = Object.assign({}, SEC_NEW, LEDGER_NEW);
 fs.writeFileSync(LEDGER_FILE, "{\n" + Object.keys(LEDGER_ALL).sort().map(k => JSON.stringify(k) + ": " + JSON.stringify(LEDGER_ALL[k])).join(",\n") + "\n}\n");
 const dated = Object.values(LEDGER_NEW).filter(v => v[1]).length;
-console.log("✅ sitemap.xml (index) + 4 खंड — कुल", total, "URL · बदलाव-तारीख़ वाले पते:", dated, "(आज बदले/नए:", Object.values(LEDGER_NEW).filter(v => v[1] === today).length + ")");
+console.log("✅ sitemap.xml (index) + " + SECTIONS.length + " खंड — कुल", total, "URL · बदलाव-तारीख़ वाले पते:", dated, "(आज बदले/नए:", Object.values(LEDGER_NEW).filter(v => v[1] === today).length + ")");
 if (dropped.length) { console.log("  पहरे से बाहर (" + dropped.length + "):"); dropped.forEach(d => console.log("   - " + d)); }
