@@ -45,8 +45,8 @@ const PIPES = [
   { name: "fgc कोर्स (fgc/build → व्याकरण, चित्र-पुस्तक)", cmds: ["fgc/build.js", "build_vyakaran.js fgc", "build_chitra_pustak.js fgc"], expect: "zero" },
   /* 22-Nov-2026: ध्वनि-कार्ड वाला लिपि-पन्ना (पहली भाषा fgc) में Math.random नहीं: दोबारा बनाने पर बदलाव शून्य होना चाहिए */
   { name: "लिपि-परिचय ध्वनि-कार्ड: fgc (build_lipi_pages + lipi_dhvani)", cmds: ["build_lipi_pages.js fgc"], expect: "zero" },
-  { name: "लिपि-परिचय (build_lipi_pages)", cmds: ["build_lipi_pages.js"], expect: "debt",
-    note: "10-Nov दर्ज क़र्ज़: अभ्यास-अक्षर Math.random से — हर दौड़ नया क्रम (हानि नहीं, शोर); भाषा-कोड से तय-क्रम अगला दौर" },
+  /* 22-Nov-2026 चरण-1: non-en पन्नों में अभ्यास-क्रम अब भाषा-कोड से तय (Math.random नहीं); en इस दौड़ में बनता ही नहीं। क़र्ज़ चुका। */
+  { name: "लिपि-परिचय (build_lipi_pages)", cmds: ["build_lipi_pages.js"], expect: "zero" },
   { name: "dashboards (build_dashboards)", cmds: ["build_dashboards.js"], expect: "debt",
     note: "10-Nov दर्ज क़र्ज़: generator बासी (learner English-परत v1.2.1 के बाद) — अलग दौर" }
 ];

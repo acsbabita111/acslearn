@@ -86,3 +86,6 @@
 .lf-row b{font-size:28px;text-align:center;color:#0B1F3A}
 .lf-c{font-size:30px;line-height:1.6;padding:6px 4px;border:1px solid #cfd8e3;border-radius:10px;background:#fff;color:#0B1F3A;cursor:pointer}
 .lipi-word .w,.lipi-cell .big{unicode-bidi:plaintext}
+
+/* 22-Nov-2026 चरण-1: लंबा शब्द (जैसे Orientierungspunkt) कार्ड से बाहर न निकले; जर्मन, स्वीडिश, हंगेरियन पर फ़ोन में आड़ा-scroll था */
+.lipi-word .w{overflow-wrap:anywhere}

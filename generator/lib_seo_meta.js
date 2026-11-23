@@ -25,6 +25,16 @@ function clean(v, what) {
 /* अंग्रेज़ी नाम वाला रूप लंबा हो तो बिना अंग्रेज़ी नाम वाला रूप (तय नियम, हर जगह एक-सा) */
 function pick(withEn, withoutEn, en) { return (en && len(withEn) <= T_SOFT) ? withEn : withoutEn; }
 
+/* लिपि-पन्नों के मौजूदा शीर्षक पहचानने के नियम, pranali.js की हर प्रणाली के लिए दो रूप (अंग्रेज़ी नाम सहित / बिना)।
+   पहली दो पंक्तियाँ ठीक वही हैं जो पहले हाथ से लिखी थीं (वर्णमाला वाले पन्ने)। */
+const PR = require("./data/lipi/pranali.js");
+const reEsc = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const LIPI_CUR = [], LIPI_CUR_PR = [];
+for (const k of Object.keys(PR.KINDS)) {
+  const K = PR.KINDS[k], head = "^(?<hi>.+?) " + reEsc(K.hi) + " सीखें", tail = reEsc(": " + K.ant + BRAND) + "$";
+  LIPI_CUR.push(new RegExp(head + " \\(" + (K.fixedEn ? reEsc(K.en("")) : "(?<en>.+?)" + reEsc(K.en(""))) + "\\)" + tail)); LIPI_CUR_PR.push(k);
+  LIPI_CUR.push(new RegExp(head + tail)); LIPI_CUR_PR.push(k);
+}
 const TYPES = {
   root: {
     title: v => pick(v.hi + " बोलना सीखें (Spoken " + v.en + "): 90 दिन का मुफ़्त कोर्स" + BRAND, v.hi + " बोलना सीखें: 90 दिन का मुफ़्त कोर्स" + BRAND, v.en),
@@ -58,13 +68,16 @@ const TYPES = {
     dOld: /: (?<weeks>\d+) साप्ताहिक \+ 3 महीना-वार PDF/, dCur: /: (?<weeks>\d+) साप्ताहिक और 3 महीना-वार PDF/
   },
   lipi: {
-    title: v => pick(v.hi + " वर्णमाला सीखें (" + v.en + " Alphabet): अक्षर, आवाज़ और लिखाई" + BRAND, v.hi + " वर्णमाला सीखें: अक्षर, आवाज़ और लिखाई" + BRAND, v.en),
+    /* 22-Nov-2026 (ऑडिट LP1-03): लेखन-प्रणाली का नाम data/lipi/pranali.js से। वर्णमाला वाले पन्नों का शीर्षक हूबहू पहले जैसा;
+       चीनी चिह्न, काना और शब्दांश-लिपि पर "वर्णमाला / Alphabet" की जगह सही नाम। v.pr = प्रणाली (parse उसे शीर्षक से पहचानता है) */
+    title: v => { const K = PR.KINDS[v.pr || ""]; return pick(v.hi + " " + K.hi + " सीखें (" + K.en(v.en) + "): " + K.ant + BRAND, v.hi + " " + K.hi + " सीखें: " + K.ant + BRAND, v.en || K.fixedEn); },
     /* 22-Nov-2026: ध्वनि-कार्ड वाला नया ढाँचा (generator/lipi_dhvani.js) अपना विवरण देता है; बाक़ी पन्नों का पाठ जैसा था वैसा */
     desc: v => v.dhvani ? v.hi + " की आवाज़ें और अक्षर, हिंदी में: " + v.dhvani + " ध्वनि-कार्ड, हर आवाज़ के शब्द, देवनागरी उच्चारण, लिखाई और " + v.days + " दिन की योजना। मुफ़्त।"
+      : v.ldays ? v.hi + " लिपि का पहला परिचय, हिंदी में: " + v.count + " अक्षर, देवनागरी में आवाज़, लिखाई-अभ्यास और " + v.ldays + " दिन की योजना। मुफ़्त, छपने-योग्य।"   /* 22-Nov चरण-1: दिन पन्ने से */
       : v.hi + " लिपि का पहला परिचय, हिंदी में: " + v.count + " अक्षर, देवनागरी में नाम और आवाज़, लिखाई-अभ्यास और 15-दिन योजना। मुफ़्त, छपने-योग्य।",
     old: [/^(?<hi>.+?) की वर्णमाला पहली बार — अक्षर, आवाज़, लिखने का अभ्यास \((?<en>.+?) Alphabet Workbook, मुफ़्त, छपने-योग्य\) \| अप्लाइड कंप्यूटर स्कूल$/],
-    cur: [/^(?<hi>.+?) वर्णमाला सीखें \((?<en>.+?) Alphabet\): अक्षर, आवाज़ और लिखाई \| ACS$/, /^(?<hi>.+?) वर्णमाला सीखें: अक्षर, आवाज़ और लिखाई \| ACS$/],
-    dOld: /— (?<count>\d+) अक्षर,/, dCur: /हिंदी में: (?:(?<count>\d+) अक्षर,|(?<dhvani>\d+) ध्वनि-कार्ड,.*?और (?<days>\d+) दिन की योजना)/
+    cur: LIPI_CUR, curPr: LIPI_CUR_PR,
+    dOld: /— (?<count>\d+) अक्षर,/, dCur: /हिंदी में: (?:(?<count>\d+) अक्षर,(?:.*?और (?<ldays>\d+) दिन की योजना)?|(?<dhvani>\d+) ध्वनि-कार्ड,.*?और (?<days>\d+) दिन की योजना)/
   },
   chitra: {
     title: v => v.akshar ? "मेरी पहली " + v.hi + " पोथी: अक्षर और चित्र-शब्द, मुफ़्त" + BRAND
@@ -112,6 +125,7 @@ function parse(type, t, d) {
   if (!g) return null;
   if (T.dOld) { const m = (d || "").match(isOld ? T.dOld : T.dCur) || (d || "").match(T.dOld) || (d || "").match(T.dCur); if (!m) return null; Object.assign(g, m.groups); }
   if (type === "chitra") { g.akshar = idx === 0; g.isEn = !g.akshar && /A(–| से )Z/.test(d || ""); }
+  if (T.curPr) g.pr = isOld ? "" : T.curPr[idx];   /* 22-Nov: लिपि-पन्ने की लेखन-प्रणाली शीर्षक से */
   g.isOld = isOld;
   return g;
 }

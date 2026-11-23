@@ -32,7 +32,8 @@
     var nm = label(opt), n = document.createElement("div");
     n.setAttribute("role", "status");
     n.style.cssText = "position:fixed;left:12px;right:12px;bottom:84px;z-index:99999;background:#FFF8E1;color:#0B1F3A;border:2px solid #F9A825;border-radius:14px;padding:14px 16px;font-size:17px;line-height:1.7;box-shadow:0 6px 18px rgba(0,0,0,.18);font-family:inherit";
-    n.innerHTML = "⚠️ इस फ़ोन या कंप्यूटर में " + nm + " की आवाज़ नहीं मिली।<br>अभी 🔊 देवनागरी उच्चारण को हिंदी आवाज़ में पढ़ रहा है — यह असली " + nm + " आवाज़ नहीं है।<br><b>असली आवाज़:</b> Android में Settings → Text-to-speech → Google → आवाज़ का डेटा → " + nm + " डाउनलोड करें; कंप्यूटर पर यह पन्ना Microsoft Edge में खोलें।<br>";
+    /* 22-Nov-2026 (ऑडिट K20): बहुत-सी भाषाओं की मशीन-आवाज़ किसी फ़ोन में होती ही नहीं। "डाउनलोड करें" का पक्का वादा नहीं; सलाह "अगर मिलती हो" के साथ। */
+    n.innerHTML = "⚠️ इस फ़ोन या कंप्यूटर में " + nm + " की आवाज़ नहीं मिली।<br>अभी 🔊 देवनागरी उच्चारण को हिंदी आवाज़ में पढ़ रहा है। यह असली " + nm + " आवाज़ नहीं है।<br>बहुत-सी भाषाओं की मशीन-आवाज़ किसी फ़ोन में होती ही नहीं।<br><b>अगर मिलती हो:</b> एंड्रॉयड (Android) में सेटिंग (Settings) → टेक्स्ट-टू-स्पीच (Text-to-speech) → Google → आवाज़ का डेटा → " + nm + " ढूँढ़ें।<br>";
     var b = document.createElement("button"); b.type = "button"; b.textContent = "ठीक है";
     b.style.cssText = "margin-top:8px;font-size:17px;padding:6px 16px;border-radius:10px;border:0;background:#1565C0;color:#fff";
     b.onclick = function () { if (n.parentNode) n.parentNode.removeChild(n); };

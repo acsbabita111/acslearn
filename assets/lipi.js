@@ -12,8 +12,18 @@
       if (v) u.voice = v; window.speechSynthesis.speak(u); } catch (e) {}
   }
   function lipiLabel() { var a = document.querySelectorAll(".lipi-crumb a"); var t = a.length > 1 ? (a[1].textContent || "") : ""; return t.replace(" बोलने का कोर्स", "").trim() || "इस भाषा"; }
+  /* 22-Nov-2026 (चरण-1, ऑडिट K21): फ़ोन की आवाज़-सूची देर से आती है। पहली बार दबाने पर सूची का इंतज़ार (अधिकतम 1.2 सेकंड),
+     ताकि पहली और दूसरी बार का बर्ताव एक जैसा रहे। इंतज़ार सिर्फ़ एक बार। */
+  var waited = false;
+  function whenVoices(cb) {
+    var ss = window.speechSynthesis, n0 = 0; try { n0 = ss.getVoices().length; } catch (e) {}
+    if (waited || n0) { waited = true; cb(); return; }
+    var done = false, go = function () { if (done) return; done = true; waited = true; cb(); };
+    try { if (ss.addEventListener) ss.addEventListener("voiceschanged", go); else ss.onvoiceschanged = go; } catch (e) {}
+    setTimeout(go, 1200);
+  }
   window.lipiSay = function (el) { var t = el && el.getAttribute("data-say"); if (!t) return;
-    if (window.acsAwaz && ("speechSynthesis" in window)) { window.speechSynthesis.cancel(); window.acsAwaz.say(t, lang, { el: el, rate: 0.8, label: lipiLabel() }); return; }
+    if (window.acsAwaz && ("speechSynthesis" in window)) { whenVoices(function () { window.speechSynthesis.cancel(); window.acsAwaz.say(t, lang, { el: el, rate: 0.8, label: lipiLabel() }); }); return; }
     say(t); };
 })();
 
