@@ -1,4 +1,4 @@
-/* lipi_dhvani.js v1.0 · 22-Nov-2026 : ध्वनि-कार्ड वाला लिपि-परिचय : साझा यंत्र (परत-4)
+/* lipi_dhvani.js v1.1 · 23-Nov-2026 (पहला रूप v1.0 · 22-Nov-2026) : ध्वनि-कार्ड वाला लिपि-परिचय : साझा यंत्र (परत-4)
    क्यों बना: पुराना लिपि-पन्ना अक्षर-दर-अक्षर चलता था और आवाज़ शब्दों के पहले टुकड़े से ख़ुद निकालता था।
               उससे 27 में 17 कार्ड की आवाज़ ग़लत छपी, और जोड़े-अक्षर (ou, ch, an …) सिखाए ही नहीं गए (ऑडिट 22-Nov-2026, 43 कमियाँ)।
    नया ढाँचा: हर आवाज़ का अपना बड़ा कार्ड। कार्ड पर: अक्षर = आवाज़ (देवनागरी), कैसे बोलें, उसी आवाज़ वाले शब्द, लिखाई, सबूत।
@@ -9,11 +9,15 @@
                  बाक़ी भाषाएँ पुराने रास्ते पर, byte-दर-byte जैसी थीं वैसी।
    नई भाषा जोड़ना: dhvani/<code>.js बनाओ (आवाज़-तालिका + स्रोत + कोर्स का उच्चारण-यंत्र)। जाँच: node generator/dev_lipi_dhvani_check.js <code>
    पहरा: बनते समय dev_lipi_dhvani_check की सब जाँचें चलती हैं। एक भी फेल = पन्ना नहीं बनता।
-   कोई Math.random नहीं: वही data = वही पन्ना, हर बार। */
+   कोई Math.random नहीं: वही data = वही पन्ना, हर बार।
+   v1.1 · 23-Nov-2026 (चरण-2, मलय से): बाक़ी भाषाओं के लिए खुला किया। सब नए खाने वैकल्पिक हैं; जो data इन्हें नहीं देता (fgc),
+         उसका पन्ना पहले जैसा ही बनता है। नए खाने: likha (टुकड़ा → लिखा रूप, जैसे मलय का तालिंग e), chinh (कार्ड की छोटी पहचान),
+         kam (1 ही कोर्स-शब्द वाली आवाज़), demo, ekRoopBaat, sach, rangBaat, alagSheershak, niyam (याद रखने के नियम),
+         chhapai ("L1" = उदाहरण सिर्फ़ वे शब्द जिनकी कोर्स-छपाई यंत्र से हूबहू मिले), riti.antLambaSwatantra, riti.antBand, riti.antHalant। */
 "use strict";
 const fs = require("fs"), path = require("path");
 const ROOT = path.join(__dirname, "..");
-const VER = "1.0";
+const VER = "1.1";
 const DIR = path.join(__dirname, "data", "lipi", "dhvani");
 const IPA = require(path.join(__dirname, "data", "lipi", "ipa_deva.js"));
 const HINAME = ["शून्य", "एक", "दो", "तीन", "चार", "पाँच", "छह", "सात", "आठ", "नौ"];
@@ -41,9 +45,34 @@ function corpus(code) {
   return out;
 }
 
+/* ---- कोर्स स्तर-1 की छपाई: शब्द → कोर्स में छपा देवनागरी रूप (वाक्य और देवनागरी के शब्द गिनती में बराबर हों तभी) ---- */
+function chhapai(code) {
+  const p = path.join(ROOT, "assets", "kkb_" + code + "_data.js"); const map = {}; let nVakya = 0, nMila = 0;
+  if (!fs.existsSync(p)) return { map: map, nVakya: 0, nMila: 0 };
+  const w = {}; new Function("window", "self", "module", fs.readFileSync(p, "utf8") + ";")(w, w, {});
+  const D = w.KKB_DATA; const pairs = [];
+  (D.weeks || []).forEach(wk => { (wk.days || []).forEach(d => Object.keys(d).forEach(k => { const v = d[k]; if (Array.isArray(v)) v.forEach(it => { if (Array.isArray(it)) pairs.push(it); }); }));
+    ((wk.test && wk.test.lines) || []).forEach(it => { if (Array.isArray(it)) pairs.push(it); }); });
+  const P = /[.,!?;:"“”()।…]+/g;
+  pairs.forEach(it => {
+    if (typeof it[0] !== "string" || typeof it[1] !== "string" || !/[ऀ-ॿ]/.test(it[1])) return;
+    nVakya++;
+    const a = it[0].replace(P, " ").trim().split(/\s+/), b = it[1].replace(P, " ").trim().split(/\s+/);
+    if (a.length !== b.length) return;
+    nMila++;
+    a.forEach((x, i) => { const xa = x.split("-"), xb = b[i].split("-"); if (xa.length !== xb.length) return;
+      xa.forEach((y, j) => { const k = y.toLowerCase(); if (!/^\p{L}+$/u.test(k)) return; const e = map[k] = map[k] || { forms: {}, n: 0 }; e.n++; e.forms[xb[j]] = (e.forms[xb[j]] || 0) + 1; }); });
+  });
+  return { map: map, nVakya: nVakya, nMila: nMila };
+}
+
 /* ---- data + कोर्स → मॉडल (पन्ना और जाँच, दोनों इसी एक मॉडल से) ---- */
 function makeModel(L, D) {
   const Y = D.yantra, gm = x => (D.gmap && D.gmap[x]) || x;
+  const show = g => (D.likha && D.likha[g]) || g;                       /* टुकड़ा → लिखा हुआ रूप */
+  const CH = D.chhapai === "L1" ? chhapai(L.code) : null;
+  const printOk = w => !CH || (!!CH.map[w] && Object.keys(CH.map[w].forms).every(f => f === Y.word(w)));
+  const kamS = {}; (D.kam || []).forEach(g => kamS[g] = 1);
   const lines = corpus(L.code);
   const freq = {};
   lines.forEach(s => String(s).split(/[^\p{L}\p{M}]+/u).forEach(t => {
@@ -61,7 +90,7 @@ function makeModel(L, D) {
     GR[w].forEach(g => { const st = stat[g] = stat[g] || { shabd: 0, baar: 0, list: [] }; st.baar += freq[w]; if (!seen[g]) { seen[g] = 1; st.shabd++; st.list.push(w); } }); });
   const meaning = w => String(D.lex[w]);
   const okMeaning = w => { const m = meaning(w); return m.length <= 22 && m.charAt(0) !== "(" && !/[A-Za-z]/.test(m); };
-  const usable = w => GR[w] && !mat[w] && /^[\p{L}\p{M}]+$/u.test(w) && GR[w].every(g => cardOf[g]);
+  const usable = w => GR[w] && !mat[w] && /^[\p{L}\p{M}]+$/u.test(w) && GR[w].every(g => cardOf[g]) && printOk(w);
   const posOf = (w, g) => { const a = GR[w]; if (a.length === 1) return "A"; const i = a.indexOf(g); return i === 0 ? "S" : i === a.length - 1 ? "E" : "M"; };
   const mk = (w, g) => ({ w: w, dev: Y.word(w), arth: meaning(w), tukde: GR[w].slice(), pos: g ? posOf(w, g) : "", baar: freq[w] });
 
@@ -69,13 +98,13 @@ function makeModel(L, D) {
   const used = {}; const pick = {};
   const order = D.dhvani.slice().sort((a, b) => ((stat[a.g] || { shabd: 0 }).shabd - (stat[b.g] || { shabd: 0 }).shabd) || (a.g < b.g ? -1 : 1));
   order.forEach(s => {
-    const cand = ((stat[s.g] || { list: [] }).list).filter(w => usable(w) && GR[w].length <= 6)
-      .sort((a, b) => (freq[b] - freq[a]) || (a < b ? -1 : 1));
+    const all = ((stat[s.g] || { list: [] }).list).filter(w => usable(w)).sort((a, b) => (freq[b] - freq[a]) || (a < b ? -1 : 1));
+    const cand = all.filter(w => GR[w].length <= 6);
     const good = cand.filter(okMeaning), chosen = [];
     const take = (pool, pos) => { const w = pool.find(x => !chosen.includes(x) && !used[x] && (!pos || posOf(x, s.g) === pos)); if (w) chosen.push(w); return !!w; };
     ["A", "S", "M", "E"].forEach(p => { if (chosen.length < 4) take(good, p); });
     while (chosen.length < 4 && take(good, null)) { /* भरते रहो */ }
-    if (chosen.length < 2) { const loose = pool => { const w = pool.find(x => !chosen.includes(x)); if (w) chosen.push(w); return !!w; }; while (chosen.length < 4 && loose(good)) { } while (chosen.length < 2 && loose(cand)) { } }
+    if (chosen.length < 2) { const loose = pool => { const w = pool.find(x => !chosen.includes(x)); if (w) chosen.push(w); return !!w; }; while (chosen.length < 4 && loose(good)) { } while (chosen.length < 2 && loose(cand)) { } while (chosen.length < 2 && loose(all)) { } }
     chosen.forEach(w => used[w] = 1);
     const rank = { A: 0, S: 1, M: 2, E: 3 };
     pick[s.g] = chosen.map(w => mk(w, s.g)).sort((a, b) => rank[a.pos] - rank[b.pos] || (b.baar - a.baar));
@@ -85,9 +114,9 @@ function makeModel(L, D) {
   const cards = []; let n = 0;
   D.samuh.forEach(gp => D.dhvani.filter(s => s.grp === gp.id).forEach(s => {
     n++; const st = stat[s.g] || { shabd: 0, baar: 0 };
-    cards.push({ g: s.g, cap: s.g.charAt(0).toUpperCase() + s.g.slice(1), dev: s.dev, ipa: s.ipa, grp: gp, src: s.src || [], kaise: s.kaise, dhyan: s.dhyan || "", hindi: s.hindi || "", matbhed: s.matbhed || "",
+    cards.push({ g: s.g, cap: show(s.g).charAt(0).toUpperCase() + show(s.g).slice(1), dev: s.dev, likha: show(s.g), chinh: s.chinh || "", kam: !!kamS[s.g], ipa: s.ipa, grp: gp, src: s.src || [], kaise: s.kaise, dhyan: s.dhyan || "", hindi: s.hindi || "", matbhed: s.matbhed || "",
       jaanch: s.jaanch || null, kod: "dk" + two(n), id: "dk-" + two(n), shabd: pick[s.g] || [], nShabd: st.shabd, nBaar: st.baar,
-      lagbhag: IPA.LAGBHAG[s.ipa] || "", bahu: Array.from(s.g).length > 1 });
+      lagbhag: IPA.LAGBHAG[s.ipa] || "", bahu: Array.from(show(s.g)).length > 1 });
   }));
   const byG = {}; cards.forEach(c => byG[c.g] = c);
 
@@ -108,6 +137,7 @@ function makeModel(L, D) {
 
   /* नाक-नियम के उदाहरण */
   const naak = D.naakNiyam ? { baat: D.naakNiyam.baat, udaharan: D.naakNiyam.udaharan.map(w => mk(w, null)) } : null;
+  const niyam = (D.niyam || []).map(n => ({ sheershak: n.sheershak, baat: n.baat, udaharan: (n.udaharan || []).map(w => mk(w, null)) }));
 
   /* अकेले न आने वाले अक्षर: कोर्स के शब्दों से गिनती (कार्ड-इकाइयों के बाहर वह अक्षर कितने शब्दों में) */
   const alag = (D.alag || []).map(a => {
@@ -145,13 +175,14 @@ function makeModel(L, D) {
   const jodo = exPool.filter((w, i) => i % 2 === 1).slice(0, 8).map(w => mk(w, null));
 
   /* अक्षर-रूपों का हिसाब */
-  const chars = {}; cards.forEach(c => Array.from(c.g).forEach(ch => chars[ch] = 1));
+  const chars = {}; cards.forEach(c => Array.from(show(c.g)).forEach(ch => chars[ch] = 1));
   const saade = Object.keys(chars).filter(ch => /^[a-z]$/.test(ch)).sort();
   const nishan = Object.keys(chars).filter(ch => !/^[a-z]$/.test(ch)).sort((a, b) => a.localeCompare(b, "fr"));
   nishan.forEach(ch => { const base = ch.normalize("NFD").charAt(0); if (/^[a-z]$/.test(base) && saade.indexOf(base) < 0) saade.push(base); });
   saade.sort();
 
-  return { ver: VER, code: L.code, cards: cards, byG: byG, GR: GR, freq: freq, words: words, stat: stat, milti: milti, naak: naak, alag: alag, beCard: beCard, ank: ank,
+  return { ver: VER, code: L.code, cards: cards, byG: byG, GR: GR, freq: freq, words: words, stat: stat, milti: milti, naak: naak, niyam: niyam, alag: alag, beCard: beCard, ank: ank,
+    show: show, chhapai: CH, printOk: printOk,
     din: din, todo: todo, jodo: jodo, saade: saade, nishan: nishan, nVakya: lines.length, nShabd: words.length, bad: bad, used: used,
     nDin: din.length + 3, baaki: D.baaki || [] };
 }
@@ -194,7 +225,8 @@ function buildContent(L, G, D, M) {
   const cr = (t, cls) => '<span class="notranslate' + (cls ? " " + cls : "") + '" lang="' + D.bcp47 + '" translate="no">' + esc(t) + "</span>";
   const fmt = t => esc(t).replace(/\{([^}]+)\}/g, (m0, x) => cr(x));   /* data में {ou} = क्रियोल टुकड़ा */
   const srcLinks = ids => ids.map(id => { const s = D.srot[id]; return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.naam) + "</a>"; }).join(" · ");
-  const split = (tk, hl) => { let done = false; return tk.map(g => { if (g === hl && !done) { done = true; return '<b class="ld-hl">' + esc(g) + "</b>"; } return esc(g); }).join('<i aria-hidden="true">·</i>'); };
+  const show = M.show;
+  const split = (tk, hl) => { let done = false; return tk.map(g => { if (g === hl && !done) { done = true; return '<b class="ld-hl">' + esc(show(g)) + "</b>"; } return esc(show(g)); }).join('<i aria-hidden="true">·</i>'); };
   const sun = (pron, label, cls) => '<button type="button" class="' + (cls || "ld-ic") + ' ld-sun" data-pron="' + esc(pron) + '" aria-label="' + esc(label) + '">🔊' + (cls ? " सुनो" : "") + "</button>";
   const bol = (t, pron, label, cls) => '<button type="button" class="' + (cls || "ld-ic") + ' ld-bol" data-w="' + esc(t) + '" data-pron="' + esc(pron) + '" aria-label="' + esc(label) + '">🎙️' + (cls ? " बोलो" : "") + "</button>";
   const wordTile = (x, hl) => '<div class="ld-w">' + (x.pos ? '<span class="ld-pos">' + POS[x.pos] + "</span>" : "") +
@@ -203,6 +235,7 @@ function buildContent(L, G, D, M) {
     sun(x.dev, "शब्द " + x.w + " सुनो: " + x.dev) + bol(x.w, x.dev, "शब्द " + x.w + " बोलकर देखो") + "</span></div>";
   const wa = (kod, line) => WA + "?text=" + encodeURIComponent("🔎 ACS ध्वनि-कार्ड जाँच\nभाषा: " + L.hi + " (" + L.code + ")\nकार्ड: " + kod + " : " + line + "\nपता: " + url + "\nमुझे यह ग़लत लगा: ");
   const nC = M.cards.length, nBahu = M.cards.filter(c => c.bahu).length;
+  const maxL = Math.max.apply(null, M.cards.map(c => Array.from(c.likha).length)), do3 = maxL >= 3 ? "2 या 3" : "2";
   let h = "";
   h += '<article class="lipi-wrap ld-wrap" data-dhvani="' + VER + '" data-lang="' + esc(L.code) + '">';
 
@@ -218,20 +251,20 @@ function buildContent(L, G, D, M) {
   h += '<p class="lipi-note">देवनागरी रूप एसीएस (ACS) ने बनाए हैं। यह एआई (AI) की मदद से बना मसौदा है: मूल-वक्ता की जाँच अभी बाक़ी है। जानकारी जाँची: ' + esc(D.jaanchi) + "।</p></header>" + regBox(L, "top");
 
   /* --- 1. कैसे पढ़ें --- */
-  const demo = M.byG[(M.cards.find(c => c.bahu && c.grp.id === "swar") || M.cards.find(c => c.bahu) || M.cards[0]).g];
+  const demo = (D.demo && M.byG[D.demo]) || M.byG[(M.cards.find(c => c.bahu && c.grp.id === "swar") || M.cards.find(c => c.bahu) || M.cards[0]).g];
   h += '<section class="lipi-sec" id="ld-kaise"><h2>1. यह पन्ना कैसे पढ़ें</h2>';
-  h += "<p>इस लिखाई में एक आवाज़ कभी 1 अक्षर से लिखी जाती है, कभी 2 या 3 अक्षरों से। जैसे " + cr(demo.g) + " दो अक्षर हैं, पर आवाज़ एक है: " + esc(demo.dev) + "।</p>";
-  h += "<p>इसलिए यहाँ अक्षर-क्रम (" + cr("A, B, C") + ") नहीं है। यहाँ आवाज़ों का क्रम है। " + nC + " आवाज़ों में से " + nBahu + " आवाज़ें 2 या 3 अक्षरों से लिखी जाती हैं।</p>";
+  h += "<p>इस लिखाई में एक आवाज़ कभी 1 अक्षर से लिखी जाती है, कभी " + do3 + " अक्षरों से। जैसे " + cr(demo.likha) + " दो अक्षर हैं, पर आवाज़ एक है: " + esc(demo.dev) + "।</p>";
+  h += "<p>इसलिए यहाँ अक्षर-क्रम (" + cr("A, B, C") + ") नहीं है। यहाँ आवाज़ों का क्रम है। " + nC + " आवाज़ों में से " + nBahu + " आवाज़ें " + do3 + " अक्षरों से लिखी जाती हैं।</p>";
   h += "<p>यह लिखाई रोमन लिपि (Latin) में है, यानी वही अक्षर-रूप जिनसे अंग्रेज़ी लिखी जाती है। इसमें " + M.saade.length + " सादे अक्षर काम आते हैं" + (M.nishan.length ? ", और " + M.nishan.length + " रूप ऊपर निशान वाले हैं: " + M.nishan.map(x => cr(x)).join(", ") : "") + "।</p>";
-  h += "<p>यह बाएँ से दाएँ लिखी जाती है, हिंदी की तरह। हर अक्षर हमेशा एक ही तरह बोला जाता है। अंग्रेज़ी की तरह आवाज़ बदलती नहीं।</p>";
+  h += "<p>" + (D.ekRoopBaat ? fmt(D.ekRoopBaat) : "यह बाएँ से दाएँ लिखी जाती है, हिंदी की तरह। हर अक्षर हमेशा एक ही तरह बोला जाता है। अंग्रेज़ी की तरह आवाज़ बदलती नहीं।") + "</p>";
   h += "<p>अक्षरों के नाम यहाँ नहीं दिए हैं। पढ़ने के लिए आवाज़ चाहिए, नाम नहीं।</p>";
-  h += '<div class="ld-sach" role="note"><p><b>🔊 की सच्ची बात</b></p><p>इस भाषा की मशीन-आवाज़ किसी फ़ोन में नहीं है।</p><p>🔊 दबाने पर देवनागरी उच्चारण हिंदी आवाज़ में सुनाई देता है। यह असली ' + L.hi + ' आवाज़ नहीं है।</p><p>इसे सहारा मानो। हर कार्ड की "कैसे बोलें" पंक्ति पढ़कर बोलो।</p><p>अकेला व्यंजन सुनते समय पीछे हल्का अ सुनाई देगा, जैसे क। शब्द के भीतर वह अ नहीं बोलना है।</p><p id="ld-awaz-haal" aria-live="polite"></p></div>';
+  h += '<div class="ld-sach" role="note"><p><b>🔊 की सच्ची बात</b></p>' + (D.sach ? D.sach.map(t => "<p>" + fmt(t) + "</p>").join("") : '<p>इस भाषा की मशीन-आवाज़ किसी फ़ोन में नहीं है।</p><p>🔊 दबाने पर देवनागरी उच्चारण हिंदी आवाज़ में सुनाई देता है। यह असली ' + L.hi + ' आवाज़ नहीं है।</p><p>इसे सहारा मानो। हर कार्ड की "कैसे बोलें" पंक्ति पढ़कर बोलो।</p><p>अकेला व्यंजन सुनते समय पीछे हल्का अ सुनाई देगा, जैसे क। शब्द के भीतर वह अ नहीं बोलना है।</p>') + '<p id="ld-awaz-haal" aria-live="polite"></p></div>';
   h += "</section>";
 
   /* --- 2. सूची --- */
-  h += '<section class="lipi-sec" id="ld-suchi"><h2>2. सब आवाज़ें एक नज़र में</h2><p>किसी आवाज़ को छुओ, उसका कार्ड खुल जाएगा। रंग समूह बताता है: सुनहरा = खुले स्वर, हरा = नाक वाले स्वर, नीला = बाक़ी आवाज़ें।</p>';
+  h += '<section class="lipi-sec" id="ld-suchi"><h2>2. सब आवाज़ें एक नज़र में</h2><p>किसी आवाज़ को छुओ, उसका कार्ड खुल जाएगा। रंग समूह बताता है: ' + esc(D.rangBaat || "सुनहरा = खुले स्वर, हरा = नाक वाले स्वर, नीला = बाक़ी आवाज़ें।") + '</p>';
   D.samuh.forEach(gp => { const cs = M.cards.filter(c => c.grp.id === gp.id); if (!cs.length) return;
-    h += '<h3 class="ld-gh">' + esc(gp.naam) + " (" + cs.length + ')</h3><div class="ld-chips">' + cs.map(c => '<a class="ld-chip ld-' + gp.rang + '" href="#' + c.id + '" aria-label="' + esc(c.g + " की आवाज़ " + c.dev + ", कार्ड " + c.kod.slice(2)) + '">' + cr(c.g, "ld-cg") + '<span class="ld-cd">' + esc(c.dev) + "</span></a>").join("") + "</div>"; });
+    h += '<h3 class="ld-gh">' + esc(gp.naam) + " (" + cs.length + ')</h3><div class="ld-chips">' + cs.map(c => '<a class="ld-chip ld-' + gp.rang + '" href="#' + c.id + '" aria-label="' + esc(c.likha + " की आवाज़ " + c.dev + ", कार्ड " + c.kod.slice(2)) + '">' + cr(c.likha, "ld-cg") + '<span class="ld-cd">' + esc(c.dev) + "</span></a>").join("") + "</div>"; });
   h += "</section>";
 
   /* --- 3. कार्ड --- */
@@ -240,17 +273,18 @@ function buildContent(L, G, D, M) {
     /* हर समूह के कार्ड एक डिब्बे (ld-grp) में: चौड़ी स्क्रीन पर एक पंक्ति में 2 कार्ड, अकेला बचा कार्ड बीच में; फ़ोन पर 1 कार्ड */
     h += '<h3 class="ld-gh" id="ld-g-' + gp.id + '">' + esc(gp.naam) + '</h3><p class="ld-gb">' + fmt(gp.baat) + '</p><div class="ld-grp">';
     cs.forEach(c => {
-      h += '<section class="ld-card ld-' + gp.rang + '" id="' + c.id + '" data-kod="' + c.kod + '" data-g="' + esc(c.g) + '" data-pron="' + esc(c.dev) + '" aria-label="' + esc("कार्ड " + c.kod.slice(2) + ": " + c.g + " की आवाज़ " + c.dev) + '">';
+      h += '<section class="ld-card ld-' + gp.rang + '" id="' + c.id + '" data-kod="' + c.kod + '" data-g="' + esc(c.g) + '" data-pron="' + esc(c.dev) + '" aria-label="' + esc("कार्ड " + c.kod.slice(2) + ": " + c.likha + " की आवाज़ " + c.dev) + '">';
       h += '<p class="ld-top"><span class="ld-tag">' + esc(gp.naam) + '</span><span class="ld-kod">कार्ड ' + c.kod.slice(2) + " / " + two(nC) + "</span></p>";
-      h += '<div class="ld-eq"><div class="ld-g">' + cr(c.g, "ld-big") + '<span class="ld-sm">' + (c.bahu ? Array.from(c.g).length + " अक्षर, 1 आवाज़" : "अक्षर") + '</span><span class="ld-sm">बड़ा रूप: ' + cr(c.cap) + '</span></div><div class="ld-barabar" aria-hidden="true">=</div><div class="ld-d"><span class="ld-big">' + esc(c.dev) + '</span><span class="ld-sm">आवाज़</span></div></div>';
-      h += '<div class="ld-btns">' + sun(c.dev, c.g + " की आवाज़ सुनो: " + c.dev, "ld-bt") + bol(c.g, c.dev, c.g + " की आवाज़ बोलकर देखो", "ld-bt") + "</div>";
+      h += '<div class="ld-eq"><div class="ld-g">' + cr(c.likha, "ld-big") + '<span class="ld-sm">' + (c.bahu ? Array.from(c.likha).length + " अक्षर, 1 आवाज़" : "अक्षर") + "</span>" + (c.chinh ? '<span class="ld-sm">' + esc(c.chinh) + "</span>" : "") + '<span class="ld-sm">बड़ा रूप: ' + cr(c.cap) + '</span></div><div class="ld-barabar" aria-hidden="true">=</div><div class="ld-d"><span class="ld-big">' + esc(c.dev) + '</span><span class="ld-sm">आवाज़</span></div></div>';
+      h += '<div class="ld-btns">' + sun(c.dev, c.likha + " की आवाज़ सुनो: " + c.dev, "ld-bt") + bol(c.likha, c.dev, c.likha + " की आवाज़ बोलकर देखो", "ld-bt") + "</div>";
       h += '<div class="ld-host" data-bolo-host="1"></div>';
       h += '<p class="ld-kaise"><b>कैसे बोलें:</b> ' + fmt(c.kaise) + (c.hindi ? " हिंदी में यह आवाज़ <b>" + esc(c.hindi) + "</b> शब्द में है।" : " हिंदी में यह आवाज़ नहीं है।") + "</p>";
       if (c.dhyan) h += '<p class="ld-dhyan"><b>ध्यान:</b> ' + fmt(c.dhyan) + "</p>";
       if (c.lagbhag) h += '<p class="ld-lag"><b>लगभग:</b> ' + fmt(c.lagbhag) + "।</p>";
       h += '<h4 class="ld-h4">इस आवाज़ वाले शब्द</h4><div class="ld-words">' + c.shabd.map(x => wordTile(x, c.g)).join("") + "</div>";
+      if (c.shabd.length === 1) h += '<p class="ld-lag">कोर्स में यह आवाज़ अभी सिर्फ़ एक शब्द में है।</p>';
       h += '<div class="ld-host" data-bolo-host="1"></div>';
-      h += '<h4 class="ld-h4">लिखो: पहले हल्के रूप पर, फिर बिंदुओं पर, फिर ख़ाली जगह में</h4>' + K.trace(c.g, 3, 72);
+      h += '<h4 class="ld-h4">लिखो: पहले हल्के रूप पर, फिर बिंदुओं पर, फिर ख़ाली जगह में</h4>' + K.trace(c.likha, 3, 72);
       h += '<details class="ld-saboot"><summary>सबूत और जाँच देखो</summary><ul>';
       h += '<li>अंतरराष्ट्रीय ध्वनि-चिह्न (IPA): <span class="notranslate ld-ipa" lang="und-fonipa" translate="no">' + esc(c.ipa) + "</span></li>";
       h += "<li>स्रोत: " + srcLinks(c.src) + "</li>";
@@ -258,7 +292,7 @@ function buildContent(L, G, D, M) {
       h += "<li>यंत्र की जाँच: स्रोत से निकला रूप और कोर्स का रूप, दोनों " + esc(c.dev) + " हैं।</li>";
       if (c.matbhed) h += "<li>स्रोतों में फ़र्क़: " + fmt(c.matbhed) + "</li>";
       h += "<li>मूल-वक्ता की जाँच: " + (c.jaanch ? "हो गई (" + esc(c.jaanch.kisne) + ", " + esc(c.jaanch.kab) + ")।" : "अभी बाक़ी है।") + "</li></ul></details>";
-      h += '<p class="ld-galat"><a class="ld-galat-a" href="' + esc(wa(c.kod, c.g + " = " + c.dev)) + '" target="_blank" rel="noopener">⚠️ यह आवाज़ ग़लत लगी? व्हाट्सऐप (WhatsApp) पर बताओ</a></p>';
+      h += '<p class="ld-galat"><a class="ld-galat-a" href="' + esc(wa(c.kod, c.likha + " = " + c.dev)) + '" target="_blank" rel="noopener">⚠️ यह आवाज़ ग़लत लगी? व्हाट्सऐप (WhatsApp) पर बताओ</a></p>';
       h += "</section>";
     });
     h += "</div>";
@@ -269,7 +303,8 @@ function buildContent(L, G, D, M) {
   /* --- 4. मिलती-जुलती --- */
   h += '<section class="lipi-sec" id="ld-milti"><h2>4. मिलती-जुलती आवाज़ें: फ़र्क़ पहचानो</h2><p>इन्हें साथ-साथ सुनो और बोलो। फ़र्क़ कान में बैठ जाएगा।</p>';
   M.milti.forEach((m, i) => {
-    h += '<div class="ld-mj" id="ld-mj-' + (i + 1) + '"><h3>' + m.cards.map(c => cr(c.g)).join(" · ") + '</h3><div class="ld-mj-row">' + m.cards.map(c => '<a class="ld-chip ld-' + c.grp.rang + '" href="#' + c.id + '" aria-label="' + esc(c.g + " की आवाज़ " + c.dev) + '">' + cr(c.g, "ld-cg") + '<span class="ld-cd">' + esc(c.dev) + "</span></a>").join("") + "</div>";
+    const dupL = c => m.cards.filter(x => x.likha === c.likha).length > 1;   /* एक ही अक्षर की दो आवाज़ें (मलय का e): शीर्षक में आवाज़ भी */
+    h += '<div class="ld-mj" id="ld-mj-' + (i + 1) + '"><h3>' + m.cards.map(c => cr(c.likha) + (dupL(c) ? " (" + esc(c.dev) + ")" : "")).join(" · ") + '</h3><div class="ld-mj-row">' + m.cards.map(c => '<a class="ld-chip ld-' + c.grp.rang + '" href="#' + c.id + '" aria-label="' + esc(c.likha + " की आवाज़ " + c.dev) + '">' + cr(c.likha, "ld-cg") + '<span class="ld-cd">' + esc(c.dev) + "</span></a>").join("") + "</div>";
     h += '<p class="ld-farq"><b>फ़र्क़:</b> ' + fmt(m.farq) + "</p>";
     if (m.jode.length) h += '<p class="ld-h4">सिर्फ़ एक आवाज़ का फ़र्क़:</p>' + m.jode.map(j => '<div class="ld-words ld-jodi">' + wordTile(Object.assign({}, j[0], { pos: "" }), m.g.find(g => j[0].tukde.indexOf(g) >= 0 && j[1].tukde.indexOf(g) < 0) || "") + wordTile(Object.assign({}, j[1], { pos: "" }), m.g.find(g => j[1].tukde.indexOf(g) >= 0 && j[0].tukde.indexOf(g) < 0) || "") + "</div>").join("");
     else h += '<p class="ld-h4">हर आवाज़ का एक शब्द:</p><div class="ld-words">' + m.ek.filter(Boolean).map((x, k) => wordTile(Object.assign({}, x, { pos: "" }), m.cards[k].g)).join("") + "</div>";
@@ -278,11 +313,16 @@ function buildContent(L, G, D, M) {
   h += "</section>";
 
   /* --- 5. नियम --- */
-  h += '<section class="lipi-sec" id="ld-niyam"><h2>5. चार बातें जो याद रखनी हैं</h2>';
-  if (M.naak) { h += "<h3>क) नाक वाला स्वर कब बनता है</h3><ul class=\"lipi-plan\">" + M.naak.baat.map(b => "<li>" + fmt(b) + "</li>").join("") + '</ul><div class="ld-words">' + M.naak.udaharan.map(x => wordTile(Object.assign({}, x, { pos: "" }), "")).join("") + '</div><div class="ld-host" data-bolo-host="1"></div>'; }
-  h += "<h3>ख) ये अक्षर अकेले नहीं आते</h3><ul class=\"lipi-plan\">" + M.alag.map(a => "<li>" + fmt(a.baat) + "</li>").join("") + "</ul>";
-  if (D.zor) h += "<h3>ग) ज़ोर कहाँ पड़ता है</h3><p>" + fmt(D.zor) + "</p>";
-  if (M.baaki.length) h += "<h3>घ) एक बात अभी पक्की नहीं</h3>" + M.baaki.map(b => '<p class="ld-lag">' + fmt(b.baat) + "</p>").join("");
+  /* खंड 5: याद रखने वाली बातें। गिनती और क्रम data से (fgc: नाक-नियम, अकेले न आने वाले अक्षर, ज़ोर, पक्की नहीं = चार) */
+  const NB = [], niyamBlock = (t, baat, ud) => ({ t: t, h: "<ul class=\"lipi-plan\">" + baat.map(b => "<li>" + fmt(b) + "</li>").join("") + '</ul><div class="ld-words">' + ud.map(x => wordTile(Object.assign({}, x, { pos: "" }), "")).join("") + '</div><div class="ld-host" data-bolo-host="1"></div>' });
+  if (M.naak) NB.push(niyamBlock("नाक वाला स्वर कब बनता है", M.naak.baat, M.naak.udaharan));
+  M.niyam.forEach(n => NB.push(niyamBlock(fmt(n.sheershak), n.baat, n.udaharan)));
+  NB.push({ t: esc(D.alagSheershak || "ये अक्षर अकेले नहीं आते"), h: "<ul class=\"lipi-plan\">" + M.alag.map(a => "<li>" + fmt(a.baat) + "</li>").join("") + "</ul>" });
+  if (D.zor) NB.push({ t: "ज़ोर कहाँ पड़ता है", h: "<p>" + fmt(D.zor) + "</p>" });
+  if (M.baaki.length) NB.push({ t: "एक बात अभी पक्की नहीं", h: M.baaki.map(b => '<p class="ld-lag">' + fmt(b.baat) + "</p>").join("") });
+  const KRAM = ["क", "ख", "ग", "घ", "ङ", "च", "छ", "ज"];
+  h += '<section class="lipi-sec" id="ld-niyam"><h2>5. ' + HINAME[NB.length] + " बातें जो याद रखनी हैं</h2>";
+  NB.forEach((b, i) => { h += "<h3>" + KRAM[i] + ") " + b.t + "</h3>" + b.h; });
   h += "</section>";
 
   /* --- 6. अंक --- */
@@ -301,17 +341,17 @@ function buildContent(L, G, D, M) {
   const ask = M.cards.filter(c => ekRoop(c) && (c.bahu || c.lagbhag || !/^[a-z]$/.test(c.g))).slice(0, 12);
   h += '<section class="lipi-sec" id="ld-abhyas"><h2>8. अभ्यास</h2>';
   h += "<h3>क) आवाज़ देखो, उसके अक्षर लिखो</h3><div class=\"lipi-ex\">" + ask.map(c => '<span class="lipi-exi">' + esc(c.dev) + ' → <span class="lipi-box ld-box"></span></span>').join("") + "</div>";
-  h += '<details class="ld-uttar"><summary>उत्तर देखो</summary><p>' + ask.map(c => esc(c.dev) + " = " + cr(c.g)).join(" · ") + "</p></details>";
+  h += '<details class="ld-uttar"><summary>उत्तर देखो</summary><p>' + ask.map(c => esc(c.dev) + " = " + cr(c.likha)).join(" · ") + "</p></details>";
   h += "<h3>ख) शब्द को आवाज़ों में तोड़ो</h3><p>हर डिब्बे में एक आवाज़ लिखो। जोड़े-अक्षर एक ही डिब्बे में जाएँगे।</p><div class=\"lipi-ex\">" + M.todo.map(x => '<span class="lipi-exi">' + cr(x.w) + " → " + x.tukde.map(() => '<span class="lipi-box ld-box"></span>').join("") + "</span>").join("") + "</div>";
-  h += '<details class="ld-uttar"><summary>उत्तर देखो</summary><ul>' + M.todo.map(x => "<li>" + cr(x.w) + " = " + cr(x.tukde.join(" · ")) + " = " + esc(x.dev) + " (" + esc(x.arth) + ")</li>").join("") + "</ul></details>";
-  h += "<h3>ग) आवाज़ें जोड़कर शब्द पढ़ो</h3><p>पहले हर आवाज़ अलग बोलो, फिर सबको मिलाकर एक साँस में बोलो।</p><div class=\"lipi-ex\">" + M.jodo.map(x => '<span class="lipi-exi">' + cr(x.tukde.join(" · ")) + ' → <span class="lipi-box ld-box ld-box2"></span></span>').join("") + "</div>";
-  h += '<details class="ld-uttar"><summary>उत्तर देखो</summary><ul>' + M.jodo.map(x => "<li>" + cr(x.tukde.join(" · ")) + " = " + cr(x.w) + " = " + esc(x.dev) + " (" + esc(x.arth) + ")</li>").join("") + "</ul></details>";
+  h += '<details class="ld-uttar"><summary>उत्तर देखो</summary><ul>' + M.todo.map(x => "<li>" + cr(x.w) + " = " + cr(x.tukde.map(show).join(" · ")) + " = " + esc(x.dev) + " (" + esc(x.arth) + ")</li>").join("") + "</ul></details>";
+  h += "<h3>ग) आवाज़ें जोड़कर शब्द पढ़ो</h3><p>पहले हर आवाज़ अलग बोलो, फिर सबको मिलाकर एक साँस में बोलो।</p><div class=\"lipi-ex\">" + M.jodo.map(x => '<span class="lipi-exi">' + cr(x.tukde.map(show).join(" · ")) + ' → <span class="lipi-box ld-box ld-box2"></span></span>').join("") + "</div>";
+  h += '<details class="ld-uttar"><summary>उत्तर देखो</summary><ul>' + M.jodo.map(x => "<li>" + cr(x.tukde.map(show).join(" · ")) + " = " + cr(x.w) + " = " + esc(x.dev) + " (" + esc(x.arth) + ")</li>").join("") + "</ul></details>";
   h += "<h3>घ) अपना नाम लिखो</h3><p>इस लिखाई में ख, घ, ठ, ड़ जैसी हिंदी आवाज़ों के अक्षर नहीं हैं।</p><p>इसलिए अपना नाम वैसे ही लिखो, जैसे आधार या पासपोर्ट पर रोमन अक्षरों में लिखा है। जैसे: " + (D.naamLikho || []).map(nm => cr(nm)).join(", ") + '।</p><p>नीचे 3 बार लिखो।</p><div class="ld-blank ld-line"></div><div class="ld-blank ld-line"></div><div class="ld-blank ld-line"></div>';
   h += "</section>";
 
   /* --- 9. योजना --- */
   h += '<section class="lipi-sec" id="ld-yojana"><h2>9. ' + M.nDin + ' दिन की योजना</h2><p>रोज़ 2 आवाज़ें। क्रम ऐसा है कि पहले दिन से ही असली शब्द पढ़े जा सकें।</p><ol class="ld-din">';
-  M.din.forEach(d => { h += "<li><b>" + d.g.map(g => '<a href="#' + M.byG[g].id + '">' + cr(g) + " (" + esc(M.byG[g].dev) + ")</a>").join(" और ") + "</b>" + (d.shabd.length ? "<br>आज पढ़ो: " + d.shabd.map(x => cr(x.w) + " (" + esc(x.arth) + ")").join(", ") : "") + "</li>"; });
+  M.din.forEach(d => { h += "<li><b>" + d.g.map(g => '<a href="#' + M.byG[g].id + '">' + cr(show(g)) + " (" + esc(M.byG[g].dev) + ")</a>").join(" और ") + "</b>" + (d.shabd.length ? "<br>आज पढ़ो: " + d.shabd.map(x => cr(x.w) + " (" + esc(x.arth) + ")").join(", ") : "") + "</li>"; });
   h += '<li><b>मिलती-जुलती आवाज़ें</b><br>खंड 4 के सब जोड़े सुनो और बोलो।</li><li><b>अंक और बड़े अक्षर</b><br>खंड 6 और 7 करो।</li><li><b>दोहराओ</b><br>सब कार्ड बिना देखे बोलो, और खंड 8 का अभ्यास करो।</li></ol>';
   h += '<p>इसके बाद सीधे <a href="' + base + '">' + L.hi + " बोलने का कोर्स</a> दिन 1 से शुरू करो।</p></section>";
 
@@ -329,4 +369,4 @@ function buildContent(L, G, D, M) {
   return { html: h, count: nC, days: M.nDin, glyphs: Object.keys(K.used) };
 }
 
-module.exports = { VER: VER, has: has, load: load, makeModel: makeModel, buildContent: buildContent, corpus: corpus, IPA: IPA, HINAME: HINAME, esc: esc };
+module.exports = { VER: VER, has: has, load: load, makeModel: makeModel, buildContent: buildContent, corpus: corpus, chhapai: chhapai, IPA: IPA, HINAME: HINAME, esc: esc };

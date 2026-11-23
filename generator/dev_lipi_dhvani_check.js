@@ -1,4 +1,4 @@
-/* dev_lipi_dhvani_check.js v1.0 · 22-Nov-2026 : ध्वनि-कार्ड वाले लिपि-परिचय का जाँच-यंत्र (🏁-द्वार) और ग़लत-आवाज़ पकड़ने की युक्ति
+/* dev_lipi_dhvani_check.js v1.1 · 23-Nov-2026 (पहला रूप v1.0 · 22-Nov-2026) : ध्वनि-कार्ड वाले लिपि-परिचय का जाँच-यंत्र (🏁-द्वार) और ग़लत-आवाज़ पकड़ने की युक्ति
    चलाओ: node generator/dev_lipi_dhvani_check.js <code>      (जैसे fgc)
    यही जाँचें पन्ना बनते समय भी चलती हैं (build_lipi_pages.js → must)। एक भी फेल = पन्ना नहीं बनता।
 
@@ -11,13 +11,17 @@
       समीक्षा-पत्र <code>_samiksha.csv भी यहीं से बनता है।
    जो यह यंत्र नहीं जान सकता: स्रोत ख़ुद सही है या नहीं, और असली वक्ता कैसे बोलते हैं। इसीलिए ताला 4 है।
 
-   निकास: generator/data/lipi/dhvani/<code>_jaanch.md (कमी-बही की आज की हालत + सब जाँचें) और <code>_samiksha.csv। */
+   निकास: generator/data/lipi/dhvani/<code>_jaanch.md (कमी-बही की आज की हालत + सब जाँचें) और <code>_samiksha.csv।
+   v1.1 · 23-Nov-2026 (चरण-2, मलय से): जोड़-यंत्र में riti.antLambaSwatantra, riti.antBand और riti.antHalant · M03 में यंत्र का unit() (अगर हो) ·
+         kam-सूची (1 कोर्स-शब्द वाली आवाज़) · M13 में niyam के उदाहरण भी · नई जाँच M18 छपाई-ताला: data में chhapai: "L1" हो तो
+         कोर्स स्तर-1 में छपा हर शब्द यंत्र से हूबहू मिलना चाहिए · पन्ने के भाषा-अलग वाक्य (sach, rangBaat, romanOk) data से।
+         जो data ये खाने नहीं देता (fgc), उसकी हर जाँच पहले जैसी। */
 "use strict";
 const fs = require("fs"), path = require("path");
 const ROOT = path.join(__dirname, "..");
 const LD = require("./lipi_dhvani.js");
 const IPA = LD.IPA;
-const VER = "1.0";
+const VER = "1.1";
 const DEV = /[ऀ-ॿ]/;
 /* रोमन शब्द जो लक्ष्य-भाषा के खाने के बाहर आ सकते हैं (सब देवनागरी के साथ लिखे जाते हैं) */
 const ROMAN_OK = ["ACS", "AI", "PDF", "IPA", "WhatsApp", "Latin", "Noto", "Sans", "Sound", "Cards", "GEREC", "CNRS", "APiCS", "Omniglot"];
@@ -29,17 +33,21 @@ function strings(o, out) { if (typeof o === "string") out.push(o); else if (Arra
 
 /* स्वतंत्र जोड़-यंत्र: कार्ड-तालिका + साझा IPA-तालिका से शब्द का देवनागरी रूप (कोर्स के यंत्र का code इस्तेमाल नहीं करता) */
 function jodo(tk, byG, D) {
+  const RT = D.riti || {}, AL = RT.antLamba || [], AB = RT.antBand || [];
   let out = "";
   for (let i = 0; i < tk.length; i++) {
     const c = byG[tk[i]]; if (!c) return null;
     const V = IPA.V[c.ipa];
     if (V) {
       const p = i > 0 ? byG[tk[i - 1]] : null, prevC = !!(p && !IPA.V[p.ipa]), last = i === tk.length - 1;
-      out += !prevC ? V.d : (last && D.riti && D.riti.antLamba.indexOf(c.g) >= 0 && V.ml ? V.ml : V.m);
+      const nx1 = tk.length - i === 2 && byG[tk[i + 1]];
+      if (!prevC) out += last && RT.antLambaSwatantra && AL.indexOf(c.g) >= 0 && V.dl ? V.dl : V.d;
+      else if (AB.indexOf(c.g) >= 0 && nx1 && !IPA.V[nx1.ipa]) out += "";          /* आख़िरी टुकड़े में एक व्यंजन से पहले छोटा (मलय: datang = दातङ्) */
+      else out += last && AL.indexOf(c.g) >= 0 && V.ml ? V.ml : V.m;
     } else {
       out += IPA.C[c.ipa];
       const nx = tk[i + 1] && byG[tk[i + 1]];
-      if (i !== tk.length - 1 && !(nx && IPA.V[nx.ipa])) out += "्";
+      if ((i !== tk.length - 1 || RT.antHalant) && !(nx && IPA.V[nx.ipa])) out += "्";   /* antHalant: शब्द के अंत का व्यंजन भी हलंत के साथ (मलय: tidak = तिदक्) */
     }
   }
   return out;
@@ -55,7 +63,7 @@ function checkModel(L, D, M) {
   { const bad = M.cards.filter(c => { const v = IPA.V[c.ipa], k = IPA.C[c.ipa]; return (v ? v.d : k) !== c.dev; }); T(R, "M02", !bad.length, "स्रोत-ताला: IPA से निकला देवनागरी रूप = कार्ड का रूप", bad.map(c => c.g + ":" + c.ipa + "≠" + c.dev).join(",")); }
   /* M03 कोर्स-ताला, इकाई */
   { const inv = {}; Object.keys(D.gmap || {}).forEach(k => inv[D.gmap[k]] = k);
-    const bad = M.cards.filter(c => { let w; try { w = Y.word(c.g); } catch (e) { w = "✗"; } return w !== c.dev; }); T(R, "M03", !bad.length, "कोर्स-ताला: कोर्स का यंत्र अकेली इकाई को वही रूप देता है", bad.map(c => c.g).join(",")); }
+    const bad = M.cards.filter(c => { let w; try { w = Y.unit ? Y.unit(c.g) : Y.word(c.g); } catch (e) { w = "✗"; } return w !== c.dev; }); T(R, "M03", !bad.length, "कोर्स-ताला: कोर्स का यंत्र अकेली इकाई को वही रूप देता है", bad.map(c => c.g).join(",")); }
   /* M04 कोर्स-ताला, हर शब्द */
   { let n = 0; const bad = [];
     M.words.forEach(w => { const tk = M.GR[w]; if (!tk || !tk.every(g => byG[g])) return; n++; const a = jodo(tk, byG, D), b = Y.word(w); if (a !== b) bad.push(w + ":" + a + "≠" + b); });
@@ -65,10 +73,10 @@ function checkModel(L, D, M) {
   { const mat = {}; (D.mat || []).forEach(w => mat[w] = 1);
     const bad = M.beCard.filter(b => b.shabd >= 2 || !b.list.every(w => mat[w])); T(R, "M05", !bad.length, "कोर्स की हर आवाज़-इकाई का कार्ड है (जो छूटीं, वे दर्ज अपवाद हैं)", bad.map(b => b.g + "×" + b.shabd).join(",")); }
   /* M06 बिना कोर्स-शब्द का कार्ड नहीं */
-  { const bad = M.cards.filter(c => c.nShabd < 2); T(R, "M06", !bad.length, "हर कार्ड की आवाज़ कोर्स के कम से कम 2 शब्दों में है", bad.map(c => c.g).join(",")); }
+  { const bad = M.cards.filter(c => c.nShabd < (c.kam ? 1 : 2) || (c.kam && c.nShabd >= 2)); T(R, "M06", !bad.length, "हर कार्ड की आवाज़ कोर्स के कम से कम 2 शब्दों में है", bad.map(c => c.g).join(",")); }
   /* M07 उदाहरण-शब्द */
   { const bad = []; const mat = {}; (D.mat || []).forEach(w => mat[w] = 1);
-    M.cards.forEach(c => { if (c.shabd.length < 2) bad.push(c.g + ":शब्द<2");
+    M.cards.forEach(c => { if (c.shabd.length < (c.kam ? 1 : 2)) bad.push(c.g + ":शब्द<" + (c.kam ? 1 : 2));
       c.shabd.forEach(x => { const tk = M.GR[x.w];
         if (D.lex[x.w] === undefined) bad.push(x.w + ":सूची में नहीं");
         else if (D.naam[x.w] || mat[x.w] || /^[A-Z0-9]{2,}$/.test(x.w)) bad.push(x.w + ":नाम/संक्षेप/रोका हुआ");
@@ -92,7 +100,8 @@ function checkModel(L, D, M) {
   { const bad = []; M.alag.forEach(a => { const extra = a.bahar.filter(w => a.apvaad.indexOf(w) < 0); if (extra.length) bad.push(a.l + " बाहर भी: " + extra.slice(0, 4).join(",")); if (a.sirf.length && !a.andar) bad.push(a.l + ": भीतर भी नहीं"); if (byG[a.l]) bad.push(a.l + ": कार्ड भी है"); });
     T(R, "M12", !bad.length, "अकेले न आने वाले अक्षरों का हर दावा कोर्स की गिनती से सही", bad.join(" ")); }
   /* M13 नाक-नियम के उदाहरण */
-  { const bad = M.naak ? M.naak.udaharan.filter(x => D.lex[x.w] === undefined || !M.GR[x.w]) : []; T(R, "M13", !bad.length, "नियम के उदाहरण कोर्स के शब्द हैं", bad.map(x => x.w).join(",")); }
+  { const ex = (M.naak ? M.naak.udaharan : []).concat.apply((M.naak ? M.naak.udaharan : []), (M.niyam || []).map(n => n.udaharan));
+    const bad = ex.filter(x => D.lex[x.w] === undefined || !M.GR[x.w] || (M.chhapai && !M.printOk(x.w))); T(R, "M13", !bad.length, "नियम के उदाहरण कोर्स के शब्द हैं", bad.map(x => x.w).join(",")); }
   /* M14 योजना */
   { const seen = {}; let dup = 0, empty = 0; const known = {}; let und = 0;
     M.din.forEach(d => { d.g.forEach(g => { if (seen[g]) dup++; seen[g] = 1; known[g] = 1; }); if (!d.shabd.length) empty++; d.shabd.forEach(x => { if (!x.tukde.every(g => known[g])) und++; }); });
@@ -106,6 +115,12 @@ function checkModel(L, D, M) {
   /* M17 समूह */
   { const ids = {}; D.samuh.forEach(g => ids[g.id] = 1); const bad = D.dhvani.filter(s => !ids[s.grp]); const dupG = D.dhvani.map(s => s.g).filter((g, i, a) => a.indexOf(g) !== i);
     T(R, "M17", !bad.length && !dupG.length, "हर आवाज़ एक समूह में, और कोई आवाज़ दो बार नहीं", bad.map(s => s.g).concat(dupG).join(",")); }
+  /* M18 छपाई-ताला: कोर्स स्तर-1 में जो देवनागरी छपी है, वही यंत्र भी बनाए (सिर्फ़ उन भाषाओं में जिनका यंत्र कोर्स का अपना यंत्र नहीं) */
+  if (M.chhapai) { const CH = M.chhapai, mat = {}; (D.mat || []).forEach(w => mat[w] = 1); let n = 0; const bad = [], baaki = D.chhapaiBaaki || [];
+    Object.keys(CH.map).sort().forEach(w => { if (D.lex[w] === undefined || D.naam[w] || mat[w]) return; n++; let y; try { y = Y.word(w); } catch (e) { y = "✗"; }
+      const f = Object.keys(CH.map[w].forms); if (f.some(x => x !== y) && baaki.indexOf(w) < 0) bad.push(w + ":" + f.join("|") + "≠" + y); });
+    M._m18 = { n: n, bad: bad.length, nVakya: CH.nVakya, nMila: CH.nMila, baaki: baaki.length };
+    T(R, "M18", !bad.length && n > 0 && CH.nMila === CH.nVakya, "छपाई-ताला: कोर्स स्तर-1 में छपे " + n + " शब्दों का देवनागरी रूप यंत्र से हूबहू मिलता है (" + CH.nMila + " / " + CH.nVakya + " वाक्य शब्द-दर-शब्द मिले)", bad.slice(0, 8).join(" ")); }
   return R;
 }
 
@@ -135,7 +150,7 @@ function checkContent(L, D, M, html) {
   const spans = (html.match(/<span class="notranslate[^"]*" lang="[^"]*" translate="no"[^>]*>[\s\S]*?<\/span>/g) || []);
   { const bad = spans.map(s => s.replace(/<[^>]+>/g, "")).filter(t => /(^|[^A-Za-z])[A-Z]{2,}([^A-Za-z]|$)/.test(t)); T(R, "P07", !bad.length, "लक्ष्य-भाषा के खानों में संक्षेप (UPI जैसे) नहीं", bad.slice(0, 5).join(",")); }
   { const out = html.replace(/<span class="notranslate[^"]*" lang="[^"]*" translate="no"[^>]*>[\s\S]*?<\/span>/g, " "); const v2 = visible(out); const lat = (v2.match(/[A-Za-zÀ-ɏ][A-Za-zÀ-ɏ'-]*/g) || []);
-    const ok = {}; ROMAN_OK.concat(String(L.en).split(/\s+/)).forEach(w => ok[w] = 1); const bad = lat.filter(w => !ok[w]);
+    const ok = {}; ROMAN_OK.concat(String(L.en).split(/\s+/), D.romanOk || []).forEach(w => ok[w] = 1); const bad = lat.filter(w => !ok[w]);
     const wrongLang = spans.filter(s => s.indexOf('lang="' + D.bcp47 + '"') < 0 && s.indexOf('lang="und-fonipa"') < 0);
     T(R, "P09", !bad.length && !wrongLang.length && spans.length > 100, "लक्ष्य-भाषा का हर टुकड़ा भाषा-निशान और अनुवाद-रोक वाले खाने में (" + spans.length + " खाने); बाहर सिर्फ़ तय रोमन शब्द", bad.slice(0, 8).join(",")); }
   /* P08 */
@@ -145,7 +160,7 @@ function checkContent(L, D, M, html) {
   /* P11 टुकड़े */
   { const ws = html.match(/<span class="notranslate ld-wl"[^>]*>([^<]*)<\/span><span class="notranslate ld-ws"[^>]*>([\s\S]*?)<\/span><span class="ld-wd">/g) || []; const bad = [];
     ws.forEach(s => { const m = s.match(/ld-wl"[^>]*>([^<]*)<\/span><span class="notranslate ld-ws"[^>]*>([\s\S]*?)<\/span><span class="ld-wd">/); const w = m[1], parts = m[2].replace(/<i[^>]*>·<\/i>/g, "\u0001").replace(/<[^>]+>/g, "").split("\u0001");
-      if (parts.join("") !== w) bad.push(w + ":जोड़ अलग"); else if (!parts.every(p => M.byG[p])) bad.push(w + ":" + parts.join("|")); else if (M.GR[w] && M.GR[w].join("\u0001") !== parts.join("\u0001")) bad.push(w + ":यंत्र से अलग"); });
+      if (parts.join("") !== w) bad.push(w + ":जोड़ अलग"); else if (!M.GR[w] || !M.GR[w].every(g => M.byG[g])) bad.push(w + ":" + parts.join("|")); else if (M.GR[w].map(M.show).join("\u0001") !== parts.join("\u0001")) bad.push(w + ":यंत्र से अलग"); });
     T(R, "P11", ws.length >= M.cards.length * 2 && !bad.length, "शब्द के टुकड़े (" + ws.length + " शब्द) आवाज़-इकाइयों से बने हैं; जोड़े-अक्षर टूटते नहीं", bad.slice(0, 6).join(" ")); }
   /* P12 अंक */
   { const seg = html.slice(html.indexOf('id="ld-ank"'), html.indexOf('id="ld-bade"')); const bad = M.ank.filter(a => seg.indexOf('<span class="ld-num">' + a.d + "</span>") < 0 || seg.indexOf(">" + a.w + "</span>") < 0 || seg.indexOf('data-pron="' + LD.esc(a.dev) + '"') < 0);
@@ -158,7 +173,7 @@ function checkContent(L, D, M, html) {
   { const reg = (html.match(/class="lipi-reg"[^>]*>[\s\S]*?href="\/join\.html"/g) || []).length; const ext = html.match(/<a href="https:\/\/[^"]*"[^>]*>/g) || []; const badExt = ext.filter(a => !/target="_blank"/.test(a) || !/rel="noopener"/.test(a));
     T(R, "P14", /मूल भाषा: हिंदी/.test(html) && reg >= 3 && html.indexOf("आवाज़ों का स्रोत:") >= 0 && !badExt.length && vis.indexOf("बाहरी साइटें हैं") >= 0, "मूल-भाषा निशान, स्रोत-पंक्ति, बाहरी कड़ी नई खिड़की में, रजिस्ट्रेशन-अपील 3 जगह", "अपील " + reg + " · बाहरी कड़ी दोष " + badExt.length); }
   /* P15 सच्चा हाल */
-  { const n = (html.match(/मूल-वक्ता की जाँच: /g) || []).length; T(R, "P15", vis.indexOf("इस भाषा की मशीन-आवाज़ किसी फ़ोन में नहीं है") >= 0 && n === M.cards.length && vis.indexOf("मूल-वक्ता की जाँच अभी बाक़ी है") >= 0, "मानव-ताला: सच्ची आवाज़-पंक्ति, और हर कार्ड पर मूल-वक्ता जाँच का हाल", "हाल-पंक्तियाँ " + n); }
+  { const n = (html.match(/मूल-वक्ता की जाँच: /g) || []).length; T(R, "P15", vis.indexOf(D.sach ? D.sach[0].replace(/[{}]/g, "") : "इस भाषा की मशीन-आवाज़ किसी फ़ोन में नहीं है") >= 0 && n === M.cards.length && vis.indexOf("मूल-वक्ता की जाँच अभी बाक़ी है") >= 0, "मानव-ताला: सच्ची आवाज़-पंक्ति, और हर कार्ड पर मूल-वक्ता जाँच का हाल", "हाल-पंक्तियाँ " + n); }
   /* P16 ग़लत लगे तो बताओ */
   { const wa = (fs.readFileSync(path.join(ROOT, "assets/acs-config.js"), "utf8").match(/whatsapp:\s*"(https:\/\/wa\.me\/\d+)"/) || [])[1]; const bad = M.cards.filter(c => { const s = cardSeg(c), m = s.match(/class="ld-galat-a" href="([^"]*)"/); return !m || m[1].indexOf(wa + "?text=") !== 0 || decodeURIComponent(m[1].replace(/&amp;/g, "&")).indexOf(c.kod) < 0; });
     T(R, "P16", !!wa && !bad.length, "मानव-ताला: हर कार्ड पर ग़लती बताने की कड़ी, कार्ड-कोड और एसीएस के नंबर के साथ", bad.map(c => c.g).join(",")); }
@@ -188,7 +203,7 @@ function checkContent(L, D, M, html) {
   { T(R, "P24", !/[{}]/.test(vis) && vis.indexOf("undefined") < 0 && vis.indexOf("null") < 0 && vis.indexOf("NaN") < 0, "अधूरे निशान या ख़ाली मान नहीं", ""); }
   /* P25 रंग का मतलब */
   { const bad = M.cards.filter(c => html.indexOf('<section class="ld-card ld-' + c.grp.rang + '" id="' + c.id + '"') < 0 || cardSeg(c).indexOf('<span class="ld-tag">' + LD.esc(c.grp.naam) + "</span>") < 0);
-    T(R, "P25", !bad.length && vis.indexOf("सुनहरा = खुले स्वर") >= 0, "रंग का मतलब लिखा है, वही रंग कार्ड पर है, और समूह का नाम भी छपा है", bad.map(c => c.g).join(",")); }
+    T(R, "P25", !bad.length && vis.indexOf(D.rangBaat || "सुनहरा = खुले स्वर") >= 0, "रंग का मतलब लिखा है, वही रंग कार्ड पर है, और समूह का नाम भी छपा है", bad.map(c => c.g).join(",")); }
   /* P27 साझा फ़ाइलों से टकराव */
   { const bad = (html.match(/\sdata-(t|tp|say)="/g) || []).length; T(R, "P27", !bad, "data-t, data-tp, data-say गुण नहीं (साझा अनुवाद-फ़ाइल और पुरानी आवाज़-फ़ाइल इन्हें पकड़कर पाठ बदल देती हैं)", "मिले " + bad); }
   /* P26 वज़न */
@@ -232,25 +247,27 @@ function report(L, D, M, all, browser) {
   o += "- कार्ड: " + M.cards.length + " · कोर्स के वाक्य: " + M.nVakya + " · कोर्स के शब्द: " + M.nShabd + " · योजना: " + M.nDin + " दिन\n";
   o += "- जाँचें: " + all.length + " में से " + all.filter(x => x.ok).length + " पास" + (browser ? " · ब्राउज़र-जाँच: " + Object.keys(browser.jaanch).filter(k => browser.jaanch[k].ok).length + " / " + Object.keys(browser.jaanch).length + " पास" : " · ब्राउज़र-जाँच: इस बार नहीं चली") + "\n";
   o += "- कोर्स-ताला: कार्ड-तालिका से बना उच्चारण कोर्स के " + (M._m04 ? M._m04.n : "?") + " शब्दों में से " + (M._m04 ? M._m04.n - M._m04.bad : "?") + " से मिला\n";
+  if (M._m18) o += "- छपाई-ताला: कोर्स स्तर-1 में छपे " + M._m18.n + " शब्दों में से " + (M._m18.n - M._m18.bad) + " का रूप यंत्र से हूबहू मिला · " + M._m18.nMila + " / " + M._m18.nVakya + " वाक्य शब्द-दर-शब्द मिले\n";
   o += "- कमी-बही: " + BAHI.length + " कमियाँ · ✅ बंद " + band + " · 🟡 आँख से या अधूरी " + aankh + " · 🔴 खुली " + khuli + "\n";
   o += "- मूल-वक्ता की जाँच: " + M.cards.filter(c => c.jaanch).length + " / " + M.cards.length + " कार्ड\n\n";
   o += "## 2. कमी-बही: कमी → सबूत → सुधार → पहरा → आज का हाल\n\n| कोड | स्तर | कमी | सबूत | सुधार | पहरा | हाल |\n|---|---|---|---|---|---|---|\n" + rows.join("\n") + "\n\n";
   o += "## 3. हर कार्ड का सबूत\n\n| कोड | अक्षर | आवाज़ | IPA | स्रोत | कोर्स में शब्द | कोर्स में बार | उदाहरण | हिंदी में है? | मूल-वक्ता जाँच |\n|---|---|---|---|---|---|---|---|---|---|\n";
-  o += M.cards.map(c => "| " + c.kod + " | " + c.g + " | " + c.dev + " | " + c.ipa + " | " + c.src.join(", ") + " | " + c.nShabd + " | " + c.nBaar + " | " + c.shabd.map(x => x.w + " = " + x.dev).join("; ") + " | " + (c.hindi || "नहीं") + " | " + (c.jaanch ? "हो गई" : "बाक़ी") + " |").join("\n") + "\n\n";
+  o += M.cards.map(c => "| " + c.kod + " | " + (c.chinh ? c.likha + " (" + c.chinh + ")" : c.likha) + " | " + c.dev + " | " + c.ipa + " | " + c.src.join(", ") + " | " + c.nShabd + " | " + c.nBaar + " | " + c.shabd.map(x => x.w + " = " + x.dev).join("; ") + " | " + (c.hindi || "नहीं") + " | " + (c.jaanch ? "हो गई" : "बाक़ी") + " |").join("\n") + "\n\n";
   o += "## 4. सब जाँचें\n\n| कोड | हाल | जाँच | ब्योरा |\n|---|---|---|---|\n" + all.map(x => "| " + x.id + " | " + (x.ok ? "✅" : "🔴") + " | " + x.msg + " | " + (x.detail || "") + " |").join("\n") + "\n";
   if (browser) o += Object.keys(browser.jaanch).map(k => "| " + k + " | " + (browser.jaanch[k].ok ? "✅" : "🔴") + " | " + browser.jaanch[k].msg + " | " + (browser.jaanch[k].detail || "") + " |").join("\n") + "\n";
   o += "\n## 5. दर्ज क़र्ज़ (यंत्र ने पकड़ा, पन्ने ने छिपाया नहीं)\n\n";
   M.beCard.forEach(b => { o += "- इकाई `" + b.g + "` का कार्ड नहीं: " + b.shabd + " शब्द (" + b.list.join(", ") + ")। यह शब्द बाहर का है या कोर्स की वर्तनी जाँचनी है।\n"; });
-  M.baaki.forEach(b => { o += "- `" + b.g + "` (IPA " + b.ipa + "): स्रोत इसे एक आवाज़ बताते हैं; कोर्स का उच्चारण-यंत्र इसे अभी दो टुकड़ों में लिखता है (" + b.shabd.map(w => w + " = " + D.yantra.word(w)).join(", ") + ")। सुधार कोर्स के उच्चारण को बदलेगा, इसलिए अलग फ़ैसले से होगा।\n"; });
+  M.baaki.forEach(b => { if (!b.shabd) { o += "- " + b.baat.replace(/[{}]/g, "") + "\n"; return; } o += "- `" + b.g + "` (IPA " + b.ipa + "): स्रोत इसे एक आवाज़ बताते हैं; कोर्स का उच्चारण-यंत्र इसे अभी दो टुकड़ों में लिखता है (" + b.shabd.map(w => w + " = " + D.yantra.word(w)).join(", ") + ")। सुधार कोर्स के उच्चारण को बदलेगा, इसलिए अलग फ़ैसले से होगा।\n"; });
   M.cards.filter(c => c.matbhed).forEach(c => { o += "- `" + c.g + "`: " + c.matbhed.replace(/[{}]/g, "") + "\n"; });
-  o += "- मशीन की आवाज़: इस भाषा की आवाज़ किसी फ़ोन में नहीं। 🔊 देवनागरी उच्चारण हिंदी आवाज़ में बोलता है; r, j, w जैसी आवाज़ें वह हिंदी ढंग से बोलेगी।\n";
+  if (D.sach) o += "- मशीन की आवाज़: " + D.sach.map(t => t.replace(/[{}]/g, "")).join(" ") + "\n";
+  else o += "- मशीन की आवाज़: इस भाषा की आवाज़ किसी फ़ोन में नहीं। 🔊 देवनागरी उच्चारण हिंदी आवाज़ में बोलता है; r, j, w जैसी आवाज़ें वह हिंदी ढंग से बोलेगी।\n";
   o += "- मूल-वक्ता की जाँच सब " + M.cards.length + " कार्डों पर बाक़ी है। समीक्षा-पत्र: `" + L.code + "_samiksha.csv`।\n";
   return o;
 }
 function samiksha(L, M) {
   const q = s => '"' + String(s).replace(/"/g, '""') + '"';
   const rows = [["कार्ड-कोड", "अक्षर", "आवाज़ (देवनागरी)", "IPA", "कैसे बोलें", "उदाहरण-शब्द", "शब्द का उच्चारण", "शब्द का अर्थ", "आवाज़ सही? (हाँ/नहीं)", "सही रूप क्या हो", "जाँचने वाले का नाम", "तारीख़"]];
-  M.cards.forEach(c => { rows.push([c.kod, c.g, c.dev, c.ipa, c.kaise.replace(/[{}]/g, ""), "", "", "", "", "", "", ""]); c.shabd.forEach(x => rows.push([c.kod, c.g, "", "", "", x.w, x.dev, x.arth, "", "", "", ""])); });
+  M.cards.forEach(c => { const gl = c.chinh ? c.likha + " (" + c.chinh + ")" : c.likha; rows.push([c.kod, gl, c.dev, c.ipa, c.kaise.replace(/[{}]/g, ""), "", "", "", "", "", "", ""]); c.shabd.forEach(x => rows.push([c.kod, gl, "", "", "", x.w, x.dev, x.arth, "", "", "", ""])); });
   return "﻿" + rows.map(r => r.map(q).join(",")).join("\r\n") + "\r\n";
 }
 
