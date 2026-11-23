@@ -43,6 +43,8 @@ const PIPES = [
   { name: "redirect-पर्चियाँ (build_moved_stubs)", cmds: ["build_moved_stubs.js"], expect: "zero" },
   /* 22-Nov-2026: फ़्रेंच-गयानीज़-क्रियोल (fgc) कोर्स v3.0 का data-यंत्र और उसके दो पन्ने */
   { name: "fgc कोर्स (fgc/build → व्याकरण, चित्र-पुस्तक)", cmds: ["fgc/build.js", "build_vyakaran.js fgc", "build_chitra_pustak.js fgc"], expect: "zero" },
+  /* 22-Nov-2026: ध्वनि-कार्ड वाला लिपि-पन्ना (पहली भाषा fgc) में Math.random नहीं: दोबारा बनाने पर बदलाव शून्य होना चाहिए */
+  { name: "लिपि-परिचय ध्वनि-कार्ड: fgc (build_lipi_pages + lipi_dhvani)", cmds: ["build_lipi_pages.js fgc"], expect: "zero" },
   { name: "लिपि-परिचय (build_lipi_pages)", cmds: ["build_lipi_pages.js"], expect: "debt",
     note: "10-Nov दर्ज क़र्ज़: अभ्यास-अक्षर Math.random से — हर दौड़ नया क्रम (हानि नहीं, शोर); भाषा-कोड से तय-क्रम अगला दौर" },
   { name: "dashboards (build_dashboards)", cmds: ["build_dashboards.js"], expect: "debt",

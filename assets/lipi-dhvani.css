@@ -1,0 +1,197 @@
+/* lipi-dhvani.css v1.0 · 22-Nov-2026 : ध्वनि-कार्ड वाला लिपि-परिचय (generator/lipi_dhvani.js) का रूप
+   lipi.css के ऊपर चलता है (पुराने लिपि-पन्नों पर इसका असर शून्य: सब class ld- से शुरू)।
+   नियम: रंग सिर्फ़ ACS के 5 · कुछ भी 16px से छोटा नहीं · छूने वाला हर बटन कम से कम 48px ·
+         रंग का मतलब (स्वर सुनहरा, नाक वाला स्वर हरा, बाक़ी नीला) साथ में शब्दों में भी लिखा है · छपाई: कार्ड पन्ने पर कटे नहीं, रंग नहीं। */
+.ld-wrap{overflow-wrap:break-word}
+.ld-wrap p a,.ld-wrap li a{color:#1565C0}
+.ld-wrap .lipi-btn{color:#0B1F3A}.ld-wrap .lipi-btn2{color:#fff}
+.ld-wrap [id]{scroll-margin-top:96px}
+.ld-defs{position:absolute;width:0;height:0;overflow:hidden}
+.ld-btn3{background:#fff;border:2px solid #0B1F3A}
+.ld-wrap .lipi-plan{padding-left:26px;margin:6px 0 10px}
+.ld-wrap .lipi-plan li{margin:4px 0}
+
+/* चार कदम */
+.ld-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:0;margin:12px 0;list-style:none;counter-reset:kadam}
+.ld-steps li{counter-increment:kadam;background:#fff;border:2px solid #CBD5E1;border-radius:14px;padding:8px 10px 8px 44px;position:relative;font-size:18px;line-height:1.5}
+.ld-steps li::before{content:counter(kadam);position:absolute;left:8px;top:8px;width:28px;height:28px;border-radius:50%;background:#0B1F3A;color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif}
+
+/* सच्ची बात */
+.ld-sach{background:#FFF8E1;border:2px solid #F9A825;border-radius:14px;padding:10px 12px;margin:12px 0}
+.ld-sach p{margin:4px 0;font-size:18px}
+#ld-awaz-haal:empty{display:none}
+#ld-awaz-haal{font-weight:800;color:#7A2E00}
+
+/* सूची */
+.ld-gh{font-size:20px;margin:18px 0 6px;color:#0B1F3A}
+.ld-gb{font-size:18px;margin:0 0 6px;color:#334155}
+.ld-chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:10px;margin:8px 0 12px}
+.ld-chip{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:76px;padding:6px 4px;border-radius:14px;border:2px solid #1565C0;background:linear-gradient(160deg,#fff 0%,#EAF2FF 60%,#DCE9FF 100%);box-shadow:0 2px 0 #0B1F3A,0 5px 0 #1565C0;text-decoration:none;color:#0B1F3A}
+.ld-chip.ld-sona{border-color:#F9A825;background:linear-gradient(160deg,#fff 0%,#FFF6DC 60%,#FFE9A8 100%);box-shadow:0 2px 0 #0B1F3A,0 5px 0 #F9A825}
+.ld-chip.ld-hara{border-color:#2E7D32;background:linear-gradient(160deg,#fff 0%,#E8F5E9 60%,#C8E6C9 100%);box-shadow:0 2px 0 #0B1F3A,0 5px 0 #2E7D32}
+.ld-cg{font-family:Inter,'Noto Sans',sans-serif;font-size:26px;font-weight:800;line-height:1.15;color:#0B1F3A}
+.ld-cd{font-size:20px;font-weight:800;color:#1565C0;line-height:1.3}
+
+/* बड़ा ध्वनि-कार्ड */
+.ld-card{background:linear-gradient(170deg,#fff 0%,#F5F9FF 60%,#E8F0FE 100%);border:2px solid #0B1F3A;border-radius:20px;box-shadow:0 3px 0 #0B1F3A,0 8px 0 #1565C0,0 16px 26px rgba(11,31,58,.22);padding:14px;margin:26px 0}
+.ld-card.ld-sona{background:linear-gradient(170deg,#fff 0%,#FFFAEA 60%,#FFF1C9 100%);box-shadow:0 3px 0 #0B1F3A,0 8px 0 #F9A825,0 16px 26px rgba(11,31,58,.22)}
+.ld-card.ld-hara{background:linear-gradient(170deg,#fff 0%,#F1F8F2 60%,#DDEFDE 100%);box-shadow:0 3px 0 #0B1F3A,0 8px 0 #2E7D32,0 16px 26px rgba(11,31,58,.22)}
+.ld-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:0 0 8px;font-size:16px;font-weight:700;color:#334155}
+.ld-tag{background:#0B1F3A;color:#fff;border-radius:999px;padding:2px 12px}
+.ld-eq{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:stretch;gap:8px;margin:6px 0 8px}
+.ld-g,.ld-d{background:#fff;border:3px solid #0B1F3A;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 4px;min-height:150px;text-align:center}
+.ld-d{border-color:#1565C0}
+.ld-big{font-size:64px;font-weight:800;line-height:1.2}
+.ld-g .ld-big{font-family:Inter,'Noto Sans',sans-serif;color:#0B1F3A}
+.ld-d .ld-big{color:#1565C0}
+.ld-sm{font-size:16px;color:#334155;font-weight:600}
+.ld-barabar{align-self:center;font-size:40px;font-weight:800;color:#334155;font-family:Inter,sans-serif}
+.ld-kaise,.ld-dhyan,.ld-lag,.ld-farq{font-size:18px;margin:8px 0;line-height:1.7}
+.ld-dhyan{color:#7A2E00}
+.ld-lag{background:#FFF8E1;border-left:5px solid #F9A825;border-radius:8px;padding:6px 10px;color:#0B1F3A}
+.ld-h4{font-size:18px;font-weight:800;color:#1565C0;margin:16px 0 8px}
+
+/* बटन */
+.ld-btns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0}
+.ld-bt{font-family:inherit;min-height:54px;font-size:20px;font-weight:800;border-radius:14px;cursor:pointer;border:2px solid #C17900;background:#F9A825;color:#0B1F3A;box-shadow:0 4px 0 #C17900;padding:6px 8px}
+.ld-bt.ld-bol{background:#2E7D32;color:#fff;border-color:#1B5E20;box-shadow:0 4px 0 #1B5E20}
+.ld-ic{font-family:inherit;width:48px;height:48px;border-radius:50%;font-size:22px;cursor:pointer;border:2px solid #F9A825;background:#FFF6DC;box-shadow:0 3px 0 #C17900;padding:0}
+.ld-ic.ld-bol{border-color:#2E7D32;background:#E8F5E9;box-shadow:0 3px 0 #2E7D32}
+.ld-bt:active,.ld-ic:active{transform:translateY(3px);box-shadow:none}
+.ld-wrap button:focus-visible,.ld-wrap a:focus-visible,.ld-wrap summary:focus-visible{outline:3px solid #1565C0;outline-offset:3px}
+.ld-sun.on{outline:3px solid #1565C0;outline-offset:2px}
+.ld-host:empty{display:none}
+/* बोलो-डिब्बा यहाँ सिर्फ़ रिकॉर्ड-रास्ते पर चलता है: मशीन सही या ग़लत नहीं बताती, इसलिए रंगों वाली पंक्ति (हरा = सही) यहाँ नहीं दिखती */
+.ld-wrap .acs-bolo .ab-lg{display:none}
+.ld-host{margin:8px 0}
+
+/* शब्द: एक पंक्ति में 2, अकेला बीच में */
+.ld-words{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:6px 0}
+.ld-words>.ld-w:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
+.ld-w{background:#fff;border:2px solid #1565C0;border-radius:16px;padding:8px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;box-shadow:0 3px 0 #1565C0}
+.ld-pos{font-size:16px;color:#334155;background:#EEF2F7;border-radius:999px;padding:0 10px}
+.ld-wl{font-family:Inter,'Noto Sans',sans-serif;font-size:24px;font-weight:800;color:#0B1F3A;line-height:1.3;overflow-wrap:anywhere}
+.ld-ws{font-family:Inter,'Noto Sans',sans-serif;font-size:17px;color:#334155;line-height:1.5;overflow-wrap:anywhere}
+.ld-ws i{font-style:normal;color:#64748B;margin:0 3px}
+.ld-hl{color:#7A2E00;background:#FFE9A8;border-radius:4px;padding:0 3px}
+.ld-wd{font-size:21px;font-weight:800;color:#1565C0;line-height:1.4}
+.ld-wm{font-size:17px;font-weight:600;color:#2E7D32;line-height:1.5}
+.ld-wb{display:flex;gap:12px;margin-top:6px}
+.ld-num{font-family:Inter,sans-serif;font-size:44px;font-weight:800;color:#0B1F3A;line-height:1.1}
+
+/* लिखाई */
+.ld-trace{display:flex;flex-wrap:wrap;gap:4px;align-items:flex-end;background:#fff;border:1px solid #CBD5E1;border-radius:12px;padding:6px}
+.ld-gl{display:block;background:#fff;max-width:100%;height:auto}
+.ld-gl line{stroke:#CBD5E1;stroke-width:1}
+.ld-gl .l-base{stroke:#94A3B8;stroke-width:1.6}
+.ld-gl.g-solid use{fill:#0B1F3A}
+.ld-gl.g-faint use{fill:#CBD5E1}
+.ld-gl.g-dot use{fill:none;stroke:#1565C0;stroke-width:2.2;stroke-dasharray:5 5;stroke-linecap:round}
+.ld-blank{flex:1;min-width:110px;background-image:repeating-linear-gradient(to bottom,transparent 0 24%,#CBD5E1 24% 25%,transparent 25% 49%,#CBD5E1 49% 50%,transparent 50% 74%,#94A3B8 74% 75.5%,transparent 75.5% 99%,#CBD5E1 99% 100%)}
+.ld-line{height:84px;margin:8px 0;min-width:0}
+
+/* सबूत और ग़लती बताना */
+.ld-saboot,.ld-uttar{margin:12px 0 0;background:#fff;border:1px solid #CBD5E1;border-radius:12px;padding:0 12px}
+.ld-saboot summary,.ld-uttar summary{min-height:48px;display:flex;align-items:center;font-size:18px;font-weight:700;color:#1565C0;cursor:pointer}
+.ld-saboot ul,.ld-uttar ul{padding-left:22px;margin:0 0 10px;font-size:17px;line-height:1.7}
+.ld-saboot li,.ld-uttar li{margin:4px 0}
+.ld-uttar p{font-size:18px;margin:0 0 10px}
+.ld-saboot a{overflow-wrap:anywhere}
+.ld-galat{margin:10px 0 0}
+.ld-galat-a{display:flex;align-items:center;min-height:48px;padding:6px 12px;border:2px dashed #7A2E00;border-radius:12px;background:#FFF8E1;color:#7A2E00!important;font-size:17px;font-weight:700;text-decoration:none}
+
+/* मिलती-जुलती */
+.ld-mj{background:#fff;border:2px solid #0B1F3A;border-radius:18px;padding:12px;margin:18px 0;box-shadow:0 3px 0 #0B1F3A}
+.ld-mj h3{font-family:Inter,'Noto Sans',sans-serif;font-size:24px;color:#0B1F3A;margin:0 0 8px}
+.ld-mj-row{display:flex;flex-wrap:wrap;gap:10px}
+.ld-mj-row .ld-chip{width:92px}
+.ld-jodi{margin:8px 0}
+
+/* बड़े अक्षर */
+.ld-caps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.ld-caps>.ld-cap:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
+.ld-cap{background:#fff;border:2px solid #CBD5E1;border-radius:14px;padding:8px}
+.ld-capn{font-family:Inter,'Noto Sans',sans-serif;font-size:24px;font-weight:800;text-align:center;margin:0 0 4px;color:#0B1F3A}
+.ld-cap .ld-trace{border:0;padding:0}
+.ld-cap .ld-blank{min-width:100%}
+
+/* अभ्यास और योजना */
+.ld-box{width:48px;height:38px;margin:0 2px}
+.ld-box2{width:120px}
+.ld-wrap .lipi-exi{font-size:19px;line-height:2.2}
+.ld-din{list-style:none;padding:0;margin:10px 0;counter-reset:din}
+.ld-din li{counter-increment:din;position:relative;background:#fff;border:1px solid #CBD5E1;border-radius:12px;padding:8px 10px 8px 78px;margin:8px 0;font-size:18px;line-height:1.7;min-height:52px}
+.ld-din li::before{content:"दिन " counter(din);position:absolute;left:10px;top:8px;font-size:17px;font-weight:800;color:#0B1F3A;background:#FFE9A8;border-radius:8px;padding:0 6px}
+.ld-din a{display:inline-block;min-height:28px;font-weight:800}
+.ld-next{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:10px 0}
+.ld-nx{display:flex;flex-direction:column;justify-content:center;min-height:76px;background:#fff;border:2px solid #1565C0;border-radius:14px;padding:8px 10px;text-decoration:none;box-shadow:0 3px 0 #1565C0}
+.ld-nx b{font-size:19px;color:#0B1F3A}.ld-nx span{font-size:16px;color:#334155}
+
+@media (min-width:700px){
+  .ld-steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ld-big{font-size:76px}
+  .ld-caps{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ld-caps>.ld-cap:last-child:nth-child(odd){grid-column:auto;justify-self:stretch;width:auto}
+}
+
+/* चौड़ी स्क्रीन (टैबलेट, लैपटॉप): एक पंक्ति में 2 बड़े कार्ड; समूह का अकेला बचा कार्ड बीच में।
+   फ़ोन पर 1 ही कार्ड: 22-Nov के नाप में 390px पर 2 कार्ड रखने से सब 31 कार्डों का पाठ डिब्बे से बाहर निकला। */
+@media screen and (min-width:760px){
+  .ld-grp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:14px;align-items:stretch}
+  .ld-grp>.ld-card{margin:14px 0}
+  .ld-grp>.ld-card:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 7px)}
+  .ld-card .ld-big{font-size:64px}
+}
+
+@media print{
+  .ld-wrap{font-size:16px}
+  .ld-wrap .lipi-crumb,.ld-wrap .lipi-head .lipi-note+.lipi-note{display:none}
+  .ld-wrap h1{font-size:20px;margin:0 0 4px}
+  .ld-wrap .lipi-lead{font-size:16px;margin:2px 0}
+  .ld-steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin:6px 0}
+  .ld-steps li{font-size:16px;padding:4px 6px 4px 42px;border-width:1px}
+  .ld-wrap .lipi-sec p{margin:2px 0}
+  .ld-btns,.ld-wb,.ld-host,.ld-galat,.ld-sach,.ld-ic,.ld-bt,.acs-raay,.lipi-reg,#ld-suchi,#ld-aage .ld-next{display:none!important}
+  .ld-card,.ld-mj,.ld-w,.ld-cap,.ld-chip,.ld-nx,.ld-steps li,.ld-din li,.ld-trace,.ld-g,.ld-d{background:#fff!important;box-shadow:none!important;border-color:#000!important}
+  .ld-card,.ld-mj,.ld-cap,.ld-w,.ld-din li,.ld-trace,.ld-saboot,.ld-uttar{break-inside:avoid;page-break-inside:avoid}
+  /* छपाई में कार्ड छोटा: बाईं ओर अक्षर = आवाज़, दाईं ओर कैसे बोलें; नीचे शब्द (4 प्रति पंक्ति) और लिखाई। एक A4 पन्ने पर 3 कार्ड। */
+  .ld-card{display:grid;grid-template-columns:210px minmax(0,1fr);column-gap:12px;padding:6px 8px;margin:6px 0;border-width:1px;border-radius:10px}
+  .ld-card>*{grid-column:1/-1}
+  .ld-card>.ld-eq{grid-column:1;grid-row:2/span 4;margin:0;align-self:start}
+  .ld-card>.ld-kaise,.ld-card>.ld-dhyan,.ld-card>.ld-lag{grid-column:2}
+  .ld-top{margin:0 0 2px}
+  .ld-g,.ld-d{min-height:0;padding:2px;border-width:1px;border-radius:8px}
+  .ld-big{font-size:34px}
+  .ld-barabar{font-size:22px}
+  .ld-card .ld-h4,.ld-card .ld-pos{display:none}
+  .ld-card .ld-words{margin:4px 0 0}
+  .lipi-wrap h2{margin:10px 0 4px;font-size:19px}
+  .ld-gh{margin:6px 0 2px;font-size:17px}
+  .ld-kaise,.ld-dhyan,.ld-lag,.ld-farq,.ld-gb{font-size:16px;margin:2px 0;line-height:1.5}
+  .ld-lag{background:#fff!important;border-left:2px solid #000}
+  .ld-h4{font-size:16px;margin:4px 0 2px;color:#000}
+  .ld-trace{padding:2px;margin-top:4px;border:0}
+  .ld-mj{padding:6px 8px;margin:6px 0}
+  .ld-mj h3{font-size:18px;margin:0 0 2px}
+  .ld-mj-row{display:none}
+  .ld-words{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .ld-words>.ld-w:last-child:nth-child(odd){grid-column:auto;justify-self:stretch;width:auto}
+  .ld-w{padding:2px;border-width:1px;border-radius:8px;gap:0}
+  .ld-wl,.ld-wd,.ld-wm,.ld-ws,.ld-pos{line-height:1.3}
+  .ld-wl{font-size:18px}.ld-wd{font-size:16px;color:#000}.ld-wm,.ld-ws,.ld-pos{font-size:16px;color:#000;background:none}
+  .ld-hl{background:none;color:#000;text-decoration:underline}
+  .ld-tag{background:#fff;color:#000;border:1px solid #000}
+  .ld-trace .ld-gl{height:48px;width:auto}
+  .ld-blank{height:48px!important}
+  .ld-gl.g-solid use{fill:#000}.ld-gl.g-dot use{stroke:#555}
+  .ld-saboot{display:none}
+  .ld-uttar{border:0;padding:0}
+  .ld-caps{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+  .ld-caps>.ld-cap:last-child:nth-child(odd){grid-column:auto;justify-self:stretch;width:auto}
+  .ld-din li{padding:4px 6px 4px 70px;margin:4px 0;min-height:0;font-size:16px}
+  .ld-din li::before{background:none;color:#000}
+  .ld-wrap a{color:#000;text-decoration:none}
+  .lipi-wrap h2{break-after:avoid;page-break-after:avoid}
+  .ld-gh{break-after:avoid;page-break-after:avoid}
+}
+.ld-ipa{font-family:Inter,"Noto Sans",sans-serif;font-weight:800;font-size:20px}

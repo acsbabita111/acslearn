@@ -1,0 +1,31 @@
+{
+ "yantra": "dev_lipi_dhvani_browser.py v1.0",
+ "code": "fgc",
+ "jaanch": {
+  "B01": {
+   "ok": true,
+   "msg": "आवाज़: हर 🔊 अपना देवनागरी उच्चारण हिंदी आवाज़ को भेजता है, पाँचों हालात में (हिंदी आवाज़ है · सूची देर से आई · सूची आई ही नहीं · सिर्फ़ अंग्रेज़ी आवाज़ · आवाज़ की सुविधा नहीं)",
+   "detail": "hi: 189/189 sent as written, first-press True, all Devanagari+hi-IN True, message no | late: 189/189 sent as written, first-press True, all Devanagari+hi-IN True, message no | never: 189/189 sent as written, first-press True, all Devanagari+hi-IN True, message no | en: 189/189 sent as written, first-press True, all Devanagari+hi-IN True, message yes | none: sent 0, message shown True, alerts 0, js-errors 0"
+  },
+  "B02": {
+   "ok": true,
+   "msg": "बोलो: डिब्बा पूरी चौड़ाई में खुलता है, उसका सुनो-बटन देवनागरी उच्चारण बोलता है, और सही/ग़लत के रंगों वाली पंक्ति नहीं दिखती (कार्ड, शब्द, तुलना, अंक: चारों जगह)",
+   "detail": ".ld-card .ld-btns: width 330 of 334, sent आ | .ld-card .ld-w: width 330 of 334, sent आ | #ld-milti .ld-w: width 334 of 338, sent क्ले | #ld-ank .ld-w: width 362 of 362, sent ज़ेरो"
+  },
+  "B03": {
+   "ok": true,
+   "msg": "छुअन: हर बटन, सूची-खाना और खुलने वाली पंक्ति कम से कम 44px",
+   "detail": "507 में से छोटे 0 "
+  },
+  "B05": {
+   "ok": true,
+   "msg": "कार्ड प्रति पंक्ति: फ़ोन पर 1, चौड़ी स्क्रीन पर 2 (हर कार्ड कम से कम 340px चौड़ा); समूह का अकेला कार्ड बीच में; किसी कार्ड का पाठ डिब्बे से बाहर नहीं",
+   "detail": "360px: 1 प्रति पंक्ति, कार्ड 332px, बाहर निकले 0, पन्ना 64810px | 390px: 1 प्रति पंक्ति, कार्ड 362px, बाहर निकले 0, पन्ना 63842px | 768px: 2 प्रति पंक्ति, कार्ड 363px, बाहर निकले 0, पन्ना 40615px | 1280px: 2 प्रति पंक्ति, कार्ड 389px, बाहर निकले 0, पन्ना 40021px"
+  },
+  "B04": {
+   "ok": true,
+   "msg": "छपाई और रूप: A4 पर 22 पन्नों के भीतर, कोई कार्ड एक पन्ने से लंबा नहीं और कटने से रोका गया, बटन और रंग नहीं छपते; आड़ा-scroll शून्य; 16px से छोटा पाठ शून्य; JS-त्रुटि शून्य",
+   "detail": "पन्ने 21 · सबसे लंबा कार्ड 362px (सीमा 400) · कटने से रोक True · छपते बटन 0 · रंगीन कार्ड 0 · आड़ा-scroll {\"320\": 0, \"360\": 0, \"390\": 0, \"768\": 0, \"1280\": 0} · छोटा पाठ 0 · JS-त्रुटि 0 · मोबाइल-ऊँचाई 63842px"
+  }
+ }
+}

@@ -12,6 +12,9 @@ const SEO = require("./lib_seo_meta.js"); /* 11-Nov-2026: title/description क�
 const ROOT = path.join(__dirname, "..");
 const TPL = fs.readFileSync(path.join(ROOT, "_TEMPLATE.html"), "utf8");
 const VER = "2.0";
+/* 22-Nov-2026: ध्वनि-कार्ड वाला नया ढाँचा। जिस भाषा की फ़ाइल generator/data/lipi/dhvani/<code>.js है, उसका पन्ना lipi_dhvani.js से बनता है।
+   बाक़ी सब भाषाएँ नीचे के पुराने रास्ते पर, जैसी थीं वैसी। */
+const LD = require("./lipi_dhvani.js");
 
 /* ---- 10-menu links.js से (एकमात्र घर) — build_specials का ही नुस्ख़ा ---- */
 function loadMenu() {
@@ -309,27 +312,40 @@ function build(L) {
   if (L.noBaseWords) { B.letters = B0.letters.map(x => Object.assign({}, x, { shabd: [] })); delete B.wordSrc; }
   if (L.clearDhyan) B.letters = B.letters.map(x => Object.assign({}, x, { dhyan: "" }));
   const G = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "lipi", "glyphs_" + L.script + ".json"), "utf8"));
-  const words = loadKKB(L.code);
+  const dh = LD.has(L.code);
+  const words = dh ? [] : loadKKB(L.code);
   const out = "courses/hi/bhasha/" + L.slug + "/lipi/index.html";
-  const R = buildContent(L, B, G, words);
+  let R;
+  if (dh) {
+    /* ध्वनि-कार्ड: मॉडल → जाँच → पन्ना → जाँच। एक भी जाँच फेल = पन्ना नहीं बनता। */
+    const CHK = require("./dev_lipi_dhvani_check.js");
+    const D = LD.load(L.code), M = LD.makeModel(L, D);
+    CHK.must(out, CHK.checkModel(L, D, M));
+    R = LD.buildContent(L, G, D, M);
+    CHK.must(out, CHK.checkContent(L, D, M, R.html));
+  } else {
+    R = buildContent(L, B, G, words);
+  }
   const html = R.html, count = R.count;
-  check(out, html, R);
+  if (!dh) check(out, html, R);
   const S = "<!-- PAGE-CONTENT-START -->", E = "<!-- PAGE-CONTENT-END -->";
   const a = TPL.indexOf(S), b = TPL.indexOf(E); if (a < 0 || b < 0) throw new Error("_TEMPLATE.html में PAGE-CONTENT निशान नहीं");
   let page = TPL.slice(0, a + S.length) + "\n" + html + "\n" + TPL.slice(b);
   const title = SEO.title("lipi", { hi: L.hi, en: L.en });
-  const desc = SEO.desc("lipi", { hi: L.hi, en: L.en, count: count });
+  const desc = SEO.desc("lipi", dh ? { hi: L.hi, en: L.en, dhvani: count, days: R.days } : { hi: L.hi, en: L.en, count: count });
   const url = "https://acslearn.com/courses/hi/bhasha/" + L.slug + "/lipi/";
   const ld = JSON.stringify([{ "@context": "https://schema.org", "@type": "LearningResource", "name": L.hi + " वर्णमाला workbook (" + L.en + " Alphabet Workbook)", "description": desc, "inLanguage": "hi", "learningResourceType": "Workbook", "educationalLevel": "Beginner", "isAccessibleForFree": true, "url": url, "provider": { "@type": "Organization", "name": "Applied Computer School", "url": "https://acslearn.com/" }, "isPartOf": { "@type": "Course", "name": "ACS Certificate in Spoken " + L.en, "url": "https://acslearn.com/courses/hi/bhasha/" + L.slug + "/" } },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "होम", "item": "https://acslearn.com/" }, { "@type": "ListItem", "position": 2, "name": "कोर्स", "item": "https://acslearn.com/courses/hi/" }, { "@type": "ListItem", "position": 3, "name": L.hi + " बोलने का कोर्स", "item": "https://acslearn.com/courses/hi/bhasha/" + L.slug + "/" }, { "@type": "ListItem", "position": 4, "name": "लिपि-परिचय", "item": url }] }]);
   page = page.replace(/<title>[\s\S]*?<\/title>/, "<title>" + esc(title) + "</title>\n<meta name=\"description\" content=\"" + esc(desc) + "\">\n<meta name=\"robots\" content=\"index, follow\">\n<link rel=\"canonical\" href=\"" + url + "\">\n<meta property=\"og:type\" content=\"website\">\n<meta property=\"og:url\" content=\"" + url + "\">\n<meta property=\"og:title\" content=\"" + esc(title) + "\">\n<meta property=\"og:description\" content=\"" + esc(desc) + "\">\n<meta property=\"og:image\" content=\"https://acslearn.com/logo.png\">\n<meta property=\"og:locale\" content=\"hi_IN\">\n<script type=\"application/ld+json\">" + ld + "</scr" + "ipt>");
-  page = page.replace("</head>", '<link rel="stylesheet" href="/assets/lipi.css">\n</head>');
+  page = page.replace("</head>", '<link rel="stylesheet" href="/assets/lipi.css">\n' + (dh ? '<link rel="stylesheet" href="/assets/lipi-dhvani.css">\n' : "") + '</head>');
   page = page.replace('<div id="acsMenuList"></div>', '<div id="acsMenuList">\n' + MENU_HTML + "\n</div>");
-  page = page.replace("</body>", MENU_FALLBACK_JS + '\n<script>window.LIPI_TTS="' + L.tts + '";</scr' + 'ipt>\n<script src="/assets/lipi.js" defer></scr' + 'ipt>\n</body>');
-  page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + GEN_NOTE);
+  if (dh) page = page.replace("</body>", MENU_FALLBACK_JS + '\n<script src="/assets/acs-bolo.js" defer></scr' + 'ipt>\n<script src="/assets/acs-raay.js" defer></scr' + 'ipt>\n<script src="/assets/lipi-dhvani.js" defer></scr' + 'ipt>\n</body>');
+  else page = page.replace("</body>", MENU_FALLBACK_JS + '\n<script>window.LIPI_TTS="' + L.tts + '";</scr' + 'ipt>\n<script src="/assets/lipi.js" defer></scr' + 'ipt>\n</body>');
+  page = page.replace("<!DOCTYPE html>", "<!DOCTYPE html>\n" + (dh ? GEN_NOTE.replace(")", " + lipi_dhvani.js v" + LD.VER + ")").replace("assets/kkb*_data.js", "generator/data/lipi/dhvani/" + L.code + ".js + assets/kkb*_data.js") : GEN_NOTE));
   fs.mkdirSync(path.dirname(path.join(ROOT, out)), { recursive: true });
   fs.writeFileSync(path.join(ROOT, out), page, "utf8");
-  console.log("✅ लिपि-परिचय → /" + out + " · अक्षर " + count + " · कोर्स-शब्द " + words.length + " में से चुने");
+  if (dh) console.log("✅ लिपि-परिचय (ध्वनि-कार्ड) → /" + out + " · कार्ड " + count + " · योजना " + R.days + " दिन");
+  else console.log("✅ लिपि-परिचय → /" + out + " · अक्षर " + count + " · कोर्स-शब्द " + words.length + " में से चुने");
 }
 /* v2.0: robot/दूसरे यंत्र require से पढ़ें (regex-eval ख़त्म); build सिर्फ़ सीधे चलाने पर */
 module.exports = { LIPI_LANGS: LIPI_LANGS, expandLang: expandLang, loadKKB: loadKKB };

@@ -16,7 +16,10 @@ const only = process.argv[2]; let fail = 0; let pass = 0;
 const ok = (c, m) => { if (!c) { console.log("  ❌ " + m); fail++; } else pass++; };
 const smP = path.join(ROOT, "sitemap-bhasha.xml");
 const sm = fs.existsSync(smP) ? fs.readFileSync(smP, "utf8") : (fs.existsSync(path.join(ROOT, "sitemap.xml")) ? fs.readFileSync(path.join(ROOT, "sitemap.xml"), "utf8") : "");
+/* 22-Nov-2026: ध्वनि-कार्ड वाले पन्ने (generator/data/lipi/dhvani/<code>.js) का ढाँचा अलग है: उनकी जाँच उनका अपना यंत्र करता है */
+const LD = require(path.join(__dirname, "lipi_dhvani.js")), DCHK = require(path.join(__dirname, "dev_lipi_dhvani_check.js"));
 for (const L of langs.filter(l => !only || l.code === only)) {
+  if (LD.has(L.code)) { const r = DCHK.run(L.code, { noWrite: true }); r.all.forEach(x => ok(x.ok, L.code + ": " + x.id + " " + x.msg + (x.detail ? " : " + x.detail : ""))); continue; }
   const B = require(path.join(__dirname, "data", "lipi", L.script + "_base.js"));
   const G = JSON.parse(fs.readFileSync(path.join(__dirname, "data", "lipi", "glyphs_" + L.script + ".json"), "utf8"));
   const words = ENG.loadKKB(L.code);
