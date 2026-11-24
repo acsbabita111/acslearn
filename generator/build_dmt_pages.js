@@ -1,5 +1,8 @@
 /* ============================================================
    build_dmt_pages.js: "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" (SE026) पेज-generator (परत-4)
+   v2.4.1-dmt (24-Nov-2026, Founder: "इसको शुरू करो"। "दो जीवित रास्ते" होल: पाठ पर लिखा था "दो रास्ते", पर बटन एक ही था
+   (govVideoHtml ख़ाली)। अब वाक्य बटनों की असली गिनती से बनता है: 1 = "एक जीवित रास्ता", 2 = "दो", 3 = "तीन";
+   नीचे की पंक्ति भी वैसी ("नई खिड़की में" / "दोनों नई खिड़की में" / "सब नई खिड़की में")। और कुछ नहीं बदला)। पहले का:
    v2.4-dmt (08-Nov: तीन-बटन पंक्ति — सुनो|परिचय|सभी-पाठ बायाँ-केंद्र-दायाँ, jump अब dropdown; css v1.6d)। पहले का: v2.6-dmt (08-Nov: हरी meta-पंक्ति हटी + प्रमाणपत्र/फीस बटन-heading केंद्र + खंड dropdown)। पहले का: v2.5-dmt (08-Nov: index nav होम|पाठ-1|लॉगिन + फीस-तालिका login-कड़ी + ₹125-row रजिस्ट्रेशन-बटन)। पहले का: v2.2-dmt (08-Nov: 545 प्रश्न tap-रूप — loader quiz-निकासी 5-सख़्त + quizHTML + course-lesson v1.6 इंजन)। पहले का: v2.1-dmt (08-Nov: हर पाठ-पेज में hero-फ़ोटो img/<id>.webp + 109-फ़ोटो release-द्वार + promote में img-रक्षा)। पहले का: v2.0-dmt (08-Nov Founder-आदेश: AI-banner img/dmt-hero.webp = index का full-width hero, SVG-column हटा; alt=sealed नाम)। पहले का: v1.9-dmt (08-Nov Founder-टोक: hero-SVG सपाट आरेख था, "शानदार" नहीं — नया कथा-दृश्य hero: गाँव की झोपड़ी+पेड़ → राह → desk पर laptop पर सीखता युवा, सुनहरी चमक, 4 हुनर-icon की कक्षा (orbit), ऊपर प्रमाणपत्र+QR, नीचे सुनहरी पट्टी "गाँव से डिजिटल मित्र तक"; सिर्फ़ ACS 5-रंग)। पहले का: v1.8-dmt (08-Nov Founder-मुहर अ: नाम "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र" + विराम-नियम: दिखने वाले content में लंबी रेखा वर्जित, जगह ":" या "।" + KYP सरकारी-नाम "KYP (कुशल युवा कार्यक्रम) डिजिटल मित्र" + index-robot में लंबी-रेखा द्वार)। पहले का: v1.7-dmt (08-Nov Founder-सुधार: slug digital-skills-basic→digital-mitra-basic (blunder-बंदी) + course.title मनमाना "तैयारी कोर्स"→sealed नाम दोनों रूप, hero में English-पंक्ति)। पहले का: v1.6-dmt (08-Nov Founder-आदेश: landing hero-पट्टी — gradient banner + hero-SVG + chips + 2 CTA + stat-पट्टी; header उसी में समाहित)। पहले का: v1.5-dmt (08-Nov ऑडिट-v2.0 सुधार: परीक्षा ₹0 व प्रमाणपत्र ₹125 अलग पंक्तियाँ · नमूना-संख्या ACS-CC · 120-अंक) — आधार v1.4-dmt · 08-Nov-2026 — Founder-आदेश: intro-पेज में प्रमाणपत्र-नमूना (SAMPLE-watermark SVG) + फीस-सूची। पहले का: v1.3-dmt — v1.7-ऑडिट P1: approved_on असली कैलेंडर-roundtrip + future-निषेध। पहले का: v1.2-dmt — v1.6-ऑडिट P0: DMT_OUT_DIR env (staging-candidate build, repo-write शून्य) ·
    swap-promote (पुराना dir पहले .bak-swap, rename-त्रुटि पर बहाली — rmSync-first बंद) ·
    release-मुहर content-binding (manifest.content_sha256 = 109MD+template+generator+robot का संयुक्त-hash,
@@ -311,7 +314,23 @@ function quizHTML(l){
   if (l.quizTail) h += '<p class="qz-next"><strong>' + qtxt(l.quizTail.replace(/\*\*/g,"")) + '</strong></p>\n';
   return h + '</section>\n\n';
 }
+/* v2.4.1-dmt: वीडियो-खंड के वाक्य बटनों की असली गिनती से (दिखे बटन = लिखी गिनती; मेल न हो तो build रुके) */
+const VID_RASTA = {1: "एक जीवित रास्ता", 2: "दो जीवित रास्ते", 3: "तीन जीवित रास्ते"};
+const VID_KHIDKI = {1: "नई खिड़की में", 2: "दोनों नई खिड़की में", 3: "सब नई खिड़की में"};
+function videoRow(course, l){
+  const yt = '<a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=' +
+    encodeURIComponent(course.videoQuery + " " + l.title + " हिंदी") +
+    '" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a>';
+  const gov = course.govVideoHtml || "";
+  const html = yt + " " + gov;   /* बाइट वही जो पहले था (ख़ाली gov पर भी एक space) */
+  const n = (html.match(/class="lsn-vidbtn/g) || []).length;
+  if (!VID_RASTA[n]) { console.error("❌ वीडियो-खंड: पंक्ति में " + n + " बटन; 1 से 3 होने चाहिए (पाठ " + l.num + ")"); process.exit(1); }
+  return { html: html, n: n };
+}
 function lessonBody(course, l, prevFile, nextFile){
+  const vidRow = videoRow(course, l);
+  const vidN = vidRow.n + (l.videoUrl ? 1 : 0);
+  if (!VID_KHIDKI[vidN]) { console.error("❌ वीडियो-खंड: कुल " + vidN + " कड़ियाँ; 1 से 3 होनी चाहिए (पाठ " + l.num + ")"); process.exit(1); }
   const secs = l.sections.map(s =>
     '<section class="lsn-sec">\n<h2>' + s.t + "</h2>\n" + s.h.trim() + "\n</section>"
   ).join("\n\n");
@@ -341,13 +360,9 @@ function lessonBody(course, l, prevFile, nextFile){
     (l.videoUrl
       ? '<p><a class="lsn-vidbtn" href="' + l.videoUrl + '" target="_blank" rel="noopener">▶ इस पाठ का जाँचा हुआ वीडियो देखें</a>' +
         (l.videoNote ? ": " + l.videoNote : "") + "</p>\n"
-      : "<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक दो जीवित रास्ते:</p>\n") +
-    '<p class="lsn-vidrow">' +
-      '<a class="lsn-vidbtn" href="https://www.youtube.com/results?search_query=' +
-        encodeURIComponent(course.videoQuery + " " + l.title + " हिंदी") +
-        '" target="_blank" rel="noopener">🎬 YouTube पर इस पाठ के वीडियो खोजें</a> ' +
-      (course.govVideoHtml || "") + '</p>\n' +
-    '<p class="lsn-vidnote">(दोनों नई खिड़की में; वीडियो बिना भी पाठ पूरा। पढ़ाई कहीं नहीं रुकती।)</p>\n' +
+      : "<p>इस पाठ का जाँचा-परखा वीडियो जल्द यहीं जुड़ेगा। तब तक " + VID_RASTA[vidRow.n] + ":</p>\n") +
+    '<p class="lsn-vidrow">' + vidRow.html + '</p>\n' +
+    '<p class="lsn-vidnote">(' + VID_KHIDKI[vidN] + '; वीडियो बिना भी पाठ पूरा। पढ़ाई कहीं नहीं रुकती।)</p>\n' +
     "</section>\n\n" +
     '<nav class="lsn-nav">' + prev + next + "</nav>\n" +
     "</article>\n";
