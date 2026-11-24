@@ -1,4 +1,4 @@
-/* dev_courses_page_check.js v1.3 (24-Nov-2026: भाषा-खोज के दो नए असेट पन्ने के script-क्रम में; असली mount + "japani" खोज नक़ली-DOM में; हर भाषा-कार्ड #shuru पर) · v1.2 (13-Sep-2026 रात: आलसी-render + 50-खेप जाँच, ऑडिट H1) · v1.1 (13-Sep-2026: तीन-लिपि कार्ड नियम t3/seal + नाम-एकरूपता + ACS-टैग निषेध) · v1.0 (10-Sep-2026) — /courses/hi/ पेज का असली-render check-robot
+/* dev_courses_page_check.js v1.4 (24-Nov-2026: गिनती में सिर्फ़ भाषाएँ; ऊपर का बड़ा अंक, title, og:title, ItemList, description और लिपि-गिनती data से) · v1.3 (24-Nov-2026: भाषा-खोज के दो नए असेट पन्ने के script-क्रम में; असली mount + "japani" खोज नक़ली-DOM में; हर भाषा-कार्ड #shuru पर) · v1.2 (13-Sep-2026 रात: आलसी-render + 50-खेप जाँच, ऑडिट H1) · v1.1 (13-Sep-2026: तीन-लिपि कार्ड नियम t3/seal + नाम-एकरूपता + ACS-टैग निषेध) · v1.0 (10-Sep-2026) — /courses/hi/ पेज का असली-render check-robot
    जन्म-कारण: ALL27-शृंखला की courses_data में `}, , {` ख़ाली-slot (PJ138 हटाते-सरकाते छूटा) —
    node --check इसे वैध मानता है, data-गिनती वाले यंत्र इसे छोड़ देते हैं, पर browser में
    kkbCourse() की for-loop `undefined.id` पर टूटती है → renderBhasha रुका → init() अधूरा →
@@ -102,8 +102,16 @@ if (fakeWin.__bhK) {
 ok((String(groupsHtml).match(/#shuru"/g) || []).length === gIds.length, "भाषा-कार्ड की कड़ियाँ #shuru पर नहीं (" + (String(groupsHtml).match(/#shuru"/g) || []).length + ")");
 /* पेज-गिनती वाक्य data से मेल */
 const mCnt = html.match(/(\d+) भाषाओं का पूरा कोर्स/); const mAll = html.match(/दुनिया की (\d+) भाषाएँ/);
-ok(mCnt && +mCnt[1] === goldExpected, "पेज-वाक्य '" + (mCnt && mCnt[0]) + "' ≠ data सुनहरी " + goldExpected);
-ok(mAll && +mAll[1] === gIds.length, "पेज-वाक्य '" + (mAll && mAll[0]) + "' ≠ data भाषाएँ " + gIds.length);
+/* v1.4 (24-Nov-2026, Founder: "अब 130 भाषा का कोई लॉजिक नहीं"): गिनती में सिर्फ़ भाषाएँ (कड़ी /courses/hi/bhasha/); कैथी और तिरहुता लिपि-कोर्स अलग */
+const langIds = gIds.filter(id => /^\/courses\/hi\/bhasha\//.test((byId[id] || {}).url || "")), lipiN = gIds.length - langIds.length;
+const goldLang = langIds.filter(id => ((byId[id] || {}).name_hi || "").indexOf("प्रमाणपत्र कोर्स") > -1).length;
+ok(mCnt && +mCnt[1] === goldLang, "पेज-वाक्य '" + (mCnt && mCnt[0]) + "' ≠ data पूरे भाषा-कोर्स " + goldLang);
+ok(mAll && +mAll[1] === langIds.length, "पेज-वाक्य '" + (mAll && mAll[0]) + "' ≠ data भाषाएँ " + langIds.length);
+const mBig = html.match(/<span class="h130-num"[^>]*>([^<]*)<\/span>/);
+ok(mBig && +mBig[1] === langIds.length, "ऊपर का बड़ा अंक '" + (mBig && mBig[1]) + "' ≠ data भाषाएँ " + langIds.length);
+const mTitles = html.match(/\d+ भाषाएँ बोलना सीखो/g) || [];
+ok(mTitles.length === 3 && mTitles.every(t => +t.split(" ")[0] === langIds.length), "title, og:title, ItemList की गिनती ≠ data भाषाएँ " + langIds.length + " (" + mTitles.join(", ") + ")");
+ok(html.indexOf('<span id="bhLipiTxt">' + lipiN + " पुरानी लिपियों</span>") > -1, "लिपि-कोर्स की गिनती ≠ data " + lipiN);
 
 console.log("dev_courses_page_check: भाषा " + gIds.length + " · सुनहरी " + goldExpected + " · popular " + arrs.POP.length + " · tab-6 chips " + chips(g0) + " · समूह " + arrs.G.length);
 if (fails) { console.log("⛔ dev_courses_page_check: " + fails + " fail — upload नहीं"); process.exit(1); }

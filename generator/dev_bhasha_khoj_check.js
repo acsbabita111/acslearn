@@ -1,4 +1,4 @@
-/* dev_bhasha_khoj_check.js v1.0.1 · 24-Nov-2026 (v1.0.1: DOMContentLoaded-क्रम की जाँच) : भाषा-खोज और "कार्ड से सीधा पहला पाठ" का स्थायी जाँच-यंत्र।
+/* dev_bhasha_khoj_check.js v1.1 · 24-Nov-2026 (v1.1: गिनती में सिर्फ़ भाषाएँ, लिपि-कोर्स अलग; ऊपर का बड़ा अंक और "पूरा कोर्स" का दावा data से; 130 की पुरानी गिनती कहीं नहीं, नारे में भी नहीं) · v1.0.1 (DOMContentLoaded-क्रम की जाँच) : भाषा-खोज और "कार्ड से सीधा पहला पाठ" का स्थायी जाँच-यंत्र।
    जन्म-कारण (Founder 24-Nov-2026): "भाषा का सर्च बॉक्स ... सर्च नहीं हो रहा ... कोड से तो बिल्कुल नहीं ...
    12-13 साल का बच्चा पहला लेसन को खोज नहीं पाता"। पुरानी खोज सिर्फ़ हूबहू अक्षर मिलाती थी:
    "japani", "angrezi", "अंग्रेजी" (बिना नुक़्ता), "Germany", "dubai" से कुछ नहीं; "de" से 15 और "en" से 392 कार्ड;
@@ -101,13 +101,26 @@ console.log("C  पन्ना");
 const html = R("courses/hi/index.html");
 const iC = html.indexOf('<script src="/assets/courses_data.js">'), iD = html.indexOf('<script src="/assets/bhasha_khoj_data.js">'), iE = html.indexOf('<script src="/assets/bhasha-khoj.js">'), iI = html.indexOf("function bhKhojMount");
 ok(iC > 0 && iC < iD && iD < iE && iE < iI, "script-क्रम (courses_data → bhasha_khoj_data → bhasha-khoj → inline) ग़लत");
-["bhKhoj", "bhashaSearch", "bhKhojOut", "bhKhojClear", "bhAllTxt", "bhGoldTxt", "bhIntroTxt"].forEach(id => ok((html.match(new RegExp('id="' + id + '"', "g")) || []).length === 1, "id=" + id + " ठीक एक बार नहीं"));
+["bhKhoj", "bhashaSearch", "bhKhojOut", "bhKhojClear", "bhAllTxt", "bhGoldTxt", "bhIntroTxt", "bhLipiTxt", "bhBigNum", "bhGoldNum"].forEach(id => ok((html.match(new RegExp('id="' + id + '"', "g")) || []).length === 1, "id=" + id + " ठीक एक बार नहीं"));
 ok(/<label class="bk-label" for="bhashaSearch">/.test(html), "खोज-डिब्बे का label नहीं");
 ok(/id="bhashaSearch"[^>]*type="search"|type="search"[^>]*id="bhashaSearch"/.test(html), "खोज-डिब्बा type=search नहीं (मोबाइल पर खोज-बटन)");
 ok((html.match(/onclick="bhKhojFocus\(\)"/g) || []).length === 2, "\"अपनी भाषा चुनो\"/\"दूसरी भाषा\" बटन खोज पर नहीं ले जाते");
 ok(html.indexOf("🌍 सब 130") < 0 && html.indexOf("135 भाषाओं का पूरा कोर्स") < 0, "पुरानी गिनती (130/135) बची");
-const gold = list.filter(c => (c.name_hi || "").indexOf("प्रमाणपत्र कोर्स") > -1).length, intro = list.filter(c => (c.name_hi || "").indexOf("परिचय-कोर्स") > -1).length;
-ok(html.indexOf('<span id="bhAllTxt">' + ids.length + " भाषाओं के कोर्स</span>") > -1 && html.indexOf('<span id="bhGoldTxt">' + gold + " भाषाओं का पूरा कोर्स</span>") > -1 && html.indexOf('<span id="bhIntroTxt">' + intro + " भाषाओं का परिचय-कोर्स</span>") > -1,
+/* v1.1: भाषा = कड़ी /courses/hi/bhasha/ के नीचे; कैथी और तिरहुता लिपि-कोर्स अलग (Founder: "अब 130 भाषा का कोई लॉजिक नहीं") */
+const langs = list.filter(c => /^\/courses\/hi\/bhasha\//.test(c.url || "")), lipiN = list.length - langs.length;
+const gold = langs.filter(c => (c.name_hi || "").indexOf("प्रमाणपत्र कोर्स") > -1).length, intro = langs.filter(c => (c.name_hi || "").indexOf("परिचय-कोर्स") > -1).length;
+ok(lipiN === 2, "लिपि-कोर्स 2 नहीं: " + lipiN);
+ok(html.indexOf('<span id="bhLipiTxt">' + lipiN + " पुरानी लिपियों</span>") > -1 && html.indexOf('<span class="h130-num" id="bhBigNum">' + langs.length + "</span>") > -1, "लिपि-गिनती या ऊपर का बड़ा अंक data से बेमेल");
+ok(!/\b130 भाषा/.test(html), "पन्ने में 130 भाषा की पुरानी गिनती बची (नारा भी अब \"अपनी भाषा में\")");
+/* ऊपर का दावा: "हर भाषा का पूरा कोर्स" झूठ था (परिचय-कोर्स में 90 दिन नहीं); पूरे कोर्स की गिनती data से, चलते समय भी */
+ok(html.indexOf("हर भाषा का पूरा कोर्स") < 0 && html.indexOf('<p class="h130-claim"><span id="bhGoldNum">' + gold + "</span> भाषाओं का पूरा कोर्स — ") > -1 && html.indexOf("set('bhGoldNum',String(gold));") > -1, "ऊपर का दावा \"पूरा कोर्स\" data की गिनती से नहीं");
+/* ChatGPT ऑडिट S130 (24-Nov-2026): description और og:description में भी "हर भाषा का 90-दिन" नहीं; पूरे कोर्स की गिनती data से */
+ok(html.indexOf("हर भाषा का 90-दिन") < 0 && html.split("भाषाएँ — " + gold + " भाषाओं का 90-दिन कोर्स").length === 3, "description/og:description में \"हर भाषा का 90-दिन\" या पूरे कोर्स की गिनती data से बेमेल");
+/* "नई भाषा सीखें" पन्ना (bhasha.html, build_landing4.js v1.9): वही तीन गिनतियाँ, कोई झूठा "हर भाषा का पूरा कोर्स" नहीं */
+{ const bh = R("bhasha.html");
+  ok(bh.indexOf('<span id="bhCount">' + langs.length + "</span> भाषाओं के कोर्स") > -1 && bh.indexOf('<span id="bhGold">' + gold + "</span> भाषाओं का पूरा कोर्स") > -1 && bh.indexOf('<span id="bhIntro">' + intro + "</span> भाषाओं का छोटा परिचय-कोर्स") > -1, "bhasha.html की तीन गिनतियाँ data से बेमेल (node generator/build_landing4.js)");
+  ok(bh.indexOf("हर भाषा का पूरा कोर्स") < 0 && bh.indexOf("भाषाओं में प्रमाणपत्र कोर्स") < 0 && !/\b130 भाषा/.test(bh), "bhasha.html में पुराना दावा या 130 बचा"); }
+ok(html.indexOf('<span id="bhAllTxt">' + langs.length + " भाषाओं के कोर्स</span>") > -1 && html.indexOf('<span id="bhGoldTxt">' + gold + " भाषाओं का पूरा कोर्स</span>") > -1 && html.indexOf('<span id="bhIntroTxt">' + intro + " भाषाओं का परिचय-कोर्स</span>") > -1,
   "पन्ने की गिनती data से बेमेल (node generator/sudhar_courses_khoj.js चलाओ)");
 /* असली mount, नक़ली DOM */
 const els = {};

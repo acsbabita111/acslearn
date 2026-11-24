@@ -1,9 +1,9 @@
 {
   "_niyam": "Founder-मुहर: tools/muhar_bharo.js चलाओ (ids+content_sha256+approved_on भरेगा), फिर दोनों boolean हाथ से true करो। मुहर के बाद MD/टेम्पलेट/generator बदला = मुहर बासी।",
-  "founder_approved": true,
-  "metadata_verified": true,
-  "approved_on": "2026-11-13",
-  "content_sha256": "2368a624e9452529955ce0fe3d6a9160e9f4c312c98ba96a438347dd681d4e2f",
+  "founder_approved": false,
+  "metadata_verified": false,
+  "approved_on": "",
+  "content_sha256": "5948e78b7b2cb5095a296bb059ec34bd58512ca71e486d1b083e314a6d4c1b58",
   "lesson_ids": [
     "dmt-1.01",
     "dmt-1.02",

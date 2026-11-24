@@ -16,8 +16,8 @@ module.exports = {
   hi: {
     out: "index.html", home: "https://acslearn.com/",
     title: "मुफ़्त ऑनलाइन कोर्स (Free Online Courses): हुनर, भाषा, करियर टेस्ट | ACS",
-    desc: "मुफ़्त ऑनलाइन कोर्स: करियर टेस्ट दो, एक हुनर सीखो, अंग्रेज़ी और एक विदेशी भाषा सीखो, परीक्षा देकर प्रमाणपत्र लो। 950+ उद्यम, नौकरी व स्वरोजगार की पूरी जानकारी। 130 भाषाओं में, गाँव से ग्लोबल साउथ तक, हमेशा निःशुल्क ऑनलाइन कंप्यूटर शिक्षा। अप्लाइड कंप्यूटर स्कूल (ACS) से जुड़ें।",
-    seoWords: ["जुड़ें", "मुफ़्त ऑनलाइन कोर्स", "Free Online Courses", "निःशुल्क", "ऑनलाइन कंप्यूटर शिक्षा", "हुनर", "भाषा", "करियर टेस्ट", "करियर", "अंग्रेज़ी", "विदेशी भाषा", "प्रमाणपत्र", "पोर्टफ़ोलियो", "950+ उद्यम", "उद्यम", "नौकरी", "स्वरोजगार", "130 भाषा", "गाँव से ग्लोबल साउथ तक", "अप्लाइड कंप्यूटर स्कूल", "ACS", "खोजें", "कोर्स", "सीखें"],
+    desc: "मुफ़्त ऑनलाइन कोर्स: करियर टेस्ट दो, एक हुनर सीखो, अंग्रेज़ी और एक विदेशी भाषा सीखो, परीक्षा देकर प्रमाणपत्र लो। 950+ उद्यम, नौकरी व स्वरोजगार की पूरी जानकारी। अपनी भाषा में, गाँव से ग्लोबल साउथ तक, हमेशा निःशुल्क ऑनलाइन कंप्यूटर शिक्षा। अप्लाइड कंप्यूटर स्कूल (ACS) से जुड़ें।",
+    seoWords: ["जुड़ें", "मुफ़्त ऑनलाइन कोर्स", "Free Online Courses", "निःशुल्क", "ऑनलाइन कंप्यूटर शिक्षा", "हुनर", "भाषा", "करियर टेस्ट", "करियर", "अंग्रेज़ी", "विदेशी भाषा", "प्रमाणपत्र", "पोर्टफ़ोलियो", "950+ उद्यम", "उद्यम", "नौकरी", "स्वरोजगार", "अपनी भाषा", "गाँव से ग्लोबल साउथ तक", "अप्लाइड कंप्यूटर स्कूल", "ACS", "खोजें", "कोर्स", "सीखें"],
     ogdesc: "मुफ़्त ऑनलाइन कोर्स: करियर टेस्ट, हुनर, भाषा और प्रमाणपत्र। गाँव से ग्लोबल साउथ तक।",
     pill: "✨ सुंदर भविष्य के लिए", h1a: "मुफ़्त ऑनलाइन कोर्स से", h1b: "हुनर और भाषा सीखें!",
     sAria: "हुनर, भाषा, उद्यम या करियर खोजें", sPh: "हुनर, भाषा, उद्यम खोजें…", sBtn: "🔍 खोजें", sEg: "जैसे: वेल्डिंग, जापानी, DCA",
@@ -40,8 +40,8 @@ module.exports = {
   en: {
     out: "en/index.html", home: "https://acslearn.com/en/",
     title: "Free Online Courses: Skills, Languages, Career Test | ACS",
-    desc: "Free online courses: take the career test, learn one skill, learn English and one more foreign language, pass the exam and earn a certificate. Courses, skills and certificates on your phone: always-free online learning in 130 languages, from village to the Global South. Applied Computer School (ACS).",
-    seoWords: ["free online courses", "always-free", "learning", "online", "courses", "skills", "languages", "career test", "career", "English", "foreign language", "certificate", "certificates", "portfolio", "enterprise", "130 languages", "from village to the Global South", "Applied Computer School", "ACS", "phone", "search", "learn"],
+    desc: "Free online courses: take the career test, learn one skill, learn English and one more foreign language, pass the exam and earn a certificate. Courses, skills and certificates on your phone: always-free online learning in your own language, from village to the Global South. Applied Computer School (ACS).",
+    seoWords: ["free online courses", "always-free", "learning", "online", "courses", "skills", "languages", "career test", "career", "English", "foreign language", "certificate", "certificates", "portfolio", "enterprise", "your own language", "from village to the Global South", "Applied Computer School", "ACS", "phone", "search", "learn"],
     ogdesc: null,   /* English og:description को build_mirror_homes.js जाँचता है : यहाँ से नहीं बदलता */
     pill: "✨ For a Bright Future", h1a: "Free online courses:", h1b: "learn skills and languages!",
     sAria: "Search skills, languages, enterprises or career", sPh: "Search courses…", sBtn: "🔍 Search", sEg: "e.g. welding, Japanese, DCA",

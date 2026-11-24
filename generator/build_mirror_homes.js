@@ -82,8 +82,8 @@ function syncCluster(s, canon, tag){
   console.log("PREFLIGHT ✅ रजिस्टर " + ORDER.length + " भाषाएँ (+hi मूल, +en पुल) · schema/फ़ाइलें/तालिकाएँ ठीक");
 }
 
-const EN_OGDESC_OLD = 'Always-free online learning in 130 languages, from village to the Global South. Free courses · 950+ enterprises.';
-const EN_OGDESC_NEW = 'Always-free online learning in 130 languages, from village to the Global South. Free courses · 950+ enterprise opportunities.';
+const EN_OGDESC_OLD = 'Always-free online learning in your own language, from village to the Global South. Free courses · 950+ enterprises.';
+const EN_OGDESC_NEW = 'Always-free online learning in your own language, from village to the Global South. Free courses · 950+ enterprise opportunities.';
 
 /* ---------- 1) /en/: og:locale + og:description + hreflang ---------- */
 let en = read("en/index.html");
@@ -183,7 +183,7 @@ ORDER.forEach(function(code){
   s = R(s, '<html lang="en">', T.dir==="rtl" ? '<html lang="'+code+'" dir="rtl">' : '<html lang="'+code+'">', 1, code+"-lang");
   s = R(s, '<title>Applied Computer School — ACS</title>',
           '<title>Applied Computer School (ACS) · '+T.ttail+'</title>', 1, code+"-title");
-  s = R(s, '<meta name="description" content="Applied Computer School (ACS) — always-free online learning in 130 languages, from village to the Global South. Courses, skills and certificates on your phone." />',
+  s = R(s, '<meta name="description" content="Applied Computer School (ACS) — always-free online learning in your own language, from village to the Global South. Courses, skills and certificates on your phone." />',
           '<meta name="description" content="'+T.desc+'" />', 1, code+"-desc");
   s = R(s, '<meta property="og:title" content="Applied Computer School — ACS" />',
           '<meta property="og:title" content="Applied Computer School (ACS) · '+T.ttail+'" />', 1, code+"-ogt");
@@ -209,12 +209,12 @@ ORDER.forEach(function(code){
   s = R(s, '>🗣️ Learn a New Language!<', '>'+T.btn2+'<', 1, code+"-b2");
   s = R(s, '>🛠️ Learn a New Skill!<', '>'+T.btn3+'<', 1, code+"-b3");
   s = R(s, '>🏭 Start Your Enterprise!<', '>'+T.btn4+'<', 1, code+"-b4");
-  s = R(s, '>In 130 languages, from village to the Global South!<', '>'+T.tagline+'<', 1, code+"-tag");
+  s = R(s, '>In your own language, from village to the Global South!<', '>'+T.tagline+'<', 1, code+"-tag");
   s = R(s, '>Original language: Hindi<', '>'+T.orig+'<', 1, code+"-orig");
   s = R(s, '<span id="acsBtnLang">Language</span>', '<span id="acsBtnLang">'+T.btnLang+'</span>', 1, code+"-bl");
   s = R(s, '<span id="acsBtnMenu">Menu</span>', '<span id="acsBtnMenu">'+T.btnMenu+'</span>', 1, code+"-bm");
   s = R(s, '<h4 id="acsDrawerTitle">Menu</h4>', '<h4 id="acsDrawerTitle">'+T.drawer+'</h4>', 1, code+"-dr");
-  s = R(s, '>From village to the Global South in 130 languages — mobile-friendly course content!<', '>'+T.foottag+'<', 1, code+"-ft");
+  s = R(s, '>From village to the Global South in your own language — mobile-friendly course content!<', '>'+T.foottag+'<', 1, code+"-ft");
   s = R(s, '>📜 Certificate Issuing Body<', '>'+T.fbcert+'<', 1, code+"-fc");
   s = R(s, '>Certification: ISO 9001:2015 · Website: ffgpmt.org<', '>'+certline+'<', 1, code+"-cl");
   s = R(s, '>📞 Contact<', '>'+T.fbcontact+'<', 1, code+"-fo");

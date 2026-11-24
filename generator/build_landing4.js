@@ -1,5 +1,7 @@
 /* ============================================================
    ACS build_landing4.js v1.1 (27-Oct-2026, Founder-आदेश) — 4 landing पेज
+   v1.9 bhasha.html (24-Nov-2026, Founder: "भाषा कोर्स पर अब 415/416/417 जो सही हो, दिखेगा"): ऊपर की पट्टी में "N भाषाओं के कोर्स",
+   फिर "390 भाषाओं का पूरा कोर्स" और "25 भाषाओं का छोटा परिचय-कोर्स" (तीनों गिनती data से, चलते समय भी); बाक़ी 3 पेज byte-अछूते।
    v1.2 (08-Nov-2026, Founder-आदेश): career.html पूरा पेशेवर रूप : hero-SVG ·
    v1.4 (08-Nov-2026, Founder-सुधार): फ़ायदे-grid 2 कार्ड प्रति पंक्ति (v7.6-च नियम); सब विवरण छोटे, पूरे सरल वाक्यों में; तालिका-नोट 17px।
    v1.7.2 (09-Nov-2026, Founder-सुधार): "क्षेत्र-ठप्पा" शब्द हर जगह "क्षेत्र-विवरण"
@@ -89,6 +91,10 @@ console.log("भाषा-गिनती (build-समय):",BH_COUNT,"| सम
 const esc4=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 const BH_ALL=CD.all.filter(c=>c&&c.url&&String(c.url).indexOf("/bhasha/")>-1);
 const BH_BYID={};BH_ALL.forEach(c=>{BH_BYID[c.id]=c;});
+/* 24-Nov-2026 (Founder: "भाषा कोर्स पर ... जो सही हो, दिखेगा"): पहले लिखा था "415 भाषाओं में प्रमाणपत्र कोर्स" और "हर भाषा का पूरा कोर्स",
+   पर 25 भाषाओं का सिर्फ़ परिचय-कोर्स है (90 दिन नहीं)। अब दोनों गिनती अलग, data से (वही नियम जो कोर्स-सूची पन्ने पर) */
+const BH_GOLD=BH_ALL.filter(c=>String(c.name_hi||"").indexOf("प्रमाणपत्र कोर्स")>-1).length, BH_INTRO=BH_ALL.filter(c=>String(c.name_hi||"").indexOf("परिचय-कोर्स")>-1).length;
+if(!BH_GOLD||BH_GOLD+BH_INTRO!==BH_ALL.length) throw new Error("पूरा कोर्स + परिचय-कोर्स ≠ सब भाषाएँ: "+BH_GOLD+" + "+BH_INTRO+" ≠ "+BH_ALL.length);
 function bhShort(c){const n=String(c.name_hi||"");let i=n.indexOf(" बोलने का");if(i<1){const cut=[" परिचय-कोर्स"," — "," ("].map(k=>n.indexOf(k)).filter(x=>x>0);i=cut.length?Math.min.apply(null,cut):-1;}if(i<1) throw new Error("भाषा-नाम का रूप अनजान: "+c.id+" "+n);return n.slice(0,i);}
 /* सूची सपाट और वर्ण-क्रम में (समूह नहीं): समूह-बँटवारा अभी अधूरा है (दर्ज होल), इसलिए यहाँ उसे दोहराया नहीं गया */
 const BH_SORTED=BH_ALL.map(c=>({c:c,n:bhShort(c)})).sort((a,b)=>a.n<b.n?-1:a.n>b.n?1:0);
@@ -432,15 +438,16 @@ build({out:"career.html", ver:"v1.7.2", foot:[FABSCRIPT],
  cross([["/bhasha.html","🗣️ नई भाषा सीखें"],["/hunar.html","🛠️ नया हुनर सीखें"],["/udyam-shuruat.html","🏭 अपना उद्यम शुरू करें"]]))
 });
 /* ================= पेज-2: भाषा ================= */
-build({out:"bhasha.html",ver:"v1.8",ld:BH_LD,
+build({out:"bhasha.html",ver:"v1.9",ld:BH_LD,
  title:"नई भाषा सीखें — हिंदी से दुनिया की भाषाएँ, प्रमाणपत्र कोर्स | ACS",
  desc:"हिंदी-माध्यम से दुनिया की भाषाओं के पूरे प्रमाणपत्र कोर्स — 90 दिन, 2,150 वाक्य, ऑनलाइन परीक्षा। पढ़ाई मुफ़्त। समूह चुनिए और आज शुरू कीजिए।",
- foot:['<script src="/assets/courses_data.js"></scr'+'ipt>','<script>(function(){try{var A=[].concat(typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[],typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[],typeof GOVT_SCHOLAR_COURSES!=="undefined"?GOVT_SCHOLAR_COURSES:[],typeof ACADEMIC_COURSES!=="undefined"?ACADEMIC_COURSES:[]);var n=A.filter(function(c){return c&&c.url&&String(c.url).indexOf("/bhasha/")>-1;}).length;var el=document.getElementById("bhCount");if(el&&n)el.textContent=n;var G=window.KKB_GROUPS||[];var box=document.getElementById("bhGroups");if(box&&G.length){var h="";G.forEach(function(g,i){h+=\'<a href="/courses/hi/#g\'+i+\'" style="display:inline-block;margin:5px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A;font-size:17px;font-weight:700;padding:9px 14px;border-radius:999px;text-decoration:none">\'+g.e+" "+g.t+" ("+(g.ids||[]).length+")</a>";});box.innerHTML=h;}}catch(e){}})();</scr'+'ipt>'],
+ foot:['<script src="/assets/courses_data.js"></scr'+'ipt>','<script>(function(){try{var A=[].concat(typeof SELF_EMP_COURSES!=="undefined"?SELF_EMP_COURSES:[],typeof PRIVATE_JOB_COURSES!=="undefined"?PRIVATE_JOB_COURSES:[],typeof GOVT_JOB_COURSES!=="undefined"?GOVT_JOB_COURSES:[],typeof GOVT_SCHOLAR_COURSES!=="undefined"?GOVT_SCHOLAR_COURSES:[],typeof ACADEMIC_COURSES!=="undefined"?ACADEMIC_COURSES:[]);var n=A.filter(function(c){return c&&c.url&&String(c.url).indexOf("/bhasha/")>-1;}).length;var el=document.getElementById("bhCount");if(el&&n)el.textContent=n;var B=A.filter(function(c){return c&&c.url&&String(c.url).indexOf("/bhasha/")>-1;}),ng=B.filter(function(c){return String(c.name_hi||"").indexOf("प्रमाणपत्र कोर्स")>-1;}).length,ni=B.filter(function(c){return String(c.name_hi||"").indexOf("परिचय-कोर्स")>-1;}).length;var eg=document.getElementById("bhGold");if(eg&&ng)eg.textContent=ng;var ei=document.getElementById("bhIntro");if(ei&&ni)ei.textContent=ni;var G=window.KKB_GROUPS||[];var box=document.getElementById("bhGroups");if(box&&G.length){var h="";G.forEach(function(g,i){h+=\'<a href="/courses/hi/#g\'+i+\'" style="display:inline-block;margin:5px;background:#fff;color:#0B1F3A;border:2px solid #0B1F3A;font-size:17px;font-weight:700;padding:9px 14px;border-radius:999px;text-decoration:none">\'+g.e+" "+g.t+" ("+(g.ids||[]).length+")</a>";});box.innerHTML=h;}}catch(e){}})();</scr'+'ipt>'],
  content:
  h1("🗣️","नई भाषा सीखें")+
  '<div style="background:#F9A825;color:#0B1F3A;border-radius:16px;padding:20px 14px;margin:10px auto;max-width:860px;text-align:center">'+
- '<p style="font-size:30px;font-weight:900;margin:0"><span id="bhCount">'+BH_COUNT+'</span> भाषाओं में प्रमाणपत्र कोर्स</p>'+
- '<p style="font-size:19px;font-weight:700;margin:6px 0 0">हर भाषा का पूरा कोर्स — 90 दिन · 2,150 वाक्य · ऑनलाइन परीक्षा · पढ़ाई मुफ़्त</p></div>'+
+ '<p style="font-size:30px;font-weight:900;margin:0"><span id="bhCount">'+BH_COUNT+'</span> भाषाओं के कोर्स</p>'+
+ '<p style="font-size:19px;font-weight:700;margin:6px 0 0"><span id="bhGold">'+BH_GOLD+'</span> भाषाओं का पूरा कोर्स: 90 दिन · 2,150 वाक्य · ऑनलाइन परीक्षा · प्रमाणपत्र · पढ़ाई मुफ़्त</p>'+
+ '<p style="font-size:17px;font-weight:600;margin:6px 0 0"><span id="bhIntro">'+BH_INTRO+'</span> भाषाओं का छोटा परिचय-कोर्स।</p></div>'+
  WRAP_S+
  sec("🌍 अपना समूह चुनिए",'<div id="bhGroups" style="text-align:center">'+
   '<p style="font-size:17px">समूह-सूची खुल रही है…</p></div>'+

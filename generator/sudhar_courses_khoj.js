@@ -1,11 +1,11 @@
-/* sudhar_courses_khoj.js v1.0 · 24-Nov-2026 : कोर्स-सूची पन्ने (courses/hi/index.html) के भाषा-टैब में नई भाषा-खोज जोड़ता है।
+/* sudhar_courses_khoj.js v1.1 · 24-Nov-2026 (v1.1: Founder "अब 130 भाषा का कोई लॉजिक नहीं": ऊपर का बड़ा अंक, title, og:title, ItemList और description में भाषाओं की असली गिनती data से; भाषा = /courses/hi/bhasha/ वाली कड़ी, कैथी और तिरहुता लिपि-कोर्स अलग गिने; "सब" बटन हर कार्ड गिनता है; ऊपर का दावा "हर भाषा का पूरा कोर्स" अब "390 भाषाओं का पूरा कोर्स", गिनती data से, क्योंकि 25 परिचय-कोर्स में 90 दिन नहीं; ChatGPT ऑडिट S130: description और og:description में भी "390 भाषाओं का 90-दिन कोर्स") · v1.0 : कोर्स-सूची पन्ने (courses/hi/index.html) के भाषा-टैब में नई भाषा-खोज जोड़ता है।
    Founder (24-Nov-2026): "भाषा का सर्च बॉक्स ... सर्च नहीं हो रहा ... आदमी अपने जरूरत का भाषा खोजते समय खो जाता है ...
    12-13 साल का बच्चा पहला लेसन को खोज नहीं पाता ... चाइल्ड मनोविज्ञान के हिसाब से भी कोडिंग ... इन्टरफेस पर भी काम"।
    क्या बदलता है (सिर्फ़ ये जगहें; बाक़ी पन्ना byte-अछूता):
      1. /assets/bhasha_khoj_data.js और /assets/bhasha-khoj.js बुलाना (courses_data.js के ठीक बाद)।
      2. खोज-डिब्बा: बड़ा, सवाल वाला label, मिटाने का ✕, नतीजे डिब्बे के ठीक नीचे (#bhKhojOut)।
      3. भाषा-गिनती वाला वाक्य data से (पहले लिखा था "130 भाषाएँ। 135 का पूरा कोर्स", data में 417 हैं)।
-        ऊपर का बड़ा "130" (title, hero, meta) Founder के फ़ैसले तक अछूता।
+        ऊपर का बड़ा "130" (title, hero, meta): v1.1 में data की गिनती।
      4. "🌍 सब 130" बटन → data की गिनती।
      5. भाषा-कार्ड की कड़ी के आख़िर में #shuru: कोर्स-पन्ना (assets/kkb2.js v3.4) सीधे अगला अधूरा दिन खोलता है।
      6. "अपनी भाषा चुनो" और "दूसरी भाषा सीखनी है" बटन: भाषा-टैब खोलकर खोज-डिब्बे पर।
@@ -23,9 +23,11 @@ const MARK = "bhasha-khoj v1.0";
 const w = {};
 new Function("window", "self", fs.readFileSync(path.join(ROOT, "assets/courses_data.js"), "utf8") + ";window.__P=PRIVATE_JOB_COURSES;")(w, w);
 const byId = {}; w.__P.forEach(c => { if (c && c.id) byId[c.id] = c; });
-let all = 0, gold = 0, intro = 0;
-w.KKB_GROUPS.forEach(g => g.ids.forEach(id => { const c = byId[id]; if (!c) throw new Error("data में नहीं: " + id); all++; const n = c.name_hi || ""; if (n.indexOf("प्रमाणपत्र कोर्स") > -1) gold++; else if (n.indexOf("परिचय-कोर्स") > -1) intro++; }));
-const T_ALL = all + " भाषाओं के कोर्स", T_GOLD = gold + " भाषाओं का पूरा कोर्स", T_INTRO = intro + " भाषाओं का परिचय-कोर्स";
+/* v1.1: भाषा = कड़ी /courses/hi/bhasha/ के नीचे; बाक़ी (कैथी, तिरहुता) लिपि-कोर्स, भाषा नहीं */
+const isLang = c => /^\/courses\/hi\/bhasha\//.test(c.url || "");
+let all = 0, gold = 0, intro = 0, lipi = 0;
+w.KKB_GROUPS.forEach(g => g.ids.forEach(id => { const c = byId[id]; if (!c) throw new Error("data में नहीं: " + id); if (!isLang(c)) { lipi++; return; } all++; const n = c.name_hi || ""; if (n.indexOf("प्रमाणपत्र कोर्स") > -1) gold++; else if (n.indexOf("परिचय-कोर्स") > -1) intro++; }));
+const T_ALL = all + " भाषाओं के कोर्स", T_GOLD = gold + " भाषाओं का पूरा कोर्स", T_INTRO = intro + " भाषाओं का परिचय-कोर्स", T_LIPI = lipi + " पुरानी लिपियों";
 
 function rep(old, neu) {
   const n = s.split(old).length - 1;
@@ -48,7 +50,7 @@ if (s.indexOf(MARK) < 0) {
     '    </div>\n');
   /* 3 */
   rep('      <div class="bh-sub">दुनिया की 130 भाषाएँ। 135 भाषाओं का पूरा कोर्स तैयार है — हर भाषा में <b>90 दिन · 2,150 वाक्य</b> · ऑनलाइन परीक्षा · प्रमाणपत्र (CEFR A2 पर आधारित)। नीचे कार्ड दबाओ, आज ही शुरू करो।</div>\n',
-    '      <div class="bh-sub">यहाँ <span id="bhAllTxt">' + T_ALL + '</span> हैं: <span id="bhGoldTxt">' + T_GOLD + '</span> और <span id="bhIntroTxt">' + T_INTRO + '</span>। हर बोलचाल-कोर्स में <b>90 दिन · 2,150 वाक्य</b>, ऑनलाइन परीक्षा और प्रमाणपत्र (CEFR A2 पर आधारित)। नीचे भाषा का नाम लिखो या कार्ड दबाओ। कार्ड सीधे पहला पाठ खोलता है।</div>\n');
+    '      <div class="bh-sub">यहाँ <span id="bhAllTxt">' + T_ALL + '</span> हैं: <span id="bhGoldTxt">' + T_GOLD + '</span> और <span id="bhIntroTxt">' + T_INTRO + '</span>। साथ में <span id="bhLipiTxt">' + T_LIPI + '</span> के कोर्स भी हैं। हर बोलचाल-कोर्स में <b>90 दिन · 2,150 वाक्य</b>, ऑनलाइन परीक्षा और प्रमाणपत्र (CEFR A2 पर आधारित)। नीचे भाषा का नाम लिखो या कार्ड दबाओ। कार्ड सीधे पहला पाठ खोलता है।</div>\n');
   /* CSS */
   rep('.bh-sub{font-size:18px;color:#0B1F3A;line-height:1.7;max-width:820px;margin:0 auto 6px}\n',
     '.bh-sub{font-size:18px;color:#0B1F3A;line-height:1.7;max-width:820px;margin:0 auto 6px}\n' +
@@ -92,10 +94,10 @@ if (s.indexOf(MARK) < 0) {
     "/* भाषा-गिनती data से (पन्ने का वाक्य कभी पुराना न रहे) */\n" +
     "function bhCounts(){\n" +
     "  if(typeof KKB_GROUPS==='undefined') return 0;\n" +
-    "  var all=0,gold=0,intro=0; KKB_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ var c=kkbCourse(id); if(!c) return; all++; var n=c.name_hi||''; if(n.indexOf('प्रमाणपत्र कोर्स')>-1) gold++; else if(n.indexOf('परिचय-कोर्स')>-1) intro++; }); });\n" +
+    "  var tot=0,all=0,gold=0,intro=0,lipi=0; KKB_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ var c=kkbCourse(id); if(!c) return; tot++; if(!/^\\/courses\\/hi\\/bhasha\\//.test(c.url||'')){ lipi++; return; } all++; var n=c.name_hi||''; if(n.indexOf('प्रमाणपत्र कोर्स')>-1) gold++; else if(n.indexOf('परिचय-कोर्स')>-1) intro++; }); });\n" +
     "  var set=function(id,t){ var e=document.getElementById(id); if(e) e.textContent=t; };\n" +
-    "  set('bhAllTxt',all+' भाषाओं के कोर्स'); set('bhGoldTxt',gold+' भाषाओं का पूरा कोर्स'); set('bhIntroTxt',intro+' भाषाओं का परिचय-कोर्स');\n" +
-    "  return all;\n" +
+    "  set('bhAllTxt',all+' भाषाओं के कोर्स'); set('bhGoldTxt',gold+' भाषाओं का पूरा कोर्स'); set('bhIntroTxt',intro+' भाषाओं का परिचय-कोर्स'); set('bhLipiTxt',lipi+' पुरानी लिपियों'); set('bhBigNum',String(all)); set('bhGoldNum',String(gold));\n" +
+    "  return tot; /* \"सब\" बटन: हर कार्ड (भाषाएँ + लिपियाँ) */\n" +
     "}\n" +
     "/* \"अपनी भाषा चुनो\" बटन: भाषा-टैब खोलो, खोज-डिब्बे पर ले जाओ (कीबोर्ड अपने-आप नहीं खुलता: बच्चा चाहे तो नीचे के कार्ड भी देख सके) */\n" +
     "function bhKhojFocus(){\n" +
@@ -125,19 +127,46 @@ if (s.indexOf(MARK) < 0) {
     "window.addEventListener('scroll',()=>{ const b=document.getElementById('scrollTop'); if(b) b.classList.toggle('show',window.scrollY>300); }); /* 24-Nov: scrollTop बटन पन्ने पर नहीं, हर scroll पर त्रुटि आती थी */");
 }
 
+/* v1.1 (24-Nov-2026, Founder: "अब 130 भाषा का कोई लॉजिक नहीं"): पहले से बने पन्ने को नई गिनती पर लाओ */
+const JS_OLD = ["  var all=0,gold=0,intro=0; KKB_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ var c=kkbCourse(id); if(!c) return; all++; var n=c.name_hi||''; if(n.indexOf('प्रमाणपत्र कोर्स')>-1) gold++; else if(n.indexOf('परिचय-कोर्स')>-1) intro++; }); });\n",
+  "  set('bhAllTxt',all+' भाषाओं के कोर्स'); set('bhGoldTxt',gold+' भाषाओं का पूरा कोर्स'); set('bhIntroTxt',intro+' भाषाओं का परिचय-कोर्स');\n  return all;\n"];
+const JS_NEW = ["  var tot=0,all=0,gold=0,intro=0,lipi=0; KKB_GROUPS.forEach(function(g){ g.ids.forEach(function(id){ var c=kkbCourse(id); if(!c) return; tot++; if(!/^\\/courses\\/hi\\/bhasha\\//.test(c.url||'')){ lipi++; return; } all++; var n=c.name_hi||''; if(n.indexOf('प्रमाणपत्र कोर्स')>-1) gold++; else if(n.indexOf('परिचय-कोर्स')>-1) intro++; }); });\n",
+  "  set('bhAllTxt',all+' भाषाओं के कोर्स'); set('bhGoldTxt',gold+' भाषाओं का पूरा कोर्स'); set('bhIntroTxt',intro+' भाषाओं का परिचय-कोर्स'); set('bhLipiTxt',lipi+' पुरानी लिपियों'); set('bhBigNum',String(all)); set('bhGoldNum',String(gold));\n  return tot; /* \"सब\" बटन: हर कार्ड (भाषाएँ + लिपियाँ) */\n"];
+JS_OLD.forEach((o, i) => { if (s.indexOf(o) > -1) rep(o, JS_NEW[i]); });
+if (s.indexOf('id="bhLipiTxt"') < 0 && s.split('<span id="bhIntroTxt">').length !== 2) throw new Error("bhIntroTxt ठीक एक बार नहीं");
+if (s.indexOf('id="bhLipiTxt"') < 0) s = s.replace(/(<span id="bhIntroTxt">[^<]*<\/span>। )/, '$1साथ में <span id="bhLipiTxt">' + T_LIPI + '</span> के कोर्स भी हैं। ');
+/* ऊपर का बड़ा अंक, title, og:title, ItemList: भाषाओं की गिनती data से (पुराना 130) */
+if (s.indexOf('<span class="h130-num">130</span>') > -1) rep('<span class="h130-num">130</span>', '<span class="h130-num" id="bhBigNum">' + all + '</span>');
+s = s.replace(/<span class="h130-num" id="bhBigNum">\d+<\/span>/, '<span class="h130-num" id="bhBigNum">' + all + "</span>");
+if ((s.match(/\d+ भाषाएँ बोलना सीखो/g) || []).length !== 3) throw new Error("'N भाषाएँ बोलना सीखो' 3 जगह (title, og:title, ItemList) नहीं");
+s = s.replace(/\d+ भाषाएँ बोलना सीखो/g, all + " भाषाएँ बोलना सीखो");
+if ((s.match(/दुनिया की \d+ भाषाएँ/g) || []).length !== 2) throw new Error("'दुनिया की N भाषाएँ' 2 जगह (description, og:description) नहीं");
+s = s.replace(/दुनिया की \d+ भाषाएँ/g, "दुनिया की " + all + " भाषाएँ");
+/* ChatGPT ऑडिट S130 (24-Nov-2026): description और og:description में भी "हर भाषा का 90-दिन कोर्स" था; 25 परिचय-कोर्स में 90 दिन नहीं।
+   अब "N भाषाओं का 90-दिन कोर्स", N = पूरे कोर्स की गिनती (catalog-वर्गीकरण; मूल-वक्ता या शैक्षणिक सत्यापन का दावा नहीं) */
+s = s.split("भाषाएँ — हर भाषा का 90-दिन कोर्स").join("भाषाएँ — " + gold + " भाषाओं का 90-दिन कोर्स");
+if ((s.match(/भाषाएँ — \d+ भाषाओं का 90-दिन कोर्स/g) || []).length !== 2) throw new Error("'N भाषाओं का 90-दिन कोर्स' 2 जगह (description, og:description) नहीं");
+s = s.replace(/भाषाएँ — \d+ भाषाओं का 90-दिन कोर्स/g, "भाषाएँ — " + gold + " भाषाओं का 90-दिन कोर्स");
+s = s.replace("/* 13-Sep SEO: 130 भाषा-कोर्स की ItemList", "/* 13-Sep SEO: भाषा-कोर्स की ItemList");
+if (s.indexOf("set('bhGoldNum',String(gold));") < 0) rep("set('bhBigNum',String(all));", "set('bhBigNum',String(all)); set('bhGoldNum',String(gold));");
+/* ऊपर का दावा "हर भाषा का पूरा कोर्स" अब सच नहीं (415 में 25 परिचय-कोर्स हैं, 90 दिन वाले नहीं): पूरे कोर्स की गिनती data से */
+if (s.indexOf('<p class="h130-claim">हर भाषा का पूरा कोर्स — ') > -1) rep('<p class="h130-claim">हर भाषा का पूरा कोर्स — ', '<p class="h130-claim"><span id="bhGoldNum">' + gold + '</span> भाषाओं का पूरा कोर्स — ');
+s = s.replace(/<span id="bhGoldNum">\d+<\/span>/, '<span id="bhGoldNum">' + gold + "</span>");
+
 /* गिनती हर बार data से मिलाओ (data बदले तो पन्ना भी) */
 s = s.replace(/<span id="bhAllTxt">[^<]*<\/span>/, '<span id="bhAllTxt">' + T_ALL + "</span>")
   .replace(/<span id="bhGoldTxt">[^<]*<\/span>/, '<span id="bhGoldTxt">' + T_GOLD + "</span>")
-  .replace(/<span id="bhIntroTxt">[^<]*<\/span>/, '<span id="bhIntroTxt">' + T_INTRO + "</span>");
+  .replace(/<span id="bhIntroTxt">[^<]*<\/span>/, '<span id="bhIntroTxt">' + T_INTRO + "</span>")
+  .replace(/<span id="bhLipiTxt">[^<]*<\/span>/, '<span id="bhLipiTxt">' + T_LIPI + "</span>");
 
 /* पूरी हालत की जाँच (exact-state): हर नया टुकड़ा ठीक एक बार, हर पुराना शून्य */
 const must1 = ['<script src="/assets/bhasha_khoj_data.js"></script>', '<script src="/assets/bhasha-khoj.js"></script>', 'id="bhKhoj"', 'id="bhashaSearch"', 'id="bhKhojOut"', 'id="bhKhojClear"',
-  'id="bhAllTxt"', 'id="bhGoldTxt"', 'id="bhIntroTxt"', "function bhKhojMount(){", "try{ window.__bhK=window.BhashaKhoj.mount(", "function bhCounts(){", "function bhTabTop(){", "function bhKhojFocus(){", "  bhKhojMount();\n", "+'#shuru'", "if(window.__acsInitDone) return;", "window.__acsInitDone = 1;"];
+  'id="bhAllTxt"', 'id="bhGoldTxt"', 'id="bhIntroTxt"', 'id="bhLipiTxt"', 'id="bhBigNum"', 'id="bhGoldNum"', "set('bhBigNum',String(all)); set('bhGoldNum',String(gold));", "return tot;", "function bhKhojMount(){", "try{ window.__bhK=window.BhashaKhoj.mount(", "function bhCounts(){", "function bhTabTop(){", "function bhKhojFocus(){", "  bhKhojMount();\n", "+'#shuru'", "if(window.__acsInitDone) return;", "window.__acsInitDone = 1;"];
 must1.forEach(x => { const n = s.split(x).length - 1; if (n !== 1) throw new Error("नया टुकड़ा " + n + " बार (1 चाहिए): " + x); });
 if ((s.match(/onclick="bhKhojFocus\(\)"/g) || []).length !== 2) throw new Error("bhKhojFocus बटन 2 नहीं");
-["🌍 सब 130", "window.__bhK=BhashaKhoj.mount(", 'class="search-wrap bh-search"', "135 भाषाओं का पूरा कोर्स", "document.getElementById('scrollTop').classList"].forEach(x => { if (s.indexOf(x) > -1) throw new Error("पुराना टुकड़ा बचा: " + x); });
+["🌍 सब 130", "130 भाषाएँ", "हर भाषा का पूरा कोर्स", "हर भाषा का 90-दिन", "दुनिया की 130", "var all=0,gold=0,intro=0;", "window.__bhK=BhashaKhoj.mount(", 'class="search-wrap bh-search"', "135 भाषाओं का पूरा कोर्स", "document.getElementById('scrollTop').classList"].forEach(x => { if (s.indexOf(x) > -1) throw new Error("पुराना टुकड़ा बचा: " + x); });
 const iD = s.indexOf('<script src="/assets/bhasha_khoj_data.js">'), iE = s.indexOf('<script src="/assets/bhasha-khoj.js">'), iC = s.indexOf('<script src="/assets/courses_data.js">'), iI = s.indexOf("function bhKhojMount");
 if (!(iC < iD && iD < iE && iE < iI)) throw new Error("script-क्रम ग़लत (courses_data → khoj_data → khoj → inline चाहिए)");
 
 if (s !== before) { fs.writeFileSync(F, s); console.log("✅ लिखा: courses/hi/index.html"); } else console.log("बदलाव नहीं: courses/hi/index.html");
-console.log("भाषाएँ " + all + " · पूरा कोर्स " + gold + " · परिचय-कोर्स " + intro);
+console.log("भाषाएँ " + all + " · पूरा कोर्स " + gold + " · परिचय-कोर्स " + intro + " · लिपि-कोर्स " + lipi);

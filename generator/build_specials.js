@@ -3841,7 +3841,7 @@ const OLD_MAP = {
 buildSpecial({
   out: "404.html", langStrict: false, robots: "noindex, follow",
   title: "पेज नहीं मिला — अप्लाइड कंप्यूटर स्कूल",
-  desc: "यह पता site पर नहीं है। होम, 130 भाषा-कोर्स, 950 उद्यम या संपर्क पर जाएँ।",
+  desc: "यह पता site पर नहीं है। होम, भाषा-कोर्स, 950 उद्यम या संपर्क पर जाएँ।",
   head: ['<script>(function(){var p=location.pathname.replace(/index\\.html$/,"");if(!/\\/$/.test(p))p+="/";var M=' + JSON.stringify(OLD_MAP) + ';var t=M[p]||M[p.replace(/\\/$/,"")+"/"];if(t){location.replace(t+location.search+location.hash);}})();</script>'],
   foot: [],
   content: '<section style="max-width:720px;margin:24px auto;padding:0 16px;text-align:center">' +
@@ -3849,7 +3849,7 @@ buildSpecial({
     '<p style="font-size:19px;line-height:1.7;color:#F5F7FA">जो पता आपने खोला, वह site पर नहीं है — शायद पुराना हो गया या टाइप में चूक हुई। नीचे से आगे बढ़ें।</p>' +
     '<div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:18px 0">' +
     '<a href="/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#F9A825;color:#0B1F3A;text-decoration:none">🏠 होम</a>' +
-    '<a href="/courses/hi/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#2E7D32;color:#fff;text-decoration:none">🗣️ 130 भाषा-कोर्स</a>' +
+    '<a href="/courses/hi/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#2E7D32;color:#fff;text-decoration:none">🗣️ भाषा-कोर्स</a>' +
     '<a href="/udyam/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#1565C0;color:#fff;text-decoration:none">🌍 950 उद्यम</a>' +
     '<a href="/contact/hi/" style="font-size:20px;font-weight:900;padding:14px 22px;border-radius:14px;background:#F5F7FA;color:#0B1F3A;text-decoration:none">📞 संपर्क</a>' +
     '</div><p style="font-size:16px;color:#F5F7FA;opacity:.85">मूल भाषा: हिंदी</p></section>'
