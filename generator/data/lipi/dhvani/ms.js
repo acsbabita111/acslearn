@@ -37,7 +37,8 @@ module.exports = {
   srot: {
     wiki: { naam: "विकिपीडिया: मलय की आवाज़ें (Malay phonology)", url: "https://en.wikipedia.org/wiki/Malay_phonology" },
     elon: { naam: "elon.io: पेपेत और तालिंग, जावी लिखाई के साथ", url: "https://elon.io/grammar/malay/jawi-script/e-vowels" },
-    rumijawi: { naam: "rumi-jawi: मलय शब्दों की रूमी और जावी वर्तनी (GitHub)", url: "https://github.com/goodmami/rumi-jawi" }
+    rumijawi: { naam: "rumi-jawi: मलय शब्दों की रूमी और जावी वर्तनी (GitHub)", url: "https://github.com/goodmami/rumi-jawi" },
+    wikt: { naam: "विक्षनरी: मलय शब्दों का उच्चारण", url: "https://en.wiktionary.org/wiki/belok#Malay" }
   },
 
   samuh: [
@@ -58,7 +59,7 @@ module.exports = {
       matbhed: "मलेशिया की आम बोली में शब्द के अंत का {a} अक्सर हल्के अ जैसा सुनाई देता है, जैसे {apa}। कोर्स में वहाँ आ लिखा है, जो किताबी उच्चारण है। दोनों समझे जाते हैं।" },
     { g: "e", ipa: "ə", dev: "अ", grp: "swar", src: ["wiki", "elon"], chinh: "पहली आवाज़", hindi: "अब", kaise: "मुँह ढीला रखो और छोटा अ बोलो।",
       dhyan: "व्यंजन के बाद यह कोई मात्रा नहीं बनाता: {kerja} = कर्जा।" },
-    { g: "é", ipa: "e", dev: "ए", grp: "swar", src: ["wiki", "elon", "rumijawi"], chinh: "दूसरी आवाज़", hindi: "केला", kaise: "होंठ थोड़े फैलाओ और ए बोलो।",
+    { g: "é", ipa: "e", dev: "ए", grp: "swar", src: ["wiki", "elon", "rumijawi", "wikt"], chinh: "दूसरी आवाज़", hindi: "केला", kaise: "होंठ थोड़े फैलाओ और ए बोलो।",
       dhyan: "लिखने में यह भी {e} ही है। किस शब्द में यह आवाज़ है, यह शब्द के साथ याद करना पड़ता है। शब्दकोश इसे {é} लिखकर दिखाते हैं।" },
     { g: "i", ipa: "i", dev: "इ", grp: "swar", src: ["wiki"], hindi: "दिन", kaise: "होंठ फैलाओ, जैसे मुस्कुराते समय।",
       dhyan: "शब्द के अंत में कोर्स में इसे ी लिखा है, जैसे {lagi} = लागी। मलय में छोटे और लंबे स्वर का फ़र्क़ नहीं होता।" },
@@ -134,15 +135,14 @@ module.exports = {
     { l: "gh", sirf: [], baat: "{gh} (ग़) भी इस कोर्स के शब्दों में नहीं है। यह अरबी से आए कुछ शब्दों में आता है।", src: ["wiki"] }
   ],
 
-  /* अभी पक्का नहीं: पन्ने पर साफ़ लिखा जाता है */
-  baaki: [
-    { baat: "{belok}, {beri} और {semak} में {e} की आवाज़ स्रोतों में दो तरह की मिली। इसलिए ये शब्द अभी उदाहरण नहीं बने।" }
-  ],
+  /* अभी पक्का नहीं: पन्ने पर साफ़ लिखा जाता है। 23-Nov-2026 (यंत्र v1.2): belok, beri, semak की आवाज़ विक्षनरी के उच्चारण से तय हुई
+     (belok, semak = ए; beri = अ), इसलिए यहाँ अब कुछ बाक़ी नहीं। */
+  baaki: [],
 
   /* अंक: मलय नाम कोर्स से (empat और sembilan स्तर-2 से)। यंत्र हर नाम का हिंदी अर्थ मिलाता है */
   ank: ["kosong", "satu", "dua", "tiga", "empat", "lima", "enam", "tujuh", "lapan", "sembilan"],
 
-  /* ये शब्द उदाहरण नहीं बनते: अंग्रेज़ी शब्द जिनका कोर्स-उच्चारण अक्षर-दर-अक्षर है, संक्षेप, और जिनका e पक्का नहीं */
+  /* ये शब्द उदाहरण नहीं बनते: अंग्रेज़ी शब्द, संक्षेप, और जिनका e पक्का नहीं (यंत्र की SANDEH) */
   mat: ["okay", "overtime", "rupee", "sim", "pin"].concat(Y.SANDEH),
 
   naamLikho: ["Ram", "Sita", "Mohan"]

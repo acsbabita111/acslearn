@@ -1,4 +1,4 @@
-/* dhvani_yantra/ms.js v1.0 · 23-Nov-2026 : मलय (रूमी लिपि) का उच्चारण-यंत्र, ध्वनि-कार्ड पन्ने के लिए (परत-4)
+/* dhvani_yantra/ms.js v1.2 · 23-Nov-2026 (v1.1: स्तर-2 के तालिंग शब्द; v1.2: दो-वर्तनी वाले शब्द विक्षनरी के उच्चारण से तय; v1.0 उसी दिन) : मलय (रूमी लिपि) का उच्चारण-यंत्र, ध्वनि-कार्ड पन्ने के लिए (परत-4)
    काम: graphemes(शब्द) = शब्द के आवाज़-टुकड़े; word(शब्द) = देवनागरी उच्चारण, मलय कोर्स स्तर-1 की छपाई-रीति से।
    कोर्स स्तर-1 की रीति (29-Oct-2026 के नियम-आधारित यंत्र से छपी; 500 वाक्यों के 437 शब्दों से मिलाकर पक्की की):
      1) व्यंजन के बाद a = ा। पर शब्द के आख़िरी टुकड़े में a के बाद सिर्फ़ एक व्यंजन हो, तो a छोटा (अ) छपा है: datang = दातङ्।
@@ -8,7 +8,9 @@
    e की दो आवाज़ें (मलय की असली रीति): e पेपेत = अ (व्यंजन के बाद मात्रा नहीं); e तालिंग = ए।
      कौन-सा e तालिंग है, यह शब्द देखकर तय होता है। स्रोत: जावी (अरबी-लिपि मलय) वर्तनी, जहाँ तालिंग e के लिए
      "या" (ي) लिखा जाता है और पेपेत e नहीं लिखा जाता (rumi-jawi सूची, DBP शब्दकोशों से बनी)। सूची: TALING नीचे।
-     जिन शब्दों की जावी वर्तनी दो तरह की मिली, वे SANDEH में हैं: यंत्र उन्हें पेपेत पढ़ता है, पर वे उदाहरण नहीं बनते।
+     जिन शब्दों की जावी वर्तनी दो तरह की मिली, उनकी आवाज़ विक्षनरी (Wiktionary) के उच्चारण से तय की (v1.2):
+       तालिंग: belok /belok/, semak (जाँचना) जावी سيمق, merah /ˈmerah/ ميره। पेपेत: beri /bəˈri/, kena /kəˈna/, tenang /təˈnaŋ/।
+     जो अब भी पक्का नहीं, वह SANDEH में है (pelan: दो अर्थ, दो आवाज़ें; कोर्स में नहीं): यंत्र पेपेत पढ़ता है, पर वह उदाहरण नहीं बनता।
    जोड़-स्वर ai, au, oi सिर्फ़ शब्द के अंत में, खुले टुकड़े में एक टुकड़ा हैं (kedai, atau)। बीच में a और i अलग स्वर हैं (baik = ba-ik),
      और एक-टुकड़े वाले शब्द में भी अलग (bau = ba-u)। स्रोत: विकिपीडिया "Malay phonology", जोड़-स्वर वाला हिस्सा।
    कोई Math.random नहीं। */
@@ -16,9 +18,18 @@
 const TALING = {
   esok: "T", rehat: "T", stesen: "TT", telefon: "TT", beg: "T", teh: "T", boleh: "T", bolehkah: "T", tiket: "T", kereta: "PT",
   sewa: "T", elektrik: "TT", internet: "PT", mesin: "T", teksi: "T", keledar: "PT", lesen: "TT", mengecewakan: "PPT",
-  helo: "T", menelefon: "PTT", meter: "TP", elektrod: "TT", topeng: "T", simen: "T"
+  helo: "T", menelefon: "PTT", meter: "TP", elektrod: "TT", topeng: "T", simen: "T",
+  /* v1.1 (23-Nov-2026): कोर्स स्तर-2 के शब्द, उसी जावी-नियम से (बिना rumi-jawi प्रविष्टि वाले diperoleh, peroleh, letrik, tiketnya मूल शब्द से;
+     daerah की जावी داءيره में "या" है)। letakkan की जावी-प्रविष्टि ليتقکن मूल letak (لتق, पेपेत) से उलटी है: मूल शब्द माना (पेपेत)। */
+  bengkel: "TT", berbeza: "PT", berehat: "PT", berlesen: "PTT", cetakan: "T", daerah: "T", deposit: "T", destinasi: "T", dicetak: "T",
+  diperoleh: "PT", dompet: "T", dozen: "T", ejaan: "T", ejen: "TT", hotel: "T", identiti: "T", imigresen: "TT", istimewa: "T", kamera: "T", kem: "T",
+  kolej: "T", kriket: "T", letrik: "T", lewat: "T", loceng: "T", meja: "T", mekanik: "T", membebaskan: "PT", memori: "T", memperoleh: "PPT",
+  mentol: "T", menu: "T", mereka: "PT", mesej: "TT", model: "T", november: "TP", paket: "T", pendek: "TT", peroleh: "PT", poket: "T", segel: "TT",
+  serius: "T", set: "T", sewanya: "T", snek: "T", telefonnya: "TT", tempoh: "T", tengok: "T", tiketnya: "T", video: "T", web: "T", zebra: "T",
+  /* v1.2 (23-Nov-2026): जावी में दो वर्तनी, विक्षनरी के उच्चारण में तालिंग (सबूत SABOOT में) */
+  belok: "T", semak: "T", menyemak: "PT", merah: "T"
 };
-const SANDEH = ["belok", "beri", "semak"];
+const SANDEH = ["pelan"];   /* अब भी पक्का नहीं: यंत्र पेपेत पढ़ता है, उदाहरण नहीं बनता (v1.1 में 8 शब्द थे; 7 विक्षनरी से तय) */
 const DIG = ["ng", "ny", "sy", "kh", "gh"];
 const VOW = { a: 1, e: 1, "é": 1, i: 1, o: 1, u: 1, ai: 1, au: 1, oi: 1 };
 const CON = { b: "ब", c: "च", d: "द", f: "फ़", g: "ग", h: "ह", j: "ज", k: "क", l: "ल", m: "म", n: "न", p: "प", q: "क", r: "र", s: "स", t: "त", v: "व", w: "व", x: "क्स", y: "य", z: "ज़",
@@ -66,4 +77,4 @@ function word(w) {
   return o;
 }
 
-module.exports = { graphemes: graphemes, word: word, unit: unit, TALING: TALING, SANDEH: SANDEH, VER: "1.0" };
+module.exports = { graphemes: graphemes, word: word, unit: unit, TALING: TALING, SANDEH: SANDEH, VER: "1.2" };
