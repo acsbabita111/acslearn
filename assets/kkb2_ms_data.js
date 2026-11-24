@@ -3,7 +3,7 @@ window.KKB2_DATA = {
  "heroSub": "मलय (Bahasa Melayu) बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2",
  "module": "Sijil Bahasa Melayu Lisan — मलय बोलने का प्रमाणपत्र कोर्स (स्तर-2)",
  "level": "CEFR स्तर A2 पर आधारित",
- "version": "1.1 · 23-Nov-2026: देवनागरी उच्चारण स्तर-1 वाले यंत्र से (generator/dhvani_yantra/ms.js) · पहले: 1.0 (04-Sep, master-mirror — 13 सप्ताह · 1,650 वाक्य · अगली-8 खेप का चौथा)",
+ "version": "1.1 · 23-Nov-2026: देवनागरी उच्चारण स्तर-1 वाले यंत्र से (यंत्र: dhvani_yantra/ms.js) · पहले: 1.0 (04-Sep, master-mirror — 13 सप्ताह · 1,650 वाक्य · अगली-8 खेप का चौथा)",
  "lang": {
   "code": "ms",
   "label": "मलय",

@@ -1,6 +1,6 @@
 window.KKB_DATA = {
  "module": "ACS काम की भाषा — German for Work",
- "version": "1.1 · 24-Nov-2026: देवनागरी उच्चारण विक्षनरी के IPA से, एक यंत्र से (generator/dhvani_yantra/de.js) · पहले: 1.0",
+ "version": "1.1 · 24-Nov-2026: देवनागरी उच्चारण विक्षनरी के IPA से, एक यंत्र से (यंत्र: dhvani_yantra/de.js) · पहले: 1.0",
  "lang": {
   "code": "de",
   "label": "जर्मन",

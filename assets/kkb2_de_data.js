@@ -3,7 +3,7 @@ window.KKB2_DATA = {
  "heroSub": "जर्मन बोलने का पूरा कोर्स — एक ही जगह, स्तर 1 + 2",
  "module": "Deutsches Sprechzertifikat — जर्मन बोलने का प्रमाणपत्र कोर्स (स्तर-2)",
  "level": "CEFR स्तर A2 पर आधारित",
- "version": "2.1 · 24-Nov-2026: देवनागरी उच्चारण विक्षनरी के IPA से, एक यंत्र से (generator/dhvani_yantra/de.js) · पहले: 2.0-FINAL (master frozen — 13 सप्ताह · 1,650 वाक्य · A/B/C · listen+dialog हर सप्ताह)",
+ "version": "2.1 · 24-Nov-2026: देवनागरी उच्चारण विक्षनरी के IPA से, एक यंत्र से (यंत्र: dhvani_yantra/de.js) · पहले: 2.0-FINAL (master frozen — 13 सप्ताह · 1,650 वाक्य · A/B/C · listen+dialog हर सप्ताह)",
  "lang": {
   "code": "de",
   "label": "जर्मन",

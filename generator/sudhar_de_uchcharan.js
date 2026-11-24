@@ -1,4 +1,6 @@
 /* sudhar_de_uchcharan.js v1.0 · 24-Nov-2026 : जर्मन कोर्स (स्तर-1 और स्तर-2) का देवनागरी-उच्चारण विक्षनरी के उच्चारण से, एक ही यंत्र से।
+   v1.0.1 · 24-Nov-2026: संस्करण-नोट में "(generator/…)" की जगह "(यंत्र: …)"। website-पहरेदार (dev_pages_size_check)
+   उसे बाहर-रखे folder की फ़ाइल-माँग समझता था (SEO-pahredar लाल)। उच्चारण, वाक्य, अर्थ: कुछ नहीं बदला।
    Founder (24-Nov-2026): "क्या जर्मन कोर्स की देवनागरी विक्षनरी के उच्चारण से दोबारा बनाऊँ? - हाँ"।
    कमी: पुरानी देवनागरी हाथ से और कई रीतियों में थी (gut = गुत पर Arbeiter = आर्बाइटर; Freund = फ़्रोइन्त, freut = फ़्रोएत;
         ü कहीं उ, कहीं यु, कहीं यू; ö = ॉ; ich = इष़; Deutsch = दोयच)।
@@ -43,7 +45,7 @@ function dev(s) {
 
 const FILES = [["assets/kkb_de_data.js", "KKB_DATA"], ["assets/kkb2_de_data.js", "KKB2_DATA"]];
 let total = 0; const log = []; const perF = {};
-const VTXT = " · 24-Nov-2026: देवनागरी उच्चारण विक्षनरी के IPA से, एक यंत्र से (generator/dhvani_yantra/de.js) · पहले: ";
+const VTXT = " · 24-Nov-2026: देवनागरी उच्चारण विक्षनरी के IPA से, एक यंत्र से (यंत्र: dhvani_yantra/de.js) · पहले: ";
 const out = FILES.map(([rel, key]) => {
   const src = fs.readFileSync(path.join(ROOT, rel), "utf8");
   const w = {}; new Function("window", "self", "module", src + ";")(w, w, {});
