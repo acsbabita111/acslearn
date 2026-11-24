@@ -1,4 +1,4 @@
-/* /assets/kkb2.css — v2.3 (30-Aug-2026) · center-align + तीनों पंक्तियाँ बराबर 22px, भेद सिर्फ़ रंग से: English नेवी · उच्चारण नीला · अर्थ हरा (Founder-सुझाव) · ACS Spoken English 90-दिन — नया रूप
+/* /assets/kkb2.css — v2.4 (24-Nov-2026) · मुख्य बटन पूरी चौड़ाई (.kkb2-start) · v2.3 (30-Aug-2026) · center-align + तीनों पंक्तियाँ बराबर 22px, भेद सिर्फ़ रंग से: English नेवी · उच्चारण नीला · अर्थ हरा (Founder-सुझाव) · ACS Spoken English 90-दिन — नया रूप
    ACS-5 रंग ही · कुछ भी <16px नहीं · Android-8 सुरक्षित (सादा CSS, कोई grid/var नहीं) */
 .kkb2-app{max-width:600px;margin:14px auto 48px;padding:0 12px;font-family:'Noto Sans Devanagari',Inter,sans-serif}
 #kkb2-app{min-height:100vh} /* 13-Sep ऑडिट H2: JS-content आने से पहले footer ऊपर न आए — CLS 0.66 → 0 */
@@ -98,6 +98,8 @@
 
 /* ---- बटन ---- */
 .kkb2-btn{display:inline-block;border:0;border-radius:12px;background:#1565C0;color:#fff;font-size:18px;font-weight:700;padding:12px 16px;margin:4px 8px 4px 0;cursor:pointer;font-family:inherit;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+/* v2.4 (24-Nov-2026): सबसे ज़रूरी बटन ("पहला पाठ शुरू करो", "अगला दिन") पूरी चौड़ाई में, अपनी पंक्ति में: बच्चे को एक ही बड़ा रास्ता दिखे; बाएँ के छोटे तैरते बटन लिखावट न ढकें */
+.kkb2-btn.kkb2-start{display:block;width:100%;margin:6px 0 10px;text-align:center}
 .kkb2-btn.gold{background:#F9A825;color:#0B1F3A}
 .kkb2-btn.green{background:#2E7D32}
 .kkb2-btn.ghost{background:#fff;color:#0B1F3A;border:2px solid #0B1F3A;box-shadow:none}

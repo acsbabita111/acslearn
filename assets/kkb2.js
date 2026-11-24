@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/kkb2.js — v3.3 (29-Oct-2026) · हर 🔊 के साथ 🎙️ बोलो (Founder-नियम) · v3.2 (13-Sep-2026) · perso-arabic (उइघुर) RTL जुड़ा · v3.1 (01-Sep-2026) · हिब्रू RTL जुड़ा (9वीं भाषा)
+   /assets/kkb2.js — v3.4 (24-Nov-2026) · बच्चे के लिए सीधा पहला पाठ (+ 7 भाषाओं में स्तर-2 का 🎧 पन्ना टूटता था, अब नहीं): कोर्स-सूची का कार्ड (#shuru) सीधे अगला अधूरा दिन खोलता है; मुख्य बटन = "पहला पाठ शुरू करो (दिन 1)" / "आगे पढ़ो: दिन N"; दिन पूरा होने पर शाबाश-पन्ना + अगला दिन (सप्ताह का संवाद/टेस्ट बाक़ी हो तो वह पहले); #din-N से सीधे दिन N; ऊपर की चिपकी पट्टी के नीचे से दृश्य शुरू; #shuru वाला दिन DOMContentLoaded के बाद खुलता है, ताकि acs-translate.js बटनों के नाम न बदले (Founder 24-Nov: "12-13 साल का बच्चा पहला लेसन खोज नहीं पाता")
+   v3.3 (29-Oct-2026) · हर 🔊 के साथ 🎙️ बोलो (Founder-नियम) · v3.2 (13-Sep-2026) · perso-arabic (उइघुर) RTL जुड़ा · v3.1 (01-Sep-2026) · हिब्रू RTL जुड़ा (9वीं भाषा)
    v3.0 (31-Aug-2026) · भाषा-सामान्यीकरण: 8 भाषाएँ (en मास्टर + ar/fr/es/ja/ko/de/ru) — lang-meta data से; en-व्यवहार पहले जैसा · देवनागरी-native (ru) = hi-IN आवाज़ · जापानी (romaji) आवाज़ में कटे · अरबी RTL · ACS KKB मास्टर-इंजन — एक कोर्स, 90 दिन
    Founder-आदेश: L1 (500) + स्तर-2 (1,650) = 2,150 वाक्य एक-साथ; 3 महीने;
    महीना-1 = 20 वाक्य/दिन (ठीक 600) · महीना-2/3 = बढ़ती चाल (20→30)।
@@ -174,7 +175,16 @@
     var el = document.getElementById("ok-" + key); if (el) el.innerHTML = '<span class="kkb2-ok">बोला ✔</span>';
   };
 
-  function view(html) { ROOT.innerHTML = '<div class="kkb2-app" data-script="' + (LANG.script || "latin") + '">' + html + '</div>'; window.scrollTo(0, ROOT.offsetTop - 10); }
+  function topGap() { try { var nb = document.querySelector && (document.querySelector(".acs-nav") || document.querySelector(".navbar"));   /* ऊपर चिपकी पट्टी (acs-universal) */ return (nb && nb.offsetHeight ? nb.offsetHeight : 0) + 10; } catch (e) { return 10; } }
+  function toRoot() { window.scrollTo(0, Math.max(0, ROOT.offsetTop - topGap())); }
+  function view(html) { ROOT.innerHTML = '<div class="kkb2-app" data-script="' + (LANG.script || "latin") + '">' + html + '</div>'; toRoot(); }
+  /* v3.4: अगला अधूरा दिन (after = इस दिन के बाद वाला पहले; न हो तो शुरू से पहला अधूरा; सब पूरे = -1) */
+  function nextDay(after) {
+    var k, a = (typeof after === "number") ? after + 1 : 0;
+    for (k = a; k < TOTAL_DAYS; k++) if (!P.day[k + 1]) return k;
+    for (k = 0; k < Math.min(a, TOTAL_DAYS); k++) if (!P.day[k + 1]) return k;
+    return -1;
+  }
   function crumb(h) { return '<p class="kkb2-crumb">' + h + '</p>'; }
   function chipRow(it) {
     var pr = it[4], h = "";
@@ -243,8 +253,14 @@
       '<div class="kkb2-prog big"><i style="width:' + pct + '%"></i></div>' +
       '<div class="kkb2-hero-note">आपकी प्रगति: ' + dn + ' / ' + TOTAL_DAYS + ' दिन (' + pct + ' प्रतिशत)</div>' +
       '<div class="kkb2-rulebar">नियम: पहले सुनो 🔊 → साथ बोलो → फिर "मैंने बोला"। हर वाक्य पर आवाज़।</div>' +
-      '<div class="kkb2-row center"><button class="kkb2-btn gold big" onclick="kkb2Go(\'m\',0)">▶ आज की पढ़ाई शुरू करें</button>' +
-      '<button class="kkb2-btn ghost" onclick="kkb2Go(\'must\')">⭐ ज़रूर-बोलो (' + A_TOTAL + ')</button></div>' +
+      (function () {
+        var nx = nextDay();
+        var main = nx < 0 ? '<button class="kkb2-btn gold big" onclick="kkb2Go(\'m\',0)">🏆 सब दिन पूरे · दोहराओ</button>'
+          : '<button class="kkb2-btn gold big kkb2-start" onclick="kkb2Go(\'d\',' + nx + ')">' + (dn === 0 ? '▶ पहला पाठ शुरू करो (दिन 1)' : '▶ आगे पढ़ो: दिन ' + (nx + 1)) + '</button>';
+        return '<div class="kkb2-row center">' + main +
+          '<button class="kkb2-btn ghost" onclick="kkb2Go(\'m\',' + (nx < 0 ? 0 : monthOf(nx)) + ')">📅 सारे दिन देखो</button>' +
+          '<button class="kkb2-btn ghost" onclick="kkb2Go(\'must\')">⭐ ज़रूर-बोलो (' + A_TOTAL + ')</button></div>';
+      })() +
       '</div>';
     for (var m = 0; m < 3; m++) {
       var M = MONTHS[m], md = 0, g;
@@ -336,7 +352,26 @@
     }
     view(h);
   }
-  window.kkb2Done = function (g) { P.day[g + 1] = 1; save(); month(monthOf(g)); };
+  window.kkb2Done = function (g) { P.day[g + 1] = 1; save(); doneView(g); };
+  /* v3.4: दिन पूरा → शाबाश + अगला कदम (बच्चा सूची में न खोए) */
+  function doneView(g) {
+    var dn = doneDays(), pct = Math.round(dn * 100 / TOTAL_DAYS), r = DAYS[g], wk = r.src + "-" + r.wi, W = weekObj(r);
+    var h = crumb('<a onclick="kkb2Go(\'m\',' + monthOf(g) + ')" href="javascript:void(0)">← ' + MONTHS[monthOf(g)].hi.split("—")[0] + '</a>') +
+      '<div class="kkb2-card head kkb2-shabash"><h2>🎉 शाबाश! दिन ' + (g + 1) + ' पूरा हुआ।</h2>' +
+      '<div class="kkb2-prog big"><i style="width:' + pct + '%"></i></div>' +
+      '<p class="kkb2-muted">आपकी प्रगति: ' + dn + ' / ' + TOTAL_DAYS + ' दिन (' + pct + ' प्रतिशत)</p>';
+    var extra = "";
+    if (lastGOf(r.src, r.wi) === g) {
+      if (r.src === 2 && W.dialog && !P.dlg[wk]) extra += '<button class="kkb2-btn gold big" onclick="kkb2Go(\'dlg\',' + r.wi + ')">🗣️ अब सप्ताह का संवाद</button>';
+      if (W.test && !P.tst[wk]) extra += '<button class="kkb2-btn ' + (extra ? 'ghost' : 'gold big') + '" onclick="kkb2Go(\'t\',' + r.src + ',' + r.wi + ')">📞 सप्ताह-टेस्ट: असली फ़ोन</button>';
+      if (extra) h += '<p><b>यह सप्ताह का आख़िरी दिन था। अगला दिन खोलने से पहले यह करो:</b></p><div class="kkb2-row center">' + extra + '</div>';
+    }
+    var nx = nextDay(g);
+    if (nx >= 0) h += '<div class="kkb2-row center"><button class="kkb2-btn ' + (extra ? 'ghost' : 'gold big kkb2-start') + '" onclick="kkb2Go(\'d\',' + nx + ')">▶ अगला दिन: दिन ' + (nx + 1) + '</button></div><p class="kkb2-muted">दिन ' + (nx + 1) + ': ' + esc(dayObj(DAYS[nx]).title) + '</p>';
+    else h += '<p><b>🏆 आपने पूरे ' + TOTAL_DAYS + ' दिन पूरे कर लिए! अब ऑनलाइन परीक्षा दे सकते हो।</b></p>';
+    h += '<div class="kkb2-row center"><button class="kkb2-btn ghost" onclick="kkb2Go(\'m\',' + monthOf(nx >= 0 ? nx : g) + ')">📅 सारे दिन देखो</button><button class="kkb2-btn ghost" onclick="kkb2Go(\'home\')">🏠 कोर्स-घर</button></div></div>';
+    view(h);
+  }
 
   /* ---------- 🎧 (स्तर-2 दिन-अंत) ---------- */
   function listen(g) {
@@ -353,9 +388,12 @@
     }
     h += '<div class="kkb2-card"><h3>🎯 आज का बोलने-अभ्यास</h3><p>' + esc(D.drill.hi) + '</p>';
     for (var rr = 0; rr < D.drill.rows.length; rr++) {
-      var dl = D.drill.rows[rr].join(" ");
+      /* v3.4: 7 भाषाओं (zh id tr mai iba bew bbc) में अभ्यास-पंक्ति पूरा वाक्य (string) है, सूची नहीं: पहले .join पर यह पन्ना टूटता था
+         और स्तर-2 का कोई दिन पूरा नहीं होता था ("दिन पूरा हुआ" इसी पन्ने पर है) */
+      var row = D.drill.rows[rr]; if (!Array.isArray(row)) row = [String(row)];
+      var dl = row.join(" ");
       h += '<p class="kkb2-dline" data-bolo-host="1">';
-      for (var c = 0; c < D.drill.rows[rr].length; c++) h += (c ? " → " : "") + "<b>" + esc(D.drill.rows[rr][c]) + "</b>";
+      for (var c = 0; c < row.length; c++) h += (c ? " → " : "") + "<b>" + esc(row[c]) + "</b>";
       h += ' <button class="kkb2-btn mini" onclick="say2(this.getAttribute(\'data-t\'))" data-t="' + esc(dl) + '">🔊</button> <button class="kkb2-btn mini ghost" onclick="kkb2Bolo2(this)" data-t="' + esc(dl) + '">🎙️</button>';
       h += "</p>";
     }
@@ -416,5 +454,28 @@
     if (v === "home") home(); else if (v === "m") month(a); else if (v === "d") day(a);
     else if (v === "lis") listen(a); else if (v === "dlg") dialog(a); else if (v === "t") test(a, b); else if (v === "must") must();
   };
-  home();
+  /* v3.4: कोर्स-सूची के कार्ड से #shuru = सीधे अगला अधूरा दिन; #din-N = दिन N। बाक़ी सब पहले जैसा (कोर्स-घर) */
+  var START = -1;
+  try {
+    var HS = String((window.location && window.location.hash) || "");
+    if (HS === "#shuru") START = nextDay();
+    else { var MH = /^#din-(\d{1,3})$/.exec(HS); if (MH && +MH[1] >= 1 && +MH[1] <= TOTAL_DAYS) START = +MH[1] - 1; }
+  } catch (e) { START = -1; }
+  if (START >= 0) {
+    /* दिन DOMContentLoaded के बाद खोलो: पन्ने की acs-translate.js उसी समय हर [data-t] का लिखा बदल देती है
+       (दिन के 🔊/🐢/🎙️ बटनों पर data-t = वाक्य है, तो बटन पर पूरा वाक्य लिख जाता था)। तब तक कोर्स-घर दिखे। */
+    var opened = false;
+    var openDay = function () {
+      if (opened) return; opened = true;
+      day(START);
+      /* पन्ने की तस्वीरें/फ़ॉन्ट बाद में आएँ तो जगह खिसकती है: अगर बच्चे ने ख़ुद नहीं खिसकाया तो फिर से दिन पर ले जाओ */
+      try { var Y0 = window.pageYOffset || 0; window.addEventListener("load", function () { if (Math.abs((window.pageYOffset || 0) - Y0) < 80) toRoot(); }); } catch (e) { }
+    };
+    var RS = document.readyState;
+    if (RS === "loading" || RS === "interactive") {
+      home();
+      document.addEventListener("DOMContentLoaded", function () { setTimeout(openDay, 0); });
+      window.addEventListener("load", openDay);   /* बचाव: DOMContentLoaded पहले ही निकल गया हो */
+    } else openDay();
+  } else home();
 })();

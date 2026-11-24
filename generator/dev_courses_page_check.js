@@ -1,4 +1,4 @@
-/* dev_courses_page_check.js v1.2 (13-Sep-2026 रात: आलसी-render + 50-खेप जाँच, ऑडिट H1) · v1.1 (13-Sep-2026: तीन-लिपि कार्ड नियम t3/seal + नाम-एकरूपता + ACS-टैग निषेध) · v1.0 (10-Sep-2026) — /courses/hi/ पेज का असली-render check-robot
+/* dev_courses_page_check.js v1.3 (24-Nov-2026: भाषा-खोज के दो नए असेट पन्ने के script-क्रम में; असली mount + "japani" खोज नक़ली-DOM में; हर भाषा-कार्ड #shuru पर) · v1.2 (13-Sep-2026 रात: आलसी-render + 50-खेप जाँच, ऑडिट H1) · v1.1 (13-Sep-2026: तीन-लिपि कार्ड नियम t3/seal + नाम-एकरूपता + ACS-टैग निषेध) · v1.0 (10-Sep-2026) — /courses/hi/ पेज का असली-render check-robot
    जन्म-कारण: ALL27-शृंखला की courses_data में `}, , {` ख़ाली-slot (PJ138 हटाते-सरकाते छूटा) —
    node --check इसे वैध मानता है, data-गिनती वाले यंत्र इसे छोड़ देते हैं, पर browser में
    kkbCourse() की for-loop `undefined.id` पर टूटती है → renderBhasha रुका → init() अधूरा →
@@ -56,8 +56,8 @@ const fakeWin = { location: { hash: "", search: "", pathname: "/courses/hi/" }, 
 fakeWin.sessionStorage = fakeWin.localStorage;
 const fakeDoc = { getElementById: el, querySelectorAll() { return []; }, querySelector() { return null; }, addEventListener() {}, readyState: "complete", body: {},
   createElement() { return mkEl("_tmp"); } };
-/* पेज के script-क्रम से (courses_data → academic_subjects → subject_slugs → mg_names → udyam_data → inline) */
-const seq = ["assets/courses_data.js", "assets/academic_subjects.js", "assets/subject_slugs.js", "assets/mg_names.js", "assets/udyam_data.js"];
+/* पेज के script-क्रम से (courses_data → bhasha_khoj_data → bhasha-khoj → academic_subjects → subject_slugs → mg_names → udyam_data → inline) */
+const seq = ["assets/courses_data.js", "assets/bhasha_khoj_data.js", "assets/bhasha-khoj.js", "assets/academic_subjects.js", "assets/subject_slugs.js", "assets/mg_names.js", "assets/udyam_data.js"];
 seq.forEach(f => ok(fs.existsSync(path.join(ROOT, f)), "asset नहीं: " + f));
 let initErr = null; let renderTabRef = [];
 try {
@@ -88,6 +88,18 @@ ok(chips(g0) >= 8, "tab-6 हुनर chips " + chips(g0) + " < 8 (SE024 सम
 try { renderTabRef.forEach(fn => fn()); } catch (e) { ok(false, "renderTab(1..5) टूटा: " + e.message); }
 [1, 2, 3, 4, 5].forEach(t => ok(((store["grid" + t] || {}).innerHTML || "").length > 50, "tab-" + t + " grid ख़ाली"));
 [1, 2, 3].forEach(t => { const h = (store["grid" + t] || {}).innerHTML || ""; ok((h.match(/class="course-card"/g) || []).length <= 50 && /और देखें/.test(h), "tab-" + t + " 50-खेप नियम टूटा (कार्ड " + (h.match(/class="course-card"/g) || []).length + ")"); });
+/* v1.3 (24-Nov): भाषा-खोज असली mount (नक़ली-DOM) + कार्ड सीधे पाठ पर */
+ok(fakeWin.__bhK && fakeWin.__bhK.index && fakeWin.__bhK.index.length === gIds.length, "भाषा-खोज mount नहीं हुआ (सूचकांक " + (fakeWin.__bhK && fakeWin.__bhK.index ? fakeWin.__bhK.index.length : 0) + " ≠ " + gIds.length + ")");
+if (fakeWin.__bhK) {
+  store.bhashaSearch.value = "japani"; fakeWin.__bhK.render();
+  const jp = gIds.find(id => /\/japanese\/$/.test((byId[id] || {}).url || ""));
+  const out = (store.bhKhojOut || {}).innerHTML || "";
+  ok(jp && out.indexOf((byId[jp] || {}).url + "#shuru") > -1, "\"japani\" खोज पर जापानी कार्ड नतीजा-डिब्बे में नहीं");
+  ok((store.bhashaGroups || {}).style.display === "none", "खोजते समय भाषा-समूह नहीं छिपे");
+  store.bhashaSearch.value = ""; fakeWin.__bhK.render();
+  ok((store.bhashaGroups || {}).style.display === "", "खोज मिटाने पर भाषा-समूह वापस नहीं");
+}
+ok((String(groupsHtml).match(/#shuru"/g) || []).length === gIds.length, "भाषा-कार्ड की कड़ियाँ #shuru पर नहीं (" + (String(groupsHtml).match(/#shuru"/g) || []).length + ")");
 /* पेज-गिनती वाक्य data से मेल */
 const mCnt = html.match(/(\d+) भाषाओं का पूरा कोर्स/); const mAll = html.match(/दुनिया की (\d+) भाषाएँ/);
 ok(mCnt && +mCnt[1] === goldExpected, "पेज-वाक्य '" + (mCnt && mCnt[0]) + "' ≠ data सुनहरी " + goldExpected);
