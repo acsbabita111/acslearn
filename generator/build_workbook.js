@@ -8,7 +8,7 @@
 const fs = require("fs"), path = require("path"), cp = require("child_process");
 const SEO = require("./lib_seo_meta.js"); /* 11-Nov-2026: title/description का एकमात्र घर */
 const ROOT = path.join(__dirname, "..");
-const VER = "1.6";   /* v1.6 (25-Oct): भाषा-नाम bhasha_register.json (ताज़ा स्प्रेडशीट) से */
+const VER = "1.7";   /* v1.7 (24-Nov): शब्दकोश-सारणी पन्ने से बाहर नहीं जाती (लंबे शब्द का खाना टूटता है, मतलब नहीं कटता) · v1.6 (25-Oct): भाषा-नाम bhasha_register.json (ताज़ा स्प्रेडशीट) से */
 /* 02-Oct v1.4: WB_PAGES_ONLY=1 मोड — PDF न बनें (वे Releases पर हैं), सिर्फ़ download-पेज regen; आकार outDir की फ़ाइलों (असली या exact-नाप stub) से। */
 /* 14-Sep v1.3 (Founder-फ़ैसला: "रिलीज़ में ही डालो"): PDF repo में नहीं — GitHub Releases में (repo-size में नहीं गिनते, Pages की 1 GB सीमा बची)।
    हर भाषा = एक release, tag workbook-<slug>; PDF-कड़ी = RELEASE_BASE/workbook-<slug>/<file>। PDF यहाँ बनते हैं: RELEASE_OUT/<slug>/ (repo के बाहर) → office से `gh release create` (release_workbooks.md)।
@@ -106,7 +106,8 @@ table{width:100%;border-collapse:collapse;font-size:27px}
 th{text-align:left;background:#0B1F3A;color:#fff;padding:8px 10px;font-size:24px}
 td{padding:9px 10px;border-bottom:1.5px solid #CBD5E1;vertical-align:top}
 td.w{font-family:${L.font};font-weight:800;font-size:32px;width:36%;direction:${L.dir}}
-td.d{color:#1565C0;width:30%}td.m{color:#2E7D32}
+td.d{color:#1565C0;width:30%}td.m{color:#2E7D32;overflow-wrap:anywhere}
+tr.lg td.w,tr.lg td.d{overflow-wrap:anywhere}tr.lg td.w{font-size:26px} /* v1.7: बहुत लंबा शब्द (जैसे जर्मन neunzehnhundertfünfundneunzig) सारणी को पन्ने से बाहर धकेलता था और मतलब कट जाता था; अब वही खाना तोड़कर अगली पंक्ति में */
 tr{break-inside:avoid}
 .foot{font-size:18px;color:#334155;text-align:center;margin-top:6mm}
 `;
@@ -126,7 +127,7 @@ function dayHTML(L, d) {
 }
 function dictHTML(title, rows, note) {
   let h = `<section class="dict"><h2>📖 ${esc(title)} — ${rows.length} शब्द</h2><p style="font-size:24px;color:#334155;margin:0 0 8px">${esc(note || "जो शब्द इस हफ़्ते के वाक्यों में आए — शब्द · कैसे बोलें · मतलब। रोज़ 10 शब्द दोहराओ।")}</p><table><tr><th>शब्द</th><th>कैसे बोलें</th><th>मतलब</th></tr>`;
-  rows.forEach(r => { h += `<tr><td class="w">${esc(r[0])}</td><td class="d">${esc(r[1])}</td><td class="m">${esc(r[2])}</td></tr>`; });
+  rows.forEach(r => { h += `<tr${(String(r[0]).length > 15 || String(r[1]).length > 18) ? ' class="lg"' : ""}><td class="w">${esc(r[0])}</td><td class="d">${esc(r[1])}</td><td class="m">${esc(r[2])}</td></tr>`; });
   return h + `</table></section>`;
 }
 function doc(L, body) { return `<!DOCTYPE html><html lang="hi"><head><meta charset="UTF-8"><title>workbook</title><style>${CSS(L)}</style></head><body>${body}<p class="foot">ACS काम की भाषा · अप्लाइड कंप्यूटर स्कूल™ · FFGPMTrust · मूल भाषा: हिंदी · generator: build_workbook.js v${VER}</p></body></html>`; }
