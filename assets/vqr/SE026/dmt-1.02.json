@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-1.02",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "POIL_HV5PNE",
+   "title": "Data Entry Operator Job Skills | Data Entry operator को क्या क्या Skills आनी चाहिए | CTA",
+   "channel": "Computer Tech Academy",
+   "duration_sec": 542,
+   "made_for_kids": false
+  },
+  {
+   "id": "6jghOdl73B0",
+   "title": "Data Entry Jobs के लिए क्या-क्या आना चाहिए? | Data Entry Jobs Skills | Work From Home Jobs",
+   "channel": "Quick Academy",
+   "duration_sec": 233,
+   "made_for_kids": false
+  },
+  {
+   "id": "91CQ26Itkzs",
+   "title": "Data Entry Job में क्या काम होता है? | Data Entry Work for Job 2026",
+   "channel": "Quick Academy",
+   "duration_sec": 312,
+   "made_for_kids": false
+  },
+  {
+   "id": "rWeYVlHzHu8",
+   "title": "Data Entry Operator ka kya kaam hota hai | Date Entry Operator kaise bane | Job | Salary",
+   "channel": "Sarkari Naukri Exam",
+   "duration_sec": 246,
+   "made_for_kids": false
+  },
+  {
+   "id": "r8XPulwIu5M",
+   "title": "Data Entry Jobs Work From Home Reality | Data Entry Job | Data Entry Work in Excel | Data Entry Work",
+   "channel": "Job By Rahul Tomar",
+   "duration_sec": 285,
+   "made_for_kids": false
+  },
+  {
+   "id": "IZK-glZRG_Q",
+   "title": "डाटा एंट्री ऑपरेटर कैसे बने | Data Entry Operator फीस, कार्य, योग्यता, फ़ायदे, परीक्षा सिलेबस आदि",
+   "channel": "STUDY POINT & CAREER-RAIPUR",
+   "duration_sec": 379,
+   "made_for_kids": false
+  },
+  {
+   "id": "sA8wNOhGsRM",
+   "title": "Data Entry Kya Hota Hai Aur Kaise Karte Hain || What is Data Entry ?",
+   "channel": "STP Computer Education",
+   "duration_sec": 419,
+   "made_for_kids": false
+  }
+ ]
+}

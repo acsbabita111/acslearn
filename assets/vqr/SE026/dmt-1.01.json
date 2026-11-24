@@ -1,0 +1,43 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-1.01",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "6kdYAh_blZQ",
+   "title": "NKS डिजिटल मित्र योजना से अब हर डिजिटल काम बनेगा आसान #DigitalMitraYojna #navkalyansangh #nksnews",
+   "channel": "NKS Digital Mitra",
+   "duration_sec": 242,
+   "made_for_kids": false
+  },
+  {
+   "id": "ktYBSBQRh5I",
+   "title": "डिजिटल मित्र योजना से अब हर डिजिटल काम बनेगा आसान #DigitalMitraYojna #navkalyansangh #nksnews",
+   "channel": "Aao Bharat Nav Nirman Kare",
+   "duration_sec": 242,
+   "made_for_kids": false
+  },
+  {
+   "id": "MhADQ8uzAnw",
+   "title": "Bihar Digital Mitra | बिहार सरकार की बड़ी घोषणा, 10वी और 12वी पास के लिए डिजिटल मित्र बनाने का मौक़ा",
+   "channel": "Rishikesh kumar",
+   "duration_sec": 405,
+   "made_for_kids": false
+  },
+  {
+   "id": "hgPGmzHY4WI",
+   "title": "Bihar Digital Mitra Kaise Bane | बिहार डिजिटल मित्र बने ऐसे होगा आवेदन सबको मिलेगा रोजगार नई अपडेट",
+   "channel": "Umesh Talks",
+   "duration_sec": 572,
+   "made_for_kids": false
+  }
+ ]
+}
