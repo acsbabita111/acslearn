@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v910';  // 2026-11-24 kkb (काम की भाषा) जर्मन और मलय: तीन data-फ़ाइलों (assets/kkb_de_data.js, kkb2_de_data.js, kkb2_ms_data.js) के संस्करण-नोट में यंत्र का पता अब "(यंत्र: dhvani_yantra/…)"; SEO-pahredar का dev_pages_size_check उसे फ़ाइल-माँग समझकर लाल था; उच्चारण, वाक्य, अर्थ अछूते (kkb data cache-first)
+const CACHE_VERSION = 'v911';  // 2026-11-25 डिजिटल मित्र पाठों पर वीडियो-रोबोट (VQR) के चुने वीडियो: assets/course-lesson.js v1.7 (सिर्फ़ इन पाठों पर नई assets/vqr-player.js + vqr-player.css load) (cache-first असेट)
+// पिछला 'v910'  // 2026-11-24 kkb (काम की भाषा) जर्मन और मलय: तीन data-फ़ाइलों (assets/kkb_de_data.js, kkb2_de_data.js, kkb2_ms_data.js) के संस्करण-नोट में यंत्र का पता अब "(यंत्र: dhvani_yantra/…)"; SEO-pahredar का dev_pages_size_check उसे फ़ाइल-माँग समझकर लाल था; उच्चारण, वाक्य, अर्थ अछूते (kkb data cache-first)
 // पिछला 'v909'  // 2026-11-24 kkb (काम की भाषा) कोर्स-सूची की सही गिनती (415 भाषाएँ, data से) और site का नारा "अपनी भाषा में, गाँव से ग्लोबल साउथ तक!" (पुरानी गिनती 130 हटी): assets/acs-config.js और तीनों पैनल-पैक (assets/i18n/panel_en.js, panel_bn.js, panel_kn.js) : cache-first असेट
 // पिछला 'v908'  // 2026-11-24 kkb (काम की भाषा) जर्मन उच्चारण: assets/kkb_de_data.js और assets/kkb2_de_data.js की देवनागरी विक्षनरी के IPA से, एक यंत्र से (generator/dhvani_yantra/de.js; cache-first असेट)
 // पिछला 'v907'  // 2026-11-24 kkb (काम की भाषा) भाषा-खोज और सीधा पहला पाठ: नई assets/bhasha-khoj.js + assets/bhasha_khoj_data.js; assets/kkb2.js v3.4 (कार्ड से सीधे अगला अधूरा दिन, शाबाश-पन्ना, 7 भाषाओं का टूटा 🎧 पन्ना ठीक) + assets/kkb2.css v2.4 (cache-first असेट)

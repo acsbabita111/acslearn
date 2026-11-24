@@ -1,5 +1,7 @@
 /* ============================================================
    ACS course-lesson.js v1.5 — आवाज़ 🔊 + प्रगति + ⏱ घड़ी + हीरो + 👍👎💬🔗 पट्टी
+   v1.7 · 25-Nov-2026 (ChatGPT-ऑडिट कार्य B, वीडियो-रोबोट VQR): सिर्फ़ डिजिटल मित्र के पाठों पर
+   /assets/vqr-player.js + .css load (रोबोट के चुने ऊपर के 3 वीडियो)। बाक़ी कोर्सों पर शून्य असर।
    v1.5 · 27-Oct-2026 (Founder-आदेश): हर पाठ पर reaction-पट्टी — पसंद/नापसंद
    (device-local राय; बेनाम गिनती server-दौर में) · 💬 WhatsApp-सुझाव · 🔗 share
    (navigator.share, fallback WhatsApp)। साझा-असेट — पाठ-HTML regen शून्य।
@@ -409,6 +411,21 @@
     if(location.pathname.indexOf("/courses/hi/two-wheeler/")!==0) return;
     var sc=document.createElement("script");
     sc.src="/assets/twv-hero.js"; sc.defer=true;
+    document.head.appendChild(sc);
+  }catch(e){}
+})();
+
+/* ═══ (25-Nov-2026, v1.7) डिजिटल मित्र वीडियो-loader (VQR): साझा-असेट-लाभ नियम।
+   109 पाठ-HTML अछूते; player सिर्फ़ इसी कोर्स के पाठ-पन्नों पर उतरता है। ═══ */
+(function(){
+  try{
+    if(!/^\/courses\/hi\/digital-mitra-basic\/dmt-\d{1,2}-\d{2}-[a-z0-9-]+\.html$/.test(location.pathname)) return;
+    if(document.getElementById("vqrCss")) return;
+    var l=document.createElement("link");
+    l.id="vqrCss"; l.rel="stylesheet"; l.href="/assets/vqr-player.css";
+    document.head.appendChild(l);
+    var sc=document.createElement("script");
+    sc.src="/assets/vqr-player.js"; sc.defer=true;
     document.head.appendChild(sc);
   }catch(e){}
 })();
