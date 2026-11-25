@@ -1,5 +1,5 @@
 /* ============================================================
-   ACS vqr-player.js v1.0.1 · 25-Nov-2026
+   ACS vqr-player.js v1.1 · 25-Nov-2026
    डिजिटल मित्र (SE026) के पाठों पर वीडियो-रोबोट (VQR) के चुने वीडियो।
    ChatGPT-ऑडिट (24-Nov, PILOT GO) का कार्य B; Founder-नियम: सिर्फ़ ऊपर के 3।
    ------------------------------------------------------------
@@ -15,6 +15,12 @@
      इसी फ़ोन पर छिपता है (वापस दिखाने का बटन भी)।
    - v1.0.1 (ChatGPT-ऑडिट P2): आख़िरी वीडियो भी रिपोर्ट से छिपे, तो
      "वापस दिखाएँ" बटन बचा रहता है।
+   - v1.1 (Founder, 25-Nov): वीडियो-हिस्सा छोटे टेस्ट से पहले (सब 109 पाठ)।
+     वीडियो पाठ के बीच में: पाठ लंबाई के हिसाब से बराबर हिस्सों में बँटता है;
+     पहले हिस्से के बाद पहला वीडियो, दूसरे के बाद दूसरा, आख़िरी वीडियो
+     वीडियो-हिस्से में, फिर प्रश्न। हर वीडियो का अपना डिब्बा और अपना संदेश।
+     कोई डिब्बा हटे, तो गिनती (1 / 2), खुलासा और ऊपर की पंक्ति फिर से सच।
+     छपाई (PDF) में player की जगह वीडियो का नाम और YouTube-पता।
    - सब लिखाई textContent से; ID सख़्त जाँच के बाद ही पते में।
    - ES5 (पुराने Android के लिए); कोई बाहरी library नहीं।
    ============================================================ */
@@ -116,16 +122,95 @@
   }
 
   /* ---- बनावट ---- */
-  var data, box, grid, note, disc, intro, introText, queue = [];
+  var data, intro, introText, queue = [], slots = [];   /* slot = {box, grid, note, lab, disc} */
+
+  /* (v1.1, Founder 25-Nov) वीडियो-हिस्सा छोटे टेस्ट से पहले: पढ़ाई → वीडियो → प्रश्न।
+     सूची हो या न हो, सब 109 पाठों पर। पाठ का HTML नहीं बदलता, सिर्फ़ दिखने का क्रम। */
+  var art = sec.parentNode, quiz = art && art.querySelector ? art.querySelector("section.lsn-quiz") : null;
+  if (quiz && quiz.parentNode && (quiz.compareDocumentPosition(sec) & 4)) quiz.parentNode.insertBefore(sec, quiz);
 
   function usable(v) { return !dead[v.id] && !hidden[v.id] && !sessionBad[v.id]; }
   function nextSpare() { while (queue.length) { var v = queue.shift(); if (usable(v)) return v; } return null; }
-  function say(text, undo) {
+  function say(sl, text, undo) {
+    var note = sl.note;
     note.textContent = "";
     if (!text) { note.style.display = "none"; return; }
     note.appendChild(document.createTextNode(text + " "));
     if (undo) { var b = el("button", "vqr-undo", "वापस दिखाएँ"); b.type = "button"; b.onclick = undo; note.appendChild(b); }
     note.style.display = "";
+  }
+
+  /* पाठ के हिस्से: lead, टेस्ट और वीडियो-हिस्से के अलावा बाक़ी section */
+  function contentSecs() {
+    var all = art.querySelectorAll("section.lsn-sec"), out = [];
+    for (var i = 0; i < all.length; i++) {
+      var c = " " + all[i].className + " ";
+      if (all[i].parentNode === art && c.indexOf(" lsn-lead ") < 0 && c.indexOf(" lsn-quiz ") < 0 && c.indexOf(" lsn-video ") < 0 &&
+          (all[i].compareDocumentPosition(sec) & 4)) out.push(all[i]);
+    }
+    return out;
+  }
+  function words(node) {
+    var c = node.cloneNode(true), xs = c.querySelectorAll("svg,figure,button");
+    for (var i = 0; i < xs.length; i++) if (xs[i].parentNode) xs[i].parentNode.removeChild(xs[i]);
+    var t = (c.textContent || "").replace(/\s+/g, " ").trim();
+    return t ? t.split(" ").length : 0;
+  }
+  /* k वीडियो: पाठ को लंबाई के हिसाब से k लगभग बराबर हिस्सों में बाँटो।
+     हर बँटवारा उस section के बाद, जहाँ तक के शब्द लक्ष्य (कुल × s/k) के सबसे पास हों;
+     बँटवारे आगे-पीछे क्रम में, कभी आख़िरी section के बाद नहीं (वहाँ वीडियो-हिस्सा ही है)।
+     हिस्सा 1..k-1 के बाद का section लौटे (जगह न हो तो null); आख़िरी वीडियो वीडियो-हिस्से में। */
+  function anchors(k) {
+    var cs = contentSecs(), n = cs.length, cum = [], tot = 0, out = [], prev = -1;
+    for (var i = 0; i < n; i++) { tot += words(cs[i]); cum.push(tot); }
+    for (var s = 1; s < k; s++) {
+      var a = -1, best = Infinity, goal = tot * s / k, hi = n - 2 - (k - 1 - s);   /* आगे के बँटवारों के लिए जगह छोड़ो */
+      for (var j = prev + 1; j <= hi; j++) { var d = Math.abs(cum[j] - goal); if (d < best) { best = d; a = j; } }
+      out.push(a >= 0 ? cs[a] : null);
+      if (a >= 0) prev = a;
+    }
+    return out;
+  }
+  /* node के ठीक बाद (पहले से लगे वीडियो-डिब्बों के भी बाद) */
+  function placeAfter(node, box) {
+    var ref = node.nextSibling;
+    while (ref && ref.nodeType === 1 && (" " + ref.className + " ").indexOf(" vqr-box ") >= 0) ref = ref.nextSibling;
+    node.parentNode.insertBefore(box, ref);
+  }
+  function makeSlot(mid) {
+    var sl = { box: el("figure", "vqr-box" + (mid ? " vqr-mid" : "")) };       /* figure: 🔊 सुनो इसे नहीं पढ़ता */
+    sl.lab = el("div", "vqr-lab");
+    sl.box.appendChild(sl.lab);
+    sl.grid = el("div", "vqr-grid");
+    sl.box.appendChild(sl.grid);
+    sl.note = el("div", "vqr-note"); sl.note.setAttribute("role", "status"); sl.note.style.display = "none";
+    sl.box.appendChild(sl.note);
+    sl.disc = el("figcaption", "vqr-disc");
+    sl.box.appendChild(sl.disc);
+    return sl;
+  }
+  function slotOf(c) { for (var i = 0; i < slots.length; i++) if (slots[i].grid === c.parentNode) return slots[i]; return null; }
+  function liveSlots() { var o = []; for (var i = 0; i < slots.length; i++) if (slots[i].grid.children.length && slots[i].grid.style.display !== "none") o.push(slots[i]); return o; }
+  function liveCards() { return liveSlots().length; }
+  /* गिनती, खुलासा और ऊपर की पंक्ति हमेशा सच: कोई डिब्बा हटे तो बाक़ी फिर से गिने जाएँ।
+     पूरा खुलासा (ACS ने चुना · देखा-सुना नहीं · जाँच-तारीख़) आख़िरी बचे वीडियो के नीचे */
+  function tidy() {
+    var ls = liveSlots(), n = ls.length, inSec = false;
+    for (var i = 0; i < n; i++) {
+      var sl = ls[i], last = i === n - 1;
+      sl.lab.textContent = "🎬 वीडियो " + (i + 1) + " / " + n + ": ACS के रोबोट ने चुना";
+      sl.box.setAttribute("aria-label", "ACS का चुना वीडियो " + (i + 1) + " / " + n);
+      sl.disc.textContent = last
+        ? (data.disc || "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है।") + (data.checked ? " रोबोट-जाँच: " + data.checked + "।" : "")
+        : "यह YouTube का खोज-नतीजा नहीं है। पूरी बात नीचे आख़िरी वीडियो के साथ।";
+      if (sec.contains(sl.box)) inSec = true;
+    }
+    if (!intro) return;
+    if (!n) { intro.textContent = introText; return; }
+    intro.textContent = (inSec
+      ? (n === 1 ? "नीचे का वीडियो ACS के रोबोट ने चुना है।" : "इस पाठ के बीच में ACS के रोबोट के चुने वीडियो लगे हैं। आख़िरी वीडियो यहीं नीचे है।")
+      : (n === 1 ? "इस पाठ के बीच में ACS के रोबोट का चुना एक वीडियो लगा है।" : "इस पाठ के बीच में ACS के रोबोट के चुने वीडियो लगे हैं।"))
+      + " और वीडियो चाहिए, तो YouTube पर खोजें।";
   }
 
   function card(v) {
@@ -147,6 +232,7 @@
     var meta = el("div", "vqr-meta");
     meta.appendChild(el("div", "vqr-title", v.title));
     if (v.channel) meta.appendChild(el("div", "vqr-ch", "चैनल: " + v.channel));
+    meta.appendChild(el("div", "vqr-print", "YouTube पर: youtube.com/watch?v=" + v.id));   /* सिर्फ़ छपाई (PDF) में दिखे */
     c.appendChild(meta);
     var rep = el("button", "vqr-rep", "⚑ रिपोर्ट करें");
     rep.type = "button";
@@ -191,11 +277,12 @@
   }
 
   function swap(c, why, undo) {
-    if (c.parentNode !== grid) return;            /* YouTube दो बार त्रुटि भेजे, या कार्ड पहले ही बदला: दोबारा नहीं */
+    var sl = slotOf(c);
+    if (!sl) return;                              /* YouTube दो बार त्रुटि भेजे, या कार्ड पहले ही बदला: दोबारा नहीं */
     var n = nextSpare();
-    if (n) { grid.replaceChild(card(n), c); say(why + " उसकी जगह अगला वीडियो लगा।", undo); }
-    else { grid.removeChild(c); say(why, undo); }
-    if (!grid.children.length) giveUp(!!undo);
+    if (n) { sl.grid.replaceChild(card(n), c); say(sl, why + " उसकी जगह अगला वीडियो लगा।", undo); return; }
+    sl.grid.removeChild(c); say(sl, why, undo);
+    closeSlot(sl, !!undo);
   }
 
   function toggleReport(c, v, btn) {
@@ -223,42 +310,39 @@
     if (!c.parentNode) return;
     hidden[v.id] = today(); writeMap(K_HIDE, hidden);
     swap(c, "धन्यवाद। WhatsApp में \"भेजें\" दबाएँ। यह वीडियो आपके फ़ोन पर अब नहीं दिखेगा।", function () {
-      delete hidden[v.id]; writeMap(K_HIDE, hidden); render(); say("");
+      delete hidden[v.id]; writeMap(K_HIDE, hidden); render();   /* नए डिब्बे: संदेश अपने-आप छिपे */
     });
   }
 
-  /* कोई वीडियो न बचे: पन्ना पहले जैसा (YouTube-खोज बटन वाला)।
-     रिपोर्ट से आख़िरी वीडियो छिपा हो, तो संदेश और "वापस दिखाएँ" बचे रहें (ChatGPT-ऑडिट P2, 25-Nov)। */
-  function giveUp(keepNote) {
-    if (intro) intro.textContent = introText;
-    if (keepNote && box && box.parentNode) { grid.style.display = "none"; disc.style.display = "none"; return; }
-    if (box && box.parentNode) box.parentNode.removeChild(box);
+  /* जगह ख़ाली: डिब्बा हटे। रिपोर्ट से छिपा हो, तो संदेश और "वापस दिखाएँ" बचे रहें (ChatGPT-ऑडिट P2, 25-Nov)।
+     कहीं कोई वीडियो न बचे: वीडियो-हिस्से की पुरानी पंक्ति लौटे (YouTube-खोज बटन वाला पन्ना) */
+  function closeSlot(sl, keepNote) {
+    if (keepNote) { sl.grid.style.display = "none"; sl.lab.style.display = "none"; sl.disc.style.display = "none"; }
+    else { if (sl.box.parentNode) sl.box.parentNode.removeChild(sl.box); slots.splice(slots.indexOf(sl), 1); }
+    tidy();
+  }
+
+  function clearSlots() {
+    for (var i = 0; i < slots.length; i++) if (slots[i].box.parentNode) slots[i].box.parentNode.removeChild(slots[i].box);
+    slots = [];
   }
 
   function render() {
+    clearSlots();
     var show = [];
     queue = data.list.slice();
     while (show.length < SHOW_MAX) { var v = nextSpare(); if (!v) break; show.push(v); }
-    if (!show.length) { giveUp(); return; }
-    if (!box) build();
-    grid.style.display = ""; disc.style.display = "";
-    grid.textContent = "";
-    for (var i = 0; i < show.length; i++) grid.appendChild(card(show[i]));
-    if (!box.parentNode) { var h = sec.querySelector("h2"); sec.insertBefore(box, intro ? intro.nextSibling : (h ? h.nextSibling : sec.firstChild)); }
-    if (intro) intro.textContent = "नीचे के वीडियो ACS के रोबोट ने चुने हैं। और वीडियो चाहिए, तो YouTube पर खोजें।";
-  }
-
-  function build() {
-    box = el("figure", "vqr-box");                 /* figure: 🔊 सुनो इसे नहीं पढ़ता */
-    box.setAttribute("aria-label", "ACS के चुने वीडियो");
-    grid = el("div", "vqr-grid");
-    box.appendChild(grid);
-    note = el("div", "vqr-note"); note.setAttribute("role", "status"); note.style.display = "none";
-    box.appendChild(note);
-    disc = el("figcaption", "vqr-disc",
-      (data.disc || "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है।") +
-      (data.checked ? " रोबोट-जाँच: " + data.checked + "।" : ""));
-    box.appendChild(disc);
+    if (!show.length) { tidy(); return; }
+    var k = show.length, an = anchors(k), h = sec.querySelector("h2"), top = intro || h;
+    for (var i = 0; i < k; i++) {
+      var mid = i < k - 1 && !!an[i], sl = makeSlot(mid);   /* पाठ छोटा हो तो बीच की जगह नहीं: वीडियो-हिस्से में */
+      sl.grid.appendChild(card(show[i]));
+      if (mid) placeAfter(an[i], sl.box);
+      else if (top) placeAfter(top, sl.box);
+      else sec.insertBefore(sl.box, sec.firstChild);
+      slots.push(sl);
+    }
+    tidy();
   }
 
   getList(function (raw) {

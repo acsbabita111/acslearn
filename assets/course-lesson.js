@@ -2,6 +2,7 @@
    ACS course-lesson.js v1.5 — आवाज़ 🔊 + प्रगति + ⏱ घड़ी + हीरो + 👍👎💬🔗 पट्टी
    v1.7 · 25-Nov-2026 (ChatGPT-ऑडिट कार्य B, वीडियो-रोबोट VQR): सिर्फ़ डिजिटल मित्र के पाठों पर
    /assets/vqr-player.js + .css load (रोबोट के चुने ऊपर के 3 वीडियो)। बाक़ी कोर्सों पर शून्य असर।
+   v1.8 · 25-Nov-2026 (Founder): उन्हीं पाठों पर /assets/course-toc.js + .css भी (laptop पर बाईं पाठ-सूची)।
    v1.5 · 27-Oct-2026 (Founder-आदेश): हर पाठ पर reaction-पट्टी — पसंद/नापसंद
    (device-local राय; बेनाम गिनती server-दौर में) · 💬 WhatsApp-सुझाव · 🔗 share
    (navigator.share, fallback WhatsApp)। साझा-असेट — पाठ-HTML regen शून्य।
@@ -427,6 +428,14 @@
     var sc=document.createElement("script");
     sc.src="/assets/vqr-player.js"; sc.defer=true;
     document.head.appendChild(sc);
+    /* v1.8 (Founder, 25-Nov): laptop पर बाईं पाठ-सूची (course-toc.js; फ़ोन पर वह ख़ुद कुछ नहीं उतारती) */
+    if(document.getElementById("ctocCss")) return;
+    var l2=document.createElement("link");
+    l2.id="ctocCss"; l2.rel="stylesheet"; l2.href="/assets/course-toc.css";
+    document.head.appendChild(l2);
+    var s2=document.createElement("script");
+    s2.src="/assets/course-toc.js"; s2.defer=true;
+    document.head.appendChild(s2);
   }catch(e){}
 })();
 

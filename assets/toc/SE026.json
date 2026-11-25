@@ -1,0 +1,599 @@
+{
+ "course_id": "SE026",
+ "made_by": "build_course_toc.js v1.0",
+ "title": "ACS डिजिटल मित्र: बुनियादी कौशल में प्रमाणपत्र",
+ "intro": "/courses/hi/digital-mitra-basic/",
+ "total": 109,
+ "chapters": [
+  {
+   "name": "खंड-1: परिचय व बुनियाद",
+   "lessons": [
+    {
+     "n": "1.1",
+     "t": "डिजिटल मित्र कौन है: काम, कमाई और भविष्य की सीढ़ी",
+     "u": "/courses/hi/digital-mitra-basic/dmt-1-01-digital-mitra-kaun-hai-kaam-kamai.html"
+    },
+    {
+     "n": "1.2",
+     "t": "Data Entry क्या है: हाथ से, मशीन से, मिला-जुला",
+     "u": "/courses/hi/digital-mitra-basic/dmt-1-02-data-entry-kya-hai-prakar.html"
+    },
+    {
+     "n": "1.3",
+     "t": "AI से पहली पहचान: OCR, ICR, NLP, RPA, ML आसान भाषा में",
+     "u": "/courses/hi/digital-mitra-basic/dmt-1-03-ai-parichay-ocr-icr-nlp-rpa-ml.html"
+    },
+    {
+     "n": "1.4",
+     "t": "कंप्यूटर के अंग: screen से memory तक, आसान भाषा में",
+     "u": "/courses/hi/digital-mitra-basic/dmt-1-04-computer-ke-ang-input-output-cpu-memory.html"
+    },
+    {
+     "n": "1.5",
+     "t": "कंप्यूटर और फ़ोन चलाना: चालू-बंद, Desktop, Icon, App",
+     "u": "/courses/hi/digital-mitra-basic/dmt-1-05-computer-chalana-desktop-icon-app.html"
+    },
+    {
+     "n": "1.6",
+     "t": "Typing की नींव: उँगलियाँ, गति और शुद्धता",
+     "u": "/courses/hi/digital-mitra-basic/dmt-1-06-typing-ki-neenv-home-row-speed.html"
+    },
+    {
+     "n": "1.7",
+     "t": "ग्राहक से जानकारी लेने की योजना: क्या पूछें, कैसे रखें",
+     "u": "/courses/hi/digital-mitra-basic/dmt-1-07-grahak-se-jankari-lene-ki-yojana.html"
+    },
+    {
+     "n": "1.8",
+     "t": "KYP डिजिटल मित्र का पूरा रास्ता: पात्रता, उम्र, आगे की सीढ़ी",
+     "u": "/courses/hi/digital-mitra-basic/dmt-1-08-kyp-digital-mitra-patrata-rasta.html"
+    }
+   ]
+  },
+  {
+   "name": "खंड-2: Word",
+   "lessons": [
+    {
+     "n": "2.1",
+     "t": "MS Word में नया दस्तावेज़ बनाना और सहेजना सीखें",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-01-word-document-banana-save.html"
+    },
+    {
+     "n": "2.2",
+     "t": "Word में लिखना-सुधारना: Copy, Paste, Find और Replace",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-02-word-copy-paste-find-replace.html"
+    },
+    {
+     "n": "2.3",
+     "t": "Word में Text सजाना: Bold, Italic, Font, रंग और आकार",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-03-word-text-formatting-bold-font.html"
+    },
+    {
+     "n": "2.4",
+     "t": "Word में Paragraph सँवारना: Alignment, Spacing और Indent",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-04-word-paragraph-alignment-spacing.html"
+    },
+    {
+     "n": "2.5",
+     "t": "Word में Bullets व Numbering: क़ायदे की सूची",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-05-word-bullets-numbering-list.html"
+    },
+    {
+     "n": "2.6",
+     "t": "Word में Page Layout: हाशिया, दिशा और काग़ज़ का आकार",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-06-word-page-layout-margin-orientation.html"
+    },
+    {
+     "n": "2.7",
+     "t": "Word में चित्र जोड़ना: Insert, आकार और Text-Wrap",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-07-word-insert-picture-resize-wrap.html"
+    },
+    {
+     "n": "2.8",
+     "t": "Word में Shapes व SmartArt: आकृतियों से समझाना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-08-word-shapes-smartart.html"
+    },
+    {
+     "n": "2.9",
+     "t": "Word में Table: पंक्ति, स्तंभ, Merge और सजावट",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-09-word-table-banana.html"
+    },
+    {
+     "n": "2.10",
+     "t": "Word में Header-Footer व Page Number: हर पन्ने की पहचान",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-10-word-header-footer-page-number.html"
+    },
+    {
+     "n": "2.11",
+     "t": "Word में Styles व Templates: एक जगह बदलो, सब बदले",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-11-word-styles-templates.html"
+    },
+    {
+     "n": "2.12",
+     "t": "Word में Spelling-Grammar जाँच: लकीरों की भाषा",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-12-word-spelling-grammar-check.html"
+    },
+    {
+     "n": "2.13",
+     "t": "Word से Print व PDF: काग़ज़ और पक्की Digital प्रति",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-13-word-print-pdf-export.html"
+    },
+    {
+     "n": "2.14",
+     "t": "Word में Mail Merge: एक चिट्ठी, सौ नाम",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-14-word-mail-merge.html"
+    },
+    {
+     "n": "2.15",
+     "t": "Word में AI सहारा: मसौदा मशीन से, ज़िम्मेदारी अपनी",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-15-word-ai-sahara-draft.html"
+    },
+    {
+     "n": "2.16",
+     "t": "Word की आम दिक़्क़तें व Google Docs: मुफ़्त विकल्प",
+     "u": "/courses/hi/digital-mitra-basic/dmt-2-16-word-troubleshooting-google-docs.html"
+    }
+   ]
+  },
+  {
+   "name": "खंड-3: Excel",
+   "lessons": [
+    {
+     "n": "3.1",
+     "t": "Excel खोलना: Worksheet, Cell, Data और Save",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-01-excel-kholna-worksheet-cell.html"
+    },
+    {
+     "n": "3.2",
+     "t": "Data के प्रकार और Cell-सजावट",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-02-data-prakar-cell-sajavat.html"
+    },
+    {
+     "n": "3.3",
+     "t": "Row-Column का खेल और कई Sheets",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-03-row-column-multiple-sheets.html"
+    },
+    {
+     "n": "3.4",
+     "t": "Excel का Page Setup और Print",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-04-excel-page-setup-print.html"
+    },
+    {
+     "n": "3.5",
+     "t": "Sort: Data को क्रम में छाँटना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-05-excel-sort-data-chhantna.html"
+    },
+    {
+     "n": "3.6",
+     "t": "Filter: Data छानना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-06-excel-filter-data-chhanna.html"
+    },
+    {
+     "n": "3.7",
+     "t": "सूत्र: Excel से जोड़, घटाव, गुणा, भाग",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-07-excel-formula-jod-ghatav.html"
+    },
+    {
+     "n": "3.8",
+     "t": "Functions-1: SUM, AVERAGE, MIN, MAX, COUNT",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-08-excel-sum-average-min-max-count.html"
+    },
+    {
+     "n": "3.9",
+     "t": "Functions-2: IF, COUNTIF, TODAY",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-09-excel-if-countif-today.html"
+    },
+    {
+     "n": "3.10",
+     "t": "Chart बनाना: Bar, Line, Pie",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-10-excel-chart-banana-bar-line-pie.html"
+    },
+    {
+     "n": "3.11",
+     "t": "Chart सजाना और पढ़ना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-11-excel-chart-sajana-padhna.html"
+    },
+    {
+     "n": "3.12",
+     "t": "Pivot Table: पहला परिचय",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-12-excel-pivot-table-parichay.html"
+    },
+    {
+     "n": "3.13",
+     "t": "Pivot Chart और रिपोर्ट",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-13-pivot-chart-report.html"
+    },
+    {
+     "n": "3.14",
+     "t": "Pivot की आम ग़लतियाँ और सुधार",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-14-pivot-galtiyan-sudhar.html"
+    },
+    {
+     "n": "3.15",
+     "t": "MIS Report: Excel से बनाना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-15-mis-report-excel.html"
+    },
+    {
+     "n": "3.16",
+     "t": "AI-सुझाव: Data-सफ़ाई, चित्रण, Pivot-सिफ़ारिश",
+     "u": "/courses/hi/digital-mitra-basic/dmt-3-16-ai-data-safai-chart-pivot.html"
+    }
+   ]
+  },
+  {
+   "name": "खंड-4: PowerPoint",
+   "lessons": [
+    {
+     "n": "4.1",
+     "t": "PowerPoint: खोलना, बनाना, सहेजना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-01-powerpoint-kholna-banana-sahejna.html"
+    },
+    {
+     "n": "4.2",
+     "t": "Slide जोड़ना, Layout, Text",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-02-slide-jodna-layout-text.html"
+    },
+    {
+     "n": "4.3",
+     "t": "Slide का Text सजाना: साफ़ व असरदार",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-03-slide-text-sajana.html"
+    },
+    {
+     "n": "4.4",
+     "t": "Theme व Template",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-04-theme-template-powerpoint.html"
+    },
+    {
+     "n": "4.5",
+     "t": "Slide में चित्र, Video, आवाज़, 3D, Chart",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-05-slide-me-chitra-video-chart.html"
+    },
+    {
+     "n": "4.6",
+     "t": "Animation: चीज़ों में जान",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-06-animation-powerpoint.html"
+    },
+    {
+     "n": "4.7",
+     "t": "Transition: Slide-से-Slide चाल",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-07-transition-powerpoint.html"
+    },
+    {
+     "n": "4.8",
+     "t": "Slideshow चलाना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-08-slideshow-chalana.html"
+    },
+    {
+     "n": "4.9",
+     "t": "Presenter View: वक्ता का गुप्त परदा",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-09-presenter-view-lab.html"
+    },
+    {
+     "n": "4.10",
+     "t": "अच्छी Presentation के 10 नियम + Google Slides",
+     "u": "/courses/hi/digital-mitra-basic/dmt-4-10-10-niyam-google-slides.html"
+    }
+   ]
+  },
+  {
+   "name": "खंड-5: फ़ाइल, Email व Scanner",
+   "lessons": [
+    {
+     "n": "5.1",
+     "t": "File व Folder: बनाना, नाम, व्यवस्था",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-01-file-folder-vyavastha.html"
+    },
+    {
+     "n": "5.2",
+     "t": "Scanner व OCR: काग़ज़ से Digital",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-02-scanner-ocr-kagaz-se-digital.html"
+    },
+    {
+     "n": "5.3",
+     "t": "File का रूप बदलना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-03-file-ka-roop-badalna.html"
+    },
+    {
+     "n": "5.4",
+     "t": "Cloud Storage: Google Drive",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-04-cloud-storage-google-drive.html"
+    },
+    {
+     "n": "5.5",
+     "t": "Email की नींव: लिखना, भेजना, सुरक्षा",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-05-email-ki-neev-suraksha.html"
+    },
+    {
+     "n": "5.6",
+     "t": "Inbox की व्यवस्था: Label व AI-छँटाई",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-06-inbox-vyavastha-ai-chhantai.html"
+    },
+    {
+     "n": "5.7",
+     "t": "ज़रूरी Email का Archive व खोज",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-07-email-archive-khoj.html"
+    },
+    {
+     "n": "5.8",
+     "t": "Data की छँटाई-सफ़ाई (Curation)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-08-data-curation-chhantai-safai.html"
+    },
+    {
+     "n": "5.9",
+     "t": "Backup व Recovery",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-09-backup-recovery.html"
+    },
+    {
+     "n": "5.10",
+     "t": "Computer धीमा हो तो",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-10-computer-dhima-cache-safai.html"
+    },
+    {
+     "n": "5.11",
+     "t": "Printer व आम तकनीकी दिक़्क़तें",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-11-printer-aam-dikkaten.html"
+    },
+    {
+     "n": "5.12",
+     "t": "समस्या आगे बढ़ाना (Escalate)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-12-samasya-aage-badhana-escalate.html"
+    },
+    {
+     "n": "5.13",
+     "t": "Device Update रखना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-13-device-update-rakhna.html"
+    },
+    {
+     "n": "5.14",
+     "t": "LLM से पहली जान-पहचान",
+     "u": "/courses/hi/digital-mitra-basic/dmt-5-14-llm-pahli-jaan-pahchan.html"
+    }
+   ]
+  },
+  {
+   "name": "खंड-6: सुरक्षा व निजता",
+   "lessons": [
+    {
+     "n": "6.1",
+     "t": "Cyber Hygiene: digital सफ़ाई के रोज़ के नियम",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-01-cyber-hygiene-roz-ke-niyam.html"
+    },
+    {
+     "n": "6.2",
+     "t": "ख़तरे पहचानो: पहचान व बचाव",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-02-khatre-pahchano-virus-phishing.html"
+    },
+    {
+     "n": "6.3",
+     "t": "मज़बूत Password की कला",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-03-mazboot-password-ki-kala.html"
+    },
+    {
+     "n": "6.4",
+     "t": "Password Manager: चाबियों का घर",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-04-password-manager.html"
+    },
+    {
+     "n": "6.5",
+     "t": "2FA: दो-ताला सुरक्षा",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-05-2fa-do-tala-suraksha.html"
+    },
+    {
+     "n": "6.6",
+     "t": "Encryption: ताले की सरल समझ",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-06-encryption-tale-ki-saral-samajh.html"
+    },
+    {
+     "n": "6.7",
+     "t": "software update = सुरक्षा",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-07-software-update-suraksha.html"
+    },
+    {
+     "n": "6.8",
+     "t": "access control: किसे कितना अधिकार",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-08-access-control-kise-kitna-adhikar.html"
+    },
+    {
+     "n": "6.9",
+     "t": "data privacy: DPDP की सरल समझ",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-09-data-privacy-dpdp-ki-saral-samajh.html"
+    },
+    {
+     "n": "6.10",
+     "t": "संस्था के नियम व protocol मानना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-10-sanstha-ke-niyam-protocol-manna.html"
+    },
+    {
+     "n": "6.11",
+     "t": "सुरक्षित भुगतान व लेन-देन के नियम",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-11-surakshit-bhugtan-len-den-niyam.html"
+    },
+    {
+     "n": "6.12",
+     "t": "ग्राहक-data की रक्षा: व्यवहार के नियम",
+     "u": "/courses/hi/digital-mitra-basic/dmt-6-12-grahak-data-raksha-vyavhar-niyam.html"
+    }
+   ]
+  },
+  {
+   "name": "खंड-7: ग्राहक-सेवा व सरकारी portal",
+   "lessons": [
+    {
+     "n": "7.1",
+     "t": "ग्राहक-सेवा की भाषा: सुनना, बोलना, धैर्य",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-01-grahak-seva-ki-bhasha-sunna-bolna-dhairya.html"
+    },
+    {
+     "n": "7.2",
+     "t": "ग्राहक-record रखना: काम का हिसाब",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-02-grahak-record-kaam-ka-hisab.html"
+    },
+    {
+     "n": "7.3",
+     "t": "Aadhaar के काम: self-service की समझ (mock)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-03-aadhaar-ke-kaam-self-service-mock.html"
+    },
+    {
+     "n": "7.4",
+     "t": "PAN के काम: online सुधार (mock)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-04-pan-ke-kaam-online-sudhar-mock.html"
+    },
+    {
+     "n": "7.5",
+     "t": "सरकारी योजनाएँ: खोजना व समझाना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-05-sarkari-yojnayen-khojna-samjhana.html"
+    },
+    {
+     "n": "7.6",
+     "t": "online form भरना: परीक्षा व admission (mock)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-06-online-form-pariksha-admission-mock.html"
+    },
+    {
+     "n": "7.7",
+     "t": "passport का online आवेदन (mock)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-07-passport-online-aavedan-mock.html"
+    },
+    {
+     "n": "7.8",
+     "t": "net banking: registration की समझ (mock)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-08-net-banking-registration-ki-samajh-mock.html"
+    },
+    {
+     "n": "7.9",
+     "t": "UPI भुगतान: भेजना, लेना, सावधानी (mock)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-09-upi-bhugtan-bhejna-lena-savdhani-mock.html"
+    },
+    {
+     "n": "7.10",
+     "t": "ticket booking: IRCTC की समझ (mock)",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-10-ticket-booking-irctc-ki-samajh-mock.html"
+    },
+    {
+     "n": "7.11",
+     "t": "online course में दाख़िला: ख़ुद सीखते रहना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-11-online-course-dakhila-khud-seekhte-rahna.html"
+    },
+    {
+     "n": "7.12",
+     "t": "certificate upload व portal के काम",
+     "u": "/courses/hi/digital-mitra-basic/dmt-7-12-certificate-upload-portal-ke-kaam.html"
+    }
+   ]
+  },
+  {
+   "name": "खंड-8: AI की समझ",
+   "lessons": [
+    {
+     "n": "8.1",
+     "t": "AI से पहली मुलाक़ात: chat-सहायक की समझ",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-01-ai-se-pahli-mulaqat-chat-sahayak.html"
+    },
+    {
+     "n": "8.2",
+     "t": "prompt लिखने की कला: साफ़ पूछो, सही पाओ",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-02-prompt-likhne-ki-kala.html"
+    },
+    {
+     "n": "8.3",
+     "t": "AI से email व चिट्ठी draft: मसौदा AI का, मुहर तुम्हारी",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-03-ai-se-email-chitthi-draft.html"
+    },
+    {
+     "n": "8.4",
+     "t": "AI से सारांश व content बनाना: लंबा छोटा, कच्चा पक्का",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-04-ai-se-saransh-content.html"
+    },
+    {
+     "n": "8.5",
+     "t": "AI के जवाब की जाँच व सुधार: आत्मविश्वासी झूठ पकड़ना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-05-ai-jawab-ki-janch-sudhar.html"
+    },
+    {
+     "n": "8.6",
+     "t": "AI का नैतिक व सुरक्षित उपयोग: bias, गोपनीयता",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-06-ai-naitik-surakshit-upyog.html"
+    },
+    {
+     "n": "8.7",
+     "t": "data annotation क्या है: AI की पाठशाला",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-07-data-annotation-kya-hai.html"
+    },
+    {
+     "n": "8.8",
+     "t": "annotation के औज़ार: चित्र, text, आवाज़, video पर label",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-08-annotation-ke-auzar.html"
+    },
+    {
+     "n": "8.9",
+     "t": "annotation में शुद्धता, एकरूपता व त्रुटि-सुधार",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-09-annotation-shuddhata-ekroopta.html"
+    },
+    {
+     "n": "8.10",
+     "t": "AI-युग में डिजिटल मित्र का भविष्य",
+     "u": "/courses/hi/digital-mitra-basic/dmt-8-10-ai-yug-me-digital-mitra-ka-bhavishya.html"
+    }
+   ]
+  },
+  {
+   "name": "खंड-9: रोज़गार-योग्यता",
+   "lessons": [
+    {
+     "n": "9.1",
+     "t": "employability skills: परिचय",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-01-employability-skills-parichay.html"
+    },
+    {
+     "n": "9.2",
+     "t": "संविधान-मूल्य व नागरिकता: अधिकार व शिकायत-रास्ते",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-02-samvidhan-mulya-nagrikta.html"
+    },
+    {
+     "n": "9.3",
+     "t": "21वीं सदी का पेशेवर बनना: व्यवहार, hygiene-grooming",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-03-peshevar-vyavhar-hygiene.html"
+    },
+    {
+     "n": "9.4",
+     "t": "बुनियादी English: काम-भर की",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-04-buniyadi-english-kaam-bhar.html"
+    },
+    {
+     "n": "9.5",
+     "t": "communication skills: बोलना, लिखना, टीम-काम",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-05-communication-skills.html"
+    },
+    {
+     "n": "9.6",
+     "t": "विविधता व समावेश",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-06-vividhta-samavesh.html"
+    },
+    {
+     "n": "9.7",
+     "t": "पैसे व क़ानून की समझ: आमदनी, ख़र्च, बचत",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-07-paise-kanoon-ki-samajh.html"
+    },
+    {
+     "n": "9.8",
+     "t": "उद्यमिता: अवसर-पहचान, अपना काम खड़ा करना",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-08-udyamita-apna-kaam.html"
+    },
+    {
+     "n": "9.9",
+     "t": "ग्राहक-सेवा का व्यवहार: दोहराव-सार",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-09-grahak-seva-dohrav-saar.html"
+    },
+    {
+     "n": "9.10",
+     "t": "apprenticeship व नौकरी की तैयारी: resume, job-खोज, interview",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-10-resume-interview-taiyari.html"
+    },
+    {
+     "n": "9.11",
+     "t": "Essential Digital Skills: परीक्षा-दर्पण",
+     "u": "/courses/hi/digital-mitra-basic/dmt-9-11-essential-digital-skills-pariksha-darpan.html"
+    }
+   ]
+  }
+ ]
+}
