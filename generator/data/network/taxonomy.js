@@ -22,6 +22,8 @@
    5. कोई नक़ली फ़र्म, फ़ोन, email, वेबसाइट, पता, निर्देशांक नहीं; ख़ाली खाना ख़ाली रहता है।
    6. कोई नई फ़ीस या ACS-कमीशन नहीं; उस्ताद और वर्कशॉप अपना हिस्सा आपस में तय करते हैं (मौजूदा नियम)।
    7. mg = ACS के 24 मास्टर-समूह (assets/mg_names.js) में से वह समूह, जिसमें इसी हुनर का ACS कोर्स/उद्यम दर्ज है।
+   8. udyam = उसी सेक्टर के उद्यम-कार्ड का serial (assets/udyam_data.js)। Founder का सेक्टर-नियम (26-Nov-2026):
+      हर नेटवर्क-सेक्टर 24 में से एक सेक्टर और एक उद्यम-कार्ड से जुड़ा हो (generator/data/sector_muhar.js; जाँच: dev_sector_niyam_check.js)।
    आगे (ढाँचा तैयार, data बाद में): एक फ़र्म कई सेक्टर में (firmSectorLinks[]), शाखाएँ (parentFirmId, branchName)।
    ============================================================ */
 "use strict";
@@ -31,7 +33,7 @@
    id = सेक्टर-कूट (batch-ID और रिकॉर्ड-ID में) · slug = पते में (बदलता नहीं)
    idPattern: {ST} = राज्य-उपसर्ग (BR), {DC} = ज़िला-कूट (KHG) · फ़र्म का नाम बदलने पर ID नहीं बदलती */
 const SECTORS = {
-  tw: { id: "TW", slug: "two-wheeler", mg: 3, icon: "🏍️", status: "live",
+  tw: { id: "TW", slug: "two-wheeler", mg: 3, udyam: 132, icon: "🏍️", status: "live",
         hi: "टू-व्हीलर (दोपहिया)", en: "Two Wheeler",
         hiPlace: "टू-व्हीलर वर्कशॉप व डीलर", enPlace: "Two Wheeler Workshops and Dealers",
         idPattern: "{ST}-{DC}-NNNN", typeMode: "map",

@@ -1,5 +1,9 @@
 /* ============================================================
-   build_udyam_suchi.js v1.0 (परत-4, 25-Nov-2026, खेप SEO-सफ़ाई)
+   build_udyam_suchi.js v1.1 (परत-4, 26-Nov-2026, खेप सेक्टर-नियम) · v1.0 (25-Nov-2026, खेप SEO-सफ़ाई)
+   v1.1: पन्ने के सेक्टर-बटनों की सूची (const MG=[…]) भी अब यहीं से बनती है: नाम assets/mg_names.js से,
+         गिनती assets/udyam_data.js से। पहले यह पन्ने की अपनी नक़ल थी (गिनती बासी: "सब (950)", "कृषि (67)")।
+         साथ में पन्ने की तीन जगह लिखी कुल गिनती (950) भी data से आती है। (Founder का सेक्टर-नियम, 26-Nov-2026:
+         24 सेक्टर की सूची का एक ही घर; कोई पन्ना अपनी नक़ल न रखे।)
    काम: /udyam/index.html में "सभी उद्यमों की पूरी सूची" का हिस्सा बनाना
         (UDYAM-SUCHI:START … END)। 24 सेक्टर, हर सेक्टर के नीचे उसके सब उद्यमों की सीधी कड़ियाँ।
    क्यों (Google Search Console, 25-Nov-2026): उद्यम के 951 पन्नों पर साइट के किसी पन्ने से
@@ -100,16 +104,48 @@ function place(src, start, end, body, anchor, after) {
   if (src.split(anchor).length !== 2) stop("जगह ठीक एक बार नहीं मिली: " + anchor.trim());
   return after ? src.replace(anchor, anchor + body) : src.replace(anchor, body + anchor);
 }
+/* v1.1: सेक्टर-बटनों की सूची और कुल गिनती (data से) */
+const M_START = "/* UDYAM-MG:START (generator/build_udyam_suchi.js से बना; हाथ से न बदलें) */";
+const M_END = "/* UDYAM-MG:END */";
+function mgBlock() {
+  const { A, MG } = load(); const cnt = {}; A.forEach((s) => { cnt[s.mg] = (cnt[s.mg] || 0) + 1; });
+  const q = (x) => String(x).replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+  const rows = ["  {id:'all',name:'सब (" + A.length + ")'},"];
+  for (let g = 1; g <= 24; g += 2) rows.push("  {id:" + g + ",name:'" + q(MG[g].e + " " + MG[g].n) + " (" + cnt[g] + ")'},{id:" + (g + 1) + ",name:'" + q(MG[g + 1].e + " " + MG[g + 1].n) + " (" + cnt[g + 1] + ")'},");
+  return M_START + "\nconst MG=[\n" + rows.join("\n") + "\n];\n" + M_END + "\n";
+}
+function placeMg(src) {
+  const body = mgBlock();
+  if (src.includes(M_START)) {
+    if (src.split(M_START).length !== 2 || src.split(M_END).length !== 2) stop("UDYAM-MG START/END ठीक एक-एक बार नहीं");
+    const a = src.indexOf(M_START), b = src.indexOf(M_END) + M_END.length + 1;
+    return src.slice(0, a) + body + src.slice(b);
+  }
+  const re = /const MG=\[\n  \{id:'all',name:'[^']*'\},\n[\s\S]*?\n\];\n/g, m = src.match(re);
+  if (!m || m.length !== 1) stop("पन्ने की पुरानी सेक्टर-सूची (const MG=[…]) ठीक एक बार नहीं मिली");
+  return src.replace(re, () => body);
+}
+/* कुल गिनती की तीन जगहें: हर एक ठीक एक बार मिलनी चाहिए */
+function counts(src, n) {
+  const R = [
+    [/(<span class="hs-num">)\d+(<\/span><div class="hs-lbl">उद्यम<\/div>)/g, "$1" + n + "$2"],
+    [/(<div class="sector-count" id="sectorCount">सभी )\d+( उद्यम<\/div>)/g, "$1" + n + "$2"],
+    [/(filtered\.length===)\d+(\?'सभी )\d+( उद्यम')/g, "$1" + n + "$2" + n + "$3"]
+  ];
+  for (const [re, to] of R) { const m = src.match(re); if (!m || m.length !== 1) stop("कुल गिनती की जगह ठीक एक बार नहीं मिली: " + re.source.slice(0, 50)); src = src.replace(re, to); }
+  return src;
+}
 const src = fs.readFileSync(PAGE, "utf8");
 const { html, n } = block();
 const kadi = K_START + '\n    <p style="margin:0 0 12px"><a href="#puri-suchi" style="display:inline-block;padding:11px 14px;font-size:17px;font-weight:700;line-height:1.5;color:var(--blue);background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:10px;text-decoration:none">📋 सभी ' + n + ' उद्यमों की पूरी सूची देखें (सेक्टर के अनुसार) ↓</a></p>\n' + K_END + "\n";
 let next = place(src, START, END, html, ANCHOR, true);
 next = place(next, K_START, K_END, kadi, K_ANCHOR, false);
+next = counts(placeMg(next), n);
 if (CHECK) {
   if (next !== src) stop("--check: udyam/index.html बासी है (generator चलाएँ)");
   console.log("🏁 --check पास: udyam/index.html की पूरी सूची ताज़ा है (" + n + " उद्यम, 24 सेक्टर)।");
 } else {
   if (next === src) console.log("✅ पहले जैसा: udyam/index.html (" + n + " उद्यम, 24 सेक्टर)।");
   else { fs.writeFileSync(PAGE, next); console.log("✅ लिखा: udyam/index.html (" + src.length + " → " + next.length + " अक्षर; " + n + " उद्यम, 24 सेक्टर)।"); }
-  console.log("🏁 build_udyam_suchi v1.0");
+  console.log("🏁 build_udyam_suchi v1.1");
 }

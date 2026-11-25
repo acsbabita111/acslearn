@@ -26,6 +26,8 @@
    v1.3 (12-Nov-2026): 13) हुनर-कोर्स के पाठ-पेज: description "और / या / के / में…" जैसे अधूरे शब्द पर ख़त्म नहीं;
        पाठ से बना description पूरे वाक्य पर ख़त्म (v1.3.1 से यह सचमुच जाँचा जाता है) और 70 से 160 अक्षर का;
        schema का description = meta description।
+   v1.5 (26-Nov-2026): 15) सेक्टर-नियम (Founder, 26-Nov-2026): 24 सेक्टर अटल; हर कोर्स और नेटवर्क-सेक्टर 24 में से एक में,
+       उद्यम-कार्ड के कोड के साथ (generator/lib_sector.js; पूरा यंत्र dev_sector_niyam_check.js)।
    v1.4 (12-Nov-2026): 14) होम-पेज की खोज-सूची (assets/search_index.json) sitemap से मेल खाए (बासी न हो),
        और दोनों होम-पेज generator (build_home.js) के नतीजे से हूबहू मेल खाएँ।
    चलाना: node generator/dev_seo_check.js   → सब पास तो 🏁
@@ -265,5 +267,16 @@ console.log("जाँच-5 उल्टी जाँच: खोज-योग्
   console.log("जाँच-14 होम: खोज-सूची " + (ok1 ? "ताज़ा" : "बासी") + " · होम-पेज बेमेल " + pend.length);
 }
 
+/* ================= v1.5 की जाँच-15: सेक्टर-नियम (Founder, 26-Nov-2026) =================
+   पूरी website की नींव 24 सेक्टर; हर कोर्स और नेटवर्क-सेक्टर 24 में से एक में, और उद्यम-कार्ड के कोड के साथ।
+   यह जाँच यहाँ इसलिए है कि GitHub का द्वार (seo-gate.yml) इसी यंत्र को चलाता है: नियम तोड़ने वाला कोई भी
+   commit GitHub पर लाल दिखेगा। पूरी जाँच और लाँघने की कोशिशें: node generator/dev_sector_niyam_check.js */
+{
+  let r = null;
+  try { r = require("./lib_sector.js").audit(ROOT); } catch (e) { FAIL("सेक्टर-नियम: जाँच चल नहीं सकी: " + e.message); }
+  if (r) for (const c of r.checks) if (!c.ok) FAIL("सेक्टर-नियम: " + c.name + (c.extra ? " :: " + c.extra : ""));
+  console.log("जाँच-15 सेक्टर-नियम: " + (r ? (r.checks.length - r.fail) + "/" + r.checks.length + " पास · सेक्टर " + r.stats.sectors + " · उद्यम-कार्ड " + r.stats.cards + " · कोर्स " + r.stats.courses + " (चालू " + r.stats.live + ")" : "नहीं चली"));
+}
+
 if (fails) { console.log("\n❌ कुल विफल: " + fails + " — upload निषिद्ध"); process.exit(1); }
-console.log("\n🏁 dev_seo_check v1.4 — चौदहों जाँचें पास");
+console.log("\n🏁 dev_seo_check v1.5 — पंद्रहों जाँचें पास");

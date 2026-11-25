@@ -111,7 +111,7 @@
     <h1 class="hero-title" style="margin:0 0 10px">अपना रास्ता चुनें,<br/><em>सफलता यहीं से शुरू होती है।</em></h1>
     <div class="hero-sub">स्वरोजगार से सरकारी नौकरी तक — हर रास्ता यहाँ मिलेगा।</div>
     <div class="hero-stats">
-      <div class="hs"><span class="hs-num">950</span><div class="hs-lbl">उद्यम</div></div>
+      <div class="hs"><span class="hs-num">951</span><div class="hs-lbl">उद्यम</div></div>
       <div class="hs"><span class="hs-num">1.50 लाख</span><div class="hs-lbl">बिजनेस आइडिया</div></div>
       <div class="hs"><span class="hs-num">15</span><div class="hs-lbl">निवेश स्तर</div></div>
       <div class="hs"><span class="hs-num">₹0</span><div class="hs-lbl">से शुरुआत</div></div>
@@ -144,7 +144,7 @@
 <!-- UDYAM-SUCHI-KADI:START (generator/build_udyam_suchi.js से बना; हाथ से न बदलें) -->
     <p style="margin:0 0 12px"><a href="#puri-suchi" style="display:inline-block;padding:11px 14px;font-size:17px;font-weight:700;line-height:1.5;color:var(--blue);background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:10px;text-decoration:none">📋 सभी 951 उद्यमों की पूरी सूची देखें (सेक्टर के अनुसार) ↓</a></p>
 <!-- UDYAM-SUCHI-KADI:END -->
-    <div class="sector-count" id="sectorCount">सभी 950 उद्यम</div>
+    <div class="sector-count" id="sectorCount">सभी 951 उद्यम</div>
     <div class="sector-grid" id="sectorGrid"></div>
 <!-- UDYAM-SUCHI:START (generator/build_udyam_suchi.js से बना; हाथ से न बदलें) -->
     <style>
@@ -1628,9 +1628,10 @@
 <script src="/assets/govt_jobs_embassy.js"></script>
 <script>
 // ══ MASTER GROUPS ══
+/* UDYAM-MG:START (generator/build_udyam_suchi.js से बना; हाथ से न बदलें) */
 const MG=[
-  {id:'all',name:'सब (950)'},
-  {id:1,name:'🌾 कृषि (67)'},{id:2,name:'⛏️ खनन (43)'},
+  {id:'all',name:'सब (951)'},
+  {id:1,name:'🌾 कृषि (68)'},{id:2,name:'⛏️ खनन (43)'},
   {id:3,name:'🏭 विनिर्माण (52)'},{id:4,name:'🏗️ निर्माण (30)'},
   {id:5,name:'🧵 वस्त्र (40)'},{id:6,name:'💊 स्वास्थ्य (32)'},
   {id:7,name:'💻 प्रौद्योगिकी (43)'},{id:8,name:'🚗 परिवहन (52)'},
@@ -1643,6 +1644,7 @@ const MG=[
   {id:21,name:'🙏 धार्मिक (10)'},{id:22,name:'🏆 खेल (10)'},
   {id:23,name:'💰 डिजिटल वित्त (15)'},{id:24,name:'🛡️ सुरक्षा (60)'},
 ];
+/* UDYAM-MG:END */
 
 let activeMG='all',searchQ='';
 
@@ -1672,7 +1674,7 @@ function renderSectors(){
     return ms&&mm;
   });
   document.getElementById('sectorCount').textContent=
-    filtered.length===950?'सभी 950 उद्यम':`${filtered.length} उद्यम मिले`;
+    filtered.length===951?'सभी 951 उद्यम':`${filtered.length} उद्यम मिले`;
   /* 13-Sep (ऑडिट H1): 50-50 खेप (scale-नियम v1.8-ख2) — 950 कार्ड एक साथ नहीं (DOM 6,800 → ~500) */
   const BATCH=50; const shown=Math.min(filtered.length, UDY_BATCH*BATCH);
   document.getElementById('sectorGrid').innerHTML=filtered.slice(0,shown).map(s=>`
