@@ -1,4 +1,6 @@
 /* ============================================================
+   dev_network_check.js v1.6 (25-Nov-2026, खेप N-5: नीचे की दोहरी चेतावनी का पहरा: disclaimer ठीक एक बार, सूचना फ़र्म-पन्ने पर नहीं;
+   ऊपर की नई गिनती-पट्टी (हिंदी और English) सूची की असली गिनती से, पुरानी 9 गिनतियाँ नहीं।)
    dev_network_check.js v1.5 (25-Nov-2026, खेप N-3.1: ChatGPT ऑडिट CSC-01/02: किसी प्रकाशित पते में ख़ाली/"null" टुकड़ा या शोध-टिप्पणी
    नहीं; हर CSC नाम की स्रोत-कड़ी (7,437/7,437; कॉलम खिसके 3 की कड़ी पते के खाने से); छँटाई के कार्ड में कड़ी न हो तो "स्रोत की कड़ी
    नहीं"; importer की दो नई धाराएँ (नक़ली CSV से)।
@@ -150,8 +152,11 @@ for (const u of urls) {
   if (en && DEV.test(s)) devEn.push(u);
   const body = s.slice(s.indexOf('<div class="nw-wrap">'), s.indexOf("</main>"));
   const isCsc = /\/network\/bihar\/csc\//.test(u), XT = isCsc ? UI[L].secText.csc : null;
-  if (isCsc ? (body.indexOf(N.esc(XT.disclosure)) < 0 || body.indexOf(N.esc(XT.notice)) < 0 || body.indexOf(N.esc(UI[L].disclaimer)) > -1)
-            : (body.indexOf(N.esc(UI[L].disclaimer)) < 0 || body.indexOf(N.esc(UI[L].notice)) < 0)) noDisc.push(u);
+  /* v1.6 (खेप N-5): disclaimer ठीक एक बार; सूचना ज़िले/सूची के पन्ने पर ऊपर ठीक एक बार, फ़र्म-पन्ने पर नहीं (वहाँ ऊपर "जाँच की स्थिति");
+     नीचे सूचना + disclaimer का दोहराव (दो पैराग्राफ़ एक के बाद एक) कहीं नहीं */
+  const cnt = (t) => body.split(N.esc(t)).length - 1, isFirm = /\/network\/firm\//.test(u);
+  const D = isCsc ? XT.disclosure : UI[L].disclaimer, NT = isCsc ? XT.notice : UI[L].notice;
+  if (cnt(D) !== 1 || cnt(NT) !== (isFirm ? 0 : 1) || (isCsc && cnt(UI[L].disclaimer) > 0) || /<p class="nw-notice">[^<]*<\/p>\s*<p class="nw-disc">/.test(body)) noDisc.push(u);
   const can = (s.match(/<link rel="canonical" href="([^"]+)"/) || [])[1];
   if (can !== "https://acslearn.com" + u) badCanon.push(u);
   for (const m of s.matchAll(/hreflang="[^"]+" href="https:\/\/acslearn\.com([^"]+)"/g)) if (!live(m[1])) badHref.push(u + " → " + m[1]);
@@ -168,7 +173,7 @@ for (const u of urls) {
   } else if (/class="nw-card ver"/.test(body)) verTag.push(u);
 }
 ck("English पन्नों में देवनागरी शून्य", devEn.length === 0, devEn.slice(0, 3));
-ck("हर पन्ने पर अपनी सूची का disclaimer और सूचना (CSC पर ChatGPT का disclosure, Two-Wheeler पर पुराना)", noDisc.length === 0, noDisc.slice(0, 3));
+ck("हर पन्ने पर अपनी सूची का disclaimer ठीक एक बार (CSC पर ChatGPT का disclosure, Two-Wheeler पर पुराना); सूचना ज़िले/सूची के पन्ने पर ऊपर एक बार, फ़र्म-पन्ने पर नहीं; नीचे दोहरी चेतावनी कहीं नहीं", noDisc.length === 0, noDisc.slice(0, 3));
 ck("CSC का disclosure ui.js में ChatGPT brief से अक्षरशः", UI.hi.secText.csc.disclosure === CSC_DISC);
 /* CSC के पन्ने: हर नाम की ठीक एक जगह, Official/सूचीबद्ध निशान, कोई tel:/सत्यापित-दावा नहीं */
 let cscAnch = 0, cscBad = [];
@@ -214,6 +219,14 @@ for (const hub of ["hi/network.html", "en/network.html"]) {
     h.indexOf("/assets/net-praktik.js?v=" + vOf("assets/net-praktik.js") + '"') > -1 && h.indexOf("/assets/network.css?v=" + vOf("assets/network.css") + '"') > -1);
   const blk = h.slice(h.indexOf('id="praktik"'), h.indexOf("</section>", h.indexOf('id="praktik"')));
   const L = hub.startsWith("en") ? "en" : "hi";
+  /* v1.6 (खेप N-5): ऊपर की गिनती-पट्टी: हर सूची (राज्य × क्षेत्र) की असली गिनती और कड़ी; पुरानी 9 गिनतियाँ और शून्य-जगहें नहीं; RM की कड़ी */
+  const GI = N.hubText(L).ginti, g0 = h.indexOf("NET-GINTI:START") > -1 ? h.indexOf("NET-GINTI:START") : h.indexOf('class="net-stats"');
+  const gb = h.slice(g0, h.indexOf('class="ng-go"', g0) + 300);
+  ck(hub + ": ऊपर की गिनती-पट्टी = सूची की असली गिनती (" + GI.map((x) => x.n).join(", ") + "), हर गिनती अपनी सूची की कड़ी; पुरानी गिनतियाँ और 0/— नहीं; क्षेत्रीय प्रबंधक की कड़ी",
+    GI.length > 0 && GI.every((x) => gb.indexOf('href="' + x.href + '"><span class="net-n">' + x.n + '</span><span class="net-l">' + N.esc(x.label) + "</span>") > -1)
+    && gb.split('class="net-n"').length === GI.length + 1 && !/id="n(Desh|Zonal|Regional|Centre|Teacher|Counselor|Employer|Agent|Labharthi)"/.test(h)
+    && !/class="net-n"[^>]*>\s*(0|—)\s*</.test(h) && gb.indexOf(N.esc(N.hubText(L).rmNeed)) > -1
+    && gb.indexOf('href="' + N.esc(N.hubText(L).rmHref) + '"') > -1 && fs.existsSync(path.join(ROOT, "join.html")), gb.slice(0, 600));
   ck(hub + ": हिस्से में disclaimer, सूचना, फ़र्म और उस्ताद के अलग बटन", blk.indexOf(UI[L].disclaimer) > -1 && blk.indexOf(UI[L].notice) > -1 && /role=workshop/.test(blk) && /role=ustad/.test(blk));
 }
 ck("en/network.html: बटन English पैनल पर (lang=en) और सूची-कड़ी /en/ पर", /role=workshop&amp;lang=en/.test(rd("en/network.html")) && rd("en/network.html").indexOf('href="/en/network/bihar/two-wheeler/"') > -1);
@@ -464,5 +477,5 @@ ck("Excel-साँचा: 43 कॉलम batches.js के क्रम मे
 dom().then(() => {
   console.log("जाँचें: पास " + pass + " · फेल " + fail + (skip ? " · छूटी " + skip : ""));
   if (fail) { console.log("फेल जाँचें (ऊपर पूरा ब्योरा):"); FAILED.forEach((n, i) => console.log("   " + (i + 1) + ". ❌ " + n)); console.log("⛔ dev_network_check: फेल"); process.exit(1); }
-  console.log("🏁 dev_network_check v1.5 : नेटवर्क पास");
+  console.log("🏁 dev_network_check v1.6 : नेटवर्क पास");
 });

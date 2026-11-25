@@ -1,4 +1,7 @@
 /* ============================================================
+   network/ui.js v1.3 (25-Nov-2026, खेप N-5: Founder का आदेश: नेटवर्क-पन्ने की ऊपर की गिनती-पट्टी में शून्य वाली गिनतियाँ नहीं,
+   ऑनलाइन खोजी गई सूची की असली गिनती + क्षेत्रीय प्रबंधक (RM) की ज़रूरत: कुंजियाँ gintiLabel, rmNeed, rmJoin, rmBtn।
+   Founder 25-Nov रात: "सत्यापन" के बदले "ACS के नेटवर्क से जोड़ने"; बटन पर “सुंदर भविष्य के लिए “क्षेत्रीय प्रबंधक” के रूप में जुड़ें!”)।
    network/ui.js v1.2 (25-Nov-2026, खेप N-4: नेटवर्क-खोज में पंचायत/गाँव; हर कार्ड पर "सुधार का निवेदन" और "नया फ़र्म जोड़ें";
    उनके पन्ने /network/nivedan/ के शब्द nv में)। v1.1 (परत-3, 25-Nov-2026, खेप N-3: CSC सूची के शब्द secText.csc में, और नेटवर्क-पन्ने की छँटाई के नए शब्द hub में।
    CSC का disclosure ChatGPT के brief (25-Nov-2026) से अक्षरशः। पुराने शब्द नहीं बदले। v1.0 = 22-Nov-2026, खेप N-1) :
@@ -52,6 +55,11 @@ module.exports = {
     jsOff: "सुधार का फ़ॉर्म चलाने के लिए browser में JavaScript चालू करें, या WhatsApp पर बताएँ।",
     hubH: "🛠️ व्यावहारिक सीखने की जगहें और CSC केंद्र (सर्वे-सूची)",   /* v1.1: CSC सूची भी यहीं */
     hubHelp: "ये सूचियाँ सार्वजनिक, सरकारी और व्यावसायिक स्रोतों और ACS नेटवर्क सर्वे से बनी हैं। हर जगह के साथ उसकी जाँच की स्थिति लिखी है।",
+    /* v1.3: नेटवर्क-पन्ने की ऊपर की गिनती-पट्टी (generator/build_net_khoj.js, NET-GINTI)। {place} {s} = generator भरता है। */
+    gintiLabel: "ऑनलाइन खोजे गए {place} ({s})",
+    rmNeed: "इन्हें ACS के नेटवर्क से जोड़ने के लिए क्षेत्रीय प्रबंधक (Regional Manager) की आवश्यकता है।",
+    rmJoin: "अगर आप इच्छुक हैं, तो अभी जुड़ें।",
+    rmBtn: "📝 सुंदर भविष्य के लिए “क्षेत्रीय प्रबंधक” के रूप में जुड़ें!",
     hubNoJs: "यह छँटाई चलाने के लिए browser में JavaScript चालू करें। बिना JavaScript के नीचे की ज़िलेवार पूरी सूची देखें।",
     otherPlaces: "← नेटवर्क में दूसरी जगहें खोजें", sectorLine: "{icon} {sub} · {stat}",
     /* नेटवर्क-पन्ने (/hi/network.html) की व्यावहारिक-सूची (assets/net-praktik.js यही पढ़ता है, index.json से) */
@@ -197,6 +205,10 @@ module.exports = {
     jsOff: "Turn on JavaScript in your browser to use the correction form, or tell us on WhatsApp.",
     hubH: "🛠️ Practical learning places and CSC centres (survey list)",
     hubHelp: "These lists are made from public, government and business sources and the ACS network survey. The verification status is written with every place.",
+    gintiLabel: "{place} found online ({s})",
+    rmNeed: "We need Regional Managers to link these places to the ACS network.",
+    rmJoin: "If you are interested, join now.",
+    rmBtn: "📝 Join as a “Regional Manager” for a better future!",
     hubNoJs: "Turn on JavaScript in your browser to use these filters. Without JavaScript, see the full district list below.",
     otherPlaces: "← Find other places in the network", sectorLine: "{icon} {sub} · {stat}",
     hub: { sector: "Sector", state: "State", district: "District", block: "Block", category: "Category", status: "Verification status", brand: "Brand", skill: "Skill",

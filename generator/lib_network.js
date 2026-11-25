@@ -175,8 +175,16 @@ function hubText(lang, recs) {
     const S = TX.SECTORS[sec];
     lists.push({ href: URL.overview(lang, st, sec), text: "📋 " + fmt(U.overviewH1, { s: STATES[st][lang], place: lang === "hi" ? S.hiPlace : S.enPlace }) + ": " + U.overviewLink });
   }
+  /* v1.3 (25-Nov-2026, खेप N-5): ऊपर की गिनती-पट्टी: हर सूची (राज्य × क्षेत्र) की असली गिनती, उसी data से जिससे सूची बनती है */
+  const ginti = [];
+  for (const st of Object.keys(T)) for (const sec of Object.keys(T[st])) {
+    const S = TX.SECTORS[sec];
+    ginti.push({ href: URL.overview(lang, st, sec), n: T[st][sec].n.toLocaleString("en-IN"),
+      label: fmt(U.gintiLabel, { place: lang === "hi" ? S.hiPlace : S.enPlace, s: STATES[st][lang] }) });
+  }
   return { h: U.hubH, help: U.hubHelp, notice: U.notice, loading: U.hub.loading, nojs: U.hubNoJs, lists,
-           regH: U.regH, regFirm: U.regFirm, regUstad: U.regUstad, regNote: U.regNote, disc: U.disclaimer };
+           regH: U.regH, regFirm: U.regFirm, regUstad: U.regUstad, regNote: U.regNote, disc: U.disclaimer,
+           ginti, rmNeed: U.rmNeed, rmJoin: U.rmJoin, rmBtn: U.rmBtn, rmHref: "/join.html?role=team" + (lang === "hi" ? "" : "&lang=" + lang) };
 }
 module.exports = { ROOT, TX, STATES, BATCHES, LANGS, SECTOR_KEY, secKey, recordPages, loadRecords, pubStatus, URL, fileOf, tree, district, category, pageUrls, fmt, esc, hubText,
   PUBLIC_KEYS, EMAIL_RE, LONG_DIGITS, INTERNAL_LABEL, safeKey, textProblems, sectorDataProblems, publicProblems, panchayatOf };

@@ -1,4 +1,5 @@
-/* dev_net_khoj_check.js v1.0 (19-Nov-2026) : नेटवर्क पेज (/hi/network.html) की खोज का जाँच-यंत्र।
+/* dev_net_khoj_check.js v1.2 (25-Nov-2026 रात, खेप N-5: RM-पंक्ति "ACS के नेटवर्क से जोड़ने" और बटन के Founder-शब्द; शब्द ui.js से पढ़े, हाथ से नहीं) ·
+   v1.1 (25-Nov-2026, खेप N-5: ऊपर की पट्टी में सूचियों की असली गिनती; पुरानी 9 गिनतियाँ नहीं) · v1.0 (19-Nov-2026) : नेटवर्क पेज (/hi/network.html) की खोज का जाँच-यंत्र।
    असली पेज + असली /assets/net-khoj.js + असली /assets/geo/ jsdom में; server (searchPublicListings) की जगह नक़ली जवाब।
    चलाएँ:  node generator/dev_net_khoj_check.js      (jsdom कहीं और हो तो: ACS_JSDOM=<पता>/node_modules/jsdom)
    जाँचें: generator ताज़ा · पुराना हाथ का हिस्सा गया · गिनती असली · सूची में सिर्फ़ नाम, जगह, ACS नंबर, कोर्स और बैज ·
@@ -25,7 +26,17 @@ const HTML = rd("hi/network.html");
 ck("पुराना हाथ का हिस्सा गया: udyam_data.js, देश-सूची वाला script, \"00 रिज़ल्ट\" और TODO नहीं", !/udyam_data\.js|COUNTRY_GROUPS|SAARC_DATA|class="net-count"|TODO\(future\)/.test(HTML));
 ck("नया हिस्सा ठीक एक बार: markers, geo/countries.js, net-khoj.js",
   HTML.split("NET-KHOJ:START").length === 2 && HTML.split("NET-KHOJ:END").length === 2 && HTML.split('src="/assets/geo/countries.js"').length === 2 && HTML.split('src="/assets/net-khoj.js"').length === 2);
-ck("गिनती-पट्टी में पहले से लिखा झूठा 0 नहीं (बिना JS के \"—\")", !/class="net-n" id="n[A-Za-z]+">0</.test(HTML) && HTML.split('class="net-n"').length === 10);
+/* v1.1 (25-Nov-2026, खेप N-5, Founder): ऊपर की पट्टी = ऑनलाइन खोजी गई सूचियों की असली गिनती; पुरानी 9 गिनतियाँ (शून्य वाली) नहीं */
+const HB = require(path.join(ROOT, "generator/lib_network.js")).hubText("hi"), GI = HB.ginti;
+ck("गिनती-पट्टी: पुरानी 9 गिनतियाँ और 0/— नहीं; सूचियों की असली गिनती (" + GI.map((x) => x.n).join(", ") + ") बिना JS के पेज में ही",
+  !/id="n(Desh|Zonal|Regional|Centre|Teacher|Counselor|Employer|Agent|Labharthi)"/.test(HTML) && !/class="net-n"[^>]*>\s*(0|—)\s*</.test(HTML)
+  && HTML.split('class="net-n"').length === GI.length + 1 && GI.every((x) => HTML.indexOf('href="' + x.href + '"><span class="net-n">' + x.n + "</span>") > -1)
+  && HTML.indexOf('href="/join.html?role=team">' + HB.rmBtn + "</a>") > -1 && HTML.indexOf('<p class="ng-rm">' + HB.rmNeed + "</p>") > -1);
+/* Founder 25-Nov रात: "सत्यापन" के बदले "ACS के नेटवर्क से जोड़ने"; बटन पर उनके शब्द अक्षरशः */
+ck("Founder के शब्द: \"इन्हें ACS के नेटवर्क से जोड़ने के लिए …\" (\"सत्यापन\" नहीं) और बटन \"सुंदर भविष्य के लिए “क्षेत्रीय प्रबंधक” के रूप में जुड़ें!\"",
+  HB.rmNeed.indexOf("ACS के नेटवर्क से जोड़ने के लिए क्षेत्रीय प्रबंधक (Regional Manager) की आवश्यकता है") > -1 && !/सत्यापन|verification/.test(HB.rmNeed)
+  && /सुंदर भविष्य के लिए “क्षेत्रीय प्रबंधक” के रूप में जुड़ें!$/.test(HB.rmBtn)
+  && HTML.split("सुंदर भविष्य के लिए “क्षेत्रीय प्रबंधक” के रूप में जुड़ें!").length === 2 && !/इनके सत्यापन/.test(HTML));
 const blk = HTML.slice(HTML.indexOf("NET-KHOJ:START"), HTML.indexOf("NET-KHOJ:END"));
 const small = (blk.match(/font-size:\s*(\d+)px/g) || []).map((x) => +x.replace(/\D/g, "")).filter((n) => n < 16);
 ck("खोज-हिस्से में कोई अक्षर 16px से छोटा नहीं", small.length === 0, small.join(","));
@@ -85,9 +96,8 @@ function pick(c, id, v) { const s = c.d.getElementById(id); s.value = v; s.dispa
   const t0 = txt(c), first = c.calls[0] || { data: {} };
   ck("पेज खुलते ही एक खोज: देश भारत, बाक़ी ख़ाली, पन्ना 0", c.calls.length === 1 && first.data.country === "in" && !first.data.role && !first.data.state && first.data.page === 0
     && /cloudfunctions\.net\/searchPublicListings$/.test(first.url) && /^https:\/\/us-central1-acslearn-platform\./.test(first.url), JSON.stringify(c.calls));
-  const n = (id) => c.d.getElementById(id).textContent;
-  ck("गिनती-पट्टी में server की असली गिनती", n("nDesh") === "2" && n("nZonal") === "3" && n("nRegional") === "7" && n("nCentre") === "5" && n("nTeacher") === "4"
-    && n("nCounselor") === "1" && n("nEmployer") === "2" && n("nAgent") === "0" && n("nLabharthi") === "120");
+  const nums = Array.prototype.map.call(c.d.querySelectorAll(".net-n"), (e) => e.textContent).join(",");
+  ck("server की गिनती आने पर भी ऊपर की पट्टी वही (सूचियों की गिनती, JS कुछ नहीं बदलता, कोई ग़लती नहीं)", nums === GI.map((x) => x.n).join(",") && !c.d.getElementById("nDesh"), nums);
   const card1 = c.d.querySelector(".nk-card");
   ck("पहला कार्ड: बैनर-नाम, बैज, जगह (ज़िला और राज्य का नाम), ACS नंबर, कोर्स, जुड़ने का तरीक़ा", !!card1 && /ज्ञान ज्योति कंप्यूटर केंद्र/.test(card1.textContent)
     && /✔ सत्यापित बैज/.test(card1.textContent) && /खगड़िया, बिहार/.test(card1.textContent) && /ACS-CE-2026-100001/.test(card1.textContent)
@@ -124,10 +134,10 @@ function pick(c, id, v) { const s = c.d.getElementById(id); s.value = v; s.dispa
   ck("पेज में कोई JS-त्रुटि नहीं", c.errors.length === 0, c.errors.join(" ‖ "));
   c.dom.window.close();
   c = await openNet(fakeServer([], { countries: 1, zonal: 0, regional: 0, center: 0, teacher: 0, counselor: 0, employer: 0, agent: 0, learner: 0 }));
-  ck("अभी कोई स्वीकृत नाम न हो: गिनती 0 (असली), सूची में साफ़ संदेश", c.d.getElementById("nCentre").textContent === "0" && /कोई नाम नहीं मिला/.test(txt(c)));
+  ck("अभी कोई स्वीकृत नाम न हो: सूची में साफ़ संदेश; ऊपर की पट्टी में फिर भी सूचियों की गिनती (कोई 0 नहीं)", Array.prototype.map.call(c.d.querySelectorAll(".net-n"), (e) => e.textContent).join(",") === GI.map((x) => x.n).join(",") && /कोई नाम नहीं मिला/.test(txt(c)));
   c.dom.window.close();
   console.log("जाँचें: पास " + pass + " · फेल " + fail);
   if (fail) { console.log("⛔ dev_net_khoj_check रुका"); process.exit(1); }
-  console.log("🏁 dev_net_khoj_check v1.0 : नेटवर्क पेज की खोज पास");
+  console.log("🏁 dev_net_khoj_check v1.2 : नेटवर्क पेज की खोज पास");
   process.exit(0);
 })().catch((e) => { console.error(e); process.exit(1); });

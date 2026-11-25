@@ -1,4 +1,6 @@
 /* ============================================================
+   build_network.js v1.5 (परत-4, 25-Nov-2026, खेप N-5: पन्ने के नीचे की दोहरी चेतावनी एक हुई: नीचे सिर्फ़ disclaimer;
+   सूचना ऊपर ही (फ़र्म-पन्ने पर ऊपर "जाँच की स्थिति")। कोई शब्द नहीं बदला, सिर्फ़ दोहराव हटा। बाक़ी सब v1.4 जैसा।)
    build_network.js v1.4 (परत-4, 25-Nov-2026, खेप N-4, Founder: "नेटवर्क के सर्च में पंचायत भी" और हर फ़र्म के नाम-पते के नीचे
    "सुधार का निवेदन" व "नया फ़र्म जोड़ें"): (1) हर कार्ड पर ये दो बटन (CSC का कार्ड, टू-व्हीलर का कार्ड, फ़र्म का पन्ना); दोनों एक
    पन्ने /network/nivedan/ पर जाते हैं (सूची, राज्य, ज़िला और नाम का ID कड़ी में), जो यहीं बनता है (noindex, sitemap में नहीं);
@@ -145,7 +147,9 @@ function regBox(lang, sec) {
     '<a class="nw-btn alt" href="' + joinHref(lang, "ustad") + '">' + esc(U.regUstad) + "</a></div>" +
     '<p class="nw-note">' + esc(U.regNote) + "</p></section>";
 }
-const foot = (lang, sec) => '<p class="nw-notice">' + esc(noticeOf(lang, sec)) + '</p>\n<p class="nw-disc">' + esc(discOf(lang, sec)) + '</p>\n<p><a class="nw-fixlink" href="' + HUB(lang) + '">' + esc(UI[lang].otherPlaces) + "</a></p>";
+/* v1.5 (25-Nov-2026, खेप N-5, ऑडिट: "फ़र्म-पन्ने के नीचे लगभग एक ही चेतावनी दो पैराग्राफ़ में"): नीचे सिर्फ़ disclaimer।
+   सूचना (notice) ज़िले/सूची के पन्ने के ऊपर पहले से है; फ़र्म-पन्ने के ऊपर "जाँच की स्थिति" का डिब्बा है। दोनों पाठ अक्षरशः वही, बस दोहराव हटा। */
+const foot = (lang, sec) => '<p class="nw-disc">' + esc(discOf(lang, sec)) + '</p>\n<p><a class="nw-fixlink" href="' + HUB(lang) + '">' + esc(UI[lang].otherPlaces) + "</a></p>";
 /* v1.2: बिना-पन्ने वाली सूची (CSC) का पूरा कार्ड, ज़िले के पन्ने पर उसकी अपनी जगह */
 function listedCard(lang, sec, r) {
   const U = UI[lang], H = U.hub, X = XT(lang, sec), sd = r.sectorData || {};
@@ -459,4 +463,4 @@ for (const f of stale) {   /* सिर्फ़ इसी generator की ब�
 }
 for (const f of changed) { fs.mkdirSync(path.dirname(path.join(ROOT, f)), { recursive: true }); fs.writeFileSync(path.join(ROOT, f), OUT[f], "utf8"); }
 console.log("✅ नेटवर्क: " + nPages + " पन्ने, " + (Object.keys(OUT).length - nPages) + " data-फ़ाइलें · बदलीं/नई " + changed.length + " · हटीं " + stale.length);
-console.log("🏁 build_network v1.4");
+console.log("🏁 build_network v1.5");

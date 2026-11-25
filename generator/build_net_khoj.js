@@ -1,4 +1,8 @@
-/* build_net_khoj.js v1.2 (22-Nov-2026, खेप N-1: Founder का आदेश "ये सूची नेटवर्क मे दिखना चाहिए, एक टैग के साथ": खोज के ठीक नीचे
+/* build_net_khoj.js v1.3 (25-Nov-2026, खेप N-5: Founder का आदेश: ऊपर की गिनती-पट्टी की शून्य वाली 9 गिनतियाँ हटीं (देश, ऑफिस, सेंटर, …
+   लाभार्थी)। उनकी जगह NET-GINTI:START … END: ऑनलाइन खोजी गई सूचियों की असली गिनती (टू-व्हीलर, CSC; उसी data से जिससे सूची बनती है,
+   बिना JavaScript भी दिखती है) + "इन्हें ACS के नेटवर्क से जोड़ने के लिए क्षेत्रीय प्रबंधक (Regional Manager) की आवश्यकता है" + जुड़ने की कड़ी
+   /join.html?role=team। शब्द generator/data/network/ui.js से (lib_network.hubText: हिंदी और English एक घर)।
+   v1.2 (22-Nov-2026, खेप N-1: Founder का आदेश "ये सूची नेटवर्क मे दिखना चाहिए, एक टैग के साथ": खोज के ठीक नीचे
    नया हिस्सा "व्यावहारिक सीखने की जगहें" (NET-PRAKTIK:START … END), data generator/build_network.js का, चलाने वाला
    /assets/net-praktik.js; शब्द generator/data/network/ui.js से (lib_network.hubText)। खोज की पंक्ति "हर नाम ACS की जाँच के बाद"
    अब "इस खोज में हर नाम …" ताकि नीचे की सर्वे-सूची ("जाँच बाक़ी" निशान वाली) से टकराव न लगे।)
@@ -112,6 +116,35 @@ function praktik() {
 }
 const PJS_RE = /<script src="\/assets\/net-praktik\.js\?v=[0-9a-f]+"><\/script>\n/;
 
+/* ---------- v1.3: ऊपर की गिनती-पट्टी (NET-GINTI) ---------- */
+const GSTART = "<!-- NET-GINTI:START (generator/build_net_khoj.js से बना; हाथ से न बदलें) -->";
+const GEND = "<!-- NET-GINTI:END -->";
+function ginti() {
+  const H = NW.hubText("hi"), e = (v) => String(v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  if (!H.ginti.length) stop("गिनती-पट्टी के लिए कोई सूची नहीं");
+  return [
+    GSTART,
+    '    <div class="net-stats">',
+    H.ginti.map((x) => '      <a class="net-stat ng-stat" href="' + x.href + '"><span class="net-n">' + e(x.n) + '</span><span class="net-l">' + e(x.label) + "</span></a>").join("\n"),
+    "    </div>",
+    '    <p class="ng-rm">' + e(H.rmNeed) + "</p>",
+    '    <p class="ng-rm">' + e(H.rmJoin) + "</p>",
+    '    <p class="ng-go"><a class="btn btn-primary" href="' + e(H.rmHref) + '">' + e(H.rmBtn) + "</a></p>",
+    "    <style>",
+    "      .ng-stat{flex:0 1 280px;min-width:0;max-width:280px;display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none}",
+    "      .ng-stat .net-l{line-height:1.5}",
+    "      .ng-stat:hover,.ng-stat:focus-visible{border-color:var(--blue)}",
+    "      .page-hero .ng-rm{color:var(--navy);font-size:18px;font-weight:700;line-height:1.7;max-width:640px;margin:18px auto 0}",
+    "      .page-hero .ng-rm+.ng-rm{margin-top:2px}",
+    "      .ng-go{margin:12px 0 0}",
+    "    </style>",
+    GEND
+  ].join("\n");
+}
+/* पहली दौड़: पुराना 9 गिनतियों वाला हिस्सा ठीक इसी रूप में (शुरू से नीचे तक) */
+const OLD_STATS_START = '    <div class="net-stats">\n      <div class="net-stat"><span class="net-n" id="nDesh">—</span>';
+const OLD_STATS_END = '<span class="net-l">लाभार्थी</span></div>\n    </div>';
+
 /* पहली दौड़ में जो पुराना हिस्सा हूबहू मिलना चाहिए */
 const OLD_START = "<!-- खोज / फ़िल्टर -->\n<section class=\"section-container\" style=\"max-width:900px;padding-top:24px\">";
 const OLD_END_TEXT = "      <a href=\"/join.html\" class=\"btn btn-primary\">📝 नेटवर्क में जुड़ें</a>\n    </div>\n  </div>\n</section>";
@@ -124,11 +157,18 @@ function once(s, piece, what) { const n = s.split(piece).length - 1; if (n !== 1
 
 function build(src) {
   let s = src;
-  /* 1. गिनती-पट्टी: 0 → — */
-  for (const id of STAT_IDS) {
-    const a = '<span class="net-n" id="' + id + '">0</span>', b = '<span class="net-n" id="' + id + '">—</span>';
-    if (s.indexOf(b) > -1) continue;
-    once(s, a, "गिनती " + id); s = s.replace(a, b);
+  /* 1. (v1.3) गिनती-पट्टी: ऑनलाइन खोजी गई सूचियों की असली गिनती (पुरानी 9 गिनतियाँ हटीं) */
+  const GB = ginti();
+  if (s.indexOf(GSTART) > -1) {
+    once(s, GSTART, "NET-GINTI START"); once(s, GEND, "NET-GINTI END");
+    s = s.slice(0, s.indexOf(GSTART)) + GB + s.slice(s.indexOf(GEND) + GEND.length);
+  } else {
+    once(s, OLD_STATS_START, "पुरानी गिनती-पट्टी (शुरू)");
+    const i = s.indexOf(OLD_STATS_START), j = s.indexOf(OLD_STATS_END, i);
+    if (j < 0) stop("पुरानी गिनती-पट्टी का अंत नहीं मिला");
+    const old = s.slice(i, j + OLD_STATS_END.length);
+    if (old.split('class="net-stat"').length !== 10 || STAT_IDS.some((id) => old.split('id="' + id + '"').length !== 2) || old.split("<div").length !== 11) stop("पुरानी गिनती-पट्टी अपेक्षा से अलग है");
+    s = s.slice(0, i) + GB + s.slice(j + OLD_STATS_END.length);
   }
   /* 2. खोज का हिस्सा */
   if (s.indexOf(START) > -1) {
@@ -170,7 +210,12 @@ const out = build(src);
 if (build(out) !== out) stop("दूसरी दौड़ पेज बदल देती (generator idempotent नहीं)");
 /* पहरे: पुरानी चीज़ें गईं, नई ठीक एक बार */
 if (/udyam_data\.js|COUNTRY_GROUPS|SAARC_DATA|class="net-count"|TODO\(future\)/.test(out)) stop("पुराना हिस्सा बचा रह गया");
-for (const id of ["fCountry", "fState", "fDistrict", "fQ", "fGo", "netResult"].concat(STAT_IDS)) if (out.split('id="' + id + '"').length !== 2) stop("id " + id + " ठीक एक बार नहीं");
+for (const id of ["fCountry", "fState", "fDistrict", "fQ", "fGo", "netResult"]) if (out.split('id="' + id + '"').length !== 2) stop("id " + id + " ठीक एक बार नहीं");
+/* v1.3: पुरानी 9 गिनतियाँ और शून्य-जगहें गईं; नई पट्टी ठीक एक बार, हर गिनती और कड़ी उसी data से */
+if (STAT_IDS.some((id) => out.indexOf('id="' + id + '"') > -1) || /class="net-n"[^>]*>\s*(0|—)\s*</.test(out)) stop("पुरानी गिनती-पट्टी बची रह गई");
+if (out.split(GSTART).length !== 2 || out.split(GEND).length !== 2) stop("NET-GINTI ठीक एक बार नहीं");
+for (const x of NW.hubText("hi").ginti) if (out.indexOf('href="' + x.href + '"><span class="net-n">' + x.n + "</span>") < 0) stop("गिनती-पट्टी में " + x.href + " की गिनती " + x.n + " नहीं");
+if (/\[|\]/.test(ginti().replace(/<style[\s\S]*?<\/style>/, "").replace(/<[^>]+>/g, ""))) stop("गिनती-पट्टी में चौकोर कोष्ठक");
 if (/\[|\]/.test((BLOCK + praktik()).replace(/<[^>]+>/g, ""))) stop("चौकोर कोष्ठक मिला");
 if (out.split('id="npApp"').length !== 2 || out.split('id="praktik"').length !== 2 || out.split("/assets/net-praktik.js?v=").length !== 2) stop("व्यावहारिक-सूची का हिस्सा ठीक एक बार नहीं");
 if (CHECK) {

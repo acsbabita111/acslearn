@@ -1,4 +1,5 @@
 /* ============================================================
+   menu_lang/network.en.js v1.3 (25-Nov-2026, खेप N-5: ऊपर की गिनती-पट्टी के नाम, कड़ियाँ और RM-कड़ी ui.js से; पुराने 8 गिनती-नाम हटे)
    menu_lang/network.en.js v1.2 (परत-3, 21-Nov-2026, खेप M-1; v1.1 = खेप M-1.1: रॉयल्टी और 80% की दो पंक्तियाँ हिंदी मूल के साथ सही की गईं;
    v1.2 = 22-Nov खेप N-1: "व्यावहारिक सीखने की जगहें" हिस्से के शब्द यहाँ हाथ से नहीं लिखे, generator/data/network/ui.js से
    (lib_network.hubText: हिंदी और English एक ही घर से) + उस हिस्से की कड़ियाँ English पन्नों पर (LINKS)) : नेटवर्क का English पन्ना (/en/network.html)
@@ -16,14 +17,6 @@ const T = {
     "ACS का नेटवर्क": "The ACS Network",
     "गाँव से दुनिया तक — एक ही नेटवर्क से जुड़ें, सीखें, कमाएँ और दूसरों को भी आगे बढ़ाएँ।": "From villages to the world: join one network, learn, earn and help others grow too.",
     "देश": "Countries",
-    "जोनल ऑफिस": "Zonal offices",
-    "रिजनल ऑफिस": "Regional offices",
-    "सेंटर": "Centers",
-    "शिक्षक": "Teachers",
-    "काउंसलर": "Counselors",
-    "नियोक्ता": "Employers",
-    "एजेंट": "Agents",
-    "लाभार्थी": "Beneficiaries",
     "🔍 नेटवर्क खोजें": "🔍 Search the network",
     "ACS से जुड़े स्वीकृत केंद्र, वर्कशॉप और शिक्षकों की online कक्षाएँ यहाँ मिलती हैं।": "Here you find approved centers, workshops and teachers' online classes linked with ACS.",
     "इस खोज में हर नाम ACS की जाँच के बाद ही आता है।": "In this search, every name comes only after a check by ACS.",
@@ -60,6 +53,9 @@ const NW = require("../../lib_network.js"), HI = NW.hubText("hi"), EN = NW.hubTe
 const LINKS = { "/join.html?role=workshop": "/join.html?role=workshop&amp;lang=en", "/join.html?role=ustad": "/join.html?role=ustad&amp;lang=en" };
 for (const k of Object.keys(HI)) {
   if (k === "lists") { HI.lists.forEach((x, i) => { T[x.text] = EN.lists[i].text; LINKS[x.href] = EN.lists[i].href; }); continue; }
+  /* v1.3: ऊपर की गिनती-पट्टी (अंक अनुवाद-टुकड़े नहीं होते: सिर्फ़ नाम और कड़ी) और RM की कड़ी */
+  if (k === "ginti") { HI.ginti.forEach((x, i) => { T[x.label] = EN.ginti[i].label; LINKS[x.href] = EN.ginti[i].href; }); continue; }
+  if (k === "rmHref") { LINKS[HI.rmHref] = EN.rmHref.replace(/&/g, "&amp;"); continue; }
   if (T[HI[k]] !== undefined && T[HI[k]] !== EN[k]) throw new Error("network.en.js: एक हिंदी टुकड़े के दो अनुवाद: " + HI[k]);
   T[HI[k]] = EN[k];
 }
