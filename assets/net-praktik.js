@@ -1,5 +1,9 @@
 /* ============================================================
-   /assets/net-praktik.js v1.0 (22-Nov-2026, खेप N-1) : नेटवर्क-पन्ने का "व्यावहारिक सीखने की जगहें" हिस्सा
+   /assets/net-praktik.js v1.1 (25-Nov-2026, खेप N-3: CSC सूची। जिस सूची के नामों का अलग पन्ना नहीं (index में rp: 0), उसका
+   कार्ड: सूचीबद्ध + जाँच का निशान, "Official CSC" (सिर्फ़ o: 1 पर), प्रखंड या "प्रखंड-मिलान बाक़ी" (+ स्रोत का प्रखंड), पता/PIN,
+   स्रोत की कड़ी, और "पूरी जानकारी" = ज़िले के पन्ने पर उस नाम की जगह; सूची की अपनी सूचना और disclosure ऊपर; प्रखंड-छँटाई में
+   "प्रखंड-मिलान बाक़ी" (__u)। स्रोत के [ ] छपाई में ( )। Two-Wheeler का कार्ड वैसा ही।
+   v1.0 (22-Nov-2026, खेप N-1) : नेटवर्क-पन्ने का "व्यावहारिक सीखने की जगहें" हिस्सा
    पन्ना: /hi/network.html और /en/network.html (हिस्सा generator/build_net_khoj.js से, #npApp)।
    data: /assets/network/index.json (क्षेत्र, श्रेणी, ज़िले, गिनती, शब्द) और ज़िला चुनने पर उसी ज़िले की
    /assets/network/<राज्य>/<सेक्टर>/<ज़िला>.json (दोनों generator/build_network.js से)। server की ज़रूरत नहीं।
@@ -19,11 +23,14 @@
   function has(a, v) { if (!a) return false; for (var i = 0; i < a.length; i++) if (a[i] === v) return true; return false; }
   function same(a, b) { return String(a || "").toLowerCase().replace(/[^a-z0-9]/g, "") === String(b || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
   /* छँटाई: f = {b: प्रखंड, c: श्रेणी, s: "V"/"T", br: ब्रांड, k: हुनर, q: नाम का टुकड़ा} */
+  NP.UNM = "__u";   /* प्रखंड-मिलान बाक़ी (data में b = "") */
+  NP.paren = function (v) { return String(v === null || v === undefined ? "" : v).replace(/\[/g, "(").replace(/\]/g, ")"); };
   NP.filter = function (rs, f) {
     var q = String(f.q || "").toLowerCase().replace(/^\s+|\s+$/g, ""), out = [];
     for (var i = 0; i < rs.length; i++) {
       var r = rs[i];
-      if (f.b && r.b !== f.b) continue;
+      if (f.b === NP.UNM) { if (r.b) continue; }
+      else if (f.b && r.b !== f.b) continue;
       if (f.c && r.c !== f.c && !has(r.c2, f.c)) continue;
       if (f.s && r.s !== f.s) continue;
       if (f.br && !has(r.br, f.br)) continue;
@@ -33,7 +40,8 @@
     }
     return out;
   };
-  NP.card = function (L, idx, sec, r) {
+  NP.card = function (L, idx, sec, r, dd) {
+    if (sec.rp === 0) return NP.listedCard(L, idx, sec, r, dd);
     var U = idx.ui[L], st = idx.status[r.s] || idx.status.T, cat = r.c, place = [], i;
     for (i = 0; i < sec.cats.length; i++) if (sec.cats[i].id === r.c) cat = sec.cats[i][L];
     if (r.l && !same(r.l, r.b)) place.push(r.l);
@@ -43,6 +51,21 @@
       '<div class="nw-row">📍 ' + NP.esc(place.join(", ")) + "</div>";
     if (r.p) h += '<div class="nw-row">📞 <a href="' + NP.tel(r.p) + '">' + NP.phoneTxt(r.p) + "</a>" + (r.sp ? " (" + NP.esc(U.shared) + ")" : "") + "</div>";
     return h + '<div class="nw-row"><a href="' + NP.firmUrl(L, r.i) + '">' + NP.esc(U.see) + " →</a></div></div>";
+  };
+  /* v1.1: बिना-पन्ने वाली सूची (CSC) का कार्ड; dd = ज़िला (index.json से: पन्ने का पता) */
+  NP.listedCard = function (L, idx, sec, r, dd) {
+    var U = idx.ui[L], st = idx.status[r.s] || idx.status.T, T = (sec.txt || {})[L] || {}, esc = NP.esc, paren = NP.paren;
+    var url = dd && dd.page ? dd.page[L] + "#" + String(r.i).toLowerCase() : "";
+    var place = [r.b ? r.b : U.unmapped]; if (r.rb) place.push(NP.fmt(U.rawBlock, { b: paren(r.rb) }));
+    var addr = []; if (r.a) addr.push(paren(r.a)); if (r.pn) addr.push(U.pin + " " + r.pn);
+    var ty = (idx.srcTypes || {})[r.st], src = (ty ? ty[L] : "") + (r.sn ? ": " + r.sn : "");
+    var h = '<div class="nw-card">' + (url ? '<a class="nw-name" href="' + url + '">' + esc(paren(r.n)) + "</a>" : '<span class="nw-name">' + esc(paren(r.n)) + "</span>") +
+      '<div><span class="nw-tag cat">' + esc(U.listed) + '</span><span class="nw-tag ' + (r.s === "V" ? "ver" : "tbv") + '">' + st.icon + " " + esc(st[L]) + "</span>" +
+      (r.o === 1 ? '<span class="nw-tag cat">' + esc(U.official) + "</span>" : "") + "</div>" +
+      '<div class="nw-row">📍 ' + esc(place.join(" · ")) + "</div>";
+    if (addr.length) h += '<div class="nw-row">🏠 ' + esc(addr.join(" · ")) + "</div>";
+    if (src || r.su) h += '<div class="nw-row">🔗 ' + esc((T.src || "") + (src ? ": " + src : "")) + (r.su && /^https?:\/\//i.test(r.su) ? ' · <a href="' + esc(r.su) + '" target="_blank" rel="nofollow noopener noreferrer">' + esc(T.srcLink || "") + "</a>" : "") + "</div>";
+    return h + (url ? '<div class="nw-row"><a href="' + url + '">' + esc(U.srcSee) + " →</a></div>" : "") + "</div>";
   };
   NP.uniqSorted = function (rs, key) {
     var seen = {}, out = [], i, j, v;
@@ -96,15 +119,18 @@
     if (!S.st) S.st = sts[0].slug;
     var stObj = null, i; for (i = 0; i < sts.length; i++) if (sts[i].slug === S.st) stObj = sts[i];
     if (!stObj) { stObj = sts[0]; S.st = stObj.slug; }
+    if (sec.txt && sec.txt[L]) h += '<p class="nw-notice">' + esc(sec.txt[L].notice) + '</p><p class="nw-disc">' + esc(sec.txt[L].disc) + "</p>";
     var SS = stObj.sectors[S.sec], dOpts = [["", U.allD]], ds = SS.districts.slice().sort(function (a, b) { return a[L].localeCompare(b[L], L === "hi" ? "hi" : "en"); });
     for (i = 0; i < ds.length; i++) dOpts.push([ds[i].slug, ds[i][L] + " (" + ds[i].n + ")"]);
     var stOpts = []; for (i = 0; i < sts.length; i++) stOpts.push([sts[i].slug, sts[i][L]]);
     h += '<div class="np-grid">' + sel("npState", U.state, stOpts, S.st, sts.length < 2) + sel("npDist", U.district, dOpts, S.d || "", false);
     var rs = S.rs || [], dis = !S.rs;
-    var bOpts = [["", U.all]], b = NP.uniqSorted(rs, "b"); for (i = 0; i < b.length; i++) bOpts.push([b[i], b[i]]);
+    var bOpts = [["", U.all]], b = NP.uniqSorted(rs, "b"), unm = false; for (i = 0; i < b.length; i++) { if (b[i] === "") unm = true; else bOpts.push([b[i], b[i]]); }
+    if (unm) bOpts.push([NP.UNM, U.unmapped]);
     var cOpts = [["", U.all]]; for (i = 0; i < sec.cats.length; i++) if (!S.rs || NP.filter(rs, { c: sec.cats[i].id }).length) cOpts.push([sec.cats[i].id, sec.cats[i][L]]);
+    var showCat = sec.cats.length > 1;   /* v1.1: एक ही श्रेणी हो (CSC) तो श्रेणी-छँटाई नहीं */
     var sOpts = [["", U.all], ["V", IDX.status.V.icon + " " + IDX.status.V[L]], ["T", IDX.status.T.icon + " " + IDX.status.T[L]]];
-    h += sel("npBlock", U.block, bOpts, S.f.b || "", dis) + sel("npCat", U.category, cOpts, S.f.c || "", dis) + sel("npStat", U.status, sOpts, S.f.s || "", dis);
+    h += sel("npBlock", U.block, bOpts, S.f.b || "", dis) + (showCat ? sel("npCat", U.category, cOpts, S.f.c || "", dis) : "") + sel("npStat", U.status, sOpts, S.f.s || "", dis);
     var br = NP.uniqSorted(rs, "br"); if (br.length) { var brOpts = [["", U.all]]; for (i = 0; i < br.length; i++) brOpts.push([br[i], br[i]]); h += sel("npBrand", U.brand, brOpts, S.f.br || "", dis); }
     var kk = NP.uniqSorted(rs, "k"); if (kk.length) { var kOpts = [["", U.all]];
       for (i = 0; i < kk.length; i++) { var lab = kk[i]; for (var j = 0; j < sec.skills.length; j++) if (sec.skills[j].id === kk[i]) lab = sec.skills[j][L]; kOpts.push([kk[i], lab]); }
@@ -119,9 +145,10 @@
     if (!S.rs) { box.innerHTML = '<p class="nk-note">' + esc(U.loading) + "</p>"; return; }
     var sec = secObj(S.sec), rs = NP.filter(S.rs, S.f), h = '<p class="np-tot">' + esc(NP.fmt(U.total, { n: rs.length })) + "</p>", i;
     if (!rs.length) h += '<p class="nk-note">' + esc(U.none) + "</p>";
-    for (i = 0; i < rs.length && i < S.shown; i++) h += NP.card(L, IDX, sec, rs[i]);
+    var dd = curDistrict();
+    for (i = 0; i < rs.length && i < S.shown; i++) h += NP.card(L, IDX, sec, rs[i], dd);
     if (rs.length > S.shown) h += '<button type="button" class="nw-btn alt np-more" id="npMore">' + esc(U.more) + "</button>";
-    var dd = curDistrict(); if (dd) h += '<p class="np-links"><a href="' + dd.page[L] + '">📋 ' + esc(dd[L]) + ": " + esc(U.list) + "</a></p>";
+    if (dd) h += '<p class="np-links"><a href="' + dd.page[L] + '">📋 ' + esc(dd[L]) + ": " + esc(U.list) + "</a></p>";
     box.innerHTML = h;
     var m = $("npMore"); if (m) m.onclick = function () { S.shown += 20; drawList(); };
   }

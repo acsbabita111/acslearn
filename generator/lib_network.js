@@ -1,5 +1,8 @@
 /* ============================================================
-   lib_network.js v1.2 (परत-4 का साझा हिस्सा, 22-Nov-2026, खेप N-1; v1.2 = ऑडिट N1-P0-04: पहरा अब रिकॉर्ड के हर पाठ-मान पर
+   lib_network.js v1.3 (परत-4 का साझा हिस्सा, 25-Nov-2026, खेप N-3: CSC सूची। जिस सूची में हर नाम का अलग पन्ना नहीं
+   (taxonomy recordPages: false), उसके नाम का पता = ज़िले के पन्ने पर उसकी जगह (URL.record → …/<ज़िला>/#<id>); pageUrls में
+   ऐसे नामों के पन्ने नहीं। प्रखंड "" = "प्रखंड-मिलान बाक़ी"।
+   v1.2 (22-Nov-2026, खेप N-1; v1.2 = ऑडिट N1-P0-04: पहरा अब रिकॉर्ड के हर पाठ-मान पर
    (ब्रांड समेत): email, 10+ अंक, भीतरी खाने जैसा पाठ; कुंजी का नाम सिर्फ़ सुरक्षित रूप में छपे। v1.1 = ऑडिट N1-P0-01/02: publicProblems() —
    सार्वजनिक रिकॉर्ड का एक ही पहरा: तय खाने, Sector_Data_JSON allowlist, email/फ़ोन-रिसाव, "सत्यापित" का ताला) : व्यावहारिक प्रशिक्षण नेटवर्क
    build_network.js (पन्ने), build_sitemap.js (पते) और dev_network_check.js (जाँच) तीनों यही पढ़ते हैं:
@@ -31,6 +34,7 @@ const pre = (lang) => (lang === "hi" ? "" : "/" + lang);
 const SECTOR_KEY = {}; for (const k of Object.keys(TX.SECTORS)) SECTOR_KEY[TX.SECTORS[k].id] = k;
 const secKey = (r) => SECTOR_KEY[r.sectorId];
 const secSlug = (sec) => TX.SECTORS[sec].slug;
+const recordPages = (sec) => TX.SECTORS[sec].recordPages !== false;   /* v1.3: false = नाम का अलग पन्ना नहीं (CSC) */
 const URL = {
   hub: (lang) => (lang === "hi" ? "/hi/network.html" : "/" + lang + "/network.html"),
   overview: (lang, st, sec) => pre(lang) + "/network/" + st + "/" + secSlug(sec) + "/",
@@ -39,6 +43,8 @@ const URL = {
   firmBase: (lang) => pre(lang) + "/network/firm/",
   slip: (lang) => pre(lang) + "/network/"
 };
+/* v1.3: किसी रिकॉर्ड का पक्का पता: अपना पन्ना, या (recordPages: false) ज़िले के पन्ने पर उसकी जगह */
+URL.record = (lang, r) => (recordPages(secKey(r)) ? URL.firm(lang, r.id) : URL.district(lang, r.state, secKey(r), r.district) + "#" + r.id.toLowerCase());
 const fileOf = (u) => u.replace(/^\//, "") + (u.endsWith("/") ? "index.html" : "");
 
 /* राज्य × सेक्टर × ज़िला × प्रखंड की गिनती (data से; हाथ से कभी नहीं) */
@@ -63,7 +69,7 @@ function pageUrls(recs) {
       out.push(URL.overview(lang, st, sec));
       for (const d of Object.keys(T[st][sec].d)) out.push(URL.district(lang, st, sec, d));
     }
-    for (const r of recs) out.push(URL.firm(lang, r.id));
+    for (const r of recs) if (recordPages(secKey(r))) out.push(URL.firm(lang, r.id));
   }
   return out;
 }
@@ -148,5 +154,5 @@ function hubText(lang, recs) {
   return { h: U.hubH, help: U.hubHelp, notice: U.notice, loading: U.hub.loading, nojs: U.hubNoJs, lists,
            regH: U.regH, regFirm: U.regFirm, regUstad: U.regUstad, regNote: U.regNote, disc: U.disclaimer };
 }
-module.exports = { ROOT, TX, STATES, BATCHES, LANGS, SECTOR_KEY, secKey, loadRecords, pubStatus, URL, fileOf, tree, district, category, pageUrls, fmt, esc, hubText,
+module.exports = { ROOT, TX, STATES, BATCHES, LANGS, SECTOR_KEY, secKey, recordPages, loadRecords, pubStatus, URL, fileOf, tree, district, category, pageUrls, fmt, esc, hubText,
   PUBLIC_KEYS, EMAIL_RE, LONG_DIGITS, INTERNAL_LABEL, safeKey, textProblems, sectorDataProblems, publicProblems };

@@ -1,5 +1,7 @@
 # ============================================================
-# build_network_template.py v1.1 (परत-4, 22-Nov-2026, खेप N-1) : नेटवर्क-सर्वे का Excel-साँचा
+# build_network_template.py v1.2 (परत-4, 25-Nov-2026, खेप N-3) : नेटवर्क-सर्वे का Excel-साँचा
+# v1.2: साँचे में सिर्फ़ वे सेक्टर (और उनकी श्रेणियाँ), जिनका ID-रूप idPattern है (TW, IT)। CSC सूची अपनी स्रोत-फ़ाइल से
+#       आती है (batches.js का BIHAR-CSC-001, idRegex), साँचे से नहीं; इसलिए साँचा जस-का-तस।
 # v1.1 (22-Nov, office-laptop पर पहली दौड़ की सीख):
 #   (क) Windows पर pipe की console cp1252 होती है: 🏁/देवनागरी छापते ही UnicodeEncodeError से script गिरती थी,
 #       साँचा ठीक होने पर भी --check FAIL। अब stdout/stderr हमेशा UTF-8।
@@ -28,8 +30,8 @@ OUT = os.path.join(ROOT, "generator", "data", "network", "ACS-Network-Import-Tem
 JS = r'''
 const B=require("./generator/data/network/batches.js"),T=require("./generator/data/network/taxonomy.js"),G=require("./generator/data/network/geo.js");
 console.log(JSON.stringify({help:B.TEMPLATE_HELP,cols:Object.values(B.TEMPLATE_COLS),internal:B.TEMPLATE_INTERNAL,
- sectors:Object.keys(T.SECTORS).map(k=>({key:k,id:T.SECTORS[k].id,en:T.SECTORS[k].en,hi:T.SECTORS[k].hi,status:T.SECTORS[k].status,idPattern:T.SECTORS[k].idPattern})),
- cats:T.CATEGORIES,skills:T.SKILL_TAGS,btypes:T.BUSINESS_TYPES,src:Object.keys(T.SOURCE_TYPES).map(k=>({id:k,en:T.SOURCE_TYPES[k].en,hi:T.SOURCE_TYPES[k].hi})),
+ sectors:Object.keys(T.SECTORS).filter(k=>T.SECTORS[k].idPattern).map(k=>({key:k,id:T.SECTORS[k].id,en:T.SECTORS[k].en,hi:T.SECTORS[k].hi,status:T.SECTORS[k].status,idPattern:T.SECTORS[k].idPattern})),
+ cats:Object.fromEntries(Object.entries(T.CATEGORIES).filter(([k])=>T.SECTORS[k]&&T.SECTORS[k].idPattern)),skills:T.SKILL_TAGS,btypes:T.BUSINESS_TYPES,src:Object.keys(T.SOURCE_TYPES).map(k=>({id:k,en:T.SOURCE_TYPES[k].en,hi:T.SOURCE_TYPES[k].hi})),
  states:Object.values(G.STATES).map(s=>({en:s.en,hi:s.hi,prefix:s.idPrefix,districts:s.districts.map(d=>({en:d.en,hi:d.hi,code:d.code}))})),
  status:Object.keys(T.STATUS.internal)}));
 '''

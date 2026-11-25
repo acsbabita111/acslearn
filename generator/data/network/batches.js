@@ -1,5 +1,6 @@
 /* ============================================================
-   network/batches.js v1.0 (परत-3, 22-Nov-2026, खेप N-1) : नेटवर्क के import-batch का रजिस्टर + Excel-साँचे के कॉलम
+   network/batches.js v1.1 (परत-3, 25-Nov-2026, खेप N-3: BIHAR-CSC-001, बिहार के CSC केंद्र, soft launch; v1.0 = 22-Nov-2026,
+   खेप N-1) : नेटवर्क के import-batch का रजिस्टर + Excel-साँचे के कॉलम
    हर import = एक batch-ID (जैसे BIHAR-TW-001, BIHAR-IT-001)। वापसी (rollback) और जाँच (audit) इसी से।
    cols = स्रोत-शीट के कॉलम का नाम → नेटवर्क-खाना। जो कॉलम cols में नहीं, वह कभी सार्वजनिक नहीं होता।
    सिर्फ़ भीतरी (internal) खाने: स्रोत की मज़बूती (Confidence), RM-क़तार, प्राथमिकता, पहचान-जाँच, email, टिप्पणी।
@@ -53,6 +54,30 @@ const BATCHES = {
     },
     internalCols: ["Packet_ID", "Execution_Order", "Email", "Confidence", "RM_Work_Class", "Priority", "Execution_Route",
                    "Identity_Review", "RM_Owner", "Attempt_Status", "Operation", "Geography", "Service_Scope"]
+  },
+  /* v1.1 (25-Nov-2026): बिहार के CSC केंद्र (soft launch)। स्रोत = portal_records_soft_launch.csv (ChatGPT-शोध, Founder ने 25-Nov को
+     भेजी; 7,449 पंक्तियाँ; repo में नहीं रखी जाती, Two-Wheeler की Excel जैसी)। स्रोत-फ़ाइल कभी बदली नहीं जाती: हर सुधार
+     आगे RM की overlay-फ़ाइल से (अलग खेप)। नाम और पता स्रोत की वर्तनी में।
+     सार्वजनिक: नाम, ज़िला, प्रखंड (मिला हो तो), स्रोत का प्रखंड, पता, PIN, स्रोत-कड़ी, "Official CSC" (सिर्फ़ YES पर)।
+     कभी सार्वजनिक नहीं: phone, email (इस फ़ाइल में ख़ाली भी हैं), source_layer, source_authority, record_origin और RM/प्रशिक्षण के खाने।
+     consts.primary = एक ही श्रेणी। publishCol = portal_publish YES न हो तो सार्वजनिक सूची में नहीं।
+     unmappedBlock = canonical_block ख़ाली पर स्रोत का प्रखंड (rawBlock) हो, तो ज़िले के पन्ने के "प्रखंड-मिलान बाक़ी" हिस्से में।
+     notAddress = पते के खाने में पता नहीं, शोध की टिप्पणी (जैसे "Source row/rank 3 on block CSC directory."): छपती नहीं (गिनती रिपोर्ट में)।
+     expect.rows = स्रोत की पंक्तियाँ (ChatGPT का पक्का आँकड़ा 7,449: बेमेल हो तो import रुकता है)। */
+  "BIHAR-CSC-001": {
+    sector: "csc", state: "bihar", importedOn: "2026-11-25", source: "portal_records_soft_launch.csv",
+    expect: { rows: 7449, records: 7437, districts: 38 },   /* 7,449 में 12 रोककर रखे (पते/नाम में 10+ अंक, या प्रखंड ही नहीं) */
+    consts: { primary: "CSC-01" },
+    cols: {
+      id: "record_id", state: "state", district: "district", block: "canonical_block", name: "vle_name",
+      address: "address", pin: "pin", s1url: "source_url", acsStatus: "acs_status"
+    },
+    sectorDataCols: { rawBlock: { col: "raw_block" }, officialCsc: { col: "official_csc_label_allowed", map: { YES: true, NO: false } } },
+    publishCol: { col: "portal_publish", yes: "YES" },
+    unmappedBlock: "rawBlock",
+    notAddress: ["^Source row/rank \\d+ on block CSC directory\\.?$", "^Address on file$", "nearby centres$", "^PNB row:"],
+    internalCols: ["phone", "email", "source_layer", "source_authority", "rm_verification", "training_availability", "workshop_commitment",
+                   "block_mapping_status", "record_origin", "source_spelling_preserved"]
   }
   /* BIHAR-IT-001: असली IT-सर्वे का data आने पर (साँचे से):  { sector: "it", state: "bihar", importedOn: "YYYY-MM-DD",
      source: "<फ़ाइल>", sheet: "Firms", template: true }  — कोई नक़ली/नमूना फ़र्म कभी नहीं। */

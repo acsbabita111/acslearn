@@ -1,5 +1,10 @@
 /* ============================================================
-   build_network.js v1.1 (परत-4, 22-Nov-2026, खेप N-1; v1.1 = ऑडिट N1-P0-01/02: लिखने से पहले हर रिकॉर्ड पर
+   build_network.js v1.2 (परत-4, 25-Nov-2026, खेप N-3: CSC सूची। जिस सूची के नामों का अलग पन्ना नहीं (recordPages: false),
+   उसके ज़िले के पन्ने पर हर नाम का पूरा कार्ड (उसकी अपनी जगह #<id>): सूचीबद्ध + जाँच का निशान, "Official CSC" (सिर्फ़ जहाँ data में),
+   प्रखंड (और स्रोत का प्रखंड, जब अलग हो), पता/PIN, स्रोत की कड़ी, ACS सूची-नंबर। प्रखंड "" = "प्रखंड-मिलान बाक़ी" (सबसे नीचे)।
+   सूची-विशेष शब्द (सूचना, disclosure, विवरण, जुड़ने का बटन) ui.js के secText से। स्रोत का पाठ जस-का-तस; सिर्फ़ [ ] को
+   छापते समय ( ) (ACS नियम: चौकोर कोष्ठक नहीं; data में मूल वैसा ही)। Two-Wheeler के पन्ने byte-अछूते।
+   v1.1 (22-Nov-2026, खेप N-1; v1.1 = ऑडिट N1-P0-01/02: लिखने से पहले हर रिकॉर्ड पर
    lib_network.publicProblems() का पहरा; एक भी समस्या = कुछ नहीं लिखा जाता) : व्यावहारिक प्रशिक्षण नेटवर्क के पन्ने और data
    स्रोत: generator/data/network/batches/*.json (import_network.js से) + taxonomy.js + geo.js + ui.js (शब्द)।
    ढाँचा (navbar, footer, मेन्यू) = root मास्टर टेम्पलेट /_TEMPLATE.html (परत-2); English ढाँचा उसी टेम्पलेट से,
@@ -60,7 +65,7 @@ const CH = {}; for (const l of LANGS) CH[l] = chrome(l);
 /* ---------- असेट की छाप (?v=) ---------- */
 const CSS_V = hash(rd("assets/network.css")), SUDHAR_V = hash(rd("assets/net-sudhar.js"));
 
-function page(lang, o) {   /* o: title, desc, url, alt{hi,en}, crumbs[[name,url]], body, extraJs */
+function page(lang, o) {   /* o: title, desc, url, alt{hi,en}, crumbs[[name,url]], body, extraJs, extraHead (v1.2) */
   const C = CH[lang], U = UI[lang];
   const bc = { "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: o.crumbs.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c[0], item: BASE + c[1] })) };
@@ -79,7 +84,7 @@ function page(lang, o) {   /* o: title, desc, url, alt{hi,en}, crumbs[[name,url]
     '  <meta property="og:locale" content="' + U.locale + '"/>\n' +
     '  <meta name="twitter:card" content="summary"/>\n';
   const extra = '<meta name="robots" content="index,follow"/>\n<link rel="stylesheet" href="/assets/network.css?v=' + CSS_V + '"/>\n' +
-    '<script type="application/ld+json">' + JSON.stringify(bc).replace(/</g, "\\u003c") + "</script>\n";
+    '<script type="application/ld+json">' + JSON.stringify(bc).replace(/</g, "\\u003c") + "</script>\n" + (o.extraHead || "");
   const crumbs = '<nav class="nw-crumb" aria-label="' + esc(lang === "hi" ? "आप यहाँ हैं" : "Breadcrumb") + '">' +
     o.crumbs.map((c, i) => (i === o.crumbs.length - 1 ? '<span aria-current="page">' + esc(c[0]) + "</span>" : '<a href="' + c[1] + '">' + esc(c[0]) + "</a>")).join(" › ") + "</nav>";
   return C.replace("@@HEAD@@", () => head.replace(/^\s+/, "")).replace("@@EXTRA@@", () => extra)
@@ -103,6 +108,15 @@ const coll = (lang) => new Intl.Collator(lang === "hi" ? "hi" : "en", { sensitiv
 const same = (a, b) => String(a || "").toLowerCase().replace(/[^a-z0-9]/g, "") === String(b || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const placeParts = (r, d) => { const out = []; if (r.locality && !same(r.locality, r.block)) out.push(r.locality); if (!d || !same(r.block, d.en)) out.push(r.block); return out; };
 const joinHref = (lang, role) => "/join.html?role=" + role + (lang === "hi" ? "" : "&amp;lang=" + lang);
+/* v1.2: सूची-विशेष शब्द (ui.js secText) और छापने का रूप */
+const XT = (lang, sec) => ((UI[lang].secText || {})[sec]) || null;
+const noticeOf = (lang, sec) => (XT(lang, sec) ? XT(lang, sec).notice : UI[lang].notice);
+const discOf = (lang, sec) => (XT(lang, sec) ? XT(lang, sec).disclosure : UI[lang].disclaimer);
+const paren = (v) => String(v).replace(/\[/g, "(").replace(/\]/g, ")");   /* स्रोत का [ ] छपाई में ( ) */
+const UNM = "";   /* प्रखंड-मिलान बाक़ी */
+const blockLabel = (lang, sec, b) => (b === UNM ? UI[lang].hub.unmapped : b);
+const blockSlug = (b) => (b === UNM ? "unmapped" : slug(b));
+const sortBlocks = (bs) => bs.filter((b) => b !== UNM).sort(coll("en").compare).concat(bs.indexOf(UNM) > -1 ? [UNM] : []);
 function phoneHtml(lang, r, short) {
   const U = UI[lang];
   if (r.phone.length) return r.phone.map((p) => '<a href="' + tel(p) + '">' + phoneTxt(p) + "</a>").join(", ");
@@ -110,14 +124,41 @@ function phoneHtml(lang, r, short) {
     : esc(fmt(U.shared, { p: phoneTxt(r.sharedPhone.number), n: r.sharedPhone.places })) + ' <a href="' + tel(r.sharedPhone.number) + '">' + phoneTxt(r.sharedPhone.number) + "</a>";
   return short ? "" : '<span class="nw-row muted">' + esc(U.noPhone) + "</span>";
 }
-function regBox(lang) {
-  const U = UI[lang];
+function regBox(lang, sec) {
+  const U = UI[lang], X = XT(lang, sec);
+  if (X) return '<section class="nw-box nw-reg"><h2>' + esc(U.regH) + '</h2><div class="nw-btns"><a class="nw-btn" href="' + joinHref(lang, "center") + '">' + esc(X.regCenter) + "</a></div>" +
+    '<p class="nw-note">' + esc(X.regNote) + "</p></section>";
   return '<section class="nw-box nw-reg"><h2>' + esc(U.regH) + '</h2><div class="nw-btns">' +
     '<a class="nw-btn" href="' + joinHref(lang, "workshop") + '">' + esc(U.regFirm) + "</a>" +
     '<a class="nw-btn alt" href="' + joinHref(lang, "ustad") + '">' + esc(U.regUstad) + "</a></div>" +
     '<p class="nw-note">' + esc(U.regNote) + "</p></section>";
 }
-const foot = (lang) => '<p class="nw-notice">' + esc(UI[lang].notice) + '</p>\n<p class="nw-disc">' + esc(UI[lang].disclaimer) + '</p>\n<p><a class="nw-fixlink" href="' + HUB(lang) + '">' + esc(UI[lang].otherPlaces) + "</a></p>";
+const foot = (lang, sec) => '<p class="nw-notice">' + esc(noticeOf(lang, sec)) + '</p>\n<p class="nw-disc">' + esc(discOf(lang, sec)) + '</p>\n<p><a class="nw-fixlink" href="' + HUB(lang) + '">' + esc(UI[lang].otherPlaces) + "</a></p>";
+/* v1.2: बिना-पन्ने वाली सूची (CSC) का पूरा कार्ड, ज़िले के पन्ने पर उसकी अपनी जगह */
+function listedCard(lang, sec, r) {
+  const U = UI[lang], H = U.hub, X = XT(lang, sec), sd = r.sectorData || {};
+  const place = [r.block === UNM ? H.unmapped : r.block];
+  if (sd.rawBlock && (r.block === UNM || !same(sd.rawBlock, r.block))) place.push(fmt(H.rawBlock, { b: paren(sd.rawBlock) }));
+  const addr = [r.address ? paren(r.address) : "", r.pin ? H.pin + " " + r.pin : ""].filter(Boolean).join(" · ");
+  const src = r.sources.map((x) => { const ty = TX.SOURCE_TYPES[x.sourceType] || TX.SOURCE_TYPES.OTHER_PUBLIC;
+    return esc(ty[lang]) + (x.sourceName ? ": " + esc(x.sourceName) : "") + " · " +
+      (x.sourceUrl ? '<a href="' + esc(x.sourceUrl) + '" target="_blank" rel="nofollow noopener noreferrer">' + esc(U.srcLink) + "</a>" : esc(U.srcNone)); }).join("; ");
+  return '<li class="nw-card" id="' + r.id.toLowerCase() + '"><span class="nw-name">' + esc(paren(r.firmName)) + "</span>" +
+    '<div><span class="nw-tag cat">' + esc(H.listed) + "</span>" + tag(lang, r) + (sd.officialCsc === true ? '<span class="nw-tag cat">' + esc(H.official) + "</span>" : "") + "</div>" +
+    '<div class="nw-row">📍 ' + esc(place.join(" · ")) + "</div>" +
+    (addr ? '<div class="nw-row">🏠 ' + esc(addr) + "</div>" : "") +
+    '<div class="nw-row">🔗 ' + esc(X.src) + ": " + src + "</div>" +
+    '<div class="nw-row muted">' + esc(fmt(X.idLine, { id: r.id })) + "</div></li>";
+}
+function fixBox(lang, sec, du) {   /* बिना-पन्ने वाली सूची: सुधार WhatsApp से, ACS सूची-नंबर के साथ */
+  const X = XT(lang, sec), wa = "[NET-SUDHAR] " + X.waText + " · " + BASE + du + "\n" + UI[lang].fId + ": ";
+  return '<section class="nw-box"><h2>' + esc(X.fixH) + '</h2><p class="nw-note">' + esc(X.fixText) + '</p><div class="nw-btns"><a class="nw-btn wa" href="https://wa.me/' + WA +
+    "?text=" + encodeURIComponent(wa) + '" target="_blank" rel="noopener">' + esc(X.waFix) + "</a></div></section>";
+}
+function aboutBox(lang, sec) {
+  const X = XT(lang, sec);
+  return '<section class="nw-box"><h2>' + esc(X.hAbout) + '</h2><ul class="nw-cats">' + X.about.map((x) => "<li>" + esc(x) + "</li>").join("") + "</ul></section>";
+}
 const crumbBase = (lang) => [[UI[lang].crumbHome, lang === "hi" ? "/" : "/en/"], [UI[lang].net, HUB(lang)]];
 
 /* ---------- data ---------- */
@@ -144,51 +185,58 @@ for (const lang of LANGS) {
     const ov = URL.overview(lang, st, sec);
     const dlist = ST.districts.filter((d) => B.d[d.slug]).sort((a, b) => coll(lang).compare(dName(lang, a), dName(lang, b)));
     /* --- राज्य × सेक्टर पन्ना --- */
-    const cv = [[U.cvTotal, B.n], [U.cvDistricts, dlist.length + " / " + ST.districts.length], [U.cvBlocks, new Set(secRecs.map((r) => r.district + "/" + r.block)).size],
-      [TX.STATUS.public.VERIFIED.icon + " " + TX.STATUS.public.VERIFIED[lang], B.ver], [TX.STATUS.public.TBV.icon + " " + TX.STATUS.public.TBV[lang], B.n - B.ver],
-      [U.cvPhone, secRecs.filter((r) => r.phone.length).length], [U.cvWeb, secRecs.filter((r) => r.website).length], [U.cvSrc, secRecs.filter((r) => r.sources.some((x) => x.sourceUrl)).length]];
+    const X = XT(lang, sec), RP = N.recordPages(sec);
+    const cv = [[U.cvTotal, B.n], [U.cvDistricts, dlist.length + " / " + ST.districts.length], [U.cvBlocks, new Set(secRecs.filter((r) => r.block !== UNM).map((r) => r.district + "/" + r.block)).size],
+      [TX.STATUS.public.VERIFIED.icon + " " + TX.STATUS.public.VERIFIED[lang], B.ver], [TX.STATUS.public.TBV.icon + " " + TX.STATUS.public.TBV[lang], B.n - B.ver]].concat(RP ?
+      [[U.cvPhone, secRecs.filter((r) => r.phone.length).length], [U.cvWeb, secRecs.filter((r) => r.website).length], [U.cvSrc, secRecs.filter((r) => r.sources.some((x) => x.sourceUrl)).length]] :
+      [[X.cvOfficial, secRecs.filter((r) => r.sectorData && r.sectorData.officialCsc === true).length], [X.cvUnmapped, secRecs.filter((r) => r.block === UNM).length],
+       [X.cvAddr, secRecs.filter((r) => r.address).length], [U.cvSrc, secRecs.filter((r) => r.sources.some((x) => x.sourceUrl)).length]]);
     const cats = (TX.CATEGORIES[sec] || []).map((c) => [c, secRecs.filter((r) => r.primaryCategory === c.id).length]).filter((x) => x[1]);
     let body = '<h1 class="nw-h1">' + esc(fmt(U.overviewH1, { s: stName(lang, st), place })) + "</h1>\n" +
       '<p class="nw-sub">' + esc(S.icon + " " + S[lang] + " · " + TX.SECTOR_STATUS[S.status][lang]) + "</p>\n" +
-      '<p class="nw-notice">' + esc(U.notice) + "</p>\n" +
+      '<p class="nw-notice">' + esc(noticeOf(lang, sec)) + "</p>\n" +
       '<section class="nw-box"><h2>' + esc(U.hCoverage) + '</h2><div class="nw-cov">' + cv.map((x) => '<div class="nw-cv"><b>' + x[1] + "</b><span>" + esc(x[0]) + "</span></div>").join("") + "</div>" +
-      '<h2 style="margin-top:14px">' + esc(U.hByCat) + '</h2><ul class="nw-cats">' + cats.map((x) => "<li>" + esc(x[0][lang]) + ": " + x[1] + "</li>").join("") + "</ul></section>\n" +
+      ((TX.CATEGORIES[sec] || []).length > 1 ? '<h2 style="margin-top:14px">' + esc(U.hByCat) + '</h2><ul class="nw-cats">' + cats.map((x) => "<li>" + esc(x[0][lang]) + ": " + x[1] + "</li>").join("") + "</ul>" : "") + "</section>\n" +
+      (X ? aboutBox(lang, sec) + "\n" : "") +
       '<section class="nw-box"><h2>' + esc(U.hDistricts) + '</h2><ul class="nw-dlist">' +
       dlist.map((d) => '<li><a href="' + URL.district(lang, st, sec, d.slug) + '">' + esc(dName(lang, d)) + "<small>" + esc(B.d[d.slug].n === 1 ? U.place1 : fmt(U.places, { n: B.d[d.slug].n })) + "</small></a></li>").join("") + "</ul></section>\n" +
       (S.course ? '<section class="nw-box"><h2>' + esc(U.hCourse) + '</h2><a class="nw-btn" href="' + S.course.url + '">📚 ' + esc(S.course[lang]) + "</a></section>\n" : "") +
-      regBox(lang) + "\n" + foot(lang);
+      regBox(lang, sec) + "\n" + foot(lang, sec);
     put(fileOf(ov), page(lang, { title: fmt(U.overviewTitle, { s: stName(lang, st), place, n: dlist.length }),
-      desc: fmt(U.overviewDesc, { s: stName(lang, st), place, n: dlist.length }), url: ov, alt: { hi: URL.overview("hi", st, sec), en: URL.overview("en", st, sec) },
+      desc: fmt(X ? X.overviewDesc : U.overviewDesc, { s: stName(lang, st), place, n: dlist.length }), url: ov, alt: { hi: URL.overview("hi", st, sec), en: URL.overview("en", st, sec) },
       crumbs: crumbBase(lang).concat([[S[lang] + " · " + stName(lang, st), ov]]), body }));
 
     /* --- ज़िले के पन्ने --- */
     for (const d of dlist) {
       const DD = B.d[d.slug], du = URL.district(lang, st, sec, d.slug);
-      const blocks = Object.keys(DD.b).sort(coll("en").compare);
-      const cards = (r) => '<li class="nw-card' + (statusOf(r) === "VERIFIED" ? " ver" : "") + '"><a class="nw-name" href="' + URL.firm(lang, r.id) + '">' + esc(r.firmName) + "</a>" +
+      const blocks = sortBlocks(Object.keys(DD.b));
+      const cards = (r) => !RP ? listedCard(lang, sec, r) : '<li class="nw-card' + (statusOf(r) === "VERIFIED" ? " ver" : "") + '"><a class="nw-name" href="' + URL.firm(lang, r.id) + '">' + esc(r.firmName) + "</a>" +
         "<div>" + tag(lang, r) + '<span class="nw-tag cat">' + esc(catLabel(lang, sec, r.primaryCategory)) + "</span></div>" +
         '<div class="nw-row">📍 ' + esc(placeParts(r, null).join(", ")) + "</div>" +
         (phoneHtml(lang, r, true) ? '<div class="nw-row">📞 ' + phoneHtml(lang, r, true) + "</div>" : "") + "</li>";
       let b2 = '<h1 class="nw-h1">' + esc(fmt(U.districtH1, { d: dName(lang, d), s: stName(lang, st), place })) + "</h1>\n" +
         '<p class="nw-sub">' + esc(fmt(U.count, { n: DD.n, v: DD.ver, vn: TX.STATUS.public.VERIFIED.icon + " " + TX.STATUS.public.VERIFIED[lang], t: DD.n - DD.ver, tn: TX.STATUS.public.TBV.icon + " " + TX.STATUS.public.TBV[lang] })) + "</p>\n" +
-        '<p class="nw-notice">' + esc(U.notice) + "</p>\n" +
-        '<ul class="nw-jump" aria-label="' + esc(U.blocks) + '">' + blocks.map((b) => '<li><a href="#b-' + slug(b) + '">' + esc(b) + " (" + DD.b[b].n + ")</a></li>").join("") + "</ul>\n";
+        '<p class="nw-notice">' + esc(noticeOf(lang, sec)) + "</p>\n" +
+        '<ul class="nw-jump" aria-label="' + esc(U.blocks) + '">' + blocks.map((b) => '<li><a href="#b-' + blockSlug(b) + '">' + esc(blockLabel(lang, sec, b)) + " (" + DD.b[b].n + ")</a></li>").join("") + "</ul>\n";
       for (const b of blocks) {
         const rs = DD.recs.filter((r) => r.block === b).sort((x, y) => coll("en").compare(x.firmName, y.firmName) || (x.id < y.id ? -1 : 1));
-        b2 += '<section class="nw-blk" id="b-' + slug(b) + '"><h2>' + esc(U.fBlock + ": " + b) + '</h2><ul class="nw-cards">' + rs.map(cards).join("") + "</ul></section>\n";
+        b2 += '<section class="nw-blk" id="b-' + blockSlug(b) + '"><h2>' + esc(b === UNM ? blockLabel(lang, sec, b) : U.fBlock + ": " + b) + "</h2>" +
+          (b === UNM && X ? '<p class="nw-note">' + esc(X.unmappedNote) + "</p>" : "") + '<ul class="nw-cards">' + rs.map(cards).join("") + "</ul></section>\n";
       }
-      b2 += '<p><a class="nw-btn alt" href="' + ov + '">' + esc(U.allDistricts) + "</a></p>\n" +
+      b2 += (RP ? "" : fixBox(lang, sec, du) + "\n") + '<p><a class="nw-btn alt" href="' + ov + '">' + esc(U.allDistricts) + "</a></p>\n" +
         (S.course ? '<section class="nw-box"><h2>' + esc(U.hCourse) + '</h2><a class="nw-btn" href="' + S.course.url + '">📚 ' + esc(S.course[lang]) + "</a></section>\n" : "") +
-        regBox(lang) + "\n" + foot(lang);
+        regBox(lang, sec) + "\n" + foot(lang, sec);
       put(fileOf(du), page(lang, { title: fmt(U.districtTitle, { d: dName(lang, d), s: stName(lang, st), place }),
-        desc: fmt(U.districtDesc, { d: dName(lang, d), s: stName(lang, st), place }), url: du,
+        desc: fmt(X ? X.districtDesc : U.districtDesc, { d: dName(lang, d), s: stName(lang, st), place }), url: du,
         alt: { hi: URL.district("hi", st, sec, d.slug), en: URL.district("en", st, sec, d.slug) },
-        crumbs: crumbBase(lang).concat([[S[lang] + " · " + stName(lang, st), ov], [dName(lang, d), du]]), body: b2 }));
+        crumbs: crumbBase(lang).concat([[S[lang] + " · " + stName(lang, st), ov], [dName(lang, d), du]]), body: b2,
+        /* v1.2: नाम की जगह (#id) पर पहुँचें तो कार्ड ऊपर की पट्टी के नीचे न छिपे (network.css नहीं छुई: Two-Wheeler के पन्ने अछूते) */
+        extraHead: RP ? "" : "<style>.nw-card[id],.nw-blk[id]{scroll-margin-top:120px}</style>\n" }));
     }
   }
 
   /* --- फ़र्म के पन्ने --- */
-  const meta = recs.map((r) => {
+  const meta = recs.filter((r) => N.recordPages(N.secKey(r))).map((r) => {
     const sec = N.secKey(r), S = SEC_OF(sec), d = N.district(r.state, r.district);
     const loc = placeParts(r, d).map((x) => x + ", ").join("");
     return { r, sec, S, d, title: fmt(U.firmTitle, { name: r.firmName, bd: same(r.block, d.en) ? dName(lang, d) : r.block + " (" + dName(lang, d) + ")", sub: S[lang] }),
@@ -243,7 +291,7 @@ for (const lang of LANGS) {
         '<noscript><p class="nw-note">' + esc(U.jsOff) + "</p></noscript>\n" +
         '<div class="nw-btns"><a class="nw-btn wa" href="https://wa.me/' + WA + "?text=" + encodeURIComponent(waText) + '" target="_blank" rel="noopener">' + esc(U.waFix) + "</a></div></section>\n" +
       '<section class="nw-box nw-reg"><h2>' + esc(U.regH) + '</h2><div class="nw-btns"><a class="nw-btn" href="' + joinHref(lang, "workshop") + '">' + esc(U.firmCta) + '</a><a class="nw-btn alt" href="' + joinHref(lang, "ustad") + '">' + esc(U.ustadCta) + '</a></div><p class="nw-note">' + esc(U.regNote) + "</p></section>\n" +
-      foot(lang);
+      foot(lang, sec);
     const js = '<script src="/assets/appcheck-config.js"></script>\n<script type="module" src="/assets/net-sudhar.js?v=' + SUDHAR_V + '"></script>\n';
     put(fileOf(fu), page(lang, { title: m.title, desc: m.desc, url: fu, alt: { hi: URL.firm("hi", r.id), en: URL.firm("en", r.id) },
       crumbs: crumbBase(lang).concat([[S[lang] + " · " + stName(lang, r.state), ov], [dName(lang, d), du], [r.firmName, fu]]), body, extraJs: js }));
@@ -272,14 +320,28 @@ for (const st of Object.keys(T)) for (const sec of Object.keys(T[st])) for (cons
     if (r.brandOem.length) o.br = r.brandOem;
     if (r.secondaryCategories.length) o.c2 = r.secondaryCategories;
     if (r.practicalSkillTags.length) o.k = r.practicalSkillTags;
+    if (!N.recordPages(sec)) {   /* v1.2: बिना-पन्ने वाली सूची: कार्ड के लिए पता, PIN, Official, स्रोत का प्रखंड (जब अलग), स्रोत */
+      const sd = r.sectorData || {};
+      if (r.address) o.a = r.address;
+      if (r.pin) o.pn = r.pin;
+      if (sd.officialCsc === true) o.o = 1;
+      if (sd.rawBlock && (r.block === UNM || !same(sd.rawBlock, r.block))) o.rb = sd.rawBlock;
+      const s0 = r.sources[0]; if (s0) { o.st = s0.sourceType; if (s0.sourceName) o.sn = s0.sourceName; if (s0.sourceUrl) o.su = s0.sourceUrl; }
+    }
     return o;
   }) }) + "\n";
   put(rel, json); shards[rel] = hash(json);
 }
 const idx = { v: 1, sectors: Object.keys(TX.SECTORS).map((k) => { const S = TX.SECTORS[k];
-    return { key: k, id: S.id, icon: S.icon, hi: S.hi, en: S.en, hiPlace: S.hiPlace, enPlace: S.enPlace, status: S.status,
-      cats: (TX.CATEGORIES[k] || []).map((c) => ({ id: c.id, hi: c.hi, en: c.en })), skills: (TX.SKILL_TAGS[k] || []).map((t) => ({ id: t.id, hi: t.hi, en: t.en })) }; }),
+    const o = { key: k, id: S.id, icon: S.icon, hi: S.hi, en: S.en, hiPlace: S.hiPlace, enPlace: S.enPlace, status: S.status,
+      cats: (TX.CATEGORIES[k] || []).map((c) => ({ id: c.id, hi: c.hi, en: c.en })), skills: (TX.SKILL_TAGS[k] || []).map((t) => ({ id: t.id, hi: t.hi, en: t.en })) };
+    if (!N.recordPages(k)) {   /* v1.2: नेटवर्क-पन्ने की छँटाई: इस सूची के कार्ड ज़िले के पन्ने की जगह पर जाते हैं; सूची की अपनी सूचना/disclosure */
+      o.rp = 0;
+      if (XT("hi", k)) o.txt = LANGS.reduce((a, l) => { a[l] = { notice: XT(l, k).notice, disc: XT(l, k).disclosure, src: XT(l, k).src, srcLink: UI[l].srcLink }; return a; }, {});
+    }
+    return o; }),
   sectorStatus: TX.SECTOR_STATUS, status: { V: TX.STATUS.public.VERIFIED, T: TX.STATUS.public.TBV }, empty: TX.EMPTY,
+  srcTypes: Object.keys(TX.SOURCE_TYPES).reduce((a, k) => { a[k] = { hi: TX.SOURCE_TYPES[k].hi, en: TX.SOURCE_TYPES[k].en }; return a; }, {}),
   ui: { hi: UI.hi.hub, en: UI.en.hub },
   states: Object.keys(T).map((st) => ({ slug: st, hi: STATES[st].hi, en: STATES[st].en, sectors: Object.keys(T[st]).reduce((a, sec) => {
     const B = T[st][sec];
@@ -298,7 +360,9 @@ for (const [rel, s] of Object.entries(OUT)) {
   const en = rel.startsWith("en/");
   if (en && DEV.test(s)) { const i = s.search(DEV); stop("English पन्ने में देवनागरी: " + rel + " … " + s.slice(Math.max(0, i - 60), i + 20).replace(/\n/g, " ")); }
   if (s.indexOf(SLIP_MARK) > -1) continue;
-  if (s.indexOf(esc(UI[en ? "en" : "hi"].disclaimer)) < 0) stop("disclaimer नहीं: " + rel);
+  const sm = /^(?:en\/)?network\/[^\/]+\/([^\/]+)\//.exec(rel), skey = sm ? Object.keys(TX.SECTORS).find((k) => TX.SECTORS[k].slug === sm[1]) : null;
+  if (s.indexOf(esc(discOf(en ? "en" : "hi", skey))) < 0) stop("disclaimer नहीं: " + rel);   /* v1.2: अपनी सूची का disclaimer */
+  if (XT("hi", skey) && s.indexOf(esc(UI[en ? "en" : "hi"].disclaimer)) > -1) stop("दूसरी सूची का disclaimer: " + rel);
   if (/\{[a-z]+\}/.test(s.replace(/<script[\s\S]*?<\/script>/g, ""))) stop("ख़ाली {खाना} बचा: " + rel);
 }
 const titles = {}, descs = {};
@@ -332,4 +396,4 @@ for (const f of stale) {   /* सिर्फ़ इसी generator की ब�
 }
 for (const f of changed) { fs.mkdirSync(path.dirname(path.join(ROOT, f)), { recursive: true }); fs.writeFileSync(path.join(ROOT, f), OUT[f], "utf8"); }
 console.log("✅ नेटवर्क: " + nPages + " पन्ने, " + (Object.keys(OUT).length - nPages) + " data-फ़ाइलें · बदलीं/नई " + changed.length + " · हटीं " + stale.length);
-console.log("🏁 build_network v1.1");
+console.log("🏁 build_network v1.2");

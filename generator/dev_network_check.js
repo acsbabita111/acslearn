@@ -1,5 +1,10 @@
 /* ============================================================
-   dev_network_check.js v1.3 (22-Nov-2026, खेप N-1; v1.3 = office-laptop (Windows) की पहली दौड़ की सीख: Python-जाँच UTF-8
+   dev_network_check.js v1.4 (25-Nov-2026, खेप N-3: CSC सूची। नई जाँचें: BIHAR-CSC-001 के 7,437 रिकॉर्ड (स्रोत की 7,449 पंक्तियाँ,
+   ChatGPT का पक्का आँकड़ा, batches.js में), सब "जाँच बाक़ी", फ़ोन/email/वेबसाइट कहीं नहीं, "Official CSC" सिर्फ़ सरकारी स्रोत पर
+   (1,819), ID-रूप, शोध-टिप्पणी पता नहीं बनी; CSC के पन्ने: हर नाम की ज़िले के पन्ने पर ठीक एक जगह, अलग पन्ना नहीं, ChatGPT का
+   disclosure अक्षरशः, "सत्यापित CSC नेटवर्क" जैसा कोई दावा नहीं, कोई tel: नहीं; Two-Wheeler के पन्ने और data वैसे ही; छँटाई में
+   CSC का कार्ड और "प्रखंड-मिलान बाक़ी"; importer की नई धाराएँ (नक़ली CSC-CSV से)। ACS_NET_CSC_SRC=<CSV> दें तो स्रोत से हूबहू मिलान भी।
+   v1.3 (22-Nov-2026, खेप N-1; v1.3 = office-laptop (Windows) की पहली दौड़ की सीख: Python-जाँच UTF-8
    console के साथ चलती है; नई जाँच: Windows-जैसी console (cp1252) पर भी साँचा-जाँच पास; आख़िर में फेल जाँचों के नाम दोबारा
    छपते हैं, ताकि खिड़की के आख़िरी हिस्से में ही दिखें। v1.2 = ऑडिट N1-P0-03/04: नक़ली-CSV की हर ग़लत/रोकी पंक्ति के हर खाने
    में पहचान-चिह्न (SENT…) और ऑडिटर का अपना मामला (ग़लत ज़िला + तारीख़ की जगह निजी email): रिपोर्ट में एक भी चिह्न, email
@@ -86,9 +91,42 @@ ck("PIN 6 अंक, बिहार की सीमा में (या ख�
 ck("श्रेणी taxonomy की", R.every((r) => N.category("tw", r.primaryCategory)));
 ck("हर रिकॉर्ड पर batch-ID और तारीख़", R.every((r) => r.importBatch === "BIHAR-TW-001" && r.createdAt === B.importedOn));
 
+/* ── 2b. CSC सूची (v1.4) ── */
+const CSC_DISC = "यह सूची सार्वजनिक/सरकारी स्रोतों से पूर्व-सूचीबद्ध है। ACS/RM सत्यापन अलग प्रक्रिया है। सूची में होना प्रशिक्षण, साझेदारी या वर्तमान संचालन की गारंटी नहीं है।";   /* ChatGPT brief, अक्षरशः */
+const J2 = JSON.parse(rd("generator/data/network/batches/BIHAR-CSC-001.json")), R2 = J2.records, B2 = BATCHES["BIHAR-CSC-001"];
+ck("CSC: पक्के आँकड़े batches.js में: स्रोत की पंक्तियाँ 7449, प्रकाशित 7437, ज़िले 38", B2.expect.rows === 7449 && B2.expect.records === 7437 && B2.expect.districts === 38);
+ck("CSC: गिनती 7437 रिकॉर्ड, 38 ज़िले, ID अनोखे और रूप BR-CSC-M/A + 5 अंक", R2.length === B2.expect.records && J2.count === R2.length && new Set(R2.map((r) => r.district)).size === 38 &&
+  new Set(R2.map((r) => r.id)).size === R2.length && R2.every((r) => /^BR-CSC-[MA]\d{5}$/.test(r.id)), R2.length);
+ck("CSC: सेक्टर CSC, mg 7, एक श्रेणी CSC-01, सब PUBLISHED", R2.every((r) => r.sectorId === "CSC" && r.mg === 7 && r.primaryCategory === "CSC-01" && r.listingStatus === "PUBLISHED"));
+ck("CSC: सब \"जाँच बाक़ी\", कोई सत्यापन-तारीख़/नाम नहीं, प्रशिक्षण UNKNOWN", R2.every((r) => r.verificationStatus === "TO_BE_VERIFIED" && !r.verificationDate && !r.verifiedBy && !r.lastRMCheck && r.practicalTrainingAvailability === "UNKNOWN"));
+const pp2 = R2.map((r) => [r.id, N.publicProblems(r)]).filter((x) => x[1].length);
+ck("CSC: 7437 पर सार्वजनिक-पहरा publicProblems() = 0", pp2.length === 0, JSON.stringify(pp2.slice(0, 3)));
+ck("CSC: फ़ोन, साझा नंबर, वेबसाइट, ब्रांड, हुनर कहीं नहीं (कुछ गढ़ा नहीं)", R2.every((r) => r.phone.length === 0 && r.sharedPhone === null && r.website === null && !r.brandOem.length && !r.practicalSkillTags.length && r.latitude === null));
+ck("CSC: sectorData सिर्फ़ officialCsc (हाँ/ना) और rawBlock", R2.every((r) => Object.keys(r.sectorData).every((k) => k === "officialCsc" || k === "rawBlock") && typeof r.sectorData.officialCsc === "boolean"));
+const off2 = R2.filter((r) => r.sectorData.officialCsc);
+ck("CSC: \"Official CSC\" 1819, और हर एक का स्रोत सरकारी (GOVERNMENT); सरकारी स्रोत वाला हर नाम Official", off2.length === 1819 && off2.every((r) => r.sources[0].sourceType === "GOVERNMENT") &&
+  R2.filter((r) => r.sources.some((x) => x.sourceType === "GOVERNMENT")).length === 1819, off2.length);
+ck("CSC: प्रखंड ख़ाली (प्रखंड-मिलान बाक़ी) सिर्फ़ वहीं, जहाँ स्रोत का प्रखंड है: 761", R2.filter((r) => r.block === "").length === 761 && R2.every((r) => r.block !== "" || r.sectorData.rawBlock));
+const NA = (B2.notAddress || []).map((x) => new RegExp(x, "i"));
+ck("CSC: पते में शोध-टिप्पणी नहीं (\"Source row/rank …\", \"Address on file\" …)", NA.length === 4 && R2.every((r) => !r.address || !NA.some((re) => re.test(r.address))));
+ck("CSC: हर रिकॉर्ड पर batch-ID और तारीख़", R2.every((r) => r.importBatch === "BIHAR-CSC-001" && r.createdAt === B2.importedOn));
+const cscPub = fs.readdirSync(path.join(ROOT, "assets/network/bihar/csc")).map((f) => rd("assets/network/bihar/csc/" + f)).join("\n") + rd("generator/data/network/batches/BIHAR-CSC-001.json");
+ck("CSC: सार्वजनिक data में email, भीतरी खाने (source_layer, record_origin, rm_verification …) नहीं", !/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(cscPub) &&
+  !/source_layer|source_authority|record_origin|rm_verification|workshop_commitment|block_mapping_status|portal_publish|Gap Closure/i.test(cscPub));
+if (process.env.ACS_NET_CSC_SRC) {
+  const r = run(["generator/import_network.js", "BIHAR-CSC-001", process.env.ACS_NET_CSC_SRC, "--check"]);
+  ck("CSC: data स्रोत-CSV से हूबहू (import_network --check)", r.status === 0, r.stdout + r.stderr);
+  const SR = require("./import_network.js").parseCSV(fs.readFileSync(process.env.ACS_NET_CSC_SRC, "utf8")), hh = SR[0], ix = (n) => hh.indexOf(n);
+  const src = SR.slice(1).filter((x) => x.some((v) => v)), byId2 = {}; R2.forEach((x) => { byId2[x.id] = x; });
+  const sp = (v) => (v === null ? "" : String(v).replace(/\s+/g, " ").trim());
+  ck("CSC स्रोत: 7449 पंक्तियाँ; हर प्रकाशित नाम स्रोत में; नाम और प्रखंड वर्तनी जस-की-तस", src.length === 7449 && R2.every((x) => src.some((y) => y[ix("record_id")] === x.id)) &&
+    src.every((y) => { const x = byId2[y[ix("record_id")]]; return !x || (x.firmName === sp(y[ix("vle_name")]) && x.block === sp(y[ix("canonical_block")]) && (x.sectorData.rawBlock || "") === sp(y[ix("raw_block")])); }));
+  ck("CSC स्रोत: \"Official CSC\" ठीक वहीं, जहाँ official_csc_label_allowed = YES", src.every((y) => { const x = byId2[y[ix("record_id")]]; return !x || x.sectorData.officialCsc === (sp(y[ix("official_csc_label_allowed")]) === "YES"); }));
+} else { skip++; console.log("ℹ️ ACS_NET_CSC_SRC नहीं दिया: CSC स्रोत-CSV से मिलान छूटा (data की बाक़ी जाँच चलती है)"); }
+
 /* ── 3. पन्ने ── */
 const urls = N.pageUrls(N.loadRecords());
-ck("पन्नों की गिनती: 2 × (1 + 38 + 857) = 1792", urls.length === 1792, urls.length);
+ck("पन्नों की गिनती: 2 × (1 + 38 + 857) टू-व्हीलर + 2 × (1 + 38) CSC = 1870 (CSC के नामों के अलग पन्ने नहीं)", urls.length === 1870 && !urls.some((u) => /\/firm\/br-csc-/.test(u)), urls.length);
 const missing = urls.filter((u) => !ex(N.fileOf(u)));
 ck("हर पन्ना मौजूद", missing.length === 0, missing.slice(0, 5));
 let devEn = [], noDisc = [], badCanon = [], badHref = [], deadLink = [], verTag = [], money = [], sq = [], noCta = [], noId = [];
@@ -100,7 +138,9 @@ for (const u of urls) {
   const s = rd(N.fileOf(u)), en = u.startsWith("/en/"), L = en ? "en" : "hi";
   if (en && DEV.test(s)) devEn.push(u);
   const body = s.slice(s.indexOf('<div class="nw-wrap">'), s.indexOf("</main>"));
-  if (body.indexOf(N.esc(UI[L].disclaimer)) < 0 || body.indexOf(N.esc(UI[L].notice)) < 0) noDisc.push(u);
+  const isCsc = /\/network\/bihar\/csc\//.test(u), XT = isCsc ? UI[L].secText.csc : null;
+  if (isCsc ? (body.indexOf(N.esc(XT.disclosure)) < 0 || body.indexOf(N.esc(XT.notice)) < 0 || body.indexOf(N.esc(UI[L].disclaimer)) > -1)
+            : (body.indexOf(N.esc(UI[L].disclaimer)) < 0 || body.indexOf(N.esc(UI[L].notice)) < 0)) noDisc.push(u);
   const can = (s.match(/<link rel="canonical" href="([^"]+)"/) || [])[1];
   if (can !== "https://acslearn.com" + u) badCanon.push(u);
   for (const m of s.matchAll(/hreflang="[^"]+" href="https:\/\/acslearn\.com([^"]+)"/g)) if (!live(m[1])) badHref.push(u + " → " + m[1]);
@@ -117,7 +157,30 @@ for (const u of urls) {
   } else if (/class="nw-card ver"/.test(body)) verTag.push(u);
 }
 ck("English पन्नों में देवनागरी शून्य", devEn.length === 0, devEn.slice(0, 3));
-ck("हर पन्ने पर disclaimer और 'नाम ≠ साझेदारी' सूचना", noDisc.length === 0, noDisc.slice(0, 3));
+ck("हर पन्ने पर अपनी सूची का disclaimer और सूचना (CSC पर ChatGPT का disclosure, Two-Wheeler पर पुराना)", noDisc.length === 0, noDisc.slice(0, 3));
+ck("CSC का disclosure ui.js में ChatGPT brief से अक्षरशः", UI.hi.secText.csc.disclosure === CSC_DISC);
+/* CSC के पन्ने: हर नाम की ठीक एक जगह, Official/सूचीबद्ध निशान, कोई tel:/सत्यापित-दावा नहीं */
+let cscAnch = 0, cscBad = [];
+const offById = {}; R2.forEach((r) => { offById[r.id.toLowerCase()] = r; });
+for (const u of urls.filter((x) => /\/network\/bihar\/csc\/[a-z-]+\/$/.test(x))) {
+  const s = rd(N.fileOf(u)), L = u.startsWith("/en/") ? "en" : "hi", dist = u.split("/").slice(-2)[0];
+  const want = R2.filter((r) => r.district === dist), ids = [...s.matchAll(/<li class="nw-card" id="(br-csc-[ma]\d{5})">/g)].map((m) => m[1]);
+  if (ids.length !== want.length || new Set(ids).size !== ids.length || !want.every((r) => ids.indexOf(r.id.toLowerCase()) > -1)) cscBad.push(u + " जगहें " + ids.length + "/" + want.length);
+  const nOff = s.split(N.esc(UI[L].hub.official)).length - 1, nList = s.split(N.esc(UI[L].hub.listed)).length - 1;
+  if (nOff !== want.filter((r) => r.sectorData.officialCsc).length) cscBad.push(u + " Official " + nOff);
+  if (nList !== want.length) cscBad.push(u + " सूचीबद्ध " + nList);
+  const sb = s.slice(s.indexOf('<div class="nw-wrap">'), s.indexOf("</main>"));   /* ढाँचे (footer) का ACS-नंबर नहीं, सिर्फ़ सूची का हिस्सा */
+  if (/href="tel:|class="nw-tag ver"|nw-card ver/.test(sb)) cscBad.push(u + " tel/सत्यापित");
+  cscAnch += ids.length;
+}
+ck("CSC ज़िला-पन्ने: हर नाम की ठीक एक जगह (#id), दोनों भाषाओं में 2 × 7437; Official-निशान सिर्फ़ Official पर; हर कार्ड पर सूचीबद्ध; कोई tel: या सत्यापित-निशान नहीं",
+  cscBad.length === 0 && cscAnch === 2 * 7437, cscBad.slice(0, 4).concat([cscAnch]));
+ck("CSC: किसी नाम का अलग पन्ना नहीं (/network/firm/br-csc-*)", !fs.readdirSync(path.join(ROOT, "network/firm")).some((f) => /^br-csc-/.test(f)));
+const cscAll = urls.filter((x) => /\/network\/bihar\/csc\//.test(x)).map((x) => rd(N.fileOf(x))).join("\n");
+ck("CSC: कहीं \"सत्यापित CSC नेटवर्क\" / \"Verified … CSC Network\" जैसा दावा नहीं; सरकारी गिनती का दावा नहीं",
+  !/verified[^<]{0,20}csc\s*network|सत्यापित[^<]{0,20}csc[^<]{0,6}नेटवर्क|कुल\s+csc|total\s+csc/i.test(cscAll));
+ck("टू-व्हीलर के पन्ने CSC-शब्दों से अछूते (disclosure/Official/सूचीबद्ध नहीं)", urls.filter((x) => /two-wheeler|\/firm\//.test(x)).slice(0, 400).every((x) => {
+  const t = rd(N.fileOf(x)); return t.indexOf(UI.hi.secText.csc.disclosure) < 0 && t.indexOf(UI.en.secText.csc.disclosure) < 0 && t.indexOf("Official CSC") < 0; }));
 ck("canonical ख़ुद पर", badCanon.length === 0, badCanon.slice(0, 3));
 ck("hreflang के सब पते मौजूद", badHref.length === 0, badHref.slice(0, 3));
 ck("पन्नों की हर भीतरी कड़ी की फ़ाइल मौजूद", deadLink.length === 0, deadLink.slice(0, 5));
@@ -151,10 +214,16 @@ for (const st of IDX.states) for (const k of Object.keys(st.sectors)) for (const
   else { const sj = JSON.parse(rd(rel)); if (sj.r.length !== d.n) shardOk = false; sum += sj.r.length; }
   if (!ex(N.fileOf(d.page.hi)) || !ex(N.fileOf(d.page.en))) shardOk = false;
 }
-ck("index.json: ज़िला-फ़ाइलें मौजूद, छाप सही, गिनती का जोड़ 857", shardOk && sum === 857, sum);
+ck("index.json: ज़िला-फ़ाइलें मौजूद, छाप सही, गिनती का जोड़ 857 + 7437", shardOk && sum === 857 + 7437, sum);
 ck("index.json: हिंदी और English शब्द-कुंजियाँ एक-सी; IT 'सर्वे जारी' और 12 श्रेणियाँ, बिना किसी फ़र्म के",
   JSON.stringify(Object.keys(IDX.ui.hi).sort()) === JSON.stringify(Object.keys(IDX.ui.en).sort()) &&
   IDX.sectors.some((s) => s.key === "it" && s.status === "survey" && s.cats.length === 12) && IDX.states.every((s) => !s.sectors.it));
+const IC = IDX.sectors.find((s) => s.key === "csc");
+ck("index.json: CSC सूची 'सूचीबद्ध', rp 0, अपना disclosure (दोनों भाषा), बिहार में 38 ज़िले", IC && IC.status === "listed" && IC.rp === 0 && IC.txt.hi.disc === CSC_DISC &&
+  IC.txt.en.disc === UI.en.secText.csc.disclosure && IDX.states[0].sectors.csc && IDX.states[0].sectors.csc.districts.length === 38 && IDX.states[0].sectors.csc.n === 7437);
+const kc = JSON.parse(rd("assets/network/bihar/csc/khagaria.json")).r;
+ck("CSC ज़िला-फ़ाइल: फ़ोन/email नहीं; o सिर्फ़ Official पर; पता शोध-टिप्पणी नहीं", kc.every((r) => !r.p && !r.sp && (r.o === undefined || r.o === 1)) &&
+  kc.filter((r) => r.o === 1).length === R2.filter((r) => r.district === "khagaria" && r.sectorData.officialCsc).length && kc.every((r) => !r.a || !NA.some((re) => re.test(r.a))));
 
 /* ── 5. net-praktik.js ── */
 const NPJS = rd("assets/net-praktik.js");
@@ -167,6 +236,13 @@ ck("छँटाई: प्रखंड, श्रेणी, स्थिति,
   NP.filter(kh, { s: "V" }).length === 0 && NP.filter(kh, { q: "TVS" }).every((r) => /tvs/i.test(r.n)) && NP.filter(kh, { c: "TW-05" }).every((r) => r.c === "TW-05"));
 const evil = NP.card("hi", IDX, IDX.sectors[0], { i: "BR-KHG-0001", n: '<img src=x onerror="alert(1)">', b: "<b>x</b>", c: "TW-01", s: "T", p: "9876543210" });
 ck("नाम/जगह में HTML हो तो भी सुरक्षित (esc)", evil.indexOf("<img") < 0 && evil.indexOf("<b>x") < 0 && evil.indexOf("/network/firm/br-khg-0001.html") > -1 && evil.indexOf("◷") > -1);
+const cdd = { page: { hi: "/network/bihar/csc/patna/", en: "/en/network/bihar/csc/patna/" } };
+const ce = NP.card("hi", IDX, IC, { i: "BR-CSC-M00001", n: '<img src=x onerror="alert(1)"> [S]', b: "", rb: "Paroo [S]", a: "<b>x</b>", s: "T", o: 1, st: "GOVERNMENT", sn: "tele-law.in", su: "javascript:alert(1)" }, cdd);
+ck("net-praktik (CSC कार्ड): HTML सुरक्षित, [ ] छपाई में ( ), 'प्रखंड-मिलान बाक़ी', Official, कड़ी ज़िले की जगह पर, javascript: कड़ी नहीं",
+  ce.indexOf("<img") < 0 && ce.indexOf("<b>x") < 0 && ce.indexOf("[") < 0 && ce.indexOf("(S)") > -1 && ce.indexOf(IDX.ui.hi.unmapped) > -1 && ce.indexOf(IDX.ui.hi.official) > -1 &&
+  ce.indexOf('href="/network/bihar/csc/patna/#br-csc-m00001"') > -1 && ce.indexOf("javascript:") < 0);
+ck("net-praktik: Official का निशान सिर्फ़ o = 1 पर; छँटाई __u = सिर्फ़ ख़ाली प्रखंड", NP.card("en", IDX, IC, { i: "BR-CSC-A00001", n: "A", b: "X", s: "T" }, cdd).indexOf("Official") < 0 &&
+  NP.filter([{ b: "" }, { b: "X" }], { b: "__u" }).length === 1 && NP.filter([{ b: "" }, { b: "X" }], { b: "X" }).length === 1);
 ck("English कार्ड: /en/ पता, English निशान", NP.card("en", IDX, IDX.sectors[0], kh[0]).indexOf('href="/en/network/firm/') > -1 && !DEV.test(NP.card("en", IDX, IDX.sectors[0], kh[0])));
 let jsdom = null; for (const t of [process.env.ACS_JSDOM, "jsdom", path.join(ROOT, "node_modules/jsdom")].filter(Boolean)) { try { jsdom = require(t); break; } catch (e) {} }
 async function dom() {
@@ -188,7 +264,21 @@ async function dom() {
     w.document.getElementById("npMore").onclick(); await new Promise((r) => setTimeout(r, 5));
     ck(hub + " (DOM): 'और दिखाएँ' से अगले 20", app.querySelectorAll(".nw-card").length === Math.min(40, pat.length));
     if (L === "en") ck("en (DOM): सूची में देवनागरी शून्य", !DEV.test(app.textContent));
-    const chips = app.querySelectorAll(".np-chip"); chips[1].onclick.call(chips[1]); await new Promise((r) => setTimeout(r, 5));
+    /* v1.4: CSC चुनें, फिर पटना: CSC-कार्ड (सूचीबद्ध, ज़िले के पन्ने की जगह की कड़ी), disclosure; "प्रखंड-मिलान बाक़ी" की छँटाई */
+    const ci = [].findIndex.call(app.querySelectorAll(".np-chip"), (c) => c.getAttribute("data-sec") === "csc");
+    let chC = app.querySelectorAll(".np-chip"); chC[ci].onclick.call(chC[ci]); await new Promise((r) => setTimeout(r, 5));
+    const selC = w.document.getElementById("npDist"); selC.value = "patna"; selC.onchange.call(selC); await new Promise((r) => setTimeout(r, 30));
+    const cc = app.querySelectorAll(".nw-card"), patC = JSON.parse(rd("assets/network/bihar/csc/patna.json")).r;
+    ck(hub + " (DOM): CSC चुनकर पटना: 20 कार्ड, हर पर 'सूचीबद्ध' और जाँच-निशान, कड़ी ज़िले के पन्ने की जगह पर, disclosure दिखा, कोई tel: नहीं",
+      cc.length === Math.min(20, patC.length) && [].every.call(cc, (c) => c.textContent.indexOf(IDX.ui[L].listed) > -1 && c.querySelector(".nw-tag.tbv") &&
+        /^\/(en\/)?network\/bihar\/csc\/patna\/#br-csc-[ma]\d{5}$/.test(c.querySelector("a.nw-name").getAttribute("href"))) &&
+      app.textContent.indexOf(IC.txt[L].disc) > -1 && !app.querySelector('a[href^="tel:"]') && !w.document.getElementById("npCat"));
+    const bsel = w.document.getElementById("npBlock"); bsel.value = "__u"; bsel.onchange.call(bsel); await new Promise((r) => setTimeout(r, 5));
+    const nU = patC.filter((r) => !r.b).length;
+    ck(hub + " (DOM): प्रखंड 'प्रखंड-मिलान बाक़ी' चुनें तो सिर्फ़ वही (" + nU + ")", app.textContent.indexOf(IDX.ui[L].unmapped) > -1 &&
+      app.querySelectorAll(".nw-card").length === Math.min(20, nU) && [].every.call(app.querySelectorAll(".nw-card"), (c) => c.textContent.indexOf(IDX.ui[L].unmapped) > -1));
+    if (L === "en") ck("en (DOM): CSC सूची में देवनागरी शून्य", !DEV.test(app.textContent));
+    const chips = app.querySelectorAll(".np-chip"), ii = [].findIndex.call(chips, (c) => c.getAttribute("data-sec") === "it"); chips[ii].onclick.call(chips[ii]); await new Promise((r) => setTimeout(r, 5));
     ck(hub + " (DOM): IT चुनें तो 'सर्वे जारी' और ख़ाली-सूची का संदेश (कोई नक़ली फ़र्म नहीं)", app.textContent.indexOf(IDX.empty[L]) > -1 && app.querySelectorAll(".nw-card").length === 0);
     w.close();
   }
@@ -309,11 +399,42 @@ ck("publicProblems() (N1-P0-04): ऑडिटर का brandOem [\"private 9876
   [pb, pb2, pb3, pb4].every((x) => { const pp = N.publicProblems(x); return pp.length && !/9876|secret|x@y/.test(pp.join(" ")); }) && N.publicProblems(pb).join() === "brandOem: फ़ोन/लंबा अंक-समूह (10+ अंक)");
 ck("publicProblems(): सिर्फ़ ज़रूरी खानों को अंकों की छूट (फ़ोन, साझा नंबर, PIN, तारीख़ें, वेबसाइट/स्रोत-कड़ी); 857 असली रिकॉर्ड पर 0", R.every((r) => N.publicProblems(r).length === 0));
 ck("importer: phones() 91 से शुरू 10-अंकी मोबाइल नहीं काटता", I.phones("9123456789").out[0] === "9123456789" && I.phones("919123456789").out[0] === "9123456789" && I.phones("06244 222333").out[0] === "06244222333");
+/* v1.4: CSC जैसी batch (consts, sectorDataCols, publishCol, unmappedBlock, notAddress, idRegex, expect.rows) — नक़ली CSV */
+const CH = ["record_id", "state", "district", "canonical_block", "raw_block", "vle_name", "pin", "address", "phone", "email", "source_url", "official_csc_label_allowed", "acs_status", "portal_publish", "source_layer"];
+const crow = (o) => CH.map((h) => (o[h] === undefined ? "" : '"' + String(o[h]).replace(/"/g, '""') + '"')).join(",");
+const cb = { state: "Bihar", district: "KHAGARIA", canonical_block: "Gogri", raw_block: "Gogri", vle_name: "Ram Kumar", source_url: "https://tele-law.in/x?page=1", official_csc_label_allowed: "YES", acs_status: "To Be Verified", portal_publish: "YES", source_layer: "Pass2 Gap Closure" };
+const cm = (o) => Object.assign({}, cb, o);
+const crows = [
+  cm({ record_id: "BR-CSC-M00001", phone: "9876543210", email: "vle@example.org" }),                        /* प्रकाशित; फ़ोन/email कभी नहीं */
+  cm({ record_id: "BR-CSC-M00002", official_csc_label_allowed: "MAYBE" }),                                   /* अनजान हाँ/ना = रोककर रखा */
+  cm({ record_id: "BR-CSC-M00003", portal_publish: "NO" }),                                                  /* सार्वजनिक नहीं */
+  cm({ record_id: "BR-CSC-A00004", canonical_block: "", raw_block: "Gogri Jamalpur", official_csc_label_allowed: "NO", source_url: "https://www.goodreturns.in/csc-x.html" }),   /* प्रखंड-मिलान बाक़ी */
+  cm({ record_id: "BR-CSC-A00005", canonical_block: "", raw_block: "" }),                                   /* प्रखंड ही नहीं = रोककर रखा */
+  cm({ record_id: "BR-CSC-A00006", address: "Source row/rank 3 on block CSC directory." }),                  /* पता = शोध-टिप्पणी, छपता नहीं */
+  cm({ record_id: "BR-CSC-A00007", vle_name: "36402820015" }),                                              /* नाम में 10+ अंक = रोककर रखा */
+  cm({ record_id: "BR-CSC-KHG-0008" }),                                                                     /* ID-रूप ग़लत = रोक */
+  cm({ record_id: "BR-CSC-M00009", raw_block: "Gogri [S]", address: "Ward 4, Gogri" })                       /* स्रोत की वर्तनी data में जस-की-तस */
+];
+fs.writeFileSync(path.join(tmp, "csc.csv"), CH.join(",") + "\n" + crows.map(crow).join("\n") + "\n");
+const CB = Object.assign({}, B2, { batchId: "TEST-CSC", expect: { rows: 9 } });
+const TC = I.run(CB, path.join(tmp, "csc.csv")), byC = {}; TC.recs.forEach((r) => { byC[r.id] = r; });
+const rC = I.reportText("TEST-CSC", path.join(tmp, "csc.csv"), TC);
+ck("importer (CSC): प्रकाशित 4 (M00001, A00004, A00006, M00009); रोक 1 (ID-रूप); रोककर रखे 3 (अनजान हाँ/ना, प्रखंड नहीं, नाम में अंक); सार्वजनिक नहीं 1 (portal_publish NO)",
+  JSON.stringify(Object.keys(byC).sort()) === JSON.stringify(["BR-CSC-A00004", "BR-CSC-A00006", "BR-CSC-M00001", "BR-CSC-M00009"]) && TC.rep.reject.length === 1 && TC.rep.hold.length === 3 && TC.rep.hidden.length === 1,
+  JSON.stringify({ p: Object.keys(byC), rj: TC.rep.reject, h: TC.rep.hold, hd: TC.rep.hidden }));
+ck("importer (CSC): Official = YES वाले पर, NO वाले पर नहीं; फ़ोन/email/source_layer सार्वजनिक JSON और रिपोर्ट में नहीं",
+  byC["BR-CSC-M00001"].sectorData.officialCsc === true && byC["BR-CSC-A00004"].sectorData.officialCsc === false && byC["BR-CSC-M00001"].phone.length === 0 &&
+  ["9876543210", "vle@example.org", "Gap Closure", "36402820015"].every((v) => TC.json.indexOf(v) < 0 && rC.indexOf(v) < 0));
+ck("importer (CSC): प्रखंड-मिलान बाक़ी = block \"\" + स्रोत का प्रखंड; शोध-टिप्पणी पता नहीं बनी; [ ] data में जस-का-तस; गिनती-सूचनाएँ",
+  byC["BR-CSC-A00004"].block === "" && byC["BR-CSC-A00004"].sectorData.rawBlock === "Gogri Jamalpur" && byC["BR-CSC-A00006"].address === null &&
+  byC["BR-CSC-M00009"].sectorData.rawBlock === "Gogri [S]" && Object.values(TC.rep.note).join() === "1,1");
+const TC2 = I.run(Object.assign({}, CB, { expect: { rows: 10 } }), path.join(tmp, "csc.csv"));
+ck("importer (CSC): स्रोत की पंक्तियाँ अपेक्षा से अलग = पूरा import रुका (expect.rows)", TC2.rep.stop.some((m) => /स्रोत की पंक्तियाँ 9 ≠ अपेक्षित 10/.test(m)));
 fs.rmSync(tmp, { recursive: true, force: true });
 
 /* ── 8. sitemap, 9. Excel-साँचा ── */
 const sm = rd("sitemap-network.xml"), locs = new Set([...sm.matchAll(/<loc>https:\/\/acslearn\.com([^<]+)<\/loc>/g)].map((m) => m[1]));
-ck("sitemap-network.xml = सब 1792 पन्ने; पर्चियाँ नहीं; sitemap.xml में खंड दर्ज", locs.size === 1792 && urls.every((u) => locs.has(u)) && slips.every((u) => !locs.has(u)) && rd("sitemap.xml").indexOf("/sitemap-network.xml</loc>") > -1);
+ck("sitemap-network.xml = सब 1870 पन्ने; पर्चियाँ नहीं; sitemap.xml में खंड दर्ज", locs.size === 1870 && urls.every((u) => locs.has(u)) && slips.every((u) => !locs.has(u)) && rd("sitemap.xml").indexOf("/sitemap-network.xml</loc>") > -1);
 const X = require("./lib_xlsx.js"), TPL = "generator/data/network/ACS-Network-Import-Template.xlsx";
 const tr = X.readSheet(path.join(ROOT, TPL), "Firms");
 ck("Excel-साँचा: 43 कॉलम batches.js के क्रम में, कोई नमूना-पंक्ति नहीं", tr.length === 1 && JSON.stringify(tr[0]) === JSON.stringify(H));
@@ -321,5 +442,5 @@ ck("Excel-साँचा: 43 कॉलम batches.js के क्रम मे
 dom().then(() => {
   console.log("जाँचें: पास " + pass + " · फेल " + fail + (skip ? " · छूटी " + skip : ""));
   if (fail) { console.log("फेल जाँचें (ऊपर पूरा ब्योरा):"); FAILED.forEach((n, i) => console.log("   " + (i + 1) + ". ❌ " + n)); console.log("⛔ dev_network_check: फेल"); process.exit(1); }
-  console.log("🏁 dev_network_check v1.3 : नेटवर्क पास");
+  console.log("🏁 dev_network_check v1.4 : नेटवर्क पास");
 });

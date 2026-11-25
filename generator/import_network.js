@@ -1,5 +1,11 @@
 /* ============================================================
-   import_network.js v1.2 (परत-4, 22-Nov-2026, खेप N-1; v1.2 = ऑडिट N1-P0-03: जाँच-रिपोर्ट में Excel का कोई मान नहीं, सिर्फ़
+   import_network.js v1.3 (परत-4, 25-Nov-2026, खेप N-3: CSC सूची, batches.js के नए खाने से; पुराने batch पर असर शून्य:
+     consts (स्रोत में कॉलम न हो तो तय मान, जैसे एक ही श्रेणी) · sectorDataCols (स्रोत के कॉलम → SECTOR_DATA की अनुमत कुंजी,
+     map से हाँ/ना; अनजान मान = रोककर रखा) · publishCol (portal_publish YES न हो = सार्वजनिक सूची में नहीं) · unmappedBlock
+     (प्रखंड ख़ाली पर स्रोत का प्रखंड हो = "प्रखंड-मिलान बाक़ी", block "") · notAddress (पते के खाने में शोध-टिप्पणी = पता नहीं
+     छपता) · idRegex (सेक्टर का अपना ID-रूप, ज़िला-कूट के बिना) · expect.rows (स्रोत की पंक्तियाँ; बेमेल = पूरा import रुका) ·
+     बार-बार की सूचनाएँ पंक्ति-दर-पंक्ति नहीं, गिनती में (rep.note)।
+   v1.2 (22-Nov-2026, खेप N-1; v1.2 = ऑडिट N1-P0-03: जाँच-रिपोर्ट में Excel का कोई मान नहीं, सिर्फ़
    पंक्ति-नंबर, कॉलम-नाम (batches.js से) और समस्या का प्रकार; Record_ID भी तभी, जब उसका रूप सही हो; दोहराव-संकेत में फ़ोन/वेबसाइट
    नहीं, सिर्फ़ IDs; अनजान domain सिर्फ़ गिनती (सूची --internal-out में); रिपोर्ट में email या 10+ अंक दिखे तो रुकता है।
    N1-P0-04: पहरा अब हर सार्वजनिक पाठ (ब्रांड समेत) पर, lib_network v1.2। v1.1 = ऑडिट N1-P0-01: Sector_Data_JSON सिर्फ़ taxonomy.SECTOR_DATA की
@@ -112,8 +118,11 @@ function run(cfg, file) {
   for (const c of CATS) for (const t of (c.types || [])) typeCat[t] = c.id;
   const SKILLS = TX.SKILL_TAGS[cfg.sector] || [], BTYPES = TX.BUSINESS_TYPES[cfg.sector] || null;
   const distByEn = {}; for (const d of ST.districts) distByEn[d.en.toLowerCase()] = d;
-  const idRe = new RegExp("^" + SEC.idPattern.replace("{ST}", ST.idPrefix).replace("{DC}", "([A-Z]{3})").replace("NNNN", "\\d{4}") + "$");
-  const idHint = SEC.idPattern.replace("{ST}", ST.idPrefix).replace("{DC}", "ज़िला-कूट");
+  const idRe = SEC.idRegex ? new RegExp("^" + SEC.idRegex.replace("{ST}", ST.idPrefix) + "$")   /* v1.3: ज़िला-कूट के बिना (CSC) */
+    : new RegExp("^" + SEC.idPattern.replace("{ST}", ST.idPrefix).replace("{DC}", "([A-Z]{3})").replace("NNNN", "\\d{4}") + "$");
+  const idHint = SEC.idRegex ? (SEC.idHint || SEC.idRegex).split("{ST}").join(ST.idPrefix) : SEC.idPattern.replace("{ST}", ST.idPrefix).replace("{DC}", "ज़िला-कूट");
+  const CONSTS = cfg.consts || {};
+  const NOTADDR = (cfg.notAddress || []).map((x) => new RegExp(x, "i"));
 
   const rows = readTable(file, cfg.sheet);
   const hi = rows.findIndex((r) => (r || []).map(s).indexOf(COLS.id) > -1);
@@ -124,12 +133,21 @@ function run(cfg, file) {
   for (const k of need) if (col[k] === undefined) throw new Error("शीट में ज़रूरी कॉलम नहीं: " + COLS[k]);
   const byType = SEC.typeMode === "map" && col.type !== undefined;
   const icol = {}; for (const name of INTERNAL) { const j = head.indexOf(name); if (j > -1) icol[name] = j; }
+  /* v1.3: सेक्टर के अपने खाने और प्रकाशन का कॉलम (batches.js में नाम; न मिले तो import ही नहीं) */
+  const SDC = cfg.sectorDataCols || {}, xcol = {};
+  for (const name of Object.values(SDC).map((x) => x.col).concat(cfg.publishCol ? [cfg.publishCol.col] : [])) {
+    const j = head.indexOf(name); if (j < 0) throw new Error("शीट में ज़रूरी कॉलम नहीं: " + name); xcol[name] = j;
+  }
+  let nRows = 0;
 
-  const rep = { reject: [], hold: [], flag: [], hidden: [], dup: [], stop: [], unknownDom: {} };
+  const rep = { reject: [], hold: [], flag: [], hidden: [], dup: [], stop: [], unknownDom: {}, note: {} };
+  const note = (m) => { rep.note[m] = (rep.note[m] || 0) + 1; };
   const recs = [], internal = [], seen = new Set();
   for (let i = hi + 1; i < rows.length; i++) {
-    const r = rows[i] || []; const g = (k) => (col[k] === undefined ? "" : s(r[col[k]]));
+    const r = rows[i] || []; const g = (k) => (col[k] === undefined ? (CONSTS[k] !== undefined ? String(CONSTS[k]) : "") : s(r[col[k]]));
+    const gx = (name) => (xcol[name] === undefined ? "" : s(r[xcol[name]]));
     if (!r.some((v) => s(v))) continue;
+    nRows++;
     /* v1.2 (N1-P0-03): रिपोर्ट में सिर्फ़ पंक्ति-नंबर, खाने का नाम और समस्या का प्रकार; ID भी तभी, जब उसका रूप सही हो */
     const id = g("id"), at = "पंक्ति " + (i + 1) + (idRe.test(id) ? " (" + id + ")" : "") + ": ";
     const flag = (m) => rep.flag.push(at + m), hold = (m) => rep.hold.push(at + m), reject = (m) => rep.reject.push(at + m);
@@ -143,7 +161,7 @@ function run(cfg, file) {
     const idm = idRe.exec(id);
     if (!idm) { reject(cn("id") + ": रूप ग़लत (चाहिए " + idHint + ")"); continue; }
     const dist = distByEn[low(g("district"))];
-    if (dist && idm[1] !== dist.code) { reject(cn("id") + ": ज़िला-कूट " + cn("district") + " से मेल नहीं (" + dist.en + " = " + dist.code + ")"); continue; }
+    if (dist && idm[1] !== undefined && idm[1] !== dist.code) { reject(cn("id") + ": ज़िला-कूट " + cn("district") + " से मेल नहीं (" + dist.en + " = " + dist.code + ")"); continue; }
     /* जाँच की स्थिति */
     const vtxt = g("verStatus") || g("acsStatus");
     let status = vtxt ? STATUS_TEXT[vtxt.toLowerCase()] : "TO_BE_VERIFIED";
@@ -158,7 +176,6 @@ function run(cfg, file) {
     /* रोककर रखना */
     const holds = [];
     if (!dist) holds.push(cn("district") + ": geo.js की ज़िला-सूची में नहीं");
-    if (!g("block")) holds.push(cn("block") + ": ख़ाली");
     /* Sector_Data_JSON (v1.1, N1-P0-01): सिर्फ़ अनुमत कुंजियाँ; बाक़ी या पढ़ा न जा सके = रोककर रखा (मान रिपोर्ट में नहीं) */
     const SDA = TX.SECTOR_DATA[cfg.sector] || {}, sectorData = {};
     for (const k of Object.keys(SDA)) if (SDA[k].default !== undefined) sectorData[k] = SDA[k].default;
@@ -167,11 +184,29 @@ function run(cfg, file) {
       if (!j || typeof j !== "object" || Array.isArray(j)) holds.push("Sector_Data_JSON पढ़ा नहीं गया (JSON object चाहिए)");
       else { const sp = NW.sectorDataProblems(cfg.sector, j); if (sp.length) holds.push(sp.join(" · ")); else Object.assign(sectorData, j); }
     }
+    /* v1.3: स्रोत के कॉलम से सेक्टर के खाने (batches.js का sectorDataCols); वही allowlist-पहरा */
+    if (Object.keys(SDC).length) {
+      const fromCols = {};
+      for (const [k, d] of Object.entries(SDC)) {
+        const v = gx(d.col); if (!v) continue;
+        if (d.map) { const key = Object.keys(d.map).find((m) => m.toLowerCase() === v.toLowerCase()); if (key === undefined) { holds.push(d.col + ": अनजान मान"); continue; } fromCols[k] = d.map[key]; }
+        else fromCols[k] = v;
+      }
+      const sp = NW.sectorDataProblems(cfg.sector, fromCols);
+      if (sp.length) holds.push(sp.map((x) => x.replace("Sector_Data_JSON", "सेक्टर-खाने")).join(" · ")); else Object.assign(sectorData, fromCols);
+    }
+    let unm = false;
+    if (!g("block")) {
+      if (cfg.unmappedBlock && sectorData[cfg.unmappedBlock]) unm = ("प्रखंड-मिलान बाक़ी (" + cn("block") + " ख़ाली): ज़िले के पन्ने के \"प्रखंड-मिलान बाक़ी\" हिस्से में, स्रोत का प्रखंड साथ");
+      else holds.push(cn("block") + ": ख़ाली");
+    }
     let primary = null;
     if (byType) { primary = typeCat[g("type")] || null; if (!primary) holds.push(cn("type") + ": taxonomy.js की किसी श्रेणी में नहीं"); }
     else { const c = lookup(CATS, g("primary")); primary = c ? c.id : null; if (!primary) holds.push(cn("primary") + ": अनजान श्रेणी"); }
     if (holds.length) { hold(holds.join(" · ")); internal.push({ id, internalStatus: status, held: holds }); continue; }
+    const notes = []; if (unm) notes.push(unm);
     if (TX.STATUS.internal[status] === null) { rep.hidden.push(id + " (" + status + ")"); internal.push({ id, internalStatus: status }); continue; }
+    if (cfg.publishCol && low(gx(cfg.publishCol.col)) !== low(cfg.publishCol.yes)) { rep.hidden.push(id + " (" + cfg.publishCol.col + " ≠ " + cfg.publishCol.yes + ")"); internal.push({ id, internalStatus: status, notPublished: true }); continue; }
     /* दूसरी श्रेणियाँ, हुनर, व्यवसाय-प्रकार */
     const secondary = [];
     for (const v of splitList(g("secondary"))) {
@@ -204,6 +239,8 @@ function run(cfg, file) {
     let pin = g("pin").replace(/\D/g, "");
     const pr = PIN_RANGE[cfg.state];
     if (g("pin") && (!/^\d{6}$/.test(pin) || (pr && (+pin < pr[0] || +pin > pr[1])))) { flag(cn("pin") + ": ग़लत (6 अंक, राज्य की सीमा में चाहिए), छोड़ा"); pin = ""; }
+    let address = g("address") || null;
+    if (address && NOTADDR.some((re) => re.test(address))) { notes.push(cn("address") + ": पता नहीं, शोध की टिप्पणी है (जैसे \"Source row/rank …\"): छपता नहीं"); address = null; }
     let website = null;
     if (g("website")) { if (isUrl(g("website"))) website = g("website"); else flag(cn("website") + ": ग़लत पता, छोड़ी"); }
     else { const fw = sources.find((x) => x.sourceType === "FIRM_WEBSITE" && x.sourceUrl); if (fw) website = fw.sourceUrl.replace(/^(https?:\/\/[^\/?#]+).*$/i, "$1/"); }
@@ -220,7 +257,7 @@ function run(cfg, file) {
     const rec = {
       id, sectorId: SEC.id, mg: SEC.mg, primaryCategory: primary, secondaryCategories: secondary,
       firmName: g("name"), canonicalName: g("name"), parentFirmId: parentId, branchName: g("branch") || null,
-      state: ST.slug, district: dist.slug, block: g("block"), locality: g("locality") || null, address: g("address") || null, pin: pin || null,
+      state: ST.slug, district: dist.slug, block: g("block"), locality: g("locality") || null, address, pin: pin || null,
       latitude: lat, longitude: lng, phone: ph.out, sharedPhone: null, website,
       brandOem: g("brand") ? g("brand").split(/\s*\/\s*/).filter(Boolean) : [], businessType: btype, practicalSkillTags: skills,
       verificationStatus: verified ? status : "TO_BE_VERIFIED", verificationDate: verified ? g("verDate") : null, verifiedBy: null,
@@ -236,7 +273,7 @@ function run(cfg, file) {
       const ppx = pp.map((m) => { const k = m.split(":")[0]; return P2C[k] && COLS[P2C[k]] ? COLS[P2C[k]] + (k.indexOf("sources.") === 0 ? " (किसी स्रोत का)" : "") + m.slice(k.length) : m; });
       hold(ppx.join(" · ")); internal.push({ id, internalStatus: status, held: ppx }); continue;
     }
-    recs.push(rec);
+    recs.push(rec); notes.forEach(note);   /* v1.3: गिनती सिर्फ़ प्रकाशित रिकॉर्ड की */
     const inr = { id, internalStatus: status }; for (const [n, j] of Object.entries(icol)) inr[n] = s(r[j]) || null;
     internal.push(inr);
   }
@@ -265,12 +302,13 @@ function run(cfg, file) {
   if (nDom) rep.flag.push("अनजान स्रोत-domain: " + nDom + " (" + Object.values(rep.unknownDom).reduce((a, b) => a + b, 0) + " स्रोत), OTHER_PUBLIC माना; सूची भीतरी फ़ाइल (--internal-out) में"); 
   /* गिनती */
   const dset = new Set(recs.map((x) => x.district));
+  if (cfg.expect && cfg.expect.rows !== undefined && nRows !== cfg.expect.rows) rep.stop.push("स्रोत की पंक्तियाँ " + nRows + " ≠ अपेक्षित " + cfg.expect.rows);
   if (cfg.expect && cfg.expect.records !== undefined && recs.length !== cfg.expect.records) rep.stop.push("प्रकाशित रिकॉर्ड " + recs.length + " ≠ अपेक्षित " + cfg.expect.records);
   if (cfg.expect && cfg.expect.districts !== undefined && dset.size !== cfg.expect.districts) rep.stop.push("ज़िले " + dset.size + " ≠ अपेक्षित " + cfg.expect.districts);
   /* कवरेज (IT-brief धारा 21) */
   const emailCol = Object.keys(icol).find((n) => /^email$/i.test(n));
   rep.coverage = {
-    published: recs.length, districts: dset.size + "/" + ST.districts.length, blocks: new Set(recs.map((x) => x.district + "/" + x.block)).size,
+    rows: nRows, published: recs.length, districts: dset.size + "/" + ST.districts.length, blocks: new Set(recs.filter((x) => x.block).map((x) => x.district + "/" + x.block)).size,
     verified: recs.filter((x) => x.verificationStatus !== "TO_BE_VERIFIED").length, toBeVerified: recs.filter((x) => x.verificationStatus === "TO_BE_VERIFIED").length,
     phone: recs.filter((x) => x.phone.length).length, sharedPhoneOnly: recs.filter((x) => !x.phone.length && x.sharedPhone).length,
     email: emailCol ? internal.filter((x) => x[emailCol]).length : 0, website: recs.filter((x) => x.website).length,
@@ -288,7 +326,7 @@ function run(cfg, file) {
 function reportText(batchId, file, r) {
   const L = [], R = r.rep, C = R.coverage;
   L.push("ACS नेटवर्क import-रिपोर्ट · batch " + batchId + " · स्रोत " + (r.source || path.basename(file)));
-  L.push("सारांश: प्रकाशित " + C.published + " · रोक " + R.reject.length + " · रोककर रखे " + R.hold.length + " · सार्वजनिक नहीं (बंद/न मिला/छिपा) " + R.hidden.length +
+  L.push("सारांश: स्रोत की पंक्तियाँ " + C.rows + " · प्रकाशित " + C.published + " · रोक " + R.reject.length + " · रोककर रखे " + R.hold.length + " · सार्वजनिक नहीं (बंद/न मिला/छिपा) " + R.hidden.length +
          " · सूचनाएँ " + R.flag.length + " · दोहराव-संकेत " + R.dup.length + (R.stop.length ? " · ⛔ गिनती बेमेल" : ""));
   L.push("कवरेज: ज़िले " + C.districts + " · प्रखंड " + C.blocks + " · सत्यापित " + C.verified + " · जाँच बाक़ी " + C.toBeVerified + " · फ़ोन " + C.phone +
          " (सिर्फ़ साझा नंबर " + C.sharedPhoneOnly + ") · email (भीतरी) " + C.email + " · वेबसाइट " + C.website + " · स्रोत-पता " + C.sourceUrl +
@@ -299,6 +337,7 @@ function reportText(batchId, file, r) {
   sec("⏸ रोककर रखे (प्रकाशित नहीं)", R.hold);
   sec("सार्वजनिक सूची में नहीं (स्थिति से)", R.hidden);
   sec("ℹ️ सूचना (खाना छोड़ा, कुछ गढ़ा नहीं)", R.flag);
+  if (Object.keys(R.note || {}).length) sec("ℹ️ बार-बार की सूचनाएँ (गिनती)", Object.entries(R.note).map(([m, n]) => n + " रिकॉर्ड · " + m));
   sec("दोहराव के संकेत (कुछ मिलाया नहीं गया; RM देखेगा)", R.dup);
   const out = L.join("\n") + "\n";
   /* v1.2 (N1-P0-03) आख़िरी पहरा: रिपोर्ट बाहर जाती है (ऑडिट/RM)। उसमें email या 10+ अंकों का समूह दिखे = यह code-दोष है:
@@ -330,6 +369,6 @@ if (require.main === module) {
   if (old === r.json) console.log("✅ " + batchId + ".json पहले जैसा (कुछ नहीं बदला)");
   else { fs.writeFileSync(outf, r.json, "utf8"); console.log("✅ लिखा: " + path.relative(process.cwd(), outf)); }
   if (val("--internal-out")) { fs.writeFileSync(val("--internal-out"), JSON.stringify({ batch: batchId, records: r.internal, unknownSourceDomains: r.rep.unknownDom }, null, 1), "utf8"); console.log("✅ भीतरी फ़ाइल (repo में न रखें): " + val("--internal-out")); }
-  console.log("🏁 import_network v1.2 : " + batchId);
+  console.log("🏁 import_network v1.3 : " + batchId);
 }
 module.exports = { run, reportText, phones, domainOf, parseCSV };

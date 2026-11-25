@@ -1,5 +1,7 @@
 /* ============================================================
-   network/ui.js v1.0 (परत-3, 22-Nov-2026, खेप N-1) : नेटवर्क के गहरे पन्नों (ज़िलेवार सूची, फ़र्म का पन्ना) के शब्द
+   network/ui.js v1.1 (परत-3, 25-Nov-2026, खेप N-3: CSC सूची के शब्द secText.csc में, और नेटवर्क-पन्ने की छँटाई के नए शब्द hub में।
+   CSC का disclosure ChatGPT के brief (25-Nov-2026) से अक्षरशः। पुराने शब्द नहीं बदले। v1.0 = 22-Nov-2026, खेप N-1) :
+   नेटवर्क के गहरे पन्नों (ज़िलेवार सूची, फ़र्म का पन्ना) के शब्द
    मूल भाषा: हिंदी। English अनुवाद Claude का। नई भाषा = नई कुंजी (kn, bn …); पन्ने generator दोबारा बनाता है।
    यंत्र: generator/build_network.js । जाँच: generator/dev_network_check.js (English में देवनागरी शून्य)।
    सूची में नाम ≠ साझेदारी, ≠ प्रशिक्षण की पक्की व्यवस्था: यह बात हर पन्ने पर (disclaimer) अनिवार्य।
@@ -47,15 +49,42 @@ module.exports = {
     fixOk: "✅ सुझाव भेज दिया गया। धन्यवाद! ACS की जाँच के बाद ही सूची बदलेगी।",
     fixLimit: "⚠️ आज भेजने की सीमा पूरी हो गई। कल फिर भेजें, या WhatsApp पर बताएँ।", fixErr: "⚠️ अभी सुझाव नहीं भेजा जा सका। कृपया WhatsApp पर बताएँ।",
     jsOff: "सुधार का फ़ॉर्म चलाने के लिए browser में JavaScript चालू करें, या WhatsApp पर बताएँ।",
-    hubH: "🛠️ व्यावहारिक सीखने की जगहें (सर्वे-सूची)",
-    hubHelp: "यह सूची सार्वजनिक/व्यावसायिक स्रोतों और ACS नेटवर्क सर्वे से बनी है। हर जगह के साथ उसकी जाँच की स्थिति लिखी है।",
+    hubH: "🛠️ व्यावहारिक सीखने की जगहें और CSC केंद्र (सर्वे-सूची)",   /* v1.1: CSC सूची भी यहीं */
+    hubHelp: "ये सूचियाँ सार्वजनिक, सरकारी और व्यावसायिक स्रोतों और ACS नेटवर्क सर्वे से बनी हैं। हर जगह के साथ उसकी जाँच की स्थिति लिखी है।",
     hubNoJs: "यह छँटाई चलाने के लिए browser में JavaScript चालू करें। बिना JavaScript के नीचे की ज़िलेवार पूरी सूची देखें।",
     otherPlaces: "← नेटवर्क में दूसरी जगहें खोजें", sectorLine: "{icon} {sub} · {stat}",
     /* नेटवर्क-पन्ने (/hi/network.html) की व्यावहारिक-सूची (assets/net-praktik.js यही पढ़ता है, index.json से) */
     hub: { sector: "क्षेत्र", state: "राज्य", district: "ज़िला", block: "प्रखंड", category: "श्रेणी", status: "जाँच की स्थिति", brand: "ब्रांड", skill: "हुनर",
            all: "सब", allD: "पहले ज़िला चुनें", name: "नाम से छाँटें (इसी ज़िले में)", total: "{n} जगहें मिलीं", more: "और दिखाएँ", loading: "सूची लाई जा रही है…",
            err: "सूची अभी नहीं खुल सकी। थोड़ी देर बाद फिर कोशिश करें।", pickD: "ऊपर से ज़िला चुनें: उस ज़िले की सब जगहें यहाँ दिखेंगी।",
-           none: "इस छँटाई में कोई जगह नहीं मिली।", call: "📞 फ़ोन", see: "पूरी जानकारी", list: "ज़िले की पूरी सूची", shared: "साझा नंबर" }
+           none: "इस छँटाई में कोई जगह नहीं मिली।", call: "📞 फ़ोन", see: "पूरी जानकारी", list: "ज़िले की पूरी सूची", shared: "साझा नंबर",
+           /* v1.1: CSC सूची (सूचीबद्ध, अलग पन्ना नहीं) */
+           listed: "📋 सूचीबद्ध", official: "🏛️ आधिकारिक CSC (Official CSC)", unmapped: "प्रखंड-मिलान बाक़ी", rawBlock: "स्रोत में प्रखंड: {b}",
+           addr: "पता", pin: "पिन", srcSee: "स्रोत व पूरी जानकारी" },
+    /* v1.1 (25-Nov-2026): सूची-विशेष शब्द। disclosure = ChatGPT brief से अक्षरशः। */
+    secText: {
+      csc: {
+        notice: "ये CSC केंद्र सार्वजनिक/सरकारी स्रोतों से सूचीबद्ध हैं। हर नाम के साथ उसकी जाँच की स्थिति और स्रोत लिखा है।",
+        disclosure: "यह सूची सार्वजनिक/सरकारी स्रोतों से पूर्व-सूचीबद्ध है। ACS/RM सत्यापन अलग प्रक्रिया है। सूची में होना प्रशिक्षण, साझेदारी या वर्तमान संचालन की गारंटी नहीं है।",
+        overviewDesc: "{s} के {n} ज़िलों के CSC केंद्र, ज़िला और प्रखंड के अनुसार। सार्वजनिक/सरकारी सूचियों से पूर्व-सूचीबद्ध; ACS की जाँच बाक़ी।",
+        districtDesc: "{d} ({s}) के CSC केंद्र: प्रखंड, पता और स्रोत के साथ। सार्वजनिक/सरकारी सूचियों से पूर्व-सूचीबद्ध; ACS की जाँच बाक़ी।",
+        hAbout: "इस सूची के बारे में",
+        about: [
+          "📋 सूचीबद्ध (Listed): यह नाम सार्वजनिक या सरकारी स्रोत की सूची से लिया गया है।",
+          "◷ जाँच बाक़ी (To Be Verified): ACS की ज़मीनी जाँच अभी नहीं हुई।",
+          "🏛️ आधिकारिक CSC (Official CSC): यह निशान सिर्फ़ उन नामों पर है, जो सरकारी स्रोत की CSC-सूची में दर्ज हैं। यह ACS की जाँच नहीं है।",
+          "नाम और पता स्रोत की वर्तनी में हैं। इस सूची में फ़ोन नंबर नहीं दिखाया जाता।",
+          "\"प्रखंड-मिलान बाक़ी\": इन नामों का प्रखंड अभी पक्का नहीं हुआ। स्रोत में लिखा प्रखंड साथ में दिखता है।"
+        ],
+        cvOfficial: "आधिकारिक CSC (Official CSC)", cvUnmapped: "प्रखंड-मिलान बाक़ी", cvAddr: "पते के साथ",
+        unmappedNote: "इन नामों का प्रखंड अभी पक्का नहीं हुआ। हर नाम के साथ स्रोत में लिखा प्रखंड दिखाया है।",
+        src: "स्रोत", idLine: "ACS सूची-नंबर: {id}",
+        fixH: "ग़लत जानकारी बताएँ", fixText: "किसी नाम की जानकारी ग़लत लगे, तो उस नाम का ACS सूची-नंबर लिखकर WhatsApp पर बताएँ। ACS की जाँच के बाद ही सूची बदलती है।",
+        waFix: "💬 WhatsApp पर बताएँ", waText: "ACS नेटवर्क, CSC सूची में सुधार",
+        regCenter: "🏫 केंद्र (Center) के रूप में ACS से जुड़ें",
+        regNote: "ACS पर ख़ुद जुड़ने के बाद भी स्थिति \"जाँच बाक़ी\" ही रहती है, जब तक ACS की जाँच पूरी न हो।"
+      }
+    }
   },
   en: {
     locale: "en_US", net: "🤝 Network", siteNet: "ACS Network",
@@ -97,13 +126,38 @@ module.exports = {
     fixOk: "✅ Suggestion sent. Thank you! The list changes only after an ACS check.",
     fixLimit: "⚠️ Today's sending limit is reached. Send again tomorrow, or tell us on WhatsApp.", fixErr: "⚠️ The suggestion could not be sent now. Please tell us on WhatsApp.",
     jsOff: "Turn on JavaScript in your browser to use the correction form, or tell us on WhatsApp.",
-    hubH: "🛠️ Practical learning places (survey list)",
-    hubHelp: "This list is made from public and business sources and the ACS network survey. The verification status is written with every place.",
+    hubH: "🛠️ Practical learning places and CSC centres (survey list)",
+    hubHelp: "These lists are made from public, government and business sources and the ACS network survey. The verification status is written with every place.",
     hubNoJs: "Turn on JavaScript in your browser to use these filters. Without JavaScript, see the full district list below.",
     otherPlaces: "← Find other places in the network", sectorLine: "{icon} {sub} · {stat}",
     hub: { sector: "Sector", state: "State", district: "District", block: "Block", category: "Category", status: "Verification status", brand: "Brand", skill: "Skill",
            all: "All", allD: "Choose a district first", name: "Filter by name (in this district)", total: "{n} places found", more: "Show more", loading: "Loading the list…",
            err: "The list could not open now. Please try again after a while.", pickD: "Choose a district above: all places in that district will show here.",
-           none: "No place matches this filter.", call: "📞 Phone", see: "Full details", list: "Full district list", shared: "Shared number" }
+           none: "No place matches this filter.", call: "📞 Phone", see: "Full details", list: "Full district list", shared: "Shared number",
+           listed: "📋 Listed", official: "🏛️ Official CSC", unmapped: "Block not yet matched", rawBlock: "Block in the source: {b}",
+           addr: "Address", pin: "PIN", srcSee: "Source and full details" },
+    secText: {
+      csc: {
+        notice: "These CSC centres are listed from public and government sources. Each name shows its verification status and source.",
+        disclosure: "This list is pre-listed from public and government sources. ACS/RM verification is a separate process. Being on this list does not guarantee training, partnership or current operation.",
+        overviewDesc: "CSC centres in {n} districts of {s}, by district and block. Pre-listed from public and government lists; ACS verification pending.",
+        districtDesc: "CSC centres in {d}, {s}, with block, address and source. Pre-listed from public and government lists; ACS verification pending.",
+        hAbout: "About this list",
+        about: [
+          "📋 Listed: this name is taken from a public or government source list.",
+          "◷ To Be Verified: the ACS field check has not been done yet.",
+          "🏛️ Official CSC: this mark is shown only on names that are in a CSC list of a government source. It is not an ACS check.",
+          "Names and addresses keep the spelling of the source. Phone numbers are not shown in this list.",
+          "\"Block not yet matched\": the block of these names is not confirmed yet. The block written in the source is shown with them."
+        ],
+        cvOfficial: "Official CSC", cvUnmapped: "Block not yet matched", cvAddr: "With an address",
+        unmappedNote: "The block of these names is not confirmed yet. The block written in the source is shown with each name.",
+        src: "Source", idLine: "ACS listing ID: {id}",
+        fixH: "Report wrong information", fixText: "If the details of a name look wrong, send its ACS listing ID on WhatsApp. The list changes only after an ACS check.",
+        waFix: "💬 Tell us on WhatsApp", waText: "ACS Network, correction in the CSC list",
+        regCenter: "🏫 Join ACS as a Center",
+        regNote: "Even after joining ACS yourself, the status stays \"To Be Verified\" until the ACS check is complete."
+      }
+    }
   }
 };

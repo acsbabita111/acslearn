@@ -1,5 +1,10 @@
 /* ============================================================
-   network/taxonomy.js v1.1 (परत-3, 22-Nov-2026, खेप N-1; v1.1 = ऑडिट N1-P0-01/02: SECTOR_DATA (Sector_Data_JSON की अनुमत
+   network/taxonomy.js v1.2 (परत-3, 25-Nov-2026, खेप N-3: Founder का आदेश "नेटवर्क में CSC सेंटर को उचित जगह पर लगा दो;
+   अब टू व्हीलर और CSC, 2 तरह की सूची लाइव"। नई सूची csc (CSC केंद्र, बिहार, soft launch): अपनी ID-रूप (idRegex),
+   एक तय श्रेणी (typeMode "fixed"), हर नाम का अलग पन्ना नहीं (recordPages: false; ज़िले के पन्ने पर उसकी जगह),
+   स्थिति "सूचीबद्ध" (SECTOR_STATUS.listed), अपने अनुमत खाने (SECTOR_DATA.csc: officialCsc, rawBlock), और स्रोत-domain।
+   IT-सर्वे वाली CSC-जैसी दुकानें (IT-05) IT में ही रहेंगी; यह सूची सार्वजनिक/सरकारी CSC-सूचियों से अलग आई है।
+   v1.1 = ऑडिट N1-P0-01/02: SECTOR_DATA (Sector_Data_JSON की अनुमत
    सार्वजनिक कुंजियाँ) और VERIFY (सत्यापन का अधिकार: server का RM-रजिस्टर; अभी नहीं बना, इसलिए "सत्यापित" बंद)) :
    व्यावहारिक प्रशिक्षण नेटवर्क (Practical Training Network) का ढाँचा
    Founder के brief (22-Nov-2026): (1) नेटवर्क पोर्टल  (2) बिहार IT सेक्टर  (3) "नेटवर्क में 24 सेक्टर जुड़ेंगे"।
@@ -31,6 +36,14 @@ const SECTORS = {
         hiPlace: "टू-व्हीलर वर्कशॉप व डीलर", enPlace: "Two Wheeler Workshops and Dealers",
         idPattern: "{ST}-{DC}-NNNN", typeMode: "map",
         course: { url: "/courses/hi/two-wheeler/", hi: "मोटरसाइकिल (टू-व्हीलर) सर्विसिंग व EV का मुफ़्त ऑनलाइन कोर्स", en: "Free online course: Motorcycle & Two-Wheeler Repair, Servicing and EV (in Hindi)" } },
+  /* v1.2 (25-Nov-2026): CSC केंद्र। ID स्रोत-फ़ाइल की ही (BR-CSC-M00001, BR-CSC-A00001), कभी नहीं बदलती।
+     recordPages: false = हर नाम का अलग पन्ना नहीं (7,000+ पन्ने GitHub Pages की 1 GB सीमा खा जाते); ज़िले के पन्ने पर हर नाम
+     की अपनी जगह (#br-csc-m00001), वही उसका पक्का पता। नाम = VLE/केंद्र का नाम, स्रोत की वर्तनी में। */
+  csc: { id: "CSC", slug: "csc", mg: 7, icon: "🏛️", status: "listed",
+         hi: "CSC (कॉमन सर्विस सेंटर)", en: "CSC (Common Service Centres)",
+         hiPlace: "CSC केंद्र", enPlace: "CSC Centres",
+         idRegex: "{ST}-CSC-[MA]\\d{5}", idHint: "{ST}-CSC-M00001 या {ST}-CSC-A00001", typeMode: "fixed", recordPages: false,
+         course: { url: "/courses/hi/digital-mitra-basic/", hi: "डिजिटल मित्र (बुनियादी कौशल) का मुफ़्त ऑनलाइन कोर्स", en: "Free online course: Digital Mitra basic skills (in Hindi)" } },
   it: { id: "IT", slug: "it", mg: 7, icon: "💻", status: "survey",
         hi: "सूचना प्रौद्योगिकी (IT)", en: "Information Technology",
         hiPlace: "IT सेवा की जगहें", enPlace: "Computer and IT Service Places",
@@ -39,7 +52,8 @@ const SECTORS = {
 const SECTOR_STATUS = {
   live:    { hi: "नेटवर्क उपलब्ध", en: "Network available" },
   survey:  { hi: "सर्वे जारी", en: "Survey in progress" },
-  planned: { hi: "आगे जुड़ेगा", en: "Coming later" }
+  planned: { hi: "आगे जुड़ेगा", en: "Coming later" },
+  listed:  { hi: "सूचीबद्ध · जाँच बाक़ी", en: "Listed · To Be Verified" }   /* v1.2: सार्वजनिक/सरकारी सूची से पूर्व-सूचीबद्ध (CSC) */
 };
 
 /* ---------- श्रेणियाँ ----------
@@ -84,6 +98,10 @@ const CATEGORIES = {
     { id: "IT-10", hi: "डेटा, BPO व डिजिटाइज़ेशन", en: "Data / BPO / Digitisation" },
     { id: "IT-11", hi: "डेटा रिकवरी व स्टोरेज", en: "Data Recovery / Storage" },
     { id: "IT-12", hi: "उन्नत व विशेष IT सेवा", en: "Advanced / Specialized IT Services" }
+  ],
+  /* v1.2: CSC सूची की एक ही श्रेणी (batch का consts.primary)। */
+  csc: [
+    { id: "CSC-01", hi: "कॉमन सर्विस सेंटर (CSC)", en: "Common Service Centre (CSC)" }
   ]
 };
 
@@ -160,11 +178,11 @@ const SOURCE_TYPES = {
                         domains: ["justdial.com", "bharatibiz.com", "magicpin.in", "yappe.in", "chotu.com", "cybo.com", "onefivenine.com",
                                   "goforsearch.com", "findglocal.com", "alwaysdial.com", "indiamart.com", "sulekha.com"] },
   BRAND_DIRECTORY:    { hi: "ब्रांड की सूची (सर्विस-पॉइंट)", en: "Brand directory", domains: [] },
-  CSC_DIRECTORY:      { hi: "CSC की सूची", en: "CSC directory", domains: [] },
+  CSC_DIRECTORY:      { hi: "CSC की सूची", en: "CSC directory", domains: ["digiforum.space", "goodreturns.in", "gramvikas.nskmultiservices.in"] },
   FIRM_WEBSITE:       { hi: "फ़र्म की अपनी वेबसाइट", en: "Firm website",
                         domains: ["yuvahonda.com", "ashishmotors.in", "maadurgeyhonda.com", "maashaktihonda.in", "suzukimotorcyclelaheriasarai.com",
                                   "skhondajamui.com", "tamannabajajlkr.in", "sunrisemotor.my.canva.site", "maharanihonda.com"] },
-  GOVERNMENT:         { hi: "सरकारी पोर्टल", en: "Government portal", domains: ["dlrs.bihar.gov.in"] },
+  GOVERNMENT:         { hi: "सरकारी पोर्टल", en: "Government portal", domains: ["dlrs.bihar.gov.in", "tele-law.in"] },
   RM_FIELD:           { hi: "ACS RM की ज़मीनी जाँच", en: "ACS RM field verification", domains: [] },
   OTHER_PUBLIC:       { hi: "दूसरा सार्वजनिक स्रोत", en: "Other public source", domains: ["youtube.com", "dailyepaper.b-cdn.net", "kochas.in"] }
 };
@@ -206,7 +224,11 @@ const EMPTY = {
    default = कुंजी न दी हो तो यही मान। नया खाना = Founder/सर्वे-टीम की मंज़ूरी से यहाँ एक पंक्ति। */
 const SECTOR_DATA = {
   tw: { vehicleType: { type: "enum", values: ["TWO_WHEELER"], default: "TWO_WHEELER" } },
-  it: {}   /* IT के लिए अभी कोई अतिरिक्त सार्वजनिक खाना मंज़ूर नहीं */
+  it: {},   /* IT के लिए अभी कोई अतिरिक्त सार्वजनिक खाना मंज़ूर नहीं */
+  /* v1.2 (CSC, ChatGPT का data-नियम 25-Nov-2026): officialCsc = "Official CSC" निशान, सिर्फ़ जहाँ स्रोत-फ़ाइल में
+     official_csc_label_allowed = YES (सरकारी स्रोत); rawBlock = स्रोत में लिखा प्रखंड, वर्तनी जस-की-तस (दिखता तब, जब मिलाया
+     प्रखंड इससे अलग हो या प्रखंड अभी तय न हो)। */
+  csc: { officialCsc: { type: "bool", default: false }, rawBlock: { type: "text" } }
 };
 
 /* "सत्यापित (Verified)" का अधिकार (ऑडिट N1-P0-02): सिर्फ़ server पर बना, अनुमोदन-श्रृंखला से पास RM-सत्यापन रजिस्टर
