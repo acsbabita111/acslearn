@@ -8,3 +8,8 @@ exclude:
   - generator
   - matrix
   - android    # ACS EXAM app का स्रोत (19-Nov-2026, E-1): APK GitHub Release से मिलता है, साइट पर नहीं
+  # 25-Nov-2026 (खेप SEO-सफ़ाई): ये साइट के पन्ने नहीं हैं, फिर भी साइट पर खुल रहे थे
+  # (/CHANGELOG-sw.html एक बिना-canonical पन्ना बनकर, और /firestore.rules सबके लिए खुला)।
+  # repo में रहते हैं, बस प्रकाशित नहीं होते। साइट का कोई पन्ना इन्हें नहीं माँगता।
+  - CHANGELOG-sw.md    # sw.js का बदलाव-खाता
+  - firestore.rules    # Firebase के नियम (deploy office-laptop से होता है)

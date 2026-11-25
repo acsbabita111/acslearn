@@ -3838,11 +3838,45 @@ const OLD_MAP = {
   "/courses/": "/courses/hi/",
   "/contact/": "/contact/hi/"
 };
+/* 25-Nov-2026 (खेप SEO-सफ़ाई): Google Search Console की "Not found (404)" सूची के पुराने पते।
+   ये folder बरसों पहले हटे या बदले; Google और पुरानी कड़ियाँ अब भी इन्हें खोलती हैं।
+   नियम: पते की शुरुआत मिले तो सबसे नज़दीकी जीवित पन्ने पर भेजो (पन्ना 404 ही रहता है, सिर्फ़ पढ़ने वाला सही जगह पहुँचता है)।
+   तीसरा खाना (वैकल्पिक): फ़ाइल-नाम इस रूप का हो तो उसे नए folder में साथ ले जाओ (वहाँ उसी नाम की पर्ची है)।
+   क्रम मायने रखता है: पहले मिलने वाला नियम लगता है। हर लक्ष्य की फ़ाइल repo में होनी चाहिए (generator/dev_seo_safai_check.js जाँचता है)। */
+const OLD_PREFIX = [
+  ["/courses/acs-ai-ecommerce-product-listing/", "/courses/hi/digital/ecom/", "^lesson-[a-z0-9\\-]+\\.html$"],
+  ["/vc/", "/courses/hi/digital/ai-digital-master/", "^L[0-9]{3}\\.html$"],
+  ["/level-", "/courses/hi/digital/ai-digital-master/"],
+  ["/layer-", "/courses/hi/digital/ai-digital-master/"],
+  ["/academy", "/courses/hi/"],
+  ["/courses/en/", "/courses/hi/"],
+  ["/courses.html", "/courses/hi/"],
+  ["/offline-courses.html", "/courses/hi/"],
+  ["/courses/hi/vocational.html", "/courses/hi/"],
+  ["/courses/hi/art-culture.html", "/courses/hi/"],
+  ["/courses/hi/agriculture.html", "/courses/hi/"],
+  ["/courses/hi/digital.html", "/courses/hi/"],
+  ["/counselors/", "/hi/salah.html"],
+  ["/mentors/", "/hi/salah.html"],
+  ["/career/", "/career.html"],
+  ["/students/hi/resume-builder", "/career-kit.html"],
+  ["/employers/", "/hi/network.html"],
+  ["/partners/", "/hi/network.html"],
+  ["/workshops/", "/hi/network.html"],
+  ["/help/", "/contact/hi/"],
+  ["/gallery/", "/hi/mission.html"]
+];
+/* भाषा-कोर्स: भाषा का घर है पर भीतर का पन्ना नहीं (जैसे देवनागरी भाषा का /lipi/) → उसी भाषा के घर पर; भाषा ही न हो → भाषा-सूची पर */
+const OLD_ADDR_JS = '(function(){var raw=location.pathname,p=raw.replace(/index\\.html$/,"");if(!/\\/$/.test(p))p+="/";var M=' + JSON.stringify(OLD_MAP) +
+  ';var t=M[p]||M[p.replace(/\\/$/,"")+"/"];' +
+  'if(!t){var R=' + JSON.stringify(OLD_PREFIX) + ';for(var i=0;i<R.length;i++){if(raw.indexOf(R[i][0])===0){t=R[i][1];if(R[i][2]){var f=raw.split("/").pop();if(new RegExp(R[i][2]).test(f))t+=f;}break;}}}' +
+  'if(!t){var m=/^\\/courses\\/hi\\/bhasha\\/([a-z0-9\\-]+)\\/(.+)$/.exec(raw);if(m)t="/courses/hi/bhasha/"+m[1]+"/";else if(/^\\/courses\\/hi\\/bhasha\\/[^\\/]+\\/?$/.test(raw))t="/bhasha.html";}' +
+  'if(t&&t!==raw){location.replace(t+location.search+location.hash);}})();';
 buildSpecial({
   out: "404.html", langStrict: false, robots: "noindex, follow",
   title: "पेज नहीं मिला — अप्लाइड कंप्यूटर स्कूल",
   desc: "यह पता site पर नहीं है। होम, भाषा-कोर्स, 950 उद्यम या संपर्क पर जाएँ।",
-  head: ['<script>(function(){var p=location.pathname.replace(/index\\.html$/,"");if(!/\\/$/.test(p))p+="/";var M=' + JSON.stringify(OLD_MAP) + ';var t=M[p]||M[p.replace(/\\/$/,"")+"/"];if(t){location.replace(t+location.search+location.hash);}})();</script>'],
+  head: ['<script>' + OLD_ADDR_JS + '</script>'],
   foot: [],
   content: '<section style="max-width:720px;margin:24px auto;padding:0 16px;text-align:center">' +
     '<h1 style="font-size:30px;color:#F9A825;margin:16px 0 8px">यह पेज नहीं मिला</h1>' +
