@@ -1,5 +1,9 @@
 /* ============================================================
-   import_network.js v1.3 (परत-4, 25-Nov-2026, खेप N-3: CSC सूची, batches.js के नए खाने से; पुराने batch पर असर शून्य:
+   import_network.js v1.4 (परत-4, 25-Nov-2026, खेप N-3.1: ChatGPT ऑडिट CSC-01/02 के लक्षित सुधार, batches.js के दो नए खाने;
+     पुराने batch पर असर शून्य: addressDropParts (पते के कॉमा-टुकड़े, जो ख़ाली/null हैं, जैसे "District-null", "Panchayat/Village-",
+     छपते नहीं; बाक़ी पता अक्षरशः) · addressUrlAsSource (स्रोत-पंक्ति में कॉलम खिसका: स्रोत-खाने में URL नहीं, पर पते के खाने में
+     सिर्फ़ एक URL = वही स्रोत-कड़ी; पता नहीं छपता; रिपोर्ट में गिनती)। स्रोत-फ़ाइल नहीं बदलती।
+   v1.3 (25-Nov-2026, खेप N-3: CSC सूची, batches.js के नए खाने से; पुराने batch पर असर शून्य:
      consts (स्रोत में कॉलम न हो तो तय मान, जैसे एक ही श्रेणी) · sectorDataCols (स्रोत के कॉलम → SECTOR_DATA की अनुमत कुंजी,
      map से हाँ/ना; अनजान मान = रोककर रखा) · publishCol (portal_publish YES न हो = सार्वजनिक सूची में नहीं) · unmappedBlock
      (प्रखंड ख़ाली पर स्रोत का प्रखंड हो = "प्रखंड-मिलान बाक़ी", block "") · notAddress (पते के खाने में शोध-टिप्पणी = पता नहीं
@@ -123,6 +127,7 @@ function run(cfg, file) {
   const idHint = SEC.idRegex ? (SEC.idHint || SEC.idRegex).split("{ST}").join(ST.idPrefix) : SEC.idPattern.replace("{ST}", ST.idPrefix).replace("{DC}", "ज़िला-कूट");
   const CONSTS = cfg.consts || {};
   const NOTADDR = (cfg.notAddress || []).map((x) => new RegExp(x, "i"));
+  const DROPPART = (cfg.addressDropParts || []).map((x) => new RegExp(x, "i"));   /* v1.4 */
 
   const rows = readTable(file, cfg.sheet);
   const hi = rows.findIndex((r) => (r || []).map(s).indexOf(COLS.id) > -1);
@@ -232,6 +237,16 @@ function run(cfg, file) {
       sources.push({ sourceType: stype, sourceName: nm || dom || null, sourceUrl: okUrl || null, checkedAt: isDate(chk) ? chk : null,
                      fieldSupport: splitList(g("s" + n + "fields")).map((x) => x.toLowerCase()) });
     }
+    /* v1.4 (CSC-02): कॉलम खिसका: स्रोत-खाने में URL नहीं, पते के खाने में सिर्फ़ एक URL = वही स्रोत (उसी पंक्ति का, गढ़ा नहीं) */
+    let addrIsSource = false;
+    if (cfg.addressUrlAsSource && !sources.some((x) => x.sourceUrl) && /^https?:\/\/\S+$/i.test(g("address")) && isUrl(g("address"))) {
+      const u = g("address"), dom = domainOf(u), st = sourceTypeOf(dom) || "OTHER_PUBLIC";
+      if (!sourceTypeOf(dom)) rep.unknownDom[dom] = (rep.unknownDom[dom] || 0) + 1;
+      const s0 = { sourceType: st, sourceName: dom, sourceUrl: u, checkedAt: null, fieldSupport: [] };
+      if (sources.length && !sources[0].sourceUrl && !g("s1name")) sources[0] = s0; else sources.unshift(s0);
+      notes.push(cn("address") + ": स्रोत-पंक्ति में कॉलम खिसका था; पते के खाने का URL स्रोत-कड़ी माना (उस पन्ने पर यह नाम है या नहीं, import ने नहीं देखा)");
+      addrIsSource = true;
+    }
     if (!sources.some((x) => x.sourceUrl)) flag(cn("s1url") + ": कोई स्रोत-पता नहीं (source-quality exception)");
     /* फ़ोन, PIN, वेबसाइट, निर्देशांक */
     const ph = phones(col.phone === undefined ? "" : r[col.phone]);
@@ -239,7 +254,14 @@ function run(cfg, file) {
     let pin = g("pin").replace(/\D/g, "");
     const pr = PIN_RANGE[cfg.state];
     if (g("pin") && (!/^\d{6}$/.test(pin) || (pr && (+pin < pr[0] || +pin > pr[1])))) { flag(cn("pin") + ": ग़लत (6 अंक, राज्य की सीमा में चाहिए), छोड़ा"); pin = ""; }
-    let address = g("address") || null;
+    let address = addrIsSource ? null : (g("address") || null);
+    if (address && DROPPART.length) {   /* v1.4 (CSC-01): ख़ाली/null टुकड़े हटें, बाक़ी अक्षरशः */
+      const parts = address.split(","), keep = parts.filter((x) => !DROPPART.some((re) => re.test(x)));
+      if (keep.length !== parts.length) {
+        address = keep.join(",").replace(/^[\s,]+|[\s,]+$/g, "") || null;
+        notes.push(cn("address") + ": ख़ाली या \"null\" टुकड़े (जैसे \"District-null\", \"Panchayat/Village-\") नहीं छपते; बाक़ी पता जस-का-तस" + (address ? "" : " (कुछ नहीं बचा: पता ख़ाली)"));
+      }
+    }
     if (address && NOTADDR.some((re) => re.test(address))) { notes.push(cn("address") + ": पता नहीं, शोध की टिप्पणी है (जैसे \"Source row/rank …\"): छपता नहीं"); address = null; }
     let website = null;
     if (g("website")) { if (isUrl(g("website"))) website = g("website"); else flag(cn("website") + ": ग़लत पता, छोड़ी"); }
@@ -369,6 +391,6 @@ if (require.main === module) {
   if (old === r.json) console.log("✅ " + batchId + ".json पहले जैसा (कुछ नहीं बदला)");
   else { fs.writeFileSync(outf, r.json, "utf8"); console.log("✅ लिखा: " + path.relative(process.cwd(), outf)); }
   if (val("--internal-out")) { fs.writeFileSync(val("--internal-out"), JSON.stringify({ batch: batchId, records: r.internal, unknownSourceDomains: r.rep.unknownDom }, null, 1), "utf8"); console.log("✅ भीतरी फ़ाइल (repo में न रखें): " + val("--internal-out")); }
-  console.log("🏁 import_network v1.3 : " + batchId);
+  console.log("🏁 import_network v1.4 : " + batchId);
 }
 module.exports = { run, reportText, phones, domainOf, parseCSV };

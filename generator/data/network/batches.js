@@ -1,5 +1,6 @@
 /* ============================================================
-   network/batches.js v1.1 (परत-3, 25-Nov-2026, खेप N-3: BIHAR-CSC-001, बिहार के CSC केंद्र, soft launch; v1.0 = 22-Nov-2026,
+   network/batches.js v1.2 (परत-3, 25-Nov-2026, खेप N-3.1: ChatGPT ऑडिट CSC-01/02: addressDropParts, addressUrlAsSource, notAddress के
+   4 और रूप; v1.1 = 25-Nov-2026, खेप N-3: BIHAR-CSC-001, बिहार के CSC केंद्र, soft launch; v1.0 = 22-Nov-2026,
    खेप N-1) : नेटवर्क के import-batch का रजिस्टर + Excel-साँचे के कॉलम
    हर import = एक batch-ID (जैसे BIHAR-TW-001, BIHAR-IT-001)। वापसी (rollback) और जाँच (audit) इसी से।
    cols = स्रोत-शीट के कॉलम का नाम → नेटवर्क-खाना। जो कॉलम cols में नहीं, वह कभी सार्वजनिक नहीं होता।
@@ -75,7 +76,13 @@ const BATCHES = {
     sectorDataCols: { rawBlock: { col: "raw_block" }, officialCsc: { col: "official_csc_label_allowed", map: { YES: true, NO: false } } },
     publishCol: { col: "portal_publish", yes: "YES" },
     unmappedBlock: "rawBlock",
-    notAddress: ["^Source row/rank \\d+ on block CSC directory\\.?$", "^Address on file$", "nearby centres$", "^PNB row:"],
+    notAddress: ["^Source row/rank \\d+ on block CSC directory\\.?$", "^Address on file$", "nearby centres$", "^PNB row:",
+                 /* v1.2: शोध की और टिप्पणियाँ (11 रिकॉर्ड) और अकेला URL */
+                 "^Source (row |address )?(explicitly )?says\\b", "^Listed at SNo \\d+", "^Goodreturns .{1,60} CSC list:", "^https?://\\S+$"],
+    /* v1.2 (CSC-01): पते के कॉमा-टुकड़े जो सिर्फ़ "null" हों, या "नाम-" जिसके आगे कुछ नहीं/null (जैसे "District-null", "State-") */
+    addressDropParts: ["^\\s*(null|undefined|none|nil|n/?a)\\s*$", "^\\s*[A-Za-z][A-Za-z /]{0,30}-\\s*(null|undefined|none|nil|n/?a)?\\s*$"],
+    /* v1.2 (CSC-02): स्रोत-खाने में URL नहीं (जैसे "71"), पते के खाने में सिर्फ़ URL = कॉलम खिसका; वही URL स्रोत */
+    addressUrlAsSource: true,
     internalCols: ["phone", "email", "source_layer", "source_authority", "rm_verification", "training_availability", "workshop_commitment",
                    "block_mapping_status", "record_origin", "source_spelling_preserved"]
   }

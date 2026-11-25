@@ -1,7 +1,8 @@
 /* sw.js — ACS service-worker (network-first HTML · cache-first असेट · offline.html)
    ⚠️ CSS/JS बदलें तो CACHE_VERSION ज़रूर बढ़ाएँ। पूरा version-इतिहास CHANGELOG-sw.md में (13-Sep ऑडिट H7: 133 KB → छोटा, हर version-जाँच पर हल्का download)। */
 /* v724: 20-Oct लाल10-स खेप-1 — kkb Cyrillic-5 (ba sah bua tyv kjh) असली-content regen */
-const CACHE_VERSION = 'v912';  // 2026-11-25 डिजिटल मित्र पाठ: वीडियो-हिस्सा टेस्ट से पहले, वीडियो पाठ के बीच में (vqr-player.js/.css v1.1), laptop पर बाईं पाठ-सूची (नई course-toc.js/.css; course-lesson.js v1.8) (cache-first असेट)
+const CACHE_VERSION = 'v914';  // 2026-11-25 नेटवर्क खेप N-4 v1.1 (ChatGPT ऑडिट N4-01, N4-02): "📝 सूची-सुधार निवेदन" पैनल 50-50 की खेप में + "⬇ और निवेदन दिखाएँ" (assets/dashboard.js v6.44.1) + तीनों पैनल-पैक (panel_en.js, panel_kn.js, panel_bn.js; 2 नए टुकड़े, 1 हटा) : cache-first असेट। निवेदन-पन्ने की असेट (net-nivedan.js v1.1) ?v= वाली है। v913 = N-4 v1.0 (CHANGELOG-sw.md)।
+// पिछला 'v912'  // 2026-11-25 डिजिटल मित्र पाठ: वीडियो-हिस्सा टेस्ट से पहले, वीडियो पाठ के बीच में (vqr-player.js/.css v1.1), laptop पर बाईं पाठ-सूची (नई course-toc.js/.css; course-lesson.js v1.8) (cache-first असेट)
 // पिछला 'v910'  // 2026-11-24 kkb (काम की भाषा) जर्मन और मलय: तीन data-फ़ाइलों (assets/kkb_de_data.js, kkb2_de_data.js, kkb2_ms_data.js) के संस्करण-नोट में यंत्र का पता अब "(यंत्र: dhvani_yantra/…)"; SEO-pahredar का dev_pages_size_check उसे फ़ाइल-माँग समझकर लाल था; उच्चारण, वाक्य, अर्थ अछूते (kkb data cache-first)
 // पिछला 'v909'  // 2026-11-24 kkb (काम की भाषा) कोर्स-सूची की सही गिनती (415 भाषाएँ, data से) और site का नारा "अपनी भाषा में, गाँव से ग्लोबल साउथ तक!" (पुरानी गिनती 130 हटी): assets/acs-config.js और तीनों पैनल-पैक (assets/i18n/panel_en.js, panel_bn.js, panel_kn.js) : cache-first असेट
 // पिछला 'v908'  // 2026-11-24 kkb (काम की भाषा) जर्मन उच्चारण: assets/kkb_de_data.js और assets/kkb2_de_data.js की देवनागरी विक्षनरी के IPA से, एक यंत्र से (generator/dhvani_yantra/de.js; cache-first असेट)

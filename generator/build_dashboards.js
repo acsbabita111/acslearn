@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.19 · 25-Nov-2026 (N-4, नेटवर्क का "सुधार का निवेदन") : Founder, Admin, ZM और RM के घर में नया पैनल P_LISTING_EDITS "📝 सूची-सुधार निवेदन"।
    v2.18 · 19-Nov-2026 (E-5b, वेबसाइट पर भी कैमरे से चेहरे की जाँच) : P_EXAM_FACE की पहली पंक्ति में ऐप के साथ वेबसाइट भी।
    v2.17 · 19-Nov-2026 (P-8b, भरपाई-कक्षा) : P_ONLINE_CRS के नियमों में भरपाई-कक्षा और गिनती की पंक्तियाँ; P_OC_Q में "🚫 रद्द कक्षाएँ" की पंक्ति।
    v2.16 · 19-Nov-2026 (P-6b, निजी संदेश) : नया पैनल P_OMSG "✉️ संदेश" (शिक्षक, उस्ताद, विद्यार्थी, नौकरी-इच्छुक, उद्यमी); P_OC_Q में संदेश-शिकायतों की पंक्ति।
@@ -1320,11 +1321,23 @@ const P_EXAM_FACE = (
     '<div id="xfList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
     '<div id="xfMsg" class="msg"></div>' +
     '</div>');
+/* (N-4 · 25-Nov-2026, Founder का आदेश) 📝 सूची-सुधार निवेदन: नेटवर्क की सूची के नाम में सुधार, या नया फ़र्म, रजिस्टर्ड यूज़र से
+   (रजिस्ट्रेशन नंबर + पासवर्ड + OTP के बाद)। फ़ैसला RM का (zm, Admin, Founder भी)। server: office का network_nivedan.js v1.0। */
+const P_LISTING_EDITS = (
+    '<div class="pcard panel" id="pnl-nvq" data-nav="📝 सूची-सुधार निवेदन" style="grid-column:1/-1">' +
+    '<div class="ph">📝 सूची-सुधार निवेदन (नेटवर्क)</div>' +
+    '<div class="pd">नेटवर्क की सूची के किसी नाम में सुधार, या नया फ़र्म जोड़ने के निवेदन यहाँ आते हैं। भेजने वाला रजिस्टर्ड यूज़र है, और OTP से पुष्टि कर चुका है।</div>' +
+    '<div class="pd">आपके कार्य-क्षेत्र के निवेदन ही दिखते हैं: RM को अपने ज़िले के, ZM को अपने राज्य के, Admin और Founder को सब।</div>' +
+    '<div class="pd">फ़ोटो और काग़ज़ देखकर फ़ैसला करें। अस्वीकार करें, तो कारण लिखें। फ़ाइल की कड़ी 15 मिनट तक चलती है।</div>' +
+    '<div class="pd">उद्यम प्रमाणपत्र सिर्फ़ जाँच के लिए है। उसे कहीं साझा न करें। स्वीकृत सुधार website पर अगली छपाई में दिखता है।</div>' +
+    '<div id="nvqList"><span class="note">सूची यह पैनल खोलने पर आती है…</span></div>' +
+    '<div id="nvqMsg" class="msg"></div>' +
+    '</div>');
 const TEAM_EXTRAS = {
-  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q + P_EXAM_FACE,
-  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q + P_EXAM_FACE,
-  "/dashboard/zonal/":    P_BADGE_QUEUE + P_SEVA_QUEUE,
-  "/dashboard/regional/": P_BADGE_QUEUE + P_SEVA_QUEUE,
+  "/dashboard/founder/":  P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q + P_EXAM_FACE + P_LISTING_EDITS,
+  "/dashboard/admin/":    P_BADGE_QUEUE + P_SEVA_QUEUE + P_ABANDON_Q + P_OC_Q + P_EXAM_FACE + P_LISTING_EDITS,
+  "/dashboard/zonal/":    P_BADGE_QUEUE + P_SEVA_QUEUE + P_LISTING_EDITS,
+  "/dashboard/regional/": P_BADGE_QUEUE + P_SEVA_QUEUE + P_LISTING_EDITS,
   "/dashboard/hq/examination/": P_EXAM_FACE,
 };
 

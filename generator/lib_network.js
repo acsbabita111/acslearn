@@ -1,5 +1,6 @@
 /* ============================================================
-   lib_network.js v1.3 (परत-4 का साझा हिस्सा, 25-Nov-2026, खेप N-3: CSC सूची। जिस सूची में हर नाम का अलग पन्ना नहीं
+   lib_network.js v1.4 (25-Nov-2026, खेप N-4: panchayatOf (स्रोत के पते से पंचायत/गाँव) और URL.nivedan / URL.nivedanFor
+   ("सुधार का निवेदन" और "नया फ़र्म जोड़ें" का एक पन्ना)। v1.3 (परत-4 का साझा हिस्सा, 25-Nov-2026, खेप N-3: CSC सूची। जिस सूची में हर नाम का अलग पन्ना नहीं
    (taxonomy recordPages: false), उसके नाम का पता = ज़िले के पन्ने पर उसकी जगह (URL.record → …/<ज़िला>/#<id>); pageUrls में
    ऐसे नामों के पन्ने नहीं। प्रखंड "" = "प्रखंड-मिलान बाक़ी"।
    v1.2 (22-Nov-2026, खेप N-1; v1.2 = ऑडिट N1-P0-04: पहरा अब रिकॉर्ड के हर पाठ-मान पर
@@ -43,6 +44,10 @@ const URL = {
   firmBase: (lang) => pre(lang) + "/network/firm/",
   slip: (lang) => pre(lang) + "/network/"
 };
+/* v1.4 (खेप N-4): "सुधार का निवेदन" पन्ना (रजिस्टर्ड यूज़र का सुधार, RM की स्वीकृति से)। noindex; sitemap में नहीं। */
+URL.nivedan = (lang) => pre(lang) + "/network/nivedan/";
+/* m = "sudhar" (इस नाम में सुधार) या "naya" (इसी ज़िले/सूची में नया फ़र्म); सूची, राज्य, ज़िला कार्ड से पहले से भरे */
+URL.nivedanFor = (lang, r, m) => URL.nivedan(lang) + "?m=" + m + (m === "sudhar" ? "&id=" + r.id : "") + "&s=" + r.state + "&k=" + secKey(r) + "&d=" + r.district;
 /* v1.3: किसी रिकॉर्ड का पक्का पता: अपना पन्ना, या (recordPages: false) ज़िले के पन्ने पर उसकी जगह */
 URL.record = (lang, r) => (recordPages(secKey(r)) ? URL.firm(lang, r.id) : URL.district(lang, r.state, secKey(r), r.district) + "#" + r.id.toLowerCase());
 const fileOf = (u) => u.replace(/^\//, "") + (u.endsWith("/") ? "index.html" : "");
@@ -140,8 +145,27 @@ function publicProblems(r) {
   return out;
 }
 
+/* ---------- v1.4 (खेप N-4, Founder 25-Nov: "नेटवर्क के सर्च में पंचायत भी") : पंचायत / गाँव ----------
+   सिर्फ़ स्रोत के पते में साफ़ लिखे दो रूपों से: "Panchayat/Village-<नाम>" (CSC की सरकारी सूची) और
+   "Gram Panchayat: <नाम>"। कोई अनुमान नहीं: इन दोनों के बिना = "" (पन्ने पर "पंचायत पता नहीं")।
+   छापने का रूप: अक्षरों का छोटा-बड़ा एक जैसा (हर शब्द का पहला अक्षर बड़ा), आख़िर का अकेला शब्द "Panchayat" हटा
+   (वह खाने का नाम है, पंचायत का नहीं)। इससे "SAHSI" और "Sahsi" एक ही विकल्प बनते हैं। स्रोत-data वैसा ही। */
+const PC_RE = [/(?:^|[,;]\s*)Panchayat\/Village-\s*([^,;]*)/i, /\bGram Panchayat:\s*([^;,]*)/i];
+function titleCase(s) { return s.toLowerCase().replace(/(^|[\s(\-\/.])([a-z])/g, (m, a, b) => a + b.toUpperCase()); }
+function panchayatOf(r) {
+  const a = String((r && r.address) || "");
+  for (const re of PC_RE) {
+    const m = a.match(re); if (!m) continue;
+    let v = m[1].replace(/\s+/g, " ").trim().replace(/\s+panchayat$/i, "").trim();
+    if (!v || /^(null|undefined|none|nil|n\/?a)$/i.test(v)) continue;
+    if (textProblems("x", v).length || v.length > 60) continue;   /* पहरा: अजीब/लंबा पाठ पंचायत नहीं बनता */
+    return titleCase(v);
+  }
+  return "";
+}
+
 /* छोटे औज़ार */
-const fmt = (s, o) => String(s).replace(/\{(\w+)\}/g, (m, k) => (o[k] === undefined ? m : o[k]));
+const fmt =(s, o) => String(s).replace(/\{(\w+)\}/g, (m, k) => (o[k] === undefined ? m : o[k]));
 const esc = (v) => String(v === null || v === undefined ? "" : v).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 /* नेटवर्क-पन्ने (/hi/network.html) के "व्यावहारिक सीखने की जगहें" हिस्से के स्थिर शब्द। build_net_khoj.js हिंदी लिखता है;
    menu_lang/network.en.js इन्हीं दोनों (hi, en) को जोड़कर English पन्ना बनवाता है: शब्द का घर एक (ui.js)। */
@@ -155,4 +179,4 @@ function hubText(lang, recs) {
            regH: U.regH, regFirm: U.regFirm, regUstad: U.regUstad, regNote: U.regNote, disc: U.disclaimer };
 }
 module.exports = { ROOT, TX, STATES, BATCHES, LANGS, SECTOR_KEY, secKey, recordPages, loadRecords, pubStatus, URL, fileOf, tree, district, category, pageUrls, fmt, esc, hubText,
-  PUBLIC_KEYS, EMAIL_RE, LONG_DIGITS, INTERNAL_LABEL, safeKey, textProblems, sectorDataProblems, publicProblems };
+  PUBLIC_KEYS, EMAIL_RE, LONG_DIGITS, INTERNAL_LABEL, safeKey, textProblems, sectorDataProblems, publicProblems, panchayatOf };

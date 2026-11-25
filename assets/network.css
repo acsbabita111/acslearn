@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/network.css v1.0 (22-Nov-2026, खेप N-1) : व्यावहारिक प्रशिक्षण नेटवर्क
+   /assets/network.css v1.1 (25-Nov-2026, खेप N-4: हर कार्ड के नीचे दो बटन .nw-nv (सुधार का निवेदन · नया फ़र्म जोड़ें),
+   और /network/nivedan/ पन्ने का फ़ॉर्म .nv-*)। v1.0 (22-Nov-2026, खेप N-1) : व्यावहारिक प्रशिक्षण नेटवर्क
    (1) गहरे पन्ने: /network/... और /en/network/... (generator/build_network.js से बने)
    (2) नेटवर्क-पन्ने (/hi/network.html, /en/network.html) का "व्यावहारिक सीखने की जगहें" हिस्सा (assets/net-praktik.js)
    रंग सिर्फ़ ACS के पाँच (style.css के var): navy, blue, gold, green, off-white। कोई अक्षर 16px से छोटा नहीं।
@@ -89,5 +90,28 @@ a.nw-name:hover,a.nw-name:focus{color:var(--blue);text-decoration:underline}
 .np-links a{color:var(--blue);font-weight:800}
 .np-reg{margin-top:16px;padding-top:14px;border-top:1px dashed var(--border,#E8EDF5)}
 .np-reg .np-h{font-size:1.05rem}
+/* v1.1: कार्ड के नीचे दो छोटे बटन (उँगली के लिए 44px ऊँचे) */
+.nw-nv{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0}
+.nw-nv a{display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;font-size:16px;font-weight:800;line-height:1.3;padding:8px 12px;border-radius:10px;text-decoration:none;background:#fff;color:var(--blue);border:2px solid var(--blue)}
+.nw-nv a.ny{color:var(--green);border-color:var(--green)}
+.nw-nv a:hover,.nw-nv a:focus{background:var(--offwhite)}
+.nw-nv a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+/* v1.1: निवेदन का पन्ना (assets/net-nivedan.js) */
+.nv-app{margin:0 0 14px}
+.nv-card{background:#fff;border:1px solid var(--border,#E8EDF5);border-left:6px solid var(--blue);border-radius:12px;padding:12px 14px;margin:0 0 14px}
+.nv-card .nv-k{font-size:16px;font-weight:800;color:var(--muted,#475569)}
+.nv-step{background:#fff;border:1px solid var(--border,#E8EDF5);border-radius:14px;padding:16px;margin:0 0 14px}
+.nv-step h2{font-size:1.2rem;color:var(--navy);margin:0 0 8px;line-height:1.4}
+.nv-gate{font-size:18px;font-weight:800;color:var(--navy);line-height:1.6;margin:0 0 10px}
+.nv-row2{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}
+.nv-row2 .nw-btn{min-height:48px}
+.nv-otp{letter-spacing:6px;font-size:22px;text-align:center;max-width:240px}
+.nv-chk{display:flex;gap:10px;align-items:flex-start;font-size:17px;line-height:1.6;color:var(--navy);margin:12px 0 0;font-weight:700}
+.nv-chk input{width:24px;height:24px;flex:0 0 auto;margin-top:3px}
+.nv-pub{background:var(--offwhite);border-left:5px solid var(--gold);border-radius:10px;padding:10px 12px;font-size:17px;line-height:1.7;margin:14px 0 0}
+.nv-file{font-size:17px;padding:10px;border:2px dashed var(--border,#E8EDF5);border-radius:12px;width:100%;box-sizing:border-box;background:#fff}
+.nv-fmsg{font-size:16px;color:var(--muted,#475569);margin:4px 0 0}
+.nv-mute{font-size:16px;color:var(--muted,#475569);line-height:1.7}
+.nv-hide{display:none}
 @media (prefers-reduced-motion:reduce){.nw-btn,.np-chip{transition:none}}
-@media print{.nw-btns,#sudhar,.np-reg{display:none}}
+@media print{.nw-btns,#sudhar,.np-reg,.nw-nv{display:none}}

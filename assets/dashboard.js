@@ -1,5 +1,11 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.44.1 · 25-Nov-2026 (N-4 v1.1, ChatGPT ऑडिट N4-02): "📝 सूची-सुधार निवेदन" की सूची अब server से 50-50 की खेप में
+            (server: network_nivedan.js v1.1, अपने दायरे की चाबी से)। नीचे "⬇ और निवेदन दिखाएँ" (next से अगली खेप)।
+            "सिर्फ़ नए 100" वाली सूचना हटी। क्रम: पुराने निवेदन पहले (जाँच की क़तार)। DASH_VER v6.43.0 → v6.44.1 (v6.44.0 में बढ़ाना छूटा था)।
+   v6.44.0 · 25-Nov-2026 (खेप N-4, नेटवर्क का "सुधार का निवेदन"): Founder, Admin, ZM और RM के घर में नया पैनल
+            "📝 सूची-सुधार निवेदन" (pnl-nvq; TEAM_PANEL_IDS में भी): नाम में सुधार या नया फ़र्म, पहले-अब, धंधा (24 सेक्टर/951 उद्यम),
+            फ़ाइलें (15 मिनट की कड़ी), स्वीकार / अस्वीकार (कारण के साथ)। server: office का network_nivedan.js v1.0।
    v6.43.0 · 19-Nov-2026 (खेप E-5, वेबसाइट पर भी कैमरे से चेहरे की जाँच): "📷 परीक्षा में चेहरे की जाँच" पैनल में हर परीक्षा के साथ
             बताया जाता है कि वह ACS EXAM ऐप से हुई या वेबसाइट से (और किस device से: माउस वाला कंप्यूटर, या फ़ोन/टैबलेट)।
             वेबसाइट की परीक्षा में पन्ना छोड़ने की चेतावनियों की गिनती, और नया झंडा "वेबसाइट पर कैमरा बंद रहा"। server: exam_server.js v1.5।
@@ -218,7 +224,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.43.0";
+const DASH_VER = "v6.44.1";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -895,7 +901,7 @@ const CERT_REL_EN={father:"Father's name:", mother:"Mother's name:", guardian:"G
 let EXT_REG = null;   /* (काम-11+) बाहरी-boot का reg — बैज/खाता-बही इंजन के लिए (साझा-scope नियम) */
 let OM_OPEN = null;   /* (P-6b) "✉️ संदेश" की बातचीत खोलने का दरवाज़ा: om-block भरता है, oc-block और ol-block बुलाते हैं (साझा-scope नियम) */
 /* v4.3 dual-नियम: team-block के पाँच पैनल — external-boot पर काम-सूची से बाहर */
-const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon","pnl-ocq","pnl-ghar","pnl-xface"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
+const TEAM_PANEL_IDS = ["pnl-apps","pnl-exo","pnl-team","pnl-tasks","pnl-reports","pnl-badgeq","pnl-sevaq","pnl-abandon","pnl-ocq","pnl-ghar","pnl-xface","pnl-nvq"]; /* E1: nav-whitelist नियम — नया team-पैनल = id यहाँ भी */
 /* (30-Jul सुधार-3) मिले-जुले पैनल: A खुले तो B के आलसी-इंजन भी चलें —
    B का panel-वर्ग गया पर id/इंजन जीवित (generator applyStudentMerges)। */
 const MERGED_LAZY = { "pnl-status": ["pnl-badge"], "pnl-pay": ["pnl-ledger"] };
@@ -5792,5 +5798,94 @@ if (MODE==="external" && ALLOWED.length>=1) {
         if(String(r).trim().length<5){ say(false,"थोड़ा पूरा लिखें (कम से कम 5 अक्षर)।"); return; }
         b.disabled=true; await call("examFaceDecide",{ sid:id, verdict:"bad", note:r }); await load(); say(true,"❌ फ़ैसला दर्ज हुआ: गड़बड़।"); return; }
     }catch(e){ b.disabled=false; say(false, String((e&&e.message)||e)); }
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   (N-4 · 25-Nov-2026, Founder का आदेश) pnl-nvq: 📝 सूची-सुधार निवेदन (नेटवर्क)।
+   रजिस्टर्ड यूज़र ने नेटवर्क की सूची के किसी नाम में सुधार माँगा, या नया फ़र्म जोड़ना चाहा (पन्ना /network/nivedan/,
+   रजिस्ट्रेशन नंबर + पासवर्ड + OTP के बाद)। फ़ैसला RM का: rm = अपने ज़िले, zm = अपना राज्य, Admin और Founder = सब।
+   server: office का network_nivedan.js v1.1 (listListingEdits, decideListingEdit)। टीम का पैनल: देखने के मोड में नहीं खुलता।
+   सूची 50-50 की खेप में (next); "और निवेदन दिखाएँ" अगली खेप जोड़ता है। क्रम: पुराने पहले।
+   फ़ाइल की कड़ी 15 मिनट चलती है; उद्यम प्रमाणपत्र सिर्फ़ जाँच के लिए। server की ग़लती का details.reason → यहाँ का अपना वाक्य।
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  function call(name, data){ return httpsCallable(functions, name)(data); }
+  function S(t){ return '<span>'+t+'</span>'; }
+  function TR(hi, en){ return '<span'+(en?' data-tr-en="'+esc(en)+'"':'')+'>'+esc(hi||"—")+'</span>'; }
+  var NS="pending", NQ=null;
+  var FIELD=[["name","नाम"],["address","पता"],["pin","पिन"],["panchayat","पंचायत / गाँव"],["block","प्रखंड"],["udyamNo","उद्यम रजिस्ट्रेशन नंबर"]];
+  var REL={ owner:"मालिक या संचालक", staff:"कर्मचारी", known:"ग्राहक या जानकार", other:"कुछ और" };
+  var ERR={ scope:"यह पैनल आपके पद या कार्य-क्षेत्र का नहीं है।", hold:"आप पर hold लगा है। अभी यह काम नहीं होगा।",
+    note:"अस्वीकार का कारण लिखें (कम से कम 3 अक्षर)।", done:"इस निवेदन पर फ़ैसला हो चुका है।", gone:"यह निवेदन नहीं मिला।" };
+  function errText(e){
+    var c=String((e&&e.code)||""), d=(e&&e.details)||{};
+    if(d.reason&&ERR[d.reason]) return ERR[d.reason];
+    if(/not-found$/.test(c)) return "यह सुविधा अभी server पर चालू नहीं हुई।";
+    return "नहीं हुआ। थोड़ी देर बाद कोशिश करें।";
+  }
+  function when(ms){ if(!ms) return "—"; var d=new Date(Number(ms)+5.5*3600000).toISOString(); return d.slice(8,10)+"-"+d.slice(5,7)+"-"+d.slice(0,4)+" "+d.slice(11,16); }
+  function row(i, t){ return '<div class="k1row"><span>'+i+'</span> '+t+'</div>'; }
+  function changes(x){
+    var b=x.before||null, a=x.after||{}, h="";
+    FIELD.forEach(function(f){ if(a[f[0]]===undefined) return;
+      h+='<div class="k1row"><b>'+S(f[1])+'</b>: '+(b?S("पहले")+' '+US(b[f[0]]||"—")+' → ':'')+S("अब")+' '+US(a[f[0]])+'</div>'; });
+    return h;
+  }
+  function card(x){
+    var L=x.listing||{}, by=x.by||{}, u=x.udyam, ln=x.links||{}, id=' data-id="'+esc(x.reqId)+'"', open=x.status==="pending";
+    var h='<div class="app k1row k1card st-'+(open?"review":(x.status==="approved"?"approved":"returned"))+'"><div class="k1h"><div class="k1ti">'+
+      (x.mode==="naya"?S("➕ नया फ़र्म"):S("✏️ सुधार का निवेदन"))+' · <span data-i18n-skip>'+esc(x.reqId)+'</span></div><div class="k1sub">'+
+      (open?'<span class="chip prov">'+S("⏳ जाँच बाक़ी")+'</span>':(x.status==="approved"?'<span class="chip appr">'+S("✅ स्वीकृत")+'</span>':'<span class="chip canc">'+S("❌ अस्वीकृत")+'</span>'))+'</div></div>';
+    h+=row("📍", GE(L.districtHi||L.district||"—")+' · '+GE(L.stateHi||L.state||"—")+(L.id?' · <span data-i18n-skip>'+esc(L.id)+'</span>'+(L.page?' · <a href="'+esc(L.page)+'" target="_blank" rel="noopener">'+S("सूची में देखें")+'</a>':''):' · '+S("नया फ़र्म: अभी सूची में नहीं")));
+    h+=row("🕒", when(x.createdMs));
+    h+=row("🪪", S("भेजने वाले:")+' '+US(by.name||"—")+' · <span data-i18n-skip>'+esc(by.regNo||"—")+'</span>'+(by.role?' · '+S(esc(cardPub(by.role)||by.role)):'')+
+      (x.relation?' · '+S("संबंध:")+' '+S(REL[x.relation]||"कुछ और"):''));
+    h+=changes(x);
+    if(u) h+=row("🏷️", S("धंधा:")+' '+TR(u.mgHi, u.mgEn)+' · '+(u.n>0?TR(u.hi, u.en):S("नया नाम:")+' '+US(u.newName||"—")));
+    if(x.note) h+=row("📝", US(x.note));
+    var fl="";
+    if(ln.photo) fl+='<a class="abtn k1b ol" href="'+esc(ln.photo)+'" target="_blank" rel="noopener">'+S("📷 फ़ोटो देखें")+'</a> ';
+    if(ln.cert) fl+='<a class="abtn k1b ol" href="'+esc(ln.cert)+'" target="_blank" rel="noopener">'+S("📄 उद्यम प्रमाणपत्र (सिर्फ़ जाँच के लिए)")+'</a> ';
+    if(ln.audit) fl+='<a class="abtn k1b ol" href="'+esc(ln.audit)+'" target="_blank" rel="noopener">'+S("📄 ऑडिट रिपोर्ट")+'</a> ';
+    if(fl) h+='<div style="margin:8px 0">'+fl+'</div>';
+    if(x.decision) h+='<div class="k1call'+(x.status==="rejected"?' rd':'')+'"><div class="ct">'+S(x.status==="approved"?"✅ स्वीकार हुआ":"❌ अस्वीकार हुआ")+'</div>'+
+      '<div class="cs">'+when(x.decision.at)+(x.decision.note?' · '+US(x.decision.note):'')+'</div></div>';
+    if(open) h+='<div class="k1foot"><button class="abtn k1b" data-nvq="ok"'+id+'>'+S("✅ स्वीकार करें")+'</button> '+
+      '<button class="abtn k1b ol dg" data-nvq="no"'+id+'>'+S("❌ अस्वीकार करें (कारण लिखें)")+'</button></div>';
+    return h+'</div>';
+  }
+  function draw(){
+    var box=$("nvqList"); if(!box||!NQ) return;
+    var h='<div class="k1seg">'+[["pending","⏳ जाँच बाक़ी"],["approved","✅ स्वीकृत"],["rejected","❌ अस्वीकृत"]].map(function(t){
+      return '<button type="button" class="k1m'+(NS===t[0]?' on':'')+'" data-nvq="seg" data-v="'+t[0]+'" aria-pressed="'+(NS===t[0]?'true':'false')+'">'+S(t[1])+'</button>'; }).join(" ")+'</div>';
+    var L=NQ.items||[];
+    if(!L.length) h+='<span class="note">'+S(NS==="pending"?"आपके कार्य-क्षेत्र में अभी कोई निवेदन जाँच में नहीं है।":"इस खाने में अभी कुछ नहीं है।")+'</span>';
+    if(L.length) h+='<div class="note" style="margin:6px 0">'+S("क्रम: पुराने निवेदन पहले।")+'</div>';
+    L.forEach(function(x){ h+=card(x); });
+    if(NQ.more&&NQ.next) h+='<div style="margin-top:10px"><button type="button" class="abtn k1b ol" data-nvq="more">'+S("⬇ और निवेदन दिखाएँ")+'</button></div>';
+    box.innerHTML=h;
+  }
+  function say(ok, t){ var m=$("nvqMsg"); if(m){ m.className="msg "+(ok?"ok":"err"); m.innerHTML=S(t); } }
+  async function load(more){
+    var d={ status:NS }; if(more&&NQ&&NQ.next) d.after=NQ.next;
+    var r=((await call("listListingEdits",d)).data)||{ items:[] };
+    if(more&&NQ){ var seen={}; (NQ.items||[]).forEach(function(x){ seen[x.reqId]=1; }); r.items=(NQ.items||[]).concat((r.items||[]).filter(function(x){ return !seen[x.reqId]; })); }
+    NQ=r; draw(); }
+  LAZY["pnl-nvq"]=async function(){ try{ await load(); }catch(e){ var b=$("nvqList"); if(b) b.innerHTML='<span class="note" style="color:#B71C1C">'+S(errText(e))+'</span>'; } };
+  document.addEventListener("click", async function(ev){
+    var b=ev.target&&ev.target.closest?ev.target.closest("[data-nvq]"):null; if(!b) return;
+    var act=b.getAttribute("data-nvq"), id=b.getAttribute("data-id")||"";
+    try{
+      if(act==="seg"){ NS=b.getAttribute("data-v")||"pending"; b.disabled=true; await load(); return; }
+      if(act==="more"){ b.disabled=true; await load(true); return; }
+      if(act==="ok"){
+        if(!confirm("यह निवेदन स्वीकार करें? फ़ोटो और ऑडिट रिपोर्ट सबको दिखेंगी। website पर बदलाव अगली छपाई में आएगा।")) return;
+        b.disabled=true; await call("decideListingEdit",{ reqId:id, ok:true }); await load(); say(true,"✅ स्वीकार दर्ज हुआ।"); return; }
+      if(act==="no"){
+        var r=prompt("अस्वीकार का कारण लिखें (ज़रूरी):"); if(!r) return;
+        if(String(r).trim().length<3){ say(false,"अस्वीकार का कारण लिखें (कम से कम 3 अक्षर)।"); return; }
+        b.disabled=true; await call("decideListingEdit",{ reqId:id, ok:false, note:String(r).trim() }); await load(); say(true,"❌ अस्वीकार दर्ज हुआ।"); return; }
+    }catch(e){ b.disabled=false; say(false, errText(e)); }
   });
 })();

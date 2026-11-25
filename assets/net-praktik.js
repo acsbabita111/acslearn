@@ -1,5 +1,11 @@
 /* ============================================================
-   /assets/net-praktik.js v1.1 (25-Nov-2026, खेप N-3: CSC सूची। जिस सूची के नामों का अलग पन्ना नहीं (index में rp: 0), उसका
+   /assets/net-praktik.js v1.3 (25-Nov-2026, खेप N-4, Founder: "नेटवर्क के सर्च में पंचायत भी"): (1) नया खाना "पंचायत / गाँव"
+   (data का pc: सिर्फ़ स्रोत के पते में साफ़ लिखी पंचायत; जिनमें नहीं, वे "पंचायत पता नहीं" में), प्रखंड चुनें तो सिर्फ़ उसी प्रखंड की
+   पंचायतें; जिस ज़िले में एक भी पंचायत दर्ज नहीं (जैसे टू-व्हीलर), वहाँ यह खाना नहीं दिखता। (2) खोज-खाना अब नाम, पंचायत, पता,
+   इलाक़ा और स्रोत का प्रखंड, सब में ढूँढता है। (3) हर कार्ड के नीचे दो बटन: "सुधार का निवेदन" और "नया फ़र्म जोड़ें" (index.json का nv)।
+   v1.2 (25-Nov-2026, खेप N-3.1: CSC कार्ड में स्रोत-कड़ी न हो, तो साफ़ "स्रोत की कड़ी नहीं" (ChatGPT ऑडिट CSC-02);
+   स्रोत-पंक्ति हमेशा दिखती है।
+   v1.1 (25-Nov-2026, खेप N-3: CSC सूची। जिस सूची के नामों का अलग पन्ना नहीं (index में rp: 0), उसका
    कार्ड: सूचीबद्ध + जाँच का निशान, "Official CSC" (सिर्फ़ o: 1 पर), प्रखंड या "प्रखंड-मिलान बाक़ी" (+ स्रोत का प्रखंड), पता/PIN,
    स्रोत की कड़ी, और "पूरी जानकारी" = ज़िले के पन्ने पर उस नाम की जगह; सूची की अपनी सूचना और disclosure ऊपर; प्रखंड-छँटाई में
    "प्रखंड-मिलान बाक़ी" (__u)। स्रोत के [ ] छपाई में ( )। Two-Wheeler का कार्ड वैसा ही।
@@ -22,8 +28,10 @@
   NP.firmUrl = function (L, id) { return (L === "hi" ? "" : "/" + L) + "/network/firm/" + String(id).toLowerCase() + ".html"; };
   function has(a, v) { if (!a) return false; for (var i = 0; i < a.length; i++) if (a[i] === v) return true; return false; }
   function same(a, b) { return String(a || "").toLowerCase().replace(/[^a-z0-9]/g, "") === String(b || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
-  /* छँटाई: f = {b: प्रखंड, c: श्रेणी, s: "V"/"T", br: ब्रांड, k: हुनर, q: नाम का टुकड़ा} */
+  /* छँटाई: f = {b: प्रखंड, pc: पंचायत, c: श्रेणी, s: "V"/"T", br: ब्रांड, k: हुनर, q: खोज का शब्द} */
   NP.UNM = "__u";   /* प्रखंड-मिलान बाक़ी (data में b = "") */
+  NP.PCN = "__n";   /* v1.3: पंचायत पता नहीं (data में pc नहीं) */
+  NP.hay = function (r) { return [r.n, r.pc, r.a, r.l, r.rb].join(" ").toLowerCase(); };
   NP.paren = function (v) { return String(v === null || v === undefined ? "" : v).replace(/\[/g, "(").replace(/\]/g, ")"); };
   NP.filter = function (rs, f) {
     var q = String(f.q || "").toLowerCase().replace(/^\s+|\s+$/g, ""), out = [];
@@ -31,17 +39,26 @@
       var r = rs[i];
       if (f.b === NP.UNM) { if (r.b) continue; }
       else if (f.b && r.b !== f.b) continue;
+      if (f.pc === NP.PCN) { if (r.pc) continue; }
+      else if (f.pc && r.pc !== f.pc) continue;
       if (f.c && r.c !== f.c && !has(r.c2, f.c)) continue;
       if (f.s && r.s !== f.s) continue;
       if (f.br && !has(r.br, f.br)) continue;
       if (f.k && !has(r.k, f.k)) continue;
-      if (q && String(r.n).toLowerCase().indexOf(q) < 0) continue;
+      if (q && NP.hay(r).indexOf(q) < 0) continue;
       out.push(r);
     }
     return out;
   };
-  NP.card = function (L, idx, sec, r, dd) {
-    if (sec.rp === 0) return NP.listedCard(L, idx, sec, r, dd);
+  /* v1.3: कार्ड के नीचे दो बटन; stSlug = राज्य का slug, dd = ज़िला (index.json)। (नाम st नहीं: कार्ड में st = जाँच की स्थिति) */
+  NP.nvBtns = function (L, idx, sec, r, stSlug, dd) {
+    if (!idx.nv || !idx.nv[L] || !dd || !stSlug) return "";
+    var U = idx.ui[L], base = idx.nv[L] + "?m=", tail = "&s=" + encodeURIComponent(stSlug) + "&k=" + encodeURIComponent(sec.key) + "&d=" + encodeURIComponent(dd.slug);
+    return '<div class="nw-nv"><a href="' + NP.esc(base + "sudhar&id=" + encodeURIComponent(r.i) + tail) + '">' + NP.esc(U.nvBtn) + "</a>" +
+      '<a class="ny" href="' + NP.esc(base + "naya" + tail) + '">' + NP.esc(U.nyBtn) + "</a></div>";
+  };
+  NP.card = function (L, idx, sec, r, dd, stSlug) {
+    if (sec.rp === 0) return NP.listedCard(L, idx, sec, r, dd, stSlug);
     var U = idx.ui[L], st = idx.status[r.s] || idx.status.T, cat = r.c, place = [], i;
     for (i = 0; i < sec.cats.length; i++) if (sec.cats[i].id === r.c) cat = sec.cats[i][L];
     if (r.l && !same(r.l, r.b)) place.push(r.l);
@@ -50,10 +67,10 @@
       '<div><span class="nw-tag ' + (r.s === "V" ? "ver" : "tbv") + '">' + st.icon + " " + NP.esc(st[L]) + '</span><span class="nw-tag cat">' + NP.esc(cat) + "</span></div>" +
       '<div class="nw-row">📍 ' + NP.esc(place.join(", ")) + "</div>";
     if (r.p) h += '<div class="nw-row">📞 <a href="' + NP.tel(r.p) + '">' + NP.phoneTxt(r.p) + "</a>" + (r.sp ? " (" + NP.esc(U.shared) + ")" : "") + "</div>";
-    return h + '<div class="nw-row"><a href="' + NP.firmUrl(L, r.i) + '">' + NP.esc(U.see) + " →</a></div></div>";
+    return h + '<div class="nw-row"><a href="' + NP.firmUrl(L, r.i) + '">' + NP.esc(U.see) + " →</a></div>" + NP.nvBtns(L, idx, sec, r, stSlug, dd) + "</div>";
   };
   /* v1.1: बिना-पन्ने वाली सूची (CSC) का कार्ड; dd = ज़िला (index.json से: पन्ने का पता) */
-  NP.listedCard = function (L, idx, sec, r, dd) {
+  NP.listedCard = function (L, idx, sec, r, dd, stSlug) {
     var U = idx.ui[L], st = idx.status[r.s] || idx.status.T, T = (sec.txt || {})[L] || {}, esc = NP.esc, paren = NP.paren;
     var url = dd && dd.page ? dd.page[L] + "#" + String(r.i).toLowerCase() : "";
     var place = [r.b ? r.b : U.unmapped]; if (r.rb) place.push(NP.fmt(U.rawBlock, { b: paren(r.rb) }));
@@ -64,8 +81,9 @@
       (r.o === 1 ? '<span class="nw-tag cat">' + esc(U.official) + "</span>" : "") + "</div>" +
       '<div class="nw-row">📍 ' + esc(place.join(" · ")) + "</div>";
     if (addr.length) h += '<div class="nw-row">🏠 ' + esc(addr.join(" · ")) + "</div>";
-    if (src || r.su) h += '<div class="nw-row">🔗 ' + esc((T.src || "") + (src ? ": " + src : "")) + (r.su && /^https?:\/\//i.test(r.su) ? ' · <a href="' + esc(r.su) + '" target="_blank" rel="nofollow noopener noreferrer">' + esc(T.srcLink || "") + "</a>" : "") + "</div>";
-    return h + (url ? '<div class="nw-row"><a href="' + url + '">' + esc(U.srcSee) + " →</a></div>" : "") + "</div>";
+    var hasUrl = r.su && /^https?:\/\//i.test(r.su);
+    h += '<div class="nw-row">🔗 ' + esc((T.src || "") + (src ? ": " + src : "")) + " · " + (hasUrl ? '<a href="' + esc(r.su) + '" target="_blank" rel="nofollow noopener noreferrer">' + esc(T.srcLink || "") + "</a>" : esc(T.srcNone || "")) + "</div>";
+    return h + (url ? '<div class="nw-row"><a href="' + url + '">' + esc(U.srcSee) + " →</a></div>" : "") + NP.nvBtns(L, idx, sec, r, stSlug, dd) + "</div>";
   };
   NP.uniqSorted = function (rs, key) {
     var seen = {}, out = [], i, j, v;
@@ -130,7 +148,16 @@
     var cOpts = [["", U.all]]; for (i = 0; i < sec.cats.length; i++) if (!S.rs || NP.filter(rs, { c: sec.cats[i].id }).length) cOpts.push([sec.cats[i].id, sec.cats[i][L]]);
     var showCat = sec.cats.length > 1;   /* v1.1: एक ही श्रेणी हो (CSC) तो श्रेणी-छँटाई नहीं */
     var sOpts = [["", U.all], ["V", IDX.status.V.icon + " " + IDX.status.V[L]], ["T", IDX.status.T.icon + " " + IDX.status.T[L]]];
-    h += sel("npBlock", U.block, bOpts, S.f.b || "", dis) + (showCat ? sel("npCat", U.category, cOpts, S.f.c || "", dis) : "") + sel("npStat", U.status, sOpts, S.f.s || "", dis);
+    h += sel("npBlock", U.block, bOpts, S.f.b || "", dis);
+    /* v1.3: पंचायत / गाँव: सिर्फ़ तब, जब इस ज़िले के data में कम से कम एक पंचायत दर्ज हो; प्रखंड चुना हो तो उसी प्रखंड की */
+    var pcBase = S.f.b ? NP.filter(rs, { b: S.f.b }) : rs, pcs = NP.uniqSorted(pcBase, "pc"), pcAny = NP.uniqSorted(rs, "pc").length > 0;
+    if (pcAny) {
+      var pOpts = [["", U.all]], noPc = false; for (i = 0; i < pcs.length; i++) pOpts.push([pcs[i], pcs[i]]);
+      for (i = 0; i < pcBase.length; i++) if (!pcBase[i].pc) { noPc = true; break; }
+      if (noPc) pOpts.push([NP.PCN, U.pcNone]);
+      h += sel("npPc", U.panchayat, pOpts, S.f.pc || "", dis);
+    }
+    h += (showCat ? sel("npCat", U.category, cOpts, S.f.c || "", dis) : "") + sel("npStat", U.status, sOpts, S.f.s || "", dis);
     var br = NP.uniqSorted(rs, "br"); if (br.length) { var brOpts = [["", U.all]]; for (i = 0; i < br.length; i++) brOpts.push([br[i], br[i]]); h += sel("npBrand", U.brand, brOpts, S.f.br || "", dis); }
     var kk = NP.uniqSorted(rs, "k"); if (kk.length) { var kOpts = [["", U.all]];
       for (i = 0; i < kk.length; i++) { var lab = kk[i]; for (var j = 0; j < sec.skills.length; j++) if (sec.skills[j].id === kk[i]) lab = sec.skills[j][L]; kOpts.push([kk[i], lab]); }
@@ -146,7 +173,7 @@
     var sec = secObj(S.sec), rs = NP.filter(S.rs, S.f), h = '<p class="np-tot">' + esc(NP.fmt(U.total, { n: rs.length })) + "</p>", i;
     if (!rs.length) h += '<p class="nk-note">' + esc(U.none) + "</p>";
     var dd = curDistrict();
-    for (i = 0; i < rs.length && i < S.shown; i++) h += NP.card(L, IDX, sec, rs[i], dd);
+    for (i = 0; i < rs.length && i < S.shown; i++) h += NP.card(L, IDX, sec, rs[i], dd, S.st);
     if (rs.length > S.shown) h += '<button type="button" class="nw-btn alt np-more" id="npMore">' + esc(U.more) + "</button>";
     if (dd) h += '<p class="np-links"><a href="' + dd.page[L] + '">📋 ' + esc(dd[L]) + ": " + esc(U.list) + "</a></p>";
     box.innerHTML = h;
@@ -174,8 +201,10 @@
         var dz = $("npDist"); if (dz && dz.focus) dz.focus();
       });
     };
-    var keys = [["npBlock", "b"], ["npCat", "c"], ["npStat", "s"], ["npBrand", "br"], ["npSkill", "k"]];
+    var keys = [["npPc", "pc"], ["npCat", "c"], ["npStat", "s"], ["npBrand", "br"], ["npSkill", "k"]];
     for (var i = 0; i < keys.length; i++) (function (id, k) { var e = $(id); if (e) e.onchange = function () { S.f[k] = this.value || ""; S.shown = 20; drawList(); }; })(keys[i][0], keys[i][1]);
+    /* v1.3: प्रखंड बदले तो पंचायत की सूची भी उसी प्रखंड की बने (पूरा हिस्सा दोबारा; खोज का शब्द बना रहता है) */
+    var bk = $("npBlock"); if (bk) bk.onchange = function () { S.f.b = this.value || ""; S.f.pc = ""; S.shown = 20; draw(); var z = $("npBlock"); if (z && z.focus) z.focus(); };
     var q = $("npQ"); if (q) q.oninput = function () { S.f.q = this.value; S.shown = 20; drawList(); };
   }
 

@@ -1,5 +1,8 @@
 /* ============================================================
-   dev_network_check.js v1.4 (25-Nov-2026, खेप N-3: CSC सूची। नई जाँचें: BIHAR-CSC-001 के 7,437 रिकॉर्ड (स्रोत की 7,449 पंक्तियाँ,
+   dev_network_check.js v1.5 (25-Nov-2026, खेप N-3.1: ChatGPT ऑडिट CSC-01/02: किसी प्रकाशित पते में ख़ाली/"null" टुकड़ा या शोध-टिप्पणी
+   नहीं; हर CSC नाम की स्रोत-कड़ी (7,437/7,437; कॉलम खिसके 3 की कड़ी पते के खाने से); छँटाई के कार्ड में कड़ी न हो तो "स्रोत की कड़ी
+   नहीं"; importer की दो नई धाराएँ (नक़ली CSV से)।
+   v1.4 (25-Nov-2026, खेप N-3: CSC सूची। नई जाँचें: BIHAR-CSC-001 के 7,437 रिकॉर्ड (स्रोत की 7,449 पंक्तियाँ,
    ChatGPT का पक्का आँकड़ा, batches.js में), सब "जाँच बाक़ी", फ़ोन/email/वेबसाइट कहीं नहीं, "Official CSC" सिर्फ़ सरकारी स्रोत पर
    (1,819), ID-रूप, शोध-टिप्पणी पता नहीं बनी; CSC के पन्ने: हर नाम की ज़िले के पन्ने पर ठीक एक जगह, अलग पन्ना नहीं, ChatGPT का
    disclosure अक्षरशः, "सत्यापित CSC नेटवर्क" जैसा कोई दावा नहीं, कोई tel: नहीं; Two-Wheeler के पन्ने और data वैसे ही; छँटाई में
@@ -108,7 +111,15 @@ ck("CSC: \"Official CSC\" 1819, और हर एक का स्रोत स�
   R2.filter((r) => r.sources.some((x) => x.sourceType === "GOVERNMENT")).length === 1819, off2.length);
 ck("CSC: प्रखंड ख़ाली (प्रखंड-मिलान बाक़ी) सिर्फ़ वहीं, जहाँ स्रोत का प्रखंड है: 761", R2.filter((r) => r.block === "").length === 761 && R2.every((r) => r.block !== "" || r.sectorData.rawBlock));
 const NA = (B2.notAddress || []).map((x) => new RegExp(x, "i"));
-ck("CSC: पते में शोध-टिप्पणी नहीं (\"Source row/rank …\", \"Address on file\" …)", NA.length === 4 && R2.every((r) => !r.address || !NA.some((re) => re.test(r.address))));
+ck("CSC: पते में शोध-टिप्पणी नहीं (\"Source row/rank …\", \"Source says …\", \"Listed at SNo …\", अकेला URL …)", NA.length === 8 && R2.every((r) => !r.address || !NA.some((re) => re.test(r.address))) &&
+  R2.every((r) => !r.address || !/source (row |address )?(explicitly )?says|listed at sno|page reports|https?:\/\//i.test(r.address)));
+const DP = (B2.addressDropParts || []).map((x) => new RegExp(x, "i"));
+ck("CSC (ऑडिट CSC-01): किसी प्रकाशित पते में ख़ाली/\"null\" टुकड़ा नहीं (जैसे \"District-null\", \"Panchayat/Village-\")", DP.length === 2 &&
+  R2.every((r) => !r.address || (!/\bnull\b/i.test(r.address) && r.address.split(",").every((x) => !DP.some((re) => re.test(x))) && r.address === r.address.trim())));
+const byR2 = {}; R2.forEach((r) => { byR2[r.id] = r; });
+ck("CSC (ऑडिट CSC-02): हर नाम की स्रोत-कड़ी (7437/7437); कॉलम खिसके 3 (A02484-86) की कड़ी goodreturns की, पता ख़ाली", R2.every((r) => r.sources.some((x) => x.sourceUrl)) &&
+  ["BR-CSC-A02484", "BR-CSC-A02485", "BR-CSC-A02486"].every((i) => byR2[i] && /^https:\/\/www\.goodreturns\.in\/csc-in-[a-z-]+-c\d+\.html$/.test(byR2[i].sources[0].sourceUrl) &&
+    byR2[i].sources[0].sourceType === "CSC_DIRECTORY" && byR2[i].address === null));
 ck("CSC: हर रिकॉर्ड पर batch-ID और तारीख़", R2.every((r) => r.importBatch === "BIHAR-CSC-001" && r.createdAt === B2.importedOn));
 const cscPub = fs.readdirSync(path.join(ROOT, "assets/network/bihar/csc")).map((f) => rd("assets/network/bihar/csc/" + f)).join("\n") + rd("generator/data/network/batches/BIHAR-CSC-001.json");
 ck("CSC: सार्वजनिक data में email, भीतरी खाने (source_layer, record_origin, rm_verification …) नहीं", !/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(cscPub) &&
@@ -241,6 +252,9 @@ const ce = NP.card("hi", IDX, IC, { i: "BR-CSC-M00001", n: '<img src=x onerror="
 ck("net-praktik (CSC कार्ड): HTML सुरक्षित, [ ] छपाई में ( ), 'प्रखंड-मिलान बाक़ी', Official, कड़ी ज़िले की जगह पर, javascript: कड़ी नहीं",
   ce.indexOf("<img") < 0 && ce.indexOf("<b>x") < 0 && ce.indexOf("[") < 0 && ce.indexOf("(S)") > -1 && ce.indexOf(IDX.ui.hi.unmapped) > -1 && ce.indexOf(IDX.ui.hi.official) > -1 &&
   ce.indexOf('href="/network/bihar/csc/patna/#br-csc-m00001"') > -1 && ce.indexOf("javascript:") < 0);
+const cn0 = NP.card("hi", IDX, IC, { i: "BR-CSC-A00002", n: "B", b: "X", s: "T", st: "OTHER_PUBLIC" }, cdd), cn1 = NP.card("en", IDX, IC, { i: "BR-CSC-A00003", n: "C", b: "X", s: "T", st: "CSC_DIRECTORY", sn: "goodreturns.in", su: "https://www.goodreturns.in/x.html" }, cdd);
+ck("net-praktik (ऑडिट CSC-02): कड़ी न हो तो साफ़ 'स्रोत की कड़ी नहीं'; हो तो 'View source' कड़ी", cn0.indexOf(IC.txt.hi.srcNone) > -1 && cn0.indexOf("<a href=\"http") < 0 &&
+  cn1.indexOf('href="https://www.goodreturns.in/x.html"') > -1 && cn1.indexOf(IC.txt.en.srcLink) > -1 && cn1.indexOf(IC.txt.en.srcNone) < 0);
 ck("net-praktik: Official का निशान सिर्फ़ o = 1 पर; छँटाई __u = सिर्फ़ ख़ाली प्रखंड", NP.card("en", IDX, IC, { i: "BR-CSC-A00001", n: "A", b: "X", s: "T" }, cdd).indexOf("Official") < 0 &&
   NP.filter([{ b: "" }, { b: "X" }], { b: "__u" }).length === 1 && NP.filter([{ b: "" }, { b: "X" }], { b: "X" }).length === 1);
 ck("English कार्ड: /en/ पता, English निशान", NP.card("en", IDX, IDX.sectors[0], kh[0]).indexOf('href="/en/network/firm/') > -1 && !DEV.test(NP.card("en", IDX, IDX.sectors[0], kh[0])));
@@ -413,23 +427,31 @@ const crows = [
   cm({ record_id: "BR-CSC-A00006", address: "Source row/rank 3 on block CSC directory." }),                  /* पता = शोध-टिप्पणी, छपता नहीं */
   cm({ record_id: "BR-CSC-A00007", vle_name: "36402820015" }),                                              /* नाम में 10+ अंक = रोककर रखा */
   cm({ record_id: "BR-CSC-KHG-0008" }),                                                                     /* ID-रूप ग़लत = रोक */
-  cm({ record_id: "BR-CSC-M00009", raw_block: "Gogri [S]", address: "Ward 4, Gogri" })                       /* स्रोत की वर्तनी data में जस-की-तस */
+  cm({ record_id: "BR-CSC-M00009", raw_block: "Gogri [S]", address: "Ward 4, Gogri" }),                      /* स्रोत की वर्तनी data में जस-की-तस */
+  cm({ record_id: "BR-CSC-M00010", address: "HUSEPUR, Panchayat/Village-null, Sub District-Gogri, District-, State-Bihar, Pin-null" }),   /* v1.5: null/ख़ाली टुकड़े हटें */
+  cm({ record_id: "BR-CSC-A00011", address: "https://www.goodreturns.in/csc-in-gogri-c1.html", source_url: "71" }),                     /* v1.5: कॉलम खिसका */
+  cm({ record_id: "BR-CSC-A00012", address: "null, Panchayat/Village-, District-null", source_url: "72" })                             /* v1.5: कुछ नहीं बचा; स्रोत ही नहीं */
 ];
 fs.writeFileSync(path.join(tmp, "csc.csv"), CH.join(",") + "\n" + crows.map(crow).join("\n") + "\n");
-const CB = Object.assign({}, B2, { batchId: "TEST-CSC", expect: { rows: 9 } });
+const CB = Object.assign({}, B2, { batchId: "TEST-CSC", expect: { rows: 12 } });
 const TC = I.run(CB, path.join(tmp, "csc.csv")), byC = {}; TC.recs.forEach((r) => { byC[r.id] = r; });
 const rC = I.reportText("TEST-CSC", path.join(tmp, "csc.csv"), TC);
-ck("importer (CSC): प्रकाशित 4 (M00001, A00004, A00006, M00009); रोक 1 (ID-रूप); रोककर रखे 3 (अनजान हाँ/ना, प्रखंड नहीं, नाम में अंक); सार्वजनिक नहीं 1 (portal_publish NO)",
-  JSON.stringify(Object.keys(byC).sort()) === JSON.stringify(["BR-CSC-A00004", "BR-CSC-A00006", "BR-CSC-M00001", "BR-CSC-M00009"]) && TC.rep.reject.length === 1 && TC.rep.hold.length === 3 && TC.rep.hidden.length === 1,
+ck("importer (CSC): प्रकाशित 7 (M00001, A00004, A00006, M00009, M00010, A00011, A00012); रोक 1 (ID-रूप); रोककर रखे 3 (अनजान हाँ/ना, प्रखंड नहीं, नाम में अंक); सार्वजनिक नहीं 1 (portal_publish NO)",
+  JSON.stringify(Object.keys(byC).sort()) === JSON.stringify(["BR-CSC-A00004", "BR-CSC-A00006", "BR-CSC-A00011", "BR-CSC-A00012", "BR-CSC-M00001", "BR-CSC-M00009", "BR-CSC-M00010"]) && TC.rep.reject.length === 1 && TC.rep.hold.length === 3 && TC.rep.hidden.length === 1,
   JSON.stringify({ p: Object.keys(byC), rj: TC.rep.reject, h: TC.rep.hold, hd: TC.rep.hidden }));
 ck("importer (CSC): Official = YES वाले पर, NO वाले पर नहीं; फ़ोन/email/source_layer सार्वजनिक JSON और रिपोर्ट में नहीं",
   byC["BR-CSC-M00001"].sectorData.officialCsc === true && byC["BR-CSC-A00004"].sectorData.officialCsc === false && byC["BR-CSC-M00001"].phone.length === 0 &&
   ["9876543210", "vle@example.org", "Gap Closure", "36402820015"].every((v) => TC.json.indexOf(v) < 0 && rC.indexOf(v) < 0));
 ck("importer (CSC): प्रखंड-मिलान बाक़ी = block \"\" + स्रोत का प्रखंड; शोध-टिप्पणी पता नहीं बनी; [ ] data में जस-का-तस; गिनती-सूचनाएँ",
   byC["BR-CSC-A00004"].block === "" && byC["BR-CSC-A00004"].sectorData.rawBlock === "Gogri Jamalpur" && byC["BR-CSC-A00006"].address === null &&
-  byC["BR-CSC-M00009"].sectorData.rawBlock === "Gogri [S]" && Object.values(TC.rep.note).join() === "1,1");
-const TC2 = I.run(Object.assign({}, CB, { expect: { rows: 10 } }), path.join(tmp, "csc.csv"));
-ck("importer (CSC): स्रोत की पंक्तियाँ अपेक्षा से अलग = पूरा import रुका (expect.rows)", TC2.rep.stop.some((m) => /स्रोत की पंक्तियाँ 9 ≠ अपेक्षित 10/.test(m)));
+  byC["BR-CSC-M00009"].sectorData.rawBlock === "Gogri [S]" && TC.rep.note[Object.keys(TC.rep.note).find((k) => /शोध की टिप्पणी/.test(k))] === 1);
+ck("importer (ऑडिट CSC-01/02): null/ख़ाली टुकड़े हटे, बाक़ी पता अक्षरशः; कुछ न बचे तो पता ख़ाली; कॉलम खिसका = पते का URL स्रोत, पता ख़ाली; स्रोत ही न हो तो कड़ी नहीं (गढ़ी नहीं)",
+  byC["BR-CSC-M00010"].address === "HUSEPUR, Sub District-Gogri, State-Bihar" && byC["BR-CSC-A00012"].address === null && byC["BR-CSC-A00012"].sources.every((x) => !x.sourceUrl) &&
+  byC["BR-CSC-A00011"].address === null && byC["BR-CSC-A00011"].sources[0].sourceUrl === "https://www.goodreturns.in/csc-in-gogri-c1.html" && byC["BR-CSC-A00011"].sources[0].sourceType === "CSC_DIRECTORY" &&
+  byC["BR-CSC-A00011"].sources.length === 1 && Object.keys(TC.rep.note).some((k) => /कॉलम खिसका/.test(k)) && Object.keys(TC.rep.note).some((k) => /कुछ नहीं बचा/.test(k)),
+  JSON.stringify({ m10: byC["BR-CSC-M00010"].address, a11: byC["BR-CSC-A00011"].sources, note: TC.rep.note }));
+const TC2 = I.run(Object.assign({}, CB, { expect: { rows: 13 } }), path.join(tmp, "csc.csv"));
+ck("importer (CSC): स्रोत की पंक्तियाँ अपेक्षा से अलग = पूरा import रुका (expect.rows)", TC2.rep.stop.some((m) => /स्रोत की पंक्तियाँ 12 ≠ अपेक्षित 13/.test(m)));
 fs.rmSync(tmp, { recursive: true, force: true });
 
 /* ── 8. sitemap, 9. Excel-साँचा ── */
@@ -442,5 +464,5 @@ ck("Excel-साँचा: 43 कॉलम batches.js के क्रम मे
 dom().then(() => {
   console.log("जाँचें: पास " + pass + " · फेल " + fail + (skip ? " · छूटी " + skip : ""));
   if (fail) { console.log("फेल जाँचें (ऊपर पूरा ब्योरा):"); FAILED.forEach((n, i) => console.log("   " + (i + 1) + ". ❌ " + n)); console.log("⛔ dev_network_check: फेल"); process.exit(1); }
-  console.log("🏁 dev_network_check v1.4 : नेटवर्क पास");
+  console.log("🏁 dev_network_check v1.5 : नेटवर्क पास");
 });

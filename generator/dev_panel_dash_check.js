@@ -377,6 +377,27 @@ const XF_VIEW_WEB = () => ({ ok: true, you: "founder", sid: XF_WEB_SID, courseId
   startedAt: Date.UTC(2026, 11, 9, 6), endAt: Date.UTC(2026, 11, 9, 7, 30), status: "done", reason: null, app: null, via: "web", dev: "pc", warn: 2, warnMax: 3,
   events: [{ k: "camoff", at: Date.UTC(2026, 11, 9, 6, 20) }, { k: "camon", at: Date.UTC(2026, 11, 9, 6, 21) }], flags: ["camoff"], tries: 1, ref: "", gone: false, fq: "open", review: null,
   urlUntil: Date.UTC(2026, 11, 9, 7, 45), photos: [{ k: "start", at: Date.UTC(2026, 11, 9, 6), band: "match", score: 0.71, faces: 1, url: "https://storage.example/w1.jpg" }] });
+/* (v4.1, N-4 · 25-Nov-2026) 📝 सूची-सुधार निवेदन: नाम में सुधार (सब खाने, तीनों फ़ाइलें) और नया फ़र्म (951 की सूची का धंधा) */
+const NVD = JSON.parse(rd("assets/network/nivedan_data.json")), NV_U = NVD.u.find(x => x[1] === 8);
+const NVQ_ITEM = () => ({ reqId: "NV-20261125-ABC123", mode: "sudhar", status: "pending", createdMs: Date.UTC(2026, 10, 25, 6),
+  listing: { id: "BR-CSC-M00003", sector: "csc", state: "bihar", district: "khagaria", stateHi: "बिहार", stateEn: "Bihar", districtHi: "खगड़िया", districtEn: "Khagaria", page: "/network/bihar/csc/khagaria/#br-csc-m00003" },
+  before: { name: "Nitesh Kumar Arya", address: "Maheshkhunt, Gogri", pin: "", panchayat: "Maheshkhunt", block: "Gogri" },
+  after: { name: "Nitesh Kumar Arya CSC", pin: "851203", udyamNo: "UDYAM-BR-07-0012345" },
+  udyam: { mg: 7, mgHi: "प्रौद्योगिकी", mgEn: "Technology", n: 0, newName: HU.center },
+  note: HU.reason, relation: "owner", by: { uid: "u5", regNo: "ACS-2026-111111", role: "center", name: HU.student },
+  links: { photo: "https://signed.example/p.jpg", cert: "https://signed.example/c.pdf", audit: "https://signed.example/a.pdf" }, decision: null });
+const NVQ_ITEM2 = () => ({ reqId: "NV-20261125-DEF456", mode: "naya", status: "pending", createdMs: Date.UTC(2026, 10, 25, 7),
+  listing: { id: "", sector: "tw", state: "bihar", district: "khagaria", stateHi: "बिहार", stateEn: "Bihar", districtHi: "खगड़िया", districtEn: "Khagaria", page: "" },
+  before: null, after: { name: "Ram Motors", address: "Main Road, Gogri", block: "Gogri" },
+  udyam: { mg: 8, mgHi: "परिवहन", mgEn: "Transport", n: NV_U[0], hi: NV_U[2], en: NV_U[3] },
+  note: "", relation: "staff", by: { uid: "u6", regNo: "ACS-2026-222222", role: "student", name: HU.student }, links: { photo: "https://signed.example/p2.jpg" }, decision: null });
+const NVQ_HANDLERS = {
+  listListingEdits: (d) => { const st = (d && d.status) || "pending";
+    if (st === "pending" && !d.after) return { ok: true, scope: "founder", items: [NVQ_ITEM(), NVQ_ITEM2()], next: "NV-20261125-DEF456", more: true };
+    if (st === "pending") return { ok: true, scope: "founder", items: [Object.assign(NVQ_ITEM2(), { reqId: "NV-20261125-FFF999" })], next: "NV-20261125-FFF999", more: false };
+    return { ok: true, scope: "founder", items: [Object.assign(NVQ_ITEM(), { status: st, decision: { designation: "rm", at: Date.UTC(2026, 10, 25, 9), note: st === "rejected" ? HU.vnote : "" } })], next: "NV-20261125-ABC123", more: false }; },
+  decideListingEdit: (d) => ({ ok: true, status: d && d.ok ? "approved" : "rejected" })
+};
 const XF_HANDLERS = {
   examFaceQueue: () => ({ ok: true, you: "founder", items: [XF_ITEM(), XF_ITEM_WEB()], more: true }),
   examFaceView: (d) => d && d.sid === XF_WEB_SID ? XF_VIEW_WEB() : ({ ok: true, you: "founder", sid: "a1b2c3d4e5f6a1b2c3d4e5f6", courseId: "SE022", regNo: "ACS-ST-2026-123456", name: HU.student, minor: true, guardian: true,
@@ -474,7 +495,7 @@ async function openH(file, lang, sc, navOnly, moreLs) {   /* navOnly (v1.7): स
   hdataFix(data, info);
   const ls = { acs_apt_sess_v1: APT_PREV, acs_learn_progress: JSON.stringify({ read: { "/courses/hi/two-wheeler/twv-001-parichay.html": 1 } }) }; if (lang && lang !== "hi") ls.acs_dash_lang = lang; Object.assign(ls, moreLs || {});
   const c = await openPage(file, { transform: dashTransform, urlPath: "/" + file.replace(/index\.html$/, ""), ls, expect: (lang && lang !== "hi") ? lang : undefined,
-    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, XF_HANDLERS), fb: makeFB(data, user) });
+    handlers: Object.assign({}, HANDLERS, DOC_HANDLERS, H_HANDLERS, K1_HANDLERS, OC_HANDLERS, XF_HANDLERS, NVQ_HANDLERS), fb: makeFB(data, user) });
   if (navOnly) { await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c);
     for (const id of navOnly) { const b = c.d.querySelector('#sideNav .si[data-go="' + id + '"]'); if (b) { click(c, b); await settle(c); await settle(c); } }
     await settle(c); return c; }
@@ -1158,6 +1179,44 @@ async function ocChecks(pages) {
     { const vw = q('#xfList [data-xf="view"][data-id="' + XF_WEB_SID + '"]'); if (vw) { click(c, vw); await settle(c); await settle(c); } }   /* (v3.9) वेबसाइट वाला भी */
     const t = txt(c, "xfList"), L = (clean(t).split(HU.student).join("").split(HU.reason).join("").match(/[\u0900-\u097F]+/g) || []);
     ck("O15 Founder " + lg + ": चेहरे की जाँच का पैनल (झंडे, फ़ोटो, फ़ैसला) में हिंदी शून्य (लिखा पाठ छोड़कर)", t.length > 80 && L.length === 0 && /Face check|Start photo/.test(t), L.slice(0, 8).join(" "));
+    c.dom.window.close(); }
+  /* (v4.1, N-4) 📝 सूची-सुधार निवेदन: Founder, Admin, ZM और RM के घर में; पहले-अब, धंधा, फ़ाइलें, फ़ैसला, खाने, ग़लती; दूसरी भाषाओं में हिंदी शून्य */
+  for (const who of ["founder", "admin", "zonal", "regional"]) if (pg(who)) { const c = await openH(pg(who), "hi", "data", ["pnl-nvq"]), q = sel => c.d.querySelector(sel);
+    let t = txt(c, "nvqList");
+    ck("O18 " + who + ": पैनल काम-सूची में, सूची server से (जाँच बाक़ी)", has(c, '#sideNav .si[data-go="pnl-nvq"]') && c.calls.some(x => x.name === "listListingEdits" && x.data.status === "pending"));
+    ck("O18 " + who + ": सुधार का कार्ड: ज़िला, ACS नंबर, सूची की कड़ी, भेजने वाले, संबंध, पहले → अब, उद्यम नंबर, धंधा (नया नाम), टिप्पणी, तीनों फ़ाइलें",
+      /✏️ सुधार का निवेदन/.test(t) && /खगड़िया/.test(t) && /BR-CSC-M00003/.test(t) && !!q('#nvqList a[href="/network/bihar/csc/khagaria/#br-csc-m00003"]') && t.indexOf(HU.student) > -1
+      && /ACS-2026-111111/.test(t) && /मालिक या संचालक/.test(t) && /पहले\s*Nitesh Kumar Arya\s*→\s*अब\s*Nitesh Kumar Arya CSC/.test(t) && /UDYAM-BR-07-0012345/.test(t)
+      && /धंधा:\s*प्रौद्योगिकी/.test(t) && t.indexOf("नया नाम: " + HU.center) > -1 && t.indexOf(HU.reason) > -1
+      && c.d.querySelectorAll('#nvqList a[href^="https://signed.example/"]').length === 4 && /उद्यम प्रमाणपत्र \(सिर्फ़ जाँच के लिए\)/.test(t), t.slice(0, 400));
+    ck("O18 " + who + ": नया फ़र्म का कार्ड: 951 की सूची का धंधा, \"अभी सूची में नहीं\", सिर्फ़ \"अब\"; क्रम की सूचना; अगली खेप का बटन",
+      /➕ नया फ़र्म/.test(t) && t.indexOf(NV_U[2]) > -1 && /नया फ़र्म: अभी सूची में नहीं/.test(t) && /अब\s*Ram Motors/.test(t) && /क्रम: पुराने निवेदन पहले/.test(t) && !/सिर्फ़ नए 100/.test(t) && !!q('#nvqList [data-nvq="more"]'), t.slice(0, 300));
+    click(c, q('#nvqList [data-nvq="more"]')); await settle(c); await settle(c); t = txt(c, "nvqList");
+    const mc = c.calls.filter(x => x.name === "listListingEdits" && x.data.after === "NV-20261125-DEF456");
+    ck("O18 " + who + ": \"और निवेदन दिखाएँ\" = next के साथ अगली खेप जुड़ी (पुराने कार्ड बचे, 3 कार्ड), फिर बटन नहीं (more: false)",
+      mc.length === 1 && mc[0].data.status === "pending" && c.d.querySelectorAll("#nvqList .k1card").length === 3 && /NV-20261125-FFF999/.test(t) && /NV-20261125-ABC123/.test(t) && !q('#nvqList [data-nvq="more"]'), t.slice(0, 200));
+    c.w.confirm = () => true;
+    click(c, q('#nvqList [data-nvq="ok"][data-id="NV-20261125-ABC123"]')); await settle(c); await settle(c);
+    let dc = c.calls.filter(x => x.name === "decideListingEdit").pop();
+    ck("O18 " + who + ": स्वीकार server को जाता है", !!dc && dc.data.reqId === "NV-20261125-ABC123" && dc.data.ok === true && /स्वीकार दर्ज हुआ/.test(txt(c, "nvqMsg")), JSON.stringify(dc));
+    ans(c, "x"); const n0 = c.calls.filter(x => x.name === "decideListingEdit").length;
+    click(c, q('#nvqList [data-nvq="no"][data-id="NV-20261125-DEF456"]')); await settle(c);
+    ck("O18 " + who + ": छोटा कारण: अस्वीकार नहीं जाता", c.calls.filter(x => x.name === "decideListingEdit").length === n0 && /कम से कम 3 अक्षर/.test(txt(c, "nvqMsg")));
+    ans(c, HU.vnote); click(c, q('#nvqList [data-nvq="no"][data-id="NV-20261125-DEF456"]')); await settle(c); await settle(c);
+    dc = c.calls.filter(x => x.name === "decideListingEdit").pop();
+    ck("O18 " + who + ": अस्वीकार कारण के साथ", !!dc && dc.data.ok === false && dc.data.note === HU.vnote && /अस्वीकार दर्ज हुआ/.test(txt(c, "nvqMsg")), JSON.stringify(dc));
+    click(c, q('#nvqList [data-nvq="seg"][data-v="rejected"]')); await settle(c); await settle(c); t = txt(c, "nvqList");
+    ck("O18 " + who + ": \"अस्वीकृत\" खाना: फ़ैसला, कारण; कोई बटन नहीं", c.calls.some(x => x.name === "listListingEdits" && x.data.status === "rejected") && /❌ अस्वीकार हुआ/.test(t) && t.indexOf(HU.vnote) > -1 && !q('#nvqList [data-nvq="ok"]'), t.slice(0, 200));
+    c.dom.window.close(); }
+  if (pg("regional")) { const c = await openH(pg("regional"), "hi", "data", []);
+    c.handlers.listListingEdits = () => { const e = new Error("x"); e.code = "functions/permission-denied"; e.details = { reason: "scope" }; throw e; };
+    click(c, c.d.querySelector('#sideNav .si[data-go="pnl-nvq"]')); await settle(c); await settle(c);
+    ck("O18 regional: server ने मना किया = पैनल का अपना साफ़ वाक्य", /यह पैनल आपके पद या कार्य-क्षेत्र का नहीं है।/.test(txt(c, "nvqList")), txt(c, "nvqList").slice(0, 120)); c.dom.window.close(); }
+  for (const lg of ["en", "kn", "bn"]) if (pg("founder")) { const c = await openH(pg("founder"), lg, "data", ["pnl-nvq"]);
+    let t = txt(c, "pnl-nvq");
+    click(c, c.d.querySelector('#nvqList [data-nvq="seg"][data-v="rejected"]')); await settle(c); await settle(c); t += txt(c, "pnl-nvq");
+    const L = (clean(t).match(/[\u0900-\u097F]+/g) || []).filter(w => w !== "।");
+    ck("O18 founder " + lg + ": सूची-सुधार पैनल में हिंदी शून्य (लिखा पाठ छोड़कर), धंधे का नाम उस भाषा/English में", t.length > 200 && L.length === 0 && (lg !== "en" || (/Correction request/.test(t) && t.indexOf(NV_U[3]) > -1 && /Technology/.test(t))), L.slice(0, 8).join(" ‖ "));
     c.dom.window.close(); }
   /* (v3.8, E-4b) प्रमाणपत्र पर फ़ोटो: server से फ़ोटो आए या न आए, प्रमाणपत्र दोनों हालत में बनता है; फ़ोटो उसी प्रमाणपत्र-नंबर से माँगी जाती है */
   if (pg("student")) for (const ph of [true, false]) {

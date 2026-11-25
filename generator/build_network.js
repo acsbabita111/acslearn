@@ -1,5 +1,14 @@
 /* ============================================================
-   build_network.js v1.2 (परत-4, 25-Nov-2026, खेप N-3: CSC सूची। जिस सूची के नामों का अलग पन्ना नहीं (recordPages: false),
+   build_network.js v1.4 (परत-4, 25-Nov-2026, खेप N-4, Founder: "नेटवर्क के सर्च में पंचायत भी" और हर फ़र्म के नाम-पते के नीचे
+   "सुधार का निवेदन" व "नया फ़र्म जोड़ें"): (1) हर कार्ड पर ये दो बटन (CSC का कार्ड, टू-व्हीलर का कार्ड, फ़र्म का पन्ना); दोनों एक
+   पन्ने /network/nivedan/ पर जाते हैं (सूची, राज्य, ज़िला और नाम का ID कड़ी में), जो यहीं बनता है (noindex, sitemap में नहीं);
+   उसका काम assets/net-nivedan.js (रजिस्ट्रेशन नंबर, लॉगिन, OTP, फ़ॉर्म; server: office का network_nivedan.js)।
+   (2) छँटाई का data (ज़िले की .json): हर नाम के साथ पंचायत/गाँव (pc, lib_network.panchayatOf: सिर्फ़ स्रोत के पते में साफ़ लिखा)
+   और पता (a), ताकि खोज-खाना नाम, पंचायत या गाँव, तीनों से चले। index.json में दो बटनों के शब्द और nivedan पन्ने का पता।
+   (3) फ़ॉर्म का data assets/network/nivedan_data.json: 24 सेक्टर, 951 उद्यम (हर सेक्टर के अपने), राज्य और ज़िले।
+   v1.3 (परत-4, 25-Nov-2026, खेप N-3.1: index.json की CSC-शब्दावली में srcNone भी, ताकि छँटाई का कार्ड स्रोत-कड़ी
+   न होने पर साफ़ "स्रोत की कड़ी नहीं" लिखे (ChatGPT ऑडिट CSC-02)। पन्नों का रूप अपरिवर्तित।
+   v1.2 (25-Nov-2026, खेप N-3: CSC सूची। जिस सूची के नामों का अलग पन्ना नहीं (recordPages: false),
    उसके ज़िले के पन्ने पर हर नाम का पूरा कार्ड (उसकी अपनी जगह #<id>): सूचीबद्ध + जाँच का निशान, "Official CSC" (सिर्फ़ जहाँ data में),
    प्रखंड (और स्रोत का प्रखंड, जब अलग हो), पता/PIN, स्रोत की कड़ी, ACS सूची-नंबर। प्रखंड "" = "प्रखंड-मिलान बाक़ी" (सबसे नीचे)।
    सूची-विशेष शब्द (सूचना, disclosure, विवरण, जुड़ने का बटन) ui.js के secText से। स्रोत का पाठ जस-का-तस; सिर्फ़ [ ] को
@@ -63,9 +72,9 @@ function chrome(lang) {
 const CH = {}; for (const l of LANGS) CH[l] = chrome(l);
 
 /* ---------- असेट की छाप (?v=) ---------- */
-const CSS_V = hash(rd("assets/network.css")), SUDHAR_V = hash(rd("assets/net-sudhar.js"));
+const CSS_V = hash(rd("assets/network.css")), SUDHAR_V = hash(rd("assets/net-sudhar.js")), NIVEDAN_V = hash(rd("assets/net-nivedan.js"));
 
-function page(lang, o) {   /* o: title, desc, url, alt{hi,en}, crumbs[[name,url]], body, extraJs, extraHead (v1.2) */
+function page(lang, o) {   /* o: title, desc, url, alt{hi,en}, crumbs[[name,url]], body, extraJs, extraHead (v1.2), robots (v1.4) */
   const C = CH[lang], U = UI[lang];
   const bc = { "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: o.crumbs.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c[0], item: BASE + c[1] })) };
@@ -83,7 +92,7 @@ function page(lang, o) {   /* o: title, desc, url, alt{hi,en}, crumbs[[name,url]
     '  <meta property="og:image" content="https://acslearn.com/logo.png"/>\n' +
     '  <meta property="og:locale" content="' + U.locale + '"/>\n' +
     '  <meta name="twitter:card" content="summary"/>\n';
-  const extra = '<meta name="robots" content="index,follow"/>\n<link rel="stylesheet" href="/assets/network.css?v=' + CSS_V + '"/>\n' +
+  const extra = '<meta name="robots" content="' + (o.robots || "index,follow") + '"/>\n<link rel="stylesheet" href="/assets/network.css?v=' + CSS_V + '"/>\n' +
     '<script type="application/ld+json">' + JSON.stringify(bc).replace(/</g, "\\u003c") + "</script>\n" + (o.extraHead || "");
   const crumbs = '<nav class="nw-crumb" aria-label="' + esc(lang === "hi" ? "आप यहाँ हैं" : "Breadcrumb") + '">' +
     o.crumbs.map((c, i) => (i === o.crumbs.length - 1 ? '<span aria-current="page">' + esc(c[0]) + "</span>" : '<a href="' + c[1] + '">' + esc(c[0]) + "</a>")).join(" › ") + "</nav>";
@@ -108,6 +117,9 @@ const coll = (lang) => new Intl.Collator(lang === "hi" ? "hi" : "en", { sensitiv
 const same = (a, b) => String(a || "").toLowerCase().replace(/[^a-z0-9]/g, "") === String(b || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 const placeParts = (r, d) => { const out = []; if (r.locality && !same(r.locality, r.block)) out.push(r.locality); if (!d || !same(r.block, d.en)) out.push(r.block); return out; };
 const joinHref = (lang, role) => "/join.html?role=" + role + (lang === "hi" ? "" : "&amp;lang=" + lang);
+/* v1.4: हर नाम के नीचे दो बटन (Founder 25-Nov): सुधार का निवेदन · नया फ़र्म जोड़ें */
+const nvBtns = (lang, r) => '<div class="nw-nv"><a href="' + esc(URL.nivedanFor(lang, r, "sudhar")) + '">' + esc(UI[lang].nvBtn) + "</a>" +
+  '<a class="ny" href="' + esc(URL.nivedanFor(lang, r, "naya")) + '">' + esc(UI[lang].nyBtn) + "</a></div>";
 /* v1.2: सूची-विशेष शब्द (ui.js secText) और छापने का रूप */
 const XT = (lang, sec) => ((UI[lang].secText || {})[sec]) || null;
 const noticeOf = (lang, sec) => (XT(lang, sec) ? XT(lang, sec).notice : UI[lang].notice);
@@ -146,7 +158,7 @@ function listedCard(lang, sec, r) {
   return '<li class="nw-card" id="' + r.id.toLowerCase() + '"><span class="nw-name">' + esc(paren(r.firmName)) + "</span>" +
     '<div><span class="nw-tag cat">' + esc(H.listed) + "</span>" + tag(lang, r) + (sd.officialCsc === true ? '<span class="nw-tag cat">' + esc(H.official) + "</span>" : "") + "</div>" +
     '<div class="nw-row">📍 ' + esc(place.join(" · ")) + "</div>" +
-    (addr ? '<div class="nw-row">🏠 ' + esc(addr) + "</div>" : "") +
+    (addr ? '<div class="nw-row">🏠 ' + esc(addr) + "</div>" : "") + nvBtns(lang, r) +
     '<div class="nw-row">🔗 ' + esc(X.src) + ": " + src + "</div>" +
     '<div class="nw-row muted">' + esc(fmt(X.idLine, { id: r.id })) + "</div></li>";
 }
@@ -213,7 +225,7 @@ for (const lang of LANGS) {
       const cards = (r) => !RP ? listedCard(lang, sec, r) : '<li class="nw-card' + (statusOf(r) === "VERIFIED" ? " ver" : "") + '"><a class="nw-name" href="' + URL.firm(lang, r.id) + '">' + esc(r.firmName) + "</a>" +
         "<div>" + tag(lang, r) + '<span class="nw-tag cat">' + esc(catLabel(lang, sec, r.primaryCategory)) + "</span></div>" +
         '<div class="nw-row">📍 ' + esc(placeParts(r, null).join(", ")) + "</div>" +
-        (phoneHtml(lang, r, true) ? '<div class="nw-row">📞 ' + phoneHtml(lang, r, true) + "</div>" : "") + "</li>";
+        (phoneHtml(lang, r, true) ? '<div class="nw-row">📞 ' + phoneHtml(lang, r, true) + "</div>" : "") + nvBtns(lang, r) + "</li>";
       let b2 = '<h1 class="nw-h1">' + esc(fmt(U.districtH1, { d: dName(lang, d), s: stName(lang, st), place })) + "</h1>\n" +
         '<p class="nw-sub">' + esc(fmt(U.count, { n: DD.n, v: DD.ver, vn: TX.STATUS.public.VERIFIED.icon + " " + TX.STATUS.public.VERIFIED[lang], t: DD.n - DD.ver, tn: TX.STATUS.public.TBV.icon + " " + TX.STATUS.public.TBV[lang] })) + "</p>\n" +
         '<p class="nw-notice">' + esc(noticeOf(lang, sec)) + "</p>\n" +
@@ -272,6 +284,7 @@ for (const lang of LANGS) {
     const body =
       '<h1 class="nw-h1">' + esc(r.firmName) + "</h1>\n" +
       '<p class="nw-sub">' + esc(S.icon + " " + S[lang]) + " · " + esc(catLabel(lang, sec, r.primaryCategory)) + "<br>" + tag(lang, r) + "</p>\n" +
+      nvBtns(lang, r) + "\n" +
       '<a class="nw-fixlink" href="#sudhar">' + esc(U.fixBtn) + "</a>\n" +
       '<section class="nw-box nw-stat ' + (k === "VERIFIED" ? "ver" : "tbv") + '"><h2>' + esc(U.hStatus) + "</h2><b>" + SS.icon + " " + esc(SS[lang]) + "</b><p>" + esc(lang === "hi" ? SS.hiLong : SS.enLong) + "</p>" +
         (r.verificationDate ? '<p class="nw-note">' + esc(dmy(r.verificationDate)) + "</p>" : "") + "</section>\n" +
@@ -316,6 +329,8 @@ for (const st of Object.keys(T)) for (const sec of Object.keys(T[st])) for (cons
   const json = JSON.stringify({ state: st, sector: SEC_OF(sec).id, district: dslug, r: rs.map((r) => {
     const o = { i: r.id, n: r.firmName, b: r.block, c: r.primaryCategory, s: statusOf(r) === "VERIFIED" ? "V" : "T" };
     if (r.locality) o.l = r.locality;
+    const pc = N.panchayatOf(r); if (pc) o.pc = pc;   /* v1.4: पंचायत/गाँव (स्रोत के पते में साफ़ लिखा) */
+    if (r.address && N.recordPages(sec)) o.a = r.address;   /* v1.4: टू-व्हीलर का पता भी, खोज के लिए (CSC का नीचे पहले से) */
     if (r.phone.length) o.p = r.phone[0]; else if (r.sharedPhone) { o.p = r.sharedPhone.number; o.sp = 1; }
     if (r.brandOem.length) o.br = r.brandOem;
     if (r.secondaryCategories.length) o.c2 = r.secondaryCategories;
@@ -337,12 +352,13 @@ const idx = { v: 1, sectors: Object.keys(TX.SECTORS).map((k) => { const S = TX.S
       cats: (TX.CATEGORIES[k] || []).map((c) => ({ id: c.id, hi: c.hi, en: c.en })), skills: (TX.SKILL_TAGS[k] || []).map((t) => ({ id: t.id, hi: t.hi, en: t.en })) };
     if (!N.recordPages(k)) {   /* v1.2: नेटवर्क-पन्ने की छँटाई: इस सूची के कार्ड ज़िले के पन्ने की जगह पर जाते हैं; सूची की अपनी सूचना/disclosure */
       o.rp = 0;
-      if (XT("hi", k)) o.txt = LANGS.reduce((a, l) => { a[l] = { notice: XT(l, k).notice, disc: XT(l, k).disclosure, src: XT(l, k).src, srcLink: UI[l].srcLink }; return a; }, {});
+      if (XT("hi", k)) o.txt = LANGS.reduce((a, l) => { a[l] = { notice: XT(l, k).notice, disc: XT(l, k).disclosure, src: XT(l, k).src, srcLink: UI[l].srcLink, srcNone: UI[l].srcNone }; return a; }, {});
     }
     return o; }),
   sectorStatus: TX.SECTOR_STATUS, status: { V: TX.STATUS.public.VERIFIED, T: TX.STATUS.public.TBV }, empty: TX.EMPTY,
   srcTypes: Object.keys(TX.SOURCE_TYPES).reduce((a, k) => { a[k] = { hi: TX.SOURCE_TYPES[k].hi, en: TX.SOURCE_TYPES[k].en }; return a; }, {}),
-  ui: { hi: UI.hi.hub, en: UI.en.hub },
+  ui: LANGS.reduce((a, l) => { a[l] = Object.assign({}, UI[l].hub, { nvBtn: UI[l].nvBtn, nyBtn: UI[l].nyBtn }); return a; }, {}),
+  nv: LANGS.reduce((a, l) => { a[l] = URL.nivedan(l); return a; }, {}),
   states: Object.keys(T).map((st) => ({ slug: st, hi: STATES[st].hi, en: STATES[st].en, sectors: Object.keys(T[st]).reduce((a, sec) => {
     const B = T[st][sec];
     a[sec] = { n: B.n, ver: B.ver, page: { hi: URL.overview("hi", st, sec), en: URL.overview("en", st, sec) },
@@ -351,7 +367,54 @@ const idx = { v: 1, sectors: Object.keys(TX.SECTORS).map((k) => { const S = TX.S
           page: { hi: URL.district("hi", st, sec, d.slug), en: URL.district("en", st, sec, d.slug) } }; }) };
     return a; }, {}) }))
 };
-put("assets/network/index.json", JSON.stringify(idx) + "\n");
+const IDX_JSON = JSON.stringify(idx) + "\n";
+put("assets/network/index.json", IDX_JSON);
+
+/* ---------- v1.4: निवेदन-फ़ॉर्म का data (assets/network/nivedan_data.json) ----------
+   Founder (25-Nov): फ़ॉर्म में 24 सेक्टर, और हर सेक्टर के अपने उद्यम (951 की सूची); इनमें से कोई नहीं, तो नया नाम।
+   स्रोत (एक चीज़ = एक जगह): सेक्टर के हिंदी नाम और चिह्न assets/mg_names.js, English नाम
+   generator/data/aptitude/en/apt_en_strings.js (mg), उद्यम assets/udyam_data.js (ALL_SECTORS), राज्य/ज़िले geo.js।
+   उद्यम का हिंदी नाम छपाई में ( ) के साथ (ACS नियम: [ ] नहीं); English = नाम के कोष्ठक का हिस्सा (उसमें " — " के बाद हिंदी हो, तो उससे पहले तक)। */
+function nivedanData() {
+  const vm = require("vm"), c = { window: {} }; vm.createContext(c);
+  vm.runInContext(rd("assets/mg_names.js"), c);
+  vm.runInContext(rd("assets/udyam_data.js") + ";this.__A=ALL_SECTORS;", c);
+  const MGH = c.window.MG_NAMES, MGE = require("./data/aptitude/en/apt_en_strings.js").mg, A = c.__A;
+  const mg = [];
+  for (let i = 1; i <= 24; i++) { if (!MGH[i] || !MGE[i]) stop("सेक्टर " + i + " का नाम नहीं (mg_names.js या apt_en_strings.js)"); mg.push([i, MGH[i].e, MGH[i].n, MGE[i]]); }
+  const seen = {};
+  const u = A.map((x) => {
+    if (!Number.isInteger(x.n) || seen[x.n] || !(x.mg >= 1 && x.mg <= 24)) stop("udyam_data.js: उद्यम " + x.n + " का नंबर या सेक्टर ग़लत"); seen[x.n] = 1;
+    const hi = String(x.name).replace(/\[/g, "(").replace(/\]/g, ")").replace(/\s+/g, " ").trim();
+    const m = String(x.name).match(/[\[(]([^\[\]()]*[A-Za-z][^\[\]()]*)[\])]/);
+    let en = m ? m[1].trim() : "";
+    if (/[\u0900-\u097F]/.test(en)) en = en.split(/\s+—\s+/)[0].trim();   /* "Ride Hailing — ओला/उबर मॉडल" → "Ride Hailing" */
+    if (!en || /[\u0900-\u097F]/.test(en)) stop("udyam_data.js: उद्यम " + x.n + " का English नाम नहीं निकला");
+    return [x.n, x.mg, hi, en];
+  }).sort((a, b) => a[0] - b[0]);
+  const st = Object.keys(STATES).map((k) => [k, STATES[k].hi, STATES[k].en, STATES[k].districts.map((d) => [d.slug, d.hi, d.en])]);
+  return { v: 1, mg, u, st };
+}
+const NV_JSON = JSON.stringify(nivedanData()) + "\n";
+put("assets/network/nivedan_data.json", NV_JSON);
+
+/* ---------- v1.4: "सुधार का निवेदन / नया फ़र्म जोड़ें" का पन्ना (हर भाषा में एक) ----------
+   पन्ना ख़ुद कुछ नहीं जानता: कड़ी (?m=&id=&s=&k=&d=) से सूची और नाम index.json + ज़िले की .json से लाता है।
+   शब्द ui.js के nv से (पन्ने में JSON); काम assets/net-nivedan.js का। noindex: खोज-इंजन में नहीं, sitemap में नहीं। */
+for (const lang of LANGS) {
+  const U = UI[lang], V = U.nv, nu = URL.nivedan(lang);
+  const T = Object.assign({}, V, { nvBtn: U.nvBtn, nyBtn: U.nyBtn, joinUrl: "/join.html" + (lang === "hi" ? "" : "?lang=" + lang),
+    dashUrl: "/dashboard/" + (lang === "hi" ? "" : "?lang=" + lang), hubUrl: HUB(lang), wa: WA, lang });
+  const body = '<h1 class="nw-h1" id="nvH1">' + esc(V.h1) + "</h1>\n" +
+    '<div id="nvApp" class="nv-app" data-index="/assets/network/index.json?v=' + hash(IDX_JSON) + '" data-nvdata="/assets/network/nivedan_data.json?v=' + hash(NV_JSON) + '" aria-live="polite"><p class="nw-note">' + esc(V.loading) + "</p></div>\n" +
+    '<noscript><p class="nw-note">' + esc(V.noJs) + "</p></noscript>\n" +
+    '<script type="application/json" id="nvT">' + JSON.stringify(T).replace(/</g, "\\u003c") + "</script>\n" +
+    '<p class="nw-disc">' + esc(U.disclaimer) + "</p>\n" +
+    '<p><a class="nw-fixlink" href="' + HUB(lang) + '">' + esc(U.otherPlaces) + "</a></p>";
+  put(fileOf(nu), page(lang, { title: V.title, desc: V.desc, url: nu, alt: { hi: URL.nivedan("hi"), en: URL.nivedan("en") }, robots: "noindex,follow",
+    crumbs: crumbBase(lang).concat([[V.crumb, nu]]), body,
+    extraJs: '<script type="module" src="/assets/net-nivedan.js?v=' + NIVEDAN_V + '"></script>\n' }));
+}
 
 /* ---------- पहरे ---------- */
 const DEV = /[ऀ-ॿ]/;
@@ -396,4 +459,4 @@ for (const f of stale) {   /* सिर्फ़ इसी generator की ब�
 }
 for (const f of changed) { fs.mkdirSync(path.dirname(path.join(ROOT, f)), { recursive: true }); fs.writeFileSync(path.join(ROOT, f), OUT[f], "utf8"); }
 console.log("✅ नेटवर्क: " + nPages + " पन्ने, " + (Object.keys(OUT).length - nPages) + " data-फ़ाइलें · बदलीं/नई " + changed.length + " · हटीं " + stale.length);
-console.log("🏁 build_network v1.2");
+console.log("🏁 build_network v1.4");
