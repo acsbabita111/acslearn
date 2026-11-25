@@ -1,0 +1,71 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-6.09",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "Ypwi0Sw4GFQ",
+   "title": "DPDP Act Explained  | 2026-2027 में क्या बदलेंगे Data Privacy Rules?",
+   "channel": "KNOW MORE1.0",
+   "duration_sec": 209,
+   "made_for_kids": false
+  },
+  {
+   "id": "VxPmQ0GPLRE",
+   "title": "DPDP Act 2023 |Personal Data कब Process किया जा सकता है? | Consent & Certain Legitimate Uses |Part 4",
+   "channel": "AI with CA Pardeep Jain",
+   "duration_sec": 477,
+   "made_for_kids": false
+  },
+  {
+   "id": "x_VMuacaeS8",
+   "title": "👉 आपका डेटा कितना सुरक्षित है? | DPDP Act Explained in Hindi (2026 Update)",
+   "channel": "LEGAL & HR SERVICES",
+   "duration_sec": 445,
+   "made_for_kids": false
+  },
+  {
+   "id": "axjh-PSjpb0",
+   "title": "DPDP Act 2023 | Enforcement, Data Protection Board & Penalties Explained | Part 9 #capardeepjain",
+   "channel": "AI with CA Pardeep Jain",
+   "duration_sec": 484,
+   "made_for_kids": false
+  },
+  {
+   "id": "0aGwm1ocKQA",
+   "title": "Digital Personal Data Protection Bill: आसान भाषा में समझिए डाटा प्रोटेक्शन बिल, जाने इसके फायदे",
+   "channel": "Jansatta",
+   "duration_sec": 280,
+   "made_for_kids": false
+  },
+  {
+   "id": "_107wQ1KDj4",
+   "title": "DPDP Act 2025 Explained in Simple Words",
+   "channel": "VSERV KI PATHSHALA",
+   "duration_sec": 235,
+   "made_for_kids": false
+  },
+  {
+   "id": "HufJ-S3RXNk",
+   "title": "DPDP 2025: New DPDP Rules Come Into Effect | What Changes for Users & Companies?",
+   "channel": "Sanskriti PCS",
+   "duration_sec": 461,
+   "made_for_kids": false
+  },
+  {
+   "id": "FpT3bj6P9bI",
+   "title": "Data Protection Act: आसान भाषा में जानें क्या है डाटा प्रोटेक्शन एक्ट | NBT Tech Ed",
+   "channel": "NBT Tech-Ed",
+   "duration_sec": 200,
+   "made_for_kids": false
+  }
+ ]
+}

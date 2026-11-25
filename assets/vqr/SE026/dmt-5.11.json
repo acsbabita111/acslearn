@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.11",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "QOULJv3jsp4",
+   "title": "Printer se Print Nahi Nikal Raha? Agar Print na nikle toh kya kare?",
+   "channel": "Windows Techsolutions",
+   "duration_sec": 238,
+   "made_for_kids": false
+  },
+  {
+   "id": "VmCI6UHLh8s",
+   "title": "Printer Print Nahi Kar Raha Hai Kya Karen | Computer Se Print Nahi Nikal Raha Hai To Kya Kare",
+   "channel": "Concept Technology",
+   "duration_sec": 238,
+   "made_for_kids": false
+  },
+  {
+   "id": "gt4U4cMqVjk",
+   "title": "Canon Printer Not Printing | Printer Se Print Nahi Nikal Raha Hai",
+   "channel": "Knowledge In Hindi",
+   "duration_sec": 473,
+   "made_for_kids": false
+  },
+  {
+   "id": "jPlgBY7ylFQ",
+   "title": "Printer Command nahi la raha kya karey || How to check printer when it's not  taking commands",
+   "channel": "COMPUTER ZONE",
+   "duration_sec": 214,
+   "made_for_kids": false
+  },
+  {
+   "id": "ZmIJOlxYi3I",
+   "title": "How to Fix Error - Printing | Printer could not print | Error - Printing",
+   "channel": "Ram Technical Help",
+   "duration_sec": 261,
+   "made_for_kids": false
+  },
+  {
+   "id": "FVrVRwpJddE",
+   "title": "अगर आपका प्रिंटर प्रिंट नही कर रहा है तो कैसे ठीक करें,How to fix it if your printer isn't printing",
+   "channel": "SUNIL TECH",
+   "duration_sec": 227,
+   "made_for_kids": false
+  },
+  {
+   "id": "KwsOoZgiSN0",
+   "title": "यदि आपका प्रिंटर प्रिंट नहीं कर रहा है kya kren , printer is not working,#printer #computerhardware",
+   "channel": "SUNIL TECH",
+   "duration_sec": 190,
+   "made_for_kids": false
+  },
+  {
+   "id": "ElobUAxyRHo",
+   "title": "How to Fix ‘Printer in Error State’ in Windows 10 | Error Printing issue",
+   "channel": "Windows Techsolutions",
+   "duration_sec": 266,
+   "made_for_kids": false
+  },
+  {
+   "id": "bKf-9O0-qI4",
+   "title": "Black ink not Working in Printer Epson L3250 | black page not print",
+   "channel": "Aman Techzone",
+   "duration_sec": 217,
+   "made_for_kids": false
+  },
+  {
+   "id": "KVdH8VHySRs",
+   "title": "Epson L3210, L3250 Black ink Not Printing | Epson L3210 Blank Page Printing problem 100% solution",
+   "channel": "Tech SD Support",
+   "duration_sec": 212,
+   "made_for_kids": false
+  }
+ ]
+}

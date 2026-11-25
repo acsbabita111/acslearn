@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.09",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "eGKfLEM51Hg",
+   "title": "Conditional IF Function IN [EXCEL] || Excel Most Useful Formula || [Hindi]",
+   "channel": "Computer Gyan",
+   "duration_sec": 389,
+   "made_for_kids": false
+  },
+  {
+   "id": "-F-1Z4HTob0",
+   "title": "How to Use IF, AND, OR Functions in Excel (हिंदी में) | MS Excel IF Function | MS Excel IF Formula",
+   "channel": "Computer Grow",
+   "duration_sec": 475,
+   "made_for_kids": false
+  },
+  {
+   "id": "Ygtz8AooYGQ",
+   "title": "How to use IF Function in Microsoft Excel | IF Formula in Excel",
+   "channel": "StudySpan",
+   "duration_sec": 305,
+   "made_for_kids": false
+  },
+  {
+   "id": "i8aoFdUWwn4",
+   "title": "if formula in excel | if function in excel | if function in hindi | excel if formula in hindi",
+   "channel": "GULAB GURU",
+   "duration_sec": 579,
+   "made_for_kids": false
+  },
+  {
+   "id": "_7Ub3C8VbXU",
+   "title": "MS Excel - IF Function | IF Formula in Excel with Multiple Conditions",
+   "channel": "StudySpan",
+   "duration_sec": 388,
+   "made_for_kids": false
+  },
+  {
+   "id": "QTvgIRmakyg",
+   "title": "Become Excel Master With 7 Useful  IF Formula Examples - Excel Formula and Functions - IF Function",
+   "channel": "Deepak EduWorld",
+   "duration_sec": 475,
+   "made_for_kids": false
+  }
+ ]
+}

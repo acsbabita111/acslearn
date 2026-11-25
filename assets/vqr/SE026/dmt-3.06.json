@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.06",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "CooitvuuC5M",
+   "title": "Data Filter use in MS Excel | Excel में Data Filter कैसे लगायें | Advanced Excel Tutorial | CTA",
+   "channel": "Computer Tech Academy",
+   "duration_sec": 243,
+   "made_for_kids": false
+  },
+  {
+   "id": "RyErK6LmPzY",
+   "title": "Excel Mein Auto Filter Kaise Lagaye - Bas Ek Click Mein Data Filter Karein || Auto Filter || Excel |",
+   "channel": "Santosh biit technology",
+   "duration_sec": 193,
+   "made_for_kids": false
+  },
+  {
+   "id": "z-xaAibyla4",
+   "title": "Excel में Filter कैसे लगाएं | Data Filter करना सीखें | #Excel #MSExcel",
+   "channel": "Vikram Digital Academy",
+   "duration_sec": 386,
+   "made_for_kids": false
+  },
+  {
+   "id": "54keJlPvQn0",
+   "title": "MS Excel - Advanced Filter | Data Filter in Microsoft Excel",
+   "channel": "StudySpan",
+   "duration_sec": 293,
+   "made_for_kids": false
+  },
+  {
+   "id": "jNEaIYiWLxM",
+   "title": "Excel Me Filter Kaise Kare, Excel Sheet Me Filter Kaise Lagaye, Excel Me Filter Ka Use Kaise Kare",
+   "channel": "Skill With Aman",
+   "duration_sec": 187,
+   "made_for_kids": false
+  },
+  {
+   "id": "aemAk9s5pLI",
+   "title": "How to use Filter Function in Microsoft Excel | Filter Formula in Excel",
+   "channel": "StudySpan",
+   "duration_sec": 278,
+   "made_for_kids": false
+  },
+  {
+   "id": "J0-buohY_Co",
+   "title": "Filter in MS Excel - How To Filtering Data in Excel - Excel Tutorial Part 14",
+   "channel": "My Computer Course",
+   "duration_sec": 359,
+   "made_for_kids": false
+  }
+ ]
+}

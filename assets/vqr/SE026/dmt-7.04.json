@@ -1,0 +1,43 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-7.04",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "AwX84skW--0",
+   "title": "PAN Card Correction Online: पैन कार्ड में नाम, फोटो और जन्मतिथि कैसे बदलें? जानिए पूरा प्रोसेस |",
+   "channel": "Dainik Jagran - दैनिक जागरण",
+   "duration_sec": 266,
+   "made_for_kids": false
+  },
+  {
+   "id": "tycF2Lf5My8",
+   "title": "Pan Card Correction Online | How to Do Correction in Pan Card | Pan Card Name DOB Correction 2026",
+   "channel": "MyOnlineCA",
+   "duration_sec": 457,
+   "made_for_kids": false
+  },
+  {
+   "id": "B9v1g7LdbYQ",
+   "title": "Pan Card Name Change Online 2026 | pan card me name kaise change kare | nsdl new process",
+   "channel": "Mr Miush ",
+   "duration_sec": 593,
+   "made_for_kids": false
+  },
+  {
+   "id": "I1DIWxQ1mAg",
+   "title": "Pan Card Name Change Online 2026 | pan card me name kaise change kare | how to change name in pan",
+   "channel": "Mr Miush ",
+   "duration_sec": 374,
+   "made_for_kids": false
+  }
+ ]
+}

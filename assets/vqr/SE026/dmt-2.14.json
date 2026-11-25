@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.14",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "04WPhxnfmEs",
+   "title": "Mail Merge क्या है? | Mail Merge कैसे करें | Step-by-Step Guide in Hindi",
+   "channel": "RR Technology Knowledge",
+   "duration_sec": 280,
+   "made_for_kids": false
+  },
+  {
+   "id": "8h7pKUc66JY",
+   "title": "Mail Merge in Hindi 🔥 Word, Excel & Outlook से Letter और Email भेजें | Full Practical Tutorial",
+   "channel": "Excel with Nitin",
+   "duration_sec": 378,
+   "made_for_kids": false
+  },
+  {
+   "id": "_8dxUJU3iWA",
+   "title": "Ms word me mail merge in hindi | How to Mail Merge in MS Word in Hindi",
+   "channel": "Techmyway",
+   "duration_sec": 402,
+   "made_for_kids": false
+  },
+  {
+   "id": "_dSMwL2Fjvc",
+   "title": "मेल मर्ज क्या होता है || What Is Mail Merge In Hindi || Gyan4u",
+   "channel": "Gyan4U",
+   "duration_sec": 486,
+   "made_for_kids": false
+  },
+  {
+   "id": "4Micuwo7MoU",
+   "title": "Save Time With Mail Merge in MS Word | What is Mail Merge in MS Word | Mail Merge in Hindi",
+   "channel": "mybigguide",
+   "duration_sec": 476,
+   "made_for_kids": false
+  },
+  {
+   "id": "AU100I_Dmq0",
+   "title": "What is mail marge in hindi.mail marge Kaise kare .मेल मर्ज कैसे करें what is mail marge.mail marge,",
+   "channel": "Rajendra Update",
+   "duration_sec": 313,
+   "made_for_kids": false
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-6.07",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "BzTc7U1sUkU",
+   "title": "Mobile Ko Update Karna Chahiye ya Nahi | Phone me Bar Bar Update Kyo Aata Hai",
+   "channel": "Tech King Sandeep",
+   "duration_sec": 438,
+   "made_for_kids": false
+  },
+  {
+   "id": "-SiesA_TCUs",
+   "title": "iPhone Software Update: क्यों जरूरी है अपडेट और न करने पर क्या होगा नुकसान? | iOS Updates",
+   "channel": "Zee Business",
+   "duration_sec": 244,
+   "made_for_kids": false
+  },
+  {
+   "id": "Nc8vNw5R5ZM",
+   "title": "Application Update Karna Chahiye Ya Nahi | Mobile Apps Update Kare Ya Nahi",
+   "channel": "Tech King Sandeep",
+   "duration_sec": 266,
+   "made_for_kids": false
+  },
+  {
+   "id": "PwD71uRW9ng",
+   "title": "Software Update क्या होता है? | What is Software Update in Smartphone? | What is System Update?",
+   "channel": "Deepak TechTimes",
+   "duration_sec": 203,
+   "made_for_kids": false
+  },
+  {
+   "id": "MmJRgefohcA",
+   "title": "What Happens If You Never Update Your Smartphone?🔥🔥🔥",
+   "channel": "Technical Guruji",
+   "duration_sec": 542,
+   "made_for_kids": false
+  },
+  {
+   "id": "ZZl1JXE6N1E",
+   "title": "what is software updates?|| software update karna Kyon jaruri hai? ||कैसे करते हैं??",
+   "channel": "kya Karen / YTC",
+   "duration_sec": 333,
+   "made_for_kids": false
+  },
+  {
+   "id": "iCYhDGHgbKw",
+   "title": "Never Update Your Phone - Smartphone Companies चोर है !",
+   "channel": "Technical Sagar",
+   "duration_sec": 402,
+   "made_for_kids": false
+  },
+  {
+   "id": "tbrklWsCU8E",
+   "title": "Android Security Patch Update क्या होता है ? | क्यों जरूरी है ? | Binod Tech",
+   "channel": "Binod Tech",
+   "duration_sec": 260,
+   "made_for_kids": false
+  },
+  {
+   "id": "x-EvGB7c014",
+   "title": "The SHOCKING Truth About 7 Year Android Updates",
+   "channel": "Technical Sagar",
+   "duration_sec": 225,
+   "made_for_kids": false
+  },
+  {
+   "id": "aeGqzwlvqoE",
+   "title": "Mobile software update karne se kya hota hai  Why Software Update Is Important",
+   "channel": "Technical Expert Man",
+   "duration_sec": 189,
+   "made_for_kids": false
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-6.05",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "4E4K5rywU6A",
+   "title": "Gmail id me two step verification kaise kare | 2 Step verification gmail | Two factor authentication",
+   "channel": "TECHNO GREEDY",
+   "duration_sec": 217,
+   "made_for_kids": false
+  },
+  {
+   "id": "Atb167BDqhg",
+   "title": "Gmail Two Step Verification | Gmail 2 Step Verification Kaise Kare | 2 Step Verification Kaise Kare",
+   "channel": "Manish Advice",
+   "duration_sec": 236,
+   "made_for_kids": false
+  },
+  {
+   "id": "2lr7U1b6VlY",
+   "title": "Gmail Me 2 Step Verification Kaise Kare 🔐 | Google Account Secure Kaise Kare | 2FA Full Guide",
+   "channel": "Tech Tikelal",
+   "duration_sec": 259,
+   "made_for_kids": false
+  },
+  {
+   "id": "HUXA2AvPLas",
+   "title": "2-Step Verification कैसे लगाएं | Google Account में 2FA Enable कैसे करें | Mobile से पूरी जानकारी",
+   "channel": "पडरौना कि आवाज",
+   "duration_sec": 330,
+   "made_for_kids": false
+  },
+  {
+   "id": "L2HoiL51k8s",
+   "title": "Gmail में 2-Step Verification कैसे ON करें? 📱 मोबाइल से 2 मिनट में | 2 step verification kaise kare",
+   "channel": "Crazy Tech by Dp",
+   "duration_sec": 253,
+   "made_for_kids": false
+  },
+  {
+   "id": "Gx0nUsEDPlo",
+   "title": "Gmail में 2step verfication कैसे चालू करे|Gmail account secure kaise kare 2fa",
+   "channel": "surendra official gyan",
+   "duration_sec": 266,
+   "made_for_kids": false
+  },
+  {
+   "id": "9n5pzlvEroQ",
+   "title": "Gmail ID Me 2 Step Verification Kaise Kare? (2026) | Secure Gmail with Two-Factor Authentication",
+   "channel": "TECH ZAIKA",
+   "duration_sec": 202,
+   "made_for_kids": false
+  },
+  {
+   "id": "11_CrtT8JrM",
+   "title": "gmail me 2 step verification kya hota hai | What is gmail 2 step verification in Hindi ?",
+   "channel": "TechNet Me",
+   "duration_sec": 237,
+   "made_for_kids": false
+  }
+ ]
+}

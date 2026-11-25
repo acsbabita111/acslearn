@@ -1,0 +1,50 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.07",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "G0bqXyNmj4A",
+   "title": "Ms Word Me Photo Edit Kaise Kare | Word Me Photo Kaise Lagaye | Ms Word Me Photo Kaise Lagaye ?",
+   "channel": "Vikash Ji Techno",
+   "duration_sec": 217,
+   "made_for_kids": false
+  },
+  {
+   "id": "GaaA0s0fTGM",
+   "title": "Photo Edit in Microsoft Word | ms word me photo edit karna sikhe bilkul naya tariko se || Edit Photo",
+   "channel": "Ad Real Tech",
+   "duration_sec": 426,
+   "made_for_kids": false
+  },
+  {
+   "id": "X3utVd1TaIw",
+   "title": "Add Multiple Picture On Ms Word Page | Ms Word Page Me Multiple Picture kaise Add Karte Hai | Msword",
+   "channel": "Computer Ka Gyan",
+   "duration_sec": 310,
+   "made_for_kids": false
+  },
+  {
+   "id": "Lxn9soHupnk",
+   "title": "How to make passport size photo in Microsoft word 2007 | passport size photo kaise banaye ?",
+   "channel": "TopTech",
+   "duration_sec": 264,
+   "made_for_kids": false
+  },
+  {
+   "id": "N2s0HbviiCo",
+   "title": "MS Word 2007 Me Passport Size Photo Kaise Banaye | ms word me passport size photo kaise banaye",
+   "channel": "GULAB GURU",
+   "duration_sec": 532,
+   "made_for_kids": false
+  }
+ ]
+}

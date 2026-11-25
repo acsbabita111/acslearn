@@ -1,0 +1,71 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-7.09",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "_ceWOksVGb4",
+   "title": "PhonePe (UPI) Se Bank Account Me Paise Kaise Transfer Kare (Bheje) | Transfer Money To Bank Account",
+   "channel": "GT Guptaji Technical",
+   "duration_sec": 238,
+   "made_for_kids": false
+  },
+  {
+   "id": "SpJ6gpqwNks",
+   "title": "BHIM UPI se Paise Kaise Bheje !! BHIM UPI se Paise Kaise Transfer Kare ! BHIM UPI Money Transfer",
+   "channel": "Manindra Tech Videos",
+   "duration_sec": 412,
+   "made_for_kids": false
+  },
+  {
+   "id": "u15AwlgmfcI",
+   "title": "Navi UPI se Paise Kaise Bheje 2025 || Navi App se Money Transfer",
+   "channel": "Manindra Tech Videos",
+   "duration_sec": 382,
+   "made_for_kids": false
+  },
+  {
+   "id": "JMccDlHVjlg",
+   "title": "Phonepe me UPI id se Paise Kaise Transfer Kare | How to Transfer Money to UPI id From Phonepe",
+   "channel": "House of Apps",
+   "duration_sec": 185,
+   "made_for_kids": false
+  },
+  {
+   "id": "BtqheylV7og",
+   "title": "Credit card se account me paise kaise transfer kare | Credit card to bank account money transfer",
+   "channel": "Money Mode",
+   "duration_sec": 361,
+   "made_for_kids": false
+  },
+  {
+   "id": "TaWoBGcrSKI",
+   "title": "5 Best UPI Apps 2026 🔥 बिना Bank Account और ATM Card के UPI कैसे चलाएं |Use Upi Without Bank Account",
+   "channel": "Perday Guide",
+   "duration_sec": 588,
+   "made_for_kids": false
+  },
+  {
+   "id": "RVqIoKoW2dI",
+   "title": "Phonepe upi lite se paise kaise bheje 2023 | Phone pe me upi lite se pese kaise bheje 2023 me",
+   "channel": "Your Solution",
+   "duration_sec": 219,
+   "made_for_kids": false
+  },
+  {
+   "id": "-1xvSmSRoto",
+   "title": "Google pay se upi id per paisa transfer kaise kare - upi id se payment kaise kare google pay",
+   "channel": "Manindra Tech Videos",
+   "duration_sec": 294,
+   "made_for_kids": false
+  }
+ ]
+}

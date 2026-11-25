@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.10",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "_NMrdKB-rSs",
+   "title": "Specific Page Numbering in Word 💯, MS Word में अपने हिसाब से पेज नंबर डालना सीखें |",
+   "channel": "Anand K Support",
+   "duration_sec": 203,
+   "made_for_kids": false
+  },
+  {
+   "id": "QoCUV8Y2Wug",
+   "title": "MS Word में अपने हिसाब से पेज नंबर डालना सीखें ✅ MS Word Page Number From Specific Page",
+   "channel": "Anand K Support",
+   "duration_sec": 278,
+   "made_for_kids": false
+  },
+  {
+   "id": "SefIEnV4HrM",
+   "title": "ms word me page number kaise dalen | ms word me page number kaise lagaye | page number in ms word",
+   "channel": "GULAB GURU",
+   "duration_sec": 321,
+   "made_for_kids": false
+  },
+  {
+   "id": "TY2rTcvx2u0",
+   "title": "MS WORD INSERT PAGE NUMBER FROM SPECIFIC PAGE || PROJECT REPORT PAGE NUMBER IN MS WORD",
+   "channel": "Creative Learning by Ritesh",
+   "duration_sec": 537,
+   "made_for_kids": false
+  },
+  {
+   "id": "W0z13k6lHO8",
+   "title": "Page Numbers Starting From A Specific Page In Ms Word in Hindi",
+   "channel": "SIKHO SIKHAO",
+   "duration_sec": 419,
+   "made_for_kids": false
+  },
+  {
+   "id": "-Q_X96jWz3I",
+   "title": "MS Word Page Number From Specific Page || MS WORD Page Number In Hindi",
+   "channel": "Creative Learning by Ritesh",
+   "duration_sec": 476,
+   "made_for_kids": false
+  },
+  {
+   "id": "XbeMzV9_C7o",
+   "title": "How to Insert page number from specific page - In Hindi",
+   "channel": "Mykno 360",
+   "duration_sec": 389,
+   "made_for_kids": false
+  }
+ ]
+}

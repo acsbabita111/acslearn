@@ -1,0 +1,36 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-1.06",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "RFWk1NMYrmA",
+   "title": "Typing सीखे फ़ोन से बिलकुल Free | Typing Full Course | Typing Kaise Sikhe",
+   "channel": "The Technical Amit",
+   "duration_sec": 323,
+   "made_for_kids": false
+  },
+  {
+   "id": "uF2GkaVogS4",
+   "title": "Typing Course Day 1 | Intro to Typing | Typing Kaise Sikhe",
+   "channel": "STP Computer Education",
+   "duration_sec": 213,
+   "made_for_kids": false
+  },
+  {
+   "id": "VGqcLcfFRBc",
+   "title": "English keyboard me hindi typing kaise karen // English to Hindi कैसे लिखें",
+   "channel": "Shivam One X",
+   "duration_sec": 209,
+   "made_for_kids": false
+  }
+ ]
+}

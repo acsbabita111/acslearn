@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-7.08",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "I-la4aS-Fl4",
+   "title": "SBI Internet Banking Online Registration | SBI Net Banking Activate Kaise Kare | SBI Net Banking",
+   "channel": "SSM Smart Tech",
+   "duration_sec": 267,
+   "made_for_kids": false
+  },
+  {
+   "id": "af0J9GoPIHY",
+   "title": "ICICI Bank Internet Banking Activation 2026 - Full Process | icici bank net banking kaise chalu kare",
+   "channel": "SSM Smart Tech",
+   "duration_sec": 350,
+   "made_for_kids": false
+  },
+  {
+   "id": "R2o6gHU64gw",
+   "title": "ICICI bank net banking kaise chalu kare | ICICI bank net banking new user registration 2026",
+   "channel": "SSM Smart Tech",
+   "duration_sec": 301,
+   "made_for_kids": false
+  },
+  {
+   "id": "wsGV0WV6gt4",
+   "title": "SBI Internet Banking Registration Kaise Kare 2026 | SBI Net Banking Online Activate Kaise Kare",
+   "channel": "Official Nomaan",
+   "duration_sec": 339,
+   "made_for_kids": false
+  },
+  {
+   "id": "3CTamKapae0",
+   "title": "central bank net banking kaise chalu karen | central bank of india net banking kaise chalu kare",
+   "channel": "Pankaj Purohit",
+   "duration_sec": 440,
+   "made_for_kids": false
+  },
+  {
+   "id": "HXPojwWKWvI",
+   "title": "HDFC Netbanking Kaise Shuru Kare | HDFC Net Banking Registration 2026 | HDFC Mobile Banking",
+   "channel": "Humsafar Tech",
+   "duration_sec": 474,
+   "made_for_kids": false
+  },
+  {
+   "id": "pZObwkYqvgg",
+   "title": "PNB Net Banking Kaise Shuru Kare | Punjab National Bank Net Banking Online Registration 2026",
+   "channel": "Humsafar Tech",
+   "duration_sec": 386,
+   "made_for_kids": false
+  },
+  {
+   "id": "zR9VhJg7St4",
+   "title": "SBI Internet Banking Chalu Kaise Kare | SBI Net Banking Online Registration | SBI Bank Net Banking",
+   "channel": "TECH ALL SMART",
+   "duration_sec": 380,
+   "made_for_kids": false
+  },
+  {
+   "id": "PEk0YiyyOCM",
+   "title": "Bank of Baroda Net Banking Registration 2026 | BOB Internet Banking Kaise Chalu Kare 2026",
+   "channel": "Official Nomaan",
+   "duration_sec": 354,
+   "made_for_kids": false
+  },
+  {
+   "id": "R1oaNWYDyyU",
+   "title": "Union Bank Net Banking Registration | union bank internet banking chalu kare",
+   "channel": "TheeTube",
+   "duration_sec": 212,
+   "made_for_kids": false
+  }
+ ]
+}

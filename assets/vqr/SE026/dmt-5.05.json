@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.05",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "QNyLR1gPRy8",
+   "title": "ईमेल लिखना और भेजना सीखें | Email Kaise Bhejte hai | How to Send Email in Hindi | Humsafar Tech",
+   "channel": "Humsafar Tech",
+   "duration_sec": 346,
+   "made_for_kids": false
+  },
+  {
+   "id": "KzZKG5UYI7M",
+   "title": "Gmail se Attachment Kaise Bheje | How to Send Attachment Mail in Gmail",
+   "channel": "The Technical Assist",
+   "duration_sec": 208,
+   "made_for_kids": false
+  },
+  {
+   "id": "xRuMS-2-ECo",
+   "title": "Attach File in Outlook Email | Rohit Narang",
+   "channel": "Advancement",
+   "duration_sec": 234,
+   "made_for_kids": false
+  },
+  {
+   "id": "HA0uoe5RGeY",
+   "title": "Email kaise bhejte hai | Email Kaise Karen | kisi ko mail kaise kare | Email Kaise Karen | Email ",
+   "channel": "FIROZ BADSHAH Art",
+   "duration_sec": 295,
+   "made_for_kids": false
+  },
+  {
+   "id": "e96ojZbM0-c",
+   "title": "Attachment के साथ ईमेल कैसे भेजे | मोबाइल से ईमेल कैसे भेजते हैं",
+   "channel": "Theandroidportal",
+   "duration_sec": 185,
+   "made_for_kids": false
+  },
+  {
+   "id": "9ZPd3vCWdp0",
+   "title": "Laptop se email kaise bheje in hindi | how to send email from laptop | email kaise bheje laptop se",
+   "channel": "GULAB GURU",
+   "duration_sec": 379,
+   "made_for_kids": false
+  }
+ ]
+}

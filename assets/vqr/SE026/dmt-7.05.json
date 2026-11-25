@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-7.05",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "C_zKN_OuK9I",
+   "title": "सरकारी योजना कैसे पता करें | Sarkari Yojana | My Scheme Portal | my schemes gov in",
+   "channel": "Suresh Kumar Sharma",
+   "duration_sec": 316,
+   "made_for_kids": false
+  },
+  {
+   "id": "hL-zJ1biPoA",
+   "title": "मोबाइल से चेक करें आप किस योजना के पात्र हैं 2026 | Sarkari Yojana Patrata Kaise Check Kare 2026 |",
+   "channel": "Sarkari Update Center",
+   "duration_sec": 399,
+   "made_for_kids": false
+  },
+  {
+   "id": "RRXkloMQJcM",
+   "title": "Sarkari yojana ka paisa kaise check kare online | सभी सरकारी योजनाओं का पैसा ऑनलाइन चेक करें 2026",
+   "channel": "Gc Tech",
+   "duration_sec": 579,
+   "made_for_kids": false
+  },
+  {
+   "id": "PIUhlVXi5gs",
+   "title": "Sarkari yojana ka paisa kaise check kare online | सभी सरकारी योजनाओं का पैसा ऑनलाइन चेक करें",
+   "channel": "Raj helps",
+   "duration_sec": 371,
+   "made_for_kids": false
+  },
+  {
+   "id": "JIv6WMHvo-Q",
+   "title": "सरकारी योजना कैसे पता करें | कौन सी चल रही है | online pata Karen Sara data mobile se ",
+   "channel": "Apna Digital Guide ",
+   "duration_sec": 377,
+   "made_for_kids": false
+  },
+  {
+   "id": "JfUFCt2EVXQ",
+   "title": "भारत सरकार की टॉप 10 योजनाएं || Central Government New Schemes ||  ",
+   "channel": "FAX INDIA",
+   "duration_sec": 465,
+   "made_for_kids": false
+  },
+  {
+   "id": "cQQDz_yfEsk",
+   "title": "अपने नाम से सरकारी योजना के बारे में पता करें बहुत सारे लाभ my scheme government new portal launch",
+   "channel": "Aman K Videos",
+   "duration_sec": 373,
+   "made_for_kids": false
+  },
+  {
+   "id": "qOaqodix7AA",
+   "title": "सभी सरकारी योजनाएं एक ही पोर्टल पर | New Government schemes related portal | My schemes portal",
+   "channel": "Jankaripur",
+   "duration_sec": 481,
+   "made_for_kids": false
+  },
+  {
+   "id": "qBsI2sLzfMc",
+   "title": "नई योजना कैसे देखे । आपके राज्य में कौन सी सरकारी योजनाएं चल रही हैं। Review Govt Scheme 2020",
+   "channel": "DIGITAL POWER",
+   "duration_sec": 223,
+   "made_for_kids": false
+  },
+  {
+   "id": "3b7eoGAOo_c",
+   "title": "Sabhi sarkari yojana ki jankari | myscheme.gov.in | how to know all government schemes | Guide",
+   "channel": "ISHAN GURU",
+   "duration_sec": 215,
+   "made_for_kids": false
+  }
+ ]
+}

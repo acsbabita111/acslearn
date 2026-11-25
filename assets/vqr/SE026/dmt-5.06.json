@@ -1,0 +1,36 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.06",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "ASQ4p6DPy-A",
+   "title": "Gmail – लेबल्स कैसे बनाएं और मैनेज करें",
+   "channel": "HardReset_in",
+   "duration_sec": 254,
+   "made_for_kids": false
+  },
+  {
+   "id": "oMZjZ9YMM24",
+   "title": "How to Automatically Label Emails in Gmail (Filters & Rules) Easily 2026",
+   "channel": "PMN Online",
+   "duration_sec": 238,
+   "made_for_kids": false
+  },
+  {
+   "id": "XUgHL37XCtI",
+   "title": "Organize your email with Labels! (in hindi) | ईमेल में लेबल का उपयोग करना सीखें",
+   "channel": "Sanjeev Jain - AI Business Automation Coach",
+   "duration_sec": 234,
+   "made_for_kids": false
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.02",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "FQQosxPaIVM",
+   "title": "Dates & Time in Excel | Format Numbers in MS Excel | Excel : Home Tab -Number Block-Dates & Time-12",
+   "channel": "Gyanyagya",
+   "duration_sec": 312,
+   "made_for_kids": false
+  },
+  {
+   "id": "_B8krw4aJhE",
+   "title": "Number Format in MS Excel | How to Use Number Format in MS Excel? | Computer Tech Academy",
+   "channel": "Computer Tech Academy",
+   "duration_sec": 356,
+   "made_for_kids": false
+  }
+ ]
+}

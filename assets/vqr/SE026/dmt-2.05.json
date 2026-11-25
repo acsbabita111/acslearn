@@ -1,0 +1,50 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.05",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "n4KIENGwG4A",
+   "title": "How to insert Bullet Points in Word | How to Insert Bullet list in Word | Insert Number list in Word",
+   "channel": "Gyanyagya",
+   "duration_sec": 281,
+   "made_for_kids": false
+  },
+  {
+   "id": "jTI_IKcNjhc",
+   "title": "What is Bullet | Numbering  option in MS Word  in Hindi",
+   "channel": "Ok Result",
+   "duration_sec": 265,
+   "made_for_kids": false
+  },
+  {
+   "id": "kCdL51UR8xg",
+   "title": "Ms word multilevel kaise banaye | Multilevel List in MS Word | paragraph | education pushpraj",
+   "channel": "Education Pushpraj",
+   "duration_sec": 244,
+   "made_for_kids": false
+  },
+  {
+   "id": "H1xRnlZ2vtc",
+   "title": "MS Word 2016 Tutorial in Hindi - Bullets and Numbering option (Video 10)",
+   "channel": "KDS Bhaati Shergarh",
+   "duration_sec": 273,
+   "made_for_kids": false
+  },
+  {
+   "id": "xp5oE4eK7Sc",
+   "title": "Useful Simple Trick To Add Many Bullets In A Single Line Words In Ms Word Document Tutorial In Hindi",
+   "channel": "gautam kumar",
+   "duration_sec": 425,
+   "made_for_kids": false
+  }
+ ]
+}

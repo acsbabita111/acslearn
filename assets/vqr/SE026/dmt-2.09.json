@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.09",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "oc3NEcARgSI",
+   "title": "MS Word me Table kaise banaye in Hindi | How to make Table in MS Word in Hindi #word #msword",
+   "channel": "MS COMPUTER CLASSES",
+   "duration_sec": 298,
+   "made_for_kids": false
+  },
+  {
+   "id": "aYgSn9BbzYg",
+   "title": "word me table kaise banaye | How to make table in MS Word in Hindi",
+   "channel": "MS COMPUTER CLASSES",
+   "duration_sec": 317,
+   "made_for_kids": false
+  },
+  {
+   "id": "sMIqGFbeNJU",
+   "title": "Ms word me table kaise banaye in Mobile | How to make table of contents in word in Mobile |",
+   "channel": "current technique",
+   "duration_sec": 558,
+   "made_for_kids": false
+  },
+  {
+   "id": "r4pTkS-WolE",
+   "title": "Ms Word Table Tutorial | Ms Word Me Table Kaise Banaye | Ms Word Table Kaise Banaye",
+   "channel": "Knowledge In Hindi",
+   "duration_sec": 185,
+   "made_for_kids": false
+  },
+  {
+   "id": "8oh9-0HNhTI",
+   "title": "How to Insert Table In Microsoft Word (Step-by-Step)",
+   "channel": "GULAB GURU",
+   "duration_sec": 381,
+   "made_for_kids": false
+  },
+  {
+   "id": "uGAd9lQACZU",
+   "title": "how to make table in ms word in mobile | ms word table of contents tutorial | ms word table tutorial",
+   "channel": "current technique",
+   "duration_sec": 337,
+   "made_for_kids": false
+  },
+  {
+   "id": "m9dXwSm0nqY",
+   "title": "How to Create Marksheet in Microsoft Word | Table in MS Word",
+   "channel": "StudySpan",
+   "duration_sec": 333,
+   "made_for_kids": false
+  },
+  {
+   "id": "THm-HpSnn9M",
+   "title": "How to Make Time Table for School in Microsoft Word | Simple Class Routine in MS Word",
+   "channel": "StudySpan",
+   "duration_sec": 416,
+   "made_for_kids": false
+  },
+  {
+   "id": "XLhukeWIzLg",
+   "title": "How to Create and Format Table in Microsoft Word | Table in MS Word",
+   "channel": "StudySpan",
+   "duration_sec": 400,
+   "made_for_kids": false
+  },
+  {
+   "id": "A4DiOIPzNNc",
+   "title": "MS WORD TABLE 👉 TIPS TRICKS and Important Shortcut Keys Hindi",
+   "channel": "mybigguide",
+   "duration_sec": 530,
+   "made_for_kids": false
+  }
+ ]
+}

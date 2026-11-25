@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-1.04",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "cXyJxkb3rr8",
+   "title": "Computer के Parts की पूरी जानकारी | CPU, Monitor, Keyboard, Mouse | Episode 2",
+   "channel": "VIP DIGITAL SERVICE ",
+   "duration_sec": 283,
+   "made_for_kids": false
+  },
+  {
+   "id": "N1paDXlCX7I",
+   "title": "कंप्यूटर के भाग और उनके कार्य | Computer Parts Name in Hindi | Basic Computer Knowledge",
+   "channel": "𝐋𝐈𝐓𝐓𝐋𝐄 𝐋𝐄𝐀𝐑𝐍𝐄𝐑 𝐇𝐔𝐁",
+   "duration_sec": 344,
+   "made_for_kids": true
+  },
+  {
+   "id": "Sbph7qXY_w4",
+   "title": "10 Computer Parts name in English and Hindi | parts of computer name | कंप्यूटर पार्ट्स नेम",
+   "channel": "AJIT Kr",
+   "duration_sec": 202,
+   "made_for_kids": false
+  },
+  {
+   "id": "NMvrt9-6nIg",
+   "title": "कंप्यूटर के पार्ट्स के नाम और उनके कार्य// computer parts name and their use",
+   "channel": "😊YATI 😊 kids  learning point",
+   "duration_sec": 375,
+   "made_for_kids": false
+  },
+  {
+   "id": "hauJLZODVkw",
+   "title": "कंप्यूटर के घटक 🖥 | Components of Computer in Hindi | Components of Computer System ",
+   "channel": "MyTech Computer",
+   "duration_sec": 434,
+   "made_for_kids": false
+  },
+  {
+   "id": "JNHT76LMXts",
+   "title": "Computer All Parts (Internal & External) Complete Information in hindi | Computer Parts Name",
+   "channel": "Computer Technology",
+   "duration_sec": 515,
+   "made_for_kids": false
+  },
+  {
+   "id": "fqaKJoln5QA",
+   "title": "Cpu के अन्दर क्या क्या होता है पूरा समझें। Cpu all parts details in hindi. Cpu का मास्टर बने।",
+   "channel": "RBP EDUCATIONAL TRICK'S",
+   "duration_sec": 298,
+   "made_for_kids": false
+  }
+ ]
+}

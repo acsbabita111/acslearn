@@ -1,0 +1,29 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-1.08",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "6E0bMgLLbiY",
+   "title": "Digital Entrepreneur Yojana 2026 | क्या हैं यूपी Digital Entrepreneur योजना | गाँव में नौकरी",
+   "channel": "Help In hindi",
+   "duration_sec": 419,
+   "made_for_kids": false
+  },
+  {
+   "id": "iVZJ7YCqowQ",
+   "title": "PMG DISHA क्या है | प्रधानमंत्री ग्रामीण डिजिटल साक्षरता अभियान क्या है ? | #technicalpiyushkumar",
+   "channel": "Technical Piyush Kumar",
+   "duration_sec": 191,
+   "made_for_kids": false
+  }
+ ]
+}

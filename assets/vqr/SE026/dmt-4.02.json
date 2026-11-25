@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-4.02",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "8X4Q5k2yqSM",
+   "title": "How To Hyperlink  Slide & How To View The HyperLinked In PowerPoint In Hindi",
+   "channel": "gautam kumar",
+   "duration_sec": 211,
+   "made_for_kids": false
+  },
+  {
+   "id": "nCVXGXCr0Xc",
+   "title": "How To Insert A New Slide Before The First Slide In Microsoft PowerPoint In Hindi",
+   "channel": "gautam kumar",
+   "duration_sec": 359,
+   "made_for_kids": false
+  },
+  {
+   "id": "lYRzO75fY1w",
+   "title": "In Powerpoint Add New Slide Between Two Slides (Hindi)||दो स्लाइड्स के बीच में  नया स्लाइड कैसे लगाए",
+   "channel": "gautam kumar",
+   "duration_sec": 366,
+   "made_for_kids": false
+  },
+  {
+   "id": "9nGKY-MVYYo",
+   "title": "Powerpoint me Music Kaise Dale | PPT me Background Music kaise dale Powerpoint PPT Insert Audio",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 252,
+   "made_for_kids": false
+  },
+  {
+   "id": "hqlDmawDoFM",
+   "title": "PowerPoint Tutorial in Hindi | PPT में स्लाइड कैसे Add करे  | PowerPoint Tips in Hindi",
+   "channel": "WebAniMax Academy",
+   "duration_sec": 306,
+   "made_for_kids": false
+  },
+  {
+   "id": "7vm-TLIpYek",
+   "title": "Ms PowerPoint Me First Slide K Pehle Slide Rakhna Ho To Kese Rakhe,insert slide before the 1st slide",
+   "channel": "gautam kumar",
+   "duration_sec": 430,
+   "made_for_kids": false
+  }
+ ]
+}

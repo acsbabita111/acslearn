@@ -1,0 +1,36 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.08",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "QD-eHgkMhR8",
+   "title": "😃 Excel में टाइपिंग करना बंद करो ✅| Convert Handwritten Data in Excel | Excel Tricks",
+   "channel": "GULAB GURU",
+   "duration_sec": 419,
+   "made_for_kids": false
+  },
+  {
+   "id": "pD9z5I0f-lQ",
+   "title": "Diye gaye ungrouped datas ko kese vyavasthit karein ? ✋️ 🤚 🙋‍♂️ 💁‍♂️ 🖐 ✋️ 🔥 📛  #ytshorts #shorts #vi",
+   "channel": "Chraran Singh",
+   "duration_sec": 181,
+   "made_for_kids": false
+  },
+  {
+   "id": "nTdVL8gyRcc",
+   "title": "Aakadon ke vargikrit karke kese vyavasthit karein? #ytshorts #education #charansinghstudy 🔥 👩‍🚒 📖 📕",
+   "channel": "Chraran Singh",
+   "duration_sec": 181,
+   "made_for_kids": false
+  }
+ ]
+}

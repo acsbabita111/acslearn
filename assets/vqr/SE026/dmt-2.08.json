@@ -1,0 +1,71 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.08",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "bQGt6DjHOls",
+   "title": "MS Word me shapes ko group kaise karein | Group Shape in MS Word | MS Word Tutorial",
+   "channel": "Computer Classes",
+   "duration_sec": 195,
+   "made_for_kids": false
+  },
+  {
+   "id": "VxEGEhr219U",
+   "title": "MS Word me logo ko group kaise kare | MS Word me shapes ko group kaise kare | How to Group Shapes",
+   "channel": "Webtech Classes",
+   "duration_sec": 367,
+   "made_for_kids": false
+  },
+  {
+   "id": "v4mH4HSOTzw",
+   "title": "MS Word - Shapes | Word me Shapes kya hota hai | #computechgyan",
+   "channel": "Computech Gyan",
+   "duration_sec": 524,
+   "made_for_kids": false
+  },
+  {
+   "id": "3qlTOAfpsX0",
+   "title": "How to Insert Shapes in Word | MS Word में Shapes का यूज कैसे करें।",
+   "channel": "Tausif EduWorld",
+   "duration_sec": 531,
+   "made_for_kids": false
+  },
+  {
+   "id": "zmMd3Gj4xlo",
+   "title": "Car In MS-Word | Shapes Work | Use of Shapes | #msword #design #creative #education #shape",
+   "channel": "JICT JAGRITICOMPUTER",
+   "duration_sec": 416,
+   "made_for_kids": false
+  },
+  {
+   "id": "AAYIjxDNvx4",
+   "title": "MS Word - Insert Shapes",
+   "channel": "TutorialsPoint",
+   "duration_sec": 396,
+   "made_for_kids": false
+  },
+  {
+   "id": "Dfq67upzxQY",
+   "title": "Ms word shapes practice | WinWord Shapes Practice",
+   "channel": "AKR GuruJi",
+   "duration_sec": 225,
+   "made_for_kids": false
+  },
+  {
+   "id": "GlwgZIG2xvk",
+   "title": "Insert a SmartArt graphic in word | How to use SmartArt in MS Word ?",
+   "channel": "Webtech Classes",
+   "duration_sec": 492,
+   "made_for_kids": false
+  }
+ ]
+}

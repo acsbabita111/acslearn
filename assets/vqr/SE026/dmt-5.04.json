@@ -1,0 +1,71 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.04",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "4a4pvkAjgyg",
+   "title": "Apna Data Google Drive Mein Save Kaise Kare | Save Important Files & Documents in Google Drive 2025!",
+   "channel": "Safe Mobile Tips",
+   "duration_sec": 188,
+   "made_for_kids": false
+  },
+  {
+   "id": "7Y7dKgF8hPI",
+   "title": "Google Drive Link Kaise Banaye Mobile Se || How To Share Google Drive Link || Google Drive",
+   "channel": "@Aslam87",
+   "duration_sec": 324,
+   "made_for_kids": false
+  },
+  {
+   "id": "VohKPBSMpo8",
+   "title": "Upload & Share File or Folder in Google Drive | Step-by-Step Guide (Hindi)",
+   "channel": "stylish  tech solutions",
+   "duration_sec": 186,
+   "made_for_kids": false
+  },
+  {
+   "id": "Nma08jC4rpM",
+   "title": "Excel फाइल को Google Drive पर Save करना सीखे",
+   "channel": "Nilesh Jogi ",
+   "duration_sec": 384,
+   "made_for_kids": false
+  },
+  {
+   "id": "GYBLgAJtcNg",
+   "title": "Google drive par photo kaise save kare 2026 | how to save photos in Google drive | how to use drive",
+   "channel": "Manish4u",
+   "duration_sec": 242,
+   "made_for_kids": false
+  },
+  {
+   "id": "diZLEknkGkE",
+   "title": "Google drive par photo kaise save kare 2025 | how to save photos in Google drive | how to use drive",
+   "channel": "GR TECHNICAL INFO",
+   "duration_sec": 281,
+   "made_for_kids": false
+  },
+  {
+   "id": "Z3o9mFNrAwo",
+   "title": "Google Drive Ka Link Kaise Banaye | How To Create Google Drive Link",
+   "channel": "Mani Sahu",
+   "duration_sec": 245,
+   "made_for_kids": false
+  },
+  {
+   "id": "YewRjnn-qB4",
+   "title": "Google Drive Me Documents Kaise Save Kare || Documents Ko Google Drive Me kaise save kare 2023",
+   "channel": "online tech Support",
+   "duration_sec": 221,
+   "made_for_kids": false
+  }
+ ]
+}

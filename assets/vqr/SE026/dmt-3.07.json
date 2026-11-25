@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.07",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "GucHLnA0s5I",
+   "title": "Excel sheet me formula kaise lagate hain | Excel sheet me formula kaise lagaye | Excel Formula Hindi",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 299,
+   "made_for_kids": false
+  },
+  {
+   "id": "hYqhBCu8CX8",
+   "title": "How To Use Formulas In Excel | MS Excel me formula kaise lagaye",
+   "channel": "Parkey Computer Classes",
+   "duration_sec": 514,
+   "made_for_kids": false
+  },
+  {
+   "id": "H1PZUNaBVE0",
+   "title": "MS Excel Me Formula Kaise Lagaye I How To Use Formulas In Excel In Hindi I Aman Raja Official I",
+   "channel": "Skill With Aman",
+   "duration_sec": 276,
+   "made_for_kids": false
+  },
+  {
+   "id": "_2xsduMrvMw",
+   "title": "SUM Formula in Excel | How to use SUM function in Microsoft Excel | SUM Formula in Hindi",
+   "channel": "GULAB GURU",
+   "duration_sec": 426,
+   "made_for_kids": false
+  },
+  {
+   "id": "cAG2BOy11-E",
+   "title": "How to Sum, Subtract, Multiple and Divide in MS-Excel in Hindi",
+   "channel": "Happy 2 Smile",
+   "duration_sec": 257,
+   "made_for_kids": false
+  },
+  {
+   "id": "0d1AMHFSRaY",
+   "title": "How To Use VLOOKUP Formula in Microsoft Excel | VLOOKUP in Excel | Excel VLOOKUP",
+   "channel": "StudySpan",
+   "duration_sec": 275,
+   "made_for_kids": false
+  }
+ ]
+}

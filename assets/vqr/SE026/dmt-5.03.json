@@ -1,0 +1,50 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.03",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "3n1k1dlFnQQ",
+   "title": "Doc to PDF file कैसे Convert करें | How to Convert any file to PDF & PDF to Other Doc File? | CTA",
+   "channel": "Computer Tech Academy",
+   "duration_sec": 430,
+   "made_for_kids": false
+  },
+  {
+   "id": "nxS8yfC9vm0",
+   "title": "How to Convert Word to Pdf in Mobile Phone | Convert Word to Pdf in Mobile | Doc To PDF In Mobile",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 270,
+   "made_for_kids": false
+  },
+  {
+   "id": "2YrVkPtFpQE",
+   "title": "MS Word ki file ko pdf me kaise convert kare (हिंदी) | Word to PDF Convert | Online PDF Converter",
+   "channel": "GULAB GURU",
+   "duration_sec": 307,
+   "made_for_kids": false
+  },
+  {
+   "id": "ItOP03BHPLs",
+   "title": "मोबाइल से MS Word की File को PDF बनाये || MS word ki file ko mobile se pdf kaise banaye video",
+   "channel": "GULAB GURU",
+   "duration_sec": 427,
+   "made_for_kids": false
+  },
+  {
+   "id": "FDqR2yYD_MI",
+   "title": "How to Convert Word File into PDF | Hindi",
+   "channel": "TheeTube",
+   "duration_sec": 197,
+   "made_for_kids": false
+  }
+ ]
+}

@@ -1,0 +1,78 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.10",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "rt_i5q4116o",
+   "title": "How to Create Charts in Microsoft Excel | Pie Chart in Excel | Line Chart in MS Excel",
+   "channel": "StudySpan",
+   "duration_sec": 225,
+   "made_for_kids": false
+  },
+  {
+   "id": "eBV2LTk5wN4",
+   "title": "Column Chart in MS Excel | How to create column chart in MS Excel? | Computer Tech Academy",
+   "channel": "Computer Tech Academy",
+   "duration_sec": 466,
+   "made_for_kids": false
+  },
+  {
+   "id": "salXOzgTEgw",
+   "title": "Excel me Chart Kaise Banaye | How to Create Chart in Microsoft Excel | Chart in Excel | Excel Chart",
+   "channel": "GULAB GURU",
+   "duration_sec": 528,
+   "made_for_kids": false
+  },
+  {
+   "id": "3IANIzzdBHI",
+   "title": "MS Excel Charts & Graphs | How To Make A Pie, Bar, Column & Line Chart in Excel Hindi | Part 24",
+   "channel": "My Computer Course",
+   "duration_sec": 396,
+   "made_for_kids": false
+  },
+  {
+   "id": "8ppdeGAGzKc",
+   "title": "How to Make a Chart or Graph in Excel Word in Hindi (Basic Information)",
+   "channel": "mybigguide",
+   "duration_sec": 452,
+   "made_for_kids": false
+  },
+  {
+   "id": "BDtZ1UcGgVQ",
+   "title": "How to Create a Combo Chart in Microsoft Excel | Charts in Excel",
+   "channel": "StudySpan",
+   "duration_sec": 205,
+   "made_for_kids": false
+  },
+  {
+   "id": "b_fJCZzlQk4",
+   "title": "Create AWESOME Dynamic Charts in excel just in Seconds",
+   "channel": "Deepak EduWorld",
+   "duration_sec": 568,
+   "made_for_kids": false
+  },
+  {
+   "id": "2wofQ8Y_eyM",
+   "title": "How To Create Column Chart and Pie Chart in Microsoft Excel | Charts in Excel",
+   "channel": "StudySpan",
+   "duration_sec": 599,
+   "made_for_kids": false
+  },
+  {
+   "id": "CS3c0m0vKN4",
+   "title": "Excel Me Table Kaise Banaye I Excel Me Table Kaise Banate Hain I Aman Raja Official I",
+   "channel": "Skill With Aman",
+   "duration_sec": 440,
+   "made_for_kids": false
+  }
+ ]
+}

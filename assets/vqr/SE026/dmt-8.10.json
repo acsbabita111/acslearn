@@ -1,0 +1,78 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-8.10",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "33lrzFPduGo",
+   "title": "क्या AI एक Bubble है? Indian IT Jobs पर क्या असर | $800 Billion का दाँव",
+   "channel": "Pricequake हिंदी",
+   "duration_sec": 350,
+   "made_for_kids": false
+  },
+  {
+   "id": "ba0gUBlI2Ro",
+   "title": "AI ले जाएगा आपकी नौकरी? 😱 2026 में Artificial Intelligence का बड़ा बदलाव | AI Future in Hindi",
+   "channel": "YOGI UNLIMITED ",
+   "duration_sec": 392,
+   "made_for_kids": false
+  },
+  {
+   "id": "N8EdRmr--io",
+   "title": "AI: डर या Opportunity?| AI का Jobs पर क्या असर होगा? 🤖| Future of Jobs",
+   "channel": "Mind Uday",
+   "duration_sec": 268,
+   "made_for_kids": false
+  },
+  {
+   "id": "N9dYeIGVvQU",
+   "title": "AI Ne Naukri Chheeni Ya Nayi Di? | AI Se Naukri Par Kya Farak Pada? Andar Ki Baat",
+   "channel": "Andar Ki Baat Official",
+   "duration_sec": 504,
+   "made_for_kids": false
+  },
+  {
+   "id": "LnN_jHR7E9k",
+   "title": "Bill Gates On AI-Proof Jobs: Artificial Intelligence किन-किन Professionals की नौकरी नहीं खा पाएगा?",
+   "channel": "NDTV India",
+   "duration_sec": 293,
+   "made_for_kids": false
+  },
+  {
+   "id": "tlyYpX0A3Xo",
+   "title": "सरकारी नौकरी पर AI का असर | Sarkari Job pe AI ka Asar | ChatGPT-6 Astra",
+   "channel": "Naukri Sarkari",
+   "duration_sec": 438,
+   "made_for_kids": false
+  },
+  {
+   "id": "hllwBEWUsuo",
+   "title": "क्या AI आपकी नौकरी ले जाएगा? Global Employment पर असर! #ArtificialIntelligence #Career #TechHindi",
+   "channel": "Advanced Computer with Kalveer",
+   "duration_sec": 375,
+   "made_for_kids": false
+  },
+  {
+   "id": "BMdJLoA9b8c",
+   "title": "AI का नौकरियों पर असर | AI Jobs Impact | ITI Employability Skills | AI Advantages & Disadvantages",
+   "channel": "Study ITI Skills",
+   "duration_sec": 391,
+   "made_for_kids": false
+  },
+  {
+   "id": "UTpQIq4H5IU",
+   "title": "AI Revolution: नौकरियों पर कितना असर? जानिए पूरा सच... | Which sectors are hiring because of AI",
+   "channel": "CNBC Awaaz.",
+   "duration_sec": 473,
+   "made_for_kids": false
+  }
+ ]
+}

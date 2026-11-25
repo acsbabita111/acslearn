@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-8.05",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "osXsk2Zn2-M",
+   "title": "AI झूठ क्यों बोलता है? ChatGPT Hallucination का सच और उसे पकड़ने के 5 तरीक़े",
+   "channel": "𝙈𝙚𝙧𝙖𝙖𝙠𝙞",
+   "duration_sec": 210,
+   "made_for_kids": false
+  },
+  {
+   "id": "6zwdXuPLbd4",
+   "title": "AI क्या है? | 🤖 Artificial Intelligence Explained in Hindi | Gyani Explains",
+   "channel": "Gyani Explains",
+   "duration_sec": 277,
+   "made_for_kids": false
+  },
+  {
+   "id": "zBhalhQR9YI",
+   "title": "AI क्या है? | Artificial Intelligence जादुई गणित हिंदी में | LLM, Token सब समझो!",
+   "channel": "Junaid Khan",
+   "duration_sec": 502,
+   "made_for_kids": false
+  },
+  {
+   "id": "K010SR6r1aQ",
+   "title": "ChatGPT Sochta Nahi, GUESS Karta Hai — 3 Tricks Se Hallucination Pakdo",
+   "channel": "Zero2OneAi",
+   "duration_sec": 410,
+   "made_for_kids": false
+  },
+  {
+   "id": "_0i9Q5R23u4",
+   "title": "RAG क्या है? AI hallucination ka solution? | RAG Explained | Analytics India Guru",
+   "channel": "AIM Network",
+   "duration_sec": 310,
+   "made_for_kids": false
+  },
+  {
+   "id": "Y3K9F__Q8f4",
+   "title": "Hallucination - Simply Explained",
+   "channel": "codebasics Hindi",
+   "duration_sec": 573,
+   "made_for_kids": false
+  },
+  {
+   "id": "_vTV0TEj4BI",
+   "title": "What is Generative AI? (Explained in Hindi) - Umar Tazkeer",
+   "channel": "Umar Tazkeer ",
+   "duration_sec": 529,
+   "made_for_kids": false
+  }
+ ]
+}

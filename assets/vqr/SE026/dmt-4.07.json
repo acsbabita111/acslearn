@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-4.07",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "pXl27VnDoHE",
+   "title": "How to Apply Transitions in PowerPoint. Microsoft PowerPoint में Slides पर Transition कैसे लगाएं",
+   "channel": "The Officer Tutorial",
+   "duration_sec": 321,
+   "made_for_kids": false
+  },
+  {
+   "id": "ekRIOQ9bybU",
+   "title": "Apply Transition on Slides  |  PowerPoint Tutorial in Hindi  #30",
+   "channel": "Knowledge Gainer",
+   "duration_sec": 290,
+   "made_for_kids": false
+  },
+  {
+   "id": "j54TMRMiV5Y",
+   "title": "PowerPoint Me Transition Kaise Lagaye? | PPT Transition Effects in Hindi | MS PowerPoint Tutorial",
+   "channel": "IT Tech Class",
+   "duration_sec": 345,
+   "made_for_kids": false
+  },
+  {
+   "id": "CjhVW1bGJLk",
+   "title": "powerpoint me transition kaise lagaye | How to Apply Slide Transitions in a PowerPoint Presentation",
+   "channel": "SkyTech Ronnie",
+   "duration_sec": 267,
+   "made_for_kids": false
+  },
+  {
+   "id": "k9KOp30tMdM",
+   "title": "Transition and Animation kaise lagate Hain | Power Point presentation",
+   "channel": "Anurag Laptop",
+   "duration_sec": 220,
+   "made_for_kids": false
+  },
+  {
+   "id": "BiLtJh5AQuc",
+   "title": "16: सीखिए PowerPoint में ॥ Transitions to This Slide का use कैसे करते हैं ॥ Add transitions in Slide",
+   "channel": "LAL CHAND Health & Educational Trust",
+   "duration_sec": 485,
+   "made_for_kids": false
+  }
+ ]
+}

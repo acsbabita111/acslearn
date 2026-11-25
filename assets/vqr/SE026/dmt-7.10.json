@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-7.10",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "bMVlpen97dI",
+   "title": "Where Is My Train App Se Train Ticket Kaise Book Karen | Mobile Se Online Train Ticket Booking 2025 ",
+   "channel": "Kaise kare help",
+   "duration_sec": 217,
+   "made_for_kids": false
+  },
+  {
+   "id": "0vAMKU6BnVg",
+   "title": "Mobile Se Railway Ticket Kaise Book Kare | How to book train tickets online | irctc ticket book kare",
+   "channel": "Manish4u",
+   "duration_sec": 522,
+   "made_for_kids": false
+  },
+  {
+   "id": "BGMBdj5UPyQ",
+   "title": "IRCTC se ticket kaise book kare | How to book train ticket in irctc | railway ticket booking online",
+   "channel": "Flight Information",
+   "duration_sec": 506,
+   "made_for_kids": false
+  },
+  {
+   "id": "awi1dkCC6S4",
+   "title": "ixigo train ticket booking kaise kare | How to book train ticket | Book train tickets in ixigo app",
+   "channel": "Flight Information",
+   "duration_sec": 363,
+   "made_for_kids": false
+  },
+  {
+   "id": "dZwyJUNx3pE",
+   "title": "IRCTC Se Ticket Kaise Book Kare | How To Book Train Tickets Online In India | Train Ticket Booking",
+   "channel": "Flight Information",
+   "duration_sec": 528,
+   "made_for_kids": false
+  },
+  {
+   "id": "tUzVU9TP04Y",
+   "title": "RailOne app se local ticket kaise book kare | RailOne App से जनरल टिकट बुक करना सीखें | RailOne App",
+   "channel": "Flight Information",
+   "duration_sec": 383,
+   "made_for_kids": false
+  },
+  {
+   "id": "Jcbux_4MCZc",
+   "title": "Rail one app live tatkal ticket booking busy route | Railone app review |Railone app ticket booking",
+   "channel": "Flight Information",
+   "duration_sec": 594,
+   "made_for_kids": false
+  },
+  {
+   "id": "d6p1CUoeWlU",
+   "title": "irctc tatkal ticket booking | how to book tatkal ticket in irctc | tatkal ticket booking in mobile",
+   "channel": "Flight Information",
+   "duration_sec": 573,
+   "made_for_kids": false
+  },
+  {
+   "id": "qeCJlL-Krzw",
+   "title": "Where is my train app se ticket kaise book kare !! Where is my train ticket booking",
+   "channel": "लक्ष्य Prakash",
+   "duration_sec": 246,
+   "made_for_kids": false
+  },
+  {
+   "id": "Q9zasUeXdP8",
+   "title": "Confirm ticket app se ticket kaise book kare | confirm app se ticket kaise book karen | ConfirmTkt",
+   "channel": "TheeTube",
+   "duration_sec": 557,
+   "made_for_kids": false
+  }
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-6.10",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "OuY-0xr0Bw4",
+   "title": "SOP vs Protocol॥ Standard Operating Procedure ॥ Protocol ॥ दोनों में क्या अन्तर है",
+   "channel": " PHARMA Concept",
+   "duration_sec": 247,
+   "made_for_kids": false
+  },
+  {
+   "id": "FiMr4omM3Xw",
+   "title": "Needle Stick Injury in Hindi | NSI | Needle Stick Injury Protocol | Management",
+   "channel": "Ensure Care",
+   "duration_sec": 244,
+   "made_for_kids": false
+  },
+  {
+   "id": "6T6eXk2mAx8",
+   "title": "What is Protocol? full Explanation | TCP/IP, HTTP, SMTP, FTP, POP, IMAP, PPP and UDP Protocols",
+   "channel": "Learn Coding",
+   "duration_sec": 519,
+   "made_for_kids": false
+  },
+  {
+   "id": "c0SrO1S4vWc",
+   "title": "Internet Programing |Unit 5| Simple Object Access Protocol (SOAP)",
+   "channel": "Shopika Senthur",
+   "duration_sec": 417,
+   "made_for_kids": false
+  }
+ ]
+}

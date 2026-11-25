@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.09",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "ehup_qVWn7A",
+   "title": "Window Crash होने के बाद Data Backup कैसे करें? | Safe Mode Data Recovery ☺️",
+   "channel": "PC TECH_MAYANK",
+   "duration_sec": 350,
+   "made_for_kids": false
+  },
+  {
+   "id": "VS_BSBY8gDA",
+   "title": "Backup computer files to external hard drive or pendrive | Windows 10 | backup",
+   "channel": "CTP Technical",
+   "duration_sec": 278,
+   "made_for_kids": false
+  },
+  {
+   "id": "uKQYGzW171Y",
+   "title": "How to create Windows Backup & Recovery drive | Windows 10/11 Backup without losing data (USB)",
+   "channel": "TechGuru Narendra",
+   "duration_sec": 213,
+   "made_for_kids": false
+  },
+  {
+   "id": "JsnqV07V_l0",
+   "title": "How To Take Data Backup of Corrupted Windows | Techsolwin",
+   "channel": "Techsolwin",
+   "duration_sec": 407,
+   "made_for_kids": false
+  },
+  {
+   "id": "EstfwtWIsbE",
+   "title": "How to Create a Windows Backup and Restore Your System🚀Step-by-Step Guide 👍 | Windows Recovery 2024",
+   "channel": "NCL Computer",
+   "duration_sec": 305,
+   "made_for_kids": false
+  },
+  {
+   "id": "v1_fZclh70s",
+   "title": "#14 Tally Prime-How to take Backup of Tally DATA? Explain in Hindi",
+   "channel": "Accounts Advice",
+   "duration_sec": 298,
+   "made_for_kids": false
+  },
+  {
+   "id": "ZtJhbvA2M78",
+   "title": "Excel File ka Backup kaise banaye? Backup in Excel | #computerhindilesson #excelbackup",
+   "channel": "Computer hindi lesson",
+   "duration_sec": 271,
+   "made_for_kids": false
+  },
+  {
+   "id": "TJEMJO3YFC8",
+   "title": "Backup and Restore in Tally Prime | How to take Backup & Restore Data #tallyprime",
+   "channel": "Tally with Rahul Chaudhary",
+   "duration_sec": 555,
+   "made_for_kids": false
+  },
+  {
+   "id": "WilNEfXyOck",
+   "title": "Backup Android Phone to PC : Laptop me Phone ka backup kaise kare जरूर जानिए",
+   "channel": "RamjiTech01",
+   "duration_sec": 433,
+   "made_for_kids": false
+  },
+  {
+   "id": "hTulZORXcyA",
+   "title": "Laptop Reset Karne se Pehle Backup kaise le | (प्रो टिप्स) लैपटॉप का बैकअप कैसे करें RamjiTechnical",
+   "channel": "RamjiTech01",
+   "duration_sec": 445,
+   "made_for_kids": false
+  }
+ ]
+}

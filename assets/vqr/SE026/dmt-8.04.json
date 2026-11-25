@@ -1,0 +1,71 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-8.04",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "So7FRaDNUqo",
+   "title": "क्या AI Book Summary Channel Monetize होंगे ? | Book Summary Channel Kaise Banaye | Ai Long Videos",
+   "channel": "Creator Arvind",
+   "duration_sec": 360,
+   "made_for_kids": false
+  },
+  {
+   "id": "tdL2UJElm_E",
+   "title": "ChatGPT से Audio की Summary बनाओ 😱 | AI से Notes कैसे बनाएं?",
+   "channel": "Abhay Tech World",
+   "duration_sec": 410,
+   "made_for_kids": false
+  },
+  {
+   "id": "ntfiJw35a5I",
+   "title": "AI PDF Summarizer | PDF को 1 Click में Summary कैसे करें? | NoteGPT | Hindi",
+   "channel": "Ram Binay Yadav",
+   "duration_sec": 293,
+   "made_for_kids": false
+  },
+  {
+   "id": "rAl_px7LCbw",
+   "title": "किसी Video का Text Summary kaise nikale | Without Watching Video || Best ai tool text summary ",
+   "channel": "Pintu Kashyap ",
+   "duration_sec": 256,
+   "made_for_kids": false
+  },
+  {
+   "id": "VdVs6_0O7dc",
+   "title": "Handwritten Notes AI से कैसे बनते हैं full Tutorial  | Free AI Tool Full Tutorial)",
+   "channel": "Edusquadz",
+   "duration_sec": 566,
+   "made_for_kids": false
+  },
+  {
+   "id": "KCuYo2PTXxA",
+   "title": "How to Create a Book Summary Channel with AI",
+   "channel": "Hammad Hamid",
+   "duration_sec": 378,
+   "made_for_kids": false
+  },
+  {
+   "id": "jvJWBvy3zUY",
+   "title": "FREE AI Tool for Handwritten Notes 📝 AI se Notes banane ka Sabse Aasan Tarika 🔥",
+   "channel": "Nidhi Mishra",
+   "duration_sec": 189,
+   "made_for_kids": false
+  },
+  {
+   "id": "m77ULph57Mw",
+   "title": "Create A Faceless Book Summary Channel With Free AI Tools In 10 Mins.",
+   "channel": "Digital Dollars",
+   "duration_sec": 592,
+   "made_for_kids": false
+  }
+ ]
+}

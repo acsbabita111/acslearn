@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.10",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "p0RqYF5CY5g",
+   "title": "Slow PC ko 10X Fast Kaise Karein? | How to Speed Up Slow Computer / Laptop in Hindi",
+   "channel": "STP Computer Education",
+   "duration_sec": 330,
+   "made_for_kids": false
+  },
+  {
+   "id": "TmdHCHVgZlA",
+   "title": "Computer Slow Kyu Chal Raha hai || कंप्यूटर क्यों स्लो चल रहा है || #computer #computerzone",
+   "channel": "Jogendra Gyan",
+   "duration_sec": 465,
+   "made_for_kids": false
+  },
+  {
+   "id": "b0ej5dz6F5Q",
+   "title": "Laptop Slow Hai? 😡 ये 5 Setting बदलते ही Speed 🚀 ",
+   "channel": "Computer Manthan",
+   "duration_sec": 225,
+   "made_for_kids": false
+  },
+  {
+   "id": "7-2N2Qp1EL0",
+   "title": "SSD लगाने के बाद भी Laptop Slow? ये 7 Settings OFF नहीं की तो SSD बेकार है!",
+   "channel": "CTech Ramakant",
+   "duration_sec": 328,
+   "made_for_kids": false
+  },
+  {
+   "id": "XHowRgY6zzU",
+   "title": "दो Setting Computer 200% fast ।। Setting to make Laptop and PC faster ।। #computer #settings",
+   "channel": "Bijay Tech Skills",
+   "duration_sec": 301,
+   "made_for_kids": false
+  },
+  {
+   "id": "skyDPyYI6i4",
+   "title": "SSD लगवाने के बाद भी कंप्यूटर स्लो क्यों चल रहा है || Computer Slow Problem Solved || #computer",
+   "channel": "Jogendra Gyan",
+   "duration_sec": 398,
+   "made_for_kids": false
+  },
+  {
+   "id": "hnkesxJlRk0",
+   "title": "Make Your Computer 10x Faster - कंप्यूटर की स्पीड बढ़ाने के तरीके",
+   "channel": "ISHAN MONITOR",
+   "duration_sec": 215,
+   "made_for_kids": false
+  },
+  {
+   "id": "ssRJPTD3Zow",
+   "title": "Computer slow chal raha hai kya karen | Laptop slow chal raha hai kya karen | computer slow problem",
+   "channel": "Digital Surjeet",
+   "duration_sec": 262,
+   "made_for_kids": false
+  },
+  {
+   "id": "ThZ41GWIxyA",
+   "title": "PC Slow हो रहा है? Task Manager की ये Setting तुरंत Check करें! | Efficiency Mode",
+   "channel": "Bijay Tech Skills",
+   "duration_sec": 269,
+   "made_for_kids": false
+  },
+  {
+   "id": "0-EFcF6uRu8",
+   "title": "Make Your Computer & Laptop 200% Faster / How to Speed Up Your Windows 10 Performance 2022",
+   "channel": "MNS DIGITAL",
+   "duration_sec": 395,
+   "made_for_kids": false
+  }
+ ]
+}

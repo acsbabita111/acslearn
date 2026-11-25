@@ -1,0 +1,43 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-4.03",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "DQgWOGO8Ur0",
+   "title": "Change Font Color in MS PowerPoint |Clear Text Formatting in PowerPoint | Text Formatting in PPT -10",
+   "channel": "Gyanyagya",
+   "duration_sec": 249,
+   "made_for_kids": false
+  },
+  {
+   "id": "PZ4hfa7ZLOg",
+   "title": "Copy Formatting in MS PowerPoint| Copy Text or Image style in MS PowerPoint | Copy Design in PPT -26",
+   "channel": "Gyanyagya",
+   "duration_sec": 470,
+   "made_for_kids": false
+  },
+  {
+   "id": "7Izrpjmh7FY",
+   "title": "Powerpoint Text Formatting | Powerpoint Me Bold, Italic, Underline, Color Shadow Kaise Use Kare",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 248,
+   "made_for_kids": false
+  },
+  {
+   "id": "cEeM0U2493Q",
+   "title": "Advanced Conditional Formatting in Excel | Conditional Formatting in Excel",
+   "channel": "StudySpan",
+   "duration_sec": 302,
+   "made_for_kids": false
+  }
+ ]
+}

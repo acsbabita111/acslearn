@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-8.07",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "UJ8uFzhEHU4",
+   "title": "AI Data Annotation से पैसे कैसे कमाएं? | AI Labeling से Online Income | Beginner Guide 2026",
+   "channel": "Online Knowledge Hindi",
+   "duration_sec": 551,
+   "made_for_kids": false
+  },
+  {
+   "id": "oZEPfvoyuzw",
+   "title": "Data Annotation Jobs Explained in Hindi | Work From Home AI Job | Earn ₹30,000+ by Labeling Data",
+   "channel": "Skillence",
+   "duration_sec": 332,
+   "made_for_kids": false
+  },
+  {
+   "id": "cV5hklGdTfw",
+   "title": "Top Data Annotation Jobs 2025 | Work From Home & Earn ₹30,000+ | Online Jobs For Students | AI Jobs",
+   "channel": "Rizwan Lately",
+   "duration_sec": 430,
+   "made_for_kids": false
+  },
+  {
+   "id": "DsyBgLV07s4",
+   "title": "Data Annotation Jobs Work From Home - Remote Data Analyst AI Jobs Entry Level For Beginners",
+   "channel": "Remote Work by SkillArbitrage",
+   "duration_sec": 342,
+   "made_for_kids": false
+  },
+  {
+   "id": "jbVg3smiEKI",
+   "title": "What is data annotation in Hindi | डेटा एनोटेशन क्या है (हिंदी में) | Basics of Data Annotation",
+   "channel": "Data Annotation with Akansha",
+   "duration_sec": 229,
+   "made_for_kids": false
+  },
+  {
+   "id": "Q-7W2UAU1FA",
+   "title": "DataAnnotation AI Trainer Job 2026 | Work From Home |Hindi Specialist | Earn ₹2,000–₹3,300/Hr |",
+   "channel": "AD Technovation",
+   "duration_sec": 235,
+   "made_for_kids": false
+  },
+  {
+   "id": "yneIGKVXT-4",
+   "title": "What is Data Annotation | #artificialintelligence #ai #education #tutorial #chatgpt | MVD COMPUTER ",
+   "channel": "MVD BHABUA",
+   "duration_sec": 377,
+   "made_for_kids": false
+  }
+ ]
+}

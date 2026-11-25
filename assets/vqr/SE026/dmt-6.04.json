@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-6.04",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "-npAtWc-c7c",
+   "title": "Google Password Manager Not Showing Password Problem Solve | manager you'll find your password here",
+   "channel": "Indian Tech Power ",
+   "duration_sec": 228,
+   "made_for_kids": false
+  },
+  {
+   "id": "Yw5Xd96vSRI",
+   "title": "Google Password Manager Me Password Nahi Aa Raha Hai | You'll Find Your Passwords And Passkeys Here",
+   "channel": "Technical Chhora",
+   "duration_sec": 263,
+   "made_for_kids": false
+  },
+  {
+   "id": "Y0Jig3zqBBE",
+   "title": "Password Manager Explained in Hindi [A-Z] 🔥 Password Manager क्या है 🤔 क्या ये Safe hai ?? 🧐",
+   "channel": "Kripesh Adwani",
+   "duration_sec": 455,
+   "made_for_kids": false
+  },
+  {
+   "id": "3juq8TjMgf0",
+   "title": "How to Use Secure Password Manager | सिक्योर पासवर्ड मैनेजर ऐप का इस्तेमाल कैसे करें",
+   "channel": "Dhanta Library",
+   "duration_sec": 180,
+   "made_for_kids": false
+  },
+  {
+   "id": "zccRzg4SmDs",
+   "title": "password manager password option not showing password manager me password nhi aa raha hai",
+   "channel": "TKG technical",
+   "duration_sec": 256,
+   "made_for_kids": false
+  },
+  {
+   "id": "46rjGWQc_ts",
+   "title": "google password manager not showing password | password manager password show nahi kar raha kya kare",
+   "channel": "Tech With Expert Asif",
+   "duration_sec": 321,
+   "made_for_kids": false
+  },
+  {
+   "id": "Dpzk0bQwMDY",
+   "title": "What is Password Manager? Good or Bad? Account Hacked??",
+   "channel": "Technical Guruji",
+   "duration_sec": 490,
+   "made_for_kids": false
+  }
+ ]
+}

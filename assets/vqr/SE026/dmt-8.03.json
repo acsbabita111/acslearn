@@ -1,0 +1,78 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-8.03",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "NoRtqM_IKHI",
+   "title": "AI se Leave Application Email Kaise Likhe - Boss Test (Hindi)",
+   "channel": "AI Made Easy",
+   "duration_sec": 345,
+   "made_for_kids": false
+  },
+  {
+   "id": "GTbbbOVhJW0",
+   "title": "AI Se Professional Email Kaise Likhe 2026 | ChatGPT Se Email Kaise Banaye",
+   "channel": "Tech Team ",
+   "duration_sec": 382,
+   "made_for_kids": false
+  },
+  {
+   "id": "XG8hZVMOIMY",
+   "title": "Email Kaise Bhejte Hai Janiye Aur Kaise Likhe AI Se | AI Se Professional Email Likhna Sikhe",
+   "channel": "Tech Droid Hindi",
+   "duration_sec": 537,
+   "made_for_kids": false
+  },
+  {
+   "id": "QlHinLwZnHE",
+   "title": "Ai Se Mail Kaise Likhe | Ai Se Email Kaise Likhe",
+   "channel": "Smart Techy Gyan ",
+   "duration_sec": 350,
+   "made_for_kids": false
+  },
+  {
+   "id": "CuyBN2V1CX0",
+   "title": "ChatGPT से Professional Email कैसे लिखें? | Job, College & Client Emails (FREE) |",
+   "channel": "Navbharat Times नवभारत टाइम्स",
+   "duration_sec": 301,
+   "made_for_kids": false
+  },
+  {
+   "id": "d8X1c63_zDs",
+   "title": "ChatGPT se mail Likhna Seekhen | Write Email to boss using ChatGPT @tradingtacticsbyVRS",
+   "channel": "TRADING TACTICS",
+   "duration_sec": 361,
+   "made_for_kids": false
+  },
+  {
+   "id": "XWpThexGx9w",
+   "title": "How to write formal emails using ChatGPT & AI tools | Hindi | Ritika AI",
+   "channel": "Learn AI with Ritika",
+   "duration_sec": 258,
+   "made_for_kids": false
+  },
+  {
+   "id": "WPyVbo32aqM",
+   "title": "AI के मदद से Professional Email लिखे | How to write Professional Email with Help of AI @therams1",
+   "channel": "The Ram's",
+   "duration_sec": 482,
+   "made_for_kids": false
+  },
+  {
+   "id": "En_s_idcjxI",
+   "title": "How to generate Professional Emails in Outlook Using AI | Super Easy  #AIinOutlook#EmailAutomation",
+   "channel": "RJ Sharma | Automation & AI",
+   "duration_sec": 477,
+   "made_for_kids": false
+  }
+ ]
+}

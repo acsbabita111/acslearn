@@ -1,0 +1,85 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-8.02",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "3eK_LMouYW8",
+   "title": "chatgpt se prompt kaise likhen | chatgpt se prompt kaise banaye | chatgpt prompts ",
+   "channel": "sonu tech official",
+   "duration_sec": 216,
+   "made_for_kids": false
+  },
+  {
+   "id": "L4y5n7NAxVM",
+   "title": "ChatGPT से Prompt लिखना सीखें और AI Video बनाएं",
+   "channel": "Rahul Technical",
+   "duration_sec": 299,
+   "made_for_kids": false
+  },
+  {
+   "id": "_MV0syVsptw",
+   "title": "ChatGPT फेल ❌ अब Prompt लिखना बंद करो! बनाओ अपना खुद का Gemini Gem 🚀",
+   "channel": "mybigguide",
+   "duration_sec": 464,
+   "made_for_kids": false
+  },
+  {
+   "id": "rRTCva-NiFo",
+   "title": "ChatGPT se Prompt Kaise Likhen | ChatGPT Prompt Engineering Full Course | Ai Prompt Kaise Likhe ",
+   "channel": "Technical Chhora",
+   "duration_sec": 471,
+   "made_for_kids": false
+  },
+  {
+   "id": "0otx6bKzYM4",
+   "title": "The Perfect ChatGPT Prompt Formula | ChatGPT Prompts Guide in Hindi | Ritika AI",
+   "channel": "Learn AI with Ritika",
+   "duration_sec": 455,
+   "made_for_kids": false
+  },
+  {
+   "id": "OCcDccb4bws",
+   "title": "Ai Video Prompt Kaise Banaye | Ai Video Prompt Generator | Ai Video ke Liye Prompt Kaise Banaye",
+   "channel": "Technical Chhora",
+   "duration_sec": 465,
+   "made_for_kids": false
+  },
+  {
+   "id": "jaxUUQ48rAI",
+   "title": "Prompt Kaise Likhate Hain | image Prompt Kaise Banaye | Gemini Ka Prompt Kaha Se Milega",
+   "channel": "MR SETH INDIAN",
+   "duration_sec": 282,
+   "made_for_kids": false
+  },
+  {
+   "id": "urYswAD9fV0",
+   "title": "AI Prompt Writing for Graphic Designers | Learn to Write Perfect Prompts",
+   "channel": "Designshala",
+   "duration_sec": 551,
+   "made_for_kids": false
+  },
+  {
+   "id": "UlGbNf_Hjeg",
+   "title": "How to Write Perfect ChatGPT Prompts (4 Steps formula)",
+   "channel": "Nishtek AI",
+   "duration_sec": 560,
+   "made_for_kids": false
+  },
+  {
+   "id": "VmYhrwbnJiQ",
+   "title": "flow ai ke liye prompt kaise banaye | ai video ke liye prompt kaise banaye | prompt kaha milega ",
+   "channel": "sonu tech official",
+   "duration_sec": 202,
+   "made_for_kids": false
+  }
+ ]
+}

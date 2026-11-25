@@ -1,0 +1,36 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.16",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "GmYyEXrx4ec",
+   "title": "Mobile Me Ms Word File Not Open | Mobile Me Ms Word File Kaise Open Kare ?",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 214,
+   "made_for_kids": false
+  },
+  {
+   "id": "ppsaSD_FWBw",
+   "title": "Phone me MS Word file open kaise kare | how to open docx file in android phone",
+   "channel": "Aman Tech Fix",
+   "duration_sec": 244,
+   "made_for_kids": false
+  },
+  {
+   "id": "Tcwe2jalOi0",
+   "title": "ms word unsaved file recovery | ms word 2007 unsaved file recovery |  recover unsaved word document",
+   "channel": "GULAB GURU",
+   "duration_sec": 240,
+   "made_for_kids": false
+  }
+ ]
+}

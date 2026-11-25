@@ -1,0 +1,78 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-7.12",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "kZUqdR3wxL0",
+   "title": "RRB Group D 2024 DV से पहले OIRMS Portal पर Documents कैसे Upload करें? | Step by Step #rrbgroupd",
+   "channel": "Railway Pointsman Ankush",
+   "duration_sec": 459,
+   "made_for_kids": false
+  },
+  {
+   "id": "MBVeEDcBCOk",
+   "title": "Digilocker Me Documents Kaise Upload Kare 2026 | How To Upload Documents In Digilocker | Digilocker",
+   "channel": "CHAND YTR",
+   "duration_sec": 301,
+   "made_for_kids": false
+  },
+  {
+   "id": "OxWH3ks2Gpk",
+   "title": "Railway DV OIRMS Portal Document Upload कैसे करें? गलती होने पर क्या DV से बाहर होंगे? पूरा अनुभव 👍",
+   "channel": "Exam express ",
+   "duration_sec": 191,
+   "made_for_kids": false
+  },
+  {
+   "id": "kRO5yzBf4f8",
+   "title": "How To Upload Documents In OIRMS Portal 📄 OIRMS पर Documents कब Upload करने चाहिए? ",
+   "channel": "Adarsh study point",
+   "duration_sec": 221,
+   "made_for_kids": false
+  },
+  {
+   "id": "Jhw4N2sAK_E",
+   "title": "SIR 2026🔥| Notice के Document घर बैठे Online Upload कैसे करें? | How to Submitted Documents Online?",
+   "channel": "Dayatech Hindi",
+   "duration_sec": 213,
+   "made_for_kids": false
+  },
+  {
+   "id": "yLsmx7yEXXE",
+   "title": "SSO ID OTR Educational Document Add Kaise Kare 2026 | OTR Educational Details Upload Process",
+   "channel": "Exam Hub",
+   "duration_sec": 419,
+   "made_for_kids": false
+  },
+  {
+   "id": "1DKlL0BUiq4",
+   "title": "बिहार भूमि परिमार्जन प्लस Document Upload करें | Help In Daftar Bihar #bihar #bhumi #parimarjan",
+   "channel": "Help In Daftar (Bihar)",
+   "duration_sec": 229,
+   "made_for_kids": false
+  },
+  {
+   "id": "NtKl9qWf9UU",
+   "title": "Vehicle Documents Upload Online : Reupload Vehicle Docs online : Add/Modify Vahan docs online",
+   "channel": "Technical Bhati",
+   "duration_sec": 334,
+   "made_for_kids": false
+  },
+  {
+   "id": "nF8SQW2rtZk",
+   "title": "Mobile se Internet Par Documents, PDF, Videos, Mp3, Photos Kaise Dale? File Upload Kaise Kare?",
+   "channel": "My Hindi Tricks",
+   "duration_sec": 353,
+   "made_for_kids": false
+  }
+ ]
+}

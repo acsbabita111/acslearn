@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.15",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "8TXlzM0xF_o",
+   "title": "MIS Report Kya Hoti Hai? | Part 1 🔴 | Beginner to Advanced Series || Excel MIS Report #excel",
+   "channel": "Office skill Hub",
+   "duration_sec": 262,
+   "made_for_kids": false
+  },
+  {
+   "id": "pi9CoetXjOE",
+   "title": "🔥 Excel MIS Report Kya hai Full Details (in HINDI) | What is MIS Report in Excel- Full Explanation",
+   "channel": "BUSINESS EXCEL",
+   "duration_sec": 403,
+   "made_for_kids": false
+  },
+  {
+   "id": "xkBqgFaM2ug",
+   "title": "MIS Report Kya Hai? MIS Report Kaise Banate Hai? Types of MIS Report",
+   "channel": "Let's Go Digital",
+   "duration_sec": 514,
+   "made_for_kids": false
+  },
+  {
+   "id": "Yq3d1JHn-Mc",
+   "title": "Excel MIS Report में Gantt Chart का ज्ञान लेलो - Excel MIS Tutorial Hindi",
+   "channel": "Excel Tutorial by SkillCourse",
+   "duration_sec": 511,
+   "made_for_kids": false
+  },
+  {
+   "id": "HTxcJYx94Nk",
+   "title": "Mastering MIS Reports in Accounting | The 10 Most Important MIS Reports for Accountants.",
+   "channel": "IBA Training",
+   "duration_sec": 260,
+   "made_for_kids": false
+  },
+  {
+   "id": "3rNyCG6UxaI",
+   "title": "MIS Executive Kya Hota Hai",
+   "channel": "Seekho For Job",
+   "duration_sec": 266,
+   "made_for_kids": false
+  },
+  {
+   "id": "ZBkG6gPzECE",
+   "title": "ई-ऑफिस में ई-फाइल MIS रिपोर्ट क्या है? | Complete Guide to e-File MIS Reports in e-Office How To USE",
+   "channel": "Vedica EduPoint",
+   "duration_sec": 453,
+   "made_for_kids": false
+  }
+ ]
+}

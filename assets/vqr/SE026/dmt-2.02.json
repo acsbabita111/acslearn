@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.02",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "-NmNsqY9mBM",
+   "title": "Cut Copy Paste in MS Word | Select Text or Paragraph in MS Word | MS Word Full Course in Hindi-3",
+   "channel": "Gyanyagya",
+   "duration_sec": 262,
+   "made_for_kids": false
+  },
+  {
+   "id": "MzUqRPyPiAk",
+   "title": "Ms Word Mobile me Copy Paste Kaise Kare | Ms Word Copy Past Cut In Mobile",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 182,
+   "made_for_kids": false
+  },
+  {
+   "id": "INIXci1X6VQ",
+   "title": "Copy Paste in MS Word | Select Text or Paragraph in MS Word | MS Word Full Course in Hindi #howto",
+   "channel": "Dynamic Computer World",
+   "duration_sec": 225,
+   "made_for_kids": false
+  },
+  {
+   "id": "HKKAPvC8ndw",
+   "title": "How to fix Ctrl+C Not Working in Microsoft Word (MS Word) | MS Office Copy-Paste - Hindi",
+   "channel": "Bharatiya",
+   "duration_sec": 207,
+   "made_for_kids": false
+  },
+  {
+   "id": "8fDNjGUbzGY",
+   "title": "Cut, Copy, Paste in Ms word",
+   "channel": "EDUCATION TRAINER",
+   "duration_sec": 305,
+   "made_for_kids": false
+  },
+  {
+   "id": "V5VD4gyKRoA",
+   "title": "Advanced Paste Options In MS Word | MS Word full course in Hindi | MS Word Complete Video In Hindi",
+   "channel": "DevelopersGuides",
+   "duration_sec": 182,
+   "made_for_kids": false
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-6.03",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "FEIIAygOGi4",
+   "title": "8 character strong password Kaise banaye | strong password Kaise banate hain",
+   "channel": "Tonger Technical",
+   "duration_sec": 192,
+   "made_for_kids": false
+  },
+  {
+   "id": "SZgVLNS-hv0",
+   "title": "Strong password kaise banaye । how to create strong password",
+   "channel": "Manu Zone",
+   "duration_sec": 308,
+   "made_for_kids": false
+  },
+  {
+   "id": "B2IZqqIitVo",
+   "title": "Strong Password Kaise Banaye | How To Create Strong Password | Create A Strong Password",
+   "channel": "Hindi Tech And Tips",
+   "duration_sec": 207,
+   "made_for_kids": false
+  },
+  {
+   "id": "S-86tS6ikxY",
+   "title": "How to Create Strong Password in Hindi | Net Banking Secure Password Kaise Banaye | Majboot Password",
+   "channel": "Humsafar Tech",
+   "duration_sec": 559,
+   "made_for_kids": false
+  },
+  {
+   "id": "kiLmcxM5sXg",
+   "title": "Create a Strong Password Kaise Banaye | How to Create a Strong Password With Examples",
+   "channel": "Manindra Tech Videos",
+   "duration_sec": 369,
+   "made_for_kids": false
+  },
+  {
+   "id": "OHIh70Z_dOw",
+   "title": "✅ 2026 में मोबाइल से  पीएफ का पासवर्ड कैसे बनाये ✅ How to make UAN / PF Password",
+   "channel": "Online PF Consultant",
+   "duration_sec": 373,
+   "made_for_kids": false
+  }
+ ]
+}

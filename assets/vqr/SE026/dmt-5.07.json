@@ -1,0 +1,50 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.07",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "-04YIq5UlK8",
+   "title": "purana gmail account kaise khole | How to login old gmail account | Purana email id kaise wapas laye",
+   "channel": "Manish4u",
+   "duration_sec": 313,
+   "made_for_kids": false
+  },
+  {
+   "id": "gpbVjbz7HBY",
+   "title": "purani Email ID kaise khole | Gmail ka purana account wapas kaise Laye | Gmail Account Recovery",
+   "channel": "Manish4u",
+   "duration_sec": 270,
+   "made_for_kids": false
+  },
+  {
+   "id": "46ZDuKwUGQY",
+   "title": "Gmail ka purana account kaise khole | gmail id recover kaise kare",
+   "channel": "Info Tube",
+   "duration_sec": 249,
+   "made_for_kids": false
+  },
+  {
+   "id": "ESqrVv-lfAc",
+   "title": "Purana Google account wapas kaise laye,Purana google account kaise khole,How to open old google id",
+   "channel": "Hindi Android Tips",
+   "duration_sec": 370,
+   "made_for_kids": false
+  },
+  {
+   "id": "0zGX_aUdv9c",
+   "title": "OMG  | No one knows about this Gmail Trick  | how to find old emails in gmail",
+   "channel": "Knowledge Bin College",
+   "duration_sec": 242,
+   "made_for_kids": false
+  }
+ ]
+}

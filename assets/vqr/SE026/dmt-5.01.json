@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.01",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "ks4q3bMt5vs",
+   "title": "COMPUTER ME FOLDER KAISE BANAYE ||New folder banana sikhe ||",
+   "channel": "PARAM COMPUTER",
+   "duration_sec": 228,
+   "made_for_kids": false
+  },
+  {
+   "id": "RXb1mPuFkms",
+   "title": "Computer में Folder कैसे बनाएं? | How to Create Folder in PC/Laptop | Beginners Tutorial | CK",
+   "channel": "Computer with Kritika",
+   "duration_sec": 310,
+   "made_for_kids": false
+  },
+  {
+   "id": "iXbIPyH1Bjs",
+   "title": "Computer Me Folder Kaise Banaye | Computer Ke Folder Me File Kaise Banaye",
+   "channel": "Concept Technology",
+   "duration_sec": 411,
+   "made_for_kids": false
+  },
+  {
+   "id": "RK0Bir8R9qo",
+   "title": "फोल्डर बनाना सीखें || How to create a folder (हिंदी) || computer me folder kaise banaye in hindi",
+   "channel": "TechnoMind Shivam",
+   "duration_sec": 301,
+   "made_for_kids": false
+  },
+  {
+   "id": "Qq68KbmcFdk",
+   "title": "computer me folder create kaise kare | new folder kaise banaye | कंप्यूटर मे फोल्डर बनाना सीखे |",
+   "channel": "JIYA COMPUTER BHILAI",
+   "duration_sec": 434,
+   "made_for_kids": false
+  },
+  {
+   "id": "REe41W5eOqU",
+   "title": "How to create new file and folder | step by step Guide | Diganta Computer |",
+   "channel": "Diganta Computer",
+   "duration_sec": 217,
+   "made_for_kids": false
+  }
+ ]
+}

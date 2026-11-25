@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.01",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "u7ChENlxEM0",
+   "title": "MS Word में New Document कैसे बनाएं? | How to Create New Document in MS Word | Computer Course",
+   "channel": "MTN TECH WORLD",
+   "duration_sec": 206,
+   "made_for_kids": false
+  },
+  {
+   "id": "KHJKNWBzGEM",
+   "title": "MS Word में नया Document कैसे बनाएं और Save कैसे करें? | MS Word Tutorial in Hindi",
+   "channel": "Learn Tech With Vikas",
+   "duration_sec": 189,
+   "made_for_kids": false
+  },
+  {
+   "id": "Jzj7RaoGDew",
+   "title": "Create New File, Open File, Save File and Save As in MS Word| MS Word Complete Course in Hindi-2",
+   "channel": "Gyanyagya",
+   "duration_sec": 418,
+   "made_for_kids": false
+  },
+  {
+   "id": "-02dhFvmkDQ",
+   "title": "Microsoft Word Me Document Kaise Banaye | Ms Word Me Document Kaise Banaye",
+   "channel": "Vikash Ji Techno",
+   "duration_sec": 209,
+   "made_for_kids": false
+  },
+  {
+   "id": "nDNyp954_Aw",
+   "title": "MS Word Document Ko Kaise Format Karte Hai | Document Formatting In MS Word",
+   "channel": "COMPUTER LAB",
+   "duration_sec": 503,
+   "made_for_kids": false
+  },
+  {
+   "id": "1wmiKhpuutU",
+   "title": "How to Create a Project Front Page in Microsoft Word | Cover Page Design in Microsoft Word",
+   "channel": "StudySpan",
+   "duration_sec": 447,
+   "made_for_kids": false
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-7.11",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "wgLdk0UzzVc",
+   "title": "Online & Distance course, degree diploma by Government organization #ajaycreation #certificate",
+   "channel": "Ajay Creation",
+   "duration_sec": 289,
+   "made_for_kids": false
+  },
+  {
+   "id": "12OcBhbhd88",
+   "title": "Online Course Kaise Kharide || Online Course Kaise Purchase Karen || Online Course 2023 ",
+   "channel": "Study & tech",
+   "duration_sec": 307,
+   "made_for_kids": false
+  },
+  {
+   "id": "bcnF40lTp4c",
+   "title": "घर बैठे Online Classes शुरू करें | How to start Online Tuition from home| Teaching from Home| #viral",
+   "channel": "Rise With Abhilasha ",
+   "duration_sec": 535,
+   "made_for_kids": false
+  },
+  {
+   "id": "8jFnP6VKRpc",
+   "title": "How to purchase Online course in hindi | online course kaise kharida jata hai full process 2024",
+   "channel": "Study & tech",
+   "duration_sec": 432,
+   "made_for_kids": false
+  },
+  {
+   "id": "zUMsPXBAfHo",
+   "title": "ऑनलाइन पढाई कैसे करते है | Govt Job Exam Online Preparation | Study Smart | Motivation By Aditya Sir",
+   "channel": "Aditya Patel WiNNERS",
+   "duration_sec": 201,
+   "made_for_kids": false
+  },
+  {
+   "id": "ignPdEeiROU",
+   "title": "ONLINE PAYMENT KAR KE COURSE KAISE BUY KARE || ऑनलाइन कोर्स कैसे खरीदें  | HOW TO BUY ONLINE COURSE",
+   "channel": "WINNER STUDENTS",
+   "duration_sec": 273,
+   "made_for_kids": false
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-6.08",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "r54ezKqR9c0",
+   "title": "Access Control System kya hai | Access control System Kaha Use hota hai #accesscontrol #security",
+   "channel": "Security Adda",
+   "duration_sec": 346,
+   "made_for_kids": false
+  },
+  {
+   "id": "i-W4icLRep8",
+   "title": "Authentication and Access Control in Cyber Security 🔐 Explained in Hindi  Cyber Security Basics",
+   "channel": "Notes Tube ",
+   "duration_sec": 293,
+   "made_for_kids": false
+  },
+  {
+   "id": "Ybfx35VdHeE",
+   "title": "Access control क्या होता है? Access control ke types kitane है? @sgk111channel6",
+   "channel": "SGK111Channel",
+   "duration_sec": 195,
+   "made_for_kids": false
+  },
+  {
+   "id": "GeRj58RGPKc",
+   "title": "Gate Access Control कैसे करें? | Security Guard Training in Hindi",
+   "channel": "Expert Advice (Security & Facilities Services)",
+   "duration_sec": 396,
+   "made_for_kids": false
+  },
+  {
+   "id": "6BkXRG78InU",
+   "title": "Access Control kya hai |Access Control | Gautam LifeGyan |",
+   "channel": "Explain Kar Do",
+   "duration_sec": 324,
+   "made_for_kids": false
+  },
+  {
+   "id": "oSOE13yGhW0",
+   "title": "ACCESS CONTROL SYSTEM | ACCESS CONTROL SYSTEM KYA HAI | @GAUTAM LIFEGYAN",
+   "channel": "Explain Kar Do",
+   "duration_sec": 597,
+   "made_for_kids": false
+  },
+  {
+   "id": "Rrot_ExClBE",
+   "title": "What is access control and theirs types",
+   "channel": "SACHCHIDANAND TIWARI",
+   "duration_sec": 207,
+   "made_for_kids": false
+  }
+ ]
+}

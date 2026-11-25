@@ -1,0 +1,71 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-8.06",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "QA9r24vCycI",
+   "title": "Ethical Use of AI क्या है? | AI का जिम्मेदारी से उपयोग कैसे करें? | AI Ethics in Hindi",
+   "channel": "The Manch",
+   "duration_sec": 315,
+   "made_for_kids": false
+  },
+  {
+   "id": "Z0T_g0ttedc",
+   "title": "Equal AI App Kaise Use Kare? | Complete Tutorial in Hindi 🔥 | Best AI Call Assistant 2026",
+   "channel": "The Career Skool",
+   "duration_sec": 234,
+   "made_for_kids": false
+  },
+  {
+   "id": "n4kLN02zuCQ",
+   "title": "Meta AI Kaise Use Kare? | Meta AI Assistant & Glasses A To Z Full Tutorial",
+   "channel": "Suchit Technical",
+   "duration_sec": 326,
+   "made_for_kids": false
+  },
+  {
+   "id": "O8gZxXVIjpc",
+   "title": "Equal AI Caller ID Kya Hai? Equal AI Kaise Use Kare | Complete Guide 2027",
+   "channel": "Gov Guide",
+   "duration_sec": 580,
+   "made_for_kids": false
+  },
+  {
+   "id": "TW_lALboBrE",
+   "title": "Equal AI Caller ID Kya Hai? Equal AI Kaise Use Kare | Complete Guide 2026",
+   "channel": "Tech Bala Rakesh",
+   "duration_sec": 562,
+   "made_for_kids": false
+  },
+  {
+   "id": "l79pLH9fQLE",
+   "title": "equal ai kaise kam karta hai - how to use equal ai",
+   "channel": "P K C VLOGS",
+   "duration_sec": 508,
+   "made_for_kids": false
+  },
+  {
+   "id": "9yJGVFKOBTE",
+   "title": "Supernova App Kaise Use Kare | Supernova Ai Spoken English | Supernova ai app Review",
+   "channel": "Prajapati Tricks",
+   "duration_sec": 295,
+   "made_for_kids": false
+  },
+  {
+   "id": "wM8C00G4Os8",
+   "title": "Udio AI Kaise Use Kare in Hindi 2026 | AI Music Generator Full Tutorial | Free Me Song Kaise Banaye",
+   "channel": "AI GURUJI",
+   "duration_sec": 468,
+   "made_for_kids": false
+  }
+ ]
+}

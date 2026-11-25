@@ -1,0 +1,36 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-2.15",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "98Sh9qffvfU",
+   "title": "New Update😱 इस App से Unlimited Long Ai Video बनाओ?🔥 Long Ai Video Kaise Banaye FREE",
+   "channel": "Invisible Gyan",
+   "duration_sec": 318,
+   "made_for_kids": false
+  },
+  {
+   "id": "hUpwM7ECfPY",
+   "title": "AI से कहानी वीडियो कैसे बनाएं | Auto Draft AI Full Tutorial #kahani #viral #video ",
+   "channel": "Skill Tech Hindi\n\n",
+   "duration_sec": 482,
+   "made_for_kids": false
+  },
+  {
+   "id": "7GsvNjDljOQ",
+   "title": "How I Used Gemini AI to Draft, Review & Analyze an NDA Contract | Complete Legal Drafting Workflow",
+   "channel": "Akshay Darade ",
+   "duration_sec": 490,
+   "made_for_kids": false
+  }
+ ]
+}

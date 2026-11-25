@@ -1,0 +1,57 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.03",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "DJhIs2WDgEM",
+   "title": "Mobile Se Excel Sheet Me Row, Column , Cell,  Insert Kaise Kare?",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 234,
+   "made_for_kids": false
+  },
+  {
+   "id": "i-YovSsXfYE",
+   "title": "Insert Column & Row in Excel | Delete Rows & Columns in MS Excel | Insert Cells & Sheets in Excel-15",
+   "channel": "Gyanyagya",
+   "duration_sec": 476,
+   "made_for_kids": false
+  },
+  {
+   "id": "xqj-u1tDsus",
+   "title": "Excel  Row Column Width & Hight Size Adjust In Excel | Row Column Size Change Karne Ka Shi Tarika",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 200,
+   "made_for_kids": false
+  },
+  {
+   "id": "amw3eX6OxyU",
+   "title": "Ms Word Me Row Column Insert Kaise Kare Aur Word Me Row Column Insert Karane Ka Tarika Kya Hai ?",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 242,
+   "made_for_kids": false
+  },
+  {
+   "id": "CDdefM4LtLw",
+   "title": "MS EXCEL ME ROW & COLUMN KAISE INSERT KARTE HAI ?",
+   "channel": "WEB & AI WITH PRAMOD ",
+   "duration_sec": 208,
+   "made_for_kids": false
+  },
+  {
+   "id": "CS3c0m0vKN4",
+   "title": "Excel Me Table Kaise Banaye I Excel Me Table Kaise Banate Hain I Aman Raja Official I",
+   "channel": "Skill With Aman",
+   "duration_sec": 440,
+   "made_for_kids": false
+  }
+ ]
+}

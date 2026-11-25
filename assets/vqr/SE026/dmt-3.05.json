@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.05",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "vOJ8hug5_Ww",
+   "title": "Sort Numbers & Data Using Sort Filter Option in Excel | MS Excel : Home Tab: Sort & Filter Option-20",
+   "channel": "Gyanyagya",
+   "duration_sec": 566,
+   "made_for_kids": false
+  },
+  {
+   "id": "8aK7yh_AIRU",
+   "title": "Excel Tutorial For Beginners : Sort and Filter in Excel | Microsoft Excel",
+   "channel": "Excel with Rahul Chaudhary",
+   "duration_sec": 469,
+   "made_for_kids": false
+  },
+  {
+   "id": "NDWMwGOFRso",
+   "title": "Sort & Filter [EXCEL] || Express Large data in Small View || Excel Series in Hindi",
+   "channel": "Computer Gyan",
+   "duration_sec": 386,
+   "made_for_kids": false
+  },
+  {
+   "id": "6hJZIU3AC00",
+   "title": "How to Arrange data in Ascending or Descending order in Excel? [डेटा को sort कैसे कराते है?]",
+   "channel": "Kaushal Sharma",
+   "duration_sec": 383,
+   "made_for_kids": false
+  },
+  {
+   "id": "-bfWaNa0Gik",
+   "title": "Sort Data in Excel | Data Sorting in MS Excel | Excel Tutorial Part 15",
+   "channel": "My Computer Course",
+   "duration_sec": 304,
+   "made_for_kids": false
+  },
+  {
+   "id": "npNSMEECi5Q",
+   "title": "Excel Sort and Filter Block Video | एक्सेल में सॉर्ट और फ़िल्टर ऑप्शन का उपयोग कैसे करते हैं ?",
+   "channel": "Subject Go",
+   "duration_sec": 490,
+   "made_for_kids": false
+  },
+  {
+   "id": "HO5OCfmMw04",
+   "title": "Excel me shorting filter ka use kaise kare I Excel me short kese kare I what is excel shorting tool",
+   "channel": "Skill With Aman",
+   "duration_sec": 294,
+   "made_for_kids": false
+  }
+ ]
+}

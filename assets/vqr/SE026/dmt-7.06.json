@@ -1,0 +1,50 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-7.06",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "1wb8rb7OB-0",
+   "title": "UPTET 2026 Online Form Filling ।‌ UPTET 2027 FORM KAISE BHARE । UPTET फार्म कैसे भरें",
+   "channel": "AB TECH",
+   "duration_sec": 569,
+   "made_for_kids": false
+  },
+  {
+   "id": "efIplAhpWo4",
+   "title": "MP Callage Exam Form Kaise Bhare 2025.How to fill online exam form of all universities?",
+   "channel": "Raj Johar Cyber Cafe ",
+   "duration_sec": 206,
+   "made_for_kids": false
+  },
+  {
+   "id": "DTUaA4GFa2E",
+   "title": "ऐसे भरे फॉर्म 🚨| sbte ka examination form kaise bhare | sbte exam fee payment 2026 kaise kare | sbte",
+   "channel": "DiPLOMA CLASSES",
+   "duration_sec": 545,
+   "made_for_kids": false
+  },
+  {
+   "id": "XoEGv_YzA84",
+   "title": "AKTU Exam Form Kaise Bhare 2026 | AKTU| Resume Update, Carry Over & Regular Subjects कैसे भरें?",
+   "channel": "Hariom Gupta Official",
+   "duration_sec": 238,
+   "made_for_kids": false
+  },
+  {
+   "id": "qfY8L9duLI0",
+   "title": "CCSU Exam Form LIVE? 🔥 समर्थ पोर्टल पर फॉर्म कैसे भरें | किन Students के फॉर्म खुले?",
+   "channel": "University Gyaan (by Sanjeev Chauhan)",
+   "duration_sec": 335,
+   "made_for_kids": false
+  }
+ ]
+}

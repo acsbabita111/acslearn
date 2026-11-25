@@ -1,0 +1,64 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-5.02",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "xJ8TB1QLwdc",
+   "title": "डॉक्यूमेंट स्कैन कैसे करें | Mobile Se Document Scan Kaise kare | Document Scan Kaise Kare Phone Se",
+   "channel": "Humsafar Tech",
+   "duration_sec": 488,
+   "made_for_kids": false
+  },
+  {
+   "id": "WLEY-HztUa8",
+   "title": "How To Scan Document In Mobile | Mobile Se Document Scan Kaise Kare | Free PDF Scanner App (2026)",
+   "channel": "Fact Tech G",
+   "duration_sec": 194,
+   "made_for_kids": false
+  },
+  {
+   "id": "FwfyJTs4u84",
+   "title": "Mobile Se PDF Kaise Banaye? 📄 | मोबाइल को बनाओ Professional Scanner! | Photo to PDF",
+   "channel": "Bijay Tech Skills",
+   "duration_sec": 322,
+   "made_for_kids": false
+  },
+  {
+   "id": "mowqpk9WHWs",
+   "title": "Document ka dono side ek page par kaise scan karen | Aadhar card dono side scan kaise kare mobile se",
+   "channel": "Tech Strive",
+   "duration_sec": 197,
+   "made_for_kids": false
+  },
+  {
+   "id": "ljpt7HeTQ2o",
+   "title": "How to scan document from Mobile for online upload. अनलाइन अपलोड के लिए स्कैन करना सीखे",
+   "channel": "Birsa Academy",
+   "duration_sec": 486,
+   "made_for_kids": false
+  },
+  {
+   "id": "WGN8mFVGLCo",
+   "title": "Document Scan karke PDF kaise banaye | 2021 | Documents Scan kaise kare",
+   "channel": "online tech Support",
+   "duration_sec": 260,
+   "made_for_kids": false
+  },
+  {
+   "id": "yEensQQ8818",
+   "title": "mobile me document scan kaise kare | mobile par document kaise scan kare",
+   "channel": "Techno Akshay",
+   "duration_sec": 182,
+   "made_for_kids": false
+  }
+ ]
+}

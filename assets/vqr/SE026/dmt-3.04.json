@@ -1,0 +1,71 @@
+{
+ "course_id": "SE026",
+ "lesson_id": "dmt-3.04",
+ "language": "hi",
+ "checked_on": "2026-11-25",
+ "expires_on": "2026-12-25",
+ "show": 3,
+ "source": "YouTube",
+ "robot_version": "vqr-core v0.4.3-pilot",
+ "check_basis": "metadata_only",
+ "order_by": "ACS",
+ "disclosure_hi": "यह सूची और इसका क्रम ACS ने चुना है। यह YouTube का खोज-नतीजा नहीं है। ACS के रोबोट ने वीडियो देखा-सुना नहीं, सिर्फ़ YouTube की दी लिखित जानकारी जाँची। वीडियो YouTube से चलते हैं।",
+ "list": [
+  {
+   "id": "HP4X75_McVQ",
+   "title": "MS-EXCEL-56-PivotTable Option | Printing Tab | Print setup for PivotTable | Print title on each page",
+   "channel": "Mr Coding",
+   "duration_sec": 547,
+   "made_for_kids": false
+  },
+  {
+   "id": "F8PtfnSrJ_Q",
+   "title": "Excel में 4 Page के Print को 1 Page पर कैसे Set करे | Microsoft Excel Print Page Setup | Excel Video",
+   "channel": "Krishna Computer Education Center Aligarh",
+   "duration_sec": 325,
+   "made_for_kids": false
+  },
+  {
+   "id": "HcM3fSYI984",
+   "title": "Excel me Chhoti Sheet ko Full Page par Print kaise kare? | Fit Sheet on One Page in Excel",
+   "channel": "Expert Education",
+   "duration_sec": 288,
+   "made_for_kids": false
+  },
+  {
+   "id": "PdMrDwxN9Rk",
+   "title": "Excel me Page Setup kaise kare | Page Setup in Excel in Hindi",
+   "channel": "MS COMPUTER CLASSES",
+   "duration_sec": 289,
+   "made_for_kids": false
+  },
+  {
+   "id": "NIbBz6uLlsQ",
+   "title": "How to Print Large Data in Excel Perfectly !!! ~ Print Setup in MS Excel",
+   "channel": "Excel Learning By Ritesh",
+   "duration_sec": 287,
+   "made_for_kids": false
+  },
+  {
+   "id": "QdSRA5EWV0k",
+   "title": "Excel में बड़े Data को 1 Page पर Print कैसे करें? How to Print Large Data in Excel Perfectly!",
+   "channel": "Creative Learning by Ritesh",
+   "duration_sec": 363,
+   "made_for_kids": false
+  },
+  {
+   "id": "O9AELORFmAs",
+   "title": "How to Print a Large Excel Sheet on One Page | Print Page Setup in MS Excel | Print in Excel",
+   "channel": "StudySpan",
+   "duration_sec": 221,
+   "made_for_kids": false
+  },
+  {
+   "id": "f_HsiR8jNZc",
+   "title": "How to Print in Excel | Print Page Setup in Excel",
+   "channel": "StudySpan",
+   "duration_sec": 388,
+   "made_for_kids": false
+  }
+ ]
+}
