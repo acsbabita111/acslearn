@@ -1,21 +1,34 @@
 /* ============================================================
-   generator/lib_sector.js v1.0 (26-Nov-2026) : सेक्टर-नियम का एक ही घर (पढ़ना + जाँचना + दरवाज़ा)
+   generator/lib_sector.js v1.1 (26-Nov-2026) : सेक्टर-नियम का एक ही घर (पढ़ना + जाँचना + दरवाज़ा)
    नियम: generator/data/sector_muhar.js के ऊपर लिखा है (Founder, 26-Nov-2026)।
+   v1.1 में नया:
+     25वाँ सेक्टर «उपरोक्त में कोई नहीं» (कूट 25, ख़ाली कार्ड) और हर सूची के नीचे का कार्ड (कोड 0)।
+     कोई क़र्ज़-सूची नहीं: हर कोर्स और हर नेटवर्क-सेक्टर का सेक्टर लिखा है; जो «उपरोक्त में कोई नहीं» पर
+       रुका है उसका नाम मुहर की प्रतीक्षा-सूची में है (data से हूबहू मिलान)।
+     कार्ड की पहचान अटल (SN-02): खाते में serial के साथ पन्ना, नाम और सेक्टर तीनों दर्ज।
+     कार्ड का पन्ना सचमुच मौजूद (SN-01): फ़ाइल और sitemap, दोनों में।
+     कोर्स का कोड पक्का: generator/data/course_code_ledger.json (कोर्स → "सेक्टर-कार्ड")।
    कौन इसे चलाता है:
      generator/dev_sector_niyam_check.js  (जाँच-यंत्र; हर खेप में)
      generator/dev_seo_check.js           (जाँच-15; GitHub का द्वार भी इसे चलाता है)
-     generator/sector_darj.js             (नया कार्ड या कोर्स-कार्ड जोड़ने का एकमात्र औज़ार)
-     tools/acs-site-deploy.js v1.6        (zip का चढ़ाने वाला औज़ार: चढ़ाने से ठीक पहले `--door`)
+     generator/sector_darj.js             (कार्ड और कोड बदलने का एकमात्र औज़ार)
+     tools/acs-site-deploy.js             (zip का चढ़ाने वाला औज़ार: चढ़ाने से ठीक पहले `--door`)
    data के घर (एक चीज़ = एक जगह):
-     24 सेक्टर      assets/mg_names.js            (मुहर: generator/data/sector_muhar.js)
-     उद्यम-कार्ड     assets/udyam_data.js          (serial का खाता: generator/data/udyam_serial_ledger.json)
-     कोर्स          assets/courses_data.js        (हर कोर्स में: mg = सेक्टर, udyam = कार्ड का serial)
+     सेक्टर के नाम   assets/mg_names.js            (मुहर: generator/data/sector_muhar.js)
+     उद्यम-कार्ड     assets/udyam_data.js          (खाता: generator/data/udyam_serial_ledger.json)
+     कोर्स          assets/courses_data.js        (mg = सेक्टर, udyam = कार्ड का कोड; खाता: course_code_ledger.json)
      नेटवर्क-सेक्टर   generator/data/network/taxonomy.js  (हर सेक्टर में: mg, udyam)
    ============================================================ */
 "use strict";
 const fs = require("fs"), path = require("path");
 const DEF_ROOT = path.join(__dirname, "..");
 const GROUPS = ["SELF_EMP_COURSES", "PRIVATE_JOB_COURSES", "ACADEMIC_COURSES", "GOVT_SCHOLAR_COURSES", "GOVT_JOB_COURSES"];
+const F_LEDGER = "generator/data/udyam_serial_ledger.json";
+const F_CLEDGER = "generator/data/course_code_ledger.json";
+
+/* यंत्र में लिखे अटल मान: मुहर और mg_names.js इन्हीं से मिलने चाहिए */
+const NONE_MG = 25, NONE_CARD = 0, NONE_NAME = "उपरोक्त में कोई नहीं";
+const HARD_LIMIT = { courses: 3, network: 2 };
 
 function load(ROOT) {
   ROOT = ROOT || DEF_ROOT;
@@ -27,101 +40,138 @@ function load(ROOT) {
   const G = new Function("window", cs + ";return {" + GROUPS.map((g) => g + ":" + g).join(",") + "};")({});
   const COURSES = []; for (const g of GROUPS) for (const c of G[g]) COURSES.push(Object.assign({ _group: g }, c));
   const seal = (function () { const p = path.join(ROOT, "generator/data/sector_muhar.js"); delete require.cache[require.resolve(p)]; return require(p); })();
-  const lp = path.join(ROOT, "generator/data/udyam_serial_ledger.json");
-  const LEDGER = fs.existsSync(lp) ? JSON.parse(fs.readFileSync(lp, "utf8")) : null;
+  const js = (f) => { const p = path.join(ROOT, f); return fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, "utf8")) : null; };
   const tp = path.join(ROOT, "generator/data/network/taxonomy.js"); delete require.cache[require.resolve(tp)];
   const NET = require(tp).SECTORS;
-  return { ROOT, MG, CARDS, COURSES, seal, LEDGER, NET };
+  return { ROOT, MG, MG_NONE: w.MG_NONE || null, UDYAM_NONE: w.UDYAM_NONE || null, CARDS, COURSES, seal, LEDGER: js(F_LEDGER), CLEDGER: js(F_CLEDGER), NET };
 }
 
-const okMg = (v) => Number.isInteger(v) && v >= 1 && v <= 24;
+const okMg = (v) => Number.isInteger(v) && v >= 1 && v <= 24;            /* 24 असली सेक्टर */
+const okMg25 = (v) => Number.isInteger(v) && v >= 1 && v <= NONE_MG;     /* 24 + «उपरोक्त में कोई नहीं» */
 const normUrl = (u) => String(u || "").replace(/index\.html$/, "");
+/* नाम की तुलना: कोष्ठक की शक्ल ([ ] या ( )) और ख़ाली जगह का फ़र्क़ नाम बदलना नहीं माना जाता */
+const normName = (s) => String(s || "").replace(/[\[\(]/g, "(").replace(/[\]\)]/g, ")").replace(/\s+/g, " ").trim();
+const codeOf = (mg, udyam) => mg + "-" + udyam;
+const sectorName = (D, mg) => (mg === NONE_MG ? NONE_NAME : (D.MG[mg] ? D.MG[mg].n : "?"));
 
-/* पूरी जाँच। लौटाता है: { checks: [{name, ok, extra}], stats } */
+/* पूरी जाँच। लौटाता है: { checks: [{name, ok, extra}], stats, fail } */
 function audit(ROOT) {
   const D = load(ROOT), S = D.seal, out = [];
   const ck = (name, ok, extra) => out.push({ name, ok: !!ok, extra: ok ? "" : String(extra || "").slice(0, 700) });
   const byN = {}; D.CARDS.forEach((c) => { byN[c.n] = c; });
+  const P = S.PRATIKSHA || { courses: [], network: [] }, LIM = S.LIMIT || {};
 
-  /* ---- क) 24 सेक्टर अटल ---- */
+  /* ---- क) 24 सेक्टर अटल + 25वाँ «उपरोक्त में कोई नहीं» ---- */
   const mgKeys = Object.keys(D.MG).map(Number).sort((a, b) => a - b);
   ck("24 सेक्टर: assets/mg_names.js में कूट ठीक 1 से 24 (न कम, न ज़्यादा)", mgKeys.length === 24 && mgKeys.every((k, i) => k === i + 1), "मिले: " + mgKeys.join(","));
-  ck("24 सेक्टर: मुहर की सूची भी ठीक 24, कूट 1 से 24", S.SECTORS.length === 24 && S.SECTORS.every((r, i) => r[0] === i + 1));
-  const diffNames = S.SECTORS.filter((r) => !D.MG[r[0]] || D.MG[r[0]].n !== r[1]).map((r) => r[0] + ":" + r[1] + "≠" + (D.MG[r[0]] ? D.MG[r[0]].n : "नहीं"));
+  ck("24 सेक्टर: मुहर की सूची भी ठीक 24, कूट 1 से 24", Array.isArray(S.SECTORS) && S.SECTORS.length === 24 && S.SECTORS.every((r, i) => r[0] === i + 1));
+  const diffNames = (S.SECTORS || []).filter((r) => !D.MG[r[0]] || D.MG[r[0]].n !== r[1]).map((r) => r[0] + ":" + r[1] + "≠" + (D.MG[r[0]] ? D.MG[r[0]].n : "नहीं"));
   ck("24 सेक्टर: हर नाम मुहर से हूबहू (नाम बदलना = Founder का आदेश)", diffNames.length === 0, diffNames.join(" · "));
+  const n25 = D.MG_NONE, n0 = D.UDYAM_NONE, s25 = S.NONE_SECTOR || [], s0 = S.NONE_CARD || [];
+  ck("25वाँ सेक्टर एक ही: कूट 25, नाम «" + NONE_NAME + "» (mg_names.js और मुहर दोनों में वही)",
+    !!n25 && n25.id === NONE_MG && n25.n === NONE_NAME && s25[0] === NONE_MG && s25[1] === NONE_NAME,
+    "mg_names: " + JSON.stringify(n25) + " · मुहर: " + JSON.stringify(s25));
+  ck("हर सूची के नीचे का कार्ड «" + NONE_NAME + "»: कोड 0 (mg_names.js और मुहर दोनों में वही)",
+    !!n0 && n0.n === NONE_CARD && n0.name === NONE_NAME && s0[0] === NONE_CARD && s0[1] === NONE_NAME,
+    "mg_names: " + JSON.stringify(n0) + " · मुहर: " + JSON.stringify(s0));
+  const enOk = (v) => typeof v === "string" && /^[A-Za-z][A-Za-z &\-]{1,40}$/.test(v);
+  const noEn = mgKeys.filter((k) => !enOk(D.MG[k].en)).map(String).concat(n25 && enOk(n25.en) ? [] : ["25"], n0 && enOk(n0.en) ? [] : ["0"]);
+  ck("हर सेक्टर और «" + NONE_NAME + "» का English नाम भी लिखा है (पुल-भाषा: आगे की हर भाषा इसी से बनेगी)", noEn.length === 0, "English नाम नहीं: " + noEn.join(", "));
 
-  /* ---- ख) उद्यम-कार्ड और serial ---- */
+  /* ---- ख) उद्यम-कार्ड, serial और पहचान ---- */
   const ns = D.CARDS.map((c) => c.n);
   ck("उद्यम-कार्ड: serial 1 से " + ns.length + " तक लगातार, कोई दोहराव या छूट नहीं", ns.every((n, i) => n === i + 1), "पहली गड़बड़ी: " + ns.find((n, i) => n !== i + 1));
   const badCard = D.CARDS.filter((c) => !okMg(c.mg) || !c.name || !/^\/udyam\/[a-z0-9\-]+\.html$/.test(c.intro || ""));
-  ck("उद्यम-कार्ड: हर कार्ड 24 में से एक सेक्टर में, नाम और अपने पन्ने के साथ", badCard.length === 0, badCard.slice(0, 5).map((c) => "n" + c.n).join(", "));
+  ck("उद्यम-कार्ड: हर कार्ड 24 में से एक सेक्टर में, नाम और अपने पन्ने के साथ (25वें सेक्टर में कोई कार्ड नहीं: वह ख़ाली कार्ड है)", badCard.length === 0, badCard.slice(0, 5).map((c) => "n" + c.n + " mg" + c.mg).join(", "));
   const perMg = {}; D.CARDS.forEach((c) => { perMg[c.mg] = (perMg[c.mg] || 0) + 1; });
-  ck("उद्यम-कार्ड: 24 में से हर सेक्टर में कम से कम एक कार्ड", S.SECTORS.every((r) => perMg[r[0]] > 0));
-  if (!D.LEDGER) ck("serial का खाता मौजूद (generator/data/udyam_serial_ledger.json)", false, "फ़ाइल नहीं");
-  else {
-    const lk = Object.keys(D.LEDGER).map(Number).sort((a, b) => a - b);
-    const moved = lk.filter((n) => !byN[n] || byN[n].intro !== D.LEDGER[n]);
-    ck("serial अटल: खाते का हर पुराना serial आज भी उसी उद्यम-पन्ने पर (कोई कार्ड हटा या नंबर बदला नहीं)", moved.length === 0, moved.slice(0, 6).map((n) => "n" + n + " खाता " + D.LEDGER[n] + " · आज " + (byN[n] ? byN[n].intro : "नहीं")).join(" | "));
-    const notIn = D.CARDS.filter((c) => D.LEDGER[c.n] === undefined);
+  ck("उद्यम-कार्ड: 24 में से हर सेक्टर में कम से कम एक कार्ड", (S.SECTORS || []).every((r) => perMg[r[0]] > 0));
+  const LG = D.LEDGER, lgOk = !!LG && Object.keys(LG).length > 0 && Object.keys(LG).every((k) => LG[k] && typeof LG[k] === "object" && typeof LG[k].u === "string" && typeof LG[k].n === "string" && Number.isInteger(LG[k].mg));
+  ck("कार्ड का खाता मौजूद और पूरा (" + F_LEDGER + "): हर serial के साथ पन्ना, नाम और सेक्टर", lgOk, LG ? "खाता पुराने रूप में है या अधूरा है" : "फ़ाइल नहीं");
+  if (lgOk) {
+    const lk = Object.keys(LG).map(Number).sort((a, b) => a - b);
+    const moved = lk.filter((n) => !byN[n] || byN[n].intro !== LG[n].u);
+    ck("serial अटल: खाते का हर पुराना serial आज भी उसी उद्यम-पन्ने पर (कोई कार्ड हटा या नंबर बदला नहीं)", moved.length === 0, moved.slice(0, 6).map((n) => "n" + n + " खाता " + LG[n].u + " · आज " + (byN[n] ? byN[n].intro : "नहीं")).join(" | "));
+    const idn = lk.filter((n) => byN[n] && (normName(byN[n].name) !== normName(LG[n].n) || byN[n].mg !== LG[n].mg));
+    ck("कार्ड की पहचान अटल: हर serial का नाम और सेक्टर वही जो खाते में (नाम बदलना सिर्फ़ औज़ार से: sector_darj.js naam)", idn.length === 0,
+      idn.slice(0, 5).map((n) => "n" + n + " खाता «" + LG[n].n + "» सेक्टर " + LG[n].mg + " · आज «" + byN[n].name + "» सेक्टर " + byN[n].mg).join(" | "));
+    const notIn = D.CARDS.filter((c) => LG[c.n] === undefined);
     ck("हर कार्ड खाते में दर्ज (नया कार्ड सिर्फ़ sector_darj.js से, जो खाता भी लिखता है)", notIn.length === 0 && lk.length === D.CARDS.length, "खाते से बाहर: " + notIn.slice(0, 6).map((c) => "n" + c.n).join(", ") + " · खाता " + lk.length + ", कार्ड " + D.CARDS.length);
   }
+  const smp = path.join(D.ROOT, "sitemap-udyam.xml"), sm = fs.existsSync(smp) ? fs.readFileSync(smp, "utf8") : "";
+  const noPage = [], noMap = [];
+  for (const c of D.CARDS) { if (!/^\/udyam\/[a-z0-9\-]+\.html$/.test(c.intro || "")) continue;
+    const fp = path.join(D.ROOT, c.intro); let ok = false; try { ok = fs.statSync(fp).size >= 500; } catch (e) { ok = false; }
+    if (!ok) noPage.push("n" + c.n + " " + c.intro); else if (sm.indexOf("https://acslearn.com" + c.intro + "<") === -1) noMap.push("n" + c.n + " " + c.intro); }
+  ck("कार्ड का पन्ना सचमुच बना है: हर कार्ड की फ़ाइल मौजूद, और sitemap-udyam.xml में उसका पता", noPage.length === 0 && noMap.length === 0,
+    (noPage.length ? "पन्ना नहीं: " + noPage.slice(0, 4).join(", ") + " · " : "") + (noMap.length ? "sitemap में नहीं: " + noMap.slice(0, 4).join(", ") : "") + " · इलाज: परिचय-पन्ना बनाएँ, फिर node generator/build_sitemap.js");
 
   /* ---- ग) कोर्स ---- */
   const ids = D.COURSES.map((c) => c.id), idSet = new Set(ids);
   ck("कोर्स: हर कोर्स का कोड अलग (" + ids.length + ")", idSet.size === ids.length);
-  const noMg = D.COURSES.filter((c) => !okMg(c.mg)).map((c) => c.id);
-  const noMgNew = noMg.filter((id) => S.DEBT_NO_MG.indexOf(id) === -1);
-  ck("कोर्स: हर कोर्स 24 में से एक सेक्टर में (mg)। पुराना दर्ज क़र्ज़: " + noMg.length, noMgNew.length === 0, "बिना सेक्टर (क़र्ज़-सूची से बाहर): " + noMgNew.slice(0, 8).join(", "));
+  const noMg = D.COURSES.filter((c) => !okMg25(c.mg)).map((c) => c.id);
+  ck("कोर्स: हर कोर्स का सेक्टर लिखा है (mg: 1 से 24, या 25 «" + NONE_NAME + "»)। बिना सेक्टर: 0", noMg.length === 0, "बिना सेक्टर: " + noMg.slice(0, 8).join(", ") + (noMg.length > 8 ? " … कुल " + noMg.length : ""));
   const live = D.COURSES.filter((c) => c.url);
-  const cardBad = [];   /* udyam खाना है, पर ग़लत */
-  const cardNone = [];  /* चालू कोर्स, udyam खाना नहीं */
+  const cardBad = [], cardNone = [], waitC = [];
   for (const c of D.COURSES) {
-    if (c.udyam === undefined) { if (c.url) cardNone.push(c.id); continue; }
+    if (c.udyam === undefined) { if (c.url) cardNone.push(c.id); if (c.mg === NONE_MG) cardBad.push(c.id + ": सेक्टर 25 में है तो कार्ड-कोड 0 लिखना ज़रूरी"); continue; }
+    if (!Number.isInteger(c.udyam) || c.udyam < 0) { cardBad.push(c.id + ": कार्ड-कोड " + c.udyam + " ग़लत"); continue; }
+    if (c.udyam === NONE_CARD) { waitC.push(c.id); continue; }
     const k = byN[c.udyam];
-    if (!Number.isInteger(c.udyam) || !k) cardBad.push(c.id + ": कार्ड " + c.udyam + " है ही नहीं");
+    if (!k) cardBad.push(c.id + ": कार्ड " + c.udyam + " है ही नहीं");
+    else if (c.mg === NONE_MG) cardBad.push(c.id + ": सेक्टर 25 ख़ाली कार्ड है; वहाँ सिर्फ़ कोड 0 चलता है");
     else if (k.mg !== c.mg) cardBad.push(c.id + ": कोर्स सेक्टर " + c.mg + ", कार्ड " + c.udyam + " सेक्टर " + k.mg);
   }
-  ck("कोर्स: जहाँ भी कार्ड-कोड लिखा है, वह कार्ड मौजूद है और उसी सेक्टर का है", cardBad.length === 0, cardBad.slice(0, 6).join(" | "));
-  const cardNoneNew = cardNone.filter((id) => S.DEBT_NO_CARD.indexOf(id) === -1);
-  ck("कोर्स: हर चालू कोर्स (" + live.length + ") पर उद्यम-कार्ड का कोड। पुराना दर्ज क़र्ज़: " + cardNone.length, cardNoneNew.length === 0,
-    "बिना कार्ड-कोड (क़र्ज़-सूची से बाहर): " + cardNoneNew.slice(0, 8).join(", ") + " · इलाज: node generator/sector_darj.js course --id <कोड> --udyam <serial>");
+  ck("कोर्स: जहाँ भी कार्ड-कोड लिखा है, वह 0 है या उसी सेक्टर का मौजूद कार्ड (सेक्टर 25 में सिर्फ़ 0)", cardBad.length === 0, cardBad.slice(0, 6).join(" | "));
+  ck("कोर्स: हर चालू कोर्स (" + live.length + ") पर उद्यम-कार्ड का कोड। बिना कोड: 0", cardNone.length === 0,
+    "बिना कार्ड-कोड: " + cardNone.slice(0, 8).join(", ") + " · इलाज: node generator/sector_darj.js course --id <कोड> --udyam <serial>");
+  const pc = P.courses || [], extraC = waitC.filter((id) => pc.indexOf(id) === -1), staleC = pc.filter((id) => waitC.indexOf(id) === -1);
+  ck("कोर्स: «" + NONE_NAME + "» (कोड 0) पर वही कोर्स रुके हैं जिनके नाम मुहर की प्रतीक्षा-सूची में हैं (" + pc.length + ")", extraC.length === 0 && staleC.length === 0,
+    (extraC.length ? "सूची से बाहर कोड 0 पर: " + extraC.slice(0, 6).join(", ") + " · " : "") + (staleC.length ? "सूची में है पर कोड 0 पर नहीं: " + staleC.slice(0, 6).join(", ") : ""));
+  const CL = D.CLEDGER;
+  if (!CL) ck("कोर्स के कोड का खाता मौजूद (" + F_CLEDGER + ")", false, "फ़ाइल नहीं");
+  else {
+    const coded = D.COURSES.filter((c) => c.udyam !== undefined), byId = {}; D.COURSES.forEach((c) => { byId[c.id] = c; });
+    const diff = coded.filter((c) => CL[c.id] !== codeOf(c.mg, c.udyam)).map((c) => c.id + ": खाता " + (CL[c.id] === undefined ? "नहीं" : CL[c.id]) + " · आज " + codeOf(c.mg, c.udyam));
+    const gone = Object.keys(CL).filter((id) => !byId[id] || byId[id].udyam === undefined);
+    ck("कोर्स का कोड पक्का: हर कोर्स का «सेक्टर-कार्ड» कोड वही जो खाते में (" + Object.keys(CL).length + "); कोड बदलना सिर्फ़ औज़ार से", diff.length === 0 && gone.length === 0,
+      (diff.length ? diff.slice(0, 5).join(" | ") + " · " : "") + (gone.length ? "खाते में है पर सूची से हटा या कोड मिटा: " + gone.slice(0, 6).join(", ") : "") + " · इलाज: node generator/sector_darj.js course …");
+  }
 
-  /* ---- घ) क़र्ज़-सूचियाँ ईमानदार: सिर्फ़ घटें, बढ़ें नहीं ---- */
-  const L = S.LIMIT;
-  ck("क़र्ज़-सूचियाँ सीमा के भीतर (कार्ड ≤ 6, सेक्टर ≤ 65, नेटवर्क ≤ 2) और मुहर की सीमा यंत्र की सीमा से बड़ी नहीं",
-    S.DEBT_NO_CARD.length <= 6 && S.DEBT_NO_MG.length <= 65 && S.DEBT_NETWORK.length <= 2 && L.noCard <= 6 && L.noMg <= 65 && L.network <= 2
-    && S.DEBT_NO_CARD.length <= L.noCard && S.DEBT_NO_MG.length <= L.noMg && S.DEBT_NETWORK.length <= L.network,
-    "कार्ड " + S.DEBT_NO_CARD.length + "/" + L.noCard + " · सेक्टर " + S.DEBT_NO_MG.length + "/" + L.noMg + " · नेटवर्क " + S.DEBT_NETWORK.length + "/" + L.network);
-  const stale = S.DEBT_NO_CARD.filter((id) => cardNone.indexOf(id) === -1).concat(S.DEBT_NO_MG.filter((id) => noMg.indexOf(id) === -1));
-  ck("क़र्ज़-सूची में कोई ऐसा कोड नहीं जो अब ठीक हो चुका या है ही नहीं (ठीक होते ही सूची से हटे)", stale.length === 0, "हटाएँ: " + stale.slice(0, 8).join(", "));
-
-  /* ---- ङ) उद्यम-कार्ड की कोर्स-कड़ी ---- */
+  /* ---- घ) उद्यम-कार्ड की कोर्स-कड़ी ---- */
   const urls = new Set(live.map((c) => normUrl(c.url)));
   const badPtr = D.CARDS.filter((c) => c.course && !urls.has(normUrl(c.course)));
   ck("उद्यम-कार्ड: कार्ड पर लिखी कोर्स-कड़ी किसी दर्ज चालू कोर्स की ही है", badPtr.length === 0, badPtr.slice(0, 5).map((c) => "n" + c.n + " → " + c.course).join(" | "));
 
-  /* ---- च) नेटवर्क के सेक्टर ---- */
+  /* ---- ङ) नेटवर्क के सेक्टर ---- */
   const nk = Object.keys(D.NET);
-  const netMgBad = nk.filter((k) => !okMg(D.NET[k].mg));
-  ck("नेटवर्क: हर सेक्टर (" + nk.length + ") 24 में से एक सेक्टर में", netMgBad.length === 0, netMgBad.join(", "));
-  const netBad = [], netNone = [];
+  const netMgBad = nk.filter((k) => !okMg25(D.NET[k].mg));
+  ck("नेटवर्क: हर सेक्टर (" + nk.length + ") का सेक्टर लिखा है (1 से 24, या 25)", netMgBad.length === 0, netMgBad.join(", "));
+  const netBad = [], waitN = [];
   for (const k of nk) { const s = D.NET[k];
-    if (s.udyam === undefined) { netNone.push(k); continue; }
+    if (s.udyam === undefined) { netBad.push(k + ": कार्ड-कोड नहीं"); continue; }
+    if (s.udyam === NONE_CARD) { waitN.push(k); continue; }
     const c = byN[s.udyam]; if (!c) netBad.push(k + ": कार्ड " + s.udyam + " नहीं"); else if (c.mg !== s.mg) netBad.push(k + ": सेक्टर " + s.mg + ", कार्ड सेक्टर " + c.mg); }
-  const netNoneNew = netNone.filter((k) => S.DEBT_NETWORK.indexOf(k) === -1);
-  ck("नेटवर्क: हर सेक्टर पर उद्यम-कार्ड का कोड, उसी सेक्टर का। पुराना दर्ज क़र्ज़: " + netNone.length, netBad.length === 0 && netNoneNew.length === 0 && S.DEBT_NETWORK.every((k) => netNone.indexOf(k) > -1),
-    netBad.concat(netNoneNew.map((k) => k + ": कार्ड-कोड नहीं"), S.DEBT_NETWORK.filter((k) => netNone.indexOf(k) === -1).map((k) => k + ": क़र्ज़-सूची से हटाएँ")).join(" | "));
+  const pn = P.network || [], extraN = waitN.filter((k) => pn.indexOf(k) === -1), staleN = pn.filter((k) => waitN.indexOf(k) === -1);
+  ck("नेटवर्क: हर सेक्टर पर कार्ड-कोड (0 या उसी सेक्टर का कार्ड); कोड 0 पर वही जो प्रतीक्षा-सूची में (" + pn.length + ")", netBad.length === 0 && extraN.length === 0 && staleN.length === 0,
+    netBad.concat(extraN.map((k) => k + ": सूची से बाहर कोड 0 पर"), staleN.map((k) => k + ": सूची में है पर कोड 0 पर नहीं")).join(" | "));
   const netCourse = nk.filter((k) => D.NET[k].course && !urls.has(normUrl(D.NET[k].course.url)));
   ck("नेटवर्क: सेक्टर पर लिखा कोर्स किसी दर्ज चालू कोर्स का ही है", netCourse.length === 0, netCourse.join(", "));
 
-  const stats = { sectors: mgKeys.length, cards: D.CARDS.length, courses: ids.length, live: live.length, withCard: D.COURSES.filter((c) => c.udyam !== undefined).length,
-    debtCard: cardNone.length, debtMg: noMg.length, debtNet: netNone.length, net: nk.length };
+  /* ---- च) प्रतीक्षा-सूची की सीमा ---- */
+  ck("प्रतीक्षा-सूची सीमा के भीतर (कोर्स ≤ " + HARD_LIMIT.courses + ", नेटवर्क ≤ " + HARD_LIMIT.network + ") और मुहर की सीमा यंत्र की सीमा से बड़ी नहीं",
+    pc.length <= HARD_LIMIT.courses && pn.length <= HARD_LIMIT.network && LIM.courses <= HARD_LIMIT.courses && LIM.network <= HARD_LIMIT.network && pc.length <= LIM.courses && pn.length <= LIM.network
+    && new Set(pc).size === pc.length && new Set(pn).size === pn.length,
+    "कोर्स " + pc.length + "/" + LIM.courses + " · नेटवर्क " + pn.length + "/" + LIM.network);
+
+  const stats = { sectors: mgKeys.length, cards: D.CARDS.length, courses: ids.length, live: live.length,
+    withCard: D.COURSES.filter((c) => Number.isInteger(c.udyam) && c.udyam > 0).length, waiting: waitC.length,
+    notLive: D.COURSES.filter((c) => !c.url && c.udyam === undefined).length, net: nk.length, netWaiting: waitN.length };
   return { checks: out, stats, fail: out.filter((c) => !c.ok).length };
 }
 
-module.exports = { load, audit, okMg, normUrl, GROUPS };
+module.exports = { load, audit, okMg, okMg25, normUrl, normName, codeOf, sectorName, GROUPS, NONE_MG, NONE_CARD, NONE_NAME, HARD_LIMIT, F_LEDGER, F_CLEDGER };
 
-/* दरवाज़ा: चढ़ाने वाला औज़ार (tools/acs-site-deploy.js v1.6 से) इसे सीधे चलाता है:
+/* दरवाज़ा: चढ़ाने वाला औज़ार (tools/acs-site-deploy.js) इसे सीधे चलाता है:
      node generator/lib_sector.js --door
    नियम टूटा हो तो exit 1 और हर टूटी जाँच "FAIL " से शुरू होती पंक्ति में (औज़ार की खिड़की English/ASCII पढ़ती है,
    इसलिए यहाँ सिर्फ़ जाँच का क्रमांक और कूट जाते हैं; पूरा हिंदी ब्योरा: node generator/dev_sector_niyam_check.js)। */
@@ -129,5 +179,5 @@ if (require.main === module) {
   let r; try { r = audit(); } catch (e) { console.log("FAIL the sector check could not run: " + String(e.message).replace(/[^\x20-\x7E]/g, "?")); process.exit(1); }
   r.checks.forEach((c, i) => { if (!c.ok) console.log("FAIL check " + (i + 1) + " of " + r.checks.length + ": " + (c.extra.replace(/[^\x20-\x7E]+/g, " ").replace(/\s+/g, " ").trim() || "see dev_sector_niyam_check")); });
   if (r.fail) process.exit(1);
-  console.log("DOOR OK " + r.checks.length + " checks; 24 sectors, " + r.stats.cards + " enterprise cards, " + r.stats.courses + " courses, " + r.stats.live + " live, " + r.stats.withCard + " with card code");
+  console.log("DOOR OK " + r.checks.length + " checks; 24 sectors + none of the above, " + r.stats.cards + " enterprise cards, " + r.stats.courses + " courses, " + r.stats.live + " live, " + r.stats.withCard + " with card code, " + r.stats.waiting + " waiting at none");
 }

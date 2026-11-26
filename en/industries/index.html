@@ -211,7 +211,7 @@ img{max-width:100%;display:block}
   <h1 class="hero-title" style="margin:0 0 10px">Choose your path,<br/><em>success starts right here.</em></h1>
   <div class="hero-sub">From self-employment to government jobs — every path is here.</div>
   <div class="hero-stats">
-   <div class="hs"><span class="hs-num">950</span><div class="hs-lbl">Enterprises</div></div>
+   <div class="hs"><span class="hs-num">951</span><div class="hs-lbl">Enterprises</div></div>
    <div class="hs"><span class="hs-num">1.50 Lakh</span><div class="hs-lbl">Business Ideas</div></div>
    <div class="hs"><span class="hs-num">15</span><div class="hs-lbl">Investment Levels</div></div>
    <div class="hs"><span class="hs-num">₹0</span><div class="hs-lbl">onwards</div></div>
@@ -241,7 +241,7 @@ img{max-width:100%;display:block}
     oninput="filterSectors()"/>
   </div>
   <div class="filter-row" id="mgFilter"></div>
-  <div class="sector-count" id="sectorCount">All 950 Enterprises</div>
+  <div class="sector-count" id="sectorCount">All 951 Enterprises</div>
   <div class="sector-grid" id="sectorGrid"></div>
  </div>
 
@@ -582,21 +582,43 @@ img{max-width:100%;display:block}
 
 <script>
 // ══ MASTER GROUPS ══
+/* UDYAM-MG:START (built by generator/build_udyam_suchi.js; do not edit by hand) */
 const MG=[
- {id:'all',name:'All (950)'},
- {id:1,name:'🌾 Agriculture (67)'},{id:2,name:'⛏️ Mining (43)'},
- {id:3,name:'🏭 Manufacturing (52)'},{id:4,name:'🏗️ Construction (30)'},
- {id:5,name:'🧵 Textiles (40)'},{id:6,name:'💊 Healthcare (32)'},
- {id:7,name:'💻 Technology (43)'},{id:8,name:'🚗 Transport (52)'},
- {id:9,name:'🛍️ Trade (43)'},{id:10,name:'🎭 Services (39)'},
- {id:11,name:'📚 Education (50)'},{id:12,name:'🌿 Handicrafts (40)'},
- {id:13,name:'⚗️ Chemicals (42)'},{id:14,name:'🌍 Global (80)'},
- {id:15,name:'🔮 Future (50)'},{id:16,name:'⚖️ Legal (30)'},
- {id:17,name:'🏛️ Government (40)'},{id:18,name:'📊 Data (31)'},
- {id:19,name:'🤖 Robotics (30)'},{id:20,name:'🌎 Climate (21)'},
- {id:21,name:'🙏 Religious (10)'},{id:22,name:'🏆 Sports (10)'},
- {id:23,name:'💰 Digital Finance (15)'},{id:24,name:'🛡️ Security (60)'},
+  {id:'all',name:'All (951)'},
+  {id:1,name:'🌾 Agriculture (68)'},{id:2,name:'⛏️ Mining (43)'},
+  {id:3,name:'🏭 Manufacturing (52)'},{id:4,name:'🏗️ Construction (30)'},
+  {id:5,name:'🧵 Textiles (40)'},{id:6,name:'💊 Health (32)'},
+  {id:7,name:'💻 Technology (43)'},{id:8,name:'🚗 Transport (52)'},
+  {id:9,name:'🛍️ Trade (43)'},{id:10,name:'🎭 Services (39)'},
+  {id:11,name:'📚 Education (50)'},{id:12,name:'🌿 Handicrafts (40)'},
+  {id:13,name:'⚗️ Chemicals (42)'},{id:14,name:'🌍 Global (80)'},
+  {id:15,name:'🔮 Future (50)'},{id:16,name:'⚖️ Legal (30)'},
+  {id:17,name:'🏛️ Government (40)'},{id:18,name:'📊 Data (31)'},
+  {id:19,name:'🤖 Robotics (30)'},{id:20,name:'🌎 Climate (21)'},
+  {id:21,name:'🙏 Religious (10)'},{id:22,name:'🏆 Sports (10)'},
+  {id:23,name:'💰 Digital Finance (15)'},{id:24,name:'🛡️ Security (60)'},
+  {id:25,name:'➕ None of the above'},
 ];
+/* Under every sector list: the card "None of the above" (code 0). Sector 25 is an empty card. Names: assets/mg_names.js */
+const UDY_NONE={e:'➕',name:'None of the above',hint:'Is your enterprise not in this list? Tell us. After a check, a new card will be made.',hint25:'Does your work fit none of the 24 sectors? Tell us.',btn:'📲 Tell us on WhatsApp',count25:'This card is empty: it holds only what fits none of the 24 sectors',
+  wa:'https://wa.me/919431210092?text=',msg:'ACS: my enterprise is not in the list of sector {G} ({N}). My enterprise: ',msg25:'ACS: my work fits none of the 24 sectors. My work: ',
+  n:{1:'Agriculture',2:'Mining',3:'Manufacturing',4:'Construction',5:'Textiles',6:'Health',7:'Technology',8:'Transport',9:'Trade',10:'Services',11:'Education',12:'Handicrafts',13:'Chemicals',14:'Global',15:'Future',16:'Legal',17:'Government',18:'Data',19:'Robotics',20:'Climate',21:'Religious',22:'Sports',23:'Digital Finance',24:'Security'}};
+function udyNoneCard(mg){
+  var m=mg===25?UDY_NONE.msg25:UDY_NONE.msg.replace('{G}',mg).replace('{N}',UDY_NONE.n[mg]);
+  return '<div class="sector-card" style="border:2px dashed #F9A825;background:#FFF8E1;cursor:default">'+
+    '<div class="s-num">'+UDY_NONE.e+'</div><div class="s-name">'+UDY_NONE.name+'</div>'+
+    '<div style="font-size:16px;line-height:1.6;color:#37474F;margin-top:6px">'+(mg===25?UDY_NONE.hint25:UDY_NONE.hint)+'</div>'+
+    '<a href="'+UDY_NONE.wa+encodeURIComponent(m)+'" target="_blank" rel="noopener" style="display:block;color:#0B1F3A;font-weight:800;font-size:17px;margin-top:8px;text-decoration:none">'+UDY_NONE.btn+'</a></div>';
+}
+function udyNoneFix(){
+  var g=document.getElementById('sectorGrid'),c=document.getElementById('sectorCount');
+  if(!g||activeMG==='all'||searchQ||!(activeMG===25||UDY_NONE.n[activeMG]))return;
+  if(activeMG===25){g.innerHTML=udyNoneCard(25);if(c)c.textContent=UDY_NONE.count25;return;}
+  if(g.querySelector('button'))return;
+  g.insertAdjacentHTML('beforeend',udyNoneCard(activeMG));
+}
+(function(){var r0=renderSectors;renderSectors=function(){r0();udyNoneFix();};})();
+/* UDYAM-MG:END */
 
 let activeMG='all',searchQ='';
 
@@ -625,7 +647,7 @@ function renderSectors(){
   return ms&&mm;
  });
  document.getElementById('sectorCount').textContent=
-  filtered.length===950?'All 950 Enterprises':`${filtered.length} enterprises found`;
+  filtered.length===951?'All 951 Enterprises':`${filtered.length} enterprises found`;
  document.getElementById('sectorGrid').innerHTML=filtered.map(s=>`
   <div class="sector-card" onclick="openSector(${s.n},'${s.name.replace(/'/g,"\\'")}')">
    <div class="s-num">Enterprise ${String(s.n).padStart(3,'0')}</div>

@@ -1,5 +1,6 @@
 /* =====================================================================
-   ACS — roles.js  (v2.4 · 19-Nov-2026 · Founder की सलाह: registration में बोर्ड और बैनर वाले नाम का साफ़ खाना —
+   ACS — roles.js  (v2.5 · 26-Nov-2026 · Founder का सेक्टर-नियम: उस्ताद, शिक्षक, सलाहकार, केंद्र, वर्कशॉप, नियोक्ता और Vendor के
+   फ़ॉर्म में ज़रूरी खाना "sector" (F.sector; generator/build_sector_khana.js से बनता है, हाथ से न बदलें)। पिछला v2.4 · 19-Nov-2026 · Founder की सलाह: registration में बोर्ड और बैनर वाले नाम का साफ़ खाना —
    केंद्र और वर्कशॉप के "org_name" का नाम-पाठ और समझाइश बदली; शिक्षक और उस्ताद में नया ज़रूरी खाना
    "class_name" (online कक्षा का नाम)। ACS की मंज़ूरी के बाद यही नाम खोज में सबको दिखेगा। पिछला v2.3 · 18-Jul-2026 · केंद्र/वर्कशॉप चरण-2 — Founder-आदेश "रास्ता-अ":
    center+workshop अब बाक़ी सब roles की क़तार में — पता = पिनकोड (pincode_address),
@@ -107,6 +108,24 @@ window.ACS_ROLES = {
     F.emergencyContact1 = { id:"emergency_contact_1", type:"emergency_contact", required:true, hi:"आपातकालीन संपर्क 1", en:"Emergency Contact 1" };
     F.emergencyContact2 = { id:"emergency_contact_2", type:"emergency_contact", required:true, hi:"आपातकालीन संपर्क 2", en:"Emergency Contact 2" };
 
+    /* SECTOR-KHANA:START (generator/build_sector_khana.js से बना; हाथ से न बदलें) */
+    /* रजिस्ट्रेशन का «सेक्टर» खाना (Founder, 26-Nov-2026): teacher, ustad, center, workshop, counselor, employer, vendor को जुड़ते समय कम से कम
+       एक सेक्टर बताना ज़रूरी। मान = सेक्टर का कूट ("1" से "25"); नाम का घर assets/mg_names.js। */
+    F.sector = { id:"sector", type:"select", required:true, hi:"आपके काम का सेक्टर", en:"Sector of your work",
+      hint_hi:"वह सेक्टर चुनें जिसमें आपका सबसे ज़्यादा काम है। कोई न बैठे, तो सबसे नीचे «उपरोक्त में कोई नहीं» चुनें।",
+      hint_en:"Choose the sector where most of your work is. If none fits, choose \"None of the above\" at the bottom.",
+      options:[
+        {v:"1",hi:"कृषि",en:"Agriculture"}, {v:"2",hi:"खनन",en:"Mining"}, {v:"3",hi:"विनिर्माण",en:"Manufacturing"},
+        {v:"4",hi:"निर्माण",en:"Construction"}, {v:"5",hi:"वस्त्र",en:"Textiles"}, {v:"6",hi:"स्वास्थ्य",en:"Health"},
+        {v:"7",hi:"प्रौद्योगिकी",en:"Technology"}, {v:"8",hi:"परिवहन",en:"Transport"}, {v:"9",hi:"व्यापार",en:"Trade"},
+        {v:"10",hi:"सेवाएं",en:"Services"}, {v:"11",hi:"शिक्षा",en:"Education"}, {v:"12",hi:"हस्तशिल्प",en:"Handicrafts"},
+        {v:"13",hi:"रसायन",en:"Chemicals"}, {v:"14",hi:"वैश्विक",en:"Global"}, {v:"15",hi:"भविष्य",en:"Future"},
+        {v:"16",hi:"विधिक",en:"Legal"}, {v:"17",hi:"सरकार",en:"Government"}, {v:"18",hi:"डेटा",en:"Data"},
+        {v:"19",hi:"रोबोटिक्स",en:"Robotics"}, {v:"20",hi:"जलवायु",en:"Climate"}, {v:"21",hi:"धार्मिक",en:"Religious"},
+        {v:"22",hi:"खेल",en:"Sports"}, {v:"23",hi:"डिजिटल वित्त",en:"Digital Finance"}, {v:"24",hi:"सुरक्षा",en:"Security"},
+        {v:"25",hi:"उपरोक्त में कोई नहीं",en:"None of the above"} ] };
+    /* SECTOR-KHANA:END */
+
     return [
       /* ---------------- समूह-1 : Learner (गेटवे नहीं — 3-में-1 फ़ाइल) ---------------- */
       { key:"learner", group:"g1", icon:"🎓",
@@ -137,7 +156,7 @@ window.ACS_ROLES = {
         collection:"teachers", dashboard:"/dashboard/teacher/",
         ruleFile:"rules-consent-teacher.html", gateway:true, needsGeo:false, needsRMOffice:false,
         subtypes:[], children:["teacher","ustad"], /* v2.2: क्लिक-पर-दो-विकल्प (ACS-टीम साँचा) */
-        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.className("जैसे: शर्मा गणित कक्षा"), F.address,
+        fields: [ F.nameLocal, F.nameRoman, F.sector, F.age(18,"न्यूनतम 18 वर्ष"), F.className("जैसे: शर्मा गणित कक्षा"), F.address,
           { id:"subject", type:"text", required:true, hi:"विषय / हुनर का क्षेत्र", en:"Subject / Skill area" },
           { id:"experience", type:"number", min:0, max:60, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
           F.nomineeName, F.nomineeRel, F.emergencyContact1, F.emergencyContact2 ],
@@ -150,7 +169,7 @@ window.ACS_ROLES = {
         collection:"ustads", dashboard:"/dashboard/ustad/",
         ruleFile:"rules-consent-ustad.html", gateway:true, needsGeo:false, needsRMOffice:false,
         subtypes:[],
-        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"), F.className("जैसे: रफ़ीक़ बढ़ईगीरी कक्षा"), F.address,
+        fields: [ F.nameLocal, F.nameRoman, F.sector, F.age(18,"न्यूनतम 18 वर्ष"), F.className("जैसे: रफ़ीक़ बढ़ईगीरी कक्षा"), F.address,
           { id:"subject", type:"text", required:true, hi:"हुनर का क्षेत्र (जैसे सिलाई, मशीन-मरम्मत, दूध-उत्पादन)", en:"Skill area (e.g., tailoring, machine repair, dairy)" },
           { id:"experience", type:"number", min:0, max:60, required:false, hi:"अनुभव (वर्ष)", en:"Experience (years)" },
           F.nomineeName, F.nomineeRel, F.emergencyContact1, F.emergencyContact2 ],
@@ -166,7 +185,7 @@ window.ACS_ROLES = {
         /* (18-Jul-2026, चरण-2 "रास्ता-अ") पता = पिनकोड (बाक़ी सब roles जैसा);
            अलग "ज़िला" खाना हटा — ज़िला/राज्य/देश का एकमात्र सच = वांछित कार्य-क्षेत्र;
            age = मालिक/संचालक की उम्र (जन्मतिथि से अपने-आप, server भी यहीं से जाँचता है) */
-        fields: [ F.nameLocal, F.nameRoman,
+        fields: [ F.nameLocal, F.nameRoman, F.sector,
           F.age(18, "मालिक/संचालक की न्यूनतम उम्र 18 वर्ष — जन्मतिथि से अपने-आप भरती है"),
           { id:"org_name", type:"text", required:true, maxlen:60, hi:"केंद्र का नाम (बोर्ड और बैनर वाला)", en:"Center name (for the board and banner)",
             ph_hi:"जैसे: ज्ञान ज्योति कंप्यूटर केंद्र", hint_hi:BANNER_HI, hint_en:BANNER_EN },
@@ -181,7 +200,7 @@ window.ACS_ROLES = {
         ruleFile:"rules-consent-workshop.html", gateway:true, needsGeo:false, needsRMOffice:false,
         subtypes:[],
         /* (18-Jul-2026, चरण-2 "रास्ता-अ") center जैसा ही — साथ में estd_year (3-वर्ष की असली जाँच) */
-        fields: [ F.nameLocal, F.nameRoman,
+        fields: [ F.nameLocal, F.nameRoman, F.sector,
           F.age(18, "मालिक/संचालक की न्यूनतम उम्र 18 वर्ष — जन्मतिथि से अपने-आप भरती है"),
           { id:"org_name", type:"text", required:true, maxlen:60, hi:"वर्कशॉप का नाम (बोर्ड और बैनर वाला)", en:"Workshop name (for the board and banner)",
             ph_hi:"जैसे: रहमान सिलाई वर्कशॉप", hint_hi:BANNER_HI, hint_en:BANNER_EN },
@@ -194,7 +213,7 @@ window.ACS_ROLES = {
         desc_hi:"करियर/उद्योग सलाह — आय 90% + टर्न-की उद्योग-सेटअप सेवा भी", desc_en:"Career/industry advice — 90% share + optional turn-key setup service",
         collection:"counselors", dashboard:"/dashboard/counselor/",
         ruleFile:"rules-consent-counselor.html", gateway:true, needsGeo:false, needsRMOffice:false,
-        fields: [ F.nameLocal, F.nameRoman, F.age(18,"न्यूनतम 18 वर्ष"),
+        fields: [ F.nameLocal, F.nameRoman, F.sector, F.age(18,"न्यूनतम 18 वर्ष"),
           { id:"experience", type:"number", min:5, max:60, required:true, hi:"अनुभव (वर्ष)", en:"Experience (years)", hint_hi:"न्यूनतम 5 वर्ष अनिवार्य" },
           { id:"specialization", type:"text", required:true, hi:"विशेषज्ञता का विषय", en:"Specialization" }, F.address, F.emergencyContact1, F.emergencyContact2 ],
         documents: [ F.docPhoto, F.docPhotoId1, F.docPhotoId2, F.docMatric, F.docHighestEdu, F.docExperience, F.docSignature ]
@@ -205,7 +224,7 @@ window.ACS_ROLES = {
         desc_hi:"job post करें, staff पाएँ — जुड़ना निःशुल्क", desc_en:"Post jobs, find staff — free to join",
         collection:"employers", dashboard:"/dashboard/employer/",
         ruleFile:"rules-consent-employer.html", gateway:true, needsGeo:false, needsRMOffice:false,
-        fields: [ F.nameLocal, F.nameRoman,
+        fields: [ F.nameLocal, F.nameRoman, F.sector,
           { id:"org_name", type:"text", required:true, hi:"संस्था/व्यवसाय का नाम", en:"Business/Organization Name" },
           { id:"business_type", type:"select", required:false, hi:"व्यवसाय-प्रकार", en:"Business Type",
             options:[ {v:"individual",hi:"व्यक्तिगत",en:"Individual"}, {v:"shop",hi:"दुकान/Workshop",en:"Shop/Workshop"},
@@ -255,7 +274,7 @@ window.ACS_ROLES = {
         desc_hi:"उद्यम-स्थापना का सेवा/सामान प्रदाता — जुड़ना निःशुल्क", desc_en:"Enterprise-setup goods/service provider — free to join",
         collection:"vendors", dashboard:"/dashboard/vendor/",
         ruleFile:"rules-consent-vendor.html", gateway:true, needsGeo:false, needsRMOffice:false,
-        fields: [ F.nameLocal, F.nameRoman,
+        fields: [ F.nameLocal, F.nameRoman, F.sector,
           { id:"org_name", type:"text", required:true, hi:"संस्था/दुकान का नाम", en:"Business/Shop Name" },
           { id:"vendor_type", type:"select", required:true, hi:"सेवा/सामान का प्रकार", en:"Goods/Service Type",
             options:[ {v:"machinery",hi:"यंत्र-विक्रेता (Machinery)",en:"Machinery"}, {v:"raw_material",hi:"कच्चा-माल (Raw Material)",en:"Raw Material"},

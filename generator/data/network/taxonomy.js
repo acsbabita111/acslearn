@@ -24,6 +24,7 @@
    7. mg = ACS के 24 मास्टर-समूह (assets/mg_names.js) में से वह समूह, जिसमें इसी हुनर का ACS कोर्स/उद्यम दर्ज है।
    8. udyam = उसी सेक्टर के उद्यम-कार्ड का serial (assets/udyam_data.js)। Founder का सेक्टर-नियम (26-Nov-2026):
       हर नेटवर्क-सेक्टर 24 में से एक सेक्टर और एक उद्यम-कार्ड से जुड़ा हो (generator/data/sector_muhar.js; जाँच: dev_sector_niyam_check.js)।
+      udyam: 0 = «उपरोक्त में कोई नहीं» (उस सेक्टर की सूची में कार्ड अभी नहीं; नाम मुहर की प्रतीक्षा-सूची में होना ज़रूरी)।
    आगे (ढाँचा तैयार, data बाद में): एक फ़र्म कई सेक्टर में (firmSectorLinks[]), शाखाएँ (parentFirmId, branchName)।
    ============================================================ */
 "use strict";
@@ -41,12 +42,12 @@ const SECTORS = {
   /* v1.2 (25-Nov-2026): CSC केंद्र। ID स्रोत-फ़ाइल की ही (BR-CSC-M00001, BR-CSC-A00001), कभी नहीं बदलती।
      recordPages: false = हर नाम का अलग पन्ना नहीं (7,000+ पन्ने GitHub Pages की 1 GB सीमा खा जाते); ज़िले के पन्ने पर हर नाम
      की अपनी जगह (#br-csc-m00001), वही उसका पक्का पता। नाम = VLE/केंद्र का नाम, स्रोत की वर्तनी में। */
-  csc: { id: "CSC", slug: "csc", mg: 7, icon: "🏛️", status: "listed",
+  csc: { id: "CSC", slug: "csc", mg: 7, udyam: 0, icon: "🏛️", status: "listed",
          hi: "CSC (कॉमन सर्विस सेंटर)", en: "CSC (Common Service Centres)",
          hiPlace: "CSC केंद्र", enPlace: "CSC Centres",
          idRegex: "{ST}-CSC-[MA]\\d{5}", idHint: "{ST}-CSC-M00001 या {ST}-CSC-A00001", typeMode: "fixed", recordPages: false,
          course: { url: "/courses/hi/digital-mitra-basic/", hi: "डिजिटल मित्र (बुनियादी कौशल) का मुफ़्त ऑनलाइन कोर्स", en: "Free online course: Digital Mitra basic skills (in Hindi)" } },
-  it: { id: "IT", slug: "it", mg: 7, icon: "💻", status: "survey",
+  it: { id: "IT", slug: "it", mg: 7, udyam: 0, icon: "💻", status: "survey",
         hi: "सूचना प्रौद्योगिकी (IT)", en: "Information Technology",
         hiPlace: "IT सेवा की जगहें", enPlace: "Computer and IT Service Places",
         idPattern: "{ST}-IT-{DC}-NNNN", typeMode: "controlled", course: null }

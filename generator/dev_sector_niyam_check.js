@@ -1,14 +1,17 @@
 /* ============================================================
-   dev_sector_niyam_check.js v1.0 (26-Nov-2026) : सेक्टर-नियम का पहरा
+   dev_sector_niyam_check.js v1.1 (26-Nov-2026) : सेक्टर-नियम का पहरा
    Founder का नियम (26-Nov-2026): पूरी website की नींव 24 सेक्टर हैं। कोर्स, नेटवर्क, रजिस्ट्रेशन, जो भी हो,
-   इन्हीं 24 में बैठेगा। सेक्टर के भीतर उद्यम-सूची है; नया कोर्स उसी सूची से मिलाया जाएगा:
-   कार्ड है तो उसका कोड, नहीं है तो नया serial और नया कार्ड। कोई इस नियम को लाँघ न सके।
+   इन्हीं 24 में बैठेगा; जो कहीं न बैठे वह 25वें «उपरोक्त में कोई नहीं» में। सेक्टर के भीतर उद्यम-सूची है,
+   और हर सूची के नीचे «उपरोक्त में कोई नहीं» कार्ड (कोड 0)। नया कोर्स उसी सूची से मिलाया जाएगा:
+   कार्ड है तो उसका कोड, नहीं है तो नया serial और नया कार्ड। उद्यम-सूची पूरी website पर एक जैसी दिखे।
+   कोई इस नियम को लाँघ न सके।
    (पूरा नियम: generator/data/sector_muhar.js · औज़ार: generator/sector_darj.js · जाँच का घर: generator/lib_sector.js)
    चलाएँ:  node generator/dev_sector_niyam_check.js
-   तीन हिस्से:
-     अ) आज के data की जाँच (24 सेक्टर, कार्ड और serial, कोर्स, नेटवर्क, क़र्ज़-सूचियाँ)।
-     आ) पन्नों की अपनी नक़ल नहीं: उद्यम-पन्ने के सेक्टर-बटन और गिनती data से ही बने हैं।
-     इ) लाँघने की कोशिशें (एक अलग नक़ली folder में, असली फ़ाइलें अछूती): हर कोशिश पर यंत्र को रुकना चाहिए,
+   चार हिस्से:
+     अ) आज के data की जाँच (सेक्टर, कार्ड और पहचान, पन्ने, कोर्स और कोड, नेटवर्क, प्रतीक्षा-सूची)।
+     आ) सूची हर जगह एक जैसी: हिंदी और English उद्यम-पन्ने, और हर भाषा में सेक्टर के नाम एक ही।
+     इ) रजिस्ट्रेशन: सातों भूमिकाओं के फ़ॉर्म में सेक्टर-खाना, विकल्प उसी घर से।
+     ई) लाँघने की कोशिशें (एक अलग नक़ली folder में, असली फ़ाइलें अछूती): हर कोशिश पर यंत्र को रुकना चाहिए,
         और औज़ार का सही रास्ता चलना चाहिए।
    ============================================================ */
 "use strict";
@@ -17,87 +20,185 @@ const ROOT = path.join(__dirname, "..");
 const LIB = require("./lib_sector.js");
 let pass = 0, fail = 0;
 const ck = (name, ok, extra) => { if (ok) { pass++; console.log("  ✅ " + name); } else { fail++; console.log("  ❌ " + name + (extra ? "\n       " + String(extra).slice(0, 700) : "")); } };
+const rd = (f) => fs.readFileSync(path.join(ROOT, f), "utf8");
+const run = (f, a) => cp.spawnSync(process.execPath, [path.join(__dirname, f)].concat(a || []), { encoding: "utf8" });
 
-console.log("== dev_sector_niyam_check v1.0");
+console.log("== dev_sector_niyam_check v1.1");
 console.log("-- अ) आज का data");
 const R = LIB.audit(ROOT);
 R.checks.forEach((c) => ck(c.name, c.ok, c.extra));
 const st = R.stats;
-console.log("     गिनती: सेक्टर " + st.sectors + " · उद्यम-कार्ड " + st.cards + " · कोर्स " + st.courses + " (चालू " + st.live + ", कार्ड-कोड वाले " + st.withCard + ") · नेटवर्क-सेक्टर " + st.net);
-console.log("     दर्ज क़र्ज़ (सिर्फ़ घट सकता है): चालू कोर्स बिना कार्ड " + st.debtCard + " · सूची की प्रविष्टि बिना सेक्टर " + st.debtMg + " · नेटवर्क-सेक्टर बिना कार्ड " + st.debtNet);
+console.log("     गिनती: सेक्टर " + st.sectors + " + «" + LIB.NONE_NAME + "» · उद्यम-कार्ड " + st.cards + " · कोर्स " + st.courses + " (चालू " + st.live + ", कार्ड-कोड वाले " + st.withCard + ") · नेटवर्क-सेक्टर " + st.net);
+console.log("     «" + LIB.NONE_NAME + "» पर रुके (मुहर की प्रतीक्षा-सूची): कोर्स " + st.waiting + " · नेटवर्क-सेक्टर " + st.netWaiting + " · जिन कोर्सों के पन्ने अभी बने नहीं (कोड बाद में): " + st.notLive);
 
-console.log("-- आ) पन्नों की अपनी नक़ल नहीं");
+console.log("-- आ) सूची हर जगह एक जैसी");
 {
-  const D = LIB.load(ROOT), page = fs.readFileSync(path.join(ROOT, "udyam/index.html"), "utf8");
-  const r = cp.spawnSync(process.execPath, [path.join(__dirname, "build_udyam_suchi.js"), "--check"], { encoding: "utf8" });
-  ck("उद्यम-पन्ना generator से ताज़ा (सेक्टर-बटन, पूरी सूची, गिनती)", r.status === 0, (r.stdout || "") + (r.stderr || ""));
-  const a = page.indexOf("/* UDYAM-MG:START"), b = page.indexOf("/* UDYAM-MG:END */"), blk = a > -1 && b > a ? page.slice(a, b) : "";
+  const D = LIB.load(ROOT), N25 = D.MG_NONE, N0 = D.UDYAM_NONE;
+  const r = run("build_udyam_suchi.js", ["--check"]);
+  ck("हिंदी और English, दोनों उद्यम-पन्ने generator से ताज़ा (सेक्टर-बटन, पूरी सूची, गिनती)", r.status === 0, (r.stdout || "") + (r.stderr || ""));
   const cnt = {}; D.CARDS.forEach((c) => { cnt[c.mg] = (cnt[c.mg] || 0) + 1; });
-  const rows = [...blk.matchAll(/\{id:(\d+),name:'([^']*)'\}/g)].map((m) => [+m[1], m[2]]);
-  ck("उद्यम-पन्ने के सेक्टर-बटन: ठीक 24, नाम mg_names.js से, गिनती उद्यम-सूची से", rows.length === 24 && rows.every(([id, nm], i) => id === i + 1 && nm === D.MG[id].e + " " + D.MG[id].n + " (" + cnt[id] + ")"),
-    rows.filter(([id, nm]) => !D.MG[id] || nm !== D.MG[id].e + " " + D.MG[id].n + " (" + cnt[id] + ")").slice(0, 4).map((x) => x.join(":")).join(" | "));
-  ck("उद्यम-पन्ने पर सेक्टर-सूची सिर्फ़ एक बार (दूसरी नक़ल नहीं), और \"सब\" की गिनती असली (" + D.CARDS.length + ")", page.split("const MG=[").length === 2 && blk.indexOf("{id:'all',name:'सब (" + D.CARDS.length + ")'}") > -1);
-  ck("उद्यम-पन्ने की कुल गिनती तीनों जगह असली (" + D.CARDS.length + ")", page.indexOf('<span class="hs-num">' + D.CARDS.length + "</span>") > -1 && page.indexOf('id="sectorCount">सभी ' + D.CARDS.length + " उद्यम</div>") > -1 && page.indexOf("filtered.length===" + D.CARDS.length + "?'सभी " + D.CARDS.length + " उद्यम'") > -1);
-  /* 24 सेक्टर के नाम किसी दूसरी प्रकाशित JS में दोबारा न लिखे हों (नक़ल = आगे का बेमेल) */
+  const total = D.CARDS.length;
+  for (const [lang, file, all] of [["hi", "udyam/index.html", "सब"], ["en", "en/industries/index.html", "All"]]) {
+    const page = rd(file), a = page.indexOf("/* UDYAM-MG:START"), b = page.indexOf("/* UDYAM-MG:END */"), blk = a > -1 && b > a ? page.slice(a, b) : "";
+    const rows = [...blk.matchAll(/\{id:(\d+),name:'([^']*)'\}/g)].map((m) => [+m[1], m[2]]);
+    const want = (id) => (id === 25 ? N25.e + " " + (lang === "en" ? N25.en : N25.n) : D.MG[id].e + " " + (lang === "en" ? D.MG[id].en : D.MG[id].n) + " (" + cnt[id] + ")");
+    ck(file + ": सेक्टर-बटन ठीक 25 (24 + «" + LIB.NONE_NAME + "»), नाम mg_names.js से, गिनती उद्यम-सूची से", rows.length === 25 && rows.every(([id, nm], i) => id === i + 1 && nm === want(id)),
+      rows.filter(([id, nm]) => id > 25 || nm !== want(id)).slice(0, 4).map((x) => x.join(":")).join(" | ") + " · बटन " + rows.length);
+    ck(file + ": सेक्टर-सूची पन्ने पर सिर्फ़ एक बार (दूसरी नक़ल नहीं), और \"" + all + "\" की गिनती असली (" + total + ")", page.split("const MG=[").length === 2 && blk.indexOf("{id:'all',name:'" + all + " (" + total + ")'}") > -1);
+    ck(file + ": कार्डों के नीचे «" + LIB.NONE_NAME + "» कार्ड लगाने वाला हिस्सा मौजूद", blk.indexOf("function udyNoneCard(mg)") > -1 && blk.indexOf("renderSectors=function(){r0();udyNoneFix();}") > -1 && blk.indexOf("name:'" + (lang === "en" ? N0.en : N0.name) + "'") > -1);
+    const c3 = lang === "en"
+      ? page.indexOf('<span class="hs-num">' + total + "</span>") > -1 && page.indexOf('id="sectorCount">All ' + total + " Enterprises</div>") > -1 && page.indexOf("filtered.length===" + total + "?'All " + total + " Enterprises'") > -1
+      : page.indexOf('<span class="hs-num">' + total + "</span>") > -1 && page.indexOf('id="sectorCount">सभी ' + total + " उद्यम</div>") > -1 && page.indexOf("filtered.length===" + total + "?'सभी " + total + " उद्यम'") > -1;
+    ck(file + ": कुल गिनती तीनों जगह असली (" + total + ")", c3);
+  }
+  { /* हिंदी पन्ने की पूरी सूची: हर सेक्टर के नीचे ठीक एक «उपरोक्त में कोई नहीं», और 25वाँ ख़ाली कार्ड */
+    const page = rd("udyam/index.html"), a = page.indexOf("UDYAM-SUCHI:START"), b = page.indexOf("UDYAM-SUCHI:END"), blk = a > -1 && b > a ? page.slice(a, b) : "";
+    const det = blk.split('<details class="us-d">').slice(1), i25 = blk.indexOf('<details class="us-d us-25">');
+    const body = det.map((d, i) => (i === det.length - 1 && i25 > -1 ? d.slice(0, d.indexOf('<details class="us-d us-25">')) : d));
+    ck("पूरी सूची: 24 सेक्टर, हर एक के सबसे नीचे ठीक एक «" + LIB.NONE_NAME + "» (कार्डों के बाद)", det.length === 24 && body.every((d) => (d.match(/<li class="us-none">/g) || []).length === 1 && d.lastIndexOf('<li class="us-none">') > d.lastIndexOf("<li><a href=") && d.indexOf(N0.name) > -1));
+    const last = i25 > -1 ? blk.slice(i25) : "";
+    ck("पूरी सूची: 25वाँ सेक्टर «" + LIB.NONE_NAME + "» ख़ाली कार्ड है (कोई उद्यम-कड़ी नहीं, सिर्फ़ वही एक कार्ड)", i25 > -1 && blk.split('<details class="us-d us-25">').length === 2 && last.indexOf(N25.n) > -1 && !/<li><a href=/.test(last) && (last.match(/<li class="us-none">/g) || []).length === 1);
+  }
+  /* हर भाषा में सेक्टर का नाम एक ही: घर mg_names.js (हिंदी, English); बाक़ी जगहें उसी से मिलनी चाहिए */
   const names = D.seal.SECTORS.map((x) => x[1]);
-  /* एक जानी-पहचानी छूट: assets/dashboard.js की MG_EN तालिका (हिंदी नाम → English नाम)। यह सूची नहीं, अनुवाद है;
-     शर्त: उसकी कुंजियाँ ठीक वही 24 नाम हों (नाम बदले तो यह भी साथ बदले)। */
-  const ds = fs.readFileSync(path.join(ROOT, "assets/dashboard.js"), "utf8"), me = /const MG_EN = (\{[^}]*\});/.exec(ds);
-  const enKeys = me ? Object.keys(JSON.parse(me[1])) : [];
-  ck("dashboard.js की English-नाम तालिका (MG_EN): कुंजियाँ ठीक वही 24 सेक्टर-नाम, उसी क्रम में", enKeys.length === 24 && enKeys.every((k, i) => k === names[i]), enKeys.filter((k, i) => k !== names[i]).join(", "));
-  const twins = fs.readdirSync(path.join(ROOT, "assets")).filter((f) => /\.js$/.test(f) && f !== "mg_names.js" && f !== "dashboard.js").filter((f) => { const s = fs.readFileSync(path.join(ROOT, "assets", f), "utf8"); return /MG_NAMES\s*=\s*\{/.test(s) || (names.filter((n) => s.indexOf("'" + n + "'") > -1 || s.indexOf('"' + n + '"') > -1).length >= 20 && /रोबोटिक्स/.test(s) && /डिजिटल वित्त/.test(s)); });
-  ck("assets/ की कोई दूसरी फ़ाइल 24 सेक्टर की अपनी सूची नहीं रखती (घर सिर्फ़ mg_names.js)", twins.length === 0 && ds.split("MG_NAMES = {").length === 1, twins.join(", "));
+  const ds = rd("assets/dashboard.js"), me = /const MG_EN = (\{[^}]*\});/.exec(ds), E = me ? JSON.parse(me[1]) : {}, enKeys = Object.keys(E);
+  ck("dashboard.js की English-नाम तालिका (MG_EN): कुंजियाँ वही 24 नाम उसी क्रम में, और English नाम mg_names.js वाले", enKeys.length === 24 && enKeys.every((k, i) => k === names[i] && E[k] === D.MG[i + 1].en),
+    enKeys.filter((k, i) => k !== names[i] || E[k] !== D.MG[i + 1].en).join(", "));
+  const aptEn = require(path.join(ROOT, "generator/data/aptitude/en/apt_en_strings.js")).mg || {};
+  const pEn = JSON.parse(rd("generator/data/panel_i18n/en.json")).ui || {};
+  const enBad = []; for (let g = 1; g <= 24; g++) { if (aptEn[g] !== D.MG[g].en) enBad.push("अभिरुचि " + g + ":" + aptEn[g]); if (pEn[D.MG[g].n] !== undefined && pEn[D.MG[g].n] !== D.MG[g].en) enBad.push("पैनल " + g + ":" + pEn[D.MG[g].n]); }
+  ck("English में हर सेक्टर का एक ही नाम: अभिरुचि-परीक्षा और पैनल के नाम mg_names.js वाले ही", enBad.length === 0, enBad.join(" | "));
+  /* दूसरी भाषाएँ: अभिरुचि का नाम = पैनल का नाम। कन्नड़ में 4 पुराने फ़र्क़ दर्ज हैं (सिर्फ़ घट सकते हैं) */
+  const KN_DEBT = ["विनिर्माण", "रसायन", "डेटा", "रोबोटिक्स"], lbad = [];
+  for (const l of ["bn", "kn"]) { const A = require(path.join(ROOT, "generator/data/aptitude/" + l + "/strings.js")).mg || {}, P = JSON.parse(rd("generator/data/panel_i18n/" + l + ".json")).ui || {};
+    for (let g = 1; g <= 24; g++) { const hi = D.MG[g].n; if (P[hi] !== undefined && P[hi] !== A[g] && !(l === "kn" && KN_DEBT.indexOf(hi) > -1)) lbad.push(l + " " + hi + ": «" + A[g] + "» ≠ «" + P[hi] + "»"); } }
+  ck("बांग्ला और कन्नड़ में सेक्टर के नाम: अभिरुचि और पैनल में एक ही (कन्नड़ के 4 पुराने फ़र्क़ दर्ज; नया फ़र्क़ नहीं)", lbad.length === 0, lbad.join(" | "));
+  const sh = require(path.join(ROOT, "generator/data/udyam_intro_shared.js")).MG_INTRO || {};
+  const shBad = Object.keys(sh).filter((g) => !D.MG[g] || String(sh[g].name || "").indexOf(D.MG[g].n + " (") !== 0);
+  ck("उद्यम-परिचय के साझा हिस्से (MG_INTRO) में सेक्टर का हिंदी नाम mg_names.js वाला ही", shBad.length === 0, shBad.join(", "));
+  const twins = fs.readdirSync(path.join(ROOT, "assets")).filter((f) => /\.js$/.test(f) && ["mg_names.js", "dashboard.js", "roles.js"].indexOf(f) === -1).filter((f) => { const s = rd("assets/" + f); return /MG_NAMES\s*=\s*\{/.test(s) || (names.filter((n) => s.indexOf("'" + n + "'") > -1 || s.indexOf('"' + n + '"') > -1).length >= 20 && /रोबोटिक्स/.test(s) && /डिजिटल वित्त/.test(s)); });
+  ck("assets/ की कोई दूसरी फ़ाइल सेक्टर की अपनी सूची नहीं रखती (घर mg_names.js; roles.js की प्रति generator की है, नीचे जाँची)", twins.length === 0 && ds.split("MG_NAMES = {").length === 1, twins.join(", "));
 }
 
-console.log("-- इ) लाँघने की कोशिशें (नक़ली folder में; असली फ़ाइलें अछूती)");
+console.log("-- इ) रजिस्ट्रेशन में सेक्टर");
+{
+  const D = LIB.load(ROOT), r = run("build_sector_khana.js", ["--check"]);
+  ck("assets/roles.js का सेक्टर-खाना generator से ताज़ा", r.status === 0, (r.stdout || "") + (r.stderr || ""));
+  const w = {}; new Function("window", rd("assets/roles.js"))(w); const cards = w.ACS_ROLES.cards;
+  const NEED = ["teacher", "ustad", "center", "workshop", "counselor", "employer", "vendor"];
+  const has = cards.filter((c) => (c.fields || []).some((f) => f.id === "sector")).map((c) => c.key);
+  ck("सेक्टर-खाना ठीक इन 7 भूमिकाओं में: उस्ताद, शिक्षक, सलाहकार, केंद्र, वर्कशॉप, नियोक्ता, Vendor", has.slice().sort().join(",") === NEED.slice().sort().join(","), "मिला: " + has.join(","));
+  const bad = [];
+  for (const c of cards.filter((x) => NEED.indexOf(x.key) > -1)) { const f = c.fields.filter((x) => x.id === "sector");
+    if (f.length !== 1 || f[0].type !== "select" || f[0].required !== true) { bad.push(c.key + ": खाना ज़रूरी (required) select नहीं"); continue; }
+    const o = f[0].options || []; if (o.length !== 25) { bad.push(c.key + ": विकल्प " + o.length); continue; }
+    o.forEach((x, i) => { const g = i + 1, hi = g === 25 ? D.MG_NONE.n : D.MG[g].n, en = g === 25 ? D.MG_NONE.en : D.MG[g].en; if (x.v !== String(g) || x.hi !== hi || x.en !== en) bad.push(c.key + " विकल्प " + g); }); }
+  ck("हर फ़ॉर्म में सेक्टर चुनना ज़रूरी; विकल्प ठीक 25 (कूट 1 से 25), नाम mg_names.js से हूबहू (हिंदी और English)", bad.length === 0, bad.slice(0, 6).join(" | "));
+  const pk = []; for (const l of ["en", "kn", "bn"]) { const s = rd("assets/i18n/panel_" + l + ".js"); for (const k of ["आपके काम का सेक्टर", LIB.NONE_NAME]) if (s.indexOf(JSON.stringify(k) + ":") === -1) pk.push(l + ": " + k); }
+  ck("English, कन्नड़ और बांग्ला पैनल-पैक में नए खाने के शब्द मौजूद", pk.length === 0, pk.join(" | "));
+}
+
+console.log("-- ई) लाँघने की कोशिशें (नक़ली folder में; असली फ़ाइलें अछूती)");
 {
   const T = fs.mkdtempSync(path.join(os.tmpdir(), "acs-sector-"));
-  const FILES = ["assets/mg_names.js", "assets/udyam_data.js", "assets/courses_data.js", "generator/data/sector_muhar.js", "generator/data/udyam_serial_ledger.json", "generator/data/network/taxonomy.js"];
-  const fresh = () => { for (const f of FILES) { fs.mkdirSync(path.dirname(path.join(T, f)), { recursive: true }); fs.copyFileSync(path.join(ROOT, f), path.join(T, f)); } };
+  const FILES = ["assets/mg_names.js", "assets/udyam_data.js", "assets/courses_data.js", "generator/data/sector_muhar.js", "generator/data/udyam_serial_ledger.json",
+    "generator/data/course_code_ledger.json", "generator/data/network/taxonomy.js", "sitemap-udyam.xml"];
+  const STUB = "<!doctype html><html><head><title>x</title></head><body>" + "x".repeat(600) + "</body></html>";
+  const stubs = LIB.load(ROOT).CARDS.map((c) => c.intro);
+  fs.mkdirSync(path.join(T, "udyam"), { recursive: true }); for (const u of stubs) fs.writeFileSync(path.join(T, u), STUB);
+  const fresh = () => { for (const f of FILES) { fs.mkdirSync(path.dirname(path.join(T, f)), { recursive: true }); fs.copyFileSync(path.join(ROOT, f), path.join(T, f)); }
+    for (const f of fs.readdirSync(path.join(T, "udyam"))) if (stubs.indexOf("/udyam/" + f) === -1) fs.unlinkSync(path.join(T, "udyam", f)); };
   const ed = (f, fn) => { const p = path.join(T, f), s = fs.readFileSync(p, "utf8"), t = fn(s); if (t === s) throw new Error("बदलाव लगा ही नहीं: " + f); fs.writeFileSync(p, t); };
-  const bad = () => { try { return LIB.audit(T).fail > 0; } catch (e) { return true; } };
+  /* bad(): जाँच चली और रुकी। (जाँच ही न चल पाए, जैसे बिगड़ी फ़ाइल, तो उसे "रुका" नहीं गिना जाता: वह कोशिश की अपनी ग़लती है।) */
+  const bad = () => LIB.audit(T).fail > 0;
+  const good = () => LIB.audit(T).fail === 0;
   const tool = (args) => cp.spawnSync(process.execPath, [path.join(__dirname, "sector_darj.js")].concat(args, ["--root", T]), { encoding: "utf8" });
   const before = FILES.map((f) => fs.readFileSync(path.join(ROOT, f), "utf8"));
   const t = (name, fn) => { fresh(); let ok = false, ex = ""; try { ok = fn(); } catch (e) { ex = e.message; } ck(name, ok, ex); };
-  fresh(); ck("नक़ली folder में शुरू की जाँच पास (तुलना का आधार)", LIB.audit(T).fail === 0);
-  t("25वाँ सेक्टर जोड़ा → रुका", () => { ed("assets/mg_names.js", (s) => s.replace(/(24:\s*\{[^}]*\})/, '$1,\n  25: { e:"🗣️", n:"भाषा" }')); return bad(); });
+  const NEW = 'const SELF_EMP_COURSES = [', addCourse = (row) => ed("assets/courses_data.js", (s) => s.replace(NEW, NEW + row + ", "));
+  const course = (id) => LIB.load(T).COURSES.find((c) => c.id === id);
+  fresh(); ck("नक़ली folder में शुरू की जाँच पास (तुलना का आधार)", good());
+  /* --- सेक्टर --- */
+  t("26वाँ सेक्टर जोड़ा (सूची में 25: भाषा) → रुका", () => { ed("assets/mg_names.js", (s) => s.replace(/(24:\s*\{[^}]*\})/, '$1,\n  25: { e:"🗣️", n:"भाषा", en:"Language" }')); return bad(); });
   t("किसी सेक्टर का नाम बदला → रुका", () => { ed("assets/mg_names.js", (s) => s.replace('n:"कृषि"', 'n:"खेती"')); return bad(); });
   t("एक सेक्टर हटाया (23 बचे) → रुका", () => { ed("assets/mg_names.js", (s) => s.replace(/\n\s*24:\s*\{[^}]*\},?/, "")); return bad(); });
-  t("नया कोर्स बिना सेक्टर के जोड़ा → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('const SELF_EMP_COURSES = [', 'const SELF_EMP_COURSES = [{"id": "SE999", "name_hi": "नया कोर्स", "name_en": "New", "url": "/courses/hi/naya/"}, ')); return bad(); });
-  t("नया चालू कोर्स, सेक्टर है पर उद्यम-कार्ड का कोड नहीं → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('const SELF_EMP_COURSES = [', 'const SELF_EMP_COURSES = [{"id": "SE999", "mg": 3, "name_hi": "नया कोर्स", "name_en": "New", "url": "/courses/hi/naya/"}, ')); return bad(); });
-  t("नया कोर्स, कार्ड-कोड ऐसा जो है ही नहीं (9999) → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('const SELF_EMP_COURSES = [', 'const SELF_EMP_COURSES = [{"id": "SE999", "mg": 3, "udyam": 9999, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}, ')); return bad(); });
-  t("नया कोर्स एक सेक्टर में, कार्ड दूसरे सेक्टर का → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('const SELF_EMP_COURSES = [', 'const SELF_EMP_COURSES = [{"id": "SE999", "mg": 7, "udyam": 116, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}, ')); return bad(); });
-  t("नया कोर्स सेक्टर 25 में → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('const SELF_EMP_COURSES = [', 'const SELF_EMP_COURSES = [{"id": "SE999", "mg": 25, "name_hi": "नया", "name_en": "New"}, ')); return bad(); });
-  t("नया कोर्स क़र्ज़-सूची में चुपके से जोड़ा (छूट लेने को) → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('const SELF_EMP_COURSES = [', 'const SELF_EMP_COURSES = [{"id": "SE999", "mg": 3, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}, '));
-    ed("generator/data/sector_muhar.js", (s) => s.replace('  "SE009",', '  "SE999", "SE009",')); return bad(); });
-  t("क़र्ज़ की सीमा मुहर में बढ़ाई (6 → 60) → रुका", () => { ed("generator/data/sector_muhar.js", (s) => s.replace("noCard: 6,", "noCard: 60,")); return bad(); });
-  t("हाथ से नया कार्ड जोड़ा (खाते के बिना) → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace('"intro": "/udyam/rice-cultivation-milling.html"}', '"intro": "/udyam/rice-cultivation-milling.html"}').replace(/\}\];/, '}, {"n": 952, "name": "हाथ का कार्ड", "mg": 3, "invest": "x", "intro": "/udyam/haath-ka-card.html"}];')); return bad(); });
+  t("25वें सेक्टर का नाम बदला («अन्य») → रुका", () => { ed("assets/mg_names.js", (s) => s.replace('id:25, e:"➕", n:"उपरोक्त में कोई नहीं"', 'id:25, e:"➕", n:"अन्य"')); return bad(); });
+  t("25वें सेक्टर का नाम mg_names.js और मुहर, दोनों में बदला → फिर भी रुका (यंत्र में भी लिखा है)", () => { ed("assets/mg_names.js", (s) => s.replace('id:25, e:"➕", n:"उपरोक्त में कोई नहीं"', 'id:25, e:"➕", n:"भाषा"')); ed("generator/data/sector_muhar.js", (s) => s.replace('const NONE_SECTOR = [25, "उपरोक्त में कोई नहीं"]', 'const NONE_SECTOR = [25, "भाषा"]')); return bad(); });
+  t("«उपरोक्त में कोई नहीं» कार्ड का कोड बदला (0 → 999) → रुका", () => { ed("assets/mg_names.js", (s) => s.replace("window.UDYAM_NONE = { n:0,", "window.UDYAM_NONE = { n:999,")); return bad(); });
+  t("किसी सेक्टर का English नाम मिटाया → रुका", () => { ed("assets/mg_names.js", (s) => s.replace(', en:"Agriculture"', "")); return bad(); });
+  /* --- कोर्स --- */
+  t("नया कोर्स बिना सेक्टर के जोड़ा → रुका", () => { addCourse('{"id": "SE999", "name_hi": "नया कोर्स", "name_en": "New"}'); return bad(); });
+  t("नया चालू कोर्स, सेक्टर है पर उद्यम-कार्ड का कोड नहीं → रुका", () => { addCourse('{"id": "SE999", "mg": 3, "name_hi": "नया कोर्स", "name_en": "New", "url": "/courses/hi/naya/"}'); return bad(); });
+  t("नया कोर्स, कार्ड-कोड ऐसा जो है ही नहीं (9999) → रुका", () => { addCourse('{"id": "SE999", "mg": 3, "udyam": 9999, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}'); return bad(); });
+  t("नया कोर्स एक सेक्टर में, कार्ड दूसरे सेक्टर का → रुका", () => { addCourse('{"id": "SE999", "mg": 7, "udyam": 116, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}'); return bad(); });
+  t("नया कोर्स सही कार्ड के साथ, पर हाथ से (कोड के खाते के बिना) → रुका", () => { addCourse('{"id": "SE999", "mg": 3, "udyam": 116, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}'); return bad(); });
+  t("नया कोर्स चुपके से «उपरोक्त में कोई नहीं» (कोड 0) पर, मुहर के बिना → रुका", () => { addCourse('{"id": "SE999", "mg": 3, "udyam": 0, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}'); ed("generator/data/course_code_ledger.json", (s) => s.replace("{\n", '{\n"SE999": "3-0",\n')); return bad(); });
+  t("वही, और मुहर की प्रतीक्षा-सूची में नाम भी हाथ से जोड़ा → सीमा पर रुका (3 से ज़्यादा नहीं)", () => { addCourse('{"id": "SE999", "mg": 3, "udyam": 0, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}'); ed("generator/data/course_code_ledger.json", (s) => s.replace("{\n", '{\n"SE999": "3-0",\n')); ed("generator/data/sector_muhar.js", (s) => s.replace('    "SE017",', '    "SE999",\n    "SE017",')); return bad(); });
+  t("प्रतीक्षा-सूची की सीमा मुहर में बढ़ाई (3 → 30) → रुका (यंत्र में भी लिखी है)", () => { ed("generator/data/sector_muhar.js", (s) => s.replace("const LIMIT = { courses: 3,", "const LIMIT = { courses: 30,")); return bad(); });
+  t("नया कोर्स सेक्टर 25 में, पर कार्ड-कोड किसी असली कार्ड का → रुका (25 ख़ाली कार्ड है)", () => { addCourse('{"id": "SE999", "mg": 25, "udyam": 116, "name_hi": "नया", "name_en": "New"}'); return bad(); });
+  t("नया कोर्स सेक्टर 25 में, कार्ड-कोड लिखा ही नहीं → रुका", () => { addCourse('{"id": "SE999", "mg": 25, "name_hi": "नया", "name_en": "New"}'); return bad(); });
+  t("चालू कोर्स से कार्ड-कोड हटाया (SE021) → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('{"id": "SE021", "udyam": 116, ', '{"id": "SE021", ')); return bad(); });
+  t("पक्का कोड हाथ से बदला (भाषा-कोर्स PJ018: कार्ड 468 → 474, उसी सेक्टर का) → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('{"id": "PJ018", "udyam": 468, ', '{"id": "PJ018", "udyam": 474, ')); return bad(); });
+  t("कोड वाला कोर्स सूची से ही हटा दिया (PJ434) → रुका", () => { ed("assets/courses_data.js", (s) => { const k = '{"id": "PJ434", ', a = s.indexOf(k); let d = 0, i = a, q = false; for (; i < s.length; i++) { const ch = s[i]; if (q) { if (ch === "\\") i++; else if (ch === '"') q = false; continue; } if (ch === '"') q = true; else if (ch === "{") d++; else if (ch === "}") { d--; if (d === 0) break; } } return s.slice(0, a).replace(/,\s*$/, "") + s.slice(i + 1); }); return bad(); });
+  /* --- कार्ड, पहचान (SN-02) और पन्ना (SN-01) --- */
+  const HAND = '}, {"n": 952, "name": "हाथ का कार्ड", "mg": 3, "invest": "x", "intro": "/udyam/haath-ka-card.html"}];';
+  t("हाथ से नया कार्ड जोड़ा (खाते के बिना) → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace(/\}\];/, HAND)); return bad(); });
+  t("हाथ से नया कार्ड और खाते में भी हाथ से दर्ज, पर पन्ना बना ही नहीं → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace(/\}\];/, HAND)); ed("generator/data/udyam_serial_ledger.json", (s) => s.replace(/\n\}\n$/, ',\n"952": {"u":"/udyam/haath-ka-card.html","n":"हाथ का कार्ड","mg":3}\n}\n')); return bad(); });
+  t("वही, पन्ना भी रख दिया, पर sitemap में पता नहीं → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace(/\}\];/, HAND)); ed("generator/data/udyam_serial_ledger.json", (s) => s.replace(/\n\}\n$/, ',\n"952": {"u":"/udyam/haath-ka-card.html","n":"हाथ का कार्ड","mg":3}\n}\n')); fs.writeFileSync(path.join(T, "udyam/haath-ka-card.html"), STUB); return bad(); });
+  t("किसी पुराने कार्ड का पन्ना मिटा दिया (फ़ाइल नहीं) → रुका", () => { fs.unlinkSync(path.join(T, "udyam/rice-cultivation-milling.html")); const r = bad(); fs.writeFileSync(path.join(T, "udyam/rice-cultivation-milling.html"), STUB); return r; });
   t("किसी पुराने कार्ड का serial बदला (116 → 9116) → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace('{"n": 116, ', '{"n": 9116, ')); return bad(); });
   t("एक पुराना कार्ड हटाया → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace(/, \{"n": 950, [^}]*\}/, "")); return bad(); });
   t("पुराने serial पर दूसरा उद्यम बैठाया (पन्ना बदला) → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace('"intro": "/udyam/rice-cultivation-milling.html"', '"intro": "/udyam/koi-aur-udyam.html"')); return bad(); });
-  t("कार्ड को सेक्टर 30 में रखा → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace('{"n": 2, "name": "गेहूँ', '{"n": 2, "name": "गेहूँ').replace(/(\{"n": 2, [^}]*"mg": )1,/, "$130,")); return bad(); });
-  t("चालू कोर्स से कार्ड-कोड हटाया (SE021) → रुका", () => { ed("assets/courses_data.js", (s) => s.replace('{"id": "SE021", "udyam": 116, ', '{"id": "SE021", ')); return bad(); });
-  t("नेटवर्क में नया सेक्टर बिना कार्ड के → रुका", () => { ed("generator/data/network/taxonomy.js", (s) => s.replace("const SECTORS = {", 'const SECTORS = {\n  naya: { id: "NY", slug: "naya", mg: 4, icon: "x", status: "planned", hi: "नया", en: "New" },')); return bad(); });
+  t("पुराने serial का नाम हाथ से बदला (पन्ना वही) → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace('{"n": 468, "name": "भाषा संस्थान [Language Institute]"', '{"n": 468, "name": "कोचिंग केंद्र [Coaching Centre]"')); return bad(); });
+  t("नाम में सिर्फ़ कोष्ठक की शक्ल बदली ([ ] → ( )) → चलता है (यह नाम बदलना नहीं)", () => { ed("assets/udyam_data.js", (s) => s.replace('{"n": 468, "name": "भाषा संस्थान [Language Institute]"', '{"n": 468, "name": "भाषा संस्थान (Language Institute)"')); return good(); });
+  t("पुराने कार्ड का सेक्टर हाथ से बदला (कार्ड 2: सेक्टर 1 → 3) → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace(/(\{"n": 2, [^}]*"mg": )1,/, "$13,")); return bad(); });
+  t("कार्ड को सेक्टर 25 में रखा (वह ख़ाली कार्ड है) → रुका", () => { ed("assets/udyam_data.js", (s) => s.replace(/(\{"n": 2, [^}]*"mg": )1,/, "$125,")); ed("generator/data/udyam_serial_ledger.json", (s) => s.replace('"n":"गेहूं [Wheat]","mg":1}', '"n":"गेहूं [Wheat]","mg":25}')); return bad(); });
+  /* --- नेटवर्क --- */
+  t("नेटवर्क में नया सेक्टर बिना कार्ड-कोड के → रुका", () => { ed("generator/data/network/taxonomy.js", (s) => s.replace("const SECTORS = {", 'const SECTORS = {\n  naya: { id: "NY", slug: "naya", mg: 4, icon: "x", status: "planned", hi: "नया", en: "New" },')); return bad(); });
+  t("नेटवर्क में नया सेक्टर चुपके से कोड 0 पर (मुहर के बिना) → रुका", () => { ed("generator/data/network/taxonomy.js", (s) => s.replace("const SECTORS = {", 'const SECTORS = {\n  naya: { id: "NY", slug: "naya", mg: 4, udyam: 0, icon: "x", status: "planned", hi: "नया", en: "New" },')); return bad(); });
   t("नेटवर्क का सेक्टर ग़लत सेक्टर के कार्ड से जोड़ा → रुका", () => { ed("generator/data/network/taxonomy.js", (s) => s.replace("mg: 3, udyam: 132,", "mg: 3, udyam: 310,")); return bad(); });
-  /* औज़ार का सही रास्ता */
-  t("औज़ार: सेक्टर 25 का कार्ड बनाने से मना", () => tool(["card", "--mg", "25", "--name", "नया (New)", "--slug", "naya-udyam"]).status !== 0);
+  /* --- औज़ार का सही रास्ता --- */
+  t("औज़ार: सेक्टर 25 का कार्ड बनाने से मना (25 ख़ाली कार्ड है)", () => tool(["card", "--mg", "25", "--name", "नया (New)", "--slug", "naya-udyam"]).status !== 0 && good());
   t("औज़ार: उसी नाम का कार्ड दोबारा बनाने से मना (पहले से है → उसी का कोड लगे)", () => { const r = tool(["card", "--mg", "11", "--name", "भाषा संस्थान (Language Institute)", "--slug", "bhasha-sansthan-2"]); return r.status !== 0 && /serial 468/.test(r.stderr); });
-  t("औज़ार: कोर्स को दूसरे सेक्टर के कार्ड से जोड़ने से मना (SE021 → 310)", () => tool(["course", "--id", "SE021", "--udyam", "310"]).status !== 0 && LIB.audit(T).fail === 0);
-  t("औज़ार: नया कार्ड = सबसे बड़ा serial + 1, खाते में दर्ज, जाँच पास; फिर कोर्स पर उसका कोड", () => {
-    const n0 = LIB.load(T).CARDS.length, r = tool(["card", "--mg", "7", "--name", "प्रिंटर मरम्मत (Printer Repair)", "--slug", "printer-repair-business"]);
-    const D = LIB.load(T), last = D.CARDS[D.CARDS.length - 1];
-    if (r.status !== 0 || D.CARDS.length !== n0 + 1 || last.n !== n0 + 1 || last.mg !== 7 || D.LEDGER[n0 + 1] !== "/udyam/printer-repair-business.html" || LIB.audit(T).fail !== 0) return false;
-    const r2 = tool(["course", "--id", "SE017", "--udyam", String(n0 + 1)]); if (r2.status !== 0) return false;
-    /* अब SE017 क़र्ज़-सूची में बासी है: यंत्र कहे "सूची से हटाओ"; हटाने पर पास */
-    if (LIB.audit(T).fail === 0) return false;
-    ed("generator/data/sector_muhar.js", (s) => s.replace(/\n  "SE017",[^\n]*/, ""));
-    return LIB.audit(T).fail === 0 && LIB.load(T).COURSES.find((c) => c.id === "SE017").udyam === n0 + 1;
-  });
-  t("औज़ार: कोर्स का सेक्टर कार्ड वाला करना सिर्फ़ --mg-badlo के साथ (PJ016 → 463)", () => {
+  t("औज़ार: कोर्स को दूसरे सेक्टर के कार्ड से जोड़ने से मना (SE021 → 310)", () => tool(["course", "--id", "SE021", "--udyam", "310"]).status !== 0 && good());
+  t("औज़ार: पक्का कोड बदलने से मना (PJ018: 468 → 474); --badlo के साथ चलता है और खाता भी बदलता है", () => {
+    if (tool(["course", "--id", "PJ018", "--udyam", "474"]).status === 0 || !good()) return false;
+    const r = tool(["course", "--id", "PJ018", "--udyam", "474", "--badlo"]); return r.status === 0 && course("PJ018").udyam === 474 && LIB.load(T).CLEDGER.PJ018 === "11-474" && good(); });
+  t("औज़ार: «उपरोक्त में कोई नहीं» (कोड 0) पर रखने से मना, जब तक --muhar न हो; --muhar पर भी सीमा भरी हो तो मना", () => {
+    addCourse('{"id": "SE999", "mg": 3, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}');
+    const r1 = tool(["course", "--id", "SE999", "--udyam", "0"]), r2 = tool(["course", "--id", "SE999", "--udyam", "0", "--muhar", "--karan", "नया कार्ड बनना बाक़ी है"]);
+    return r1.status !== 0 && /muhar/.test(r1.stderr) && r2.status !== 0 && /प्रतीक्षा-सूची भरी/.test(r2.stderr) && course("SE999").udyam === undefined; });
+  t("औज़ार: नया कोर्स सही रास्ते से (कार्ड का कोड) → जाँच पास, कोड खाते में", () => {
+    addCourse('{"id": "SE999", "mg": 3, "name_hi": "नया", "name_en": "New", "url": "/courses/hi/naya/"}'); if (!bad()) return false;
+    return tool(["course", "--id", "SE999", "--udyam", "116"]).status === 0 && good() && LIB.load(T).CLEDGER.SE999 === "3-116"; });
+  t("औज़ार: नया कार्ड = सबसे बड़ा serial + 1, खाते में पन्ना + नाम + सेक्टर; पन्ना और sitemap बनने तक दरवाज़ा बंद; फिर रुका कोर्स उस पर आए तो प्रतीक्षा-सूची से अपने-आप हटे", () => {
+    const n0 = LIB.load(T).CARDS.length, r = tool(["card", "--mg", "7", "--name", "कंप्यूटर और प्रिंटर मरम्मत (Computer and Printer Repair)", "--slug", "computer-printer-repair-service"]);
+    const D = LIB.load(T), last = D.CARDS[D.CARDS.length - 1], L = D.LEDGER[n0 + 1];
+    if (r.status !== 0 || D.CARDS.length !== n0 + 1 || last.n !== n0 + 1 || last.mg !== 7 || !L || L.u !== "/udyam/computer-printer-repair-service.html" || L.mg !== 7 || L.n !== last.name) return false;
+    if (!bad()) return false;                                   /* पन्ना नहीं बना: रुकना चाहिए */
+    fs.writeFileSync(path.join(T, "udyam/computer-printer-repair-service.html"), STUB); if (!bad()) return false;   /* sitemap में नहीं: रुकना चाहिए */
+    ed("sitemap-udyam.xml", (s) => s.replace("</urlset>", "<url><loc>https://acslearn.com/udyam/computer-printer-repair-service.html</loc></url>\n</urlset>")); if (!good()) return false;
+    const r2 = tool(["course", "--id", "SE017", "--udyam", String(n0 + 1)]); const D2 = LIB.load(T);
+    return r2.status === 0 && good() && course("SE017").udyam === n0 + 1 && D2.seal.PRATIKSHA.courses.indexOf("SE017") === -1 && D2.seal.PRATIKSHA.courses.length === 2 && D2.CLEDGER.SE017 === "7-" + (n0 + 1); });
+  t("औज़ार: कोर्स का सेक्टर कार्ड वाला करना सिर्फ़ --mg-badlo के साथ (PJ016 → 463, शिक्षा); प्रतीक्षा-सूची से हटे", () => {
     if (tool(["course", "--id", "PJ016", "--udyam", "463"]).status === 0) return false;
-    const r = tool(["course", "--id", "PJ016", "--udyam", "463", "--mg-badlo"]); const c = LIB.load(T).COURSES.find((x) => x.id === "PJ016");
-    return r.status === 0 && c.udyam === 463 && c.mg === 11;
-  });
+    const r = tool(["course", "--id", "PJ016", "--udyam", "463", "--mg-badlo"]); const c = course("PJ016"), D2 = LIB.load(T);
+    return r.status === 0 && c.udyam === 463 && c.mg === 11 && D2.CLEDGER.PJ016 === "11-463" && D2.seal.PRATIKSHA.courses.indexOf("PJ016") === -1 && good(); });
+  t("औज़ार: कार्ड का नाम बदलना (naam): data और खाता दोनों बदलें, serial, पन्ना और सेक्टर वही, जाँच पास", () => {
+    const r = tool(["naam", "--n", "468", "--name", "भाषा और लिपि संस्थान (Language and Script Institute)"]); const D2 = LIB.load(T), k = D2.CARDS.find((x) => x.n === 468);
+    return r.status === 0 && k.name === "भाषा और लिपि संस्थान (Language and Script Institute)" && D2.LEDGER[468].n === k.name && D2.LEDGER[468].u === k.intro && k.mg === 11 && good(); });
+  t("औज़ार: कार्ड को दूसरे सेक्टर में ले जाना सिर्फ़ --badlo के साथ (कार्ड 949: 24 → 21); खाता भी बदले, जाँच पास", () => {
+    if (tool(["sector", "--n", "949", "--mg", "21"]).status === 0 || !good()) return false;
+    const r = tool(["sector", "--n", "949", "--mg", "21", "--badlo"]); const D2 = LIB.load(T), k = D2.CARDS.find((x) => x.n === 949);
+    return r.status === 0 && k.mg === 21 && D2.LEDGER[949].mg === 21 && D2.LEDGER[949].u === k.intro && good(); });
+  t("औज़ार: जिस कार्ड पर कोर्स के कोड लगे हैं, वह --saath के बिना नहीं हिलता (कार्ड 116); --saath से कोर्स भी साथ जाते हैं; 25 में कभी नहीं", () => {
+    if (tool(["sector", "--n", "116", "--mg", "4", "--badlo"]).status === 0 || !good()) return false;
+    if (tool(["sector", "--n", "116", "--mg", "25", "--badlo", "--saath"]).status === 0 || !good()) return false;
+    const r = tool(["sector", "--n", "116", "--mg", "4", "--badlo", "--saath"]); const D2 = LIB.load(T);
+    return r.status === 0 && course("SE021").mg === 4 && course("LJ011").mg === 4 && D2.CLEDGER.SE021 === "4-116" && D2.CLEDGER.LJ011 === "4-116" && good(); });
+  t("औज़ार: mg आदेश चालू या कोड वाले कोर्स का सेक्टर नहीं बदलता (PJ018), बिना पन्ने वाले का लिखता है (GJ001)", () =>
+    tool(["mg", "--id", "PJ018", "--mg", "10"]).status !== 0 && tool(["mg", "--id", "GJ001", "--mg", "11"]).status === 0 && course("GJ001").mg === 11 && good());
+  t("औज़ार: खाते दोबारा नहीं बनते (khata-v2, kcode-banao दूसरी बार मना)", () => tool(["khata-v2"]).status !== 0 && tool(["kcode-banao"]).status !== 0 && good());
   const after = FILES.map((f) => fs.readFileSync(path.join(ROOT, f), "utf8"));
   ck("इन कोशिशों के बाद असली फ़ाइलें byte-दर-byte वैसी ही", before.every((s, i) => s === after[i]));
   fs.rmSync(T, { recursive: true, force: true });
@@ -105,4 +206,4 @@ console.log("-- इ) लाँघने की कोशिशें (नक़�
 
 console.log("जाँचें: पास " + pass + " · फेल " + fail);
 if (fail) { console.log("⛔ dev_sector_niyam_check रुका"); process.exit(1); }
-console.log("🏁 dev_sector_niyam_check v1.0 : सेक्टर-नियम पास");
+console.log("🏁 dev_sector_niyam_check v1.1 : सेक्टर-नियम पास");
