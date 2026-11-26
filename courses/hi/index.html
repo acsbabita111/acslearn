@@ -553,13 +553,17 @@ function udyamAsCourseShape(){
 // ══ DATA MAP ══
 const TAB_DATA = {
   0: () => {
-    /* 6 पूरे-तैयार कोर्स — असली SELF_EMP_COURSES/PRIVATE_JOB_COURSES से ID मिलाकर (एक चीज़=एक जगह) */
-    const READY_IDS = ['SE026','SE025','SE009','SE017','SE021','SE022','SE023','SE024','PJ016','PJ017']; /* 26-Oct +SE025 पहला कोड */ /* हुनर सर्टिफिकेट प्रोग्राम — भाषा-कोर्स (PJ018-PJ136) अब खंड-ब के समूहों में, renderBhasha से (30-Aug, Founder) */
+    /* हुनर के तैयार कोर्स (26-Nov-2026, सेक्टर-नियम v1.2): अब हाथ की सूची (READY_IDS) नहीं। assets/courses_data.js से अपने-आप:
+       जिस कोर्स का पन्ना चालू है (url) और जो भाषा-समूह (KKB_GROUPS) में नहीं, वह यहाँ आता है। एक ही पन्ने के दो कोर्स एक बार।
+       क्रम: कोर्स पर "top" लिखा हो तो बड़ा अंक पहले; बाक़ी data के क्रम में। नया हुनर-कोर्स data में जुड़ते ही यहाँ दिखता है। */
     const all = [].concat(
       typeof SELF_EMP_COURSES !== 'undefined' ? SELF_EMP_COURSES : [],
       typeof PRIVATE_JOB_COURSES !== 'undefined' ? PRIVATE_JOB_COURSES : []
     );
-    return READY_IDS.map(id => all.find(c => c.id === id)).filter(Boolean);
+    const kk = {}, seen = {};
+    (window.KKB_GROUPS || []).forEach(g => (g.ids || []).forEach(id => { kk[id] = 1; }));
+    return all.filter(c => c.url && !kk[c.id] && !seen[c.url] && (seen[c.url] = 1))
+      .map((c, i) => ({ c, i })).sort((a, b) => ((b.c.top || 0) - (a.c.top || 0)) || (a.i - b.i)).map(x => x.c);
   },
   1: udyamAsCourseShape,   /* स्वरोजगार — साझा 950-उद्यम सूची */
   2: udyamAsCourseShape,   /* प्राइवेट/कॉर्पोरेट — वही साझा सूची */

@@ -8,7 +8,7 @@
      भंडार का स्रोत-पाठ और उसका यंत्र server-पैकेज में हैं (bank-src/, build_apt_bank.js); वे GitHub पर नहीं आते।
    स्रोत (हाथ से लिखे जाते हैं; सब generator/data/aptitude/<कोड>/ में):
      preview.txt         झलक के 48 प्रश्न (id|पाठ|विकल्प…) और 4 कथाएँ (id|शीर्षक|पाठ)। झलक मुफ़्त है, इसलिए repo पर है।
-     udyam.txt           951 उद्यमों के नाम (संख्या|नाम): नतीजे पर दिखते हैं
+     udyam.txt           हर उद्यम-कार्ड का नाम (संख्या|नाम; गिनती assets/udyam_data.js जितनी): नतीजे पर दिखते हैं
      strings.js          छोटी तालिकाएँ: ui (झलक के बटन/संदेश), mg (24 समूह-नाम), session + pay (पूरी परीक्षा और भुगतान के वाक्यांश),
                          art (चित्रों के भीतर का अक्षर), page + pageAttr (पन्ने के वाक्य), notice (सिर्फ़ उन भाषाओं में जिन पर "AI-अनुवाद" पट्टी है)
      glossary_map.json   तय शब्दावली (झलक पर यहाँ लगती है; पूरे भंडार पर server-यंत्र यही फ़ाइल लगाता है)
@@ -133,7 +133,7 @@ if (S && S.lang !== code) bad("स्रोत", "strings.js में lang \"" 
   });
   Object.keys(rows).forEach(function (n) { bad(st, "संख्या " + n + ": ऐसा उद्यम सूची में नहीं (बासी)"); });
   var map = {}; Object.keys(seen).forEach(function (v) { map[seen[v]] = v; });
-  outs["assets/apt_udyam_" + code + ".js"] = "/* /assets/apt_udyam_" + code + ".js : 951 उद्यमों के नाम, " + INFO.hi + " (generator-निर्मित: build_apt_lang.js v2.0)\n" +
+  outs["assets/apt_udyam_" + code + ".js"] = "/* /assets/apt_udyam_" + code + ".js : " + SEC.length + " उद्यमों के नाम, " + INFO.hi + " (generator-निर्मित: build_apt_lang.js v2.0)\n" +
     "   स्रोत: generator/data/aptitude/" + code + "/udyam.txt · मूल: /assets/udyam_data.js (हिंदी) · हाथ से न बदलें */\n" +
     "window.APT_UDN={lang:" + JSON.stringify(code) + ",n:" + JSON.stringify(map) + "};\n";
   notes.push("उद्यम-नाम " + SEC.length);

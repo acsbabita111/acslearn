@@ -762,7 +762,7 @@ const UDYAM_INTRO_MG09 = {
   },
   "394": {
     "slug": "reit-real-estate-investment-trust-business",
-    "title_hi": "रियल-एस्टेट-निवेश-ट्रस्ट व्यवसाय (REIT — Real Estate Investment Trust)",
+    "title_hi": "रियल-एस्टेट-निवेश-ट्रस्ट व्यवसाय (REIT: Real Estate Investment Trust)",
     "title_note": "रियल एस्टेट निवेश ट्रस्ट (REIT)",
     "mg": 9,
     "parts": {
@@ -806,7 +806,7 @@ const UDYAM_INTRO_MG09 = {
   },
   "396": {
     "slug": "proptech-property-technology-business",
-    "title_hi": "संपत्ति-प्रौद्योगिकी व्यवसाय (Proptech — Property Technology)",
+    "title_hi": "संपत्ति-प्रौद्योगिकी व्यवसाय (Proptech: Property Technology)",
     "title_note": "संपत्ति प्रौद्योगिकी (Proptech)",
     "mg": 9,
     "parts": {

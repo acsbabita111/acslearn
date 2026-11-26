@@ -392,7 +392,7 @@ function nivedanData() {
     const hi = String(x.name).replace(/\[/g, "(").replace(/\]/g, ")").replace(/\s+/g, " ").trim();
     const m = String(x.name).match(/[\[(]([^\[\]()]*[A-Za-z][^\[\]()]*)[\])]/);
     let en = m ? m[1].trim() : "";
-    if (/[\u0900-\u097F]/.test(en)) en = en.split(/\s+—\s+/)[0].trim();   /* "Ride Hailing — ओला/उबर मॉडल" → "Ride Hailing" */
+    if (/[\u0900-\u097F]/.test(en)) en = en.split(/\s+—\s+|:\s+/)[0].trim();   /* "Ride Hailing: ओला/उबर मॉडल" → "Ride Hailing" (26-Nov-2026: कार्ड के नामों से लंबी रेखा हटी, अब ":" है) */
     if (!en || /[\u0900-\u097F]/.test(en)) stop("udyam_data.js: उद्यम " + x.n + " का English नाम नहीं निकला");
     return [x.n, x.mg, hi, en];
   }).sort((a, b) => a[0] - b[0]);

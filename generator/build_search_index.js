@@ -51,7 +51,7 @@ function build() {
     const h = fs.readFileSync(path.join(ROOT, u.slice(1)), "utf8"), t = un((h.match(/<h1[^>]*>([\s\S]*?)<\/h1>/) || [, ""])[1]);
     if (!t) throw new Error("उद्यम का नाम नहीं मिला: " + u);
     const pm = t.match(/\(([^()]*)\)/);
-    out.push(["u", t.replace(/\s*\([^()]*\)/g, "").replace(/\s+—\s+.*$/, "").trim(), pm ? pm[1].split(" — ")[0] : "", u, ""]); n.u++;
+    out.push(["u", t.replace(/\s*\([^()]*\)/g, "").replace(/\s+—\s+.*$/, "").trim(), pm ? pm[1].split(/ — |: /)[0] : "", u, ""]); n.u++;
   }
   if (!fs.existsSync(path.join(ROOT, "en/career.html"))) throw new Error("en/career.html नहीं मिला");
   out.push(["k", "करियर टेस्ट (अपनी रुचि पहचानो)", "Career Test", "/career.html", "career interest test aptitude अभिरुचि", "/en/career.html"]);

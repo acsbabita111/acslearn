@@ -652,7 +652,7 @@ const UDYAM_INTRO_MG04 = {
   },
   "192": {
     "slug": "special-economic-zone-business",
-    "title_hi": "विशेष-आर्थिक-क्षेत्र व्यवसाय (Special Economic Zone — SEZ)",
+    "title_hi": "विशेष-आर्थिक-क्षेत्र व्यवसाय (Special Economic Zone: SEZ)",
     "title_note": "विशेष आर्थिक क्षेत्र निर्माण (SEZ)",
     "mg": 4,
     "parts": {

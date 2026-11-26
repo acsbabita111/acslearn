@@ -1,5 +1,5 @@
 /* ============================================================
-   /assets/apt-session.js : v2.12 (17-Nov-2026, कन्नड़ क-4: द्वार के "Login / Dashboard" बटन का नाम वाक्यांश-तालिका के "@login" से, जिस भाषा में वह दिया गया हो;
+   /assets/apt-session.js : v2.13 (26-Nov-2026, सेक्टर-नियम v1.2: नतीजे की कोर्स-कड़ी निकली सूची /assets/suchi_index.js से) · v2.12 (17-Nov-2026, कन्नड़ क-4: द्वार के "Login / Dashboard" बटन का नाम वाक्यांश-तालिका के "@login" से, जिस भाषा में वह दिया गया हो;
    न हो तो पहले जैसा "Login / Dashboard"। हिंदी पन्ने पर कुछ नहीं बदला।) · v2.11 (14-Nov-2026; खेप 5-क: नई भाषाओं के लिए उद्यम-नामों की तालिका। जिस भाषा की वाक्यांश-तालिका में "@udyam" का पता है,
    उसके नतीजे पर 951 उद्यमों के नाम उसी भाषा की फ़ाइल /assets/apt_udyam_<भाषा>.js से आते हैं। हिंदी और English पन्नों पर कुछ नहीं बदला।) · v2.10 (14-Nov-2026; खेप 4 भाग 1: ₹125 के भुगतान से पहले "वापस नहीं होती" वाली पंक्ति) · v2.9 (14-Nov-2026; खेप 3-ख भाग 1: सहेजी हुई रिपोर्ट के नीचे जाँच-नंबर और मान्य तिथि) · पहले v2.8 (13-Nov-2026)
    v2.8 (13-Nov-2026, खेप 2 के ऑडिट K2-H03 और Founder का फ़ैसला): ₹100 के बटन के ऊपर लिखा है कि चांस वापस नहीं होता, सिवाय हमारी तकनीकी ग़लती के। बाक़ी सब v2.7 जैसा।
@@ -832,8 +832,13 @@
     hook({ band: C.band, top: mgR.slice(0, 4).map(function (x) { return x.k; }), m: new Date().getMonth() + 1 });
     appOn();
     box.innerHTML = L('<div class="apt-card"><p>नतीजा बन रहा है…</p></div>');
-    loadMany(['/assets/udyam_data.js'].concat(UDN_URL ? [UDN_URL] : []), function () {
+    /* v2.13 (26-Nov-2026, सेक्टर-नियम v1.2): किस उद्यम का कोर्स बना है, यह अब निकली सूची /assets/suchi_index.js से
+       (कोर्स के «सेक्टर-कार्ड» कोड से अपने-आप)। सूची न उतरे तो भी नतीजा पहले जैसा बनता है (कार्ड पर लिखी कड़ी से)। */
+    var aptGo = function () { loadMany(['/assets/udyam_data.js'].concat(UDN_URL ? [UDN_URL] : []), aptRes); };
+    loadScript('/assets/suchi_index.js', aptGo, aptGo);
+    function aptRes() {
       var SEC = (window.ALL_SECTORS || (typeof ALL_SECTORS !== 'undefined' ? ALL_SECTORS : []));
+      try { if (window.ACS_SUCHI && window.ACS_SUCHI.lagao) window.ACS_SUCHI.lagao(SEC); } catch (eS) {}
       var byN = {}; SEC.forEach(function (u) { byN[u.n] = u; });
       var picks = udyR.slice(0, 12).map(function (x) { return { u: byN[x.k], score: x.avg }; }).filter(function (p) { return p.u; });
       picks.sort(function (a, b) { return (b.u.course ? 1 : 0) - (a.u.course ? 1 : 0) || b.score - a.score; });
@@ -900,7 +905,7 @@
       document.getElementById('apt-again').onclick = function () { S.cur = null; save(S); regate(); };
       wireReportSave(mgR, picks, C);
       toTop();
-    });
+    }
   }
 
   /* ---- शुरुआत ---- */

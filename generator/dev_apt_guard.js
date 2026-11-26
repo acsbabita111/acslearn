@@ -157,7 +157,9 @@ NEWL.forEach(function (c) {
   var devLeak = LANGS.L[c].script === "Deva" ? hiKeys.filter(function (k) { return LANGS.hindiMark(c, String(sx[k]).replace(/<[^>]*$/, " ").replace(/<[^>]+>/g, " ")); }) : hiKeys.filter(function (k) { return /[\u0900-\u0963\u0966-\u097F]/.test(sx[k]); });
   ok(hiKeys.length > 100 && devLeak.length === 0 && sx["@udyam"] === "/assets/apt_udyam_" + c + ".js" && !sx["@sets"], c + ": वाक्यांश-तालिका में " + hiKeys.length + " जोड़े, हिंदी का रिसाव 0, उद्यम-नामों का पता दर्ज");
   var un = {}; try { var w4 = {}; vm.runInNewContext(rd("assets/apt_udyam_" + c + ".js"), { window: w4 }); un = (w4.APT_UDN && w4.APT_UDN.lang === c && w4.APT_UDN.n) || {}; } catch (e4) {}
-  ok(Object.keys(un).length === 951, c + ": उद्यमों के नाम 951: " + Object.keys(un).length);
+  /* (26-Nov-2026, सेक्टर-नियम v1.2) गिनती assets/udyam_data.js से: नया उद्यम-कार्ड जुड़े तो हर भाषा-पैक में उसका नाम भी हो */
+  var nCards = new Function(rd("assets/udyam_data.js") + ";return ALL_SECTORS.length;")();
+  ok(nCards >= 951 && Object.keys(un).length === nCards, c + ": उद्यमों के नाम " + nCards + " (उद्यम-सूची जितने): " + Object.keys(un).length);
   if (LANGS.L[c].script === "Deva") {
     var unLeak = Object.keys(un).filter(function (k) { return LANGS.hindiMark(c, String(un[k])); });
     ok(unLeak.length === 0, c + ": उद्यम-नामों में हिंदी का रिसाव 0" + (unLeak.length ? " (पहला: " + unLeak[0] + " " + un[unLeak[0]] + ")" : ""));

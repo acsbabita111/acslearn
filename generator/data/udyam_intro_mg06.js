@@ -36,7 +36,7 @@ const UDYAM_INTRO_MG06 = {
   },
   "234": {
     "slug": "active-pharmaceutical-ingredient-business",
-    "title_hi": "सक्रिय-फार्मास्यूटिकल-घटक व्यवसाय (API — Active Pharmaceutical Ingredient)",
+    "title_hi": "सक्रिय-फार्मास्यूटिकल-घटक व्यवसाय (API: Active Pharmaceutical Ingredient)",
     "title_note": "सक्रिय फार्मास्यूटिकल घटक निर्माण (API)",
     "mg": 6,
     "parts": {

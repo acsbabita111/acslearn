@@ -16,6 +16,7 @@
 "use strict";
 const fs = require("fs"), path = require("path");
 const ROOT = path.join(__dirname, "..");
+const LIBS = require("./lib_sector.js");   /* v1.3: निकली सूची (कार्ड → उसके चालू कोर्स) */
 const PAGE = path.join(ROOT, "udyam", "index.html");
 const CHECK = process.argv.includes("--check");
 const START = "<!-- UDYAM-SUCHI:START (generator/build_udyam_suchi.js से बना; हाथ से न बदलें) -->";
@@ -154,9 +155,35 @@ function mgBlock(lang) {
     "  if(g.querySelector('button'))return;",
     "  g.insertAdjacentHTML('beforeend',udyNoneCard(activeMG));",
     "}",
-    "(function(){var r0=renderSectors;renderSectors=function(){r0();udyNoneFix();};})();",
-    "/* UDYAM-MG:END */"].join("\n") + "\n";
+    "(function(){var r0=renderSectors;renderSectors=function(){r0();udyNoneFix();};})();"]
+    .concat(en ? [] : courseLines())
+    .concat(["/* UDYAM-MG:END */"]).join("\n") + "\n";
   return { body, M_START };
+}
+/* v1.3: कार्ड पर "📚 मुफ़्त कोर्स" की कड़ियाँ निकली सूची से (generator/lib_sector.js derive): जिस कार्ड के कोड पर चालू कोर्स हैं,
+   वे सब यहाँ अपने-आप; कई हों तो हर कोर्स अपने नाम से; बहुत हों (12 से ज़्यादा) तो सूची के पन्ने की कड़ी।
+   जिस कार्ड का अपना कोर्स नहीं, वहाँ udyam_data.js की "संबंधित कोर्स" कड़ी (course) पहले जैसी। */
+function courseLines() {
+  const X = LIBS.derive(LIBS.load(ROOT)), rows = [];
+  Object.keys(X.card).map(Number).sort((a, b) => a - b).forEach((n) => { const e = X.card[n];
+    rows.push(n + ":{k:" + e.k + (e.l ? ",l:'" + q(e.l) + "'" : "") + ",c:[" + e.c.map((c) => "['" + q(c[1]) + "','" + q(c[3]) + "']").join(",") + "]}"); });
+  return ["/* कार्ड → उसके चालू कोर्स (निकली सूची; स्रोत: assets/courses_data.js के «सेक्टर-कार्ड» कोड) */",
+    "const UDY_K={" + rows.join(",\n  ") + "};",
+    "function udyCourseLinks(s){",
+    "  var k=UDY_K[s.n],a=function(u,t){return '<a href=\"'+u+'\" onclick=\"event.stopPropagation()\" style=\"display:block;color:var(--green);font-weight:700;font-size:16px;margin-top:6px;text-decoration:none\">📚 '+t+' →</a>';};",
+    "  if(!k)return s.course?a(s.course,'मुफ़्त कोर्स पढ़ें'):'';",
+    "  if(k.l)return a(k.l,k.k+' मुफ़्त कोर्स देखें');",
+    "  if(k.c.length===1)return a(k.c[0][1],'मुफ़्त कोर्स पढ़ें');",
+    "  return k.c.map(function(c){return a(c[1],c[0]);}).join('');",
+    "}"];
+}
+/* कार्ड के साँचे की कोर्स-पंक्ति (पन्ने का हाथ वाला हिस्सा): एक बार बदलकर udyCourseLinks(s) पर */
+function placeCourseCall(src) {
+  const NEW = "${udyCourseLinks(s)}";
+  if (src.split(NEW).length === 2) return src;
+  const re = /\$\{s\.course\?`<a href="\$\{s\.course\}"[^`]*`:''\}/g, m = src.match(re);
+  if (!m || m.length !== 1) stop("कार्ड के साँचे की कोर्स-पंक्ति ठीक एक बार नहीं मिली");
+  return src.replace(re, () => NEW);
 }
 const M_END = "/* UDYAM-MG:END */";
 function placeMg(src, lang) {
@@ -190,7 +217,7 @@ const { html, n } = block();
 const kadi = K_START + '\n    <p style="margin:0 0 12px"><a href="#puri-suchi" style="display:inline-block;padding:11px 14px;font-size:17px;font-weight:700;line-height:1.5;color:var(--blue);background:#EEF4FF;border:1.5px solid #BBDEFB;border-radius:10px;text-decoration:none">📋 सभी ' + n + ' उद्यमों की पूरी सूची देखें (सेक्टर के अनुसार) ↓</a></p>\n' + K_END + "\n";
 let next = place(src, START, END, html, ANCHOR, true);
 next = place(next, K_START, K_END, kadi, K_ANCHOR, false);
-next = counts(placeMg(next, "hi"), n, "hi");
+next = placeCourseCall(counts(placeMg(next, "hi"), n, "hi"));
 /* ---------- English पन्ना ---------- */
 const PAGE_EN = path.join(ROOT, "en", "industries", "index.html");
 const srcEn = fs.readFileSync(PAGE_EN, "utf8");
@@ -209,5 +236,5 @@ if (CHECK) {
     if (a === b) console.log("✅ पहले जैसा: " + nm2);
     else { fs.writeFileSync(P, b); console.log("✅ लिखा: " + nm2 + " (" + a.length + " → " + b.length + " अक्षर)"); }
   }
-  console.log("🏁 build_udyam_suchi v1.2 (" + n + " उद्यम, 24 सेक्टर + «उपरोक्त में कोई नहीं»)");
+  console.log("🏁 build_udyam_suchi v1.3 (" + n + " उद्यम, 24 सेक्टर + «उपरोक्त में कोई नहीं»)");
 }

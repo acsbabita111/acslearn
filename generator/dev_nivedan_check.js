@@ -35,7 +35,9 @@ ck("D3 एक जैसे नाम एक विकल्प: 'SAHSI' और '
   N.panchayatOf({ address: "Gram Panchayat: sahsi; Block: Alauli" }) === "Sahsi" && N.panchayatOf({ address: "Panchayat/Village-null, District-x" }) === "" &&
   N.panchayatOf({ address: "Near Panchayat Bhawan, Chhorahi" }) === "" && N.panchayatOf({ address: "Panchayat/Village-PARASI PANCHAYAT, Sub" }) === "Parasi");
 const IDX = JSON.parse(rd("assets/network/index.json")), NVD = JSON.parse(rd("assets/network/nivedan_data.json"));
-ck("D4 nivedan_data: 24 सेक्टर, 951 उद्यम (नंबर अलग-अलग), हर सेक्टर के अपने उद्यम", NVD.mg.length === 24 && NVD.u.length === 951 && new Set(NVD.u.map((x) => x[0])).size === 951 &&
+/* (26-Nov-2026, सेक्टर-नियम v1.2) उद्यमों की गिनती यहाँ लिखी नहीं जाती: वह assets/udyam_data.js से आती है (नया कार्ड जुड़े तो जाँच अपने-आप साथ चले) */
+const NCARDS = new Function(rd("assets/udyam_data.js") + ";return ALL_SECTORS.length;")();
+ck("D4 nivedan_data: 24 सेक्टर, " + NCARDS + " उद्यम (उद्यम-सूची जितने; नंबर अलग-अलग), हर सेक्टर के अपने उद्यम", NVD.mg.length === 24 && NCARDS >= 951 && NVD.u.length === NCARDS && new Set(NVD.u.map((x) => x[0])).size === NCARDS &&
   NVD.mg.every((m) => NVD.u.some((x) => x[1] === m[0])) && NVD.u.every((x) => x[1] >= 1 && x[1] <= 24));
 ck("D5 nivedan_data: English नाम में देवनागरी नहीं, हिंदी नाम में [ ] नहीं; राज्य बिहार के 38 ज़िले", NVD.u.every((x) => !DEV.test(x[3]) && !/[\[\]]/.test(x[2])) && NVD.mg.every((m) => !DEV.test(m[3])) &&
   NVD.st.length === 1 && NVD.st[0][0] === "bihar" && NVD.st[0][3].length === 38);

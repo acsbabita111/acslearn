@@ -1,5 +1,5 @@
 /* ============================================================
-   acs-universal.js v2.9 (21-Nov-2026, खेप M-1, Founder: पैनल की चारों भाषाओं में मेन्यू का हर पन्ना उसी भाषा में):
+   acs-universal.js v2.10 (26-Nov-2026, सेक्टर-नियम v1.2: कोर्स-घर पर «सेक्टर और उद्यम» की पट्टी; फ़ाइल के अंत का hook) · v2.9 (21-Nov-2026, खेप M-1, Founder: पैनल की चारों भाषाओं में मेन्यू का हर पन्ना उसी भाषा में):
    (क) पन्ने की भाषा पते से: पहला हिस्सा (/en/, /kn/ …) या, जहाँ हिंदी का पता /courses/hi/ जैसा है, दूसरा हिस्सा
        (/courses/en/, /contact/kn/): acsPathLang()। पहले /contact/en/ जैसे पन्ने पर यह हिंदी लिख देता।
    (ख) भाषा-घर के पन्नों पर मेन्यू का पता links.js के href_lang से (उस भाषा का अपना पन्ना हो तो वही; नहीं तो English)।
@@ -372,6 +372,26 @@ document.addEventListener("keydown",function(e){ if(e.key==="Escape") acsCloseMe
       if(!document.getElementById('kkb-app')) return;
       var s = document.createElement('script');
       s.src = '/assets/govt_jobs_embassy.js';
+      document.body.appendChild(s);
+    }catch(e){}
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', go);
+  else go();
+})();
+
+/* ── सेक्टर-पट्टी hook (26-Nov-2026, सेक्टर-नियम v1.2, Founder: "पूरा पोर्टल एक ही भाषा बोले"):
+   कोर्स-घर (/courses/<भाषा>/…/ का मुख्य पन्ना) पर निकली सूची /assets/suchi_index.js आलसी-load होती है;
+   वही पन्ने के ऊपर लिखती है कि यह कोर्स किस सेक्टर और किस उद्यम का है। कोई कोर्स-पन्ना नहीं बदला
+   (साझा-असेट-लाभ नियम)। नया कोर्स आए: node generator/portal_sync.js के बाद पट्टी अपने-आप। ── */
+(function(){
+  function go(){
+    try{
+      var p = location.pathname;
+      if(!/^\/courses\/[a-z]{2,3}\/.+/.test(p) || !/\/(index\.html)?$/.test(p)) return;
+      if(!document.querySelector('main')) return;
+      var s = document.createElement('script');
+      s.src = '/assets/suchi_index.js';
+      s.onload = function(){ try{ if(window.ACS_SUCHI && window.ACS_SUCHI.patti) window.ACS_SUCHI.patti(); }catch(e){} };
       document.body.appendChild(s);
     }catch(e){}
   }

@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/sector_darj.js v1.1 (26-Nov-2026) : सेक्टर-नियम का दर्ज-औज़ार
+   generator/sector_darj.js v1.2 (26-Nov-2026) : सेक्टर-नियम का दर्ज-औज़ार
    नया उद्यम-कार्ड बनाना, कार्ड का नाम बदलना, किसी कोर्स का सेक्टर या कार्ड-कोड लगाना: सबका यही एक रास्ता है।
    हाथ से assets/udyam_data.js, कोर्स का कार्ड-कोड या खाते न बदलें: जाँच-यंत्र पकड़ लेगा।
 
@@ -18,6 +18,9 @@
           node generator/sector_darj.js course --id SE027 --udyam 0 --muhar --karan "कारण और सुझाया कार्ड"
          (नाम मुहर की प्रतीक्षा-सूची में जुड़ता है; सूची की सीमा भरी हो तो आदेश रुक जाता है।)
      4. जाँच:  node generator/dev_sector_niyam_check.js
+   v1.2: हर बदलाव के बाद यह औज़ार पूरा पोर्टल अपने-आप ताज़ा कर देता है (generator/portal_sync.js): निकली सूची, उद्यम-पन्ने,
+         कार्ड के परिचय-पन्ने का कोर्स-बटन, निवेदन-फ़ॉर्म, भाषा-पैक, sitemap, और sw.js का संस्करण। अलग से कुछ चलाना नहीं पड़ता।
+         कई आदेश एक साथ हों तो हर एक में --no-sync दें और अंत में एक बार: node generator/portal_sync.js --sw "कारण" --sw-always
 
    दूसरे आदेश:
      course --id <कोड> --udyam <serial> --badlo       पक्का हो चुका कार्ड-कोड बदलना (Founder के फ़ैसले के बाद ही)
@@ -26,6 +29,7 @@
      naam --n <serial> --name "नया नाम (English)"       कार्ड का नाम बदलना (serial, पन्ना और सेक्टर वही रहते हैं)
      sector --n <serial> --mg <1 से 24> --badlo        कार्ड को दूसरे सेक्टर में ले जाना (Founder के फ़ैसले के बाद ही; serial वही)।
                                                       उस कार्ड पर कोड वाले कोर्स हों तो --saath जोड़ें: वे भी उसी सेक्टर में जाते हैं।
+     net --key <tw|csc|it> --udyam <serial>           नेटवर्क-सेक्टर का कार्ड-कोड (taxonomy.js और मुहर की प्रतीक्षा-सूची, दोनों यही बदलता है)
      khata-v2      कार्ड के खाते को नए रूप (पन्ना + नाम + सेक्टर) में लाना; एक ही बार
      kcode-banao   कोर्स के कोड का खाता पहली बार बनाना; एक ही बार
    हर आदेश में --root <folder> दिया जा सकता है (जाँच के लिए; आम काम में नहीं चाहिए)।
@@ -39,7 +43,7 @@ const opt = (k) => { const i = argv.indexOf("--" + k); return i > -1 ? argv[i + 
 const flag = (k) => argv.indexOf("--" + k) > -1;
 const ROOT = opt("root") ? path.resolve(opt("root")) : path.join(__dirname, "..");
 const F = { cards: path.join(ROOT, "assets/udyam_data.js"), courses: path.join(ROOT, "assets/courses_data.js"),
-  ledger: path.join(ROOT, LIB.F_LEDGER), cledger: path.join(ROOT, LIB.F_CLEDGER), seal: path.join(ROOT, "generator/data/sector_muhar.js") };
+  ledger: path.join(ROOT, LIB.F_LEDGER), cledger: path.join(ROOT, LIB.F_CLEDGER), seal: path.join(ROOT, "generator/data/sector_muhar.js"), net: path.join(ROOT, "generator/data/network/taxonomy.js") };
 const NONE = LIB.NONE_NAME;
 
 /* text में start पर खुले कोष्ठक का जोड़ीदार ढूँढना (string के भीतर के कोष्ठक छोड़कर) */
@@ -69,8 +73,9 @@ function setField(row, name, val) {   /* name = udyam या mg; पंक्त
 }
 
 /* मुहर की प्रतीक्षा-सूची (PRATIKSHA.courses) में नाम जोड़ना या हटाना; टिप्पणियाँ बची रहती हैं */
-function sealCourses(addId, addWhy, removeId) {
-  let s = fs.readFileSync(F.seal, "utf8"); const mark = "  courses: [";
+function sealCourses(addId, addWhy, removeId) { return sealList("courses", addId, addWhy, removeId); }
+function sealList(which, addId, addWhy, removeId) {
+  let s = fs.readFileSync(F.seal, "utf8"); const mark = "  " + which + ": [";
   if (s.split(mark).length !== 2) stop("मुहर में प्रतीक्षा-सूची की जगह नहीं मिली");
   const a = s.indexOf(mark) + mark.length, e = s.indexOf("\n  ]", a); if (e < 0) stop("मुहर में प्रतीक्षा-सूची का अंत नहीं मिला");
   const rows = [];
@@ -81,9 +86,20 @@ function sealCourses(addId, addWhy, removeId) {
   if (addId && !out.some((r) => r.id === addId)) out.push({ id: addId, c: "/* " + String(addWhy).replace(/\*\//g, "").trim() + " */" });
   const body = out.map((r, i) => '    "' + r.id + '"' + (i < out.length - 1 ? "," : "") + (r.c ? "   " + r.c : "")).join("\n");
   fs.writeFileSync(F.seal, s.slice(0, a) + (out.length ? "\n" + body : "") + s.slice(e));
-  const now = LIB.load(ROOT).seal.PRATIKSHA.courses;
+  const now = LIB.load(ROOT).seal.PRATIKSHA[which];
   if (now.join(",") !== out.map((r) => r.id).join(",")) stop("मुहर लिखने के बाद सूची नहीं मिली");
   return now;
+}
+
+/* v1.2: हर बदलाव के बाद पूरा पोर्टल अपने-आप ताज़ा (generator/portal_sync.js): निकली सूची, उद्यम-पन्ने, परिचय-पन्नों के कोर्स-बटन,
+   निवेदन-फ़ॉर्म, भाषा-पैक, sitemap, और sw.js का संस्करण। --no-sync दें तो नहीं चलता (कई आदेश एक साथ हों; अंत में एक बार चला लें)।
+   --root (जाँच का अलग folder) में कभी नहीं चलता। */
+function syncAfter(note) {
+  if (opt("root")) return;
+  if (flag("no-sync")) { console.log("   (--no-sync) अंत में एक बार चलाएँ: node generator/portal_sync.js --sw \"कारण\" --sw-always"); return; }
+  console.log("\n── अब पूरा पोर्टल अपने-आप ताज़ा हो रहा है (generator/portal_sync.js) ──");
+  const r = require("child_process").spawnSync(process.execPath, [path.join(__dirname, "portal_sync.js"), "--sw", note, "--sw-always"], { cwd: ROOT, stdio: "inherit" });
+  if (r.status !== 0) { console.log("⚠️ बदलाव दर्ज हो गया है, पर पोर्टल अभी पूरा ताज़ा नहीं। ऊपर लिखी बातें ठीक करके चलाएँ: node generator/portal_sync.js"); process.exit(3); }
 }
 
 if (cmd === "khata-v2") {
@@ -127,7 +143,10 @@ else if (cmd === "card") {
   const led = Object.assign({}, D.LEDGER); led[n] = { u: intro, n: name, mg: mg }; writeLedger(led);
   const chk = LIB.load(ROOT); if (chk.CARDS.length !== D.CARDS.length + 1 || chk.CARDS[chk.CARDS.length - 1].n !== n) stop("लिखने के बाद गिनती नहीं मिली");
   console.log("✅ नया कार्ड: serial " + n + " · सेक्टर " + mg + " " + D.MG[mg].n + " · " + name + " · " + intro);
-  console.log("   अब ज़रूरी (इनके बिना दरवाज़ा बंद रहेगा): इसका परिचय-पन्ना बनाएँ, फिर node generator/build_udyam_suchi.js और node generator/build_sitemap.js चलाएँ।");
+  console.log("   अब ज़रूरी (इनके बिना दरवाज़ा बंद रहेगा):");
+  console.log("     1. इसका परिचय लिखें: generator/data/udyam_intro_mg" + ("0" + mg).slice(-2) + ".js में serial " + n + " की प्रविष्टि (slug: " + slug + ")।");
+  console.log("     2. अभिरुचि के हर भाषा-पैक में इसका नाम: generator/data/aptitude/<भाषा>/udyam.txt में पंक्ति  " + n + "|<नाम>");
+  console.log("     3. फिर: node generator/portal_sync.js --sw \"नया उद्यम-कार्ड " + n + "\" --sw-always");
 }
 else if (cmd === "naam") {
   const D = LIB.load(ROOT), n = +opt("n"), name = (opt("name") || "").trim();
@@ -141,7 +160,8 @@ else if (cmd === "naam") {
   const led = Object.assign({}, D.LEDGER); led[n] = { u: k.intro, n: name, mg: k.mg }; writeLedger(led);
   const k2 = LIB.load(ROOT).CARDS.find((x) => x.n === n); if (!k2 || k2.name !== name) stop("लिखने के बाद नाम नहीं मिला");
   console.log("✅ कार्ड " + n + " का नाम: «" + k.name + "» → «" + name + "» (serial, पन्ना और सेक्टर वही)");
-  console.log("   अब: उसका परिचय-पन्ना और node generator/build_udyam_suchi.js दोबारा चलाएँ; assets/udyam_data.js बदली है, इसलिए sw.js का version बढ़ाएँ।");
+  console.log("   ध्यान: परिचय-पन्ने का शीर्षक generator/data/udyam_intro_mgNN.js में अलग लिखा है; वहाँ भी यही नाम कर दें।");
+  syncAfter("उद्यम-कार्ड " + n + " का नाम बदला");
 }
 else if (cmd === "sector") {
   const D = LIB.load(ROOT), n = +opt("n"), mg = +opt("mg"); needLedgers(D);
@@ -164,8 +184,9 @@ else if (cmd === "sector") {
     fs.writeFileSync(F.courses, cs); writeCLedger(cl); }
   const D2 = LIB.load(ROOT), k2 = D2.CARDS.find((x) => x.n === n); if (!k2 || k2.mg !== mg || D2.COURSES.some((c) => c.udyam === n && c.mg !== mg)) stop("लिखने के बाद मिलान नहीं हुआ");
   console.log("✅ कार्ड " + n + " (" + k.name + "): सेक्टर " + k.mg + " " + D.MG[k.mg].n + " → " + mg + " " + D.MG[mg].n + (on.length ? " · साथ में " + on.length + " कोर्स" : "") + " (serial और पन्ना वही)");
-  console.log("   अब ज़रूरी: उसका परिचय-पन्ना दोबारा बनाएँ, node generator/build_udyam_suchi.js और node generator/build_sitemap.js चलाएँ, और sw.js का version बढ़ाएँ।");
-  console.log("   ध्यान: अभिरुचि-परीक्षा के प्रश्नों में इस उद्यम का सेक्टर अलग से दर्ज है; कार्ड ले जाने पर उसे भी उसी खेप में मिलाना होगा।");
+  console.log("   ध्यान 1: परिचय की प्रविष्टि generator/data/udyam_intro_mgNN.js में सेक्टर के हिसाब से रखी है; उसे नए सेक्टर की फ़ाइल में ले जाएँ और उसका mg बदलें।");
+  console.log("   ध्यान 2: अभिरुचि-परीक्षा के प्रश्नों में इस उद्यम का सेक्टर अलग से दर्ज है; कार्ड ले जाने पर उसे भी उसी खेप में मिलाना होगा।");
+  syncAfter("उद्यम-कार्ड " + n + " सेक्टर " + k.mg + " से " + mg + " में");
 }
 else if (cmd === "mg") {
   const D = LIB.load(ROOT), id = opt("id"), mg = +opt("mg");
@@ -177,6 +198,7 @@ else if (cmd === "mg") {
   s = s.slice(0, row.a) + row.obj + s.slice(row.e + 1); fs.writeFileSync(F.courses, s);
   const c2 = LIB.load(ROOT).COURSES.find((x) => x.id === id); if (!c2 || c2.mg !== mg) stop("लिखने के बाद मिलान नहीं हुआ");
   console.log("✅ कोर्स " + id + " → सेक्टर " + mg + " " + D.MG[mg].n + " (कार्ड-कोड तब लगेगा जब इसके पन्ने बनेंगे)");
+  syncAfter("कोर्स " + id + " का सेक्टर " + mg);
 }
 else if (cmd === "course") {
   const D = LIB.load(ROOT), id = opt("id"), n = +opt("udyam"); needLedgers(D);
@@ -210,9 +232,36 @@ else if (cmd === "course") {
   if (n !== LIB.NONE_CARD && inSeal) sealCourses(null, null, id);
   console.log("✅ कोर्स " + id + " → कोड " + LIB.codeOf(newMg, n) + " · " + label + " · सेक्टर " + newMg + " " + LIB.sectorName(D, newMg) + (newMg !== c.mg ? " · कोर्स का सेक्टर " + c.mg + " से " + newMg + " हुआ" : "") +
     (n === LIB.NONE_CARD && !inSeal ? " · प्रतीक्षा-सूची में जुड़ा" : "") + (n !== LIB.NONE_CARD && inSeal ? " · प्रतीक्षा-सूची से हटा" : ""));
-  console.log("   याद रखें: assets/courses_data.js बदली है, इसलिए उसी खेप में sw.js का version बढ़ाएँ।");
+  syncAfter("कोर्स " + id + " का कोड " + LIB.codeOf(newMg, n));
+}
+else if (cmd === "net") {
+  /* नेटवर्क-सेक्टर (tw, csc, it …) का कार्ड-कोड: generator/data/network/taxonomy.js में, और प्रतीक्षा-सूची मुहर में */
+  const D = LIB.load(ROOT), key = String(opt("key") || ""), n = +opt("udyam");
+  const N = D.NET[key]; if (!N) stop("नेटवर्क-सेक्टर नहीं मिला: " + key + " (हैं: " + Object.keys(D.NET).join(", ") + ")");
+  if (opt("udyam") === undefined || !Number.isInteger(n) || n < 0) stop("--udyam दें: कार्ड का serial, या 0 «" + NONE + "»");
+  const inSeal = D.seal.PRATIKSHA.network.indexOf(key) > -1; let newMg = N.mg, label = "«" + NONE + "»";
+  if (n === LIB.NONE_CARD) {
+    if (!flag("muhar")) stop("«" + NONE + "» (कोड 0) पर नेटवर्क-सेक्टर तभी रुकता है जब Founder ने मंज़ूरी दी हो: --muhar --karan \"कारण\"");
+    if (!inSeal) { const why = (opt("karan") || "").trim(); if (why.length < 8) stop("--karan दें");
+      if (D.seal.PRATIKSHA.network.length >= Math.min(D.seal.LIMIT.network, LIB.HARD_LIMIT.network)) stop("नेटवर्क की प्रतीक्षा-सूची भरी है"); }
+    if (N.udyam > 0 && !flag("badlo")) stop("इसका कोड " + LIB.codeOf(N.mg, N.udyam) + " पक्का है। हटाना हो तो --badlo जोड़ें (Founder के फ़ैसले के बाद ही)।");
+  } else {
+    const k = D.CARDS.find((x) => x.n === n); if (!k) stop("कार्ड नहीं मिला: serial " + opt("udyam"));
+    newMg = k.mg; label = k.name;
+    if (N.mg !== k.mg && !flag("mg-badlo")) stop("नेटवर्क-सेक्टर " + key + " सेक्टर " + N.mg + " में है, कार्ड " + n + " सेक्टर " + k.mg + " का। सेक्टर भी बदलना हो तो --mg-badlo (तब नेटवर्क के रिकॉर्ड भी उसी खेप में बदलें)।");
+    if (N.udyam > 0 && N.udyam !== n && !flag("badlo")) stop("इसका कोड " + LIB.codeOf(N.mg, N.udyam) + " पक्का है। कार्ड बदलना हो तो --badlo जोड़ें (Founder के फ़ैसले के बाद ही)।");
+  }
+  let s = fs.readFileSync(F.net, "utf8");
+  const re = new RegExp("(\\n\\s*" + key + ": \\{[^\\n]*?\\bmg: )(\\d+)(, udyam: )(\\d+)", "g"), m = s.match(re);
+  if (!m || m.length !== 1) stop("taxonomy.js में " + key + " की पंक्ति (mg: N, udyam: M) ठीक एक बार नहीं मिली");
+  s = s.replace(re, (x, a, b, c2) => a + newMg + c2 + n); fs.writeFileSync(F.net, s);
+  const N2 = LIB.load(ROOT).NET[key]; if (!N2 || N2.udyam !== n || N2.mg !== newMg) stop("लिखने के बाद मिलान नहीं हुआ");
+  if (n === LIB.NONE_CARD && !inSeal) sealList("network", key, opt("karan"), null);
+  if (n !== LIB.NONE_CARD && inSeal) sealList("network", null, null, key);
+  console.log("✅ नेटवर्क-सेक्टर " + key + " → कोड " + LIB.codeOf(newMg, n) + " · " + label + (n !== LIB.NONE_CARD && inSeal ? " · प्रतीक्षा-सूची से हटा" : "") + (n === LIB.NONE_CARD && !inSeal ? " · प्रतीक्षा-सूची में जुड़ा" : ""));
+  syncAfter("नेटवर्क-सेक्टर " + key + " का कोड " + LIB.codeOf(newMg, n));
 }
 else {
-  console.log("आदेश: suchi [--mg N] [--khoj शब्द] | course --id <कोड> --udyam <serial या 0> [--mg-badlo] [--badlo] [--muhar --karan \"…\"] | mg --id <कोड> --mg N | card --mg N --name \"…\" --slug … [--invest \"…\"] | naam --n <serial> --name \"…\" | sector --n <serial> --mg N --badlo [--saath] | khata-v2 | kcode-banao");
+  console.log("आदेश: suchi [--mg N] [--khoj शब्द] | course --id <कोड> --udyam <serial या 0> [--mg-badlo] [--badlo] [--muhar --karan \"…\"] | mg --id <कोड> --mg N | card --mg N --name \"…\" --slug … [--invest \"…\"] | naam --n <serial> --name \"…\" | sector --n <serial> --mg N --badlo [--saath] | net --key <tw|csc|it> --udyam <serial या 0> [--badlo] [--muhar --karan \"…\"] | khata-v2 | kcode-banao\nहर बदलाव के बाद पोर्टल अपने-आप ताज़ा होता है (portal_sync); कई आदेश एक साथ हों तो हर एक में --no-sync दें।");
   process.exit(cmd ? 2 : 0);
 }

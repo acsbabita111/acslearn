@@ -211,7 +211,7 @@ img{max-width:100%;display:block}
   <h1 class="hero-title" style="margin:0 0 10px">Choose your path,<br/><em>success starts right here.</em></h1>
   <div class="hero-sub">From self-employment to government jobs — every path is here.</div>
   <div class="hero-stats">
-   <div class="hs"><span class="hs-num">951</span><div class="hs-lbl">Enterprises</div></div>
+   <div class="hs"><span class="hs-num">952</span><div class="hs-lbl">Enterprises</div></div>
    <div class="hs"><span class="hs-num">1.50 Lakh</span><div class="hs-lbl">Business Ideas</div></div>
    <div class="hs"><span class="hs-num">15</span><div class="hs-lbl">Investment Levels</div></div>
    <div class="hs"><span class="hs-num">₹0</span><div class="hs-lbl">onwards</div></div>
@@ -241,7 +241,7 @@ img{max-width:100%;display:block}
     oninput="filterSectors()"/>
   </div>
   <div class="filter-row" id="mgFilter"></div>
-  <div class="sector-count" id="sectorCount">All 951 Enterprises</div>
+  <div class="sector-count" id="sectorCount">All 952 Enterprises</div>
   <div class="sector-grid" id="sectorGrid"></div>
  </div>
 
@@ -584,11 +584,11 @@ img{max-width:100%;display:block}
 // ══ MASTER GROUPS ══
 /* UDYAM-MG:START (built by generator/build_udyam_suchi.js; do not edit by hand) */
 const MG=[
-  {id:'all',name:'All (951)'},
+  {id:'all',name:'All (952)'},
   {id:1,name:'🌾 Agriculture (68)'},{id:2,name:'⛏️ Mining (43)'},
   {id:3,name:'🏭 Manufacturing (52)'},{id:4,name:'🏗️ Construction (30)'},
   {id:5,name:'🧵 Textiles (40)'},{id:6,name:'💊 Health (32)'},
-  {id:7,name:'💻 Technology (43)'},{id:8,name:'🚗 Transport (52)'},
+  {id:7,name:'💻 Technology (44)'},{id:8,name:'🚗 Transport (52)'},
   {id:9,name:'🛍️ Trade (43)'},{id:10,name:'🎭 Services (39)'},
   {id:11,name:'📚 Education (50)'},{id:12,name:'🌿 Handicrafts (40)'},
   {id:13,name:'⚗️ Chemicals (42)'},{id:14,name:'🌍 Global (80)'},
@@ -647,7 +647,7 @@ function renderSectors(){
   return ms&&mm;
  });
  document.getElementById('sectorCount').textContent=
-  filtered.length===951?'All 951 Enterprises':`${filtered.length} enterprises found`;
+  filtered.length===952?'All 952 Enterprises':`${filtered.length} enterprises found`;
  document.getElementById('sectorGrid').innerHTML=filtered.map(s=>`
   <div class="sector-card" onclick="openSector(${s.n},'${s.name.replace(/'/g,"\\'")}')">
    <div class="s-num">Enterprise ${String(s.n).padStart(3,'0')}</div>

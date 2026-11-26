@@ -42,7 +42,7 @@ const SECTORS = {
   /* v1.2 (25-Nov-2026): CSC केंद्र। ID स्रोत-फ़ाइल की ही (BR-CSC-M00001, BR-CSC-A00001), कभी नहीं बदलती।
      recordPages: false = हर नाम का अलग पन्ना नहीं (7,000+ पन्ने GitHub Pages की 1 GB सीमा खा जाते); ज़िले के पन्ने पर हर नाम
      की अपनी जगह (#br-csc-m00001), वही उसका पक्का पता। नाम = VLE/केंद्र का नाम, स्रोत की वर्तनी में। */
-  csc: { id: "CSC", slug: "csc", mg: 7, udyam: 0, icon: "🏛️", status: "listed",
+  csc: { id: "CSC", slug: "csc", mg: 7, udyam: 952, icon: "🏛️", status: "listed",
          hi: "CSC (कॉमन सर्विस सेंटर)", en: "CSC (Common Service Centres)",
          hiPlace: "CSC केंद्र", enPlace: "CSC Centres",
          idRegex: "{ST}-CSC-[MA]\\d{5}", idHint: "{ST}-CSC-M00001 या {ST}-CSC-A00001", typeMode: "fixed", recordPages: false,

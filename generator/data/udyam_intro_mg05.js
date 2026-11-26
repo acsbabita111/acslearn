@@ -234,7 +234,7 @@ const UDYAM_INTRO_MG05 = {
   },
   "203": {
     "slug": "ready-made-garments-business",
-    "title_hi": "तैयार-वस्त्र व्यवसाय (Ready-made Garments — RMG)",
+    "title_hi": "तैयार-वस्त्र व्यवसाय (Ready-made Garments: RMG)",
     "title_note": "तैयार वस्त्र निर्माण (Ready-made Garments)",
     "mg": 5,
     "parts": {

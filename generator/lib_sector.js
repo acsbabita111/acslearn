@@ -1,5 +1,5 @@
 /* ============================================================
-   generator/lib_sector.js v1.1 (26-Nov-2026) : सेक्टर-नियम का एक ही घर (पढ़ना + जाँचना + दरवाज़ा)
+   generator/lib_sector.js v1.2 (26-Nov-2026) : सेक्टर-नियम का एक ही घर (पढ़ना + जाँचना + दरवाज़ा)
    नियम: generator/data/sector_muhar.js के ऊपर लिखा है (Founder, 26-Nov-2026)।
    v1.1 में नया:
      25वाँ सेक्टर «उपरोक्त में कोई नहीं» (कूट 25, ख़ाली कार्ड) और हर सूची के नीचे का कार्ड (कोड 0)।
@@ -8,6 +8,10 @@
      कार्ड की पहचान अटल (SN-02): खाते में serial के साथ पन्ना, नाम और सेक्टर तीनों दर्ज।
      कार्ड का पन्ना सचमुच मौजूद (SN-01): फ़ाइल और sitemap, दोनों में।
      कोर्स का कोड पक्का: generator/data/course_code_ledger.json (कोर्स → "सेक्टर-कार्ड")।
+   v1.2 में नया (Founder: "पूरा पोर्टल एक ही भाषा बोले; नया कोर्स आए तो पोर्टल अपने-आप अपडेट हो"):
+     निकली सूची: कार्ड → उसके चालू कोर्स, कोर्स का पता → कोड। assets/suchi_index.js इसी से बनती है और
+       दरवाज़ा जाँचता है कि वह ताज़ा है। सब निकली चीज़ें एक आदेश से बनती हैं: node generator/portal_sync.js
+     जहाँ-जहाँ कार्ड की सूची दोहराई जाती है (नेटवर्क का निवेदन-फ़ॉर्म, अभिरुचि के भाषा-पैक), वहाँ हर कार्ड मौजूद।
    कौन इसे चलाता है:
      generator/dev_sector_niyam_check.js  (जाँच-यंत्र; हर खेप में)
      generator/dev_seo_check.js           (जाँच-15; GitHub का द्वार भी इसे चलाता है)
@@ -53,6 +57,92 @@ const normUrl = (u) => String(u || "").replace(/index\.html$/, "");
 const normName = (s) => String(s || "").replace(/[\[\(]/g, "(").replace(/[\]\)]/g, ")").replace(/\s+/g, " ").trim();
 const codeOf = (mg, udyam) => mg + "-" + udyam;
 const sectorName = (D, mg) => (mg === NONE_MG ? NONE_NAME : (D.MG[mg] ? D.MG[mg].n : "?"));
+
+/* ════════ निकली सूची (v1.2, Founder 26-Nov-2026: "पूरा पोर्टल एक ही भाषा बोले; नया कोर्स आए तो पोर्टल अपने-आप अपडेट हो") ════════
+   कार्ड → उसके चालू कोर्स, और कोर्स का पता → उसका कोड। यह सूची कहीं हाथ से नहीं लिखी जाती:
+   हर बार assets/courses_data.js के कोड (mg, udyam) से निकलती है। इसी से बनते हैं:
+     assets/suchi_index.js (कोर्स-घर की पट्टी, अभिरुचि का नतीजा) · उद्यम-पन्ने की कोर्स-कड़ियाँ · कार्ड के परिचय-पन्ने का कोर्स-बटन। */
+const MANY = 12;                       /* एक कार्ड पर इससे ज़्यादा कोर्स हों तो नाम नहीं, सूची के पन्ने की कड़ी (मुहर: SUCHI_PANNA) */
+const F_INDEX = "assets/suchi_index.js";
+const roundBr = (s) => String(s || "").replace(/\[/g, "(").replace(/\]/g, ")");
+const splitName = (s) => { const m = /^(.*?)\s*[\[\(]([^\]\)]*)[\]\)]\s*$/.exec(String(s || ""));
+  return m ? { hi: m[1].trim(), en: m[2].split(/ — |: /)[0].trim() } : { hi: String(s || "").trim(), en: "" }; };
+const shortHi = (s) => roundBr(s).replace(/\s*\([^()]*\)\s*$/, "").trim();      /* नाम के अंत का (English) हिस्सा हटाकर */
+const lf = (s) => String(s || "").replace(/\r\n/g, "\n");                           /* Windows की पंक्ति-समाप्ति का फ़र्क़ फ़र्क़ नहीं */
+
+function derive(D) {
+  const byN = {}; D.CARDS.forEach((c) => { byN[c.n] = c; });
+  const url = {}, own = {}, clash = [];
+  for (const c of D.COURSES) {
+    if (!c.url || !Number.isInteger(c.udyam) || !Number.isInteger(c.mg)) continue;
+    const u = normUrl(c.url), code = codeOf(c.mg, c.udyam);
+    if (url[u] === undefined) { url[u] = code; if (c.udyam > 0) (own[c.udyam] = own[c.udyam] || []).push(c); }
+    else if (url[u] !== code) clash.push(c.id + " (" + code + ") और उसी पते का दूसरा कोर्स (" + url[u] + "): " + u);
+  }
+  const LP = D.seal.SUCHI_PANNA || {}, card = {}, many = [];
+  Object.keys(own).map(Number).sort((a, b) => a - b).forEach((n) => {
+    const c = byN[n]; if (!c) return;
+    /* क्रम: कोर्स पर "top" लिखा हो तो बड़ा अंक पहले (कोर्स-सूची के पन्ने जैसा ही नियम); बाक़ी data के क्रम में */
+    const nm = splitName(c.name), L = own[n].map((x, i) => ({ x, i })).sort((a, b) => ((b.x.top || 0) - (a.x.top || 0)) || (a.i - b.i)).map((o) => o.x);
+    const e = { m: c.mg, h: roundBr(nm.hi), e: nm.en, u: c.intro || "", k: L.length, c: [] };
+    if (L.length > MANY) { e.l = LP[n] || ""; if (!e.l) many.push(n); }
+    else e.c = L.map((x) => [x.id, shortHi(x.name_hi), x.name_en || "", normUrl(x.url)]);
+    card[n] = e;
+  });
+  return { url, card, own, clash, many, byN };
+}
+/* कार्ड का मुख्य कोर्स-पता: अपना कोर्स हो तो वह (कई हों तो पहला, बहुत हों तो सूची का पन्ना); न हो तो कार्ड पर लिखी "संबंधित कोर्स" कड़ी */
+function mainCourseUrl(X, n) {
+  const e = X.card[n]; if (e) return e.l || (e.c[0] ? e.c[0][3] : "");
+  const c = X.byN[n]; return (c && c.course) ? c.course : "";
+}
+
+const INDEX_RUNTIME = [
+  "  S.lagao = function (list) {",
+  "    try { for (var i = 0; i < list.length; i++) { var e = S.card[list[i].n]; if (!e) continue;",
+  "      var u = e.l || (e.c[0] ? e.c[0][3] : ''); if (u) list[i].course = u; list[i].courses = e.c; list[i].courseCount = e.k; } } catch (x) {}",
+  "    return list;",
+  "  };",
+  "  S.patti = function () {",
+  "    try {",
+  "      var d = document, p = location.pathname.replace(/index\\.html$/, ''), code = S.url[p];",
+  "      if (!code || d.getElementById('acsSuchiPatti')) return;",
+  "      var a = code.split('-'), M = S.mg[a[0]], n = +a[1], c = n ? S.card[n] : null, main = d.querySelector('main');",
+  "      if (!M || !main) return;",
+  "      var en = String(d.documentElement.lang || 'hi').toLowerCase().indexOf('hi') !== 0, T = en ? S.t.en : S.t.hi;",
+  "      var esc = function (s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\"/g, '&quot;'); };",
+  "      var lk = 'color:#1565C0;font-weight:700;text-decoration:underline';",
+  "      var h = '<b>' + T.h + '</b><br>' + T.s + ': ' + M[0] + ' ' + esc(en ? M[2] : M[1]) + '<br>' + T.u + ': ';",
+  "      if (c) h += (c.u ? '<a href=\"' + c.u + '\" style=\"' + lk + '\">' + esc(en && c.e ? c.e : c.h) + '</a>' : esc(en && c.e ? c.e : c.h)) +",
+  "        ' <span style=\"white-space:nowrap\">(U' + ('000' + n).slice(-4) + ')</span>';",
+  "      else h += esc(T.w);",
+  "      var box = d.createElement('div'); box.id = 'acsSuchiPatti';",
+  "      box.setAttribute('style', 'margin:10px 12px;padding:10px 14px;background:#F5F7FA;border-left:5px solid #1565C0;border-radius:8px;color:#0B1F3A;font-size:17px;line-height:1.7;text-align:left');",
+  "      box.innerHTML = h; main.insertBefore(box, main.firstChild);",
+  "    } catch (x) {}",
+  "  };"
+];
+function indexText(D) {
+  const X = derive(D), q = (v) => JSON.stringify(v);
+  const mg = []; for (let i = 1; i <= 24; i++) if (D.MG[i]) mg.push("    " + q(String(i)) + ": " + q([D.MG[i].e, D.MG[i].n, D.MG[i].en]));
+  if (D.MG_NONE) mg.push("    " + q(String(NONE_MG)) + ": " + q([D.MG_NONE.e, D.MG_NONE.n, D.MG_NONE.en]));
+  const cards = Object.keys(X.card).map(Number).sort((a, b) => a - b).map((n) => "    " + q(String(n)) + ": " + q(X.card[n]));
+  const urls = Object.keys(X.url).sort().map((u) => "    " + q(u) + ": " + q(X.url[u]));
+  return [
+    "/* /assets/suchi_index.js : निकली सूची (कार्ड → उसके चालू कोर्स; कोर्स का पता → उसका «सेक्टर-कार्ड» कोड)",
+    "   generator/build_suchi_index.js से बनी; हाथ से न बदलें। स्रोत: assets/courses_data.js के कोड (mg, udyam),",
+    "   assets/udyam_data.js के कार्ड, assets/mg_names.js के नाम। कोर्स का कोड बदलना हो: node generator/sector_darj.js course …",
+    "   उपयोग: कोर्स-घर की «सेक्टर और उद्यम» पट्टी (acs-universal.js), अभिरुचि-परीक्षा का नतीजा (apt-session.js)। */",
+    "(function (w) {",
+    "  var S = {",
+    "  t: { hi: { h: " + q("यह कोर्स किस काम-धंधे का है") + ", s: " + q("सेक्टर") + ", u: " + q("उद्यम") + ", w: " + q("इसका कार्ड उद्यम-सूची में अभी जुड़ना बाक़ी है") + " },",
+    "       en: { h: " + q("Which trade is this course for") + ", s: " + q("Sector") + ", u: " + q("Enterprise") + ", w: " + q("its card is not in the enterprise list yet") + " } },",
+    "  mg: {", mg.join(",\n"), "  },",
+    "  card: {", cards.join(",\n"), "  },",
+    "  url: {", urls.join(",\n"), "  }",
+    "  };"
+  ].concat(INDEX_RUNTIME, ["  w.ACS_SUCHI = S;", "})(window);", ""]).join("\n");
+}
 
 /* पूरी जाँच। लौटाता है: { checks: [{name, ok, extra}], stats, fail } */
 function audit(ROOT) {
@@ -163,13 +253,41 @@ function audit(ROOT) {
     && new Set(pc).size === pc.length && new Set(pn).size === pn.length,
     "कोर्स " + pc.length + "/" + LIM.courses + " · नेटवर्क " + pn.length + "/" + LIM.network);
 
+  /* ---- छ) निकली सूची (v1.2): एक ही भाषा, अपने-आप अपडेट ---- */
+  const X = derive(D);
+  ck("एक पता, एक कोड: जिन कोर्सों का पन्ना एक ही है, उनका «सेक्टर-कार्ड» कोड भी एक ही है", X.clash.length === 0, X.clash.slice(0, 4).join(" | "));
+  const LPn = Object.keys(S.SUCHI_PANNA || {}).map(Number);
+  const lpBad = X.many.map((n) => "कार्ड " + n + " पर " + X.card[n].k + " कोर्स, पर सूची का पन्ना मुहर (SUCHI_PANNA) में नहीं")
+    .concat(LPn.filter((n) => !byN[n]).map((n) => "SUCHI_PANNA: कार्ड " + n + " सूची में नहीं"))
+    .concat(LPn.filter((n) => { const p = String(S.SUCHI_PANNA[n] || ""); return !/^\/[^\s]*$/.test(p) || !fs.existsSync(path.join(D.ROOT, p.replace(/^\//, "").replace(/\/$/, "/index.html"))); }).map((n) => "SUCHI_PANNA: कार्ड " + n + " का पन्ना " + S.SUCHI_PANNA[n] + " नहीं मिला"));
+  ck("जिस कार्ड पर " + MANY + " से ज़्यादा कोर्स हैं, उसकी सूची का पन्ना मुहर में लिखा है और सचमुच है", lpBad.length === 0, lpBad.slice(0, 4).join(" | "));
+  let idxNow = null; try { idxNow = fs.readFileSync(path.join(D.ROOT, F_INDEX), "utf8"); } catch (e) {}
+  ck("निकली सूची ताज़ा है (" + F_INDEX + " आज के कोड से हूबहू)। बासी हो तो: node generator/portal_sync.js", idxNow !== null && lf(idxNow) === lf((function () { try { return indexText(D); } catch (e) { return ""; } })()),
+    idxNow === null ? F_INDEX + " missing; run: node generator/portal_sync.js" : F_INDEX + " is stale; run: node generator/portal_sync.js");
+  /* नेटवर्क की कोर्स-कड़ी उसी कार्ड के कोर्स की हो */
+  const netLink = [];
+  for (const k of nk) { const s = D.NET[k], e = s.udyam > 0 ? X.card[s.udyam] : null; if (!e || e.l) continue;
+    const us = e.c.map((c) => c[3]);
+    if (!s.course) netLink.push(k + ": कार्ड " + s.udyam + " पर कोर्स है, पर नेटवर्क-सेक्टर की कोर्स-कड़ी ख़ाली");
+    else if (us.indexOf(normUrl(s.course.url)) === -1) netLink.push(k + ": कोर्स-कड़ी " + s.course.url + " कार्ड " + s.udyam + " के कोर्सों में नहीं"); }
+  ck("नेटवर्क: जिस सेक्टर के कार्ड पर कोर्स है, उसकी कोर्स-कड़ी उसी कार्ड के कोर्स की है", netLink.length === 0, netLink.join(" | "));
+  /* कार्ड की गिनती जहाँ-जहाँ दूसरी फ़ाइल में दोहराई जाती है, वहाँ पूरी हो */
+  const twin = [];
+  try { const nv = JSON.parse(fs.readFileSync(path.join(D.ROOT, "assets/network/nivedan_data.json"), "utf8")); const have = new Set((nv.u || []).map((r) => r[0])), missN = D.CARDS.filter((c) => !have.has(c.n)).length, cnt = (nv.u || []).length;
+    if (cnt !== D.CARDS.length || missN) twin.push("assets/network/nivedan_data.json: " + cnt + " cards, list has " + D.CARDS.length + "; run portal_sync"); } catch (e) { twin.push("assets/network/nivedan_data.json unreadable"); }
+  let aptLangs = []; try { aptLangs = fs.readdirSync(path.join(D.ROOT, "assets")).filter((f) => /^apt_udyam_[a-z]{2,3}\.js$/.test(f)); } catch (e) {}
+  for (const f of aptLangs) { try { const w2 = {}; new Function("window", fs.readFileSync(path.join(D.ROOT, "assets", f), "utf8"))(w2);
+      const T = (w2.APT_UDN && w2.APT_UDN.n) || {}; const miss = D.CARDS.filter((c) => !T[c.n] && !T[String(c.n)]).map((c) => c.n);
+      if (miss.length) twin.push("assets/" + f + ": card name missing for " + miss.slice(0, 5).join(",") + "; add it in generator/data/aptitude/<lang>/udyam.txt and run portal_sync"); } catch (e) { twin.push("assets/" + f + " unreadable"); } }
+  ck("कार्ड की सूची जहाँ-जहाँ दोहराई जाती है (नेटवर्क का निवेदन-फ़ॉर्म, अभिरुचि के " + aptLangs.length + " भाषा-पैक), वहाँ हर कार्ड मौजूद", twin.length === 0, twin.join(" | "));
+
   const stats = { sectors: mgKeys.length, cards: D.CARDS.length, courses: ids.length, live: live.length,
     withCard: D.COURSES.filter((c) => Number.isInteger(c.udyam) && c.udyam > 0).length, waiting: waitC.length,
     notLive: D.COURSES.filter((c) => !c.url && c.udyam === undefined).length, net: nk.length, netWaiting: waitN.length };
   return { checks: out, stats, fail: out.filter((c) => !c.ok).length };
 }
 
-module.exports = { load, audit, okMg, okMg25, normUrl, normName, codeOf, sectorName, GROUPS, NONE_MG, NONE_CARD, NONE_NAME, HARD_LIMIT, F_LEDGER, F_CLEDGER };
+module.exports = { derive, indexText, mainCourseUrl, shortHi, splitName, roundBr, lf, MANY, F_INDEX, load, audit, okMg, okMg25, normUrl, normName, codeOf, sectorName, GROUPS, NONE_MG, NONE_CARD, NONE_NAME, HARD_LIMIT, F_LEDGER, F_CLEDGER };
 
 /* दरवाज़ा: चढ़ाने वाला औज़ार (tools/acs-site-deploy.js) इसे सीधे चलाता है:
      node generator/lib_sector.js --door

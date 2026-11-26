@@ -46,7 +46,7 @@ vm.runInNewContext(fs.readFileSync(path.join(ROOT, "assets/mg_names.js"), "utf8"
 const MG_LABEL = _w.MG_NAMES || {};
 /* नाम-टक्कर: MG-संदर्भ सिर्फ़ दोहरे नाम पर — module-स्तर helper (साझा-scope नियम v2.3) */
 function seoNameOf(u){
-  return u.title_hi + ((NAME_DUP[u.title_hi] > 1 && MG_LABEL[u.mg]) ? " — " + MG_LABEL[u.mg].n + " क्षेत्र" : "");
+  return u.title_hi + ((NAME_DUP[u.title_hi] > 1 && MG_LABEL[u.mg]) ? " (" + MG_LABEL[u.mg].n + " क्षेत्र)" : "");   /* 26-Nov-2026: नाम में लंबी रेखा नहीं (Founder); पहले " — <सेक्टर> क्षेत्र" था */
 }
 const NAME_DUP = {};
 {
@@ -64,12 +64,18 @@ const GEN_NOTE =
   "<!-- ⚙️ यह पेज generator से बना है (generator/build_udyam_intro_pages.js v1.1 · " + STAMP + ") —\n" +
   "     हाथ से न बदलें। बदलाव: generator/data/udyam_intro_data.js में करके generator दोबारा चलाएँ (परत-4 नियम)। -->";
 
-/* ---------- udyam_data.js से course-url पढ़ना (एक चीज़ = एक जगह — udyam_data.js ही मूल-स्रोत) ---------- */
-function loadCourseUrl(n){
-  const src = fs.readFileSync(path.join(ROOT, "assets", "udyam_data.js"), "utf8");
-  const re = new RegExp('\\{"n":\\s*' + n + ',[^}]*?"course":\\s*"([^"]+)"');
-  const m = src.match(re);
-  return m ? m[1] : null;
+/* ---------- कार्ड के कोर्स: निकली सूची से (v1.3, 26-Nov-2026, सेक्टर-नियम v1.2) ----------
+   जिस कार्ड के «सेक्टर-कार्ड» कोड पर चालू कोर्स हैं (assets/courses_data.js), वे सब यहाँ अपने-आप आते हैं:
+   एक कोर्स = पहले जैसा एक बटन; कई कोर्स = हर कोर्स का अपना बटन; बहुत (12 से ज़्यादा) = सूची के पन्ने का एक बटन।
+   जिस कार्ड का अपना कोर्स नहीं, वहाँ udyam_data.js की "संबंधित कोर्स" कड़ी (course) पहले जैसी। */
+const LIBS = require("./lib_sector.js");
+const _D = LIBS.load(ROOT), _X = LIBS.derive(_D);
+function loadCourses(n){
+  const e = _X.card[n], c = _X.byN[n], ptr = (c && c.course) ? c.course : null;
+  if (!e) return ptr ? { one: ptr } : null;
+  if (e.l) return { list: e.l, k: e.k };
+  if (e.c.length === 1) return { one: (ptr && LIBS.normUrl(ptr) === e.c[0][3]) ? ptr : e.c[0][3] };
+  return { many: e.c.map((x) => ({ name: x[1], url: x[3] })) };
 }
 
 /* ---------- menu (links.js से — build_course_pages.js जैसा पैटर्न) ---------- */
@@ -151,11 +157,15 @@ const MG_SHARED_KEYS = ["bazar", "leaders"];
 function ctaHtml(label, href, emoji){
   return '\n<p class="udy-cta-wrap"><a class="udy-cta" href="' + href + '">' + emoji + " " + label + "</a></p>\n";
 }
-function buildCtaAfter(n, udy, courseUrl){
+function buildCtaAfter(n, udy, K){
   const map = {};
   map["leaders"] = ctaHtml("अपना सही उद्यम पता करने के लिए अभी टेस्ट शुरू करें", "/aptitude-test.html", "🧭");
-  if (courseUrl){
-    map["lscale"] = ctaHtml(udy.title_hi.replace(/\(.*?\)/g, "").trim() + " कोर्स अभी शुरू करें", courseUrl, "📚");
+  if (K && K.one){
+    map["lscale"] = ctaHtml(udy.title_hi.replace(/\(.*?\)/g, "").trim() + " कोर्स अभी शुरू करें", K.one, "📚");
+  } else if (K && K.list){
+    map["lscale"] = ctaHtml("इस उद्यम के " + K.k + " मुफ़्त कोर्स देखें", K.list, "📚");
+  } else if (K && K.many){
+    map["lscale"] = K.many.map((x) => ctaHtml(x.name + " (मुफ़्त कोर्स)", x.url, "📚")).join("");
   }
   map["yojana"] = ctaHtml("कोर्स में रजिस्ट्रेशन करें", "/join.html", "📝");
   return map;
@@ -163,8 +173,7 @@ function buildCtaAfter(n, udy, courseUrl){
 
 function buildBody(n, udy){
   const mg = MG_INTRO[udy.mg] || null;
-  const courseUrl = loadCourseUrl(n);
-  const ctaAfter = buildCtaAfter(n, udy, courseUrl);
+  const ctaAfter = buildCtaAfter(n, udy, loadCourses(n));
   const secsHtml = SEC_LABELS.map(([key, label]) => {
     let html = udy.parts[key];
     if (!html && mg && MG_SHARED_KEYS.indexOf(key) >= 0) html = mg[key];
