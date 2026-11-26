@@ -11,9 +11,10 @@
   "exam_server.js",
   "index.js",
   "rules_server.js",
+  "sector_server.js",
   "vani_bhashini.js"
  ],
- "count": 511,
+ "count": 519,
  "msgs": [
   {
    "hi": "'{0}' कम-से-कम {1} होनी चाहिए (मिला: {2})",
@@ -32,6 +33,13 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "'{0}' में सूची का ही एक विकल्प चुनें",
+   "in": [
+    "sector_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "'{0}' संख्या होनी चाहिए",
@@ -605,6 +613,13 @@
    "from": "office-report"
   },
   {
+   "hi": "«उपरोक्त में कोई नहीं» के साथ दूसरा सेक्टर नहीं चुना जा सकता",
+   "in": [
+    "sector_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "अंक 0 से {0} के बीच हों",
    "in": [
     "class_server.js"
@@ -1161,6 +1176,13 @@
    ]
   },
   {
+   "hi": "इस भूमिका का registration नहीं मिला",
+   "in": [
+    "sector_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "इस भूमिका का बैज पहले से सक्रिय या जाँच में है — दोबारा भुगतान ज़रूरी नहीं।",
    "in": [
     "index.js"
@@ -1386,6 +1408,13 @@
    "hi": "कम से कम एक विद्यार्थी का नतीजा लिखें",
    "in": [
     "class_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "कम से कम एक सेक्टर ज़रूरी है",
+   "in": [
+    "sector_server.js"
    ],
    "from": "office-report"
   },
@@ -2917,6 +2946,13 @@
    "from": "office-report"
   },
   {
+   "hi": "यह सुविधा इस भूमिका के लिए नहीं है",
+   "in": [
+    "sector_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
    "hi": "यह सेवा-भूमिका का आवेदन नहीं है",
    "in": [
     "index.js"
@@ -3221,6 +3257,27 @@
    "in": [
     "index.js"
    ]
+  },
+  {
+   "hi": "सेक्टर का कूट 1 से 25 के बीच हो",
+   "in": [
+    "sector_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "सेक्टर की सूची नहीं मिली",
+   "in": [
+    "sector_server.js"
+   ],
+   "from": "office-report"
+  },
+  {
+   "hi": "सेक्टर सेव नहीं हुए: {0}",
+   "in": [
+    "sector_server.js"
+   ],
+   "from": "office-report"
   },
   {
    "hi": "सेवा-भूमिका की अंतिम मुहर सिर्फ़ उसी राज्य के ZM या Founder के पास है (E1, 1-ब)।",

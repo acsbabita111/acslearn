@@ -1,5 +1,13 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.45.0 · 26-Nov-2026 (सेक्टर-नियम v1.3; Founder, 26-Nov: "बाद में चाहे तो 1 से अधिक सेक्टर ऐड कर सके और मिटा सके"):
+            नया पैनल "🧩 मेरे सेक्टर" (pnl-mysec) 7 घरों में: शिक्षक, उस्ताद, सलाहकार, केंद्र, वर्कशॉप, नियोक्ता, विक्रेता।
+            सेक्टर के नाम assets/mg_names.js से (पैनल खुलने पर ही लदती है); पहचान कूट (1 से 25) से; पहला कूट = मुख्य सेक्टर।
+            सहेजना server के saveMySectors से (office का sector_server.js)। पैनल खुलते ही server से पूछा जाता है कि
+            सुविधा चालू है या नहीं; "हाँ" पर ही "सहेजें" बटन खुलता है (ईमानदार-पैनल नियम: मरा बटन नहीं)।
+            सुरक्षा-पहरा: "📚 मेरे विषय" की सूची बाहरी घरों में भरती ही नहीं (दर्ज होल: सूची सिर्फ़ टीम-रास्ते से भरती है, और
+            विषयों का घर academic_subjects.js v2.0 में बदल चुका है)। विद्यार्थी, नौकरी-इच्छुक और उद्यमी के घर में "सहेजें" दबाने पर
+            ख़ाली सूची server को चली जाती थी। अब सूची न खुली हो तो कुछ नहीं जाता, और साफ़ लिखा आता है। पैनल की पूरी मरम्मत अलग खेप में।
    v6.44.1 · 25-Nov-2026 (N-4 v1.1, ChatGPT ऑडिट N4-02): "📝 सूची-सुधार निवेदन" की सूची अब server से 50-50 की खेप में
             (server: network_nivedan.js v1.1, अपने दायरे की चाबी से)। नीचे "⬇ और निवेदन दिखाएँ" (next से अगली खेप)।
             "सिर्फ़ नए 100" वाली सूचना हटी। क्रम: पुराने निवेदन पहले (जाँच की क़तार)। DASH_VER v6.43.0 → v6.44.1 (v6.44.0 में बढ़ाना छूटा था)।
@@ -224,7 +232,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.44.1";
+const DASH_VER = "v6.45.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -1169,6 +1177,122 @@ function fillMySubjects(saved){
     if(all) all.checked = box.querySelectorAll(".mySubjChk:checked").length===list.length; paint(); }; });
   paint();
 }
+
+/* ═══ मेरे-सेक्टर (v6.45.0 · 26-Nov-2026, सेक्टर-नियम v1.3) ═══
+   किन घरों में: generator का MYSEC_ROLES (शिक्षक, उस्ताद, सलाहकार, केंद्र, वर्कशॉप, नियोक्ता, विक्रेता)।
+   नाम का घर assets/mg_names.js (MG_NAMES 1 से 24, MG_NONE 25); यहाँ कोई नाम लिखा नहीं है।
+   अभी दर्ज सेक्टर: registrations/{regNo}.sectors (सहेजी सूची); वह न हो तो रजिस्ट्रेशन का खाना formFields.sector।
+   server: saveMySectors({role, sectors}); पहला कूट = मुख्य सेक्टर। रजिस्ट्रेशन वाला खाना कभी नहीं बदलता।
+   नियम (server भी यही जाँचता है): कम से कम एक · कूट 1 से 25 · «उपरोक्त में कोई नहीं» (25) अकेला ही।
+   server "हाँ" न कहे (या देखने का मोड हो), तब तक खाने और "सहेजें" दोनों बंद रहते हैं: सूची सिर्फ़ पढ़ने के लिए दिखती है। */
+const MYSEC = { ok:false, asked:false, drawn:false, main:0 };
+function mySecNone(){ const N = window.MG_NONE; return Number((N && N.id) || 25); }
+function mySecNamesLoad(){
+  return new Promise(function(res){
+    if(window.MG_NAMES && window.MG_NONE){ res(true); return; }
+    const sc = document.createElement("script"); sc.src = "/assets/mg_names.js";
+    sc.onload = function(){ res(!!(window.MG_NAMES && window.MG_NONE)); };
+    sc.onerror = function(){ res(false); };
+    document.body.appendChild(sc);
+  });
+}
+function mySecAll(){
+  const M = window.MG_NAMES || {}, N = window.MG_NONE, out = [];
+  Object.keys(M).map(Number).sort(function(a,b){ return a-b; }).forEach(function(k){ out.push({ v:k, e:M[k].e||"", n:M[k].n||"" }); });
+  if(N) out.push({ v:Number(N.id), e:N.e||"", n:N.n||"" });
+  return out;
+}
+function mySecSaved(){
+  const r = EXT_REG || {}, NONE = mySecNone(); let a = [];
+  if(Array.isArray(r.sectors) && r.sectors.length) a = r.sectors.slice();
+  else { const s = r.formFields && r.formFields.sector; if(s!==undefined && s!==null && String(s).trim()!=="") a = [s]; }
+  const out = [];
+  a.forEach(function(x){ const n = Number(x); if(Number.isInteger(n) && n>=1 && n<=NONE && out.indexOf(n)===-1) out.push(n); });
+  return out;
+}
+function mySecSay(t, bad){ const m = $("mySecMsg"); if(m){ m.textContent = t || ""; m.style.color = bad ? "#B71C1C" : ""; } }
+function mySecPicked(){
+  const box = $("mySecBox"), out = []; if(!box) return out;
+  box.querySelectorAll(".mySecChk:checked").forEach(function(c){ out.push(Number(c.value)); });
+  return out;
+}
+function mySecMainDraw(){
+  const row = $("mySecMainRow"), mb = $("mySecMainBox"); if(!row || !mb) return;
+  const pick = mySecPicked(), all = mySecAll();
+  if(pick.indexOf(MYSEC.main) === -1) MYSEC.main = pick.length ? pick[0] : 0;
+  if(pick.length < 2){ row.style.display = "none"; mb.innerHTML = ""; return; }
+  let h = "";
+  all.forEach(function(s){ if(pick.indexOf(s.v) === -1) return;
+    h += '<label'+(s.v===MYSEC.main?' class="on"':'')+'><input type="radio" name="mySecMainR" class="mySecMainR" value="'+s.v+'"'+(s.v===MYSEC.main?' checked':'')+'> <span aria-hidden="true">'+s.e+'</span> <span>'+esc(s.n)+'</span></label>'; });
+  mb.innerHTML = h; row.style.display = "";
+  mb.querySelectorAll(".mySecMainR").forEach(function(r){ r.onchange = function(){ if(r.checked){ MYSEC.main = Number(r.value); mySecMainDraw(); } }; });
+}
+function mySecDraw(){
+  const box = $("mySecBox"); if(!box) return;
+  const all = mySecAll(), saved = mySecSaved(), NONE = mySecNone();
+  let h = '<div class="k9subs">';
+  all.forEach(function(s){
+    h += '<label'+(saved.indexOf(s.v)>-1?' class="on"':'')+'><input type="checkbox" class="mySecChk" value="'+s.v+'"'+(saved.indexOf(s.v)>-1?' checked':'')+(MYSEC.ok?'':' disabled')+'> <span aria-hidden="true">'+s.e+'</span> <span>'+esc(s.n)+'</span></label>';
+  });
+  h += '</div>';
+  box.innerHTML = h;
+  MYSEC.main = saved.length ? saved[0] : 0; MYSEC.drawn = true;
+  /* रजिस्ट्रेशन के समय चुना सेक्टर (वह खाना नहीं बदलता; सिर्फ़ याद के लिए दिखता है) */
+  const now = $("mySecNow");
+  if(now){
+    const r = EXT_REG || {}, s0 = Number(r.formFields && r.formFields.sector), one = all.filter(function(x){ return x.v === s0; })[0];
+    if(one) now.innerHTML = '<span>रजिस्ट्रेशन के समय आपने यह सेक्टर चुना था:</span> <b>'+esc(one.n)+'</b>';
+    else if(!saved.length) now.innerHTML = '<span>आपने अभी तक कोई सेक्टर नहीं बताया है। नीचे से चुनें और सहेजें।</span>';
+    else now.innerHTML = "";
+  }
+  box.querySelectorAll(".mySecChk").forEach(function(c){ c.onchange = function(){
+    const v = Number(c.value);
+    if(c.checked){
+      if(v === NONE) box.querySelectorAll(".mySecChk").forEach(function(x){ if(Number(x.value) !== NONE) x.checked = false; });
+      else { const n = box.querySelector('.mySecChk[value="'+NONE+'"]'); if(n) n.checked = false; }
+    }
+    box.querySelectorAll(".k9subs label").forEach(function(l){ const i = l.querySelector("input"); l.className = i && i.checked ? "on" : ""; });
+    mySecMainDraw(); if(MYSEC.ok) mySecSay("");
+  }; });
+  mySecMainDraw();
+}
+LAZY["pnl-mysec"] = async function(){
+  const box = $("mySecBox"), btn = $("mySecSave"); if(!box) return;
+  if(!MYSEC.drawn){
+    const okN = await mySecNamesLoad();
+    if(!okN){ box.innerHTML = '<span class="note" style="color:#B71C1C">सेक्टर की सूची नहीं खुली। इंटरनेट जाँचकर यह पैनल दोबारा खोलें।</span>'; return; }
+    mySecDraw();
+  }
+  if(MYSEC.ok || MYSEC.asked) return;
+  MYSEC.asked = true;
+  if(VIEW){ MYSEC.asked = false; mySecSay("देखने के मोड में सेक्टर नहीं बदले जाते।"); return; }
+  try{
+    const out = await httpsCallable(functions, "saveMySectors")({ probe:"version" });
+    MYSEC.ok = !!(out && out.data && out.data.ok === true && out.data.sectorServer);
+  }catch(e){ MYSEC.ok = false; }
+  MYSEC.asked = false;
+  if(MYSEC.ok){ if(btn) btn.disabled = false; box.querySelectorAll(".mySecChk").forEach(function(c){ c.disabled = false; }); mySecSay(""); }
+  else mySecSay("सेक्टर बदलने की सुविधा अभी चालू नहीं मिली। आपके दर्ज सेक्टर वैसे ही हैं। थोड़ी देर बाद यह पैनल दोबारा खोलें।", true);
+};
+document.addEventListener("click", async function(ev){
+  const b = ev.target && ev.target.closest ? ev.target.closest("#mySecSave") : null; if(!b) return;
+  if(!MYSEC.ok || !MYSEC.drawn || b.disabled) return;
+  const pick = mySecPicked();
+  if(!pick.length){ mySecSay("कम से कम एक सेक्टर चुनें।", true); return; }
+  if(pick.indexOf(MYSEC.main) === -1) MYSEC.main = pick[0];
+  const list = [MYSEC.main].concat(pick.filter(function(v){ return v !== MYSEC.main; }));
+  const role = String((EXT_REG && EXT_REG.role) || ALLOWED[0] || "").toLowerCase();
+  b.disabled = true; mySecSay("⏳ सहेजा जा रहा है…");
+  try{
+    const out = await httpsCallable(functions, "saveMySectors")({ role: role, sectors: list });
+    const d = (out && out.data) || {};
+    if(d.ok !== true || !Array.isArray(d.sectors)) throw new Error("server का जवाब अधूरा है");
+    if(EXT_REG) EXT_REG.sectors = d.sectors.slice();
+    MYSEC.main = Number(d.sectors[0]) || MYSEC.main;
+    mySecSay("✅ आपके सेक्टर सहेज लिए गए।");
+  }catch(e){ mySecSay("त्रुटि: " + ((e && e.message) || e), true); }
+  b.disabled = false;
+});
 async function loadRegistration(user){
   const qs = await getDocs(query(collection(db,"registrations"), where("authUid","==",user.uid)));
   let latest=null, t0=0;
@@ -2451,9 +2575,12 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
       examSaveCurrent(); if(S.idx<S.total-1) S.idx++; examRenderServer(); return; }
     const msb=ev.target.closest("#mySubjSave");
     if(msb){ const box=$("mySubjBox"); if(!box) return;
+      /* (v6.45.0) सूची खुली ही न हो (कोई खाना नहीं), तो ख़ाली सूची server को नहीं जाती */
+      if(!box.querySelector(".mySubjChk")){ const m0=$("mySubjMsg"); if(m0) m0.textContent="विषय-सूची अभी नहीं खुल रही है। आपके पहले से सहेजे विषय वैसे ही हैं।"; return; }
       const subs=[]; box.querySelectorAll(".mySubjChk:checked").forEach(function(c){ subs.push(c.value); });
       msb.disabled=true; const m=$("mySubjMsg"); if(m) m.textContent="⏳ सहेजा जा रहा है…";
       try{ const out=await httpsCallable(functions,"saveMySubjects")({subjects:subs});
+        if(EXT_REG) EXT_REG.subjects=subs.slice();
         const d=out.data||{}; if(m) m.textContent="✅ सहेजा गया — "+d.count+" विषय";
       }catch(e){ if(m) m.textContent="त्रुटि: "+((e&&e.message)||e); }
       msb.disabled=false; return; }

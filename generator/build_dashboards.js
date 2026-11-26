@@ -1237,6 +1237,24 @@ function vendorPanels(){
    1. "मेरे विषय" पैनल (8 भूमिकाएँ), 2. academic_subjects.js की script (वही 8), 3. exam_data.js की script (टेम्पलेट में, सब पन्ने)। */
 const P_MYSUBJ = "<div class=\"pcard panel\" id=\"pnl-mysubj\" data-nav=\"📚 मेरे विषय\" style=\"grid-column:1/-1\"><div class=\"ph\">📚 मेरे विषय — मुझे क्या आता है / रुचि है</div><div class=\"pd\">यहाँ बताएँ आपको किन-किन विषयों में महारत है या दिलचस्पी है — यह जानकारी counselor, नामांकन व सुझाव में आपकी मदद करेगी। जितने चाहें उतने चुनें, या \"सभी चुनें\"।</div><div id=\"mySubjBox\"><span class=\"note\">विषय-सूची यह पैनल खोलने पर आती है…</span></div><button class=\"abtn ok\" id=\"mySubjSave\" type=\"button\" style=\"margin-top:10px\">💾 सहेजें</button><div id=\"mySubjMsg\" class=\"msg\"></div></div>";
 const MYSUBJ_ROLES = ["center","counselor","entrepreneur","jobseeker","student","teacher","ustad","workshop"];
+/* (26-Nov-2026, सेक्टर-नियम v1.3; Founder, 26-Nov: "बाद में चाहे तो 1 से अधिक सेक्टर ऐड कर सके और मिटा सके")
+   "मेरे सेक्टर" पैनल: उन्हीं 7 भूमिकाओं में जिनके रजिस्ट्रेशन में «सेक्टर» खाना ज़रूरी है (assets/roles.js का SECTOR-KHANA)।
+   सेक्टर के नाम यहाँ नहीं लिखे: वे assets/mg_names.js से पैनल खुलने पर आते हैं (इंजन: assets/dashboard.js v6.45.0)।
+   "सहेजें" बटन बंद ही बनता है; server (saveMySectors) के "हाँ" कहने पर खुलता है। */
+const MYSEC_ROLES = ["teacher","ustad","counselor","center","workshop","employer","vendor"];
+const P_MYSEC = (
+  '<div class="pcard panel" id="pnl-mysec" data-nav="🧩 मेरे सेक्टर" style="grid-column:1/-1">' +
+  '<div class="ph">🧩 मेरे सेक्टर</div>' +
+  '<div class="pd">यहाँ बताएँ कि आपका काम किन सेक्टरों में है। कम से कम एक सेक्टर ज़रूरी है। आप बाद में सेक्टर जोड़ सकते हैं और हटा भी सकते हैं।</div>' +
+  '<div class="pd" id="mySecNow"></div>' +
+  '<div id="mySecBox"><span class="note">सेक्टर की सूची यह पैनल खोलने पर आती है…</span></div>' +
+  '<div class="note" style="margin-top:8px">«उपरोक्त में कोई नहीं» तभी चुनें जब कोई सेक्टर न बैठे। इसे चुनने पर बाक़ी सेक्टर हट जाते हैं।</div>' +
+  '<div id="mySecMainRow" style="display:none;margin-top:12px">' +
+  '<div class="pd"><b>मुख्य सेक्टर चुनें</b></div>' +
+  '<div class="note">मुख्य सेक्टर वह है जिसमें आपका सबसे ज़्यादा काम है।</div>' +
+  '<div class="k9subs" id="mySecMainBox" style="margin-top:8px"></div></div>' +
+  '<button class="abtn ok" id="mySecSave" type="button" style="margin-top:12px" disabled>💾 सेक्टर सहेजें</button>' +
+  '<div id="mySecMsg" class="msg"></div></div>');
 const ACADEMIC_SCRIPT = '<!-- शैक्षणिक-विषय — एकमात्र घर (31-Jul, Founder-आदेश: 8 पैनल एक-समान नाम पढ़ें) -->\n<script src="/assets/academic_subjects.js"></script>\n';
 
 function rolePanels(key){
@@ -1479,7 +1497,7 @@ for(const [home, h] of homes){
   const extKey = (h.ext && h.ext[0]) ? h.ext[0] : (isTeam ? null : h.keys[0]);
   const out2 = out
     .split("{{STATUS_PANEL}}").join(extKey ? statusPanel(extKey) : "")
-    .split("{{EXTRA_PANELS}}").join(extKey ? (MYSUBJ_ROLES.indexOf(extKey) >= 0 ? P_MYSUBJ : "") + rolePanels(extKey) : "")
+    .split("{{EXTRA_PANELS}}").join(extKey ? (MYSUBJ_ROLES.indexOf(extKey) >= 0 ? P_MYSUBJ : "") + (MYSEC_ROLES.indexOf(extKey) >= 0 ? P_MYSEC : "") + rolePanels(extKey) : "")
     .split("{{ACADEMIC_SCRIPT}}").join(extKey && MYSUBJ_ROLES.indexOf(extKey) >= 0 ? ACADEMIC_SCRIPT : "")
     .split("{{TEAM_EXTRA_PANELS}}").join(isTeam ? (TEAM_EXTRAS[home] || "") : "");
 

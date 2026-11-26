@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   dev_panel_dash_check.js v4.0.1 (24-Nov-2026: प्रमाणपत्र के नारे का दर्ज क़र्ज़, ⚠️ के साथ; site का नारा बदला, प्रमाणपत्र अगले दौर में) · v4.0 (20-Nov-2026; v4.0 E-5b: वेबसाइट की परीक्षा में पहले चेहरे की जाँच, इसलिए परीक्षा-जाँच नक़ली कैमरे (एक चेहरा) से उस पन्ने से गुज़रती है, और वह पन्ना भी English में जाँचा जाता है; v3.9 E-5b: चेहरे की जाँच वाले पैनल में ऐप या वेबसाइट, वेबसाइट की चेतावनियाँ, "कैमरा बंद रहा" (O17); v3.8 E-4b: प्रमाणपत्र पर फ़ोटो (O16); v3.7 E-3b: परीक्षा में चेहरे की जाँच वाला पैनल (pnl-xface) data के साथ: झंडे, फ़ोटो, फ़ैसला (O15);
+   dev_panel_dash_check.js v4.1 (26-Nov-2026: "🧩 मेरे सेक्टर" पैनल की जाँचें S1 से S12, और "📚 मेरे विषय" का सुरक्षा-पहरा S13) · v4.0.1 (24-Nov-2026: प्रमाणपत्र के नारे का दर्ज क़र्ज़, ⚠️ के साथ; site का नारा बदला, प्रमाणपत्र अगले दौर में) · v4.0 (20-Nov-2026; v4.0 E-5b: वेबसाइट की परीक्षा में पहले चेहरे की जाँच, इसलिए परीक्षा-जाँच नक़ली कैमरे (एक चेहरा) से उस पन्ने से गुज़रती है, और वह पन्ना भी English में जाँचा जाता है; v3.9 E-5b: चेहरे की जाँच वाले पैनल में ऐप या वेबसाइट, वेबसाइट की चेतावनियाँ, "कैमरा बंद रहा" (O17); v3.8 E-4b: प्रमाणपत्र पर फ़ोटो (O16); v3.7 E-3b: परीक्षा में चेहरे की जाँच वाला पैनल (pnl-xface) data के साथ: झंडे, फ़ोटो, फ़ैसला (O15);
    v3.6 (19-Nov-2026; v3.6 P-8b: भरपाई-कक्षा और रद्द-गिनती (O14); v3.5 P-7b: कक्षा-पट (O13); v3.4 N-2b: बैनर-नाम माँगना और ACS की जाँच (O12); v3.3 N-1b: बोर्ड और बैनर वाला नाम: पहचान-कार्ड, online कोर्स के कार्ड (O11); v3.2 P-6b: "✉️ संदेश" (बातचीत, भेजना, अभिभावक का email, शिकायत), शिक्षक की विद्यार्थी-सूची और विद्यार्थी के कार्ड से बातचीत, ACS की "🚩 शिकायतें" (O10); v3.1 P-5b: विद्यार्थी-सूची, कोर्स रद्द करना, ACS की "रद्द" सूची और "वापसी आगे बढ़ाएँ", अटकी वापसी, विद्यार्थी के कार्ड पर रद्द कोर्स (O9); v3.0 P-3b: विद्यार्थी का online-कोर्स पर्दा, ACS की वापसी-सूची, खाता-बही (O6-O8); v2.9 P-2b: कक्षाएँ और YouTube कड़ी की जाँचें (O4, O5); v2.8 P-1b: शिक्षक के paid online कोर्स की जाँचें (O1-O3); v2.7 design D-4: टीम के पैनलों की जाँचें (D4 …); v2.6 design D-3: केंद्र के "Enrollment" की जाँचें (D3 …); v2.5 design D-2: विद्यार्थी के "मेरा केंद्र" की जाँचें (D2 …); v2.4 design D-1: कक्षा-कार्ड का नया रूप और "मेरा रूप" की जाँचें (D1 …, R1 … R11); v2.3 K-5b: प्रगति और सूचना-पट की जाँचें (K5 …); v2.2 K-4b: "काम व अंक" की जाँचें (K4 …); v2.1 K-3b: हाज़िरी की जाँचें (K3 …); v2.0 Founder का देखने वाला मोड (nazarChecks): 13 बाहरी घर नमूना-रूप में, किसी खाते की नज़र से, लिखने वाले काम बंद, तीनों भाषाएँ; v1.9 K-2b: शिकायत वाले रास्ते की जाँचें (K2 …) और Founder/Admin का पैनल pnl-abandon; v1.8 कक्षा-परत K-1b: class_server.js के नक़ली जवाब (K1_HANDLERS), पर्दों की 23 अपनी जाँचें (k1Checks), और हर भाषा की जाँच में सूची, सौंपने का फ़ॉर्म और खोज भी खुलते हैं; v1.7 15-Nov-2026; v1.7 कन्नड़ क-1: openDash, openDoc, openH अब हर पैनल-भाषा के लिए, और बाहर भी मिलते हैं (dev_panel_lang_check.js के लिए); English की जाँचें वही; v1.6 प्रमाणपत्र: नाम पूछने का डिब्बा (पिता / माता / अभिभावक), server में एक बार सहेजना, और बहुत लंबा नाम किनारे के भीतर; v1.5 पैनल-5: नियम-पत्र की कड़ी English नियम-पत्र पर; v1.4 प्रमाणपत्र पर नाम की नई पंक्तियाँ; v1.0 पैनल-2; v1.1 पैनल-3: server के संदेश; v1.2 पैनल-4: काग़ज़; v1.3 पैनल-4ख: सहेजा हुआ हिंदी data): सब 31 dashboard का English पहरेदार
    (v1.2, पैनल-4) काग़ज़ जो DOM में नहीं होते: प्रमाणपत्र का चित्र, परिचय-पत्र का चित्र, WhatsApp के पहले से लिखे संदेश,
    रिपोर्ट की छपाई, अभिरुचि-परीक्षण की कड़ी। English पैनल में इनमें देवनागरी शून्य (उपयोगकर्ता का अपना लिखा नाम छोड़कर);
@@ -1744,7 +1744,143 @@ async function docChecks(pages) {
     e.dom.window.close(); h.dom.window.close();
   } catch (err) { ck("काग़ज़ (केंद्र) : जाँच चली", false, String(err && err.stack || err).slice(0, 500)); }
 }
-module.exports = { startExamWithFace, fakeFaceWeb, openNazar, nazarChecks, k1Checks, roopChecks, ocChecks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
+/* ════ (v4.1, 26-Nov-2026; सेक्टर-नियम v1.3) "🧩 मेरे सेक्टर" पैनल (S1 से S12) और "📚 मेरे विषय" का सुरक्षा-पहरा (S13) ════
+   Founder (26-Nov): "बाद में चाहे तो 1 से अधिक सेक्टर ऐड कर सके और मिटा सके"। पैनल 7 घरों में; नाम assets/mg_names.js से;
+   सहेजना server के saveMySectors से; server "हाँ" न कहे तो "सहेजें" बटन बंद ही रहता है (मरा बटन नहीं)। */
+const SEC_HOUSES = ["teacher", "ustad", "counselor", "center", "workshop", "employer", "vendor"];
+const DEVX = /[\u0900-\u0963\u0966-\u097F]/;   /* देवनागरी, पर "।" और "॥" छोड़कर (बांग्ला का अपना पूर्ण-विराम यही है) */
+const SEC_READY = { saveMySectors: d => (d && d.probe === "version") ? { ok: true, sectorServer: "1.0" } : { ok: true, regNo: "ACS-2026-123456", sectors: (d.sectors || []).slice() } };
+async function openSec(house, lang, mut, handlers) {
+  const file = "dashboard/" + house + "/index.html", info = pageInfo(file), data = fixture(info, "base");
+  data.registrations.r1.formFields = { sector: "7" };
+  if (mut) mut(data.registrations.r1);
+  const c = await openPage(file, { transform: dashTransform, urlPath: "/dashboard/" + house + "/", ls: (lang && lang !== "hi") ? { acs_dash_lang: lang } : {}, expect: (lang && lang !== "hi") ? lang : undefined,
+    handlers: Object.assign({}, HANDLERS, handlers || {}), fb: makeFB(data, { uid: "u1", email: "ram@example.com" }) });
+  c.userVals.add(NAME_HI); c.userVals.add(NAME_HI.trim()[0]);
+  await waitFor(c, () => !c.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c); await settle(c);
+  const b = Array.from(c.d.querySelectorAll("#sideNav .si")).find(x => x.getAttribute("data-go") === "pnl-mysec");
+  if (b) { click(c, b); await waitFor(c, () => c.d.querySelectorAll("#mySecBox .mySecChk").length > 0, 4000); await settle(c); await settle(c); }
+  return c;
+}
+const secChk = (c, v) => c.d.querySelector('#mySecBox .mySecChk[value="' + v + '"]');
+const secOn = c => Array.from(c.d.querySelectorAll("#mySecBox .mySecChk")).filter(x => x.checked).map(x => Number(x.value));
+const secSaves = c => c.calls.filter(x => x.name === "saveMySectors" && !x.data.probe);
+async function secChecks(pages) {
+  const have = SEC_HOUSES.filter(h => pages.indexOf("dashboard/" + h + "/index.html") > -1);
+  if (!have.length) return;
+  try {
+    /* S1: पैनल ठीक 7 घरों में, बाक़ी किसी में नहीं (पूरी दौड़ में ही) */
+    if (pages.length > 20) { const withP = pages.filter(f => rd(f).indexOf('id="pnl-mysec"') > -1).map(f => f.split("/").slice(1, -1).join("/")).sort();
+      ck("S1 \"मेरे सेक्टर\" पैनल ठीक 7 घरों में (शिक्षक, उस्ताद, सलाहकार, केंद्र, वर्कशॉप, नियोक्ता, विक्रेता)", withP.join(",") === SEC_HOUSES.slice().sort().join(","), withP.join(",")); }
+    for (const h of have) {
+      /* S2: server तैयार न हो (पुराना server): सूची दिखती है, पर "सहेजें" बंद; कुछ नहीं जाता */
+      let c = await openSec(h, "hi");
+      const NM = c.w.MG_NAMES, NONE = c.w.MG_NONE;
+      ck("S2 " + h + ": सूची में 25 खाने (24 सेक्टर + «उपरोक्त में कोई नहीं»), नाम mg_names.js से", c.d.querySelectorAll("#mySecBox .mySecChk").length === 25 && !!NM && Object.keys(NM).length === 24 && Number(NONE.id) === 25
+        && Object.keys(NM).every(k => c.d.getElementById("mySecBox").textContent.indexOf(NM[k].n) > -1) && c.d.getElementById("mySecBox").textContent.indexOf(NONE.n) > -1);
+      ck("S2 " + h + ": रजिस्ट्रेशन वाला सेक्टर (7) चुना दिखता है, और याद की पंक्ति में उसका नाम", secOn(c).join(",") === "7" && c.d.getElementById("mySecNow").textContent.indexOf(NM[7].n) > -1);
+      const btn0 = c.d.getElementById("mySecSave");
+      ck("S2 " + h + ": server \"हाँ\" न कहे तो \"सहेजें\" और सब खाने बंद, कारण लिखा है", btn0.disabled === true && /सुविधा अभी चालू नहीं मिली/.test(c.d.getElementById("mySecMsg").textContent)
+        && Array.from(c.d.querySelectorAll("#mySecBox .mySecChk")).every(x => x.disabled === true));
+      btn0.disabled = false; click(c, btn0); await settle(c);
+      ck("S2 " + h + ": बटन ज़बरदस्ती खोलकर दबाने पर भी server को कुछ नहीं जाता", secSaves(c).length === 0);
+      c.dom.window.close();
+      /* S3: server तैयार: जोड़ना, मुख्य चुनना, सहेजना */
+      c = await openSec(h, "hi", null, SEC_READY);
+      const btn = c.d.getElementById("mySecSave");
+      ck("S3 " + h + ": server \"हाँ\" कहे तो \"सहेजें\" और सब खाने खुले, कोई चेतावनी नहीं", btn.disabled === false && c.d.getElementById("mySecMsg").textContent === ""
+        && Array.from(c.d.querySelectorAll("#mySecBox .mySecChk")).every(x => x.disabled === false));
+      ck("S3 " + h + ": एक ही सेक्टर हो तो \"मुख्य सेक्टर\" का सवाल नहीं दिखता", c.d.getElementById("mySecMainRow").style.display === "none");
+      click(c, secChk(c, 11)); await settle(c);
+      const radios = () => Array.from(c.d.querySelectorAll("#mySecMainBox .mySecMainR"));
+      ck("S3 " + h + ": दूसरा सेक्टर जोड़ते ही \"मुख्य सेक्टर चुनें\" दिखता है, उसमें सिर्फ़ चुने हुए दो", c.d.getElementById("mySecMainRow").style.display !== "none" && radios().map(r => r.value).join(",") === "7,11" && radios().filter(r => r.checked).map(r => r.value).join(",") === "7");
+      click(c, radios()[1]); await settle(c);
+      click(c, btn); await waitFor(c, () => /सहेज लिए गए/.test(c.d.getElementById("mySecMsg").textContent), 3000);
+      const sv = secSaves(c).pop();
+      ck("S3 " + h + ": server को भूमिका और कूटों की सूची जाती है, मुख्य सेक्टर सबसे पहले", !!sv && sv.data.role === h && JSON.stringify(sv.data.sectors) === "[11,7]" && Object.keys(sv.data).sort().join(",") === "role,sectors", sv ? JSON.stringify(sv.data) : "कुछ नहीं गया");
+      ck("S3 " + h + ": सहेजने के बाद संदेश, और बटन फिर खुला", /✅ आपके सेक्टर सहेज लिए गए।/.test(c.d.getElementById("mySecMsg").textContent) && btn.disabled === false);
+      /* S4: हटाना; सब हटा दें तो कुछ नहीं जाता */
+      const n0 = secSaves(c).length;
+      click(c, secChk(c, 7)); await settle(c);
+      ck("S4 " + h + ": सेक्टर हटाने पर वह मुख्य की सूची से भी हटता है", secOn(c).join(",") === "11" && c.d.getElementById("mySecMainRow").style.display === "none");
+      click(c, secChk(c, 11)); await settle(c); click(c, btn); await settle(c);
+      ck("S4 " + h + ": एक भी सेक्टर न हो तो server को कुछ नहीं जाता, कारण दिखता है", secSaves(c).length === n0 && /कम से कम एक सेक्टर चुनें/.test(c.d.getElementById("mySecMsg").textContent));
+      /* S5: «उपरोक्त में कोई नहीं» अकेला ही */
+      click(c, secChk(c, 3)); click(c, secChk(c, 9)); await settle(c); click(c, secChk(c, 25)); await settle(c);
+      ck("S5 " + h + ": «उपरोक्त में कोई नहीं» चुनते ही बाक़ी सेक्टर हट जाते हैं", secOn(c).join(",") === "25" && c.d.getElementById("mySecMainRow").style.display === "none");
+      click(c, btn); await waitFor(c, () => secSaves(c).length > n0, 3000);
+      ck("S5 " + h + ": तब server को सिर्फ़ [25] जाता है", JSON.stringify((secSaves(c).pop() || { data: {} }).data.sectors) === "[25]");
+      click(c, secChk(c, 3)); await settle(c);
+      ck("S5 " + h + ": कोई सेक्टर चुनते ही «उपरोक्त में कोई नहीं» हट जाता है", secOn(c).join(",") === "3");
+      c.dom.window.close();
+    }
+    const h0 = have.indexOf("teacher") > -1 ? "teacher" : have[0];
+    /* S6: सहेजी हुई सूची रजिस्ट्रेशन वाले खाने से ऊपर; पहला कूट मुख्य */
+    let c = await openSec(h0, "hi", r => { r.sectors = [11, 7, 3]; }, SEC_READY);
+    ck("S6 सहेजी हुई सूची दिखती है (रजिस्ट्रेशन वाला खाना नहीं बदलता), पहला कूट मुख्य", secOn(c).join(",") === "3,7,11" && Array.from(c.d.querySelectorAll("#mySecMainBox .mySecMainR")).filter(r => r.checked).map(r => r.value).join(",") === "11"
+      && c.d.getElementById("mySecNow").textContent.indexOf(c.w.MG_NAMES[7].n) > -1);
+    click(c, c.d.getElementById("mySecSave")); await waitFor(c, () => secSaves(c).length > 0, 3000);
+    ck("S6 बिना कुछ बदले सहेजें: मुख्य वही रहता है, बाक़ी कूट क्रम से", JSON.stringify((secSaves(c).pop() || { data: {} }).data.sectors) === "[11,3,7]");
+    c.dom.window.close();
+    /* S7: पुराना खाता (रजिस्ट्रेशन में सेक्टर था ही नहीं) */
+    c = await openSec(h0, "hi", r => { delete r.formFields; }, SEC_READY);
+    ck("S7 पुराना खाता: कुछ चुना नहीं, साफ़ लिखा है कि सेक्टर बताना बाक़ी है", secOn(c).length === 0 && /आपने अभी तक कोई सेक्टर नहीं बताया है/.test(c.d.getElementById("mySecNow").textContent));
+    c.dom.window.close();
+    /* S8: कूट ग़लत या दायरे से बाहर हो, तो वह चुना नहीं दिखता (पन्ना नहीं गिरता) */
+    c = await openSec(h0, "hi", r => { r.sectors = ["x", 0, 26, 7, 7, "11"]; }, SEC_READY);
+    ck("S8 ग़लत कूट (x, 0, 26) छोड़ दिए जाते हैं, दोहराव एक बार", secOn(c).join(",") === "7,11");
+    c.dom.window.close();
+    /* S9: server का मना करना साफ़ दिखता है */
+    c = await openSec(h0, "hi", null, { saveMySectors: d => { if (d && d.probe) return { ok: true, sectorServer: "1.0" }; throw new Error("इस भूमिका का registration नहीं मिला"); } });
+    click(c, c.d.getElementById("mySecSave")); await waitFor(c, () => /त्रुटि/.test(c.d.getElementById("mySecMsg").textContent), 3000);
+    ck("S9 server मना करे तो कारण दिखता है, बटन फिर खुला", /त्रुटि: इस भूमिका का registration नहीं मिला/.test(c.d.getElementById("mySecMsg").textContent) && c.d.getElementById("mySecSave").disabled === false);
+    c.dom.window.close();
+    /* S10: सेक्टर की फ़ाइल न खुले */
+    { const file = "dashboard/" + h0 + "/index.html", data = fixture(pageInfo(file), "base");
+      const c2 = await openPage(file, { transform: dashTransform, urlPath: "/dashboard/" + h0 + "/", ls: {}, handlers: Object.assign({}, HANDLERS, SEC_READY), fb: makeFB(data, { uid: "u1", email: "ram@example.com" }), failOnce: [] });
+      await waitFor(c2, () => !c2.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c2);
+      const ap = c2.d.body.appendChild.bind(c2.d.body);
+      c2.d.body.appendChild = function (n) { if (n && n.tagName === "SCRIPT" && /mg_names\.js/.test(n.src || "")) { setTimeout(() => n.onerror && n.onerror(), 0); return n; } return ap(n); };
+      click(c2, Array.from(c2.d.querySelectorAll("#sideNav .si")).find(x => x.getAttribute("data-go") === "pnl-mysec")); await settle(c2); await settle(c2);
+      ck("S10 सेक्टर की सूची न खुले: कारण दिखता है, \"सहेजें\" बंद, server से कुछ नहीं पूछा जाता", /सेक्टर की सूची नहीं खुली/.test(c2.d.getElementById("mySecBox").textContent) && c2.d.getElementById("mySecSave").disabled === true && !c2.calls.some(x => x.name === "saveMySectors"));
+      c2.dom.window.close(); }
+    /* S11: English, कन्नड़ और बांग्ला में पैनल: हिंदी का एक अक्षर नहीं; सेक्टर के नाम उसी भाषा में */
+    for (const L of ["en", "kn", "bn"]) {
+      c = await openSec(h0, L, r => { r.sectors = [7, 11]; }, SEC_READY);
+      click(c, c.d.getElementById("mySecSave")); await waitFor(c, () => secSaves(c).length > 0, 3000); await settle(c); await settle(c);
+      const pn = c.d.getElementById("pnl-mysec"), t = pn.textContent, nav = Array.from(c.d.querySelectorAll("#sideNav .si")).find(x => x.getAttribute("data-go") === "pnl-mysec").textContent;
+      ck("S11 " + L + ": पैनल, काम-सूची का नाम और सहेजने का संदेश उसी भाषा में (देवनागरी शून्य)", !DEVX.test(t) && !DEVX.test(nav) && c.d.querySelectorAll("#mySecBox .mySecChk").length === 25 && t.indexOf("✅") > -1, (t.match(/[^\s]*[\u0900-\u0963\u0966-\u097F][^\s]*/g) || []).slice(0, 6).join(" ‖ "));
+      if (L === "en") ck("S11 en: सेक्टर के नाम English में (Technology, Education, None of the above)", /Technology/.test(t) && /Education/.test(t) && /None of the above/.test(t));
+      ck("S11 " + L + ": server को वही कूट जाते हैं जो हिंदी में जाते (भाषा से data नहीं बदलता)", JSON.stringify((secSaves(c).pop() || { data: {} }).data.sectors) === "[7,11]");
+      c.dom.window.close();
+      c = await openSec(h0, L);   /* server तैयार नहीं: चेतावनी भी उसी भाषा में */
+      ck("S11 " + L + ": \"सुविधा चालू नहीं\" वाली चेतावनी उसी भाषा में", c.d.getElementById("mySecMsg").textContent.length > 20 && !DEVX.test(c.d.getElementById("mySecMsg").textContent) && c.d.getElementById("mySecSave").disabled === true);
+      c.dom.window.close();
+    }
+    /* S12: Founder का देखने वाला मोड: सूची दिखती है, "सहेजें" बंद, server को कुछ नहीं जाता */
+    { const c3 = await openNazar("dashboard/" + h0 + "/index.html", "hi", "?nazar=1", { noOpen: true });
+      const b3 = Array.from(c3.d.querySelectorAll("#sideNav .si")).find(x => x.getAttribute("data-go") === "pnl-mysec");
+      if (b3) { click(c3, b3); await waitFor(c3, () => c3.d.querySelectorAll("#mySecBox .mySecChk").length > 0, 4000); await settle(c3); await settle(c3); }
+      ck("S12 देखने का मोड: सूची दिखती है, खाने और \"सहेजें\" बंद, कारण लिखा है, server को कुछ नहीं जाता", !!b3 && c3.d.querySelectorAll("#mySecBox .mySecChk").length === 25 && c3.d.getElementById("mySecSave").disabled === true
+        && Array.from(c3.d.querySelectorAll("#mySecBox .mySecChk")).every(x => x.disabled === true)
+        && /देखने के मोड में सेक्टर नहीं बदले जाते/.test(c3.d.getElementById("mySecMsg").textContent) && !c3.calls.some(x => x.name === "saveMySectors"));
+      c3.dom.window.close(); }
+    /* S13: "📚 मेरे विषय" का सुरक्षा-पहरा (दर्ज होल: बाहरी घरों में यह सूची भरती ही नहीं; विद्यार्थी के घर में "सहेजें" ख़ाली सूची भेज देता था) */
+    if (pages.indexOf("dashboard/student/index.html") > -1) {
+      const file = "dashboard/student/index.html", data = fixture(pageInfo(file), "base"); data.registrations.r1.subjects = ["गणित"];
+      const c4 = await openPage(file, { transform: dashTransform, urlPath: "/dashboard/student/", ls: {}, handlers: Object.assign({}, HANDLERS, { saveMySubjects: d => ({ ok: true, count: (d.subjects || []).length }) }), fb: makeFB(data, { uid: "u1", email: "ram@example.com" }) });
+      await waitFor(c4, () => !c4.d.getElementById("appView").classList.contains("hidden"), 6000); await settle(c4);
+      const nb = Array.from(c4.d.querySelectorAll("#sideNav .si")).find(x => x.getAttribute("data-go") === "pnl-mysubj"); if (nb) { click(c4, nb); await settle(c4); await settle(c4); }
+      const sb = c4.d.getElementById("mySubjSave");
+      if (sb) { click(c4, sb); await settle(c4); await settle(c4);
+        ck("S13 मेरे विषय (विद्यार्थी): सूची खुली न हो तो \"सहेजें\" server को कुछ नहीं भेजता (पहले ख़ाली सूची जाती थी), और कारण दिखता है", !c4.calls.some(x => x.name === "saveMySubjects") && /विषय-सूची अभी नहीं खुल रही है/.test(c4.d.getElementById("mySubjMsg").textContent), c4.d.getElementById("mySubjMsg").textContent); }
+      else ck("S13 मेरे विषय (विद्यार्थी): \"सहेजें\" बटन मिला", false);
+      c4.dom.window.close();
+    }
+  } catch (e) { ck("सेक्टर-पैनल की जाँच चली", false, String(e && e.stack || e).slice(0, 500)); }
+}
+
+module.exports = { secChecks, openSec, SEC_READY, startExamWithFace, fakeFaceWeb, openNazar, nazarChecks, k1Checks, roopChecks, ocChecks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
 if (require.main === module) (async function main() {
   const only = process.argv[2] || "";
   const listPages = () => fs.readdirSync(path.join(ROOT, "dashboard"), { withFileTypes: true }).filter(e => e.isDirectory())
@@ -1812,9 +1948,10 @@ if (require.main === module) (async function main() {
   await nazarChecks(pages);   /* (v2.0) Founder का देखने वाला मोड */
   await roopChecks(pages);   /* (v2.4) नया रूप (design D-1) और "मेरा रूप" */
   await ocChecks(pages);   /* (v2.8) शिक्षक का paid online कोर्स (P-1b) */
+  await secChecks(pages);   /* (v4.1) "मेरे सेक्टर" पैनल, और "मेरे विषय" का सुरक्षा-पहरा */
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");
-  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v4.0 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
+  console.log(fail ? "⛔ dev_panel_dash_check रुका" : "🏁 dev_panel_dash_check v4.1 : सब dashboard, काग़ज़ और सहेजा हुआ data English पास");
   process.exit(fail ? 1 : 0);
 })();

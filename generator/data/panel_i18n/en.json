@@ -3019,7 +3019,23 @@
   "📄 ऑडिट रिपोर्ट": "📄 Audit report",
   "📝 सूची-सुधार निवेदन": "📝 Listing correction requests",
   "📝 सूची-सुधार निवेदन (नेटवर्क)": "📝 Listing correction requests (Network)",
-  "अब": "Now"
+  "अब": "Now",
+  "🧩 मेरे सेक्टर": "🧩 My sectors",
+  "यहाँ बताएँ कि आपका काम किन सेक्टरों में है। कम से कम एक सेक्टर ज़रूरी है। आप बाद में सेक्टर जोड़ सकते हैं और हटा भी सकते हैं।": "Tell us here which sectors your work is in. At least one sector is required. You can add sectors later and remove them too.",
+  "सेक्टर की सूची यह पैनल खोलने पर आती है…": "The sector list loads when you open this panel…",
+  "«उपरोक्त में कोई नहीं» तभी चुनें जब कोई सेक्टर न बैठे। इसे चुनने पर बाक़ी सेक्टर हट जाते हैं।": "Choose «None of the above» only when no sector fits. Choosing it removes the other sectors.",
+  "मुख्य सेक्टर चुनें": "Choose your main sector",
+  "मुख्य सेक्टर वह है जिसमें आपका सबसे ज़्यादा काम है।": "The main sector is the one where most of your work is.",
+  "💾 सेक्टर सहेजें": "💾 Save sectors",
+  "रजिस्ट्रेशन के समय आपने यह सेक्टर चुना था:": "At registration you chose this sector:",
+  "आपने अभी तक कोई सेक्टर नहीं बताया है। नीचे से चुनें और सहेजें।": "You have not told us any sector yet. Choose from below and save.",
+  "सेक्टर की सूची नहीं खुली। इंटरनेट जाँचकर यह पैनल दोबारा खोलें।": "The sector list did not open. Check your internet and open this panel again.",
+  "देखने के मोड में सेक्टर नहीं बदले जाते।": "Sectors cannot be changed in view mode.",
+  "सेक्टर बदलने की सुविधा अभी चालू नहीं मिली। आपके दर्ज सेक्टर वैसे ही हैं। थोड़ी देर बाद यह पैनल दोबारा खोलें।": "The option to change sectors is not available right now. Your recorded sectors are unchanged. Open this panel again after a while.",
+  "कम से कम एक सेक्टर चुनें।": "Choose at least one sector.",
+  "server का जवाब अधूरा है": "The server's reply is incomplete",
+  "✅ आपके सेक्टर सहेज लिए गए।": "✅ Your sectors have been saved.",
+  "विषय-सूची अभी नहीं खुल रही है। आपके पहले से सहेजे विषय वैसे ही हैं।": "The subject list is not opening right now. Your saved subjects are unchanged."
  },
  "geo": {
   "अंडमान-निकोबार": "Andaman and Nicobar Islands",
@@ -3750,6 +3766,14 @@
   "इस परीक्षा में चेहरे की जाँच अभी बाक़ी है। जाँच पूरी होने के बाद प्रमाणपत्र ले सकेंगे।": "The face check of this exam is still pending. You can get the certificate after the check is complete.",
   "चेहरे की जाँच में इस परीक्षा में गड़बड़ पाई गई। इसलिए इस नतीजे का प्रमाणपत्र नहीं मिलेगा। दोबारा परीक्षा देकर पास होने पर प्रमाणपत्र मिल सकता है।": "The face check found a problem in this exam. So there is no certificate for this result. You can get a certificate by taking the exam again and passing.",
   "यह प्रमाणपत्र नहीं मिला।": "This certificate was not found.",
-  "वेबसाइट पर परीक्षा के लिए कैमरा ज़रूरी है। पन्ना दोबारा खोलें (refresh करें), फिर परीक्षा शुरू करें।": "The camera is required for the exam on the website. Open the page again (refresh), then start the exam."
+  "वेबसाइट पर परीक्षा के लिए कैमरा ज़रूरी है। पन्ना दोबारा खोलें (refresh करें), फिर परीक्षा शुरू करें।": "The camera is required for the exam on the website. Open the page again (refresh), then start the exam.",
+  "'{0}' में सूची का ही एक विकल्प चुनें": "Choose one of the listed options for '{0}'",
+  "«उपरोक्त में कोई नहीं» के साथ दूसरा सेक्टर नहीं चुना जा सकता": "No other sector can be chosen together with «None of the above»",
+  "इस भूमिका का registration नहीं मिला": "No registration was found for this role",
+  "कम से कम एक सेक्टर ज़रूरी है": "At least one sector is required",
+  "यह सुविधा इस भूमिका के लिए नहीं है": "This option is not for this role",
+  "सेक्टर का कूट 1 से 25 के बीच हो": "The sector code must be between 1 and 25",
+  "सेक्टर की सूची नहीं मिली": "The sector list was not received",
+  "सेक्टर सेव नहीं हुए: {0}": "Sectors were not saved: {0}"
  }
 }
