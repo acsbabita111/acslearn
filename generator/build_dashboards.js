@@ -1,5 +1,6 @@
 /* ============================================================
    build_dashboards.js — dashboard-परिवार का generator (परत-4)
+   v2.20 · 27-Nov-2026 (एक दर v1.0; Founder, 27-Nov: "₹300 की एक ही दर रहेगी", "पुरानी दर निरस्त") : चारों बैज-पैनलों (P_BADGE, P_TU_BADGE, P_INST_BADGE, P_SIMPLE_BADGE) की शुल्क-पंक्ति में गाँव 300 · क़स्बा 600 · महानगर 1,000 की जगह "300 रुपये। हर जगह एक ही दर।"; पिन-खाने की पंक्ति: पिन अब RM की जाँच के लिए। साथ में: दोनों टेम्पलेट पढ़ते समय \r\n → \n (Windows की CRLF checkout पर भी वही पन्ने; LF checkout पर एक byte नहीं बदलता)।
    v2.19 · 25-Nov-2026 (N-4, नेटवर्क का "सुधार का निवेदन") : Founder, Admin, ZM और RM के घर में नया पैनल P_LISTING_EDITS "📝 सूची-सुधार निवेदन"।
    v2.18 · 19-Nov-2026 (E-5b, वेबसाइट पर भी कैमरे से चेहरे की जाँच) : P_EXAM_FACE की पहली पंक्ति में ऐप के साथ वेबसाइट भी।
    v2.17 · 19-Nov-2026 (P-8b, भरपाई-कक्षा) : P_ONLINE_CRS के नियमों में भरपाई-कक्षा और गिनती की पंक्तियाँ; P_OC_Q में "🚫 रद्द कक्षाएँ" की पंक्ति।
@@ -83,7 +84,7 @@ const path = require("path");
 
 const ROOT = path.join(__dirname, "..");
 const MX = require(path.join(ROOT, "assets", "designation_matrix.js"));
-const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.html"), "utf8");
+const TPL = fs.readFileSync(path.join(ROOT, "dashboard", "_DASHBOARD_TEMPLATE.html"), "utf8").replace(/\r\n/g, "\n");   /* v2.20: a Windows (CRLF) checkout gives the same pages */
 
 const STAMP = "16-Jul-2026";
 const GEN_NOTE =
@@ -276,7 +277,7 @@ const P_BADGE = (
     '<div class="ph">✅ Verified Badge (Green Tick)</div>' +
     '<div class="pd">जुड़ना मुफ़्त है — badge लेना आपकी मर्ज़ी (वैकल्पिक)। badge वाले को नियोक्ता की नज़र में भरोसा व प्राथमिकता मिलती है, ' +
     'पर बिना badge भी आप हर जगह apply कर सकते हैं। न्यूनतम उम्र 18; कोई उम्र-जोड़ नहीं — सीधा रेट।</div>' +
-    '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · महानगर 1,000 रुपये। आपका सही शुल्क आपके पिन कोड से अपने-आप तय होगा।</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> 300 रुपये। हर जगह एक ही दर।</div>' +
     '<div class="note">वापसी-नियम: सत्यापन से पहले रद्द करें तो 90 प्रतिशत वापस (10 प्रतिशत processing); badge बनने के बाद = ' +
     '(पूरी फीस में से 30 प्रतिशत काटकर) × बचे दिन ÷ 365।</div>' +
     '<div class="ph" style="margin-top:14px">🤝 referral (जान-पहचान से जोड़ो, इनाम पाओ)</div>' +
@@ -293,7 +294,7 @@ const P_BADGE = (
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपका पता व जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
-    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
+    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — RM की जाँच के लिए ज़रूरी: ' +
     '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
     'style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:150px;margin-left:6px"></div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
@@ -413,7 +414,7 @@ const P_TU_EARN = (
 const P_TU_BADGE = (
     '<div class="pcard panel" id="pnl-badge" data-nav="✅ Verified Badge" style="grid-column:1/-1">' +
     '<div class="ph">✅ Verified Badge</div>' +
-    '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · महानगर (Metro) 1,000 रुपये।</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> 300 रुपये। हर जगह एक ही दर।</div>' +
     '<div class="pd"><b>उम्र-नियम:</b> 45 वर्ष या अधिक उम्र पर badge आपकी मर्ज़ी (वैकल्पिक); 45 से कम उम्र पर ' +
     'अनिवार्य + उम्र-fee x प्रतिशत (x = 45 में से आपकी उम्र घटाकर)। नवीनीकरण हर साल 1 अप्रैल से 31 मार्च के ' +
     'हिसाब से — नवीनीकरण-खिड़की 1 से 25 मार्च।</div>' +
@@ -433,7 +434,7 @@ const P_TU_BADGE = (
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
-    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
+    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — RM की जाँच के लिए ज़रूरी: ' +
     '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
     'style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:150px;margin-left:6px"></div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
@@ -705,7 +706,7 @@ function P_INST_VERIFY(extra, opts){
 const P_INST_BADGE = (
     '<div class="pcard panel" id="pnl-badge" data-nav="✅ Verified Badge" style="grid-column:1/-1">' +
     '<div class="ph">✅ Verified Badge (संस्था-स्तर)</div>' +
-    '<div class="pd"><b>शुल्क (365 दिन):</b> एरिया/गाँव 300 रुपये · जिला-मुख्यालय 600 रुपये · महानगर (Metro) 1,000 रुपये। ' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> 300 रुपये। हर जगह एक ही दर। ' +
     'यह संस्था-स्तर का badge है — <b>उम्र-fee नहीं लगती</b>। badge आपकी मर्ज़ी (वैकल्पिक); badge वाली संस्था को ' +
     'सूची में भरोसा व प्राथमिकता, पर बिना badge भी काम चलता रहता है।</div>' +
     '<div class="note">नवीनीकरण हर साल 1 अप्रैल से 31 मार्च के हिसाब से — खिड़की 1 से 25 मार्च। ' +
@@ -724,7 +725,7 @@ const P_INST_BADGE = (
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
-    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
+    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — RM की जाँच के लिए ज़रूरी: ' +
     '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
     'style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:150px;margin-left:6px"></div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
@@ -1032,8 +1033,8 @@ const P_VND_DEAL = (
 const P_SIMPLE_BADGE = (
     '<div class="pcard panel" id="pnl-badge" data-nav="✅ Verified Badge" style="grid-column:1/-1">' +
     '<div class="ph">✅ Verified Badge (वैकल्पिक)</div>' +
-    '<div class="pd"><b>शुल्क (365 दिन):</b> गाँव/एरिया 300 रुपये · क़स्बा/जिला-मुख्यालय 600 रुपये · ' +
-    'महानगर (Metro) 1,000 रुपये। badge लेना आपकी मर्ज़ी — badge वाले को सूची में भरोसा व प्राथमिकता।</div>' +
+    '<div class="pd"><b>शुल्क (365 दिन):</b> 300 रुपये। हर जगह एक ही दर। ' +
+    'badge लेना आपकी मर्ज़ी — badge वाले को सूची में भरोसा व प्राथमिकता।</div>' +
     '<div class="note">साफ़ समझ: badge सत्यापन का दरवाज़ा नहीं है — RM भौतिक-सत्यापन व approval-श्रृंखला ' +
     'हर हाल में अनिवार्य व अलग चीज़ है; badge उसके बाद का अतिरिक्त भरोसा-चिह्न है। बाक़ी शर्तें नियम-पत्र में।</div>' +
     '<div class="ph" style="margin-top:14px">🤝 referral (जान-पहचान से जोड़ो, इनाम पाओ)</div>' +
@@ -1050,7 +1051,7 @@ const P_SIMPLE_BADGE = (
     '<div id="badgeStatus" class="note">स्थिति जाँची जा रही है…</div>' +
     '<div id="badgeRmNote" class="note" style="color:#8a5a00"><b>ध्यान दें:</b> भुगतान के बाद RM (क्षेत्रीय अधिकारी) आपकी जानकारी जाँचेंगे। ' +
     'अगर सत्यापन असफल हुआ तो 30 प्रतिशत जाँच-शुल्क कटकर बाक़ी वापस मिलेगा (यह जुर्माना नहीं — जाँच का ख़र्च)।</div>' +
-    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — शुल्क इसी से तय होगा: ' +
+    '<div id="badgePinRow" class="pd" style="display:none">📮 अपने घर का 6-अंकों का पिन कोड लिखें — RM की जाँच के लिए ज़रूरी: ' +
     '<input id="badgePin" inputmode="numeric" maxlength="6" placeholder="जैसे 851201" ' +
     'style="font-size:18px;padding:8px 12px;border:2px solid var(--blue);border-radius:10px;width:150px;margin-left:6px"></div>' +
     '<button class="abtn ok" id="badgeBuyBtn" data-act="badge-buy" style="background:var(--blue);display:none">✅ बैज के लिए भुगतान करें</button>' +
@@ -1533,7 +1534,7 @@ const SPECIALS = [
   { tpl: path.join("dashboard","_LOGIN_TEMPLATE.html"), out: path.join("dashboard","index.html"), nm: "login/router" }
 ];
 for(const sp of SPECIALS){
-  let t = fs.readFileSync(path.join(ROOT, sp.tpl), "utf8");
+  let t = fs.readFileSync(path.join(ROOT, sp.tpl), "utf8").replace(/\r\n/g, "\n");   /* v2.20: CRLF checkout */
   const note = "<!--\n  " + GEN_NOTE.split("\n").join("\n  ") + "\n  स्रोत-टेम्पलेट: /" + String(sp.tpl).split(path.sep).join("/") + "\n-->\n";
   const outHtml = t.replace(/^(<!DOCTYPE html>\s*\n?)/i, "$1" + note);
   if(outHtml === t){ console.error("❌ doctype नहीं मिला:", sp.tpl); process.exit(1); }

@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.47.0 · 27-Nov-2026 (एक दर v1.0; Founder, 27-Nov: "₹300 की एक ही दर रहेगी", "पुरानी दर निरस्त"):
+            बैज की पुष्टि में "आपका क्षेत्र: गाँव/क़स्बा/महानगर" की जगह "हर जगह एक ही दर"; खाता-बही और RM की बैज-क़तार की पंक्ति से "क्षेत्र" हटा;
+            पिन अब दर के लिए नहीं, RM की जाँच के लिए पूछा जाता है (संदेश का वाक्य बदला)। तीनों TIER_HI तालिकाएँ हटीं। रक़म पहले की तरह server ही तय करता है।
    v6.46.0 · 26-Nov-2026 (पिन-घर v1.0; Founder, 26-Nov: "जहां भी भारतीय पता की बात हो, वहाँ पर इस पिन कोड से ही अपने आप सभी सूचना ले लिया जाए"):
             बैज के पिन-खाने में पिन भरते ही ज़िला और राज्य दिखते हैं (helper assets/acs-pin.js माँग पर लदता है; कोई बाहरी site नहीं);
             पिन सूची में न मिले तो चेतावनी, रोक नहीं (शुल्क server तय करता है)।
@@ -235,7 +238,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.46.0";
+const DASH_VER = "v6.47.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -3526,15 +3529,14 @@ if (MODE==="external" && ALLOWED.length===1 && NO_GATEWAY_EXT.indexOf(ALLOWED[0]
 /* ═══════════════════════════════════════════════════════════════
    (काम-11+, 19-Jul-2026 Founder-आदेश) साझा बैज-इंजन — बैज-योग्य हर भूमिका पर
    (jobseeker · teacher · ustad · counselor · center · workshop · foreign_agent ·
-   finance_mitra · vendor)। प्रवाह: बटन → createBadgeOrder (server भूमिका+पिन से
-   tier व रक़म तय करे; शिक्षक/उस्ताद/सलाहकार पर उम्र-fee भी server जोड़े) → पुष्टि
+   finance_mitra · vendor)। प्रवाह: बटन → createBadgeOrder (server रक़म तय करे: हर जगह
+   एक ही दर, 27-Nov-2026; शिक्षक/उस्ताद/सलाहकार पर उम्र-fee भी server जोड़े) → पुष्टि
    (30% जाँच-शुल्क खुलासा) → Razorpay checkout → verifyBadgePayment → status।
    रक़म client कभी तय नहीं करता। पैनल जिस पेज पर नहीं, वहाँ यह इंजन चुप रहता है।
    ═══════════════════════════════════════════════════════════════ */
 if (MODE==="external" && ALLOWED.length>=1) {
   const BADGE_ROLE = String(ALLOWED[0]||"").toLowerCase();
   const IS_GOLD = (BADGE_ROLE === "student");   /* v3.7 काम-5: Golden — पिन/tier/RM-क़तार लागू नहीं */
-  const TIER_HI = { village:"गाँव", town:"क़स्बा", metro:"महानगर" };
 
   function loadRazorpay(){
     return new Promise((res,rej)=>{
@@ -3808,7 +3810,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
       if(pin.length!==6){
         const pr=$("badgePinRow"); if(pr) pr.style.display="block";
         if(inp) inp.focus();
-        if(msg){ msg.className="msg err"; msg.textContent="पहले अपने घर का 6-अंकों का पिन कोड भरें — शुल्क इसी से तय होगा।"; }
+        if(msg){ msg.className="msg err"; msg.textContent="पहले अपने घर का 6-अंकों का पिन कोड भरें — RM की जाँच के लिए यह ज़रूरी है।"; }
         return;
       }
     }
@@ -3820,10 +3822,9 @@ if (MODE==="external" && ALLOWED.length>=1) {
       const o=(res&&res.data)||{};
       if(!o.ok||!o.orderId) throw new Error("order नहीं बना");
       const rupee=Math.round((o.amount||0)/100);
-      const tierHi=TIER_HI[o.tier]||o.tier||"";
-      let line="आपका क्षेत्र: "+tierHi+" · शुल्क ₹"+rupee+" (365 दिन)।";
+      let line="हर जगह एक ही दर"+" · शुल्क ₹"+rupee+" (365 दिन)।";
       if(o.ageFee && o.ageFee>0){
-        line="आपका क्षेत्र: "+tierHi+" · मूल शुल्क ₹"+Math.round(o.baseAmount/100)+
+        line="हर जगह एक ही दर"+" · मूल शुल्क ₹"+Math.round(o.baseAmount/100)+
              " + उम्र-fee ₹"+Math.round(o.ageFee/100)+" = कुल ₹"+rupee+" (365 दिन)।";
       }
       if(IS_GOLD){
@@ -3941,7 +3942,6 @@ if (MODE==="external" && ALLOWED.length>=1) {
 (function(){
   const ROLE_HI={jobseeker:"नौकरी-इच्छुक",teacher:"शिक्षक",ustad:"उस्ताद",counselor:"सलाहकार",
     center:"केंद्र",workshop:"वर्कशॉप",foreign_agent:"विदेश एजेंट",finance_mitra:"वित्त मित्र",vendor:"विक्रेता"};
-  const TIER_HI={village:"गाँव",town:"क़स्बा",metro:"महानगर"};
   let LG_ALL=[], LG_SHOWN=0; const LG_PAGE=50;
   function stLine(p){
     if(p.status==="paid" && p.rmStatus==="approved") return ["✅ बैज सक्रिय","#1b4d20"];
@@ -3971,7 +3971,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         box.appendChild(row); continue;
       }
       row.innerHTML='<div class="r1"><span class="nm">✅ Verified Badge — '+roleHi+'</span></div>'
-        +'<div class="r2">📅 '+dt+' · क्षेत्र: '+(TIER_HI[p.tier]||p.tier||"—")+' · राशि: '+amt
+        +'<div class="r2">📅 '+dt+' · राशि: '+amt
         +((p.ageFee&&p.ageFee>0)?(' (मूल ₹'+Math.round(p.baseAmount/100)+' + उम्र-fee ₹'+Math.round(p.ageFee/100)+')'):'')+'</div>'
         +'<div class="r2" style="color:'+st[1]+'">'+st[0]+'</div>';
       box.appendChild(row);
@@ -4017,7 +4017,6 @@ if (MODE==="external" && ALLOWED.length>=1) {
 (function(){
   const ROLE_HI={jobseeker:"नौकरी-इच्छुक",teacher:"शिक्षक",ustad:"उस्ताद",counselor:"सलाहकार",
     center:"केंद्र",workshop:"वर्कशॉप",foreign_agent:"विदेश एजेंट",finance_mitra:"वित्त मित्र",vendor:"विक्रेता"};
-  const TIER_HI={village:"गाँव",town:"क़स्बा",metro:"महानगर"};
 
   async function loadQueue(){
     const box=$("badgeqList"); if(!box) return;
@@ -4034,7 +4033,7 @@ if (MODE==="external" && ALLOWED.length>=1) {
         const row=document.createElement("div"); row.className="mem";
         row.innerHTML =
           '<div class="r1"><span class="nm">'+US(it.name||"—")+' · '+esc(it.regNo||"—")+'</span></div>'
-        + '<div class="r2">भूमिका: '+(ROLE_HI[it.role]||it.role)+' · क्षेत्र: '+(TIER_HI[it.tier]||it.tier||"—")
+        + '<div class="r2">भूमिका: '+(ROLE_HI[it.role]||it.role)
         + ' (पिन '+esc(it.pin||"—")+') · राशि: ₹'+(it.amountRupees||0)+' · भुगतान: '+dt+'</div>'
         + '<div class="r2">राज्य: '+esc(it.state||"—")+' · वांछित जिला: '+esc(it.district||"—")
         + (it.mobile? ' · 📱 '+esc(it.mobile) : '')+'</div>'
