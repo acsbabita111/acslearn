@@ -1,5 +1,8 @@
 /* ============================================================
-   network/batches.js v1.2 (परत-3, 25-Nov-2026, खेप N-3.1: ChatGPT ऑडिट CSC-01/02: addressDropParts, addressUrlAsSource, notAddress के
+   network/batches.js v1.3 (परत-3, 27-Nov-2026, खेप N-6: BIHAR-IT-001, बिहार की IT-सूची (ChatGPT की Publication-Ready CSV, 1,019 नाम);
+   नए खाने: categoryMap (स्रोत में लिखा काम → ACS श्रेणी; जो नाम इस नक़्शे में नहीं, वह रिकॉर्ड रोककर रखा जाता है) और pinGhar
+   (PIN का ज़िला ACS के पिन-घर, यानी India Post और सरकारी LGD, से मिलाकर रिपोर्ट में गिनती; बेमेल PIN नहीं छपता));
+   v1.2 = 25-Nov-2026, खेप N-3.1: ChatGPT ऑडिट CSC-01/02: addressDropParts, addressUrlAsSource, notAddress के
    4 और रूप; v1.1 = 25-Nov-2026, खेप N-3: BIHAR-CSC-001, बिहार के CSC केंद्र, soft launch; v1.0 = 22-Nov-2026,
    खेप N-1) : नेटवर्क के import-batch का रजिस्टर + Excel-साँचे के कॉलम
    हर import = एक batch-ID (जैसे BIHAR-TW-001, BIHAR-IT-001)। वापसी (rollback) और जाँच (audit) इसी से।
@@ -26,9 +29,9 @@ const TEMPLATE_COLS = {
 const TEMPLATE_INTERNAL = ["Email", "Confidence", "Notes"];
 /* साँचे के हर कॉलम का अर्थ (ACS-Network-Import-Template.xlsx की "कॉलम" शीट यहीं से बनती है) */
 const TEMPLATE_HELP = {
-  Record_ID: "ज़रूरी, कभी नहीं बदलता। TW: BR-KHG-0001 · IT: BR-IT-KHG-0001", Sector_ID: "ज़रूरी: TW या IT (आगे के सेक्टर taxonomy.js से)",
+  Record_ID: "ज़रूरी, कभी नहीं बदलता। TW: BR-KHG-0001 · IT: BR-IT-00001", Sector_ID: "ज़रूरी: TW या IT (आगे के सेक्टर taxonomy.js से)",
   State: "ज़रूरी: Bihar", District: "ज़रूरी: ज़िले का English नाम (जैसे Khagaria)", Block: "ज़रूरी: प्रखंड", Locality: "इलाक़ा",
-  Firm_Name: "ज़रूरी", Primary_Category: "ज़रूरी: IT-01 … IT-12 (या उसका English नाम)", Secondary_Categories: "कई हों तो ; से अलग (IT-02; IT-03)",
+  Firm_Name: "ज़रूरी", Primary_Category: "ज़रूरी: IT-01 … IT-14 (या उसका English नाम)", Secondary_Categories: "कई हों तो ; से अलग (IT-02; IT-03)",
   Practical_Skill_Tags: "taxonomy के टैग, ; से अलग (Laptop Repair; Printer Repair)", Business_Type: "तय सूची में से (Independent Shop, Service Centre …)",
   Brand_OEM: "कई हों तो / से अलग", Address: "पूरा पता", PIN: "6 अंक", Phone: "10 अंक का मोबाइल या 0 वाला landline; कई हों तो , से",
   Email: "भीतरी: वेबसाइट पर नहीं छपता", Website: "http(s) पता", Latitude: "पक्का हो तभी, वरना ख़ाली", Longitude: "पक्का हो तभी, वरना ख़ाली",
@@ -85,9 +88,50 @@ const BATCHES = {
     addressUrlAsSource: true,
     internalCols: ["phone", "email", "source_layer", "source_authority", "rm_verification", "training_availability", "workshop_commitment",
                    "block_mapping_status", "record_origin", "source_spelling_preserved"]
+  },
+  /* v1.3 (27-Nov-2026): बिहार की IT-सूची। स्रोत = ACS-Bihar-IT-Publication-Ready-v1.0.csv (ChatGPT का तैयार किया, Founder ने 27-Nov को भेजा;
+     1,019 पंक्तियाँ = मास्टर-फ़ाइल के 1,075 में से "READY_UNVERIFIED"; 56 "HOLD" इस फ़ाइल में हैं ही नहीं, वे सार्वजनिक नहीं होते)।
+     स्रोत-फ़ाइल repo में नहीं रखी जाती और कभी बदली नहीं जाती: हर सुधार आगे RM की overlay-फ़ाइल से।
+     सार्वजनिक: नाम, काम की श्रेणी, ज़िला, प्रखंड, पता, PIN, दुकान का फ़ोन (स्रोत में लिखा), स्रोत की कड़ियाँ (1 से 3)।
+     कभी सार्वजनिक नहीं: email (इस फ़ाइल में सब ख़ाली), evidence_grade (स्रोत की मज़बूती A/B/बिना-श्रेणी: A ≠ सत्यापित), pin_check,
+     geo_mapping_status, rm_verification, training_availability, source_batch, और LGD के कूट (स्रोत ने ख़ुद "provisional" कहा है)।
+     categoryMap: स्रोत के service_category का पहला हिस्सा (" | " से पहले) → [मुख्य श्रेणी, दूसरी श्रेणियाँ…]। " | " के बाद का ब्योरा
+     (जैसे "Handset repair") छपता नहीं। नक़्शे में हर नाम अक्षरशः; नया नाम आए तो वह रिकॉर्ड रोककर रखा जाता है, जब तक यहाँ पंक्ति न जुड़े।
+     expect.rows = स्रोत की पंक्तियाँ (ChatGPT का पक्का आँकड़ा 1,019: बेमेल हो तो import रुकता है)। */
+  "BIHAR-IT-001": {
+    sector: "it", state: "bihar", importedOn: "2026-11-27", source: "ACS-Bihar-IT-Publication-Ready-v1.0.csv",
+    expect: { rows: 1019, records: 1019, districts: 38 },
+    cols: {
+      id: "firm_id", district: "district", block: "block", name: "firm_name", primary: "service_category",
+      address: "address", pin: "pin", phone: "business_phone",
+      s1url: "source_url", s1date: "source_date", s2url: "secondary_source_url", s3url: "additional_source_url", acsStatus: "acs_status"
+    },
+    pinGhar: true,
+    categoryMap: { split: " | ", map: {
+      "Mobile Repair": ["IT-13"], "Mobile repair": ["IT-13"], "Mobile repair / service": ["IT-13"], "Mobile / IT Device Service": ["IT-13"],
+      "Mobile Service": ["IT-13"], "Mobile Repair / Service Lead": ["IT-13"], "Phone Repair": ["IT-13"], "Authorised Mobile Repair": ["IT-13"],
+      "Computer / laptop repair": ["IT-01"], "Computer Repair": ["IT-01"], "Computer/laptop": ["IT-01"], "Computer peripherals repair": ["IT-01"],
+      "Computer / Laptop Repair": ["IT-01"], "Laptop Repair": ["IT-01"], "Computer & Laptop Repair": ["IT-01"], "Laptop repair": ["IT-01"],
+      "Computer repair": ["IT-01"], "Computer / CPU Repair": ["IT-01"], "Laptop Service": ["IT-01"], "Laptop / Computer Repair": ["IT-01"],
+      "Computer Service": ["IT-01"], "Computer Support": ["IT-01"],
+      "TV / LED repair": ["IT-14"], "TV / LED Electronics Repair": ["IT-14"], "Electronics Repair": ["IT-14"], "Electronics repair": ["IT-14"],
+      "Electronic Goods Repair": ["IT-14"], "Electronics / Electrical Repair": ["IT-14"],
+      "Printer repair": ["IT-02"], "Printer Repair": ["IT-02"],
+      "CCTV / Security Installation": ["IT-04"], "CCTV Repair": ["IT-04"], "CCTV / Security Systems": ["IT-04"],
+      "Mobile / Laptop Repair": ["IT-13", "IT-01"], "Mobile & Laptop Repair": ["IT-13", "IT-01"], "Mobile and Laptop Repair": ["IT-13", "IT-01"],
+      "Mobile Repair / Laptop Service": ["IT-13", "IT-01"], "Mobile / laptop repair": ["IT-13", "IT-01"], "Mobile & Computer Repair": ["IT-13", "IT-01"],
+      "Mobile / computer repair": ["IT-13", "IT-01"],
+      "Computer & Mobile Repair": ["IT-01", "IT-13"], "Computer and Mobile Service": ["IT-01", "IT-13"],
+      "Mobile / Electronics Repair": ["IT-13", "IT-14"], "Mobile & Electronics Repair": ["IT-13", "IT-14"], "Mobile / TV Repair": ["IT-13", "IT-14"],
+      "Mobile & Printer Repair": ["IT-13", "IT-02"], "Computer / Printer Repair": ["IT-01", "IT-02"], "Computer / AMC": ["IT-01", "IT-09"],
+      "Computer repair / CCTV": ["IT-01", "IT-04"], "Laptop / printer / CCTV": ["IT-01", "IT-02", "IT-04"],
+      "Computer / Networking / Camera Repair": ["IT-01", "IT-03", "IT-04"],
+      "Computer / Digital Assistance": ["IT-05"], "Computer / Online Service": ["IT-05"], "Computer Support / CSC": ["IT-05"]
+    } },
+    internalCols: ["email", "evidence_grade", "pin_check", "geo_mapping_status", "rm_verification", "training_availability", "source_batch",
+                   "district_lgd", "block_lgd", "source_locality", "gram_panchayat", "urban_local_body", "village", "urban_ward",
+                   "gp_lgd", "ulb_lgd", "village_lgd", "ward_lgd", "post_office"]
   }
-  /* BIHAR-IT-001: असली IT-सर्वे का data आने पर (साँचे से):  { sector: "it", state: "bihar", importedOn: "YYYY-MM-DD",
-     source: "<फ़ाइल>", sheet: "Firms", template: true }  — कोई नक़ली/नमूना फ़र्म कभी नहीं। */
 };
 module.exports = BATCHES;
 Object.defineProperty(module.exports, "TEMPLATE_COLS", { value: TEMPLATE_COLS, enumerable: false });

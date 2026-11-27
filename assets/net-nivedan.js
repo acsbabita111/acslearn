@@ -1,5 +1,7 @@
 /* ============================================================
-   /assets/net-nivedan.js v1.2 (26-Nov-2026) : "सुधार का निवेदन" और "नया फ़र्म जोड़ें"
+   /assets/net-nivedan.js v1.3 (27-Nov-2026) : "सुधार का निवेदन" और "नया फ़र्म जोड़ें"
+   v1.3 (खेप N-6, IT-सूची): सूची-नंबर के और रूप भी चलते हैं (KHG-IT-130, PAT-IT-CAND-0057, BR-IT-KHG-0001: IT-सर्वे के अपने नंबर)।
+     पहले सिर्फ़ तीन टुकड़ों वाला, दो अक्षर से शुरू होने वाला रूप चलता था। server की फ़ाइल में भी यही एक पंक्ति बदलती है (दफ़्तर वाली zip)।
    v1.2 (पिन-घर): पिन भरते ही ज़िला और राज्य अपनी ही साइट की सरकारी सूची से; पंचायत और प्रखंड के सुझाव; बेमेल पिन पर चेतावनी।
    v1.1: सफलता पर तीन अलग बातें (निवेदन मिला · RM की जाँच · स्वीकृति के बाद ही website पर बदलाव); server का "save" कारण।
    पन्ना: /network/nivedan/ और /en/network/nivedan/ (generator/build_network.js से; शब्द पन्ने के <script id="nvT"> में, ui.js के nv से)।
@@ -22,7 +24,7 @@ const esc = (v) => String(v === null || v === undefined ? "" : v).replace(/[&<>"
 const fmt = (s, o) => String(s).replace(/\{(\w+)\}/g, (m, k) => (o[k] === undefined ? m : o[k]));
 const paren = (v) => String(v === null || v === undefined ? "" : v).replace(/\[/g, "(").replace(/\]/g, ")");
 const $ = (id) => document.getElementById(id);
-const SLUG = /^[a-z0-9-]{1,40}$/, IDRE = /^[A-Z]{2}-[A-Z0-9]{2,5}-[A-Z0-9]{3,8}$/, REG = /^[A-Za-z0-9_.-]{3,60}$/;
+const SLUG = /^[a-z0-9-]{1,40}$/, IDRE = /^[A-Z]{2,3}(?:-[A-Z0-9]{2,8}){2,3}$/, REG = /^[A-Za-z0-9_.-]{3,60}$/;
 const UDYAM_RE = /^UDYAM-[A-Z]{2}-\d{2}-\d{7}$/;
 
 if (app && TEL) main().catch(() => { app.innerHTML = '<p class="nw-note">⚠️</p>'; });

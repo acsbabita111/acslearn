@@ -1,5 +1,9 @@
 /* ============================================================
-   import_network.js v1.4 (परत-4, 25-Nov-2026, खेप N-3.1: ChatGPT ऑडिट CSC-01/02 के लक्षित सुधार, batches.js के दो नए खाने;
+   import_network.js v1.5 (परत-4, 27-Nov-2026, खेप N-6: बिहार की IT-सूची, batches.js के दो नए खाने; पुराने batch पर असर शून्य:
+     categoryMap (स्रोत में लिखा काम, " | " से पहले का हिस्सा, अक्षरशः → [मुख्य श्रेणी, दूसरी…]; नक़्शे में न हो = रोककर रखा) ·
+     pinGhar (PIN का ज़िला ACS के पिन-घर assets/geo/pin से: उसी ज़िले का = ठीक; दूसरे ज़िले का या पिन-घर में ही नहीं = PIN नहीं छपता,
+     सूचना में; कुछ बदला या गढ़ा नहीं जाता) · तारीख़ "26 Nov 2026" जैसी लिखी हो तो वही दिन YYYY-MM-DD में (रूप बदला, दिन नहीं)।
+   v1.4 (परत-4, 25-Nov-2026, खेप N-3.1: ChatGPT ऑडिट CSC-01/02 के लक्षित सुधार, batches.js के दो नए खाने;
      पुराने batch पर असर शून्य: addressDropParts (पते के कॉमा-टुकड़े, जो ख़ाली/null हैं, जैसे "District-null", "Panchayat/Village-",
      छपते नहीं; बाक़ी पता अक्षरशः) · addressUrlAsSource (स्रोत-पंक्ति में कॉलम खिसका: स्रोत-खाने में URL नहीं, पर पते के खाने में
      सिर्फ़ एक URL = वही स्रोत-कड़ी; पता नहीं छपता; रिपोर्ट में गिनती)। स्रोत-फ़ाइल नहीं बदलती।
@@ -108,6 +112,23 @@ function phones(raw) {
 }
 const isUrl = (u) => /^https?:\/\/[^\s<>"']+\.[^\s<>"']+$/i.test(u);
 const isDate = (d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && !isNaN(Date.parse(d + "T00:00:00Z"));
+/* v1.5: "26 Nov 2026" / "6 November 2026" = वही दिन YYYY-MM-DD में (सिर्फ़ रूप; अस्पष्ट 05/06/2026 जैसा रूप नहीं माना जाता) */
+const MONTHS = { jan: 1, feb: 2, mar: 3, apr: 4, may: 5, jun: 6, jul: 7, aug: 8, sep: 9, oct: 10, nov: 11, dec: 12 };
+function normDate(d) {
+  const m = /^(\d{1,2}) ([A-Za-z]{3,9}) (\d{4})$/.exec(d); if (!m) return d;
+  const mo = MONTHS[m[2].slice(0, 3).toLowerCase()]; if (!mo || !/^(jan(uary)?|feb(ruary)?|mar(ch)?|apr(il)?|may|june?|july?|aug(ust)?|sep(t(ember)?)?|oct(ober)?|nov(ember)?|dec(ember)?)$/i.test(m[2])) return d;
+  const iso = m[3] + "-" + String(mo).padStart(2, "0") + "-" + m[1].padStart(2, "0");
+  return isDate(iso) && new Date(iso + "T00:00:00Z").getUTCDate() === +m[1] ? iso : d;
+}
+/* v1.5: पिन-घर (assets/geo/pin/<पहले 3 अंक>.json, generator/build_pin_data.js से): PIN → उसके ज़िलों के English नाम */
+const PINDIR = path.join(__dirname, "..", "assets", "geo", "pin"), pinShards = {};
+const dkey = (v) => low(v).replace(/[^a-z]/g, "");
+function pinDistricts(pin) {
+  const k = pin.slice(0, 3);
+  if (pinShards[k] === undefined) { const f = path.join(PINDIR, k + ".json"); pinShards[k] = fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, "utf8")) : null; }
+  const sh = pinShards[k]; if (!sh || !sh.p || !sh.p[pin.slice(3)]) return null;
+  return sh.p[pin.slice(3)].map((x) => sh.d[x[0]]).filter(Boolean).map((x) => ({ state: x[0], en: x[2] }));
+}
 function lookup(list, v) { const k = low(v); return (list || []).find((x) => low(x.id) === k || low(x.en) === k) || null; }
 const splitList = (v) => s(v).split(/\s*[;,]\s*/).map((x) => x.trim()).filter(Boolean);
 
@@ -122,12 +143,15 @@ function run(cfg, file) {
   for (const c of CATS) for (const t of (c.types || [])) typeCat[t] = c.id;
   const SKILLS = TX.SKILL_TAGS[cfg.sector] || [], BTYPES = TX.BUSINESS_TYPES[cfg.sector] || null;
   const distByEn = {}; for (const d of ST.districts) distByEn[d.en.toLowerCase()] = d;
-  const idRe = SEC.idRegex ? new RegExp("^" + SEC.idRegex.replace("{ST}", ST.idPrefix) + "$")   /* v1.3: ज़िला-कूट के बिना (CSC) */
+  const idRe = SEC.idRegex ? new RegExp("^" + SEC.idRegex.split("{ST}").join(ST.idPrefix) + "$")   /* v1.3: ज़िला-कूट के बिना (CSC); v1.5: {ST} कई बार, और ([A-Z]{3}) हो तो वही ज़िला-कूट */
     : new RegExp("^" + SEC.idPattern.replace("{ST}", ST.idPrefix).replace("{DC}", "([A-Z]{3})").replace("NNNN", "\\d{4}") + "$");
   const idHint = SEC.idRegex ? (SEC.idHint || SEC.idRegex).split("{ST}").join(ST.idPrefix) : SEC.idPattern.replace("{ST}", ST.idPrefix).replace("{DC}", "ज़िला-कूट");
   const CONSTS = cfg.consts || {};
   const NOTADDR = (cfg.notAddress || []).map((x) => new RegExp(x, "i"));
   const DROPPART = (cfg.addressDropParts || []).map((x) => new RegExp(x, "i"));   /* v1.4 */
+  const CMAP = cfg.categoryMap || null;   /* v1.5 */
+  if (CMAP) for (const [k, v] of Object.entries(CMAP.map)) if (!Array.isArray(v) || !v.length || v.some((c) => !CATS.find((x) => x.id === c)) || new Set(v).size !== v.length)
+    throw new Error("batches.js categoryMap: \"" + k + "\" की श्रेणी taxonomy.js में नहीं या दोहराई");
 
   const rows = readTable(file, cfg.sheet);
   const hi = rows.findIndex((r) => (r || []).map(s).indexOf(COLS.id) > -1);
@@ -205,15 +229,20 @@ function run(cfg, file) {
       if (cfg.unmappedBlock && sectorData[cfg.unmappedBlock]) unm = ("प्रखंड-मिलान बाक़ी (" + cn("block") + " ख़ाली): ज़िले के पन्ने के \"प्रखंड-मिलान बाक़ी\" हिस्से में, स्रोत का प्रखंड साथ");
       else holds.push(cn("block") + ": ख़ाली");
     }
-    let primary = null;
+    let primary = null, mapSecondary = [];
     if (byType) { primary = typeCat[g("type")] || null; if (!primary) holds.push(cn("type") + ": taxonomy.js की किसी श्रेणी में नहीं"); }
+    else if (CMAP) {   /* v1.5: स्रोत का लिखा काम → श्रेणी (नक़्शे से, अक्षरशः) */
+      const head = CMAP.split ? g("primary").split(CMAP.split)[0].trim() : g("primary");
+      const m = Object.prototype.hasOwnProperty.call(CMAP.map, head) ? CMAP.map[head] : null;
+      if (m) { primary = m[0]; mapSecondary = m.slice(1); } else holds.push(cn("primary") + (g("primary") ? ": batches.js के categoryMap में नहीं" : ": ख़ाली"));
+    }
     else { const c = lookup(CATS, g("primary")); primary = c ? c.id : null; if (!primary) holds.push(cn("primary") + ": अनजान श्रेणी"); }
     if (holds.length) { hold(holds.join(" · ")); internal.push({ id, internalStatus: status, held: holds }); continue; }
     const notes = []; if (unm) notes.push(unm);
     if (TX.STATUS.internal[status] === null) { rep.hidden.push(id + " (" + status + ")"); internal.push({ id, internalStatus: status }); continue; }
     if (cfg.publishCol && low(gx(cfg.publishCol.col)) !== low(cfg.publishCol.yes)) { rep.hidden.push(id + " (" + cfg.publishCol.col + " ≠ " + cfg.publishCol.yes + ")"); internal.push({ id, internalStatus: status, notPublished: true }); continue; }
     /* दूसरी श्रेणियाँ, हुनर, व्यवसाय-प्रकार */
-    const secondary = [];
+    const secondary = mapSecondary.slice();
     for (const v of splitList(g("secondary"))) {
       const c = lookup(CATS, v);
       if (!c) flag(cn("secondary") + ": एक अनजान श्रेणी, छोड़ी"); else if (c.id !== primary && secondary.indexOf(c.id) < 0) secondary.push(c.id);
@@ -233,7 +262,8 @@ function run(cfg, file) {
       let stype = ty && TX.SOURCE_TYPES[ty.toUpperCase()] ? ty.toUpperCase() : null;
       if (ty && !stype) flag(cn("s" + n + "type") + ": अनजान स्रोत-प्रकार, domain से तय");
       if (!stype) { stype = (dom && sourceTypeOf(dom)) || "OTHER_PUBLIC"; if (dom && !sourceTypeOf(dom)) rep.unknownDom[dom] = (rep.unknownDom[dom] || 0) + 1; }
-      const chk = g("s" + n + "date"); if (chk && !isDate(chk)) flag(cn("s" + n + "date") + ": तारीख़ ग़लत (YYYY-MM-DD चाहिए), छोड़ी");
+      const chk = normDate(g("s" + n + "date")); if (chk && !isDate(chk)) flag(cn("s" + n + "date") + ": तारीख़ ग़लत (YYYY-MM-DD चाहिए), छोड़ी");
+      if (chk && chk !== g("s" + n + "date")) note(cn("s" + n + "date") + ": तारीख़ \"26 Nov 2026\" जैसी लिखी थी; वही दिन YYYY-MM-DD में लिखा (दिन नहीं बदला)");
       sources.push({ sourceType: stype, sourceName: nm || dom || null, sourceUrl: okUrl || null, checkedAt: isDate(chk) ? chk : null,
                      fieldSupport: splitList(g("s" + n + "fields")).map((x) => x.toLowerCase()) });
     }
@@ -254,6 +284,12 @@ function run(cfg, file) {
     let pin = g("pin").replace(/\D/g, "");
     const pr = PIN_RANGE[cfg.state];
     if (g("pin") && (!/^\d{6}$/.test(pin) || (pr && (+pin < pr[0] || +pin > pr[1])))) { flag(cn("pin") + ": ग़लत (6 अंक, राज्य की सीमा में चाहिए), छोड़ा"); pin = ""; }
+    if (pin && cfg.pinGhar) {   /* v1.5: PIN का ज़िला पिन-घर (India Post + LGD) से */
+      const pd = pinDistricts(pin);
+      if (!pd) { flag(cn("pin") + ": ACS के पिन-घर में नहीं मिला, छोड़ा"); pin = ""; }
+      else if (!pd.some((x) => dkey(x.en) === dkey(dist.en) || (dist.pinNames || []).some((a) => dkey(a) === dkey(x.en)))) { flag(cn("pin") + ": पिन-घर के अनुसार दूसरे ज़िले का, छोड़ा"); pin = ""; }
+      else note(cn("pin") + ": पिन-घर (India Post और LGD) में इसी ज़िले का");
+    }
     let address = addrIsSource ? null : (g("address") || null);
     if (address && DROPPART.length) {   /* v1.4 (CSC-01): ख़ाली/null टुकड़े हटें, बाक़ी अक्षरशः */
       const parts = address.split(","), keep = parts.filter((x) => !DROPPART.some((re) => re.test(x)));
@@ -391,6 +427,6 @@ if (require.main === module) {
   if (old === r.json) console.log("✅ " + batchId + ".json पहले जैसा (कुछ नहीं बदला)");
   else { fs.writeFileSync(outf, r.json, "utf8"); console.log("✅ लिखा: " + path.relative(process.cwd(), outf)); }
   if (val("--internal-out")) { fs.writeFileSync(val("--internal-out"), JSON.stringify({ batch: batchId, records: r.internal, unknownSourceDomains: r.rep.unknownDom }, null, 1), "utf8"); console.log("✅ भीतरी फ़ाइल (repo में न रखें): " + val("--internal-out")); }
-  console.log("🏁 import_network v1.4 : " + batchId);
+  console.log("🏁 import_network v1.5 : " + batchId);
 }
-module.exports = { run, reportText, phones, domainOf, parseCSV };
+module.exports = { run, reportText, phones, domainOf, parseCSV, normDate, pinDistricts };

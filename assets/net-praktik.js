@@ -1,4 +1,6 @@
 /* ============================================================
+   /assets/net-praktik.js v1.4 (27-Nov-2026, खेप N-6: बिहार की IT-सूची। बिना-पन्ने वाली सूची का कार्ड अब कई श्रेणियों वाली सूची के लायक़:
+   श्रेणी का निशान (दूसरी श्रेणियाँ भी) और दुकान का फ़ोन (data में हो तभी)। CSC का कार्ड अक्षरशः वैसा ही (एक श्रेणी, फ़ोन नहीं)।
    /assets/net-praktik.js v1.3 (25-Nov-2026, खेप N-4, Founder: "नेटवर्क के सर्च में पंचायत भी"): (1) नया खाना "पंचायत / गाँव"
    (data का pc: सिर्फ़ स्रोत के पते में साफ़ लिखी पंचायत; जिनमें नहीं, वे "पंचायत पता नहीं" में), प्रखंड चुनें तो सिर्फ़ उसी प्रखंड की
    पंचायतें; जिस ज़िले में एक भी पंचायत दर्ज नहीं (जैसे टू-व्हीलर), वहाँ यह खाना नहीं दिखता। (2) खोज-खाना अब नाम, पंचायत, पता,
@@ -76,11 +78,17 @@
     var place = [r.b ? r.b : U.unmapped]; if (r.rb) place.push(NP.fmt(U.rawBlock, { b: paren(r.rb) }));
     var addr = []; if (r.a) addr.push(paren(r.a)); if (r.pn) addr.push(U.pin + " " + r.pn);
     var ty = (idx.srcTypes || {})[r.st], src = (ty ? ty[L] : "") + (r.sn ? ": " + r.sn : "");
+    var cats = "", ci, cj, cl, cids;
+    if (sec.cats && sec.cats.length > 1) {   /* v1.4: कई श्रेणियों वाली सूची (IT) */
+      cids = [r.c].concat(r.c2 || []);
+      for (ci = 0; ci < cids.length; ci++) { cl = cids[ci]; for (cj = 0; cj < sec.cats.length; cj++) if (sec.cats[cj].id === cids[ci]) cl = sec.cats[cj][L]; cats += '<span class="nw-tag cat">' + esc(cl) + "</span>"; }
+    }
     var h = '<div class="nw-card">' + (url ? '<a class="nw-name" href="' + url + '">' + esc(paren(r.n)) + "</a>" : '<span class="nw-name">' + esc(paren(r.n)) + "</span>") +
       '<div><span class="nw-tag cat">' + esc(U.listed) + '</span><span class="nw-tag ' + (r.s === "V" ? "ver" : "tbv") + '">' + st.icon + " " + esc(st[L]) + "</span>" +
-      (r.o === 1 ? '<span class="nw-tag cat">' + esc(U.official) + "</span>" : "") + "</div>" +
+      (r.o === 1 ? '<span class="nw-tag cat">' + esc(U.official) + "</span>" : "") + cats + "</div>" +
       '<div class="nw-row">📍 ' + esc(place.join(" · ")) + "</div>";
     if (addr.length) h += '<div class="nw-row">🏠 ' + esc(addr.join(" · ")) + "</div>";
+    if (r.p && /^\d{10,11}$/.test(String(r.p))) h += '<div class="nw-row">📞 <a href="' + NP.tel(String(r.p)) + '">' + NP.phoneTxt(String(r.p)) + "</a>" + (r.sp ? " (" + esc(U.shared) + ")" : "") + "</div>";
     var hasUrl = r.su && /^https?:\/\//i.test(r.su);
     h += '<div class="nw-row">🔗 ' + esc((T.src || "") + (src ? ": " + src : "")) + " · " + (hasUrl ? '<a href="' + esc(r.su) + '" target="_blank" rel="nofollow noopener noreferrer">' + esc(T.srcLink || "") + "</a>" : esc(T.srcNone || "")) + "</div>";
     return h + (url ? '<div class="nw-row"><a href="' + url + '">' + esc(U.srcSee) + " →</a></div>" : "") + NP.nvBtns(L, idx, sec, r, stSlug, dd) + "</div>";

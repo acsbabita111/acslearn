@@ -1,5 +1,12 @@
 /* ============================================================
-   network/taxonomy.js v1.2 (परत-3, 25-Nov-2026, खेप N-3: Founder का आदेश "नेटवर्क में CSC सेंटर को उचित जगह पर लगा दो;
+   network/taxonomy.js v1.3 (परत-3, 27-Nov-2026, खेप N-6: Founder का आदेश "इस सूची से प्राप्त जानकारी को अपने रेपो पर लोड करना है"
+   (बिहार की IT-सूची, ChatGPT की ACS-Bihar-IT-Publication-Ready-v1.0.csv, 1,019 नाम)। IT सूची अब "सूचीबद्ध": ID स्रोत की ही
+   (idRegex: BR-IT-00001, KHG-IT-130, BGS-IT-001, MNG-IT-001, LKS-IT-001, PAT-IT-CAND-0001; कभी नहीं बदलती); दो नई श्रेणियाँ
+   IT-13 (मोबाइल व टैबलेट मरम्मत) और IT-14 (टीवी, LED व इलेक्ट्रॉनिक्स मरम्मत), क्योंकि सर्वे की 80% से ज़्यादा जगहें यही काम करती हैं
+   और पुरानी 12 श्रेणियों में इनकी जगह नहीं थी; अभी हर नाम का अलग पन्ना नहीं (recordPages: false, CSC जैसा: ज़िले के पन्ने पर हर नाम
+   की अपनी जगह), क्योंकि साइट GitHub Pages की 1 GB सीमा के पास है (repo-विस्तार के बाद यही एक खाना बदलकर हर नाम का पन्ना बनेगा);
+   स्रोत-domain की सूची में इस खेप के domain। पुराने batch (Two-Wheeler, CSC) पर असर शून्य।
+   v1.2 (परत-3, 25-Nov-2026, खेप N-3: Founder का आदेश "नेटवर्क में CSC सेंटर को उचित जगह पर लगा दो;
    अब टू व्हीलर और CSC, 2 तरह की सूची लाइव"। नई सूची csc (CSC केंद्र, बिहार, soft launch): अपनी ID-रूप (idRegex),
    एक तय श्रेणी (typeMode "fixed"), हर नाम का अलग पन्ना नहीं (recordPages: false; ज़िले के पन्ने पर उसकी जगह),
    स्थिति "सूचीबद्ध" (SECTOR_STATUS.listed), अपने अनुमत खाने (SECTOR_DATA.csc: officialCsc, rawBlock), और स्रोत-domain।
@@ -47,10 +54,15 @@ const SECTORS = {
          hiPlace: "CSC केंद्र", enPlace: "CSC Centres",
          idRegex: "{ST}-CSC-[MA]\\d{5}", idHint: "{ST}-CSC-M00001 या {ST}-CSC-A00001", typeMode: "fixed", recordPages: false,
          course: { url: "/courses/hi/digital-mitra-basic/", hi: "डिजिटल मित्र (बुनियादी कौशल) का मुफ़्त ऑनलाइन कोर्स", en: "Free online course: Digital Mitra basic skills (in Hindi)" } },
-  it: { id: "IT", slug: "it", mg: 7, udyam: 0, icon: "💻", status: "survey",
+  /* v1.3 (27-Nov-2026): बिहार का IT-सर्वे। ID स्रोत-फ़ाइल की ही (सर्वे की क़िस्तों के 6 रूप), कभी नहीं बदलती।
+     आगे की नई क़िस्तें Founder के IT-brief वाले रूप में आएँ: {ST}-IT-<ज़िला-कूट>-0001 (जैसे BR-IT-KHG-0001; ज़िला-कूट ज़िले से मिलाया जाता है)।
+     recordPages: false = अभी हर नाम का अलग पन्ना नहीं
+     (जगह की कमी; repo-विस्तार के बाद true)। course: null = इस पूरी सूची के हुनर का एक कोर्स तय नहीं (गढ़ा नहीं गया)। */
+  it: { id: "IT", slug: "it", mg: 7, udyam: 0, icon: "💻", status: "listed",
         hi: "सूचना प्रौद्योगिकी (IT)", en: "Information Technology",
-        hiPlace: "IT सेवा की जगहें", enPlace: "Computer and IT Service Places",
-        idPattern: "{ST}-IT-{DC}-NNNN", typeMode: "controlled", course: null }
+        hiPlace: "मोबाइल, कंप्यूटर व IT सेवा की जगहें", enPlace: "Mobile, Computer and IT Service Places",
+        idRegex: "(?:{ST}-IT-([A-Z]{3})-\\d{4}|{ST}-IT-\\d{5}|(?:KHG|BGS|MNG|LKS)-IT-\\d{3}|PAT-IT-CAND-\\d{4})", idHint: "{ST}-IT-<ज़िला-कूट>-0001",
+        typeMode: "controlled", recordPages: false, course: null }
 };
 const SECTOR_STATUS = {
   live:    { hi: "नेटवर्क उपलब्ध", en: "Network available" },
@@ -100,7 +112,10 @@ const CATEGORIES = {
     { id: "IT-09", hi: "बिज़नेस IT, POS, बिलिंग व AMC", en: "Business IT / POS / Billing / AMC" },
     { id: "IT-10", hi: "डेटा, BPO व डिजिटाइज़ेशन", en: "Data / BPO / Digitisation" },
     { id: "IT-11", hi: "डेटा रिकवरी व स्टोरेज", en: "Data Recovery / Storage" },
-    { id: "IT-12", hi: "उन्नत व विशेष IT सेवा", en: "Advanced / Specialized IT Services" }
+    { id: "IT-12", hi: "उन्नत व विशेष IT सेवा", en: "Advanced / Specialized IT Services" },
+    /* v1.3 (27-Nov-2026): सर्वे से निकली दो श्रेणियाँ (Founder की 12 के बाद; 12 में से कोई नहीं बदली) */
+    { id: "IT-13", hi: "मोबाइल व टैबलेट मरम्मत", en: "Mobile & Tablet Repair" },
+    { id: "IT-14", hi: "टीवी, LED व इलेक्ट्रॉनिक्स मरम्मत", en: "TV, LED & Electronics Repair" }
   ],
   /* v1.2: CSC सूची की एक ही श्रेणी (batch का consts.primary)। */
   csc: [
@@ -172,20 +187,25 @@ for (const k of Object.keys(SKILL_TAGS)) SKILL_TAGS[k] = SKILL_TAGS[k].map(([id,
    जो domain सूची में नहीं, वह OTHER_PUBLIC (import-रिपोर्ट में नाम छपता है)। स्रोत ≠ सत्यापन। */
 const SOURCE_TYPES = {
   OFFICIAL_OEM:       { hi: "कंपनी (OEM) की आधिकारिक साइट", en: "Official OEM website",
-                        domains: ["dealers.tvsmotor.com", "dealers.royalenfield.com", "service.royalenfield.com", "olaelectric.com", "komaki.in"] },
+                        domains: ["dealers.tvsmotor.com", "dealers.royalenfield.com", "service.royalenfield.com", "olaelectric.com", "komaki.in",
+                                  "epsoncertifiedpartner.epson.co.in"] },
   GOOGLE_MAPS:        { hi: "Google Maps / Google listing", en: "Google Maps / Google listing", domains: ["google.com", "maps.google.com", "g.page", "maps.app.goo.gl"] },
   AUTO_PORTAL:        { hi: "वाहन पोर्टल", en: "Automobile portal",
                         domains: ["zigwheels.com", "bikeji.in", "bikewale.com", "auto.hindustantimes.com", "drivespark.com", "bikedekho.com",
                                   "autocarindia.com", "okbike.in", "bikekharido.in", "bikes4sale.in", "autoyas.com"] },
   BUSINESS_DIRECTORY: { hi: "व्यापार निर्देशिका (Directory)", en: "Business directory",
                         domains: ["justdial.com", "bharatibiz.com", "magicpin.in", "yappe.in", "chotu.com", "cybo.com", "onefivenine.com",
-                                  "goforsearch.com", "findglocal.com", "alwaysdial.com", "indiamart.com", "sulekha.com"] },
-  BRAND_DIRECTORY:    { hi: "ब्रांड की सूची (सर्विस-पॉइंट)", en: "Brand directory", domains: [] },
+                                  "goforsearch.com", "findglocal.com", "alwaysdial.com", "indiamart.com", "sulekha.com",
+                                  /* v1.3 (IT-सूची) */
+                                  "m.justdial.com", "gadgets360.com", "justvisitonline.com", "datagemba.com", "pinkbazaar.in", "servicebee.in",
+                                  "bdir.in", "indiacustomercare.com", "indiabiz.info", "biashara.cybo.com", "yellowpages-af.cybo.com",
+                                  "yellowpages.webindia123.com", "shops1000.com", "yoys.in", "in.infoaboutcompanies.com", "dnb.com"] },
+  BRAND_DIRECTORY:    { hi: "ब्रांड की सूची (सर्विस-पॉइंट)", en: "Brand directory", domains: ["blackzone.in", "cellecor.com"] },
   CSC_DIRECTORY:      { hi: "CSC की सूची", en: "CSC directory", domains: ["digiforum.space", "goodreturns.in", "gramvikas.nskmultiservices.in"] },
   FIRM_WEBSITE:       { hi: "फ़र्म की अपनी वेबसाइट", en: "Firm website",
                         domains: ["yuvahonda.com", "ashishmotors.in", "maadurgeyhonda.com", "maashaktihonda.in", "suzukimotorcyclelaheriasarai.com",
                                   "skhondajamui.com", "tamannabajajlkr.in", "sunrisemotor.my.canva.site", "maharanihonda.com"] },
-  GOVERNMENT:         { hi: "सरकारी पोर्टल", en: "Government portal", domains: ["dlrs.bihar.gov.in", "tele-law.in"] },
+  GOVERNMENT:         { hi: "सरकारी पोर्टल", en: "Government portal", domains: ["dlrs.bihar.gov.in", "tele-law.in", "censusindia.mha.gov.in", "censusindia.gov.in", "betastate.bihar.gov.in"] },
   RM_FIELD:           { hi: "ACS RM की ज़मीनी जाँच", en: "ACS RM field verification", domains: [] },
   OTHER_PUBLIC:       { hi: "दूसरा सार्वजनिक स्रोत", en: "Other public source", domains: ["youtube.com", "dailyepaper.b-cdn.net", "kochas.in"] }
 };

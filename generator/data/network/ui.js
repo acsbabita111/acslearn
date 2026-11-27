@@ -1,4 +1,6 @@
 /* ============================================================
+   network/ui.js v1.4 (27-Nov-2026, खेप N-6: बिहार की IT-सूची के शब्द secText.it में (सूचना, disclosure, "इस सूची के बारे में");
+   पुराने शब्द नहीं बदले।)
    network/ui.js v1.3 (25-Nov-2026, खेप N-5: Founder का आदेश: नेटवर्क-पन्ने की ऊपर की गिनती-पट्टी में शून्य वाली गिनतियाँ नहीं,
    ऑनलाइन खोजी गई सूची की असली गिनती + क्षेत्रीय प्रबंधक (RM) की ज़रूरत: कुंजियाँ gintiLabel, rmNeed, rmJoin, rmBtn।
    Founder 25-Nov रात: "सत्यापन" के बदले "ACS के नेटवर्क से जोड़ने"; बटन पर “सुंदर भविष्य के लिए “क्षेत्रीय प्रबंधक” के रूप में जुड़ें!”)।
@@ -163,6 +165,24 @@ module.exports = {
         waFix: "💬 WhatsApp पर बताएँ", waText: "ACS नेटवर्क, CSC सूची में सुधार",
         regCenter: "🏫 केंद्र (Center) के रूप में ACS से जुड़ें",
         regNote: "ACS पर ख़ुद जुड़ने के बाद भी स्थिति \"जाँच बाक़ी\" ही रहती है, जब तक ACS की जाँच पूरी न हो।"
+      },
+      /* v1.4 (27-Nov-2026, खेप N-6): बिहार की IT-सूची (मोबाइल, कंप्यूटर, प्रिंटर, टीवी मरम्मत; सार्वजनिक/व्यावसायिक स्रोतों से)। */
+      it: {
+        notice: "ये जगहें सार्वजनिक/व्यावसायिक स्रोतों (जैसे Google Maps, व्यापार-निर्देशिका, ब्रांड की सर्विस-सूची) से सूचीबद्ध हैं। सूची में नाम होने का अर्थ ACS से साझेदारी, समर्थन या प्रशिक्षण की पक्की व्यवस्था नहीं है। हर नाम के साथ उसकी जाँच की स्थिति और स्रोत लिखा है।",
+        disclosure: "यह सूची सार्वजनिक/व्यावसायिक स्रोतों से पूर्व-सूचीबद्ध है। ACS की ज़मीनी जाँच अभी बाक़ी है। सूची में होना प्रशिक्षण, साझेदारी या दुकान के आज भी चालू होने की गारंटी नहीं है।",
+        overviewDesc: "{s} के {n} ज़िलों में मोबाइल, कंप्यूटर, प्रिंटर और टीवी मरम्मत की जगहें, ज़िला और प्रखंड के अनुसार। सार्वजनिक स्रोतों से पूर्व-सूचीबद्ध; ACS की जाँच बाक़ी।",
+        districtDesc: "{d} ({s}) में मोबाइल, कंप्यूटर और IT सेवा की जगहें: प्रखंड, पता, फ़ोन और स्रोत के साथ। सार्वजनिक स्रोतों से पूर्व-सूचीबद्ध; ACS की जाँच बाक़ी।",
+        hAbout: "इस सूची के बारे में",
+        about: [
+          "📋 सूचीबद्ध (Listed): यह नाम किसी सार्वजनिक या व्यावसायिक स्रोत (जैसे Google Maps, व्यापार-निर्देशिका, ब्रांड की सर्विस-सूची) से लिया गया है।",
+          "◷ जाँच बाक़ी (To Be Verified): ACS की ज़मीनी जाँच अभी नहीं हुई। दुकान आज चालू है या नहीं, यह ACS ने नहीं देखा।",
+          "श्रेणी (जैसे मोबाइल मरम्मत) स्रोत में लिखे काम से तय हुई है।",
+          "नाम, पता और फ़ोन स्रोत से लिए गए हैं। जाने से पहले ख़ुद बात करके पुष्टि करें।",
+          "हर नाम की पूरी जानकारी उसके ज़िले के पन्ने पर, उसकी अपनी जगह पर है।"
+        ],
+        src: "स्रोत", idLine: "ACS सूची-नंबर: {id}",
+        fixH: "ग़लत जानकारी बताएँ", fixText: "किसी नाम की जानकारी ग़लत लगे, तो उस नाम का ACS सूची-नंबर लिखकर WhatsApp पर बताएँ। ACS की जाँच के बाद ही सूची बदलती है।",
+        waFix: "💬 WhatsApp पर बताएँ", waText: "ACS नेटवर्क, IT सूची में सुधार"
       }
     }
   },
@@ -307,6 +327,23 @@ module.exports = {
         waFix: "💬 Tell us on WhatsApp", waText: "ACS Network, correction in the CSC list",
         regCenter: "🏫 Join ACS as a Center",
         regNote: "Even after joining ACS yourself, the status stays \"To Be Verified\" until the ACS check is complete."
+      },
+      it: {
+        notice: "These places are listed from public and business sources (such as Google Maps, business directories and brand service lists). A listing does not mean an ACS partnership, endorsement or training commitment. Each name shows its verification status and source.",
+        disclosure: "This list is pre-listed from public and business sources. ACS field verification is still pending. Being on this list does not guarantee training, partnership or that the shop is open today.",
+        overviewDesc: "Mobile, computer, printer and TV repair places in {n} districts of {s}, by district and block. Pre-listed from public sources; ACS verification pending.",
+        districtDesc: "Mobile, computer and IT service places in {d}, {s}, with block, address, phone and source. Pre-listed from public sources; ACS verification pending.",
+        hAbout: "About this list",
+        about: [
+          "📋 Listed: this name is taken from a public or business source (such as Google Maps, a business directory or a brand service list).",
+          "◷ To Be Verified: the ACS field check has not been done yet. ACS has not checked whether the shop is open today.",
+          "The category (such as mobile repair) comes from the work written in the source.",
+          "Name, address and phone are from the source. Please call and confirm yourself before you go.",
+          "The full details of each name are on its district page, at its own place."
+        ],
+        src: "Source", idLine: "ACS listing ID: {id}",
+        fixH: "Report wrong information", fixText: "If the details of a name look wrong, send its ACS listing ID on WhatsApp. The list changes only after an ACS check.",
+        waFix: "💬 Tell us on WhatsApp", waText: "ACS Network, correction in the IT list"
       }
     }
   }

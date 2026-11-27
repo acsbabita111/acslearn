@@ -1,4 +1,6 @@
-/* build_net_khoj.js v1.3 (25-Nov-2026, खेप N-5: Founder का आदेश: ऊपर की गिनती-पट्टी की शून्य वाली 9 गिनतियाँ हटीं (देश, ऑफिस, सेंटर, …
+/* build_net_khoj.js v1.4 (27-Nov-2026, खेप N-6: --check अब Windows की checkout (CRLF) में भी सही: पेज और असेट पढ़ते समय पंक्ति-समाप्ति एक की जाती है;
+   चढ़ाने वाले औज़ार v1.9 का नेटवर्क-दरवाज़ा यही --check चलाता है। बना हुआ पेज एक अक्षर नहीं बदला।)
+   v1.3 (25-Nov-2026, खेप N-5: Founder का आदेश: ऊपर की गिनती-पट्टी की शून्य वाली 9 गिनतियाँ हटीं (देश, ऑफिस, सेंटर, …
    लाभार्थी)। उनकी जगह NET-GINTI:START … END: ऑनलाइन खोजी गई सूचियों की असली गिनती (टू-व्हीलर, CSC; उसी data से जिससे सूची बनती है,
    बिना JavaScript भी दिखती है) + "इन्हें ACS के नेटवर्क से जोड़ने के लिए क्षेत्रीय प्रबंधक (Regional Manager) की आवश्यकता है" + जुड़ने की कड़ी
    /join.html?role=team। शब्द generator/data/network/ui.js से (lib_network.hubText: हिंदी और English एक घर)।
@@ -88,7 +90,8 @@ const crypto = require("crypto");
 const NW = require("./lib_network.js");
 const PSTART = "<!-- NET-PRAKTIK:START (generator/build_net_khoj.js से बना; हाथ से न बदलें) -->";
 const PEND = "<!-- NET-PRAKTIK:END -->";
-const vOf = (rel) => crypto.createHash("sha1").update(fs.readFileSync(path.join(ROOT, rel))).digest("hex").slice(0, 10);
+const lf = (x) => x.replace(/\r\n/g, "\n");   /* v1.4: Windows की checkout (CRLF) में भी वही छाप, वही पेज */
+const vOf = (rel) => crypto.createHash("sha1").update(lf(fs.readFileSync(path.join(ROOT, rel), "utf8"))).digest("hex").slice(0, 10);
 function praktik() {
   for (const rel of ["assets/network.css", "assets/net-praktik.js", "assets/network/index.json"]) if (!fs.existsSync(path.join(ROOT, rel))) stop(rel + " नहीं (पहले generator/build_network.js चलाएँ)");
   const H = NW.hubText("hi"), e = (v) => String(v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");   /* पाठ में " जस-का-तस (अनुवाद-टुकड़ा हूबहू मिले) */
@@ -205,7 +208,7 @@ function build(src) {
   return s;
 }
 
-const src = fs.readFileSync(FILE, "utf8");
+const src = lf(fs.readFileSync(FILE, "utf8"));
 const out = build(src);
 if (build(out) !== out) stop("दूसरी दौड़ पेज बदल देती (generator idempotent नहीं)");
 /* पहरे: पुरानी चीज़ें गईं, नई ठीक एक बार */
