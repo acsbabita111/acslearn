@@ -1,0 +1,57 @@
+{
+ "imported_by": "generator/import_lgd.js v1.0",
+ "files": {
+  "villages": {
+   "name": "villages.26Nov2026.csv",
+   "bytes": 72940834,
+   "sha256": "21e57721341ddac71e7f512475bedd65de1f4814ba94cf2cd5970e0f0ae6a743",
+   "rows": 677729
+  },
+  "pincode_villages": {
+   "name": "pincode_villages.26Nov2026.csv",
+   "bytes": 49856488,
+   "sha256": "631f0e2dec8ec065b6339668dbd14090bd6dddf210c6a204464d25606ba4dc48",
+   "rows": 672579
+  },
+  "villages_by_blocks": {
+   "name": "villages_by_blocks.26Nov2026.csv",
+   "bytes": 90229443,
+   "sha256": "52ec0d15ebb9ca3500c813a9d94e41f438cff76b623810eb979fb45379ba5762",
+   "rows": 701978
+  },
+  "pincode_urban": {
+   "name": "pincode_urban.26Nov2026.csv",
+   "bytes": 449130,
+   "sha256": "e3e7465132567ffe891591b1466f4d80649074aff5ce50fba28379d2abe45f52",
+   "rows": 7307
+  },
+  "district_panchayats": {
+   "name": "district_panchayats.26Nov2026.csv",
+   "bytes": 34627,
+   "sha256": "4869e8dedb41a24ecc4e12cf1696dd23393e2f9587fd06a303523f70e7631a9b",
+   "rows": 735
+  }
+ },
+ "date": "26Nov2026",
+ "counts": {
+  "states": 35,
+  "districts": 787,
+  "subdistricts": 7102,
+  "blocks": 7323,
+  "villages": 677729,
+  "villages_with_pin": 672579,
+  "villages_without_pin": 5150,
+  "villages_with_pin_but_no_block_row": 10958,
+  "village_local_names": 176394,
+  "block_rows": 701978,
+  "block_in_other_district_rows": 2449,
+  "urban_rows": 7307,
+  "district_panchayat_rows_without_villages": 0
+ },
+ "out": {
+  "file": "generator/data/pin/lgd_places.tsv.br",
+  "text_bytes": 34659493,
+  "text_sha256": "c1356b523b3a6e770e899bf1ff6a390e894f77d1fcbb012f1a2724b0f394348d",
+  "bytes": 6584100
+ }
+}

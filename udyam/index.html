@@ -106,7 +106,7 @@
 <div id="udyamApp">
 <div class="hero">
   <div class="hero-inner">
-    <img src="https://acsbabita111.github.io/acslearn/logo.png" alt="ACS" class="hero-logo"/>
+    <img src="/logo.png" alt="ACS" class="hero-logo"/>
     <div class="hero-tag">🌍 उद्यम केंद्र</div>
     <h1 class="hero-title" style="margin:0 0 10px">अपना रास्ता चुनें,<br/><em>सफलता यहीं से शुरू होती है।</em></h1>
     <div class="hero-sub">स्वरोजगार से सरकारी नौकरी तक — हर रास्ता यहाँ मिलेगा।</div>
@@ -1950,7 +1950,7 @@ function closeMenu(){document.getElementById('menuPanel').classList.remove('open
 window.openMenu=openMenu;window.closeMenu=closeMenu;
 function toggleTranslate(){document.getElementById('translatePanel').classList.toggle('open');}
 window.toggleTranslate=toggleTranslate;
-window.addEventListener('scroll',()=>document.getElementById('scrollTop').classList.toggle('show',window.scrollY>300));
+window.addEventListener('scroll',()=>{const b=document.getElementById('scrollTop');if(b)b.classList.toggle('show',window.scrollY>300);});
 function showToast(msg,type='ok'){const t=document.getElementById('toast');t.textContent=msg;t.className='toast';t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
 window.showToast=showToast;
 window.googleTranslateElementInit=function(){new google.translate.TranslateElement({pageLanguage:'hi',includedLanguages:'en,hi,kn,mr,te,ta,bn,gu,pa,ur'},'google_translate_element');};

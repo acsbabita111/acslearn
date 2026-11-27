@@ -287,11 +287,36 @@ async function more() {
   c.click("nvSend"); await settle(20);
   ck("N37 फिर सबमिट (नया OTP नहीं) = सफल, निवेदन-नंबर", tries === 2 && c.app().indexOf("NV-20261125-DEF456") > -1 && c.calls.filter((x) => x[0] === "nivedanOtpSend").length === 1); c.dom.window.close();
 }
+/* ---------- NP: पिन-घर (26-Nov-2026) ----------
+   Founder: "जहां भी भारतीय पता की बात हो, वहाँ पर इस पिन कोड से ही अपने आप सभी सूचना ले लिया जाए।"
+   पिन भरते ही ज़िला और राज्य अपनी ही साइट की सरकारी सूची से; पंचायत और प्रखंड के सुझाव; बेमेल पिन पर चेतावनी (रोक नहीं)। */
+async function pinGhar() {
+  for (const lang of ["hi", "en"]) {
+    const c = nivedan(lang, "?m=naya", { user: { uid: "u1", email: "ram@example.com" } }); c.w.eval(rd("assets/acs-pin.js")); await settle(10);
+    c.type("nvReg", "ACS-2026-111111"); c.click("nvNext"); await settle(10); c.click("nvUse"); await settle(10); c.type("nvOtp", "123456"); c.click("nvChk"); await settle(15);
+    const T = c.T, m = () => ((c.$("nvPinM") || {}).textContent || ""), HI = lang === "hi";
+    c.type("nvPin", "851201"); await settle(40);
+    ck("NP1 " + lang + ": पिन 851201 = जगह दिखी (खगड़िया, बिहार); ख़ाली राज्य और ज़िला अपने-आप चुने गए", m() === T.pinAt.replace("{p}", HI ? "खगड़िया · बिहार" : "Khagaria · Bihar") && c.$("nvSt").value === "bihar" && c.$("nvDi").value === "khagaria", m() + " | " + c.$("nvSt").value + "/" + c.$("nvDi").value);
+    ck("NP2 " + lang + ": पंचायत और प्रखंड के सुझाव जुड़े; दो प्रखंड हों तो प्रखंड अपने-आप नहीं भरता", c.$("nvPc").getAttribute("list") === "nvPcL" && c.d.querySelectorAll("#nvPcL option").length > 20 &&
+      Array.from(c.d.querySelectorAll("#nvBlockL option")).map((o) => o.value).join() === "Chautham,Gogri" && c.$("nvBlock").value === "", Array.from(c.d.querySelectorAll("#nvBlockL option")).map((o) => o.value).join());
+    c.type("nvPin", "800001"); await settle(40);
+    ck("NP3 " + lang + ": चुने ज़िले (खगड़िया) से अलग पिन (पटना) = चेतावनी; ज़िला नहीं बदला (रोक नहीं)", m() === T.pinOther.replace("{p}", HI ? "पटना · बिहार" : "Patna · Bihar").replace("{d}", HI ? "खगड़िया" : "Khagaria") && c.$("nvDi").value === "khagaria", m());
+    c.type("nvPin", "999999"); await settle(40);
+    ck("NP4 " + lang + ": सूची में न मिलने वाला पिन = चेतावनी", m() === T.pinNone, m());
+    c.type("nvPin", "85120"); await settle(10);
+    ck("NP5 " + lang + ": अधूरा पिन = कोई संदेश नहीं", m() === "");
+    if (!HI) ck("NP6 en: पिन के संदेशों में हिंदी नहीं", ![T.pinAt, T.pinOk, T.pinNone, T.pinOther].some((x) => DEV.test(x)));
+    ck("NP7 " + lang + ": JS-त्रुटि शून्य", c.errors.length === 0, c.errors.join(" | "));
+    c.dom.window.close();
+  }
+  ck("NP8 निवेदन का फ़ॉर्म पिन के लिए कोई बाहरी site नहीं पूछता (helper अपनी ही साइट का)", /sc\.src = "\/assets\/acs-pin\.js"/.test(nvJs) && !/https?:\/\/[^"' ]*(postalpincode|pincode)/i.test(nvJs));
+}
 (async () => {
   await khoj("hi"); await khoj("en");
   await flow("hi"); await flow("en");
   await more();
+  await pinGhar();
   console.log("जाँचें: पास " + pass + " · फेल " + fail);
-  console.log(fail ? "⛔ dev_nivedan_check: फेल" : "🏁 dev_nivedan_check v1.1 : पास");
+  console.log(fail ? "⛔ dev_nivedan_check: फेल" : "🏁 dev_nivedan_check v1.2 : पास");
   process.exit(fail ? 1 : 0);
 })().catch((e) => { console.log("❌ यंत्र टूटा: " + (e && e.stack || e)); process.exit(1); });

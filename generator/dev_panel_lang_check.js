@@ -90,7 +90,7 @@ function latinLeaks(c) {
   /* उपयोगकर्ता के मान: robot का लिखा, नक़ली data, खानों में अभी भरा पाठ; और जगह की सूचियों (राज्य, जिला) के वे नाम जो data में सिर्फ़ रोमन में हैं
      (विदेश के राज्य, कुछ राज्यों के जिले): ये गिने जाते हैं (PLACES), ग़लती नहीं माने जाते */
   const typed = Array.from(c.d.querySelectorAll("input,textarea")).map(x => String(x.value || "").trim()).filter(Boolean);
-  const places = []; c.d.querySelectorAll("#stateSel option,#desiredStateSel option,#desiredDistSel option,#rmDist1 option,#rmDist2 option,#rmDist3 option,select[id^=pinBlock] option").forEach(o => { const t = o.textContent.trim(); if (t && /^[A-Za-z]/.test(t) && !/[^\x00-\x7F]/.test(t)) { places.push(t); PLACES.add(t); } });
+  const places = []; c.d.querySelectorAll("#stateSel option,#desiredStateSel option,#desiredDistSel option,#rmDist1 option,#rmDist2 option,#rmDist3 option,select[id^=pinBlock] option,select[id^=pinPlace] option,select[id^=pinDist] option,[id^=pinPlaceInfo] b,[id^=pinStateDistrict] b").forEach(o => { const t = o.textContent.trim(); if (t && /^[A-Za-z]/.test(t) && !/[^\x00-\x7F]/.test(t)) { places.push(t); PLACES.add(t); } });
   const UV = Array.from(new Set(Array.from(c.userVals || []).concat(Array.from(FIXS), typed, places))).filter(v => /[A-Za-z]/.test(v) && v.length > 1).sort((a, b) => b.length - a.length);
   /* पाठ के English शब्द; जो शब्द उपयोगकर्ता के लिखे या सहेजे किसी मान का हिस्सा है (और वह मान इसी पाठ में है), वह नहीं गिना जाता */
   const scanU = t => { const tt = t.replace(/\s+/g, " ").trim(); if (tt.length > 3 && UV.some(v => v.indexOf(tt) > -1)) return [];   /* पूरा पाठ ही किसी सहेजे मान का टुकड़ा है */

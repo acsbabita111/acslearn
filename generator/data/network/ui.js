@@ -111,6 +111,9 @@ module.exports = {
       submit: "📨 सबमिट करें",
       needConsent: "पहले सहमति वाले डिब्बे पर निशान लगाएँ।", needSome: "कम से कम एक बदलाव लिखें, या एक फ़ाइल दें।",
       needNaya: "नए फ़र्म का नाम, पता और प्रखंड ज़रूरी हैं।", pinBad: "पिन ठीक 6 अंक का हो।",
+      /* (पिन-घर v1.1, 26-Nov-2026) पिन की जगह सरकारी सूची से; चेतावनी है, रोक नहीं (जाँच RM करता है) */
+      pinAt: "📍 इस पिन की जगह: {p}", pinOk: "✅ पिन मिल गया।", pinNone: "⚠️ यह पिन सूची में नहीं मिला। एक बार फिर देखें।",
+      pinOther: "⚠️ यह पिन {p} का है, {d} ज़िले का नहीं। पिन और ज़िला एक बार फिर देखें।",
       udyamBad: "उद्यम नंबर इस रूप में लिखें: UDYAM-BR-07-0012345", wait: "⏳ भेजा जा रहा है…",
       ok: "✅ आपका अनुरोध सफलतापूर्वक RM को भेज दिया गया है।",
       /* v1.3 (25-Nov-2026, ChatGPT ऑडिट): मिलना, जाँच और छपना अलग-अलग; website पर छपने का दिन अभी वादा नहीं */
@@ -255,6 +258,8 @@ module.exports = {
       submit: "📨 Submit",
       needConsent: "First tick the consent box.", needSome: "Write at least one change, or give one file.",
       needNaya: "The name, address and block of the new firm are required.", pinBad: "The PIN must be exactly 6 digits.",
+      pinAt: "📍 Place of this PIN: {p}", pinOk: "✅ PIN found.", pinNone: "⚠️ This PIN was not found in the list. Please check it once more.",
+      pinOther: "⚠️ This PIN belongs to {p}, not to {d} district. Please check the PIN and the district once more.",
       udyamBad: "Write the Udyam number like this: UDYAM-BR-07-0012345", wait: "⏳ Sending…",
       ok: "✅ Your request has been sent to the RM successfully.",
       steps: ["📥 Your request has been received. Its number is below.",

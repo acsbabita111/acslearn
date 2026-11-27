@@ -264,7 +264,7 @@ function jumpList(all, cur){
   return inPart.map(x =>
     x.num === cur ? '<span class="lsn-jumpcur">पाठ-' + x.num + " (यही)</span>"
                   : '<a href="' + fileName(x) + '">पाठ-' + x.num + "</a>"
-  ).join(" ") + ' <a href="index.html">📖 पूरी सूची (' + C.totalLessons + ' पाठ)</a>';
+  ).join(" ") + ' <a href="./">📖 पूरी सूची (' + C.totalLessons + ' पाठ)</a>';
 }
 
 function lessonBody(l, all, prevFile, nextFile){
@@ -272,9 +272,9 @@ function lessonBody(l, all, prevFile, nextFile){
     '<section class="lsn-sec">\n<h2>' + esc(s.t) + "</h2>\n" + mdToHtml(s.body).trim() + "\n</section>"
   ).join("\n\n");
   const prev = prevFile ? '<a class="lsn-navbtn" href="' + prevFile + '">← पिछला पाठ</a>'
-                        : '<a class="lsn-navbtn" href="index.html">← कोर्स-परिचय</a>';
+                        : '<a class="lsn-navbtn" href="./">← कोर्स-परिचय</a>';
   const next = nextFile ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '" data-nextlsn>अगला पाठ →</a>'
-                        : '<a class="lsn-navbtn lsn-next" href="index.html">🎉 कोर्स-सूची पर लौटें</a>';
+                        : '<a class="lsn-navbtn lsn-next" href="./">🎉 कोर्स-सूची पर लौटें</a>';
   const pt = PART(l.num), ly = LAYER(pt);
   const noteHtml = l.notes.length ? '<p class="lsn-vidnote">' + l.notes.map(x => inline(x)).join(" ") + "</p>\n" : "";
   const heroHtml = l.hero
@@ -287,7 +287,7 @@ function lessonBody(l, all, prevFile, nextFile){
     '<p class="lsn-meta">पढ़ने का समय: ' + l.minutes + " मिनट · पूरा पाठ (पढ़ना + आज का काम) ≈ 1 घंटा · " +
       "पाठ " + l.num + " / " + C.totalLessons + " · " + esc(ly ? ly.name : "") + " · पढ़ाई पूरी तरह मुफ़्त</p>\n" +
     '<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> ' +
-      '<a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>\n' + noteHtml +
+      '<a class="lsn-toolbtn" href="./">📖 कोर्स-परिचय</a></p>\n' + noteHtml +
     "</header>\n\n" +
     '<details class="lsn-jump">\n<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
     jumpList(all, l.num) + "\n</div>\n</details>\n\n" +
@@ -427,7 +427,7 @@ function buildKyon(firstFile){
     "<p><b>हमारा वादा:</b> पूरी पढ़ाई मुफ़्त रहेगी। सभी " + C.totalLessons + " पाठ पूरे हैं, कोई आधा नहीं। हर पाठ ≈ 1 घंटा — पढ़ना, करना, जाँचना।</p>\n" +
     "<p><b>हमारी माँग:</b> रोज़ एक पाठ। हर पाठ का काम ख़ुद करें, सबूत सँभालें, अंत की जाँच टिक करें। छूटा पाठ सूची में लाल दिखेगा — वह आपको वापस बुलाएगा।</p>\n" +
     "<p>सपना आपका है। रास्ता यह कोर्स है। पहला क़दम — नीचे का बटन।</p>\n" +
-    '<p class="lsn-tools"><a class="lsn-vidbtn" href="index.html">📖 कोर्स की पूरी सूची देखें</a> <a class="lsn-vidbtn" href="' + firstFile + '">🚀 सीधे पाठ-1 से शुरू करें</a></p>\n</section>\n' +
+    '<p class="lsn-tools"><a class="lsn-vidbtn" href="./">📖 कोर्स की पूरी सूची देखें</a> <a class="lsn-vidbtn" href="' + firstFile + '">🚀 सीधे पाठ-1 से शुरू करें</a></p>\n</section>\n' +
     "</article>\n";
   return assemble(body, {
     title: "यह कोर्स क्यों — " + C.title + " | ACS",

@@ -1,5 +1,8 @@
 /* ════════════════════════════════════════════════════════════
    dashboard.js — 31-dashboard परिवार का एकमात्र साझा JS (परत-1) · ES-module
+   v6.46.0 · 26-Nov-2026 (पिन-घर v1.0; Founder, 26-Nov: "जहां भी भारतीय पता की बात हो, वहाँ पर इस पिन कोड से ही अपने आप सभी सूचना ले लिया जाए"):
+            बैज के पिन-खाने में पिन भरते ही ज़िला और राज्य दिखते हैं (helper assets/acs-pin.js माँग पर लदता है; कोई बाहरी site नहीं);
+            पिन सूची में न मिले तो चेतावनी, रोक नहीं (शुल्क server तय करता है)।
    v6.45.0 · 26-Nov-2026 (सेक्टर-नियम v1.3; Founder, 26-Nov: "बाद में चाहे तो 1 से अधिक सेक्टर ऐड कर सके और मिटा सके"):
             नया पैनल "🧩 मेरे सेक्टर" (pnl-mysec) 7 घरों में: शिक्षक, उस्ताद, सलाहकार, केंद्र, वर्कशॉप, नियोक्ता, विक्रेता।
             सेक्टर के नाम assets/mg_names.js से (पैनल खुलने पर ही लदती है); पहचान कूट (1 से 25) से; पहला कूट = मुख्य सेक्टर।
@@ -232,7 +235,7 @@ function vu(u){ return VIEW ? VIEW.uid : (u ? u["uid"] : ""); }   /* u["uid"]: �
 let NZ = null; try{ NZ = new URLSearchParams(location.search).get("nazar"); }catch(e){}
 /* (02-Sep) संस्करण-पट्टी: पन्ने के नीचे "dashboard v…" — cache-पुराना है या नया, Founder एक नज़र में देख सके
    (आज की सीख: live पर v6.6.1 था, फ़ोन पुराना v6.6 दिखा रहा था — sw cache-first)। नियम: हर dashboard.js बदलाव पर DASH_VER बढ़े। */
-const DASH_VER = "v6.45.0";
+const DASH_VER = "v6.46.0";
 try { const vp = document.createElement("div"); vp.id = "dashVer"; vp.style.cssText = "text-align:center;font-size:16px;color:#7a8aa0;padding:10px 0 18px";
   vp.textContent = "dashboard " + DASH_VER + " · " + (navigator.serviceWorker ? "sw ✔" : "sw ✖");
   if (document.body) document.body.appendChild(vp); else document.addEventListener("DOMContentLoaded", function () { document.body.appendChild(vp); }); } catch (e) {}
@@ -3550,9 +3553,47 @@ if (MODE==="external" && ALLOWED.length>=1) {
     }catch(e){ return ""; }
   }
 
+  /* (पिन-घर v1.1, 26-Nov-2026) पिन की जगह अपने ही घर से (assets/geo/pin, helper assets/acs-pin.js माँग पर लदता है)।
+     बैज के पिन-खाने में 6 अंक भरते ही नीचे ज़िला और राज्य दिखते हैं; पिन सूची में न हो तो चेतावनी (रोक नहीं: शुल्क server तय करता है)। */
+  function pinHelperLoad(){
+    return new Promise(function(res){
+      if(window.ACS_PIN){ res(true); return; }
+      const sc=document.createElement("script"); sc.src="/assets/acs-pin.js";
+      sc.onload=function(){ res(!!window.ACS_PIN); }; sc.onerror=function(){ res(false); };
+      document.body.appendChild(sc);
+    });
+  }
+  function badgePinWire(){
+    const inp=$("badgePin"), row=$("badgePinRow");
+    if(!inp||!row||inp.getAttribute("data-pin-wired")) return;
+    inp.setAttribute("data-pin-wired","1");
+    const hint=document.createElement("div"); hint.id="badgePinHint"; hint.style.cssText="font-size:16px;margin-top:6px;font-weight:700;display:none"; row.appendChild(hint);
+    let no=0;
+    inp.addEventListener("input", function(){
+      inp.value=inp.value.replace(/[^0-9]/g,"");
+      const mine=++no, pin=inp.value;
+      hint.style.display="none"; hint.innerHTML="";
+      if(pin.length!==6) return;
+      pinHelperLoad().then(function(ok){ return ok ? window.ACS_PIN.get(pin).then(function(info){ return { info:info }; }) : null; }).then(function(r){
+        if(mine!==no || !r) return;   /* helper न लदे: कुछ नहीं दिखता, काम नहीं रुकता */
+        const info=r.info;
+        if(!info){ hint.style.color="#B23A3A"; hint.innerHTML="<span>"+esc("⚠️ यह पिन सूची में नहीं मिला। एक बार फिर देखें।")+"</span>"; }
+        else if(!info.districts.length){ hint.style.color="#1b4d20"; hint.innerHTML="<span>"+esc("✅ पिन मिल गया।")+"</span>"; }
+        else {
+          const ds=info.districts.filter(function(d){ return d.src===info.districts[0].src; }).slice(0,3);   /* एक ही स्रोत के ज़िले (LGD हो तो वही) */
+          const sts=[]; ds.forEach(function(d){ if(sts.indexOf(d.stateHi)<0) sts.push(d.stateHi); });
+          hint.style.color="#1b4d20";
+          hint.innerHTML="<span>"+esc("📍 इस पिन की जगह:")+"</span> "+ds.map(function(d){ return "<b>"+d.district+"</b>"; }).join(" · ")+" · "+sts.map(function(x){ return "<b>"+esc(x)+"</b>"; }).join(" · ");
+        }
+        hint.style.display="block";
+      }).catch(function(){});
+    });
+  }
+
   async function loadBadgeStatus(){
     const st=$("badgeStatus"), btn=$("badgeBuyBtn");
     if(!st||!btn) return;
+    badgePinWire();
     /* registration में पता/पिन न हो (प्रशिक्षु-roles में खाना ही नहीं) → पिन-खाना दिखाओ */
     if(!IS_GOLD && !pinFromReg()){ const pr=$("badgePinRow"); if(pr) pr.style.display="block"; }
     try{

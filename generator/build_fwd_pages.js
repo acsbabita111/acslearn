@@ -333,7 +333,7 @@ function jumpList(all, cur){
       ? '<span class="lsn-jumpcur">पाठ-' + x.key + " (यही)</span>"
       : '<a href="' + fileName(x) + '">पाठ-' + x.key + "</a>"
   ).join(" ") +
-  ' <a href="index.html">📖 पूरी सूची (440 पाठ)</a>';
+  ' <a href="./">📖 पूरी सूची (440 पाठ)</a>';
 }
 
 function lessonBody(l, all, prevFile, nextFile){
@@ -345,10 +345,10 @@ function lessonBody(l, all, prevFile, nextFile){
 
   const prev = prevFile
     ? '<a class="lsn-navbtn" href="' + prevFile + '">← पिछला पाठ</a>'
-    : '<a class="lsn-navbtn" href="index.html">← कोर्स-परिचय</a>';
+    : '<a class="lsn-navbtn" href="./">← कोर्स-परिचय</a>';
   const next = nextFile
     ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '" data-nextlsn>अगला पाठ →</a>'
-    : '<a class="lsn-navbtn lsn-next" href="index.html">🎉 कोर्स-सूची पर लौटें</a>';
+    : '<a class="lsn-navbtn lsn-next" href="./">🎉 कोर्स-सूची पर लौटें</a>';
 
   return '\n<article class="lsn-wrap" data-lsn-num="' + l.key + '">\n' +
     '<header class="lsn-head">\n' +
@@ -358,7 +358,7 @@ function lessonBody(l, all, prevFile, nextFile){
     '<p class="lsn-meta">पढ़ाई का समय: लगभग 12 मिनट · अध्याय-' + l.ch + " का पाठ " + l.n + " / " + c.count +
       " · स्तर-" + lv.no + ": " + esc(lv.name) + " · पढ़ाई पूरी तरह मुफ़्त</p>\n" +
     '<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> ' +
-      '<a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>\n' +
+      '<a class="lsn-toolbtn" href="./">📖 कोर्स-परिचय</a></p>\n' +
     "</header>\n\n" +
     '<details class="lsn-jump">\n<summary>📚 इस अध्याय के सब पाठ — किसी पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
     jumpList(all, l) + "\n</div>\n</details>\n\n" +

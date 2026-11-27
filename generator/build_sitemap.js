@@ -1,5 +1,11 @@
 /* ============================================================
-   build_sitemap.js v2.5 (परत-4) — sitemap-index + 4 खंड-sitemap
+   build_sitemap.js v2.8 (परत-4) — sitemap-index + 5 खंड-sitemap
+   v2.8 (27-Nov-2026, खेप SEO-सफ़ाई v2): बदलाव-तारीख़ (lastmod) अब पन्ने के "असली पाठ" से।
+        पहले: फ़ाइल का एक अक्षर भी बदले (मेन्यू, कड़ी का पता, script का version), तो तारीख़ नई हो जाती थी।
+        तब Google हज़ारों पुराने पन्ने दोबारा पढ़ता था, और नए पन्नों तक देर से पहुँचता था।
+        अब: बही-खाते में हर पते की तीसरी छाप = पाठ की छाप (title + description + <main> का दिखने वाला पाठ)।
+        पाठ की छाप वही = तारीख़ वही, चाहे फ़ाइल बदली हो। पाठ बदला = उसी दिन की तारीख़।
+        पुरानी पंक्ति (बिना पाठ-छाप) पर: फ़ाइल न बदली हो तो तारीख़ वही और पाठ-छाप दर्ज; फ़ाइल बदली हो तो आज।
    v2.7 (22-Nov-2026, खेप N-1): पाँचवाँ खंड sitemap-network.xml : व्यावहारिक प्रशिक्षण नेटवर्क के पन्ने (राज्य × सेक्टर, ज़िले, हर फ़र्म;
         हिंदी और English), generator/build_network.js से बने; सूची का एकमात्र घर lib_network.js का pageUrls (जो फ़ाइल मौजूद हो)।
    v2.6 (21-Nov-2026, खेप M-1): मेन्यू के भाषा-पन्ने (/en/verify/, /contact/en/, /en/network.html …), generator/build_menu_lang.js से बने; सूची lib_menu_lang.js से (जो फ़ाइल मौजूद हो)।
@@ -150,15 +156,30 @@ if (USE_GIT) {
     }
   } catch (e) { console.log("⚠️ git नहीं मिला : --git छोड़ा गया।"); }
 }
+/* पाठ की छाप (v2.8): title + description + <main> (न हो तो <body>) का दिखने वाला पाठ।
+   style हटती है; tag और उनके attribute (कड़ी का पता, class, version) हटते हैं; पन्ने के भीतर की script का पाठ रहता है
+   (कुछ पन्नों का पाठ वहीं से बनता है)। ख़ाली जगह एक हो जाती है। इसलिए मेन्यू, footer, कड़ी के पते या
+   head की कोई पंक्ति बदले, तो छाप नहीं बदलती; पन्ने का पाठ बदले, तो बदलती है। */
+function textHash(f) {
+  const s = fs.readFileSync(f, "utf8").replace(/\r\n/g, "\n");
+  const t = (s.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1];
+  const d = (s.match(/<meta\b[^>]*name=["']description["'][^>]*>/i) || [""])[0];
+  const m = s.match(/<main\b[\s\S]*<\/main>/i) || s.match(/<body\b[\s\S]*<\/body>/i) || [s];
+  const body = m[0].replace(/<style\b[\s\S]*?<\/style>/gi, " ").replace(/<!--[\s\S]*?-->/g, " ").replace(/<[^>]+>/g, " ");
+  const txt = (t + "\n" + d.replace(/^.*?content=["']/i, "").replace(/["'][^"']*$/, "") + "\n" + body).replace(/\s+/g, " ").trim();
+  return crypto.createHash("sha1").update(txt, "utf8").digest("hex").slice(0, 12);
+}
+let KEPT_BY_TEXT = 0;
 function lastmod(u) {
-  const rel = urlToFile(u), h = fileHash(path.join(ROOT, rel));
+  const rel = urlToFile(u), h = fileHash(path.join(ROOT, rel)), t = textHash(path.join(ROOT, rel));
   const old = LEDGER_OLD && LEDGER_OLD[u];
   let d;
-  if (old && old[0] === h) d = old[1];             /* पेज नहीं बदला : तारीख़ वही */
-  else if (LEDGER_OLD) d = today;                   /* पेज बदला या नया पता : आज */
+  if (old && old[2]) { d = old[2] === t ? old[1] : today; if (old[2] === t && old[0] !== h) KEPT_BY_TEXT++; }   /* पाठ वही : तारीख़ वही (फ़ाइल बदली हो तब भी) */
+  else if (old && old[0] === h) d = old[1];        /* पुरानी पंक्ति, फ़ाइल नहीं बदली : तारीख़ वही, पाठ-छाप अब दर्ज */
+  else if (LEDGER_OLD) d = today;                   /* पेज बदला (पाठ-छाप पहले दर्ज नहीं थी) या नया पता : आज */
   else d = "";                                      /* बही की पहली भराई : तारीख़ अज्ञात */
   if (!d && GITMAP && GITMAP[rel]) d = GITMAP[rel];
-  LEDGER_NEW[u] = [h, d];
+  LEDGER_NEW[u] = [h, d, t];
   return d ? "<lastmod>" + d + "</lastmod>" : "";
 }
 
@@ -215,5 +236,6 @@ fs.writeFileSync(IDX_FILE, idx);
 const LEDGER_ALL = Object.assign({}, SEC_NEW, LEDGER_NEW);
 fs.writeFileSync(LEDGER_FILE, "{\n" + Object.keys(LEDGER_ALL).sort().map(k => JSON.stringify(k) + ": " + JSON.stringify(LEDGER_ALL[k])).join(",\n") + "\n}\n");
 const dated = Object.values(LEDGER_NEW).filter(v => v[1]).length;
+if (KEPT_BY_TEXT) console.log("  फ़ाइल बदली पर पाठ वही, इसलिए तारीख़ वही रही: " + KEPT_BY_TEXT + " पते");
 console.log("✅ sitemap.xml (index) + " + SECTIONS.length + " खंड — कुल", total, "URL · बदलाव-तारीख़ वाले पते:", dated, "(आज बदले/नए:", Object.values(LEDGER_NEW).filter(v => v[1] === today).length + ")");
 if (dropped.length) { console.log("  पहरे से बाहर (" + dropped.length + "):"); dropped.forEach(d => console.log("   - " + d)); }

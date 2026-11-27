@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* ============================================================
-   build_moved_stubs.js v1.0 (परत-4) · 10-Nov-2026
+   build_moved_stubs.js v1.1 (परत-4) · 27-Nov-2026 (पहला रूप 10-Nov-2026)
    काम: पुराने (Google को याद) पतों पर redirect-पर्ची बनाना, ताकि खोज से आया
    व्यक्ति 404 पर न गिरे और Google पुराने पते की ताक़त नए पते को दे।
    data: generator/data/moved_pages.js (एकमात्र घर)।
@@ -14,7 +14,12 @@
      (ग) दोबारा चलाना सुरक्षित: वही सामग्री = छुआ नहीं।
    पर्चियों में /assets/acs-universal.js नहीं, canonical पराया : इसलिए
    build_sitemap.js इन्हें sitemap में कभी नहीं लेता।
-   चलाना: node generator/build_moved_stubs.js
+   v1.1 (27-Nov-2026, खेप SEO-सफ़ाई v2):
+     (घ) exact_gsc: Google को याद, पर साइट से हटे पते। लक्ष्य पर्ची निकले, तो यंत्र रुकता है (ज़ंजीर नहीं)।
+     (ङ) upgrade: पुरानी बनावट की पर्ची (जिस पर noindex था) को पर्ची v2 बनाना। पुरानी फ़ाइल तभी बदलती है,
+         जब वह ख़ुद उसी लक्ष्य की पर्ची हो (meta-refresh का पता = हमारा लक्ष्य)। कोई असली पन्ना कभी नहीं मिटता।
+     (च) --check: कुछ नहीं लिखता; कोई पर्ची बासी या ग़ायब हो, तो रुकता है।
+   चलाना: node generator/build_moved_stubs.js [--check]
    ============================================================ */
 "use strict";
 const fs = require("fs");
@@ -45,7 +50,8 @@ function stub(to, msg, title) {
     '<p style="font-size:16px">मूल भाषा: हिंदी</p></body></html>\n';
 }
 
-const jobs = []; /* [fromUrl, toUrl, msg] */
+const CHECK = process.argv.includes("--check");
+const jobs = []; /* [fromUrl, toUrl, msg, mode] : mode "" = नई पर्ची · "up" = पुरानी बनावट की पर्ची को v2 बनाना */
 /* (1) folder 1:1 */
 for (const r of M.folder) {
   const toDir = path.join(ROOT, r.to);
@@ -65,13 +71,26 @@ for (const r of M.old_edition) {
 /* (3) exact */
 for (const r of M.exact) jobs.push([r.from, r.to, "यह पन्ना अब नए पते पर है"]);
 
+/* (4) Google को याद, पर हटे पते */
+for (const r of (M.exact_gsc || [])) jobs.push([r[0], r[1], "यह पुराना पता अब यहाँ खुलता है"]);
+/* (5) पुरानी बनावट की पर्ची → v2 */
+for (const r of (M.upgrade || [])) jobs.push([r[0], r[1], /\/L\d+\.html$/.test(r[0]) ? "यह पाठ अब नए पते पर है" : "यह पन्ना अब नए पते पर है", "up"]);
+
+/* (6) दोहरा पन्ना → पर्ची */
+for (const r of (M.duplicate || [])) jobs.push([r[0], r[1], "यह पाठ अब इसी पते पर है", "dup"]);
+/* <main> का दिखने वाला पाठ (दोहरे पन्ने की पहचान के लिए) */
+function mainText(html) { const m = html.match(/<main\b[\s\S]*<\/main>/i); return (m ? m[0] : html).replace(/<script\b[\s\S]*?<\/script>/gi, " ").replace(/<style\b[\s\S]*?<\/style>/gi, " ").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(); }
+
+/* पुरानी पर्ची का लक्ष्य (meta-refresh का पता) */
+function refreshTo(html) { const m = /http-equiv=["']refresh["'][^>]*content=["']\s*\d+\s*;\s*url=([^"']+)["']/i.exec(html); return m ? m[1].replace(BASE, "") : null; }
+
 /* दोहराव-जाँच */
 const seen = new Set();
 for (const [from] of jobs) { if (seen.has(from)) throw new Error("दो बार: " + from); seen.add(from); }
 
-let made = 0, same = 0;
-const titles = {};
-for (const [from, to, msg] of jobs) {
+let made = 0, same = 0, upgraded = 0;
+const titles = {}, stale = [];
+for (const [from, to, msg, mode] of jobs) {
   if (from === to) throw new Error("ख़ुद पर redirect: " + from);
   if (/http-equiv="refresh"/i.test(fs.readFileSync(fileOf(to), "utf8"))) throw new Error("लक्ष्य ख़ुद पर्ची है (ज़ंजीर): " + to);
   const t = titles[to] || (titles[to] = titleOf(to));
@@ -79,11 +98,23 @@ for (const [from, to, msg] of jobs) {
   const f = fileOf(from);
   if (fs.existsSync(f)) {
     const old = fs.readFileSync(f, "utf8");
-    if (old.indexOf(MARK) === -1) throw new Error("असली पेज पहले से है, पर्ची नहीं लिखी: " + from);
-    if (old === html) { same++; continue; }
-  }
+    if (old.indexOf(MARK) === -1) {
+      if (mode === "dup") {
+        const a = mainText(old), b = mainText(fs.readFileSync(fileOf(to), "utf8"));
+        /* कोर्स की पाठ-सूची वाली पट्टी में "(यही)" का निशान दोनों में अलग जगह होता है; बाक़ी पाठ हूबहू एक होना चाहिए */
+        if (a.length < 500 || a !== b) throw new Error("दोहरा बताया पन्ना मुख्य पन्ने जैसा नहीं है, इसलिए नहीं बदला: " + from);
+      } else if (mode !== "up") throw new Error("असली पेज पहले से है, पर्ची नहीं लिखी: " + from);
+      else if (refreshTo(old) !== to) throw new Error("पुरानी फ़ाइल इसी लक्ष्य की पर्ची नहीं है, इसलिए नहीं बदली: " + from + " (उसका लक्ष्य: " + refreshTo(old) + ")");
+      if (mode === "up") upgraded++;
+    }
+    if (old.replace(/\r\n/g, "\n") === html) { same++; continue; }
+  } else if (mode === "up" || mode === "dup") throw new Error("upgrade-सूची का पता मौजूद ही नहीं: " + from);
+  if (CHECK) { stale.push(from); continue; }
   fs.mkdirSync(path.dirname(f), { recursive: true });
   fs.writeFileSync(f, html, "utf8");
   made++;
 }
-console.log("✅ redirect-पर्चियाँ: " + jobs.length + " (नई/बदली " + made + " · अछूती " + same + ")");
+if (CHECK) {
+  if (stale.length) { console.log("❌ " + stale.length + " पर्ची बासी या ग़ायब: " + stale.slice(0, 5).join(", ") + " : चलाएँ node generator/build_moved_stubs.js"); process.exit(1); }
+  console.log("🏁 redirect-पर्चियाँ ताज़ा हैं: " + jobs.length);
+} else console.log("✅ redirect-पर्चियाँ: " + jobs.length + " (नई/बदली " + made + " · अछूती " + same + (upgraded ? " · पुरानी बनावट से v2 बनीं " + upgraded : "") + ")");

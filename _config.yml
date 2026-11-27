@@ -13,3 +13,6 @@ exclude:
   # repo में रहते हैं, बस प्रकाशित नहीं होते। साइट का कोई पन्ना इन्हें नहीं माँगता।
   - CHANGELOG-sw.md    # sw.js का बदलाव-खाता
   - firestore.rules    # Firebase के नियम (deploy office-laptop से होता है)
+  # 27-Nov-2026 (खेप SEO-सफ़ाई v2): चित्रों के स्रोत का खाता। GitHub इसे अपने-आप एक पन्ना (…/img/SOURCES.html) बना रहा था।
+  # चित्र Pixabay के (श्रेय ज़रूरी नहीं) और ACS के अपने हैं; खाता repo में रहता है, साइट का कोई पन्ना इसे नहीं माँगता।
+  - courses/hi/digital-mitra-basic/img/SOURCES.md

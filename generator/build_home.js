@@ -80,7 +80,10 @@ function mirrorT(code, html) {
   const row = (html.match(/<div class="cta-row">([\s\S]*?)<\/div>/) || [, ""])[1];
   const doors = [...row.matchAll(/<a class="btn btn-(?:white|green)( stack)?" href="([^"]+)">([\s\S]*?)<\/a>/g)].map(m => [m[2], m[1] || "", unesc(m[3])]);
   if (!pill || doors.length !== 4) throw new Error("build_home (" + code + "): भाषा-होम में पट्टी या चार दरवाज़े नहीं मिले");
-  const test = doors[0][0], hrefs = [test, "/hunar.html", "/bhasha.html", "/career-kit.html", "/hi/network.html", "WA"];
+  /* 27-Nov-2026 (खेप SEO-सफ़ाई v2): नेटवर्क की कड़ी English पन्ने पर (नेटवर्क के पन्ने हिंदी और English में ही हैं;
+     दूसरी भाषा के पाठक के लिए पुल English है)। पहले यह हिंदी पन्ने पर जाती थी, और English के 935 नेटवर्क-पन्नों तक
+     किसी होम से सीधी कड़ी नहीं थी। */
+  const test = doors[0][0], hrefs = [test, "/hunar.html", "/bhasha.html", "/career-kit.html", "/en/network.html", "WA"];
   if (!fs.existsSync(path.join(ROOT, test.replace(/^\//, "")))) throw new Error("build_home (" + code + "): करियर-पेज नहीं मिला: " + test);
   return { title: a[0], desc: a[1] + " Applied Computer School (ACS).", ogdesc: null, pill: unesc(pill), h1a: a[2], h1b: a[3], sAria: a[4], sPh: a[5], sBtn: "🔍 " + a[6], sEg: a[7],
     kind: { b: a[8], h: a[9], u: a[10], k: a[11] }, none: a[12], fail: a[13], allLabel: a[14], allUrl: "/courses/hi/", startQ: a[15], startA: a[16], testUrl: test, doors,

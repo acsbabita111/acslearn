@@ -429,7 +429,7 @@ function jumpList(all, cur){
       ? '<span class="lsn-jumpcur">पाठ-' + x.num + " (यही)</span>"
       : '<a href="' + fileName(x) + '">पाठ-' + x.num + "</a>"
   ).join(" ") +
-  ' <a href="index.html">📖 पूरी सूची (627 पाठ)</a>';
+  ' <a href="./">📖 पूरी सूची (627 पाठ)</a>';
 }
 
 function lessonBody(l, all, prevFile, nextFile){
@@ -439,10 +439,10 @@ function lessonBody(l, all, prevFile, nextFile){
 
   const prev = prevFile
     ? '<a class="lsn-navbtn" href="' + prevFile + '">← पिछला पाठ</a>'
-    : '<a class="lsn-navbtn" href="index.html">← कोर्स-परिचय</a>';
+    : '<a class="lsn-navbtn" href="./">← कोर्स-परिचय</a>';
   const next = nextFile
     ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '" data-nextlsn>अगला पाठ →</a>'
-    : '<a class="lsn-navbtn lsn-next" href="index.html">🎉 कोर्स-सूची पर लौटें</a>';
+    : '<a class="lsn-navbtn lsn-next" href="./">🎉 कोर्स-सूची पर लौटें</a>';
   const pt = PART(l.num);
 
   return '\n<article class="lsn-wrap" data-lsn-num="' + l.num + '">\n' +
@@ -453,7 +453,7 @@ function lessonBody(l, all, prevFile, nextFile){
     '<p class="lsn-meta">पढ़ाई का समय: ' + l.minutes + " मिनट · सुरक्षा: " + esc(l.safety) +
       " · पाठ " + l.num + " / " + C.totalLessons + " · पढ़ाई पूरी तरह मुफ़्त</p>\n" +
     '<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> ' +
-      '<a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>\n' +
+      '<a class="lsn-toolbtn" href="./">📖 कोर्स-परिचय</a></p>\n' +
     "</header>\n\n" +
     '<details class="lsn-jump">\n<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
     jumpList(all, l.num) + "\n</div>\n</details>\n\n" +
@@ -593,7 +593,7 @@ function buildKyon(){
     "<p><b>हमारा वादा:</b> पूरी पढ़ाई मुफ़्त रहेगी। कोई पाठ आधा नहीं है। कोई बात छिपाई नहीं गई है। AI के ज़माने की नई तरकीबें भी इसी कोर्स में हैं — ताकि गाँव का आदमी भी उसी औज़ार से काम करे जिससे शहर की कंपनियाँ करती हैं।</p>\n" +
     "<p><b>हमारी माँग:</b> रोज़ थोड़ा पढ़िए। हर पाठ के अंत की जाँच टिक कीजिए। छोड़कर मत भागिए — छूटा पाठ सूची में लाल दिखेगा, वह आपको वापस बुलाएगा।</p>\n" +
     "<p>सपना आपका है। रास्ता यह कोर्स है। पहला क़दम — नीचे का बटन।</p>\n" +
-    '<p class="lsn-tools"><a class="lsn-vidbtn" href="index.html">📖 कोर्स की पूरी सूची देखें</a> <a class="lsn-vidbtn" href="msh-001-' + "@FIRST@" + '.html">🚀 सीधे पाठ-1 से शुरू करें</a></p>\n</section>\n' +
+    '<p class="lsn-tools"><a class="lsn-vidbtn" href="./">📖 कोर्स की पूरी सूची देखें</a> <a class="lsn-vidbtn" href="msh-001-' + "@FIRST@" + '.html">🚀 सीधे पाठ-1 से शुरू करें</a></p>\n</section>\n' +
     "</article>\n";
   const canonical = "https://acslearn.com/courses/" + C.lang + "/" + C.slug + "/kyon.html";
   return { body, canonical };

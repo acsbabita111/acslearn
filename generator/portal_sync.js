@@ -46,6 +46,7 @@ const panelLangs = ["en", "kn", "bn"].filter((l) => has("assets/i18n/panel_" + l
 
 /* [नाम, फ़ाइल, तर्क, --check चलता है?] */
 const STEPS = [
+  ["पिन-घर (पिन से गाँव, डाकघर, ज़िला, राज्य) और ज़िला-सूचियाँ", "build_pin_data.js", [], true],   /* (26-Nov-2026) स्रोत: generator/data/pin/ */
   ["निकली सूची", "build_suchi_index.js", [], true],
   ["कार्ड के परिचय-पन्ने", "build_udyam_intro_pages.js", [], false],          /* उद्यम-पन्ने से पहले: वह हर कार्ड का पन्ना जाँचता है */
   ["उद्यम-पन्ने (हिंदी, English)", "build_udyam_suchi.js", [], true],

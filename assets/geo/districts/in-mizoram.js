@@ -1,1 +1,1 @@
-window.ACS_GEO_DISTRICTS=window.ACS_GEO_DISTRICTS||{};window.ACS_GEO_DISTRICTS["in-mizoram"]=["Aizawl","Champhai","Kolasib","Lawngtlai","Lunglei","Mamit","Saiha","Serchhip"];
+window.ACS_GEO_DISTRICTS=window.ACS_GEO_DISTRICTS||{};window.ACS_GEO_DISTRICTS["in-mizoram"]=["Aizawl","Champhai","Hnahthial","Khawzawl","Kolasib","Lawngtlai","Lunglei","Mamit","Saiha","Saitual","Serchhip"];

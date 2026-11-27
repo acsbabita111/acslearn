@@ -1,0 +1,70 @@
+{
+ "v": 2,
+ "india_post": {
+  "source": "India Post pincode directory (file given by the Founder on 26-Nov-2026)",
+  "sha256": "701ee84ba125a914e7ffc979c0308b3a041b8adffa85ec9d5f4e0579ecf062e5",
+  "rows": 165627,
+  "pins": 19586,
+  "shards": 405,
+  "offices": 165575,
+  "districts": 754,
+  "pinsWithTwoDistricts": 1258,
+  "pinsWithoutDistrict": 100
+ },
+ "lgd": {
+  "source": "Local Government Directory (Ministry of Panchayati Raj); files given by the Founder",
+  "date": "26Nov2026",
+  "files": [
+   {
+    "name": "district_panchayats.26Nov2026.csv",
+    "sha256": "4869e8dedb41a24ecc4e12cf1696dd23393e2f9587fd06a303523f70e7631a9b",
+    "rows": 735
+   },
+   {
+    "name": "pincode_urban.26Nov2026.csv",
+    "sha256": "e3e7465132567ffe891591b1466f4d80649074aff5ce50fba28379d2abe45f52",
+    "rows": 7307
+   },
+   {
+    "name": "pincode_villages.26Nov2026.csv",
+    "sha256": "631f0e2dec8ec065b6339668dbd14090bd6dddf210c6a204464d25606ba4dc48",
+    "rows": 672579
+   },
+   {
+    "name": "villages.26Nov2026.csv",
+    "sha256": "21e57721341ddac71e7f512475bedd65de1f4814ba94cf2cd5970e0f0ae6a743",
+    "rows": 677729
+   },
+   {
+    "name": "villages_by_blocks.26Nov2026.csv",
+    "sha256": "52ec0d15ebb9ca3500c813a9d94e41f438cff76b623810eb979fb45379ba5762",
+    "rows": 701978
+   }
+  ],
+  "districts": 787,
+  "pins": 17867,
+  "pinsWithVillages": 17197,
+  "pinsWithTownOnly": 670,
+  "villages": 672579,
+  "townRows": 7307,
+  "files_out": 1068,
+  "biggestFileBytes": 49119
+ },
+ "districtsInLists": 795,
+ "newDistricts": 76,
+ "match": {
+  "both_same": 15025,
+  "both_lgd_inside_post": 500,
+  "both_post_inside_lgd": 1219,
+  "both_overlap": 48,
+  "both_different": 369,
+  "only_post": 2325,
+  "only_lgd": 34,
+  "post_without_district": 100
+ },
+ "townsLeftOut": {
+  "pinsWithTooManyTowns": 38,
+  "rowsOnThosePins": 1302,
+  "rowsFromAnotherState": 1
+ }
+}

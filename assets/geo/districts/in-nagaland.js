@@ -1,1 +1,1 @@
-window.ACS_GEO_DISTRICTS=window.ACS_GEO_DISTRICTS||{};window.ACS_GEO_DISTRICTS["in-nagaland"]=["Dimapur","Kiphire","Kohima","Longleng","Mokokchung","Mon","Peren","Phek","Tuensang","Wokha","Zunheboto"];
+window.ACS_GEO_DISTRICTS=window.ACS_GEO_DISTRICTS||{};window.ACS_GEO_DISTRICTS["in-nagaland"]=["Chumoukedima","Dimapur","Kiphire","Kohima","Longleng","Meluri","Mokokchung","Mon","Niuland","Noklak","Peren","Phek","Shamator","Tseminyu","Tuensang","Wokha","Zunheboto"];

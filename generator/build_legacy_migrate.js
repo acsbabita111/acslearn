@@ -160,7 +160,7 @@ for (let fi = 0; fi < files.length; fi++) {
     const article =
       '<article class="lsn-wrap">\n' +
       '<div class="lsn-head"><div class="lsn-crumb"><a href="/courses/hi/">कोर्स</a> › ' +
-      '<a href="index.html">' + esc(C.name) + '</a> › ' + code + '</div></div>\n' +
+      '<a href="./">' + esc(C.name) + '</a> › ' + code + '</div></div>\n' +
       inner + "\n" +
       '<div class="lsn-exit" style="text-align:center;margin:26px 0 6px">' +
       (prevF ? '<a class="lsn-navbtn" href="' + prevF + '">← पिछला पाठ</a> ' : '') +
@@ -169,7 +169,7 @@ for (let fi = 0; fi < files.length; fi++) {
       '<div class="lsn-exit" style="text-align:center;margin:10px 0">' +
       '<a class="lsn-navbtn" href="/">🏠 होम</a> ' +
       '<a class="lsn-navbtn" href="/courses/hi/">📚 सब कोर्स</a> ' +
-      '<a class="lsn-navbtn" href="index.html">🗂️ ' + esc(C.name.split(" (")[0]) + ' — पाठ-सूची</a>' +
+      '<a class="lsn-navbtn" href="./">🗂️ ' + esc(C.name.split(" (")[0]) + ' — पाठ-सूची</a>' +
       "</div>\n" + carried + "</article>";
 
     let page = setHead(shellHead, { title: esc(title), desc: esc(desc), canon, h1 }) +
@@ -179,7 +179,7 @@ for (let fi = 0; fi < files.length; fi++) {
     if (!page.includes("/assets/acs-universal.js")) throw new Error("universal ग़ायब");
     if ((page.match(/<h1/g) || []).length !== 1) throw new Error("h1-गिनती " + (page.match(/<h1/g) || []).length);
     if ((page.match(/<\/main>/g) || []).length !== 1) throw new Error("main-गिनती");
-    if (!page.includes('href="index.html"')) throw new Error("कोर्स-सूची निकास ग़ायब");
+    if (!page.includes('href="./"')) throw new Error("कोर्स-सूची निकास ग़ायब");
     if (nextF && !page.includes('href="' + nextF + '"')) throw new Error("अगला-कड़ी ग़ायब");
     if (prevF && !page.includes('href="' + prevF + '"')) throw new Error("पिछला-कड़ी ग़ायब");
     if (mMap && !page.includes('id="lesson-map"')) throw new Error("lesson-map ग़ायब");

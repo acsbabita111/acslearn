@@ -16,6 +16,7 @@
 <script src="assets/designation_matrix.js"></script>
 <script src="assets/roles.js"></script>
 <script src="assets/geo/countries.js"></script>
+<script src="assets/acs-pin.js"></script>
 <!-- Firebase SDK (compat) — असली OTP के लिए -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-functions-compat.js"></script>
@@ -1471,16 +1472,31 @@
         '</div>';
     }
     if(f.type === 'pincode_address'){
-      return '<div class="row">'+
+      /* (पिन-घर v1.1) पिन → ज़िला, गाँव या शहर (पंचायत, प्रखंड समेत), डाकघर; नीचे पूरा पता एक बार दिखता है */
+      var I = f.id, CK = 'style="width:22px;height:22px;min-width:22px;padding:0;margin:0"';
+      return '<div class="row" id="pinRow_'+I+'">'+
         '<label>पिन कोड'+reqStar+'</label>'+
-        '<input type="text" id="pin_'+f.id+'" maxlength="6" inputmode="numeric" placeholder="6-अंकों का PIN कोड भरें">'+
-        '<div class="hint" id="pinStatus_'+f.id+'"></div>'+
-        '<div id="pinResult_'+f.id+'" style="display:none;margin-top:8px">'+
-          '<div class="hint" id="pinStateDistrict_'+f.id+'" style="font-weight:700;color:#1b4d20"></div>'+
-          '<div style="margin-top:6px"><label>ब्लॉक/डाकघर चुनें</label><select id="pinBlock_'+f.id+'"></select></div>'+
+        '<input type="text" id="pin_'+I+'" maxlength="6" inputmode="numeric" placeholder="6 अंकों का पिन कोड भरें">'+
+        '<div class="hint" id="pinStatus_'+I+'"></div>'+
+        '<label id="pinSureRow_'+I+'" style="display:none;align-items:center;gap:8px;font-weight:400;margin-top:8px"><input type="checkbox" id="pinSure_'+I+'" '+CK+'><span>यह पिन सही है। ACS की टीम इसे जाँचेगी।</span></label>'+
+        '<label style="display:flex;align-items:center;gap:8px;font-weight:400;margin-top:8px"><input type="checkbox" id="pinOut_'+I+'" '+CK+'><span>मेरा पता भारत के बाहर है</span></label>'+
+        '<div id="pinResult_'+I+'" style="display:none;margin-top:8px">'+
+          '<div class="hint" id="pinStateDistrict_'+I+'" style="font-weight:700;color:#1b4d20"></div>'+
+          '<div id="pinDistRow_'+I+'" style="display:none;margin-top:6px"><label>ज़िला चुनें'+reqStar+'</label><select id="pinDist_'+I+'"></select></div>'+
+          '<div id="pinPlaceRow_'+I+'" style="display:none;margin-top:6px"><label>अपना गाँव या शहर चुनें'+reqStar+'</label>'+
+            '<input type="text" id="pinPlaceFind_'+I+'" style="display:none;margin-bottom:6px" placeholder="🔍 खोजें: गाँव के नाम के पहले अक्षर लिखें">'+
+            '<select id="pinPlace_'+I+'"></select>'+
+            '<input type="text" id="pinPlaceTyped_'+I+'" style="display:none;margin-top:6px" placeholder="अपने गाँव या शहर का नाम लिखें">'+
+            '<div class="hint" id="pinPlaceInfo_'+I+'" style="display:none;color:#1b4d20"></div></div>'+
+          '<div id="pinOfficeRow_'+I+'" style="margin-top:6px"><label>अपना डाकघर चुनें'+reqStar+'</label><select id="pinBlock_'+I+'"></select></div>'+
         '</div>'+
-        '<div style="margin-top:8px"><label>घर नं./गली/मोहल्ला (विस्तृत पता)'+reqStar+'</label>'+
-        '<input type="text" id="pinDetail_'+f.id+'" placeholder="जैसे: घर नं. 12, वार्ड 3"></div>'+
+        '<div style="margin-top:8px"><label id="pinDetailLbl_'+I+'"><span>घर नं./गली/मोहल्ला (विस्तृत पता)</span>'+reqStar+'</label>'+
+        '<input type="text" id="pinDetail_'+I+'" placeholder="जैसे: घर नं. 12, वार्ड 3"></div>'+
+        '<div class="hint" id="pinTodo_'+I+'" style="display:none;color:#B23A3A"></div>'+
+        '<div id="pinPreview_'+I+'" style="display:none;margin-top:8px;background:#F1F8E9;border:1.5px solid #2E7D32;border-radius:9px;padding:10px">'+
+          '<div style="font-weight:700;color:#1b4d20;font-size:16px">📮 आपका पता ऐसे दर्ज होगा</div>'+
+          '<div id="pinPreviewTxt_'+I+'" data-i18n-skip style="font-size:17px;line-height:1.7;word-break:break-word"></div>'+
+          '<div class="hint" id="pinPreviewNote_'+I+'"></div></div>'+
         '<input type="hidden" '+idAttr+'>'+
         '</div>';
     }
@@ -1502,56 +1518,205 @@
       (f.roman ? '<div class="hint">सिर्फ़ A-Z अक्षर व space।</div>' : '') + '</div>';
   }
 
+  /* (पिन-घर v1.1, 26-Nov-2026; Founder: "जहां भी भारतीय पता की बात हो, वहाँ पर इस पिन कोड से ही अपने आप सभी सूचना ले लिया जाए"
+     और "पता को कनफर्म करना का सब उपाय करो")
+     पिन भरते ही अपने पिन-घर (helper assets/acs-pin.js) से दो सरकारी सूचियाँ आती हैं:
+       India Post: डाकघर, ज़िला, राज्य · LGD: गाँव, ग्राम पंचायत, प्रखंड, तहसील, ज़िला और नगर निकाय।
+     पहले यह एक बाहरी site (api.postalpincode.in) से पूछा जाता था; अब कोई बाहरी site नहीं।
+     पता पक्का करने के उपाय:
+       1. ज़िला गाँव से तय होता है (LGD आज की सूची है); गाँव न चुना हो तो डाकघर से; दो ज़िले बचें तो आवेदक चुनता है।
+       2. गाँव या शहर और डाकघर चुनना ज़रूरी है (या साफ़ कहना कि "सूची में नहीं है")।
+       3. पिन सूची में न मिले, तो आवेदक को टिक लगाकर कहना पड़ता है कि पिन सही है (ग़लत छपा पिन यहीं पकड़ में आता है)।
+       4. भारत के बाहर का पता अलग से; उस पर पिन की जाँच नहीं।
+       5. पूरा पता नीचे हरे डिब्बे में एक बार दिखता है; अधूरा हो तो "अभी बाक़ी" की सूची दिखती है और आगे का बटन बंद रहता है।
+     सहेजा जाने वाला पता एक ही पंक्ति है (server और PDF यही पढ़ते हैं; "PIN: 851201" का रूप पहले जैसा):
+       "घर/गली, Vill: गाँव, GP: पंचायत, Block: प्रखंड, PO: डाकघर, ज़िला, राज्य, PIN: 851201"
+     ज़िला तय होते ही नीचे का "वांछित कार्य-क्षेत्र" अपने-आप भर जाता है; आवेदक उसे बदल सकता है। */
   function wirePincodeAddress(fid){
-    var pinEl = document.getElementById('pin_'+fid);
-    var statusEl = document.getElementById('pinStatus_'+fid);
-    var resultBox = document.getElementById('pinResult_'+fid);
-    var stateDistEl = document.getElementById('pinStateDistrict_'+fid);
-    var blockSel = document.getElementById('pinBlock_'+fid);
-    var detailEl = document.getElementById('pinDetail_'+fid);
+    function E(p){ return document.getElementById(p + fid); }
+    var pinEl = E('pin_'), statusEl = E('pinStatus_'), resultBox = E('pinResult_'), stateDistEl = E('pinStateDistrict_');
+    var blockSel = E('pinBlock_'), officeRow = E('pinOfficeRow_'), detailEl = E('pinDetail_'), detailLbl = E('pinDetailLbl_');
+    var outChk = E('pinOut_'), sureRow = E('pinSureRow_'), sureChk = E('pinSure_'), distRow = E('pinDistRow_'), distSel = E('pinDist_');
+    var placeRow = E('pinPlaceRow_'), placeSel = E('pinPlace_'), placeFind = E('pinPlaceFind_'), placeTyped = E('pinPlaceTyped_'), placeInfo = E('pinPlaceInfo_');
+    var todoEl = E('pinTodo_'), prevBox = E('pinPreview_'), prevTxt = E('pinPreviewTxt_'), prevNote = E('pinPreviewNote_');
     var hiddenEl = dynamicFields.querySelector('[data-fid="'+fid+'"]');
-    var pinData = { state:'', district:'', block:'' };
+    var starHtml = (detailLbl.innerHTML.match(/ <span style[\s\S]*$/) || [''])[0];
+    var mode = 'empty';   /* empty | wait | found | none (सूची में नहीं) | error (network) */
+    var pinInfo = null, askNo = 0, curD = -1, distTouched = false, officeTouched = false, OPTS = [];
+    var LBL = { '': 'घर नं./गली/मोहल्ला (विस्तृत पता)', full: 'पूरा पता लिखें (गाँव या शहर, डाकघर, ज़िला, राज्य)', out: 'पूरा पता लिखें (शहर और देश समेत)' };
+    var PH = { '': 'जैसे: घर नं. 12, वार्ड 3', full: 'जैसे: घर नं. 12, गाँव, डाकघर, ज़िला, राज्य', out: 'जैसे: वार्ड 4, काठमांडू, नेपाल' };
 
+    function escP(t){ return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+    function show(el, on, how){ el.style.display = on ? (how || '') : 'none'; }
+    /* आवेदक का लिखा पाठ: फ़ालतू ख़ाली जगह हटती है; रोमन अक्षर बड़े (फ़ॉर्म का v1.5 नियम: हर लिखा खाना Roman CAPITAL; देवनागरी जस की तस) */
+    function tidy(v){ return String(v).replace(/\s+/g,' ').replace(/^ | $/g,'').toUpperCase(); }
+    function setDetailLabel(k){ detailLbl.innerHTML = '<span>' + LBL[k] + '</span>' + starHtml; detailEl.placeholder = PH[k]; }
+    function selPlace(){
+      var v = placeSel.value; if(!pinInfo || !v || v === '__none') return null;
+      var i = +v.slice(1); return v.charAt(0) === 'v' ? { k:'v', o: pinInfo.places[i] } : { k:'t', o: pinInfo.towns[i] };
+    }
+    function selOffice(){
+      var o = blockSel.options[blockSel.selectedIndex];
+      if(!pinInfo || !o || !o.value || o.value === '__none') return null;
+      return pinInfo.offices[+o.getAttribute('data-i')] || null;
+    }
+    /* गाँव और शहर के विकल्प। एक ही नाम के दो गाँव हों, तो नाम के साथ पंचायत (फिर प्रखंड, ज़िला) भी लिखा जाता है। */
+    function buildPlaceOpts(){
+      OPTS = []; var P = pinInfo.places, T = pinInfo.towns, cnt = {}, c2 = {}, L1 = [], i, p, a, x;
+      for(i=0;i<T.length;i++) OPTS.push({ v:'t'+i, t:T[i].n+' ('+T[i].t+')', low:T[i].n.toLowerCase(), town:true });
+      for(i=0;i<P.length;i++){ a = P[i].n.toLowerCase(); cnt[a] = (cnt[a]||0) + 1; }
+      for(i=0;i<P.length;i++){ p = P[i]; a = p.n;
+        if(cnt[p.n.toLowerCase()] > 1){ x = p.gp ? 'GP: '+p.gp : p.block ? 'Block: '+p.block : p.sub ? 'Tehsil: '+p.sub : ''; if(x) a += ' ('+x+')'; }
+        L1.push(a); c2[a] = (c2[a]||0) + 1; }
+      for(i=0;i<P.length;i++){ p = P[i]; a = L1[i];
+        if(c2[a] > 1){ x = []; if(p.gp) x.push('GP: '+p.gp); if(p.block) x.push('Block: '+p.block); if(p.sub && p.sub !== p.block) x.push('Tehsil: '+p.sub); x.push(pinInfo.districts[p.d].districtEn); a = p.n+' ('+x.join(', ')+')'; }
+        OPTS.push({ v:'v'+i, t:a, low:p.n.toLowerCase(), town:false }); }
+    }
+    function fillPlaces(){
+      var q = tidy(placeFind.value).toLowerCase(), keep = placeSel.value, h = '<option value="">— चुनें —</option>', towns = '', vills = '', i, o, s1;
+      for(i=0;i<OPTS.length;i++){ o = OPTS[i];
+        if(q && o.v !== keep && o.low.indexOf(q) < 0) continue;
+        s1 = '<option value="'+o.v+'">'+escP(o.t)+'</option>'; if(o.town) towns += s1; else vills += s1; }
+      if(towns && vills) h += '<optgroup label="शहर / नगर निकाय">'+towns+'</optgroup><optgroup label="गाँव">'+vills+'</optgroup>'; else h += towns + vills;
+      h += '<option value="__none">मेरा गाँव या शहर इस सूची में नहीं है</option>';
+      placeSel.innerHTML = h; placeSel.value = keep; if(placeSel.value !== keep) placeSel.value = '';
+    }
+    function fillOffices(){
+      var O = pinInfo.offices, D = pinInfo.districts, one = O.length === 1, h = '<option value="">— चुनें —</option>', i, k;
+      function opt(j){ return '<option value="'+escP(O[j].n)+'" data-i="'+j+'"'+(one?' selected':'')+'>'+escP(O[j].n)+'</option>'; }
+      if(!pinInfo.places.length && D.length > 1){   /* गाँव की सूची नहीं और डाक के दो ज़िले: डाकघर ज़िले के हिसाब से */
+        var by = {}, keys = [], st = {}, nSt = 0;
+        for(i=0;i<D.length;i++) if(!st[D[i].state]){ st[D[i].state] = 1; nSt++; }
+        for(i=0;i<O.length;i++){ k = O[i].d; if(by[k] === undefined){ by[k] = ''; keys.push(k); } by[k] += opt(i); }
+        keys.sort(function(x, y){ return ((x<0?1:0) - (y<0?1:0)) || (x - y); });
+        for(i=0;i<keys.length;i++){ var d = keys[i] >= 0 ? D[keys[i]] : null;
+          h += '<optgroup label="'+(d ? d.district + (nSt > 1 ? ', ' + escP(d.stateHi) : '') : 'ज़िला दर्ज नहीं')+'">'+by[keys[i]]+'</optgroup>'; }
+      } else for(i=0;i<O.length;i++) h += opt(i);
+      h += '<option value="__none">मेरा डाकघर इस सूची में नहीं है</option>';
+      blockSel.innerHTML = h;
+    }
+    function fillDistricts(){
+      var D = pinInfo.districts, h = '<option value="">— ज़िला चुनें —</option>', i, st = {}, nSt = 0;
+      for(i=0;i<D.length;i++) if(!st[D[i].state]){ st[D[i].state] = 1; nSt++; }
+      for(i=0;i<D.length;i++) h += '<option value="'+i+'">'+D[i].district+(nSt > 1 ? ', '+escP(D[i].stateHi) : '')+'</option>';
+      distSel.innerHTML = h; show(distRow, D.length > 1);
+    }
+    function setDistrict(i){
+      curD = (pinInfo && i >= 0 && pinInfo.districts[i]) ? i : -1;
+      var d = curD >= 0 ? pinInfo.districts[curD] : null;
+      distSel.value = d ? String(curD) : '';
+      if(d) stateDistEl.innerHTML = '<span>📍 राज्य:</span> <b>'+escP(d.stateHi)+'</b> · <span>ज़िला:</span> <b>'+d.district+'</b>';
+      else if(pinInfo && pinInfo.districts.length > 1) stateDistEl.innerHTML = '<span>'+(pinInfo.places.length
+        ? 'इस पिन में एक से ज़्यादा ज़िले आते हैं। अपना गाँव चुनें, ज़िला अपने-आप तय हो जाएगा।'
+        : 'इस पिन में एक से ज़्यादा ज़िले आते हैं। अपना डाकघर चुनें, ज़िला अपने-आप तय हो जाएगा।')+'</span>';
+      else if(pinInfo) stateDistEl.innerHTML = '<span>इस पिन का ज़िला हमारी सूची में नहीं है। नीचे काम की जगह में ज़िला ख़ुद चुनें।</span>';
+      else stateDistEl.innerHTML = '';
+      if(typeof desiredPinFill === 'function') desiredPinFill(d ? d.state : '', d ? d.district : '');
+    }
+    /* ज़िला: गाँव से; गाँव सूची से न चुना हो तो डाकघर से; पिन का एक ही ज़िला हो तो वही। आवेदक का ख़ुद चुना ज़िला नहीं बदलता। */
+    function decide(){
+      if(!pinInfo) return;
+      if(distTouched && distSel.value !== '') return;
+      var pick = -1, pl = selPlace(), of = selOffice();
+      if(pl && pl.k === 'v') pick = pl.o.d;
+      else if(of && of.d >= 0 && (!pinInfo.places.length || pinInfo.districts[of.d].src === 'lgd' || placeSel.value === '__none' || pl)) pick = of.d;
+      if(pick < 0 && pinInfo.sure) pick = 0;
+      setDistrict(pick);
+    }
+    function onPlace(){
+      var v = placeSel.value, pl = selPlace(), h = [], i;
+      show(placeTyped, v === '__none'); if(v !== '__none') placeTyped.value = '';
+      if(pl && pl.k === 'v'){
+        var p = pl.o;
+        if(p.gp) h.push('<span>पंचायत:</span> <b>'+escP(p.gp)+'</b>');
+        if(p.block) h.push('<span>प्रखंड:</span> <b>'+escP(p.block)+'</b>');
+        if(p.sub && p.sub !== p.block) h.push('<span>तहसील या अंचल:</span> <b>'+escP(p.sub)+'</b>');
+      }
+      placeInfo.innerHTML = h.join(' · '); show(placeInfo, h.length > 0);
+      distTouched = false;
+      /* गाँव या शहर के नाम का डाकघर हो और आवेदक ने डाकघर ख़ुद नहीं चुना: वही चुन लिया जाता है (बदला जा सकता है) */
+      if(!officeTouched && pinInfo && pinInfo.offices.length > 1){
+        var hit = -1, n = 0, O = pinInfo.offices, nm = pl ? pl.o.n.toLowerCase().replace(/[^a-z0-9]/g,'') : '';
+        if(nm) for(i=0;i<O.length;i++) if(O[i].n.toLowerCase().replace(/[^a-z0-9]/g,'') === nm){ hit = i; n++; }
+        blockSel.value = '';
+        if(n === 1) for(i=0;i<blockSel.options.length;i++) if(blockSel.options[i].getAttribute('data-i') === String(hit)){ blockSel.selectedIndex = i; break; }
+      }
+      decide(); updateCombined();
+    }
+    /* पता जोड़ना + पूरा है या नहीं + हरा डिब्बा + "अभी बाक़ी" */
     function updateCombined(){
-      var parts = [];
-      if(detailEl.value.trim()) parts.push(detailEl.value.trim());
-      if(blockSel.value) parts.push(blockSel.value);
-      if(pinData.district) parts.push(pinData.district);
-      if(pinData.state) parts.push(pinData.state);
-      if(pinEl.value.length===6) parts.push('PIN: '+pinEl.value);
-      hiddenEl.value = parts.join(', ');
+      var pin = pinEl.value, detail = tidy(detailEl.value), parts = [], todo = [], note = '', ok = false;
+      if(outChk.checked){
+        if(detail){ parts.push('Outside India: ' + detail); ok = true; note = 'भारत के बाहर का पता: पिन की जाँच नहीं होती।'; }
+        else todo.push('पूरा पता लिखें');
+      } else if(mode === 'found'){
+        var pl = selPlace(), of = selOffice(), d = curD >= 0 ? pinInfo.districts[curD] : null;
+        if(placeRow.style.display !== 'none'){
+          if(pl && pl.k === 'v'){ parts.push('Vill: ' + pl.o.n); if(pl.o.gp) parts.push('GP: ' + pl.o.gp); if(pl.o.block) parts.push('Block: ' + pl.o.block); if(pl.o.sub && pl.o.sub !== pl.o.block) parts.push('Tehsil: ' + pl.o.sub); }
+          else if(pl) parts.push('Town: ' + pl.o.n + ' (' + pl.o.t + ')');
+          else if(placeSel.value === '__none'){ var ty = tidy(placeTyped.value); if(ty) parts.push('Vill/Town: ' + ty); else todo.push('अपने गाँव या शहर का नाम लिखें'); }
+          else todo.push('अपना गाँव या शहर चुनें');
+        }
+        if(pinInfo.offices.length){ if(of) parts.push('PO: ' + of.n); else if(blockSel.value !== '__none') todo.push('अपना डाकघर चुनें'); }
+        if(pinInfo.districts.length){ if(d){ parts.push(d.districtEn); parts.push(d.stateEn); } else todo.push('ज़िला चुनें'); }
+        if(detail) parts.unshift(detail); else todo.push('घर नंबर, गली या मोहल्ला लिखें');
+        parts.push('PIN: ' + pin);
+        ok = !todo.length;
+        note = pinInfo.districts.length ? '✅ पिन, ज़िला और राज्य सरकारी सूची से मिलाए गए।' : '⚠️ इस पिन का ज़िला सूची में नहीं है। ACS की टीम पता जाँचेगी।';
+      } else if(mode === 'none' || mode === 'error'){
+        if(detail) parts.push(detail); else todo.push('पूरा पता लिखें');
+        parts.push('PIN: ' + pin);
+        if(mode === 'none' && !sureChk.checked) todo.push('पिन दोबारा देखें; सही हो तो ऊपर टिक लगाएँ');
+        ok = !todo.length;
+        note = mode === 'none' ? '⚠️ यह पिन सूची में नहीं मिला। ACS की टीम पता जाँचेगी।' : '⚠️ पिन अभी जाँचा नहीं जा सका। ACS की टीम पता जाँचेगी।';
+      } else if(mode === 'wait') todo.push('पिन की जाँच पूरी होने दें');
+      else todo.push('6 अंकों का पिन कोड भरें');
+      var val = ok ? parts.join(', ') : '';
+      hiddenEl.value = val;
+      show(prevBox, ok); if(ok){ prevTxt.textContent = val; prevNote.textContent = note; }
+      var started = pin.length > 0 || !!detail || outChk.checked;
+      show(todoEl, !ok && started);
+      if(!ok) todoEl.innerHTML = '<span>अभी बाक़ी:</span> ' + todo.map(function(t){ return '<span>'+t+'</span>'; }).join(' · ');
       validateStep3();
     }
+    function lookup(){
+      var mine = ++askNo, pin = pinEl.value;
+      pinInfo = null; curD = -1; distTouched = false; officeTouched = false; OPTS = [];
+      resultBox.style.display = 'none'; show(sureRow, false); sureChk.checked = false;
+      /* पिछले पिन का चुनाव नए पिन की सूची में न रह जाए (दोनों सूचियों में विकल्पों के मान एक-जैसे होते हैं) */
+      placeSel.innerHTML = ''; blockSel.innerHTML = ''; distSel.innerHTML = '';
+      placeFind.value = ''; placeTyped.value = ''; show(placeTyped, false); show(placeInfo, false);
+      statusEl.textContent = ''; statusEl.style.color = '#888';
+      if(typeof desiredPinFill === 'function') desiredPinFill('', '');
+      function fail(){ mode = 'error'; statusEl.textContent = '⚠️ पिन कोड जाँच नहीं पाई — इंटरनेट देखें या सीधे विस्तृत पते में लिखें।'; statusEl.style.color = '#B23A3A'; setDetailLabel('full'); updateCombined(); }
+      if(outChk.checked){ mode = 'empty'; setDetailLabel('out'); updateCombined(); return; }
+      if(pin.length !== 6){ mode = 'empty'; setDetailLabel(''); updateCombined(); return; }
+      mode = 'wait'; setDetailLabel(''); statusEl.textContent = '⏳ पिन कोड जाँचा जा रहा है…'; updateCombined();
+      if(!window.ACS_PIN){ fail(); return; }
+      window.ACS_PIN.get(pin).then(function(info){
+        if(mine !== askNo) return;   /* इस बीच पिन बदल गया */
+        if(!info){
+          mode = 'none'; statusEl.textContent = '⚠️ यह पिन कोड नहीं मिला — कृपया दोबारा जाँचें।'; statusEl.style.color = '#B23A3A';
+          show(sureRow, true, 'flex'); setDetailLabel('full'); updateCombined(); return;
+        }
+        pinInfo = info; mode = 'found';
+        buildPlaceOpts(); fillPlaces(); fillOffices(); fillDistricts();
+        show(placeRow, OPTS.length > 0); show(placeFind, OPTS.length > 20); show(officeRow, info.offices.length > 0);
+        resultBox.style.display = 'block';
+        statusEl.textContent = OPTS.length ? '✅ पिन कोड मिल गया। नीचे अपना गाँव या शहर और डाकघर चुनें।' : '✅ पिन कोड मिल गया। नीचे अपना डाकघर चुनें।';
+        statusEl.style.color = '#2E7D32';
+        decide(); updateCombined();
+      }, function(){ if(mine === askNo) fail(); });
+    }
 
-    pinEl.addEventListener('input', function(){
-      this.value = this.value.replace(/[^0-9]/g,'');
-      resultBox.style.display='none'; statusEl.textContent=''; statusEl.style.color='#888';
-      pinData = { state:'', district:'', block:'' };
-      updateCombined();
-      if(this.value.length===6){
-        statusEl.textContent = '⏳ पिन कोड जाँचा जा रहा है…'; statusEl.style.color='#888';
-        fetch('https://api.postalpincode.in/pincode/'+this.value)
-          .then(function(r){ return r.json(); })
-          .then(function(data){
-            var result = data && data[0];
-            if(!result || result.Status!=='Success' || !result.PostOffice || !result.PostOffice.length){
-              statusEl.textContent = '⚠️ यह पिन कोड नहीं मिला — कृपया दोबारा जाँचें।'; statusEl.style.color='#B23A3A';
-              return;
-            }
-            var offices = result.PostOffice;
-            pinData.state = offices[0].State; pinData.district = offices[0].District;
-            stateDistEl.textContent = '📍 राज्य: '+pinData.state+' · ज़िला: '+pinData.district;
-            blockSel.innerHTML = offices.map(function(o){ return '<option value="'+o.Name+'">'+o.Name+'</option>'; }).join('');
-            pinData.block = offices[0].Name;
-            resultBox.style.display='block';
-            statusEl.textContent = '✅ पिन कोड मिल गया — नीचे सही ब्लॉक/डाकघर चुनें।'; statusEl.style.color='#2E7D32';
-            updateCombined();
-          }).catch(function(){
-            statusEl.textContent = '⚠️ पिन कोड जाँच नहीं पाई — इंटरनेट देखें या सीधे विस्तृत पते में लिखें।'; statusEl.style.color='#B23A3A';
-          });
-      }
-    });
-    blockSel.addEventListener('change', updateCombined);
+    pinEl.addEventListener('input', function(){ this.value = this.value.replace(/[^0-9]/g,''); lookup(); });
+    outChk.addEventListener('change', function(){ pinEl.disabled = outChk.checked; if(outChk.checked) pinEl.value = ''; lookup(); });
+    sureChk.addEventListener('change', updateCombined);
+    distSel.addEventListener('change', function(){ distTouched = distSel.value !== ''; if(distTouched) setDistrict(+distSel.value); else decide(); updateCombined(); });
+    placeFind.addEventListener('input', fillPlaces);
+    placeSel.addEventListener('change', onPlace);
+    placeTyped.addEventListener('input', updateCombined);
+    blockSel.addEventListener('change', function(){ officeTouched = true; decide(); updateCombined(); });
     detailEl.addEventListener('input', updateCombined);
   }
 
@@ -1670,7 +1835,10 @@
     if(countryLabel()) parts.push('देश: ' + countryLabel());
     return parts.join(' · ');
   }
+  /* (पिन-घर v1.1) पिन का ज़िला तय होते ही यह box भरने वाला function (box बंद हो या न हो, तो null) */
+  var desiredPinFill = null;
   function buildDesiredAreaBox(){
+    desiredPinFill = null;
     var oldBox = document.getElementById('desiredAreaBox'); if(oldBox) oldBox.remove();
     if(!roleSel.value) return;
     var locked = desiredLockedText();
@@ -1702,6 +1870,7 @@
           '<select id="desiredDistSel" data-i18n-sort style="display:none"><option value="">— पहले राज्य चुनें —</option></select>'+
           '<input type="text" id="desiredDistTyped" style="display:none" placeholder="अपना वांछित जिला लिखें">'+
           '<div class="hint" id="desiredDistHint" style="display:none">इस राज्य की जिला-सूची अभी नहीं जुड़ी — कृपया लिखें।</div></div>'+
+        '<div class="hint" id="desiredPinHint" style="display:none;color:#1b4d20;font-weight:700">यह जगह आपके पिन कोड से भरी गई है। काम की जगह दूसरी हो, तो बदल दें।</div>'+
         '<div class="hint">यही जगह आपके आवेदन, पुष्टि-पर्दे व एग्रीमेंट-PDF — तीनों पर दिखेगी।</div>';
     }
     var pinDetailInput = dynamicFields.querySelector('[id^="pinDetail_"]');
@@ -1729,7 +1898,41 @@
       dDS.style.display=''; dDT.style.display='none'; dDH.style.display='none';
       validateStep3();
     }
+    /* (पिन-घर v1.1) पिन का ज़िला तय होते ही यह जगह भरती है; पिन हटे या ज़िला तय न रहे तो ख़ाली होती है।
+       आवेदक ने ख़ुद कुछ चुना हो (touched), तो पिन उसे कभी नहीं बदलता। */
+    var dTouched = false, dFilled = false, dFillNo = 0, dPH = document.getElementById('desiredPinHint');
+    function pickOpt(sel, val){
+      var want = String(val).replace(/&amp;/g,'&');
+      for(var i=0;i<sel.options.length;i++){ if(sel.options[i].value === val || sel.options[i].value === want){ sel.selectedIndex = i; return true; } }
+      return false;
+    }
+    desiredPinFill = function(stKey, dist){
+      if(dTouched) return;
+      var mine = ++dFillNo;
+      if(!stKey){
+        if(dFilled){ dFilled = false; dC.value = ''; dST.value = ''; resetDist(); dSS.style.display='none'; dST.style.display='none'; dSH.style.display='none'; if(dPH) dPH.style.display='none'; validateStep3(); }
+        return;
+      }
+      if(!pickOpt(dC, 'in')) return;
+      dFilled = true; dST.value=''; resetDist();
+      var p1 = window.ACS_GEO_STATES['in'] ? Promise.resolve() : loadGeo('assets/geo/states/in.js');
+      p1.then(function(){
+        if(dTouched || mine !== dFillNo) return null;
+        fillStates('in');
+        if(!pickOpt(dSS, stKey)) return null;
+        var key = 'in-' + stKey;
+        return (window.ACS_GEO_DISTRICTS[key] ? Promise.resolve() : loadGeo('assets/geo/districts/'+key+'.js')).then(function(){
+          if(dTouched || mine !== dFillNo) return;
+          fillDists(key);
+          if(dist) pickOpt(dDS, dist);
+          if(dPH) dPH.style.display = '';
+          validateStep3();
+        });
+      }).then(null, function(){ validateStep3(); });
+    };
+    function byHand(){ dTouched = true; dFilled = false; if(dPH) dPH.style.display = 'none'; }
     dC.addEventListener('change', function(){
+      byHand();
       dST.value=''; resetDist();
       if(!dC.value){ dSS.style.display='none'; dST.style.display='none'; dSH.style.display='none'; validateStep3(); return; }
       if(window.ACS_GEO_STATES[dC.value]){ fillStates(dC.value); return; }
@@ -1737,6 +1940,7 @@
       loadGeo('assets/geo/states/'+dC.value+'.js').then(function(){ fillStates(dC.value); }).catch(stateTypedMode);
     });
     dSS.addEventListener('change', function(){
+      byHand();
       resetDist();
       if(!dSS.value){ validateStep3(); return; }
       var key = dC.value + '-' + dSS.value;
@@ -1744,8 +1948,8 @@
       dDS.innerHTML='<option value="">⏳ सूची आ रही है…</option>'; dDS.style.display='';
       loadGeo('assets/geo/districts/'+key+'.js').then(function(){ fillDists(key); }).catch(distTypedMode);
     });
-    [dST, dDT].forEach(function(el){ el.addEventListener('input', validateStep3); });
-    dDS.addEventListener('change', validateStep3);
+    [dST, dDT].forEach(function(el){ el.addEventListener('input', function(){ byHand(); validateStep3(); }); });
+    dDS.addEventListener('change', function(){ byHand(); validateStep3(); });
   }
   function desiredAreaData(){
     var lockedEl = document.getElementById('desiredLockedTxt');

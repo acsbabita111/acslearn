@@ -123,7 +123,7 @@ async function openPage(file, opt) {
   let html = rd(file);
   if (opt.transform) html = opt.transform(html);
   const urlPath = opt.urlPath || ("/" + file.replace(/index\.html$/, ""));
-  const ctx = { calls: [], dialogs: [], errors: [], fetched: [], userVals: new Set(), confirmAnswer: true, handlers: opt.handlers || {} };
+  const ctx = { calls: [], dialogs: [], errors: [], fetched: [], outside: [], userVals: new Set(), confirmAnswer: true, handlers: opt.handlers || {} };
   const vc = new VirtualConsole();
   vc.on("jsdomError", e => { const m = String(e && (e.message || e)); if (!/Not implemented|Could not load (link|img|iframe)/.test(m)) ctx.errors.push(m.slice(0, 300)); });
   const dom = new JSDOM(html, {
@@ -151,7 +151,7 @@ async function openPage(file, opt) {
           if (fs.existsSync(f) && fs.statSync(f).isFile()) { let t = fs.readFileSync(f, "utf8"); if (opt.rewrite && opt.rewrite[p]) t = opt.rewrite[p](t); return Promise.resolve({ ok: true, status: 200, text: () => Promise.resolve(t), json: () => Promise.resolve(JSON.parse(t)) }); }
           return Promise.resolve({ ok: false, status: 404, text: () => Promise.resolve("") });
         }
-        if (abs.hostname === "api.postalpincode.in") return Promise.resolve({ ok: true, json: () => Promise.resolve([{ Status: "Success", PostOffice: [{ Name: "Chautham", State: "Bihar", District: "Khagaria" }, { Name: "Malpa", State: "Bihar", District: "Khagaria" }] }]) });
+        ctx.outside.push(abs.hostname);   /* (पिन-घर v1.1) पन्ना किसी बाहरी site से कुछ नहीं माँगता; पिन भी अपने ही घर से */
         return Promise.reject(new Error("offline"));
       };
       w.__CALL = function (name, data) {
@@ -465,6 +465,7 @@ async function joinRules(c) {
   const b3 = $("toStep3Btn"); const ok = !b3.disabled; click(c, b3); await settle(c);
   return ok;
 }
+const PIN_ADDR = "घर नं. 12, वार्ड 3, Vill: Chautham, GP: Chautham, Block: Chautham, PO: Chautham, Khagaria, Bihar, PIN: 851201";
 async function joinStep3(c, rl, firstRole) {
   const $ = id => c.d.getElementById(id);
   const card = R.byKey(rl.key);
@@ -472,8 +473,11 @@ async function joinStep3(c, rl, firstRole) {
   for (const f of card.fields) {
     if (f.id === "name_local" || f.id === "name_roman") continue;
     if (f.type === "pincode_address") {
+      /* (पिन-घर v1.1) पिन → गाँव (डाकघर अपने-आप उसी नाम का) → घर/गली */
       typeIn(c, $("pin_" + f.id), "851201"); await waitFor(c, () => $("pinResult_" + f.id).style.display === "block"); await settle(c);
-      typeIn(c, $("pinDetail_" + f.id), "घर नं. 12, वार्ड 3"); c.userVals.add("घर नं. 12, वार्ड 3, Chautham, Khagaria, Bihar, PIN: 851201");
+      const ps = $("pinPlace_" + f.id), vo = Array.from(ps.options).find(o => o.textContent === "Chautham");
+      pick(c, ps, vo ? vo.value : ""); await settle(c);
+      typeIn(c, $("pinDetail_" + f.id), "घर नं. 12, वार्ड 3"); c.userVals.add(PIN_ADDR); await settle(c);
       continue;
     }
     if (f.type === "emergency_contact") {
@@ -562,6 +566,9 @@ async function joinFull(rl, mode, extra) {
   { const q = c.calls.filter(x => x.name === "requestRegisterOtp");
     ck(tag + " : OTP की माँग में सिर्फ़ email और lang (पासवर्ड, नाम, मोबाइल, जन्मतिथि नहीं)", q.length >= 1 && q.every(x => x.data && Object.keys(x.data).sort().join() === "email,lang" && x.data.email === "ram@example.com") && JSON.stringify(q).indexOf("abcDEF123") < 0, JSON.stringify(q.map(x => Object.keys(x.data || {})))); }
   ck(tag + " : submitRegistration में lang नहीं जुड़ा (भाषा सिर्फ़ OTP की माँग में जाती है)", !!sub && !("lang" in sub.data));
+  { const hasAddr = R.byKey(rl.key).fields.some(f => f.type === "pincode_address"), got = sub && sub.data.formFields && sub.data.formFields.address;
+    ck(tag + " : पता पिन-घर से बना (गाँव, पंचायत, प्रखंड, डाकघर, ज़िला, राज्य, पिन)", !hasAddr || got === PIN_ADDR, String(got)); }
+  ck(tag + " : पन्ने ने किसी बाहरी site से कुछ नहीं माँगा", c.outside.length === 0, c.outside.join(","));
   noErr(c, tag);
   c.dom.window.close();
   return res;
@@ -770,10 +777,135 @@ async function joinHindiSame() {
   ck("JH3 रजिस्ट्रेशन English → हिंदी: पन्ना बिल्कुल ताज़ा हिंदी जैसा", bodyText(c) === bodyText(a) && c.d.title === a.d.title);
   [a, b, c].forEach(x => x.dom.window.close());
 }
+/* ───────── JN: पिन-घर (26-Nov-2026) ─────────
+   Founder: "जहां भी भारतीय पता की बात हो, वहाँ पर इस पिन कोड से ही अपने आप सभी सूचना ले लिया जाए" और "पता को कनफर्म करना का सब उपाय करो।"
+   हर जाँच हिंदी और English दोनों में चलती है; data वही असली टुकड़े हैं जो साइट पर जाते हैं। */
+function twoDistrictPin() {
+  /* LGD का ऐसा पिन जिसके गाँव दो ज़िलों में हैं (data से ढूँढा जाता है; data बदले तो भी जाँच चले) */
+  const dir = path.join(ROOT, "assets/geo/pinv");
+  for (const f of fs.readdirSync(dir).sort()) {
+    const j = JSON.parse(fs.readFileSync(path.join(dir, f), "utf8")); if (!j.p) continue;
+    for (const k of Object.keys(j.p).sort()) { const g = j.p[k].g || [], ds = Array.from(new Set(g.map(x => x[0])));
+      const n = g.reduce((t, x) => t + x[3].filter((_, i) => i % 2).join("|").split("|").length, 0);
+      if (ds.length === 2 && n >= 4 && n <= 40 && !j.p[k].u) return f.replace(".json", "") + k; }
+  }
+  return "";
+}
+async function joinPinSuite() {
+  const PIN2 = twoDistrictPin();
+  ck("JN0 दो ज़िलों वाला पिन data में मिला", /^\d{6}$/.test(PIN2), PIN2);
+  for (const mode of ["hi", "en"]) {
+    const EN = mode === "en", T = "JN[" + mode + "] ";
+    const c = await openPage("join.html", { ls: EN ? { acs_dash_lang: "en" } : {}, expect: mode, handlers: Object.assign({}, HJ), failOnce: ["/assets/geo/pin/400.json"] });
+    const $ = id => c.d.getElementById(id), A = "address";
+    await joinStep1(c, {}); await joinOtp(c); await joinRole(c, roleList().find(r => r.key === "teacher")); await joinRules(c);
+    const pin = $("pin_" + A), hid = c.d.querySelector('#dynamicFields [data-fid="address"]'), res = $("pinResult_" + A), place = $("pinPlace_" + A), off = $("pinBlock_" + A),
+      det = $("pinDetail_" + A), dist = $("pinDist_" + A), st = $("pinStatus_" + A), prev = $("pinPreview_" + A), todo = $("pinTodo_" + A), next = $("toStep4Btn");
+    const texts = sel => Array.from(sel.options).map(o => o.textContent);
+    const byText = (sel, t) => { const o = Array.from(sel.options).find(x => x.textContent === t); return o ? o.value : "\u0000"; };
+    const shown = el => el.style.display !== "none";
+    const setPin = async v => { typeIn(c, pin, ""); typeIn(c, pin, v); await waitFor(c, () => /^(✅|⚠)/.test(st.textContent), 4000); await settle(c); await settle(c); };
+    const dArea = () => [$("desiredCountry").value, $("desiredStateSel").value, $("desiredDistSel").value].join("/");
+    const say = () => { if (EN) clean(c, T + "पर्दा"); };
+    c.userVals.add("House 5"); c.userVals.add("HOUSE 5");
+
+    /* ── 1. एक ज़िले वाला पिन ── */
+    await setPin("851201"); await waitFor(c, () => dArea() === "in/bihar/खगड़िया", 4000);
+    ck(T + "1क 851201: सूची खुली, राज्य और ज़िला दिखे", res.style.display === "block" && $("pinStateDistrict_" + A).textContent.indexOf(EN ? "Khagaria" : "खगड़िया") > -1 && $("pinStateDistrict_" + A).textContent.indexOf(EN ? "Bihar" : "बिहार") > -1, $("pinStateDistrict_" + A).textContent);
+    ck(T + "1ख गाँव की सूची (30 से ज़्यादा), एक नाम के गाँव पंचायत के साथ", place.options.length > 30 && ["Chautham", "Borne (GP: East Borne)", "Borne (GP: Middle Borne)", "Borne (GP: West Borne)"].every(x => texts(place).indexOf(x) > -1) && place.options[place.options.length - 1].value === "__none", place.options.length + "");
+    ck(T + "1ग डाकघर की सूची; आख़िरी विकल्प «सूची में नहीं»", texts(off).indexOf("Chautham") > -1 && texts(off).indexOf("Borney") > -1 && off.options[off.options.length - 1].value === "__none" && off.value === "");
+    ck(T + "1घ एक ही ज़िला: ज़िला चुनने का खाना नहीं दिखता", !shown($("pinDistRow_" + A)) && dist.value === "0");
+    ck(T + "1ङ काम की जगह पिन से भरी (भारत / बिहार / खगड़िया) + सूचना", dArea() === "in/bihar/खगड़िया" && shown($("desiredPinHint")), dArea());
+    ck(T + "1च अधूरा पता: सहेजा मान ख़ाली, आगे का बटन बंद, «अभी बाक़ी» दिखा", hid.value === "" && next.disabled && shown(todo) && !shown(prev), hid.value);
+    say();
+    typeIn(c, $("pinPlaceFind_" + A), "bor"); await settle(c);
+    ck(T + "1छ खोज «bor»: सिर्फ़ Borne के तीन गाँव बचे", shown($("pinPlaceFind_" + A)) && place.options.length === 5, texts(place).join("|"));
+    pick(c, place, byText(place, "Borne (GP: East Borne)")); await settle(c);
+    ck(T + "1ज गाँव चुना: पंचायत और प्रखंड दिखे; Borne नाम का डाकघर नहीं, इसलिए डाकघर ख़ाली", /East Borne/.test($("pinPlaceInfo_" + A).textContent) && /Chautham/.test($("pinPlaceInfo_" + A).textContent) && off.value === "", $("pinPlaceInfo_" + A).textContent);
+    pick(c, off, "Borney"); typeIn(c, det, "House 5"); await settle(c);
+    const A1 = "HOUSE 5, Vill: Borne, GP: East Borne, Block: Chautham, PO: Borney, Khagaria, Bihar, PIN: 851201";
+    ck(T + "1झ पूरा पता एक पंक्ति में + हरा डिब्बा वही दिखाता है", hid.value === A1 && shown(prev) && $("pinPreviewTxt_" + A).textContent === A1 && !shown(todo), hid.value);
+    typeIn(c, $("pinPlaceFind_" + A), ""); await settle(c);
+    pick(c, place, byText(place, "Chautham")); await settle(c);
+    ck(T + "1ञ आवेदक का चुना डाकघर गाँव बदलने पर नहीं बदलता", off.value === "Borney" && /Vill: Chautham, GP: Chautham, Block: Chautham, PO: Borney/.test(hid.value), hid.value);
+    pick(c, place, "__none"); await settle(c);
+    ck(T + "1ट «मेरा गाँव सूची में नहीं»: नाम लिखने का खाना खुला; लिखे बिना पता अधूरा", shown($("pinPlaceTyped_" + A)) && hid.value === "");
+    typeIn(c, $("pinPlaceTyped_" + A), "Naya Tola"); await settle(c);
+    ck(T + "1ठ लिखा गाँव पते में", hid.value === "HOUSE 5, Vill/Town: NAYA TOLA, PO: Borney, Khagaria, Bihar, PIN: 851201", hid.value);
+    say();
+
+    /* ── 2. LGD का एक ज़िला, डाक का एक और ज़िला; शहर भी ── */
+    await setPin("851204");
+    const info4 = await c.w.ACS_PIN.get("851204");
+    const offB = info4.offices.find(o => o.d >= 0 && info4.districts[o.d].district === "बेगूसराय");
+    ck(T + "2क 851204: ज़िले दो (पहला LGD का खगड़िया); ज़िला-खाना दिखा, खगड़िया चुना हुआ", info4.districts.length === 2 && info4.districts[0].src === "lgd" && shown($("pinDistRow_" + A)) && dist.value === "0" && !!offB);
+    ck(T + "2क2 पिन बदलने पर पिछले पिन का चुना गाँव और डाकघर नहीं रहता (पता अधूरा)", place.value === "" && off.value === "" && hid.value === "" && !shown($("pinPlaceInfo_" + A)), place.value + "|" + off.value + "|" + hid.value);
+    ck(T + "2ख शहर और गाँव अलग समूह में", place.querySelectorAll("optgroup").length === 2 && texts(place).indexOf("Khagaria (Municipal Council)") > -1);
+    pick(c, place, byText(place, "Khagaria (Municipal Council)")); await settle(c);
+    pick(c, off, offB.n); await settle(c); await waitFor(c, () => dArea() === "in/bihar/बेगूसराय", 4000);
+    ck(T + "2ग शहर चुना + बेगूसराय का डाकघर: ज़िला बेगूसराय; काम की जगह भी", dist.value === "1" && dArea() === "in/bihar/बेगूसराय" && /Town: Khagaria \(Municipal Council\), PO: .+, Begusarai, Bihar, PIN: 851204$/.test(hid.value), dist.value + " " + dArea() + " " + hid.value);
+    pick(c, dist, "0"); await settle(c); await waitFor(c, () => dArea() === "in/bihar/खगड़िया", 4000);
+    const offK = info4.offices.find(o => o.d === 0 && o.n !== offB.n);
+    pick(c, off, offB.n); await settle(c);
+    ck(T + "2घ आवेदक का ख़ुद चुना ज़िला डाकघर बदलने पर नहीं बदलता", dist.value === "0" && /Khagaria, Bihar, PIN: 851204$/.test(hid.value) && !!offK, dist.value + " " + hid.value);
+    say();
+
+    /* ── 3. दो ज़िलों वाला पिन: ज़िला गाँव से तय ── */
+    if (PIN2) {
+      await setPin(PIN2); const i2 = await c.w.ACS_PIN.get(PIN2), v2 = i2.places.findIndex(p => p.d === 1);
+      ck(T + "3क " + PIN2 + ": ज़िला अभी तय नहीं; काम की जगह ख़ाली; पता अधूरा", !i2.sure && dist.value === "" && shown($("pinDistRow_" + A)) && $("desiredCountry").value === "" && hid.value === "", dist.value + " " + dArea());
+      pick(c, place, "v" + v2); await settle(c);
+      const d2 = i2.districts[1]; await waitFor(c, () => $("desiredDistSel").value === d2.district.replace(/&amp;/g, "&"), 4000);
+      ck(T + "3ख दूसरे ज़िले का गाँव चुना: ज़िला वही; काम की जगह वही", dist.value === "1" && $("desiredStateSel").value === d2.state && $("desiredDistSel").value === d2.district.replace(/&amp;/g, "&"), dist.value + " " + dArea());
+      say();
+    }
+
+    /* ── 4. पिन सूची में नहीं ── */
+    await setPin("999999");
+    ck(T + "4क 999999: नहीं मिला; टिक वाला खाना खुला; पता अधूरा; पिन से भरी काम की जगह ख़ाली हुई", /^⚠/.test(st.textContent) && shown($("pinSureRow_" + A)) && hid.value === "" && $("desiredCountry").value === "" && res.style.display === "none", dArea());
+    say();
+    const sure = $("pinSure_" + A); sure.checked = true; sure.dispatchEvent(new c.w.Event("change", { bubbles: true })); await settle(c);
+    ck(T + "4ख टिक लगाने पर ही पता बनता है", hid.value === "HOUSE 5, PIN: 999999" && shown(prev), hid.value);
+    say();
+
+    /* ── 5. पिन का ज़िला दर्ज नहीं ── */
+    await setPin("462116");
+    ck(T + "5 462116: डाकघर मिला, ज़िला दर्ज नहीं; पता बिना ज़िले के; काम की जगह आवेदक चुनेगा", res.style.display === "block" && !shown($("pinDistRow_" + A)) && /^HOUSE 5, PO: .+, PIN: 462116$/.test(hid.value) && $("desiredCountry").value === "", hid.value);
+    say();
+
+    /* ── 6. network की गड़बड़ी ── */
+    await setPin("400001");
+    ck(T + "6क network न चले: «जाँच नहीं पाई»; पता फिर भी लिखा जा सकता है (रजिस्ट्रेशन नहीं रुकता)", /^⚠/.test(st.textContent) && hid.value === "HOUSE 5, PIN: 400001" && res.style.display === "none", st.textContent + " | " + hid.value);
+    say();
+    await setPin("400001");
+    ck(T + "6ख दोबारा पिन भरने पर फिर कोशिश होती है और सूची आ जाती है", /^✅/.test(st.textContent) && res.style.display === "block" && off.options.length > 3, st.textContent);
+
+    /* ── 7. भारत के बाहर का पता ── */
+    const out = $("pinOut_" + A); out.checked = true; out.dispatchEvent(new c.w.Event("change", { bubbles: true })); await settle(c);
+    typeIn(c, det, "Ward 4, Kathmandu, Nepal"); c.userVals.add("Ward 4, Kathmandu, Nepal"); await settle(c);
+    ck(T + "7क भारत के बाहर: पिन का खाना बंद; पता «Outside India: …»", pin.disabled && pin.value === "" && hid.value === "Outside India: WARD 4, KATHMANDU, NEPAL" && res.style.display === "none", hid.value);
+    say();
+    out.checked = false; out.dispatchEvent(new c.w.Event("change", { bubbles: true })); await settle(c);
+    ck(T + "7ख टिक हटाने पर पिन फिर ज़रूरी", !pin.disabled && hid.value === "");
+
+    /* ── 8. आवेदक की ख़ुद चुनी काम की जगह पिन से नहीं बदलती ── */
+    await setPin("851201"); await waitFor(c, () => dArea() === "in/bihar/खगड़िया", 4000);
+    pick(c, $("desiredStateSel"), "delhi"); await waitFor(c, () => $("desiredDistSel").options.length > 2, 4000); await settle(c);
+    await setPin("110001"); await settle(c);
+    ck(T + "8 ख़ुद चुनी काम की जगह (दिल्ली) पिन बदलने पर भी वही; सूचना हटी", $("desiredStateSel").value === "delhi" && !shown($("desiredPinHint")), dArea());
+    ck(T + "8ख दिल्ली की ज़िला-सूची अब लदती है (पहले नहीं लदती थी)", $("desiredDistSel").options.length > 10 && $("desiredDistTyped").style.display === "none", $("desiredDistSel").options.length + "");
+
+    /* ── 9. सब कुछ अपने घर से ── */
+    ck(T + "9 पिन की फ़ाइलें अपनी ही साइट से; कोई बाहरी site नहीं", c.outside.length === 0 && c.fetched.indexOf("/assets/geo/pin/851.json") > -1 && c.fetched.indexOf("/assets/geo/pinv/851.json") > -1, c.outside.join(",") + " | " + c.fetched.filter(x => /geo\/pin/.test(x)).join(","));
+    noErr(c, T);
+    c.dom.window.close();
+  }
+}
 async function joinSuite() {
   const ONLY = (process.env.ACS_ROLES || "").split(",").filter(Boolean);   /* जाँच तेज़ करने के लिए: ACS_ROLES=teacher,student */
   /* ACS_ROLES=- : भूमिका-दौड़ें छोड़कर सिर्फ़ अतिरिक्त जाँचें (J5 से J8); उल्टी जाँच तेज़ करने के लिए */
-  if (!ONLY.length || ONLY[0] === "-") { await joinHindiSame(); await joinSortSuite(); await joinExtra(); }
+  if (!ONLY.length || ONLY[0] === "-") { await joinHindiSame(); await joinSortSuite(); await joinExtra(); await joinPinSuite(); }
+  if (ONLY[0] === "pin") { await joinPinSuite(); return; }   /* ACS_ROLES=pin : सिर्फ़ पिन-घर की जाँच */
   let roles = roleList();
   if (ONLY.length) roles = roles.filter(r => ONLY.indexOf(r.key) > -1);
   /* ZM देश-प्रमुख (भारत के बाहर) का एक अतिरिक्त रास्ता */

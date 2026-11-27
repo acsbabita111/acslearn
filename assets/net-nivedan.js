@@ -1,5 +1,6 @@
 /* ============================================================
-   /assets/net-nivedan.js v1.1 (25-Nov-2026, खेप N-4) : "सुधार का निवेदन" और "नया फ़र्म जोड़ें"
+   /assets/net-nivedan.js v1.2 (26-Nov-2026) : "सुधार का निवेदन" और "नया फ़र्म जोड़ें"
+   v1.2 (पिन-घर): पिन भरते ही ज़िला और राज्य अपनी ही साइट की सरकारी सूची से; पंचायत और प्रखंड के सुझाव; बेमेल पिन पर चेतावनी।
    v1.1: सफलता पर तीन अलग बातें (निवेदन मिला · RM की जाँच · स्वीकृति के बाद ही website पर बदलाव); server का "save" कारण।
    पन्ना: /network/nivedan/ और /en/network/nivedan/ (generator/build_network.js से; शब्द पन्ने के <script id="nvT"> में, ui.js के nv से)।
    Founder (25-Nov-2026): रजिस्टर्ड यूज़र ही एडिट कर सकते हैं। क्रम: रजिस्ट्रेशन नंबर (बगल में "नया रजिस्ट्रेशन करें") →
@@ -202,7 +203,7 @@ async function main() {
       '<label class="nw-lbl" for="nvUd">' + esc(T.fUdy) + '</label><select class="nw-inp" id="nvUd" disabled>' + opt("", T.pickMg, true) + "</select>" +
       '<div id="nvUdNewW" class="nv-hide">' + inp("nvUdNew", T.fUdyNew, "", 'maxlength="80"') + "</div>" +
       inp("nvAddr", T.fAddr, naya ? "" : paren(r.a || ""), 'maxlength="250"') +
-      inp("nvPin", T.fPin, naya ? "" : r.pn || "", 'maxlength="6" inputmode="numeric"') +
+      inp("nvPin", T.fPin, naya ? "" : r.pn || "", 'maxlength="6" inputmode="numeric"') + '<div class="nv-fmsg" id="nvPinM"></div>' +
       inp("nvPc", T.fPc, naya ? "" : r.pc || "", 'maxlength="60"') +
       inp("nvBlock", T.fBlock, naya ? "" : r.b || "", 'maxlength="60"') +
       inp("nvUdyam", T.fUdyam, "", 'maxlength="19" autocapitalize="characters"') +
@@ -239,6 +240,50 @@ async function main() {
         m.textContent = "✅ " + f.name.slice(0, 60);
       };
     };
+    /* (पिन-घर v1.1, 26-Nov-2026; Founder: "जहां भी भारतीय पता की बात हो, वहाँ पर इस पिन कोड से ही अपने आप सभी सूचना ले लिया जाए")
+       पिन भरते ही अपनी ही साइट की सरकारी सूची (helper /assets/acs-pin.js; कोई बाहरी site नहीं) से:
+       ज़िला और राज्य दिखते हैं · पंचायत और प्रखंड के सुझाव आते हैं · राज्य और ज़िला ख़ाली हों तो भर जाते हैं ·
+       पिन इस पन्ने के ज़िले का न हो या सूची में न मिले, तो चेतावनी। यह रोक नहीं है: अंतिम जाँच RM करता है। */
+    const pinEl = $("nvPin"); let pinNo = 0;
+    const pinSay = (t, bad) => { const m = $("nvPinM"); if (m) { m.textContent = t || ""; m.style.color = bad ? "#B23A3A" : ""; } };
+    const pnorm = (x) => String(x).toLowerCase().replace(/&amp;/g, "and").replace(/&/g, "and").replace(/[^a-z0-9]/g, "");
+    const pinHelper = () => new Promise((res) => {
+      if (window.ACS_PIN) { res(true); return; }
+      const sc = document.createElement("script"); sc.src = "/assets/acs-pin.js";
+      sc.onload = () => res(!!window.ACS_PIN); sc.onerror = () => res(false); document.body.appendChild(sc);
+    });
+    const pinLook = () => {
+      pinEl.value = pinEl.value.replace(/[^0-9]/g, "");
+      const mine = ++pinNo, pin = pinEl.value; pinSay("");
+      if (pin.length !== 6) return;
+      pinHelper().then((ok) => (ok ? window.ACS_PIN.get(pin).then((info) => ({ info })) : null)).then((x) => {
+        if (mine !== pinNo || !x) return;   /* helper न लदे: कुछ नहीं दिखता, फ़ॉर्म नहीं रुकता */
+        const info = x.info;
+        if (!info) { pinSay(T.pinNone, true); return; }
+        const D = info.districts.filter((d) => d.src === info.districts[0].src);   /* एक ही स्रोत के ज़िले (गाँव की सूची हो तो वही) */
+        if (!D.length) { pinSay(T.pinOk); return; }
+        const show = D.slice(0, 3).map((d) => (L === "hi" ? d.district.replace(/&amp;/g, "&") : d.districtEn)).join(" · ") + " · " + (L === "hi" ? D[0].stateHi : D[0].stateEn);
+        /* इस निवेदन का ज़िला: कड़ी से तय, या ऊपर चुना हुआ */
+        let here = S.dist ? { hi: S.dist.hi, en: S.dist.en } : null;
+        if (!here && $("nvDi") && $("nvDi").value) { const s = NV.st.find((q) => q[0] === $("nvSt").value), d = s && s[3].find((q) => q[0] === $("nvDi").value); if (d) here = { hi: d[1], en: d[2] }; }
+        const hit = here && info.districts.some((d) => d.district === here.hi || pnorm(d.districtEn) === pnorm(here.en));
+        if (here && !hit) pinSay(fmt(T.pinOther, { p: show, d: here[L] }), true); else pinSay(fmt(T.pinAt, { p: show }));
+        /* राज्य और ज़िला अभी नहीं चुने और पिन का एक ही ज़िला है: भर जाते हैं (बदले जा सकते हैं) */
+        if (!here && !fixedPlace && info.sure && !$("nvSt").value) {
+          const s = NV.st.find((q) => q[0] === info.main.state), d = s && s[3].find((q) => q[1] === info.main.district || pnorm(q[2]) === pnorm(info.main.districtEn));
+          if (d) { $("nvSt").value = s[0]; $("nvSt").onchange(); $("nvDi").value = d[0]; }
+        }
+        /* पंचायत / गाँव और प्रखंड के सुझाव (लिखना फिर भी खुला रहता है) */
+        const uniq = (a) => Array.from(new Set(a.filter(Boolean))).sort();
+        const bls = uniq(info.places.map((p) => p.block));
+        const dl = (id, list) => { let el = $(id); if (!el) { el = document.createElement("datalist"); el.id = id; app.appendChild(el); } el.innerHTML = list.map((v) => '<option value="' + esc(v) + '"></option>').join(""); };
+        dl("nvPcL", uniq(info.places.map((p) => p.gp).concat(info.places.map((p) => p.n))).slice(0, 600)); dl("nvBlockL", bls);
+        $("nvPc").setAttribute("list", "nvPcL"); $("nvBlock").setAttribute("list", "nvBlockL");
+        if (naya && bls.length === 1 && !$("nvBlock").value) $("nvBlock").value = bls[0];
+      }).catch(() => {});
+    };
+    pinEl.addEventListener("input", pinLook);
+    if (pinEl.value.length === 6) pinLook();
     fileChk("nvPhoto", ["image/jpeg", "image/png", "image/webp"]);
     fileChk("nvCert", ["application/pdf", "image/jpeg", "image/png"]);
     fileChk("nvAudit", ["application/pdf"]);

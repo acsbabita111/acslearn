@@ -55,7 +55,7 @@ module.exports = {
       ["🛠️ Learn one skill", "So that you are ready for a job or for your own work.", "See skill courses →", "/hunar.html"],
       ["🗣️ Learn languages", "Learn English and one more foreign language to reach more opportunities at home and abroad.", "See language courses →", "/bhasha.html"],
       ["🏆 Show the world", "Take the exam, earn the certificate and build your portfolio.", "Open the Career Kit →", "/career-kit.html"],
-      ["🤝 Reach opportunity", "Join the ACS network: in your district, in your country or abroad.", "See the network →", "/hi/network.html"],
+      ["🤝 Reach opportunity", "Join the ACS network: in your district, in your country or abroad.", "See the network →", "/en/network.html"],
       ["📣 Tell your story", "Share your success story with friends, and make your name in the world.", "Tell your friends →", "WA"]
     ],
     share: "Free online courses on ACS: https://acslearn.com/en/",

@@ -1,5 +1,11 @@
 /* ============================================================
-   dev_seo_safai_check.js v1.0 (25-Nov-2026, खेप SEO-सफ़ाई) : साइट की सफ़ाई और कड़ियों का पहरा
+   dev_seo_safai_check.js v2.0 (27-Nov-2026, खेप SEO-सफ़ाई v2; पहला रूप 25-Nov-2026) : साइट की सफ़ाई और कड़ियों का पहरा
+   v2.0 में नया (Search Console, 27-Nov-2026 की 13 सूचियों से):
+     उ) पर्चियाँ: build_moved_stubs ताज़ा; किसी पर्ची पर noindex नहीं; पर्ची से पर्ची की ज़ंजीर नहीं;
+        Google को याद हटे पतों की पर्ची वहीं भेजती है, जहाँ 404-पन्ने का नक़्शा भेजता।
+     ऊ) बदलाव-तारीख़: बही-खाते में हर पते की पाठ-छाप; sitemap की तारीख़ बही-खाते से मेल।
+     ई) में कड़ा: index.html वाली भीतरी कड़ी अब शून्य (25-Nov का दर्ज क़र्ज़ 8,005 चुक गया)।
+     इ) में कड़ा: कोई .md फ़ाइल साइट पर नहीं (चित्र-स्रोत का खाता भी नहीं)।
    क्यों: Google Search Console (25-Nov-2026) ने दिखाया कि
      (1) उद्यम के 951 पन्नों पर साइट से एक भी सीधी कड़ी नहीं थी (सूची JavaScript से, 50-50 में);
      (2) repo की जड़ में पुरानी नक़लें (courses_data.js, dashboard.js …), एक Excel फ़ाइल और
@@ -47,7 +53,7 @@ function walk(dir, rel, out) {
 const PUB = walk(ROOT, "", []), PUBSET = new Set(PUB);
 const HTML = PUB.filter((f) => f.endsWith(".html"));
 
-console.log("== dev_seo_safai_check v1.0 · प्रकाशित फ़ाइलें " + PUB.length + " · पन्ने " + HTML.length);
+console.log("== dev_seo_safai_check v2.0 · प्रकाशित फ़ाइलें " + PUB.length + " · पन्ने " + HTML.length);
 
 /* ================= अ) उद्यम की पूरी सूची ================= */
 console.log("-- अ) उद्यम की पूरी सूची");
@@ -114,7 +120,19 @@ console.log("-- आ) 404 का पुराना-पता नक़्शा"
   ck("404.html खोज में नहीं जाता (noindex)", /<meta name="robots" content="noindex/.test(page));
   /* नियम सिर्फ़ उन्हीं पतों पर लगें जो सच में नहीं हैं: किसी जीवित पन्ने का पता नियम की शुरुआत से न मिले */
   const live = HTML.filter((f) => OLD_PREFIX.some((r) => ("/" + f).indexOf(r[0]) === 0));
-  ck("कोई जीवित पन्ना पुराने-पते के नियम की ज़द में नहीं (नियम सिर्फ़ हटे folder पर)", live.length === 0, live.slice(0, 5).join(", "));
+  /* v2.0: Google को याद पुराने पतों पर अब पर्ची है (generator/data/moved_pages.js का exact_gsc)। नियम की ज़द में
+     पर्ची के सिवा कोई असली पन्ना नहीं होना चाहिए। */
+  const MARK2 = "ACS redirect-पर्ची v2 · build_moved_stubs.js";
+  const liveReal = live.filter((f) => rd(f).indexOf(MARK2) === -1);
+  ck("पुराने-पते के नियम की ज़द में कोई असली पन्ना नहीं (सिर्फ़ पर्चियाँ: " + (live.length - liveReal.length) + ")", liveReal.length === 0, liveReal.slice(0, 5).join(", "));
+  /* हर ऐसी पर्ची वहीं भेजे, जहाँ नक़्शा भेजता (नक़्शे का लक्ष्य ख़ुद पर्ची हो, तो उसके आगे का असली पन्ना) */
+  const MP = require("./data/moved_pages.js");
+  const refTo = (u) => { const t = rd(tfile(u)); const r = /http-equiv=["']refresh["'][^>]*content=["']\s*\d+\s*;\s*url=([^"'#]+)/i.exec(t.slice(0, 3000)); return r ? r[1] : null; };
+  const fin = (u) => { for (let i = 0; i < 4 && u && has(tfile(u)); i++) { const n = refTo(u); if (!n) return u; u = n; } return null; };
+  const badG = (MP.exact_gsc || []).filter(([from, to]) => { const g = m ? go(from) : null; return !g || fin(g) !== to; }).map((r) => r[0]);
+  ck("Google को याद हटे पतों की हर पर्ची (" + (MP.exact_gsc || []).length + ") वहीं भेजती है, जहाँ 404-पन्ने का नक़्शा भेजता", (MP.exact_gsc || []).length > 100 && badG.length === 0, badG.slice(0, 4).join(", "));
+  const rootMess = (MP.exact_gsc || []).filter(([from]) => !/^\/(courses|vc)\//.test(from)).map((r) => r[0]);
+  ck("ऐसी पर्चियाँ सिर्फ़ /courses/ और /vc/ के भीतर (repo की जड़ में दर्जनों पुराने folder नहीं बनते)", rootMess.length === 0, rootMess.slice(0, 4).join(", "));
 }
 
 /* ================= इ) कूड़ा-पहरा ================= */
@@ -131,12 +149,13 @@ console.log("-- इ) कूड़ा-पहरा (प्रकाशित ह�
   ck("Excel, Word, zip, backup, log और SHA256-सूची जैसी फ़ाइलें साइट पर नहीं", junk.length === 0, junk.slice(0, 8).join(", "));
   const sm = PUB.filter((f) => /(^|\/)sitemap[^\/]*\.xml$/.test(f) && f.indexOf("/") > -1);
   ck("sitemap सिर्फ़ जड़ में (किसी folder में पुराना sitemap नहीं)", sm.length === 0, sm.join(", "));
-  const MD_OK = new Set(["courses/hi/digital-mitra-basic/img/SOURCES.md"]);   /* चित्रों के स्रोत और लाइसेंस का खाता */
+  const MD_OK = new Set();   /* v2.0: चित्र-स्रोत का खाता (…/img/SOURCES.md) भी अब _config.yml से बाहर है */
   const md = PUB.filter((f) => /\.(md|markdown)$/i.test(f) && !MD_OK.has(f));
   ck("कोई .md फ़ाइल साइट पर नहीं (GitHub उसे अपने-आप एक बिना-canonical पन्ना बना देता है)", md.length === 0, md.slice(0, 6).join(", "));
   const priv = PUB.filter((f) => /(^|\/)(firestore\.rules|firebase\.json|\.firebaserc|package(-lock)?\.json)$/.test(f) || /\.(rules|env|pem|key)$/.test(f));
   ck("Firebase के नियम, .env और चाबी जैसी फ़ाइलें साइट पर नहीं", priv.length === 0, priv.join(", "));
-  ck("_config.yml: generator, matrix, android बाहर ही हैं; दो नई पंक्तियाँ (CHANGELOG-sw.md, firestore.rules)", ["generator", "matrix", "android", "CHANGELOG-sw.md", "firestore.rules"].every((x) => EXC.includes(x)));
+  ck("_config.yml: generator, matrix, android, CHANGELOG-sw.md, firestore.rules और चित्र-स्रोत का खाता बाहर हैं", ["generator", "matrix", "android", "CHANGELOG-sw.md", "firestore.rules", "courses/hi/digital-mitra-basic/img/SOURCES.md"].every((x) => EXC.includes(x)));
+  ck("चित्र-स्रोत का खाता repo में मौजूद है (सिर्फ़ साइट से बाहर)", has("courses/hi/digital-mitra-basic/img/SOURCES.md"));
 }
 
 /* ================= ई) कड़ियाँ ================= */
@@ -190,13 +209,63 @@ console.log("-- ई) कड़ियाँ (सब " + HTML.length + " पन्
   /* index.html वाली कड़ियाँ: सिर्फ़ दर्ज पुराने कोर्स-घर; गिनती बढ़े नहीं (अगले कोर्स-दौर में घटेगी) */
   const IDX_OK = new Set(["/courses/hi/vocational/printer/index.html", "/courses/hi/mushroom-cultivation-marketing/index.html", "/courses/hi/digital/dca/index.html",
     "/courses/hi/four-wheeler-driver/index.html", "/courses/hi/digital/ecom/index.html", "/courses/hi/digital/ai-digital-master/index.html", "/courses/hi/index.html"]);
-  const IDX_MAX = 8005;   /* 25-Nov-2026 की गिनती (हर कड़ी गिनी गई; 2,940 पाठ-पन्नों में 2 से 4 कड़ियाँ) */
+  const IDX_MAX = 0;      /* v2.0 (27-Nov-2026): 25-Nov का दर्ज क़र्ज़ (8,005 कड़ियाँ, 2,940 पाठ-पन्ने) चुक गया; अब एक भी नहीं */
   const newIdx = Object.keys(idx).filter((p) => !IDX_OK.has(p));
-  ck("index.html वाली कड़ी सिर्फ़ 7 दर्ज कोर्स-घरों पर, और " + IDX_MAX + " से ज़्यादा नहीं (अभी " + idxN + "; दर्ज क़र्ज़)", newIdx.length === 0 && idxN <= IDX_MAX, "नए लक्ष्य: " + newIdx.slice(0, 5).join(", ") + " · गिनती " + idxN);
+  ck("कोई भीतरी कड़ी \"…/index.html\" लिखकर नहीं जाती (अभी " + idxN + ")", idxN <= IDX_MAX, "लक्ष्य: " + Object.keys(idx).slice(0, 5).join(", ") + " · गिनती " + idxN);
+  for (const g of ["sudhar_ghar_kadi.js", "sudhar_udyam_panna.js"]) { const r = cp.spawnSync(process.execPath, [path.join(__dirname, g), "--check"], { encoding: "utf8" }); ck("दर्ज सुधार लगा है: " + g + " --check", r.status === 0, (r.stdout || "") + (r.stderr || "")); }
+  const gsrc = ["build_dca_pages.js", "build_ecom_pages.js", "build_mushroom_pages.js", "build_fwd_pages.js", "build_legacy_migrate.js"].filter((g) => rd("generator/" + g).indexOf('href="index.html"') > -1);
+  ck("कोर्स के generator भी कोर्स-घर को \"./\" लिखते हैं (अगली बार बनने पर ग़लती न लौटे)", gsrc.length === 0, gsrc.join(", "));
   const smSlip = sm.filter((f) => meta[f] && (meta[f].slip || meta[f].noindex));
   ck("sitemap में कोई पर्ची या noindex पन्ना नहीं", smSlip.length === 0, smSlip.slice(0, 5).join(", "));
 }
 
+/* ================= उ) पर्चियाँ ================= */
+console.log("-- उ) पर्चियाँ (पुराना पता → नया घर)");
+{
+  const r = cp.spawnSync(process.execPath, [path.join(__dirname, "build_moved_stubs.js"), "--check"], { encoding: "utf8" });
+  ck("generator ताज़ा: build_moved_stubs.js --check", r.status === 0, (r.stdout || "") + (r.stderr || ""));
+  const slips = [], noidx = [], chain = [], old = [];
+  const tfile2 = (u) => { const p = u.replace(/^https:\/\/acslearn\.com/, "").replace(/^\//, "").split("#")[0]; return p === "" || p.endsWith("/") ? p + "index.html" : p; };
+  for (const f of HTML) {
+    const t = rd(f).slice(0, 4000), m = /<meta\b[^>]*http-equiv\s*=\s*["']refresh["'][^>]*content=["']\s*(\d+)\s*;\s*url=([^"']+)["']/i.exec(t);
+    if (!m) continue;
+    slips.push(f);
+    if (/<meta\b[^>]*name\s*=\s*["']robots["'][^>]*noindex/i.test(t)) noidx.push(f);
+    const to = tfile2(m[2]);
+    if (!PUBSET.has(to)) chain.push(f + " → (नहीं है) " + m[2]);
+    else if (/http-equiv\s*=\s*["']refresh["']/i.test(rd(to).slice(0, 4000))) chain.push(f + " → (पर्ची) " + m[2]);
+    if (t.indexOf("ACS redirect-पर्ची v2 · build_moved_stubs.js") === -1) old.push(f);
+  }
+  ck("किसी पर्ची पर noindex नहीं (" + slips.length + " पर्चियाँ; noindex वाली पर्ची को Google \"पुराना पता, नया घर\" नहीं मानता)", slips.length > 1000 && noidx.length === 0, noidx.slice(0, 5).join(", "));
+  ck("हर पर्ची का लक्ष्य मौजूद है और ख़ुद पर्ची नहीं (ज़ंजीर नहीं)", chain.length === 0, chain.slice(0, 4).join(" | "));
+  /* जो पर्चियाँ build_moved_stubs की नहीं हैं: सिर्फ़ ये जानी-पहचानी (अपने-अपने generator की) */
+  const OLD_OK = new Set(["courses/hi/bhasha/english/a2/index.html", "network/index.html", "network/bihar/index.html", "network/firm/index.html", "en/network/index.html", "en/network/bihar/index.html", "en/network/firm/index.html"]);
+  const strange = old.filter((f) => !OLD_OK.has(f));
+  ck("build_moved_stubs के बाहर की पर्चियाँ सिर्फ़ जानी-पहचानी (" + OLD_OK.size + "); पुरानी बनावट (rename_legacy_lessons, हाथ की) कोई नहीं बची", strange.length === 0, strange.slice(0, 5).join(", "));
+  const TW = require("./data/seo_twin_pages.js");
+  ck("दोहरा पन्ना (वही पाठ दो पतों पर) कोई नहीं बचा: मशरूम पाठ-368 का पुराना पता अब पर्ची है", Object.keys(TW).length === 0 && /http-equiv="refresh"/.test(rd("courses/hi/mushroom-cultivation-marketing/msh-368-thndi-kadai-cold-chain-ki-puri-janjir-aur-tapaman-ra.html")));
+}
+
+/* ================= ऊ) बदलाव-तारीख़ ================= */
+console.log("-- ऊ) बदलाव-तारीख़ (sitemap का बही-खाता)");
+{
+  const L = JSON.parse(rd("generator/data/sitemap_ledger.json"));
+  const keys = Object.keys(L).filter((k) => k[0] !== "#");
+  const noT = keys.filter((k) => !L[k][2] || !/^[0-9a-f]{12}$/.test(L[k][2]));
+  ck("बही-खाते के हर पते (" + keys.length + ") पर पाठ की छाप दर्ज है (तारीख़ पाठ बदलने पर ही बदले)", keys.length > 9000 && noT.length === 0, noT.slice(0, 4).join(", "));
+  const src = rd("generator/build_sitemap.js");
+  ck("build_sitemap.js तारीख़ पाठ की छाप से तय करता है (v2.8)", src.indexOf("function textHash(") > -1 && src.indexOf("old[2] === t ? old[1] : today") > -1);
+  /* नमूना: पहले 400 पतों की पाठ-छाप आज की फ़ाइल से मिलती है (बही-खाता बासी नहीं) */
+  const crypto = require("crypto");
+  const th = (f) => { const x = rd(f).replace(/\r\n/g, "\n"); const t = (x.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [, ""])[1]; const d = (x.match(/<meta\b[^>]*name=["']description["'][^>]*>/i) || [""])[0];
+    const mm = x.match(/<main\b[\s\S]*<\/main>/i) || x.match(/<body\b[\s\S]*<\/body>/i) || [x];
+    const body = mm[0].replace(/<style\b[\s\S]*?<\/style>/gi, " ").replace(/<!--[\s\S]*?-->/g, " ").replace(/<[^>]+>/g, " ");
+    return crypto.createHash("sha1").update((t + "\n" + d.replace(/^.*?content=["']/i, "").replace(/["'][^"']*$/, "") + "\n" + body).replace(/\s+/g, " ").trim(), "utf8").digest("hex").slice(0, 12); };
+  const step = Math.max(1, Math.floor(keys.length / 400)), stale = [];
+  for (let i = 0; i < keys.length; i += step) { const u = keys[i], f = u === "/" ? "index.html" : (u.endsWith("/") ? u.slice(1) + "index.html" : u.slice(1)); if (!has(f) || th(f) !== L[u][2]) stale.push(u); }
+  ck("बही-खाता ताज़ा है (हर " + step + "वें पते की पाठ-छाप आज की फ़ाइल से मिली)", stale.length === 0, stale.slice(0, 4).join(", ") + " : चलाएँ node generator/build_sitemap.js");
+}
+
 console.log("जाँचें: पास " + pass + " · फेल " + fail);
 if (fail) { console.log("⛔ dev_seo_safai_check रुका"); process.exit(1); }
-console.log("🏁 dev_seo_safai_check v1.0 : साइट की सफ़ाई और कड़ियाँ पास");
+console.log("🏁 dev_seo_safai_check v2.0 : साइट की सफ़ाई, कड़ियाँ, पर्चियाँ और बदलाव-तारीख़ पास");

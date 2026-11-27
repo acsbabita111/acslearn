@@ -1762,6 +1762,30 @@ async function openSec(house, lang, mut, handlers) {
   if (b) { click(c, b); await waitFor(c, () => c.d.querySelectorAll("#mySecBox .mySecChk").length > 0, 4000); await settle(c); await settle(c); }
   return c;
 }
+/* ───────── PN: बैज के पिन-खाने में पिन की जगह (पिन-घर, 26-Nov-2026) ─────────
+   पिन भरते ही ज़िला और राज्य अपनी ही साइट की सूची से; सूची में न मिले तो चेतावनी (रोक नहीं); हर भाषा में। */
+async function pinChecks(pages) {
+  const house = "jobseeker"; if (pages.indexOf("dashboard/" + house + "/index.html") < 0) return;
+  try {
+    for (const lang of ["hi", "en", "kn", "bn"]) {
+      const c = await openSec(house, lang, r => { r.role = "jobseeker"; r.formFields = {}; });
+      const $ = id => c.d.getElementById(id), inp = $("badgePin");
+      if (!ck("PN0 " + lang + " : बैज का पिन-खाना मौजूद", !!inp && !!$("badgePinRow"))) { c.dom.window.close(); continue; }
+      const nb = Array.from(c.d.querySelectorAll("#sideNav .si")).find(x => x.getAttribute("data-go") === "pnl-badge"); if (nb) click(c, nb);   /* बैज का पैनल खुलने पर ही उसका काम जुड़ता है */
+      await waitFor(c, () => !!$("badgePinHint") && $("badgePinRow").style.display === "block", 6000); await settle(c);
+      const hint = () => $("badgePinHint"), txt = () => (hint() ? hint().textContent : "");
+      typeIn(c, inp, "851201"); await waitFor(c, () => hint() && hint().style.display === "block", 5000); await settle(c); await settle(c);
+      const want = { hi: ["खगड़िया", "बिहार"], en: ["Khagaria", "Bihar"], kn: [], bn: [] }[lang];
+      ck("PN1 " + lang + " : पिन 851201 = ज़िला और राज्य दिखे", hint() && hint().style.display === "block" && hint().querySelectorAll("b").length === 2 && want.every(x => txt().indexOf(x) > -1) && (lang === "hi" || !DEVX.test(txt())), txt());
+      typeIn(c, inp, "999999"); await waitFor(c, () => hint() && hint().style.display === "block" && /^⚠/.test(txt()), 5000); await settle(c);
+      ck("PN2 " + lang + " : सूची में न मिलने वाला पिन = चेतावनी (रोक नहीं)", /^⚠/.test(txt()) && (lang === "hi" || !DEVX.test(txt())), txt());
+      typeIn(c, inp, "8512"); await settle(c);
+      ck("PN3 " + lang + " : अधूरा पिन = कुछ नहीं दिखता; पन्ने ने कोई बाहरी site नहीं पूछी", hint().style.display === "none" && c.outside.length === 0 && c.fetched.indexOf("/assets/geo/pin/851.json") > -1, c.outside.join(","));
+      noErrDoc(c, "PN " + lang);
+      c.dom.window.close();
+    }
+  } catch (e) { ck("PN पिन की जाँच बीच में रुकी", false, e && e.stack); }
+}
 const secChk = (c, v) => c.d.querySelector('#mySecBox .mySecChk[value="' + v + '"]');
 const secOn = c => Array.from(c.d.querySelectorAll("#mySecBox .mySecChk")).filter(x => x.checked).map(x => Number(x.value));
 const secSaves = c => c.calls.filter(x => x.name === "saveMySectors" && !x.data.probe);
@@ -1880,7 +1904,7 @@ async function secChecks(pages) {
   } catch (e) { ck("सेक्टर-पैनल की जाँच चली", false, String(e && e.stack || e).slice(0, 500)); }
 }
 
-module.exports = { secChecks, openSec, SEC_READY, startExamWithFace, fakeFaceWeb, openNazar, nazarChecks, k1Checks, roopChecks, ocChecks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
+module.exports = { pinChecks, secChecks, openSec, SEC_READY, startExamWithFace, fakeFaceWeb, openNazar, nazarChecks, k1Checks, roopChecks, ocChecks, tally: () => ({ pass: pass, fail: fail }), dashTransform, makeFB, fixture, openDash, openAll, pageInfo, HANDLERS, NAME_HI, openDoc, openH, certClick, docLinks, decText, HU, HQ, visText, countOf };
 if (require.main === module) (async function main() {
   const only = process.argv[2] || "";
   const listPages = () => fs.readdirSync(path.join(ROOT, "dashboard"), { withFileTypes: true }).filter(e => e.isDirectory())
@@ -1949,6 +1973,7 @@ if (require.main === module) (async function main() {
   await roopChecks(pages);   /* (v2.4) नया रूप (design D-1) और "मेरा रूप" */
   await ocChecks(pages);   /* (v2.8) शिक्षक का paid online कोर्स (P-1b) */
   await secChecks(pages);   /* (v4.1) "मेरे सेक्टर" पैनल, और "मेरे विषय" का सुरक्षा-पहरा */
+  await pinChecks(pages);   /* (v4.2) बैज के पिन-खाने में पिन की जगह (पिन-घर) */
   if (!only && !process.env.ACS_ONLY_HI) ck("नियम-पत्र का पैनल 13 dashboard में, हर एक की कड़ी जाँची (" + RULE_PAGES + ")", RULE_PAGES === 13, String(RULE_PAGES));
   if (process.env.ACS_INV) fs.writeFileSync(process.env.ACS_INV, Array.from(INV.entries()).map(([k, v]) => v.length + "\t" + Array.from(new Set(v)).join(",") + "\t" + k).sort().join("\n") + "\n");
   console.log("\nजाँचें: पास " + pass + " · फेल " + fail + " · पन्ने " + pages.length + " · समय " + Math.round((Date.now() - t0) / 1000) + " सेकंड");

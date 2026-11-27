@@ -1,0 +1,1 @@
+window.ACS_GEO_DISTRICTS=window.ACS_GEO_DISTRICTS||{};window.ACS_GEO_DISTRICTS["in-delhi"]=["Central Delhi","Central North Delhi","East Delhi","New Delhi","North Delhi","North East Delhi","North West Delhi","Old Delhi","Outer North Delhi","Shahdara","South Delhi","South East Delhi","South West Delhi","West Delhi"];

@@ -199,15 +199,15 @@ function jumpList(all, cur){
   const inPart = all.filter(x => x.num >= pt.from && x.num <= pt.to);
   return inPart.map(x =>
     x.num === cur ? '<span class="lsn-jumpcur">पाठ-' + x.num + " (यही)</span>" : '<a href="' + fileName(x) + '">पाठ-' + x.num + "</a>"
-  ).join(" ") + ' <a href="index.html">📖 पूरी सूची (' + C.totalLessons + ' पाठ)</a>';
+  ).join(" ") + ' <a href="./">📖 पूरी सूची (' + C.totalLessons + ' पाठ)</a>';
 }
 
 function lessonBody(l, all, prevFile, nextFile){
   const secs = l.sections.map(s =>
     '<section class="lsn-sec">\n<h2>' + esc(s.t) + "</h2>\n" + mdToHtml(s.body).trim() + "\n</section>"
   ).join("\n\n");
-  const prev = prevFile ? '<a class="lsn-navbtn" href="' + prevFile + '">← पिछला पाठ</a>' : '<a class="lsn-navbtn" href="index.html">← कोर्स-परिचय</a>';
-  const next = nextFile ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '" data-nextlsn>अगला पाठ →</a>' : '<a class="lsn-navbtn lsn-next" href="index.html">🎉 कोर्स-सूची पर लौटें</a>';
+  const prev = prevFile ? '<a class="lsn-navbtn" href="' + prevFile + '">← पिछला पाठ</a>' : '<a class="lsn-navbtn" href="./">← कोर्स-परिचय</a>';
+  const next = nextFile ? '<a class="lsn-navbtn lsn-next" href="' + nextFile + '" data-nextlsn>अगला पाठ →</a>' : '<a class="lsn-navbtn lsn-next" href="./">🎉 कोर्स-सूची पर लौटें</a>';
   const pt = PART(l.num);
   const volTxt = l.vol === "HIGH" ? "⚡ तेज़ बदलने वाला विषय (Δ) — तिमाही जाँच" : (l.vol === "MEDIUM" ? "🔄 बदल सकने वाला विषय — छमाही जाँच" : "🟢 स्थिर विषय");
   return '\n<article class="lsn-wrap" data-lsn-num="' + l.num + '">\n' +
@@ -217,7 +217,7 @@ function lessonBody(l, all, prevFile, nextFile){
     '<p class="lsn-meta">पढ़ाई का समय: लगभग ' + l.minutes + " मिनट · योग्यता-स्तर: " + esc(l.level) + " · रास्ता: " + esc(l.pathTag) +
       " · " + volTxt + " · पाठ " + l.num + " / " + C.totalLessons + " · पढ़ाई पूरी तरह मुफ़्त</p>\n" +
     '<p class="lsn-tools"><button type="button" class="lsn-speakall" data-speakall>🔊 पूरा पाठ सुनो</button> ' +
-      '<a class="lsn-toolbtn" href="index.html">📖 कोर्स-परिचय</a></p>\n' +
+      '<a class="lsn-toolbtn" href="./">📖 कोर्स-परिचय</a></p>\n' +
     "</header>\n\n" +
     '<details class="lsn-jump">\n<summary>📚 इस खंड के सब पाठ — किसी पर सीधे जाओ</summary>\n<div class="lsn-jumplist">\n' +
     jumpList(all, l.num) + "\n</div>\n</details>\n\n" +
